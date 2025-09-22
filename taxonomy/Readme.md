@@ -1,1 +1,1 @@
-![Description of image](taxonomy/image.png)
+![Description of image](image.png)
