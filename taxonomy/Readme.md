@@ -1,1 +1,1 @@
-![Description of image](image.png)
+![Description of image](HyperXtractor_Taxonomy.png)
