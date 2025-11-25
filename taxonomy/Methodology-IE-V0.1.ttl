@@ -44,12 +44,6 @@
            rdfs:range :Person .
 
 
-###  http://www.semanticweb.org/dahouam/ontologies/2025/6/Methodolody-IE#hasEnvironment
-:hasEnvironment rdf:type owl:ObjectProperty ;
-                rdfs:domain <http://www.w3.org/ns/mls#Implementation> ;
-                rdfs:range :Environment .
-
-
 ###  http://www.semanticweb.org/dahouam/ontologies/2025/6/Methodolody-IE#hasPartExp
 :hasPartExp rdf:type owl:ObjectProperty ;
             rdfs:subPropertyOf <http://www.w3.org/ns/mls#hasPart> ;
@@ -131,8 +125,8 @@
 ###  http://www.semanticweb.org/dahouam/ontologies/2025/6/Methodolody-IE#wasGeneratedByPred
 :wasGeneratedByPred rdf:type owl:ObjectProperty ;
                     rdfs:subPropertyOf <http://www.w3.org/ns/prov#wasGeneratedBy> ;
-                    rdfs:domain :EvaluationRun ;
-                    rdfs:range :PredictionSet .
+                    rdfs:domain :PredictionSet ;
+                    rdfs:range :EvaluationRun .
 
 
 ###  http://www.w3.org/ns/mls#achieves
@@ -311,7 +305,11 @@
 
 ###  http://www.semanticweb.org/dahouam/ontologies/2025/6/Methodolody-IE#DataProcessingStep
 :DataProcessingStep rdf:type owl:Class ;
-                    rdfs:subClassOf <http://www.w3.org/ns/mls#InformationEntity> .
+                    rdfs:subClassOf <http://www.w3.org/ns/mls#InformationEntity> ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :usesDataSource ;
+                                      owl:someValuesFrom :DataSource
+                                    ] .
 
 
 ###  http://www.semanticweb.org/dahouam/ontologies/2025/6/Methodolody-IE#DataSource
@@ -342,13 +340,21 @@
 
 ###  http://www.semanticweb.org/dahouam/ontologies/2025/6/Methodolody-IE#Person
 :Person rdf:type owl:Class ;
-        rdfs:subClassOf <http://www.w3.org/ns/mls#InformationEntity> ;
+        rdfs:subClassOf <http://www.w3.org/ns/mls#InformationEntity> ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty <http://www.w3.org/ns/prov#wasMemberOf> ;
+                          owl:someValuesFrom :Organization
+                        ] ;
         rdfs:comment "Represents a researcher, author, or contributor of a study." .
 
 
 ###  http://www.semanticweb.org/dahouam/ontologies/2025/6/Methodolody-IE#PredictionSet
 :PredictionSet rdf:type owl:Class ;
-               rdfs:subClassOf <http://www.w3.org/ns/mls#InformationEntity> .
+               rdfs:subClassOf <http://www.w3.org/ns/mls#InformationEntity> ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :wasGeneratedByPred ;
+                                 owl:allValuesFrom :EvaluationRun
+                               ] .
 
 
 ###  http://www.semanticweb.org/dahouam/ontologies/2025/6/Methodolody-IE#PromptMethod
@@ -359,7 +365,11 @@
 
 ###  http://www.semanticweb.org/dahouam/ontologies/2025/6/Methodolody-IE#SoftwareRepository
 :SoftwareRepository rdf:type owl:Class ;
-                    rdfs:subClassOf <http://www.w3.org/ns/mls#InformationEntity> .
+                    rdfs:subClassOf <http://www.w3.org/ns/mls#InformationEntity> ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :supports ;
+                                      owl:someValuesFrom :Environment
+                                    ] .
 
 
 ###  http://www.semanticweb.org/dahouam/ontologies/2025/6/Methodolody-IE#Study
@@ -369,13 +379,109 @@
                              owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                              owl:onClass :Person
                            ] ;
-       rdfs:subClassOf <http://www.w3.org/ns/mls#InformationEntity> ;
+       rdfs:subClassOf <http://www.w3.org/ns/mls#InformationEntity> ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :hasAuthor ;
+                         owl:someValuesFrom :Person
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :hasPartExp ;
+                         owl:someValuesFrom <http://www.w3.org/ns/mls#Experiment>
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty <http://www.w3.org/ns/mls#implements> ;
+                         owl:allValuesFrom :SoftwareRepository
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :hasPartRepo ;
+                         owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                         owl:onClass :SoftwareRepository
+                       ] ;
        rdfs:comment "Represents a scientific investigation or publication that contains one or more experiments. It is the top-level entity describing ML research." .
 
 
 ###  http://www.semanticweb.org/dahouam/ontologies/2025/6/Methodolody-IE#TrainingRun
 :TrainingRun rdf:type owl:Class ;
-             rdfs:subClassOf <http://www.w3.org/ns/mls#InformationEntity> .
+             rdfs:subClassOf <http://www.w3.org/ns/mls#InformationEntity> ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :usesDataset ;
+                               owl:someValuesFrom <http://www.w3.org/ns/mls#Dataset>
+                             ] .
+
+
+###  http://www.w3.org/ns/mls#Dataset
+<http://www.w3.org/ns/mls#Dataset> rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                     owl:onProperty :wasGeneratedByData ;
+                                                     owl:someValuesFrom :DataProcessingStep
+                                                   ] ,
+                                                   [ rdf:type owl:Restriction ;
+                                                     owl:onProperty <http://www.w3.org/ns/prov#hadPrimarySource> ;
+                                                     owl:someValuesFrom :DataSource
+                                                   ] .
+
+
+###  http://www.w3.org/ns/mls#Experiment
+<http://www.w3.org/ns/mls#Experiment> rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                        owl:onProperty :usesPrompt ;
+                                                        owl:someValuesFrom :PromptMethod
+                                                      ] ,
+                                                      [ rdf:type owl:Restriction ;
+                                                        owl:onProperty <http://www.w3.org/ns/mls#executes> ;
+                                                        owl:someValuesFrom <http://www.w3.org/ns/mls#Implementation>
+                                                      ] ,
+                                                      [ rdf:type owl:Restriction ;
+                                                        owl:onProperty <http://www.w3.org/ns/mls#realizes> ;
+                                                        owl:someValuesFrom <http://www.w3.org/ns/mls#Task>
+                                                      ] .
+
+
+###  http://www.w3.org/ns/mls#Implementation
+<http://www.w3.org/ns/mls#Implementation> rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                            owl:onProperty :requires ;
+                                                            owl:someValuesFrom :Dependency
+                                                          ] ,
+                                                          [ rdf:type owl:Restriction ;
+                                                            owl:onProperty :runsIn ;
+                                                            owl:allValuesFrom :Environment
+                                                          ] .
+
+
+###  http://www.w3.org/ns/mls#Model
+<http://www.w3.org/ns/mls#Model> rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :evaluatedOn ;
+                                                   owl:someValuesFrom <http://www.w3.org/ns/mls#Dataset>
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :formulatedBy ;
+                                                   owl:someValuesFrom :PromptMethod
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :trainedOn ;
+                                                   owl:someValuesFrom <http://www.w3.org/ns/mls#Dataset>
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty <http://www.w3.org/ns/mls#achieves> ;
+                                                   owl:someValuesFrom <http://www.w3.org/ns/mls#EvaluationMeasure>
+                                                 ] .
+
+
+###  http://www.w3.org/ns/mls#Task
+<http://www.w3.org/ns/mls#Task> rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                  owl:onProperty :benchmarkedOn ;
+                                                  owl:someValuesFrom <http://www.w3.org/ns/mls#Dataset>
+                                                ] ,
+                                                [ rdf:type owl:Restriction ;
+                                                  owl:onProperty :evaluatedBy ;
+                                                  owl:someValuesFrom <http://www.w3.org/ns/mls#EvaluationMeasure>
+                                                ] ,
+                                                [ rdf:type owl:Restriction ;
+                                                  owl:onProperty :subTaskOf ;
+                                                  owl:allValuesFrom <http://www.w3.org/ns/mls#Task>
+                                                ] ,
+                                                [ rdf:type owl:Restriction ;
+                                                  owl:onProperty <http://www.w3.org/ns/mls#definedOn> ;
+                                                  owl:allValuesFrom :Study
+                                                ] .
 
 
 ###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi

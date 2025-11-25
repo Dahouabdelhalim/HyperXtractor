@@ -15,97 +15,94 @@
     <Import>http://www.w3.org/2016/03/mls#</Import>
     <Import>http://www.w3.org/ns/prov-o-inverses-20130430</Import>
     <Declaration>
-        <Class IRI="#DataProcessingStep"/>
+        <Class IRI="/DataProcessingStep"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#DataSource"/>
+        <Class IRI="/DataSource"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Dependency"/>
+        <Class IRI="/Dependency"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Environment"/>
+        <Class IRI="/Environment"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#EvaluationRun"/>
+        <Class IRI="/EvaluationRun"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Organization"/>
+        <Class IRI="/Organization"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Person"/>
+        <Class IRI="/Person"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#PredictionSet"/>
+        <Class IRI="/PredictionSet"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#PromptMethod"/>
+        <Class IRI="/PromptMethod"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#SoftwareRepository"/>
+        <Class IRI="/SoftwareRepository"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Study"/>
+        <Class IRI="/Study"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#TrainingRun"/>
+        <Class IRI="/TrainingRun"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#benchmarkedOn"/>
+        <ObjectProperty IRI="/benchmarkedOn"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#evaluatedBy"/>
+        <ObjectProperty IRI="/evaluatedBy"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#evaluatedOn"/>
+        <ObjectProperty IRI="/evaluatedOn"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#formulatedBy"/>
+        <ObjectProperty IRI="/formulatedBy"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#hasAuthor"/>
+        <ObjectProperty IRI="/hasAuthor"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#hasEnvironment"/>
+        <ObjectProperty IRI="/hasPartExp"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#hasPartExp"/>
+        <ObjectProperty IRI="/hasPartRepo"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#hasPartRepo"/>
+        <ObjectProperty IRI="/requires"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#requires"/>
+        <ObjectProperty IRI="/runsIn"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#runsIn"/>
+        <ObjectProperty IRI="/subDatasetOf"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#subDatasetOf"/>
+        <ObjectProperty IRI="/subTaskOf"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#subTaskOf"/>
+        <ObjectProperty IRI="/supports"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#supports"/>
+        <ObjectProperty IRI="/trainedOn"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#trainedOn"/>
+        <ObjectProperty IRI="/usesDataSource"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#usesDataSource"/>
+        <ObjectProperty IRI="/usesDataset"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#usesDataset"/>
+        <ObjectProperty IRI="/usesPrompt"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#usesPrompt"/>
+        <ObjectProperty IRI="/wasGeneratedByData"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#wasGeneratedByData"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#wasGeneratedByPred"/>
+        <ObjectProperty IRI="/wasGeneratedByPred"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="http://www.w3.org/ns/prov#wasMemberOf"/>
@@ -123,202 +120,366 @@
         <DataProperty IRI="http://schema.org/name"/>
     </Declaration>
     <Declaration>
-        <DataProperty IRI="#affiliation"/>
+        <DataProperty IRI="/affiliation"/>
     </Declaration>
     <Declaration>
-        <DataProperty IRI="#characteristic"/>
+        <DataProperty IRI="/characteristic"/>
     </Declaration>
     <Declaration>
-        <DataProperty IRI="#codeRepository"/>
+        <DataProperty IRI="/codeRepository"/>
     </Declaration>
     <Declaration>
-        <DataProperty IRI="#language"/>
+        <DataProperty IRI="/language"/>
     </Declaration>
     <Declaration>
-        <DataProperty IRI="#license"/>
+        <DataProperty IRI="/license"/>
     </Declaration>
     <Declaration>
-        <DataProperty IRI="#measure"/>
+        <DataProperty IRI="/measure"/>
     </Declaration>
     <Declaration>
-        <DataProperty IRI="#modality"/>
+        <DataProperty IRI="/modality"/>
     </Declaration>
     <Declaration>
-        <DataProperty IRI="#numClasses"/>
+        <DataProperty IRI="/numClasses"/>
     </Declaration>
     <Declaration>
-        <DataProperty IRI="#numInstances"/>
+        <DataProperty IRI="/numInstances"/>
     </Declaration>
     <Declaration>
-        <DataProperty IRI="#text"/>
+        <DataProperty IRI="/text"/>
     </Declaration>
     <Declaration>
-        <DataProperty IRI="#title"/>
+        <DataProperty IRI="/title"/>
     </Declaration>
     <Declaration>
-        <DataProperty IRI="#url"/>
+        <DataProperty IRI="/url"/>
     </Declaration>
     <Declaration>
-        <DataProperty IRI="#version"/>
+        <DataProperty IRI="/version"/>
     </Declaration>
     <EquivalentClasses>
-        <Class IRI="#Study"/>
+        <Class IRI="/Study"/>
         <ObjectMinCardinality cardinality="1">
-            <ObjectProperty IRI="#hasAuthor"/>
-            <Class IRI="#Person"/>
+            <ObjectProperty IRI="/hasAuthor"/>
+            <Class IRI="/Person"/>
         </ObjectMinCardinality>
     </EquivalentClasses>
     <SubClassOf>
-        <Class IRI="#DataProcessingStep"/>
+        <Class IRI="/DataProcessingStep"/>
         <Class IRI="http://www.w3.org/ns/mls#InformationEntity"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#DataSource"/>
+        <Class IRI="/DataProcessingStep"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="/usesDataSource"/>
+            <Class IRI="/DataSource"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/DataSource"/>
         <Class IRI="http://www.w3.org/ns/mls#InformationEntity"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Dependency"/>
+        <Class IRI="/Dependency"/>
         <Class IRI="http://www.w3.org/ns/mls#InformationEntity"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Environment"/>
+        <Class IRI="/Environment"/>
         <Class IRI="http://www.w3.org/ns/mls#InformationEntity"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#EvaluationRun"/>
+        <Class IRI="/EvaluationRun"/>
         <Class IRI="http://www.w3.org/ns/mls#InformationEntity"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Organization"/>
+        <Class IRI="/Organization"/>
         <Class IRI="http://www.w3.org/ns/mls#InformationEntity"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Person"/>
+        <Class IRI="/Person"/>
         <Class IRI="http://www.w3.org/ns/mls#InformationEntity"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#PredictionSet"/>
+        <Class IRI="/Person"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="http://www.w3.org/ns/prov#wasMemberOf"/>
+            <Class IRI="/Organization"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/PredictionSet"/>
         <Class IRI="http://www.w3.org/ns/mls#InformationEntity"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#PromptMethod"/>
+        <Class IRI="/PredictionSet"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="/wasGeneratedByPred"/>
+            <Class IRI="/EvaluationRun"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/PromptMethod"/>
         <Class IRI="http://www.w3.org/ns/mls#InformationEntity"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#SoftwareRepository"/>
+        <Class IRI="/SoftwareRepository"/>
         <Class IRI="http://www.w3.org/ns/mls#InformationEntity"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Study"/>
+        <Class IRI="/SoftwareRepository"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="/supports"/>
+            <Class IRI="/Environment"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Study"/>
         <Class IRI="http://www.w3.org/ns/mls#InformationEntity"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#TrainingRun"/>
+        <Class IRI="/Study"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="/hasAuthor"/>
+            <Class IRI="/Person"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Study"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="/hasPartExp"/>
+            <Class IRI="http://www.w3.org/ns/mls#Experiment"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Study"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="http://www.w3.org/ns/mls#implements"/>
+            <Class IRI="/SoftwareRepository"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Study"/>
+        <ObjectMinCardinality cardinality="1">
+            <ObjectProperty IRI="/hasPartRepo"/>
+            <Class IRI="/SoftwareRepository"/>
+        </ObjectMinCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/TrainingRun"/>
         <Class IRI="http://www.w3.org/ns/mls#InformationEntity"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/TrainingRun"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="/usesDataset"/>
+            <Class IRI="http://www.w3.org/ns/mls#Dataset"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.w3.org/ns/mls#Dataset"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="/wasGeneratedByData"/>
+            <Class IRI="/DataProcessingStep"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.w3.org/ns/mls#Dataset"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="http://www.w3.org/ns/prov#hadPrimarySource"/>
+            <Class IRI="/DataSource"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.w3.org/ns/mls#Experiment"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="/usesPrompt"/>
+            <Class IRI="/PromptMethod"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.w3.org/ns/mls#Experiment"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="http://www.w3.org/ns/mls#executes"/>
+            <Class IRI="http://www.w3.org/ns/mls#Implementation"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.w3.org/ns/mls#Experiment"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="http://www.w3.org/ns/mls#realizes"/>
+            <Class IRI="http://www.w3.org/ns/mls#Task"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.w3.org/ns/mls#Implementation"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="/requires"/>
+            <Class IRI="/Dependency"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.w3.org/ns/mls#Implementation"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="/runsIn"/>
+            <Class IRI="/Environment"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.w3.org/ns/mls#Model"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="/evaluatedOn"/>
+            <Class IRI="http://www.w3.org/ns/mls#Dataset"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.w3.org/ns/mls#Model"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="/formulatedBy"/>
+            <Class IRI="/PromptMethod"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.w3.org/ns/mls#Model"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="/trainedOn"/>
+            <Class IRI="http://www.w3.org/ns/mls#Dataset"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.w3.org/ns/mls#Model"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="http://www.w3.org/ns/mls#achieves"/>
+            <Class IRI="http://www.w3.org/ns/mls#EvaluationMeasure"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.w3.org/ns/mls#Task"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="/benchmarkedOn"/>
+            <Class IRI="http://www.w3.org/ns/mls#Dataset"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.w3.org/ns/mls#Task"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="/evaluatedBy"/>
+            <Class IRI="http://www.w3.org/ns/mls#EvaluationMeasure"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.w3.org/ns/mls#Task"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="/subTaskOf"/>
+            <Class IRI="http://www.w3.org/ns/mls#Task"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.w3.org/ns/mls#Task"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="http://www.w3.org/ns/mls#definedOn"/>
+            <Class IRI="/Study"/>
+        </ObjectAllValuesFrom>
     </SubClassOf>
     <SubObjectPropertyOf>
-        <ObjectProperty IRI="#hasPartExp"/>
+        <ObjectProperty IRI="/hasPartExp"/>
         <ObjectProperty IRI="http://www.w3.org/ns/mls#hasPart"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
-        <ObjectProperty IRI="#hasPartRepo"/>
+        <ObjectProperty IRI="/hasPartRepo"/>
         <ObjectProperty IRI="http://www.w3.org/ns/mls#hasPart"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
-        <ObjectProperty IRI="#usesDataSource"/>
+        <ObjectProperty IRI="/usesDataSource"/>
         <ObjectProperty IRI="http://www.w3.org/ns/prov#used"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
-        <ObjectProperty IRI="#usesDataset"/>
+        <ObjectProperty IRI="/usesDataset"/>
         <ObjectProperty IRI="http://www.w3.org/ns/prov#used"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
-        <ObjectProperty IRI="#usesPrompt"/>
+        <ObjectProperty IRI="/usesPrompt"/>
         <ObjectProperty IRI="http://www.w3.org/ns/prov#used"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
-        <ObjectProperty IRI="#wasGeneratedByData"/>
+        <ObjectProperty IRI="/wasGeneratedByData"/>
         <ObjectProperty IRI="http://www.w3.org/ns/prov#wasGeneratedBy"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
-        <ObjectProperty IRI="#wasGeneratedByPred"/>
+        <ObjectProperty IRI="/wasGeneratedByPred"/>
         <ObjectProperty IRI="http://www.w3.org/ns/prov#wasGeneratedBy"/>
     </SubObjectPropertyOf>
     <ObjectPropertyDomain>
-        <ObjectProperty IRI="#benchmarkedOn"/>
+        <ObjectProperty IRI="/benchmarkedOn"/>
         <Class IRI="http://www.w3.org/ns/mls#Task"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
-        <ObjectProperty IRI="#evaluatedBy"/>
+        <ObjectProperty IRI="/evaluatedBy"/>
         <Class IRI="http://www.w3.org/ns/mls#Task"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
-        <ObjectProperty IRI="#evaluatedOn"/>
+        <ObjectProperty IRI="/evaluatedOn"/>
         <Class IRI="http://www.w3.org/ns/mls#Model"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
-        <ObjectProperty IRI="#formulatedBy"/>
+        <ObjectProperty IRI="/formulatedBy"/>
         <Class IRI="http://www.w3.org/ns/mls#Task"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
-        <ObjectProperty IRI="#hasAuthor"/>
-        <Class IRI="#Study"/>
+        <ObjectProperty IRI="/hasAuthor"/>
+        <Class IRI="/Study"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
-        <ObjectProperty IRI="#hasEnvironment"/>
+        <ObjectProperty IRI="/hasPartExp"/>
+        <Class IRI="/Study"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="/hasPartRepo"/>
+        <Class IRI="/SoftwareRepository"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="/requires"/>
         <Class IRI="http://www.w3.org/ns/mls#Implementation"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
-        <ObjectProperty IRI="#hasPartExp"/>
-        <Class IRI="#Study"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#hasPartRepo"/>
-        <Class IRI="#SoftwareRepository"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#requires"/>
+        <ObjectProperty IRI="/runsIn"/>
         <Class IRI="http://www.w3.org/ns/mls#Implementation"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
-        <ObjectProperty IRI="#runsIn"/>
-        <Class IRI="http://www.w3.org/ns/mls#Implementation"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#subDatasetOf"/>
+        <ObjectProperty IRI="/subDatasetOf"/>
         <Class IRI="http://www.w3.org/ns/mls#Dataset"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
-        <ObjectProperty IRI="#subTaskOf"/>
+        <ObjectProperty IRI="/subTaskOf"/>
         <Class IRI="http://www.w3.org/ns/mls#Task"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
-        <ObjectProperty IRI="#supports"/>
-        <Class IRI="#SoftwareRepository"/>
+        <ObjectProperty IRI="/supports"/>
+        <Class IRI="/SoftwareRepository"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
-        <ObjectProperty IRI="#trainedOn"/>
+        <ObjectProperty IRI="/trainedOn"/>
         <Class IRI="http://www.w3.org/ns/mls#Model"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
-        <ObjectProperty IRI="#usesDataSource"/>
-        <Class IRI="#DataProcessingStep"/>
+        <ObjectProperty IRI="/usesDataSource"/>
+        <Class IRI="/DataProcessingStep"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
-        <ObjectProperty IRI="#usesDataset"/>
-        <Class IRI="#TrainingRun"/>
+        <ObjectProperty IRI="/usesDataset"/>
+        <Class IRI="/TrainingRun"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
-        <ObjectProperty IRI="#usesPrompt"/>
+        <ObjectProperty IRI="/usesPrompt"/>
         <Class IRI="http://www.w3.org/ns/mls#Experiment"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
-        <ObjectProperty IRI="#wasGeneratedByData"/>
+        <ObjectProperty IRI="/wasGeneratedByData"/>
         <Class IRI="http://www.w3.org/ns/mls#Dataset"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
-        <ObjectProperty IRI="#wasGeneratedByPred"/>
-        <Class IRI="#EvaluationRun"/>
+        <ObjectProperty IRI="/wasGeneratedByPred"/>
+        <Class IRI="/PredictionSet"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="http://www.w3.org/ns/mls#achieves"/>
@@ -330,11 +491,11 @@
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="http://www.w3.org/ns/mls#hasPart"/>
-        <Class IRI="#Study"/>
+        <Class IRI="/Study"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="http://www.w3.org/ns/mls#implements"/>
-        <Class IRI="#Study"/>
+        <Class IRI="/Study"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="http://www.w3.org/ns/mls#realizes"/>
@@ -350,83 +511,79 @@
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="http://www.w3.org/ns/prov#wasMemberOf"/>
-        <Class IRI="#Person"/>
+        <Class IRI="/Person"/>
     </ObjectPropertyDomain>
     <ObjectPropertyRange>
-        <ObjectProperty IRI="#benchmarkedOn"/>
+        <ObjectProperty IRI="/benchmarkedOn"/>
         <Class IRI="http://www.w3.org/ns/mls#Dataset"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
-        <ObjectProperty IRI="#evaluatedBy"/>
+        <ObjectProperty IRI="/evaluatedBy"/>
         <Class IRI="http://www.w3.org/ns/mls#EvaluationMeasure"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
-        <ObjectProperty IRI="#evaluatedOn"/>
+        <ObjectProperty IRI="/evaluatedOn"/>
         <Class IRI="http://www.w3.org/ns/mls#Dataset"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
-        <ObjectProperty IRI="#formulatedBy"/>
-        <Class IRI="#PromptMethod"/>
+        <ObjectProperty IRI="/formulatedBy"/>
+        <Class IRI="/PromptMethod"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
-        <ObjectProperty IRI="#hasAuthor"/>
-        <Class IRI="#Person"/>
+        <ObjectProperty IRI="/hasAuthor"/>
+        <Class IRI="/Person"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
-        <ObjectProperty IRI="#hasEnvironment"/>
-        <Class IRI="#Environment"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#hasPartExp"/>
+        <ObjectProperty IRI="/hasPartExp"/>
         <Class IRI="http://www.w3.org/ns/mls#Experiment"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
-        <ObjectProperty IRI="#hasPartRepo"/>
+        <ObjectProperty IRI="/hasPartRepo"/>
         <Class IRI="http://www.w3.org/ns/mls#Implementation"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
-        <ObjectProperty IRI="#requires"/>
-        <Class IRI="#Dependency"/>
+        <ObjectProperty IRI="/requires"/>
+        <Class IRI="/Dependency"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
-        <ObjectProperty IRI="#runsIn"/>
-        <Class IRI="#Environment"/>
+        <ObjectProperty IRI="/runsIn"/>
+        <Class IRI="/Environment"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
-        <ObjectProperty IRI="#subDatasetOf"/>
+        <ObjectProperty IRI="/subDatasetOf"/>
         <Class IRI="http://www.w3.org/ns/mls#Dataset"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
-        <ObjectProperty IRI="#subTaskOf"/>
+        <ObjectProperty IRI="/subTaskOf"/>
         <Class IRI="http://www.w3.org/ns/mls#Task"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
-        <ObjectProperty IRI="#supports"/>
-        <Class IRI="#Environment"/>
+        <ObjectProperty IRI="/supports"/>
+        <Class IRI="/Environment"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
-        <ObjectProperty IRI="#trainedOn"/>
+        <ObjectProperty IRI="/trainedOn"/>
         <Class IRI="http://www.w3.org/ns/mls#Dataset"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
-        <ObjectProperty IRI="#usesDataSource"/>
-        <Class IRI="#DataSource"/>
+        <ObjectProperty IRI="/usesDataSource"/>
+        <Class IRI="/DataSource"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
-        <ObjectProperty IRI="#usesDataset"/>
+        <ObjectProperty IRI="/usesDataset"/>
         <Class IRI="http://www.w3.org/ns/mls#Dataset"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
-        <ObjectProperty IRI="#usesPrompt"/>
-        <Class IRI="#PromptMethod"/>
+        <ObjectProperty IRI="/usesPrompt"/>
+        <Class IRI="/PromptMethod"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
-        <ObjectProperty IRI="#wasGeneratedByData"/>
-        <Class IRI="#DataProcessingStep"/>
+        <ObjectProperty IRI="/wasGeneratedByData"/>
+        <Class IRI="/DataProcessingStep"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
-        <ObjectProperty IRI="#wasGeneratedByPred"/>
-        <Class IRI="#PredictionSet"/>
+        <ObjectProperty IRI="/wasGeneratedByPred"/>
+        <Class IRI="/EvaluationRun"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="http://www.w3.org/ns/mls#achieves"/>
@@ -434,7 +591,7 @@
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="http://www.w3.org/ns/mls#definedOn"/>
-        <Class IRI="#Study"/>
+        <Class IRI="/Study"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="http://www.w3.org/ns/mls#executes"/>
@@ -458,11 +615,11 @@
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="http://www.w3.org/ns/mls#hasPart"/>
-        <Class IRI="#Person"/>
+        <Class IRI="/Person"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="http://www.w3.org/ns/mls#implements"/>
-        <Class IRI="#SoftwareRepository"/>
+        <Class IRI="/SoftwareRepository"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="http://www.w3.org/ns/mls#realizes"/>
@@ -470,7 +627,7 @@
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="http://www.w3.org/ns/prov#hadPrimarySource"/>
-        <Class IRI="#DataSource"/>
+        <Class IRI="/DataSource"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="http://www.w3.org/ns/prov#used"/>
@@ -478,7 +635,7 @@
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="http://www.w3.org/ns/prov#wasMemberOf"/>
-        <Class IRI="#Organization"/>
+        <Class IRI="/Organization"/>
     </ObjectPropertyRange>
     <DataPropertyDomain>
         <DataProperty IRI="http://purl.org/dc/terms/identifier"/>
@@ -486,15 +643,15 @@
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="http://purl.org/dc/terms/issued"/>
-        <Class IRI="#Study"/>
+        <Class IRI="/Study"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="http://schema.org/description"/>
-        <Class IRI="#Environment"/>
+        <Class IRI="/Environment"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="http://schema.org/description"/>
-        <Class IRI="#PromptMethod"/>
+        <Class IRI="/PromptMethod"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="http://schema.org/description"/>
@@ -506,15 +663,15 @@
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="http://schema.org/name"/>
-        <Class IRI="#DataSource"/>
+        <Class IRI="/DataSource"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="http://schema.org/name"/>
-        <Class IRI="#Environment"/>
+        <Class IRI="/Environment"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="http://schema.org/name"/>
-        <Class IRI="#Person"/>
+        <Class IRI="/Person"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="http://schema.org/name"/>
@@ -529,35 +686,35 @@
         <Class IRI="http://www.w3.org/ns/mls#Task"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
-        <DataProperty IRI="#affiliation"/>
-        <Class IRI="#Person"/>
+        <DataProperty IRI="/affiliation"/>
+        <Class IRI="/Person"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
-        <DataProperty IRI="#codeRepository"/>
+        <DataProperty IRI="/codeRepository"/>
         <Class IRI="http://www.w3.org/ns/mls#Implementation"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
-        <DataProperty IRI="#measure"/>
+        <DataProperty IRI="/measure"/>
         <Class IRI="http://www.w3.org/ns/mls#EvaluationMeasure"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
-        <DataProperty IRI="#text"/>
-        <Class IRI="#PromptMethod"/>
+        <DataProperty IRI="/text"/>
+        <Class IRI="/PromptMethod"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
-        <DataProperty IRI="#title"/>
-        <Class IRI="#Study"/>
+        <DataProperty IRI="/title"/>
+        <Class IRI="/Study"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
-        <DataProperty IRI="#url"/>
-        <Class IRI="#DataSource"/>
+        <DataProperty IRI="/url"/>
+        <Class IRI="/DataSource"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
-        <DataProperty IRI="#url"/>
-        <Class IRI="#Study"/>
+        <DataProperty IRI="/url"/>
+        <Class IRI="/Study"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
-        <DataProperty IRI="#version"/>
+        <DataProperty IRI="/version"/>
         <Class IRI="http://www.w3.org/ns/mls#Model"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
@@ -573,10 +730,6 @@
         <Datatype abbreviatedIRI="xsd:string"/>
     </DataPropertyRange>
     <DataPropertyRange>
-        <DataProperty IRI="http://purl.org/dc/terms/issued"/>
-        <Datatype abbreviatedIRI="xsd:date"/>
-    </DataPropertyRange>
-    <DataPropertyRange>
         <DataProperty IRI="http://schema.org/description"/>
         <Datatype abbreviatedIRI="xsd:string"/>
     </DataPropertyRange>
@@ -585,55 +738,55 @@
         <Datatype abbreviatedIRI="xsd:string"/>
     </DataPropertyRange>
     <DataPropertyRange>
-        <DataProperty IRI="#affiliation"/>
+        <DataProperty IRI="/affiliation"/>
         <Datatype abbreviatedIRI="xsd:string"/>
     </DataPropertyRange>
     <DataPropertyRange>
-        <DataProperty IRI="#characteristic"/>
+        <DataProperty IRI="/characteristic"/>
         <Datatype abbreviatedIRI="xsd:string"/>
     </DataPropertyRange>
     <DataPropertyRange>
-        <DataProperty IRI="#codeRepository"/>
+        <DataProperty IRI="/codeRepository"/>
         <Datatype abbreviatedIRI="xsd:string"/>
     </DataPropertyRange>
     <DataPropertyRange>
-        <DataProperty IRI="#language"/>
+        <DataProperty IRI="/language"/>
         <Datatype abbreviatedIRI="xsd:string"/>
     </DataPropertyRange>
     <DataPropertyRange>
-        <DataProperty IRI="#license"/>
+        <DataProperty IRI="/license"/>
         <Datatype abbreviatedIRI="xsd:string"/>
     </DataPropertyRange>
     <DataPropertyRange>
-        <DataProperty IRI="#measure"/>
+        <DataProperty IRI="/measure"/>
         <Datatype abbreviatedIRI="xsd:string"/>
     </DataPropertyRange>
     <DataPropertyRange>
-        <DataProperty IRI="#modality"/>
+        <DataProperty IRI="/modality"/>
         <Datatype abbreviatedIRI="xsd:string"/>
     </DataPropertyRange>
     <DataPropertyRange>
-        <DataProperty IRI="#numClasses"/>
+        <DataProperty IRI="/numClasses"/>
         <Datatype abbreviatedIRI="xsd:integer"/>
     </DataPropertyRange>
     <DataPropertyRange>
-        <DataProperty IRI="#numInstances"/>
+        <DataProperty IRI="/numInstances"/>
         <Datatype abbreviatedIRI="xsd:integer"/>
     </DataPropertyRange>
     <DataPropertyRange>
-        <DataProperty IRI="#text"/>
+        <DataProperty IRI="/text"/>
         <Datatype abbreviatedIRI="xsd:string"/>
     </DataPropertyRange>
     <DataPropertyRange>
-        <DataProperty IRI="#title"/>
+        <DataProperty IRI="/title"/>
         <Datatype abbreviatedIRI="xsd:string"/>
     </DataPropertyRange>
     <DataPropertyRange>
-        <DataProperty IRI="#url"/>
+        <DataProperty IRI="/url"/>
         <Datatype abbreviatedIRI="xsd:string"/>
     </DataPropertyRange>
     <DataPropertyRange>
-        <DataProperty IRI="#version"/>
+        <DataProperty IRI="/version"/>
         <Datatype abbreviatedIRI="xsd:string"/>
     </DataPropertyRange>
     <DataPropertyRange>
@@ -642,24 +795,28 @@
     </DataPropertyRange>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#Environment</IRI>
+        <IRI>/Environment</IRI>
         <Literal>Execution environment in which the experiment runs (hardware + software).</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#Person</IRI>
+        <IRI>/Person</IRI>
         <Literal>Represents a researcher, author, or contributor of a study.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#PromptMethod</IRI>
+        <IRI>/PromptMethod</IRI>
         <Literal>Natural-language or structured instruction used in prompt-based or generative ML experiments.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#Study</IRI>
+        <IRI>/Study</IRI>
         <Literal>Represents a scientific investigation or publication that contains one or more experiments. It is the top-level entity describing ML research.</Literal>
     </AnnotationAssertion>
+    <AnnotationPropertyRange>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/issued"/>
+        <AbbreviatedIRI>xsd:date</AbbreviatedIRI>
+    </AnnotationPropertyRange>
 </Ontology>
 
 
