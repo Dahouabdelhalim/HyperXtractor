@@ -1,0 +1,381 @@
+@prefix : <http://www.semanticweb.org/dahouam/ontologies/2025/6/Methodolody-IE/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/dahouam/ontologies/2025/6/Methodolody-IE/> .
+
+<http://www.semanticweb.org/dahouam/ontologies/2025/6/Methodolody-IE> rdf:type owl:Ontology ;
+                                                                       owl:imports <http://www.w3.org/2016/03/mls#> ,
+                                                                                   <http://www.w3.org/ns/prov-o-inverses-20130430> .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/dahouam/ontologies/2025/6/Methodolody-IE#benchmarkedOn
+:benchmarkedOn rdf:type owl:ObjectProperty ;
+               rdfs:domain <http://www.w3.org/ns/mls#Task> ;
+               rdfs:range <http://www.w3.org/ns/mls#Dataset> .
+
+
+###  http://www.semanticweb.org/dahouam/ontologies/2025/6/Methodolody-IE#evaluatedBy
+:evaluatedBy rdf:type owl:ObjectProperty ;
+             rdfs:domain <http://www.w3.org/ns/mls#Task> ;
+             rdfs:range <http://www.w3.org/ns/mls#EvaluationMeasure> .
+
+
+###  http://www.semanticweb.org/dahouam/ontologies/2025/6/Methodolody-IE#evaluatedOn
+:evaluatedOn rdf:type owl:ObjectProperty ;
+             rdfs:domain <http://www.w3.org/ns/mls#Model> ;
+             rdfs:range <http://www.w3.org/ns/mls#Dataset> .
+
+
+###  http://www.semanticweb.org/dahouam/ontologies/2025/6/Methodolody-IE#formulatedBy
+:formulatedBy rdf:type owl:ObjectProperty ;
+              rdfs:domain <http://www.w3.org/ns/mls#Task> ;
+              rdfs:range :PromptMethod .
+
+
+###  http://www.semanticweb.org/dahouam/ontologies/2025/6/Methodolody-IE#hasAuthor
+:hasAuthor rdf:type owl:ObjectProperty ;
+           rdfs:domain :Study ;
+           rdfs:range :Person .
+
+
+###  http://www.semanticweb.org/dahouam/ontologies/2025/6/Methodolody-IE#hasEnvironment
+:hasEnvironment rdf:type owl:ObjectProperty ;
+                rdfs:domain <http://www.w3.org/ns/mls#Implementation> ;
+                rdfs:range :Environment .
+
+
+###  http://www.semanticweb.org/dahouam/ontologies/2025/6/Methodolody-IE#hasPartExp
+:hasPartExp rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf <http://www.w3.org/ns/mls#hasPart> ;
+            rdfs:domain :Study ;
+            rdfs:range <http://www.w3.org/ns/mls#Experiment> .
+
+
+###  http://www.semanticweb.org/dahouam/ontologies/2025/6/Methodolody-IE#hasPartRepo
+:hasPartRepo rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf <http://www.w3.org/ns/mls#hasPart> ;
+             rdfs:domain :SoftwareRepository ;
+             rdfs:range <http://www.w3.org/ns/mls#Implementation> .
+
+
+###  http://www.semanticweb.org/dahouam/ontologies/2025/6/Methodolody-IE#requires
+:requires rdf:type owl:ObjectProperty ;
+          rdfs:domain <http://www.w3.org/ns/mls#Implementation> ;
+          rdfs:range :Dependency .
+
+
+###  http://www.semanticweb.org/dahouam/ontologies/2025/6/Methodolody-IE#runsIn
+:runsIn rdf:type owl:ObjectProperty ;
+        rdfs:domain <http://www.w3.org/ns/mls#Implementation> ;
+        rdfs:range :Environment .
+
+
+###  http://www.semanticweb.org/dahouam/ontologies/2025/6/Methodolody-IE#subDatasetOf
+:subDatasetOf rdf:type owl:ObjectProperty ;
+              rdfs:domain <http://www.w3.org/ns/mls#Dataset> ;
+              rdfs:range <http://www.w3.org/ns/mls#Dataset> .
+
+
+###  http://www.semanticweb.org/dahouam/ontologies/2025/6/Methodolody-IE#subTaskOf
+:subTaskOf rdf:type owl:ObjectProperty ;
+           rdfs:domain <http://www.w3.org/ns/mls#Task> ;
+           rdfs:range <http://www.w3.org/ns/mls#Task> .
+
+
+###  http://www.semanticweb.org/dahouam/ontologies/2025/6/Methodolody-IE#supports
+:supports rdf:type owl:ObjectProperty ;
+          rdfs:domain :SoftwareRepository ;
+          rdfs:range :Environment .
+
+
+###  http://www.semanticweb.org/dahouam/ontologies/2025/6/Methodolody-IE#trainedOn
+:trainedOn rdf:type owl:ObjectProperty ;
+           rdfs:domain <http://www.w3.org/ns/mls#Model> ;
+           rdfs:range <http://www.w3.org/ns/mls#Dataset> .
+
+
+###  http://www.semanticweb.org/dahouam/ontologies/2025/6/Methodolody-IE#usesDataSource
+:usesDataSource rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf <http://www.w3.org/ns/prov#used> ;
+                rdfs:domain :DataProcessingStep ;
+                rdfs:range :DataSource .
+
+
+###  http://www.semanticweb.org/dahouam/ontologies/2025/6/Methodolody-IE#usesDataset
+:usesDataset rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf <http://www.w3.org/ns/prov#used> ;
+             rdfs:domain :TrainingRun ;
+             rdfs:range <http://www.w3.org/ns/mls#Dataset> .
+
+
+###  http://www.semanticweb.org/dahouam/ontologies/2025/6/Methodolody-IE#usesPrompt
+:usesPrompt rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf <http://www.w3.org/ns/prov#used> ;
+            rdfs:domain <http://www.w3.org/ns/mls#Experiment> ;
+            rdfs:range :PromptMethod .
+
+
+###  http://www.semanticweb.org/dahouam/ontologies/2025/6/Methodolody-IE#wasGeneratedByData
+:wasGeneratedByData rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf <http://www.w3.org/ns/prov#wasGeneratedBy> ;
+                    rdfs:domain <http://www.w3.org/ns/mls#Dataset> ;
+                    rdfs:range :DataProcessingStep .
+
+
+###  http://www.semanticweb.org/dahouam/ontologies/2025/6/Methodolody-IE#wasGeneratedByPred
+:wasGeneratedByPred rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf <http://www.w3.org/ns/prov#wasGeneratedBy> ;
+                    rdfs:domain :EvaluationRun ;
+                    rdfs:range :PredictionSet .
+
+
+###  http://www.w3.org/ns/mls#achieves
+<http://www.w3.org/ns/mls#achieves> rdfs:domain <http://www.w3.org/ns/mls#Model> ;
+                                    rdfs:range <http://www.w3.org/ns/mls#EvaluationMeasure> .
+
+
+###  http://www.w3.org/ns/mls#definedOn
+<http://www.w3.org/ns/mls#definedOn> rdfs:range :Study .
+
+
+###  http://www.w3.org/ns/mls#executes
+<http://www.w3.org/ns/mls#executes> rdfs:domain <http://www.w3.org/ns/mls#Experiment> ;
+                                    rdfs:range <http://www.w3.org/ns/mls#Implementation> .
+
+
+###  http://www.w3.org/ns/mls#hasInput
+<http://www.w3.org/ns/mls#hasInput> rdfs:range <http://www.w3.org/ns/mls#Model> ,
+                                               <http://www.w3.org/ns/mls#Task> .
+
+
+###  http://www.w3.org/ns/mls#hasOutput
+<http://www.w3.org/ns/mls#hasOutput> rdfs:range <http://www.w3.org/ns/mls#EvaluationMeasure> ,
+                                                <http://www.w3.org/ns/mls#Model> .
+
+
+###  http://www.w3.org/ns/mls#hasPart
+<http://www.w3.org/ns/mls#hasPart> rdfs:domain :Study ;
+                                   rdfs:range :Person .
+
+
+###  http://www.w3.org/ns/mls#implements
+<http://www.w3.org/ns/mls#implements> rdfs:domain :Study ;
+                                      rdfs:range :SoftwareRepository .
+
+
+###  http://www.w3.org/ns/mls#realizes
+<http://www.w3.org/ns/mls#realizes> rdfs:domain <http://www.w3.org/ns/mls#Experiment> ;
+                                    rdfs:range <http://www.w3.org/ns/mls#Task> .
+
+
+###  http://www.w3.org/ns/prov#hadPrimarySource
+<http://www.w3.org/ns/prov#hadPrimarySource> rdfs:domain <http://www.w3.org/ns/mls#Dataset> ;
+                                             rdfs:range :DataSource .
+
+
+###  http://www.w3.org/ns/prov#used
+<http://www.w3.org/ns/prov#used> rdfs:domain <http://www.w3.org/ns/mls#Experiment> ;
+                                 rdfs:range <http://www.w3.org/ns/mls#Dataset> .
+
+
+###  http://www.w3.org/ns/prov#wasMemberOf
+<http://www.w3.org/ns/prov#wasMemberOf> rdf:type owl:ObjectProperty ;
+                                        rdfs:domain :Person ;
+                                        rdfs:range :Organization .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://purl.org/dc/terms/identifier
+<http://purl.org/dc/terms/identifier> rdf:type owl:DatatypeProperty ;
+                                      rdfs:domain <http://www.w3.org/ns/mls#Implementation> ;
+                                      rdfs:range xsd:string .
+
+
+###  http://purl.org/dc/terms/issued
+<http://purl.org/dc/terms/issued> rdf:type owl:DatatypeProperty ;
+                                  rdfs:domain :Study ;
+                                  rdfs:range xsd:date .
+
+
+###  http://schema.org/description
+<http://schema.org/description> rdf:type owl:DatatypeProperty ;
+                                rdfs:domain :Environment ,
+                                            :PromptMethod ,
+                                            <http://www.w3.org/ns/mls#Model> ,
+                                            <http://www.w3.org/ns/mls#Task> ;
+                                rdfs:range xsd:string .
+
+
+###  http://schema.org/name
+<http://schema.org/name> rdf:type owl:DatatypeProperty ;
+                         rdfs:domain :DataSource ,
+                                     :Environment ,
+                                     :Person ,
+                                     <http://www.w3.org/ns/mls#HyperParameter> ,
+                                     <http://www.w3.org/ns/mls#Model> ,
+                                     <http://www.w3.org/ns/mls#Task> ;
+                         rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/dahouam/ontologies/2025/6/Methodolody-IE#affiliation
+:affiliation rdf:type owl:DatatypeProperty ;
+             rdfs:domain :Person ;
+             rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/dahouam/ontologies/2025/6/Methodolody-IE#characteristic
+:characteristic rdf:type owl:DatatypeProperty ;
+                rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/dahouam/ontologies/2025/6/Methodolody-IE#codeRepository
+:codeRepository rdf:type owl:DatatypeProperty ;
+                rdfs:domain <http://www.w3.org/ns/mls#Implementation> ;
+                rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/dahouam/ontologies/2025/6/Methodolody-IE#language
+:language rdf:type owl:DatatypeProperty ;
+          rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/dahouam/ontologies/2025/6/Methodolody-IE#license
+:license rdf:type owl:DatatypeProperty ;
+         rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/dahouam/ontologies/2025/6/Methodolody-IE#measure
+:measure rdf:type owl:DatatypeProperty ;
+         rdfs:domain <http://www.w3.org/ns/mls#EvaluationMeasure> ;
+         rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/dahouam/ontologies/2025/6/Methodolody-IE#modality
+:modality rdf:type owl:DatatypeProperty ;
+          rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/dahouam/ontologies/2025/6/Methodolody-IE#numClasses
+:numClasses rdf:type owl:DatatypeProperty ;
+            rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/dahouam/ontologies/2025/6/Methodolody-IE#numInstances
+:numInstances rdf:type owl:DatatypeProperty ;
+              rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/dahouam/ontologies/2025/6/Methodolody-IE#text
+:text rdf:type owl:DatatypeProperty ;
+      rdfs:domain :PromptMethod ;
+      rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/dahouam/ontologies/2025/6/Methodolody-IE#title
+:title rdf:type owl:DatatypeProperty ;
+       rdfs:domain :Study ;
+       rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/dahouam/ontologies/2025/6/Methodolody-IE#url
+:url rdf:type owl:DatatypeProperty ;
+     rdfs:domain :DataSource ,
+                 :Study ;
+     rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/dahouam/ontologies/2025/6/Methodolody-IE#version
+:version rdf:type owl:DatatypeProperty ;
+         rdfs:domain <http://www.w3.org/ns/mls#Model> ;
+         rdfs:range xsd:string .
+
+
+###  http://www.w3.org/ns/mls#hasValue
+<http://www.w3.org/ns/mls#hasValue> rdfs:domain <http://www.w3.org/ns/mls#EvaluationMeasure> ,
+                                                <http://www.w3.org/ns/mls#HyperParameter> ;
+                                    rdfs:range xsd:float .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/dahouam/ontologies/2025/6/Methodolody-IE#DataProcessingStep
+:DataProcessingStep rdf:type owl:Class ;
+                    rdfs:subClassOf <http://www.w3.org/ns/mls#InformationEntity> .
+
+
+###  http://www.semanticweb.org/dahouam/ontologies/2025/6/Methodolody-IE#DataSource
+:DataSource rdf:type owl:Class ;
+            rdfs:subClassOf <http://www.w3.org/ns/mls#InformationEntity> .
+
+
+###  http://www.semanticweb.org/dahouam/ontologies/2025/6/Methodolody-IE#Dependency
+:Dependency rdf:type owl:Class ;
+            rdfs:subClassOf <http://www.w3.org/ns/mls#InformationEntity> .
+
+
+###  http://www.semanticweb.org/dahouam/ontologies/2025/6/Methodolody-IE#Environment
+:Environment rdf:type owl:Class ;
+             rdfs:subClassOf <http://www.w3.org/ns/mls#InformationEntity> ;
+             rdfs:comment "Execution environment in which the experiment runs (hardware + software)." .
+
+
+###  http://www.semanticweb.org/dahouam/ontologies/2025/6/Methodolody-IE#EvaluationRun
+:EvaluationRun rdf:type owl:Class ;
+               rdfs:subClassOf <http://www.w3.org/ns/mls#InformationEntity> .
+
+
+###  http://www.semanticweb.org/dahouam/ontologies/2025/6/Methodolody-IE#Organization
+:Organization rdf:type owl:Class ;
+              rdfs:subClassOf <http://www.w3.org/ns/mls#InformationEntity> .
+
+
+###  http://www.semanticweb.org/dahouam/ontologies/2025/6/Methodolody-IE#Person
+:Person rdf:type owl:Class ;
+        rdfs:subClassOf <http://www.w3.org/ns/mls#InformationEntity> ;
+        rdfs:comment "Represents a researcher, author, or contributor of a study." .
+
+
+###  http://www.semanticweb.org/dahouam/ontologies/2025/6/Methodolody-IE#PredictionSet
+:PredictionSet rdf:type owl:Class ;
+               rdfs:subClassOf <http://www.w3.org/ns/mls#InformationEntity> .
+
+
+###  http://www.semanticweb.org/dahouam/ontologies/2025/6/Methodolody-IE#PromptMethod
+:PromptMethod rdf:type owl:Class ;
+              rdfs:subClassOf <http://www.w3.org/ns/mls#InformationEntity> ;
+              rdfs:comment "Natural-language or structured instruction used in prompt-based or generative ML experiments." .
+
+
+###  http://www.semanticweb.org/dahouam/ontologies/2025/6/Methodolody-IE#SoftwareRepository
+:SoftwareRepository rdf:type owl:Class ;
+                    rdfs:subClassOf <http://www.w3.org/ns/mls#InformationEntity> .
+
+
+###  http://www.semanticweb.org/dahouam/ontologies/2025/6/Methodolody-IE#Study
+:Study rdf:type owl:Class ;
+       owl:equivalentClass [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasAuthor ;
+                             owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onClass :Person
+                           ] ;
+       rdfs:subClassOf <http://www.w3.org/ns/mls#InformationEntity> ;
+       rdfs:comment "Represents a scientific investigation or publication that contains one or more experiments. It is the top-level entity describing ML research." .
+
+
+###  http://www.semanticweb.org/dahouam/ontologies/2025/6/Methodolody-IE#TrainingRun
+:TrainingRun rdf:type owl:Class ;
+             rdfs:subClassOf <http://www.w3.org/ns/mls#InformationEntity> .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
