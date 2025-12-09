@@ -18,7 +18,9 @@
         "radar:exp/nyt",
         "radar:exp/rcv1"
       ],
-      "implements": "radar:repo"
+      "implements": "radar:repo",
+      "anchor": "RADAr: A Transformer-based Autoregressive Decoder Architecture for Hierarchical Text Classification",
+      "context": "# RADAr: A Transformer-based Autoregressive Decoder Architecture for Hierarchical Text Classification\n\n**Yousef Younes**<sup>a,d,*</sup>, **Lukas Galke**<sup>b,c</sup> and **Ansgar Scherp**<sup>d</sup>"
     },
 
     {
@@ -29,7 +31,9 @@
       "affiliation": [
         "radar:org/gesis",
         "radar:org/ulm"
-      ]
+      ],
+      "anchor": "Yousef Younes",
+      "context": "**Yousef Younes**<sup>a,d,*</sup>, **Lukas Galke**<sup>b,c</sup> and **Ansgar Scherp**<sup>d</sup>\n...\n* Corresponding Author. Email: yousef.younes@gesis.org"
     },
     {
       "id": "radar:person/galke",
@@ -38,7 +42,9 @@
       "affiliation": [
         "radar:org/mpp",
         "radar:org/sdu"
-      ]
+      ],
+      "anchor": "Lukas Galke",
+      "context": "**Yousef Younes**<sup>a,d,*</sup>, **Lukas Galke**<sup>b,c</sup> and **Ansgar Scherp**<sup>d</sup>"
     },
     {
       "id": "radar:person/scherp",
@@ -46,28 +52,38 @@
       "name": "Ansgar Scherp",
       "affiliation": [
         "radar:org/ulm"
-      ]
+      ],
+      "anchor": "Ansgar Scherp",
+      "context": "**Yousef Younes**<sup>a,d,*</sup>, **Lukas Galke**<sup>b,c</sup> and **Ansgar Scherp**<sup>d</sup>"
     },
 
     {
       "id": "radar:org/gesis",
       "type": "Organization",
-      "name": "GESIS – Leibniz-Institute for the Social Sciences"
+      "name": "GESIS – Leibniz-Institute for the Social Sciences",
+      "anchor": "GESIS – Leibniz-Institute for the Social Sciences",
+      "context": "<sup>a</sup>GESIS – Leibniz-Institute for the Social Sciences"
     },
     {
       "id": "radar:org/mpp",
       "type": "Organization",
-      "name": "Max Planck Institute for Psycholinguistics"
+      "name": "Max Planck Institute for Psycholinguistics",
+      "anchor": "Max Planck Institute for Psycholinguistics",
+      "context": "<sup>b</sup>Max Planck Institute for Psycholinguistics"
     },
     {
       "id": "radar:org/sdu",
       "type": "Organization",
-      "name": "University of Southern Denmark"
+      "name": "University of Southern Denmark",
+      "anchor": "University of Southern Denmark",
+      "context": "<sup>c</sup>University of Southern Denmark"
     },
     {
       "id": "radar:org/ulm",
       "type": "Organization",
-      "name": "University of Ulm"
+      "name": "University of Ulm",
+      "anchor": "University of Ulm",
+      "context": "<sup>d</sup>University of Ulm"
     },
 
     {
@@ -76,7 +92,9 @@
       "name": "Hierarchical Text Classification",
       "description": "Assigning labels from a semantic hierarchy to text instances.",
       "category": "text-classification; hierarchical; multi-label",
-      "metrics": "Micro-F1, Macro-F1"
+      "metrics": "Micro-F1, Macro-F1",
+      "anchor": "Hierarchical Text Classification (HTC)",
+      "context": "Hierarchical Text Classification (HTC) deals with the task of labeling a text sample based on a semantic hierarchy where labels, i.e., classes, exhibit a generalization-specialization relationship."
     },
     {
       "id": "radar:task/htc-wos",
@@ -86,7 +104,9 @@
       "category": "hierarchical text classification",
       "metrics": "Micro-F1, Macro-F1",
       "benchmarkedOn": "radar:dataset/wos",
-      "subTaskOf": "radar:task/htc"
+      "subTaskOf": "radar:task/htc",
+      "anchor": "The WOS dataset has a hierarchy of two levels.",
+      "context": "The WOS dataset has a hierarchy of two levels. It has exactly two labels per sample, one child and its parent, which makes it easier than the other two datasets."
     },
     {
       "id": "radar:task/htc-nyt",
@@ -96,7 +116,9 @@
       "category": "hierarchical text classification",
       "metrics": "Micro-F1, Macro-F1",
       "benchmarkedOn": "radar:dataset/nyt",
-      "subTaskOf": "radar:task/htc"
+      "subTaskOf": "radar:task/htc",
+      "anchor": "The NYT and RCV1-V2 datasets have eight-level and four-level hierarchies, respectively.",
+      "context": "The NYT and RCV1-V2 datasets have eight-level and four-level hierarchies, respectively. The RCV1-V2 dataset has the largest test set compared to the others."
     },
     {
       "id": "radar:task/htc-rcv1",
@@ -106,26 +128,34 @@
       "category": "hierarchical text classification",
       "metrics": "Micro-F1, Macro-F1",
       "benchmarkedOn": "radar:dataset/rcv1",
-      "subTaskOf": "radar:task/htc"
+      "subTaskOf": "radar:task/htc",
+      "anchor": "The NYT and RCV1-V2 datasets have eight-level and four-level hierarchies, respectively.",
+      "context": "We use three common HTC datasets. Those are Web-of-Science (WOS) [16], NY-Times (NYT) [29], and RCV1-V2 [17]. The NYT and RCV1-V2 datasets have eight-level and four-level hierarchies, respectively."
     },
 
     {
       "id": "radar:datasource/wos",
       "type": "DataSource",
       "name": "Web-of-Science classification corpus",
-      "type_source": "scientific articles"
+      "type_source": "scientific articles",
+      "anchor": "Web-of-Science (WOS) [16]",
+      "context": "We use three common HTC datasets. Those are Web-of-Science (WOS) [16], NY-Times (NYT) [29], and RCV1-V2 [17]."
     },
     {
       "id": "radar:datasource/nyt",
       "type": "DataSource",
       "name": "NY Times article corpus",
-      "type_source": "news articles"
+      "type_source": "news articles",
+      "anchor": "NY-Times (NYT) [29]",
+      "context": "We use three common HTC datasets. Those are Web-of-Science (WOS) [16], NY-Times (NYT) [29], and RCV1-V2 [17]."
     },
     {
       "id": "radar:datasource/rcv1",
       "type": "DataSource",
       "name": "Reuters Corpus Volume 1 (RCV1-V2)",
-      "type_source": "newswire"
+      "type_source": "newswire",
+      "anchor": "RCV1-V2 [17]",
+      "context": "We use three common HTC datasets. Those are Web-of-Science (WOS) [16], NY-Times (NYT) [29], and RCV1-V2 [17]."
     },
 
     {
@@ -134,7 +164,9 @@
       "description": "Map human-readable labels to symbolic labels [a_i], insert <unk> to separate hierarchy levels, and reverse order from children to parents.",
       "transformationType": "label_preprocessing",
       "order": 1,
-      "codeReference": "radar:repo"
+      "codeReference": "radar:repo",
+      "anchor": "Rather, we replace the original labels with symbolic labels.",
+      "context": "Rather, we replace the original labels with symbolic labels. For example, the symbolic label [a_14] represents the label “Top/Classifieds/Job Market/Job Categories/Media, Entertainment and Publishing” in the NYT dataset as shown in Figure 2.\n\nThe label tokenizer’s vocabulary consists of the set of symbolic labels of the dataset."
     },
     {
       "id": "radar:preproc/label-tokenization",
@@ -143,7 +175,9 @@
       "transformationType": "label_tokenization",
       "parameters": "sequence lengths: 6 (WOS), 48 (NYT), 22 (RCV1-V2)",
       "order": 2,
-      "codeReference": "radar:repo"
+      "codeReference": "radar:repo",
+      "anchor": "The tokenizer uses the <s> and </s> tokens to mark the beginning and end of the label sequence.",
+      "context": "The tokenizer uses the <s> and </s> tokens to mark the beginning and end of the label sequence. It also uses the <pad> token to fill the rest of the vector after the </s> token. In addition, the <unk> token separates hierarchy levels.\n\nThe label tokenizer’s vocabulary consists of the set of symbolic labels of the dataset."
     },
 
     {
@@ -159,7 +193,9 @@
       "processedThrough": [
         "radar:preproc/labels",
         "radar:preproc/label-tokenization"
-      ]
+      ],
+      "anchor": "The WOS dataset has a hierarchy of two levels.",
+      "context": "The WOS dataset has a hierarchy of two levels. It has exactly two labels per sample, one child and its parent, which makes it easier than the other two datasets.\n\nTable 2 shows statistics about these datasets."
     },
     {
       "id": "radar:dataset/nyt",
@@ -174,7 +210,9 @@
       "processedThrough": [
         "radar:preproc/labels",
         "radar:preproc/label-tokenization"
-      ]
+      ],
+      "anchor": "NY-Times (NYT) [29]",
+      "context": "The NYT and RCV1-V2 datasets have eight-level and four-level hierarchies, respectively.\n\nTable 2. Statistics of the datasets. ... NYT ... |H| 166 ..."
     },
     {
       "id": "radar:dataset/rcv1",
@@ -189,7 +227,9 @@
       "processedThrough": [
         "radar:preproc/labels",
         "radar:preproc/label-tokenization"
-      ]
+      ],
+      "anchor": "RCV1-V2 dataset",
+      "context": "The NYT and RCV1-V2 datasets have eight-level and four-level hierarchies, respectively. The RCV1-V2 dataset has the largest test set compared to the others.\n\nTable 2. Statistics of the datasets. ... RCV1-V2 ..."
     },
 
     {
@@ -197,7 +237,9 @@
       "type": "Method",
       "name": "RADAr",
       "description": "Sequence-to-sequence architecture using RoBERTa encoder and autoregressive decoder for hierarchical text classification.",
-      "version": "1.0"
+      "version": "1.0",
+      "anchor": "RADAr (Transformer-based Autoregressive Decoder Architecture)",
+      "context": "In this paper, we introduce an effective hierarchical text classifier RADAr (Transformer-based Autoregressive Decoder Architecture) that is based only on an off-the-shelf RoBERTa transformer to process the input and a custom autoregressive decoder with two decoder layers for generating the classification output."
     },
     {
       "id": "radar:model/radar-roberta-base",
@@ -225,39 +267,51 @@
         "radar:trainrun/wos",
         "radar:trainrun/nyt",
         "radar:trainrun/rcv1"
-      ]
+      ],
+      "anchor": "Any encoder-only model can be used as the encoder of RADAr, but we choose to use RoBERTa base.",
+      "context": "RADAr is a transformer-based encoder-decoder model. Any encoder-only model can be used as the encoder of RADAr, but we choose to use RoBERTa base. The decoder is an autoregressive transformer-based model trained from scratch to generate a sequence of labels.\n\nUsing the WOS dataset, we conducted pre-experiments regarding the number of decoder layers and the features of its transformer blocks [36]. We observe that the optimal choice is when the decoder has two decoder layers. Each layer has a transformer block with eight attention heads, a feedforward network and uses a dropout of 0.2."
     },
 
     {
       "id": "radar:algo/decoder",
       "type": "MLS_Algorithm",
       "name": "Autoregressive label-sequence decoder with greedy search",
-      "description": "Autoregressive transformer decoder over symbolic label tokens using greedy search until end-of-sequence token."
+      "description": "Autoregressive transformer decoder over symbolic label tokens using greedy search until end-of-sequence token.",
+      "anchor": "The decoder is an autoregressive transformer-based model",
+      "context": "The decoder is an autoregressive transformer-based model whose vocabulary corresponds to the label set. As such, the decoder’s vocabulary is limited to the symbolic labels [28], i.e., internal label identifiers and special tokens (see Figure[2]). Our decoder iteratively uses the previously generated tokens and the encoder’s output as condition to generate the next token. It uses greedy search that picks the token with the highest probability at each decoding step without considering future consequences [39]. It stops when it reaches the special token <s>, indicating the end of the sequence."
     },
     {
       "id": "radar:algo/focal-loss",
       "type": "MLS_Algorithm",
       "name": "Batch-level focal loss optimization",
-      "description": "Batch-level cross-entropy scaled with focal loss (γ=2) to emphasize hard batches with rare labels."
+      "description": "Batch-level cross-entropy scaled with focal loss (γ=2) to emphasize hard batches with rare labels.",
+      "anchor": "we employ a batch-level focal loss [21]",
+      "context": "The labels in HTC datasets are typically very imbalanced [35]. To compensate for this imbalance, we employ a batch-level focal loss [21], i.e., the model aims to optimize batches that are hard to classify.\n\nWe use focal loss with focusing parameter γ = 2 as described in Section 3. Focal loss depends on cross-entropy with label smoothing of 0.1."
     },
 
     {
       "id": "radar:eval/wos",
       "type": "MLS_Eval",
       "measure": "Micro-F1, Macro-F1 on WOS",
-      "description": "RADAr improves Macro-F1 over encoder-only baselines on WOS."
+      "description": "RADAr improves Macro-F1 over encoder-only baselines on WOS.",
+      "anchor": "Table 3 shows Micro-F1 and Macro-F1 on three datasets.",
+      "context": "Table 3 shows Micro-F1 and Macro-F1 on three datasets. We compare our model to the models from the literature (see Section 2).\n\nRADAr ... WOS ... Micro-F1 87.17 ... Macro-F1 81.84."
     },
     {
       "id": "radar:eval/nyt",
       "type": "MLS_Eval",
       "measure": "Micro-F1, Macro-F1 on NYT",
-      "description": "RADAr improves Macro-F1 by about 3% over encoder-only baselines on NYT."
+      "description": "RADAr improves Macro-F1 by about 3% over encoder-only baselines on NYT.",
+      "anchor": "It outperforms the encoder-only baselines by achieving improvements in Macro-F1 of 2.77%, 3%, and 2.62% on WOS, NYT, and RCV1-V2, respectively.",
+      "context": "The fifth group contains the results of our RADAr model. It outperforms the encoder-only baselines by achieving improvements in Macro-F1 of 2.77%, 3%, and 2.62% on WOS, NYT, and RCV1-V2, respectively."
     },
     {
       "id": "radar:eval/rcv1",
       "type": "MLS_Eval",
       "measure": "Micro-F1, Macro-F1 on RCV1-V2",
-      "description": "RADAr matches HBGL on Micro-F1 and improves Macro-F1 over encoder-only baselines on RCV1-V2."
+      "description": "RADAr matches HBGL on Micro-F1 and improves Macro-F1 over encoder-only baselines on RCV1-V2.",
+      "anchor": "For RADAr experiments, we report the mean and standard deviation over five runs with different random seeds.",
+      "context": "For RADAr experiments, we report the mean and standard deviation over five runs with different random seeds.\n\nTable 3 ... RCV1-V2 ... RADAr ... Micro-F1 87.23 ... Macro-F1 69.64."
     },
 
     {
@@ -267,7 +321,9 @@
       "url": "https://github.com/yousef-younes/RADAr",
       "programmingLanguage": "Python",
       "license": "",
-      "documentationUrl": "https://github.com/yousef-younes/RADAr"
+      "documentationUrl": "https://github.com/yousef-younes/RADAr",
+      "anchor": "The source code is available at https://github.com/yousef-younes/RADAr",
+      "context": "Moreover, training a separate decoder from scratch in conjunction with fine-tuning the encoder allows future researchers and practitioners to exchange the encoder part as new models arise. The source code is available at https://github.com/yousef-younes/RADAr"
     },
 
     {
@@ -282,7 +338,9 @@
         "radar:dep/pytorch",
         "radar:dep/transformers",
         "radar:dep/wandb"
-      ]
+      ],
+      "anchor": "The experiments were implemented in PyTorch and run on an NVIDIA A100-SXM4-40GB GPU.",
+      "context": "The experiments were implemented in PyTorch and run on an NVIDIA A100-SXM4-40GB GPU.\n\nWe use the AdamW optimizer [23] with default settings and learning rates of 5 · 10−5 and 3 · 10−4 for the encoder and decoder, respectively."
     },
 
     {
@@ -291,7 +349,9 @@
       "name": "encoder_learning_rate",
       "hasValue": "5e-5",
       "type": "float",
-      "searchSpace": "[5e-4, 5e-6]"
+      "searchSpace": "[5e-4, 5e-6]",
+      "anchor": "learning rates of 5 · 10−5 and 3 · 10−4 for the encoder and decoder, respectively.",
+      "context": "During training, we use the AdamW optimizer [23] with default settings and learning rates of 5 · 10−5 and 3 · 10−4 for the encoder and decoder, respectively.\n\nFor example, 5 · 10−5 is known to be a reasonable learning rate for RoBERTa [10], so we specify the range [5 · 10−4, 5 · 10−6] to contain that value."
     },
     {
       "id": "radar:hparam/decoder-lr",
@@ -299,28 +359,36 @@
       "name": "decoder_learning_rate",
       "hasValue": "3e-4",
       "type": "float",
-      "searchSpace": "[5e-4, 5e-6]"
+      "searchSpace": "[5e-4, 5e-6]",
+      "anchor": "learning rates of 5 · 10−5 and 3 · 10−4 for the encoder and decoder, respectively.",
+      "context": "During training, we use the AdamW optimizer [23] with default settings and learning rates of 5 · 10−5 and 3 · 10−4 for the encoder and decoder, respectively.\n\nThen, using these ranges, we initialize each hyperparameter randomly over 20 experiments and select the best value."
     },
     {
       "id": "radar:hparam/focal-gamma",
       "type": "MLS_HyperParameter",
       "name": "focal_loss_gamma",
       "hasValue": "2",
-      "type": "float"
+      "type": "float",
+      "anchor": "We use focal loss with focusing parameter γ = 2 as described in Section 3.",
+      "context": "We use focal loss with focusing parameter γ = 2 as described in Section 3. Focal loss depends on cross-entropy with label smoothing of 0.1."
     },
     {
       "id": "radar:hparam/label-smoothing",
       "type": "MLS_HyperParameter",
       "name": "label_smoothing",
       "hasValue": "0.1",
-      "type": "float"
+      "type": "float",
+      "anchor": "Focal loss depends on cross-entropy with label smoothing of 0.1.",
+      "context": "We use focal loss with focusing parameter γ = 2 as described in Section 3. Focal loss depends on cross-entropy with label smoothing of 0.1."
     },
     {
       "id": "radar:hparam/batch-size",
       "type": "MLS_HyperParameter",
       "name": "batch_size",
       "hasValue": "32",
-      "type": "integer"
+      "type": "integer",
+      "anchor": "gradient accumulation over 2 batches (32 examples each).",
+      "context": "We use teacher forcing [38] and gradient accumulation over 2 batches (32 examples each). For reproducibility, we use a fixed random seed."
     },
 
     {
@@ -329,7 +397,9 @@
       "packageName": "PyTorch",
       "version": "",
       "type": "ml-framework",
-      "isOptional": false
+      "isOptional": false,
+      "anchor": "The experiments were implemented in PyTorch",
+      "context": "The experiments were implemented in PyTorch and run on an NVIDIA A100-SXM4-40GB GPU."
     },
     {
       "id": "radar:dep/transformers",
@@ -337,7 +407,9 @@
       "packageName": "Transformers",
       "version": "",
       "type": "nlp-library",
-      "isOptional": false
+      "isOptional": false,
+      "anchor": "",
+      "context": ""
     },
     {
       "id": "radar:dep/wandb",
@@ -345,7 +417,9 @@
       "packageName": "wandb",
       "version": "",
       "type": "experiment-tracking",
-      "isOptional": true
+      "isOptional": true,
+      "anchor": "using wandb [5] as follows.",
+      "context": "The hyperparameter values like learning rates, batch size, focusing parameter, and label smoothing are selected per dataset based on the validation sets using wandb [5] as follows."
     },
 
     {
@@ -353,7 +427,9 @@
       "type": "Environment",
       "name": "NVIDIA A100-SXM4-40GB GPU environment",
       "description": "Training environment for RADAr experiments.",
-      "hardwareSpecs": "NVIDIA A100-SXM4-40GB GPU"
+      "hardwareSpecs": "NVIDIA A100-SXM4-40GB GPU",
+      "anchor": "NVIDIA A100-SXM4-40GB GPU",
+      "context": "The experiments were implemented in PyTorch and run on an NVIDIA A100-SXM4-40GB GPU."
     },
 
     {
@@ -372,7 +448,9 @@
         "radar:hparam/label-smoothing",
         "radar:hparam/batch-size"
       ],
-      "executes": "radar:impl/main"
+      "executes": "radar:impl/main",
+      "anchor": "Using the WOS dataset, we conducted pre-experiments",
+      "context": "Using the WOS dataset, we conducted pre-experiments regarding the number of decoder layers and the features of its transformer blocks [36]. We observe that the optimal choice is when the decoder has two decoder layers."
     },
     {
       "id": "radar:exp/nyt",
@@ -390,7 +468,9 @@
         "radar:hparam/label-smoothing",
         "radar:hparam/batch-size"
       ],
-      "executes": "radar:impl/main"
+      "executes": "radar:impl/main",
+      "anchor": "The NYT and RCV1-V2 datasets have eight-level and four-level hierarchies, respectively.",
+      "context": "The NYT and RCV1-V2 datasets have eight-level and four-level hierarchies, respectively. The RCV1-V2 dataset has the largest test set compared to the others."
     },
     {
       "id": "radar:exp/rcv1",
@@ -408,7 +488,9 @@
         "radar:hparam/label-smoothing",
         "radar:hparam/batch-size"
       ],
-      "executes": "radar:impl/main"
+      "executes": "radar:impl/main",
+      "anchor": "The RCV1-V2 dataset has the largest test set compared to the others.",
+      "context": "The NYT and RCV1-V2 datasets have eight-level and four-level hierarchies, respectively. The RCV1-V2 dataset has the largest test set compared to the others."
     },
 
     {
@@ -424,7 +506,9 @@
         "radar:hparam/focal-gamma",
         "radar:hparam/label-smoothing",
         "radar:hparam/batch-size"
-      ]
+      ],
+      "anchor": "With these settings, the model took 29, 30, and 40 training epochs on the WOS, NYT, and RCV1-V2 datasets, respectively.",
+      "context": "With these settings, the model took 29, 30, and 40 training epochs on the WOS, NYT, and RCV1-V2 datasets, respectively. With a patience of 10, the model saturates at 23 epochs on average."
     },
     {
       "id": "radar:trainrun/nyt",
@@ -439,7 +523,9 @@
         "radar:hparam/focal-gamma",
         "radar:hparam/label-smoothing",
         "radar:hparam/batch-size"
-      ]
+      ],
+      "anchor": "With these settings, the model took 29, 30, and 40 training epochs on the WOS, NYT, and RCV1-V2 datasets, respectively.",
+      "context": "With these settings, the model took 29, 30, and 40 training epochs on the WOS, NYT, and RCV1-V2 datasets, respectively."
     },
     {
       "id": "radar:trainrun/rcv1",
@@ -454,7 +540,9 @@
         "radar:hparam/focal-gamma",
         "radar:hparam/label-smoothing",
         "radar:hparam/batch-size"
-      ]
+      ],
+      "anchor": "With these settings, the model took 29, 30, and 40 training epochs on the WOS, NYT, and RCV1-V2 datasets, respectively.",
+      "context": "With these settings, the model took 29, 30, and 40 training epochs on the WOS, NYT, and RCV1-V2 datasets, respectively."
     },
 
     {
@@ -464,7 +552,9 @@
       "split": "test",
       "prov-executedBy": "radar:impl/main",
       "evaluates": "radar:model/radar-roberta-base",
-      "prov-generated": "radar:pred/wos"
+      "prov-generated": "radar:pred/wos",
+      "anchor": "Table 3 shows Micro-F1 and Macro-F1 on three datasets.",
+      "context": "Table 3 shows Micro-F1 and Macro-F1 on three datasets. We compare our model to the models from the literature (see Section 2)."
     },
     {
       "id": "radar:evalrun/nyt",
@@ -473,7 +563,9 @@
       "split": "test",
       "prov-executedBy": "radar:impl/main",
       "evaluates": "radar:model/radar-roberta-base",
-      "prov-generated": "radar:pred/nyt"
+      "prov-generated": "radar:pred/nyt",
+      "anchor": "Table 3 shows Micro-F1 and Macro-F1 on three datasets.",
+      "context": "Table 3 shows Micro-F1 and Macro-F1 on three datasets. We compare our model to the models from the literature (see Section 2)."
     },
     {
       "id": "radar:evalrun/rcv1",
@@ -482,7 +574,9 @@
       "split": "test",
       "prov-executedBy": "radar:impl/main",
       "evaluates": "radar:model/radar-roberta-base",
-      "prov-generated": "radar:pred/rcv1"
+      "prov-generated": "radar:pred/rcv1",
+      "anchor": "Table 3 shows Micro-F1 and Macro-F1 on three datasets.",
+      "context": "Table 3 shows Micro-F1 and Macro-F1 on three datasets. We compare our model to the models from the literature (see Section 2)."
     },
 
     {
@@ -491,7 +585,9 @@
       "numInstances": null,
       "onDatasetSplit": "test",
       "format": "internal label token format",
-      "artifactsLocation": ""
+      "artifactsLocation": "",
+      "anchor": "",
+      "context": ""
     },
     {
       "id": "radar:pred/nyt",
@@ -499,7 +595,9 @@
       "numInstances": null,
       "onDatasetSplit": "test",
       "format": "internal label token format",
-      "artifactsLocation": ""
+      "artifactsLocation": "",
+      "anchor": "",
+      "context": ""
     },
     {
       "id": "radar:pred/rcv1",
@@ -507,7 +605,9 @@
       "numInstances": null,
       "onDatasetSplit": "test",
       "format": "internal label token format",
-      "artifactsLocation": ""
+      "artifactsLocation": "",
+      "anchor": "",
+      "context": ""
     }
   ]
 }
