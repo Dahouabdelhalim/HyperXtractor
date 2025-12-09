@@ -8,16 +8,8 @@
       "doi": "10.3233/FAIA240661",
       "url": "https://doi.org/10.3233/FAIA240661",
       "publicationVenue": "ECAI 2024",
-      "hasAuthor": [
-        "radar:person/younes",
-        "radar:person/galke",
-        "radar:person/scherp"
-      ],
-      "containsExperiment": [
-        "radar:exp/wos",
-        "radar:exp/nyt",
-        "radar:exp/rcv1"
-      ],
+      "hasAuthor": ["radar:person/younes", "radar:person/galke", "radar:person/scherp"],
+      "containsExperiment": ["radar:exp/wos", "radar:exp/nyt", "radar:exp/rcv1"],
       "implements": "radar:repo",
       "anchor": "RADAr: A Transformer-based Autoregressive Decoder Architecture for Hierarchical Text Classification",
       "context": "# RADAr: A Transformer-based Autoregressive Decoder Architecture for Hierarchical Text Classification\n\n**Yousef Younes**<sup>a,d,*</sup>, **Lukas Galke**<sup>b,c</sup> and **Ansgar Scherp**<sup>d</sup>"
@@ -28,10 +20,7 @@
       "type": "Person",
       "name": "Yousef Younes",
       "email": "yousef.younes@gesis.org",
-      "affiliation": [
-        "radar:org/gesis",
-        "radar:org/ulm"
-      ],
+      "affiliation": ["radar:org/gesis", "radar:org/ulm"],
       "anchor": "Yousef Younes",
       "context": "**Yousef Younes**<sup>a,d,*</sup>, **Lukas Galke**<sup>b,c</sup> and **Ansgar Scherp**<sup>d</sup>\n...\n* Corresponding Author. Email: yousef.younes@gesis.org"
     },
@@ -39,10 +28,7 @@
       "id": "radar:person/galke",
       "type": "Person",
       "name": "Lukas Galke",
-      "affiliation": [
-        "radar:org/mpp",
-        "radar:org/sdu"
-      ],
+      "affiliation": [ "radar:org/mpp","radar:org/sdu"],
       "anchor": "Lukas Galke",
       "context": "**Yousef Younes**<sup>a,d,*</sup>, **Lukas Galke**<sup>b,c</sup> and **Ansgar Scherp**<sup>d</sup>"
     },
@@ -50,9 +36,7 @@
       "id": "radar:person/scherp",
       "type": "Person",
       "name": "Ansgar Scherp",
-      "affiliation": [
-        "radar:org/ulm"
-      ],
+      "affiliation": [ "radar:org/ulm"],
       "anchor": "Ansgar Scherp",
       "context": "**Yousef Younes**<sup>a,d,*</sup>, **Lukas Galke**<sup>b,c</sup> and **Ansgar Scherp**<sup>d</sup>"
     },
@@ -190,10 +174,7 @@
       "language": "en",
       "modality": "text",
       "derivedFrom": "radar:datasource/wos",
-      "processedThrough": [
-        "radar:preproc/labels",
-        "radar:preproc/label-tokenization"
-      ],
+      "processedThrough": ["radar:preproc/labels", "radar:preproc/label-tokenization"],
       "anchor": "The WOS dataset has a hierarchy of two levels.",
       "context": "The WOS dataset has a hierarchy of two levels. It has exactly two labels per sample, one child and its parent, which makes it easier than the other two datasets.\n\nTable 2 shows statistics about these datasets."
     },
@@ -207,10 +188,7 @@
       "language": "en",
       "modality": "text",
       "derivedFrom": "radar:datasource/nyt",
-      "processedThrough": [
-        "radar:preproc/labels",
-        "radar:preproc/label-tokenization"
-      ],
+      "processedThrough": ["radar:preproc/labels", "radar:preproc/label-tokenization"],
       "anchor": "NY-Times (NYT) [29]",
       "context": "The NYT and RCV1-V2 datasets have eight-level and four-level hierarchies, respectively.\n\nTable 2. Statistics of the datasets. ... NYT ... |H| 166 ..."
     },
@@ -224,10 +202,7 @@
       "language": "en",
       "modality": "text",
       "derivedFrom": "radar:datasource/rcv1",
-      "processedThrough": [
-        "radar:preproc/labels",
-        "radar:preproc/label-tokenization"
-      ],
+      "processedThrough": ["radar:preproc/labels", "radar:preproc/label-tokenization"],
       "anchor": "RCV1-V2 dataset",
       "context": "The NYT and RCV1-V2 datasets have eight-level and four-level hierarchies, respectively. The RCV1-V2 dataset has the largest test set compared to the others.\n\nTable 2. Statistics of the datasets. ... RCV1-V2 ..."
     },
@@ -248,26 +223,11 @@
       "description": "RADAr model with RoBERTa-base encoder and 2-layer transformer decoder over symbolic label sequences.",
       "architecture": "Encoder–decoder (RoBERTa-base encoder + 2-layer autoregressive transformer decoder)",
       "parameters": "decoder: 2 layers, 8 heads, dropout 0.2",
-      "trainedOn": [
-        "radar:dataset/wos",
-        "radar:dataset/nyt",
-        "radar:dataset/rcv1"
+      "trainedOn": ["radar:dataset/wos", "radar:dataset/nyt", "radar:dataset/rcv1"
       ],
-      "evaluatedOn": [
-        "radar:dataset/wos",
-        "radar:dataset/nyt",
-        "radar:dataset/rcv1"
-      ],
-      "achieves": [
-        "radar:eval/wos",
-        "radar:eval/nyt",
-        "radar:eval/rcv1"
-      ],
-      "prov-producedBy": [
-        "radar:trainrun/wos",
-        "radar:trainrun/nyt",
-        "radar:trainrun/rcv1"
-      ],
+      "evaluatedOn": ["radar:dataset/wos", "radar:dataset/nyt","radar:dataset/rcv1"],
+      "achieves": ["radar:eval/wos", "radar:eval/nyt", "radar:eval/rcv1"],
+      "prov-producedBy": ["radar:trainrun/wos", "radar:trainrun/nyt", "radar:trainrun/rcv1"],
       "anchor": "Any encoder-only model can be used as the encoder of RADAr, but we choose to use RoBERTa base.",
       "context": "RADAr is a transformer-based encoder-decoder model. Any encoder-only model can be used as the encoder of RADAr, but we choose to use RoBERTa base. The decoder is an autoregressive transformer-based model trained from scratch to generate a sequence of labels.\n\nUsing the WOS dataset, we conducted pre-experiments regarding the number of decoder layers and the features of its transformer blocks [36]. We observe that the optimal choice is when the decoder has two decoder layers. Each layer has a transformer block with eight attention heads, a feedforward network and uses a dropout of 0.2."
     },
@@ -334,11 +294,7 @@
       "framework": "PyTorch",
       "executionCommand": "train_radar.py with config for WOS/NYT/RCV1-V2",
       "runsIn": "radar:env/a100",
-      "requires": [
-        "radar:dep/pytorch",
-        "radar:dep/transformers",
-        "radar:dep/wandb"
-      ],
+      "requires": ["radar:dep/pytorch", "radar:dep/transformers", "radar:dep/wandb"],
       "anchor": "The experiments were implemented in PyTorch and run on an NVIDIA A100-SXM4-40GB GPU.",
       "context": "The experiments were implemented in PyTorch and run on an NVIDIA A100-SXM4-40GB GPU.\n\nWe use the AdamW optimizer [23] with default settings and learning rates of 5 · 10−5 and 3 · 10−4 for the encoder and decoder, respectively."
     },
@@ -441,13 +397,7 @@
       "realizes": "radar:task/htc-wos",
       "usesData": "radar:dataset/wos",
       "produces": "radar:model/radar-roberta-base",
-      "usesParameters": [
-        "radar:hparam/encoder-lr",
-        "radar:hparam/decoder-lr",
-        "radar:hparam/focal-gamma",
-        "radar:hparam/label-smoothing",
-        "radar:hparam/batch-size"
-      ],
+      "usesParameters": [ "radar:hparam/encoder-lr", "radar:hparam/decoder-lr", "radar:hparam/focal-gamma", "radar:hparam/label-smoothing", "radar:hparam/batch-size"],
       "executes": "radar:impl/main",
       "anchor": "Using the WOS dataset, we conducted pre-experiments",
       "context": "Using the WOS dataset, we conducted pre-experiments regarding the number of decoder layers and the features of its transformer blocks [36]. We observe that the optimal choice is when the decoder has two decoder layers."
@@ -461,13 +411,7 @@
       "realizes": "radar:task/htc-nyt",
       "usesData": "radar:dataset/nyt",
       "produces": "radar:model/radar-roberta-base",
-      "usesParameters": [
-        "radar:hparam/encoder-lr",
-        "radar:hparam/decoder-lr",
-        "radar:hparam/focal-gamma",
-        "radar:hparam/label-smoothing",
-        "radar:hparam/batch-size"
-      ],
+      "usesParameters": [ "radar:hparam/encoder-lr", "radar:hparam/decoder-lr", "radar:hparam/focal-gamma", "radar:hparam/label-smoothing","radar:hparam/batch-size"],
       "executes": "radar:impl/main",
       "anchor": "The NYT and RCV1-V2 datasets have eight-level and four-level hierarchies, respectively.",
       "context": "The NYT and RCV1-V2 datasets have eight-level and four-level hierarchies, respectively. The RCV1-V2 dataset has the largest test set compared to the others."
@@ -481,13 +425,7 @@
       "realizes": "radar:task/htc-rcv1",
       "usesData": "radar:dataset/rcv1",
       "produces": "radar:model/radar-roberta-base",
-      "usesParameters": [
-        "radar:hparam/encoder-lr",
-        "radar:hparam/decoder-lr",
-        "radar:hparam/focal-gamma",
-        "radar:hparam/label-smoothing",
-        "radar:hparam/batch-size"
-      ],
+      "usesParameters": ["radar:hparam/encoder-lr", "radar:hparam/decoder-lr", "radar:hparam/focal-gamma", "radar:hparam/label-smoothing", "radar:hparam/batch-size"],
       "executes": "radar:impl/main",
       "anchor": "The RCV1-V2 dataset has the largest test set compared to the others.",
       "context": "The NYT and RCV1-V2 datasets have eight-level and four-level hierarchies, respectively. The RCV1-V2 dataset has the largest test set compared to the others."
@@ -500,13 +438,7 @@
       "status": "completed",
       "prov-executedBy": "radar:impl/main",
       "prov-uses": "radar:dataset/wos",
-      "withParameters": [
-        "radar:hparam/encoder-lr",
-        "radar:hparam/decoder-lr",
-        "radar:hparam/focal-gamma",
-        "radar:hparam/label-smoothing",
-        "radar:hparam/batch-size"
-      ],
+      "withParameters": [ "radar:hparam/encoder-lr", "radar:hparam/decoder-lr", "radar:hparam/focal-gamma", "radar:hparam/label-smoothing", "radar:hparam/batch-size"],
       "anchor": "With these settings, the model took 29, 30, and 40 training epochs on the WOS, NYT, and RCV1-V2 datasets, respectively.",
       "context": "With these settings, the model took 29, 30, and 40 training epochs on the WOS, NYT, and RCV1-V2 datasets, respectively. With a patience of 10, the model saturates at 23 epochs on average."
     },
@@ -517,13 +449,7 @@
       "status": "completed",
       "prov-executedBy": "radar:impl/main",
       "prov-uses": "radar:dataset/nyt",
-      "withParameters": [
-        "radar:hparam/encoder-lr",
-        "radar:hparam/decoder-lr",
-        "radar:hparam/focal-gamma",
-        "radar:hparam/label-smoothing",
-        "radar:hparam/batch-size"
-      ],
+      "withParameters": [ "radar:hparam/encoder-lr", "radar:hparam/decoder-lr", "radar:hparam/focal-gamma", "radar:hparam/label-smoothing", "radar:hparam/batch-size" ],
       "anchor": "With these settings, the model took 29, 30, and 40 training epochs on the WOS, NYT, and RCV1-V2 datasets, respectively.",
       "context": "With these settings, the model took 29, 30, and 40 training epochs on the WOS, NYT, and RCV1-V2 datasets, respectively."
     },
@@ -534,13 +460,7 @@
       "status": "completed",
       "prov-executedBy": "radar:impl/main",
       "prov-uses": "radar:dataset/rcv1",
-      "withParameters": [
-        "radar:hparam/encoder-lr",
-        "radar:hparam/decoder-lr",
-        "radar:hparam/focal-gamma",
-        "radar:hparam/label-smoothing",
-        "radar:hparam/batch-size"
-      ],
+      "withParameters": [ "radar:hparam/encoder-lr", "radar:hparam/decoder-lr", "radar:hparam/focal-gamma", "radar:hparam/label-smoothing", "radar:hparam/batch-size"],
       "anchor": "With these settings, the model took 29, 30, and 40 training epochs on the WOS, NYT, and RCV1-V2 datasets, respectively.",
       "context": "With these settings, the model took 29, 30, and 40 training epochs on the WOS, NYT, and RCV1-V2 datasets, respectively."
     },
@@ -611,3 +531,4 @@
     }
   ]
 }
+
