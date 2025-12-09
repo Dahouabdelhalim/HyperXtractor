@@ -1,0 +1,513 @@
+{
+  "@graph": [
+    {
+      "id": "radar:study",
+      "type": "Study",
+      "title": "RADAr: A Transformer-based Autoregressive Decoder Architecture for Hierarchical Text Classification",
+      "issued": "2024",
+      "doi": "10.3233/FAIA240661",
+      "url": "https://doi.org/10.3233/FAIA240661",
+      "publicationVenue": "ECAI 2024",
+      "hasAuthor": [
+        "radar:person/younes",
+        "radar:person/galke",
+        "radar:person/scherp"
+      ],
+      "containsExperiment": [
+        "radar:exp/wos",
+        "radar:exp/nyt",
+        "radar:exp/rcv1"
+      ],
+      "implements": "radar:repo"
+    },
+
+    {
+      "id": "radar:person/younes",
+      "type": "Person",
+      "name": "Yousef Younes",
+      "email": "yousef.younes@gesis.org",
+      "affiliation": [
+        "radar:org/gesis",
+        "radar:org/ulm"
+      ]
+    },
+    {
+      "id": "radar:person/galke",
+      "type": "Person",
+      "name": "Lukas Galke",
+      "affiliation": [
+        "radar:org/mpp",
+        "radar:org/sdu"
+      ]
+    },
+    {
+      "id": "radar:person/scherp",
+      "type": "Person",
+      "name": "Ansgar Scherp",
+      "affiliation": [
+        "radar:org/ulm"
+      ]
+    },
+
+    {
+      "id": "radar:org/gesis",
+      "type": "Organization",
+      "name": "GESIS – Leibniz-Institute for the Social Sciences"
+    },
+    {
+      "id": "radar:org/mpp",
+      "type": "Organization",
+      "name": "Max Planck Institute for Psycholinguistics"
+    },
+    {
+      "id": "radar:org/sdu",
+      "type": "Organization",
+      "name": "University of Southern Denmark"
+    },
+    {
+      "id": "radar:org/ulm",
+      "type": "Organization",
+      "name": "University of Ulm"
+    },
+
+    {
+      "id": "radar:task/htc",
+      "type": "MLS_Task",
+      "name": "Hierarchical Text Classification",
+      "description": "Assigning labels from a semantic hierarchy to text instances.",
+      "category": "text-classification; hierarchical; multi-label",
+      "metrics": "Micro-F1, Macro-F1"
+    },
+    {
+      "id": "radar:task/htc-wos",
+      "type": "MLS_Task",
+      "name": "HTC on WOS",
+      "description": "Hierarchical text classification on Web-of-Science (2-level hierarchy).",
+      "category": "hierarchical text classification",
+      "metrics": "Micro-F1, Macro-F1",
+      "benchmarkedOn": "radar:dataset/wos",
+      "subTaskOf": "radar:task/htc"
+    },
+    {
+      "id": "radar:task/htc-nyt",
+      "type": "MLS_Task",
+      "name": "HTC on NYT",
+      "description": "Hierarchical text classification on NY-Times (8-level hierarchy).",
+      "category": "hierarchical text classification",
+      "metrics": "Micro-F1, Macro-F1",
+      "benchmarkedOn": "radar:dataset/nyt",
+      "subTaskOf": "radar:task/htc"
+    },
+    {
+      "id": "radar:task/htc-rcv1",
+      "type": "MLS_Task",
+      "name": "HTC on RCV1-V2",
+      "description": "Hierarchical text classification on RCV1-V2 (4-level hierarchy).",
+      "category": "hierarchical text classification",
+      "metrics": "Micro-F1, Macro-F1",
+      "benchmarkedOn": "radar:dataset/rcv1",
+      "subTaskOf": "radar:task/htc"
+    },
+
+    {
+      "id": "radar:datasource/wos",
+      "type": "DataSource",
+      "name": "Web-of-Science classification corpus",
+      "type_source": "scientific articles"
+    },
+    {
+      "id": "radar:datasource/nyt",
+      "type": "DataSource",
+      "name": "NY Times article corpus",
+      "type_source": "news articles"
+    },
+    {
+      "id": "radar:datasource/rcv1",
+      "type": "DataSource",
+      "name": "Reuters Corpus Volume 1 (RCV1-V2)",
+      "type_source": "newswire"
+    },
+
+    {
+      "id": "radar:preproc/labels",
+      "type": "DataProcessingStep",
+      "description": "Map human-readable labels to symbolic labels [a_i], insert <unk> to separate hierarchy levels, and reverse order from children to parents.",
+      "transformationType": "label_preprocessing",
+      "order": 1,
+      "codeReference": "radar:repo"
+    },
+    {
+      "id": "radar:preproc/label-tokenization",
+      "type": "DataProcessingStep",
+      "description": "Tokenize symbolic labels into fixed-size sequences with <s>, </s>, <pad>, and <unk> tokens.",
+      "transformationType": "label_tokenization",
+      "parameters": "sequence lengths: 6 (WOS), 48 (NYT), 22 (RCV1-V2)",
+      "order": 2,
+      "codeReference": "radar:repo"
+    },
+
+    {
+      "id": "radar:dataset/wos",
+      "type": "MLS_Dataset",
+      "name": "WOS",
+      "description": "Web-of-Science HTC dataset with 2-level label hierarchy and exactly two labels per sample (parent and child).",
+      "numInstances": 30070,
+      "numClasses": 141,
+      "language": "en",
+      "modality": "text",
+      "derivedFrom": "radar:datasource/wos",
+      "processedThrough": [
+        "radar:preproc/labels",
+        "radar:preproc/label-tokenization"
+      ]
+    },
+    {
+      "id": "radar:dataset/nyt",
+      "type": "MLS_Dataset",
+      "name": "NYT",
+      "description": "NY-Times HTC dataset with 8-level label hierarchy.",
+      "numInstances": 23345,
+      "numClasses": 166,
+      "language": "en",
+      "modality": "text",
+      "derivedFrom": "radar:datasource/nyt",
+      "processedThrough": [
+        "radar:preproc/labels",
+        "radar:preproc/label-tokenization"
+      ]
+    },
+    {
+      "id": "radar:dataset/rcv1",
+      "type": "MLS_Dataset",
+      "name": "RCV1-V2",
+      "description": "Reuters-based HTC dataset with 4-level label hierarchy and large test set.",
+      "numInstances": 20833,
+      "numClasses": 103,
+      "language": "en",
+      "modality": "text",
+      "derivedFrom": "radar:datasource/rcv1",
+      "processedThrough": [
+        "radar:preproc/labels",
+        "radar:preproc/label-tokenization"
+      ]
+    },
+
+    {
+      "id": "radar:method/radar",
+      "type": "Method",
+      "name": "RADAr",
+      "description": "Sequence-to-sequence architecture using RoBERTa encoder and autoregressive decoder for hierarchical text classification.",
+      "version": "1.0"
+    },
+    {
+      "id": "radar:model/radar-roberta-base",
+      "type": "MLS_Model",
+      "name": "RADAr (RoBERTa-base encoder)",
+      "description": "RADAr model with RoBERTa-base encoder and 2-layer transformer decoder over symbolic label sequences.",
+      "architecture": "Encoder–decoder (RoBERTa-base encoder + 2-layer autoregressive transformer decoder)",
+      "parameters": "decoder: 2 layers, 8 heads, dropout 0.2",
+      "trainedOn": [
+        "radar:dataset/wos",
+        "radar:dataset/nyt",
+        "radar:dataset/rcv1"
+      ],
+      "evaluatedOn": [
+        "radar:dataset/wos",
+        "radar:dataset/nyt",
+        "radar:dataset/rcv1"
+      ],
+      "achieves": [
+        "radar:eval/wos",
+        "radar:eval/nyt",
+        "radar:eval/rcv1"
+      ],
+      "prov-producedBy": [
+        "radar:trainrun/wos",
+        "radar:trainrun/nyt",
+        "radar:trainrun/rcv1"
+      ]
+    },
+
+    {
+      "id": "radar:algo/decoder",
+      "type": "MLS_Algorithm",
+      "name": "Autoregressive label-sequence decoder with greedy search",
+      "description": "Autoregressive transformer decoder over symbolic label tokens using greedy search until end-of-sequence token."
+    },
+    {
+      "id": "radar:algo/focal-loss",
+      "type": "MLS_Algorithm",
+      "name": "Batch-level focal loss optimization",
+      "description": "Batch-level cross-entropy scaled with focal loss (γ=2) to emphasize hard batches with rare labels."
+    },
+
+    {
+      "id": "radar:eval/wos",
+      "type": "MLS_Eval",
+      "measure": "Micro-F1, Macro-F1 on WOS",
+      "description": "RADAr improves Macro-F1 over encoder-only baselines on WOS."
+    },
+    {
+      "id": "radar:eval/nyt",
+      "type": "MLS_Eval",
+      "measure": "Micro-F1, Macro-F1 on NYT",
+      "description": "RADAr improves Macro-F1 by about 3% over encoder-only baselines on NYT."
+    },
+    {
+      "id": "radar:eval/rcv1",
+      "type": "MLS_Eval",
+      "measure": "Micro-F1, Macro-F1 on RCV1-V2",
+      "description": "RADAr matches HBGL on Micro-F1 and improves Macro-F1 over encoder-only baselines on RCV1-V2."
+    },
+
+    {
+      "id": "radar:repo",
+      "type": "SoftwareRepository",
+      "name": "RADAr",
+      "url": "https://github.com/yousef-younes/RADAr",
+      "programmingLanguage": "Python",
+      "license": "",
+      "documentationUrl": "https://github.com/yousef-younes/RADAr"
+    },
+
+    {
+      "id": "radar:impl/main",
+      "type": "MLS_Implementation",
+      "identifier": "radar-ecai2024",
+      "codeRepository": "https://github.com/yousef-younes/RADAr",
+      "framework": "PyTorch",
+      "executionCommand": "train_radar.py with config for WOS/NYT/RCV1-V2",
+      "runsIn": "radar:env/a100",
+      "requires": [
+        "radar:dep/pytorch",
+        "radar:dep/transformers",
+        "radar:dep/wandb"
+      ]
+    },
+
+    {
+      "id": "radar:hparam/encoder-lr",
+      "type": "MLS_HyperParameter",
+      "name": "encoder_learning_rate",
+      "hasValue": "5e-5",
+      "type": "float",
+      "searchSpace": "[5e-4, 5e-6]"
+    },
+    {
+      "id": "radar:hparam/decoder-lr",
+      "type": "MLS_HyperParameter",
+      "name": "decoder_learning_rate",
+      "hasValue": "3e-4",
+      "type": "float",
+      "searchSpace": "[5e-4, 5e-6]"
+    },
+    {
+      "id": "radar:hparam/focal-gamma",
+      "type": "MLS_HyperParameter",
+      "name": "focal_loss_gamma",
+      "hasValue": "2",
+      "type": "float"
+    },
+    {
+      "id": "radar:hparam/label-smoothing",
+      "type": "MLS_HyperParameter",
+      "name": "label_smoothing",
+      "hasValue": "0.1",
+      "type": "float"
+    },
+    {
+      "id": "radar:hparam/batch-size",
+      "type": "MLS_HyperParameter",
+      "name": "batch_size",
+      "hasValue": "32",
+      "type": "integer"
+    },
+
+    {
+      "id": "radar:dep/pytorch",
+      "type": "Dependency",
+      "packageName": "PyTorch",
+      "version": "",
+      "type": "ml-framework",
+      "isOptional": false
+    },
+    {
+      "id": "radar:dep/transformers",
+      "type": "Dependency",
+      "packageName": "Transformers",
+      "version": "",
+      "type": "nlp-library",
+      "isOptional": false
+    },
+    {
+      "id": "radar:dep/wandb",
+      "type": "Dependency",
+      "packageName": "wandb",
+      "version": "",
+      "type": "experiment-tracking",
+      "isOptional": true
+    },
+
+    {
+      "id": "radar:env/a100",
+      "type": "Environment",
+      "name": "NVIDIA A100-SXM4-40GB GPU environment",
+      "description": "Training environment for RADAr experiments.",
+      "hardwareSpecs": "NVIDIA A100-SXM4-40GB GPU"
+    },
+
+    {
+      "id": "radar:exp/wos",
+      "type": "Experiment",
+      "identifier": "radar-wos",
+      "description": "RADAr on WOS dataset.",
+      "objective": "Evaluate RADAr on a 2-level HTC dataset with exactly two labels per sample.",
+      "realizes": "radar:task/htc-wos",
+      "usesData": "radar:dataset/wos",
+      "produces": "radar:model/radar-roberta-base",
+      "usesParameters": [
+        "radar:hparam/encoder-lr",
+        "radar:hparam/decoder-lr",
+        "radar:hparam/focal-gamma",
+        "radar:hparam/label-smoothing",
+        "radar:hparam/batch-size"
+      ],
+      "executes": "radar:impl/main"
+    },
+    {
+      "id": "radar:exp/nyt",
+      "type": "Experiment",
+      "identifier": "radar-nyt",
+      "description": "RADAr on NYT dataset.",
+      "objective": "Evaluate RADAr on an 8-level HTC dataset.",
+      "realizes": "radar:task/htc-nyt",
+      "usesData": "radar:dataset/nyt",
+      "produces": "radar:model/radar-roberta-base",
+      "usesParameters": [
+        "radar:hparam/encoder-lr",
+        "radar:hparam/decoder-lr",
+        "radar:hparam/focal-gamma",
+        "radar:hparam/label-smoothing",
+        "radar:hparam/batch-size"
+      ],
+      "executes": "radar:impl/main"
+    },
+    {
+      "id": "radar:exp/rcv1",
+      "type": "Experiment",
+      "identifier": "radar-rcv1",
+      "description": "RADAr on RCV1-V2 dataset.",
+      "objective": "Evaluate RADAr on a 4-level HTC dataset with large test set.",
+      "realizes": "radar:task/htc-rcv1",
+      "usesData": "radar:dataset/rcv1",
+      "produces": "radar:model/radar-roberta-base",
+      "usesParameters": [
+        "radar:hparam/encoder-lr",
+        "radar:hparam/decoder-lr",
+        "radar:hparam/focal-gamma",
+        "radar:hparam/label-smoothing",
+        "radar:hparam/batch-size"
+      ],
+      "executes": "radar:impl/main"
+    },
+
+    {
+      "id": "radar:trainrun/wos",
+      "type": "TrainingRun",
+      "runId": "radar-wos-train",
+      "status": "completed",
+      "prov-executedBy": "radar:impl/main",
+      "prov-uses": "radar:dataset/wos",
+      "withParameters": [
+        "radar:hparam/encoder-lr",
+        "radar:hparam/decoder-lr",
+        "radar:hparam/focal-gamma",
+        "radar:hparam/label-smoothing",
+        "radar:hparam/batch-size"
+      ]
+    },
+    {
+      "id": "radar:trainrun/nyt",
+      "type": "TrainingRun",
+      "runId": "radar-nyt-train",
+      "status": "completed",
+      "prov-executedBy": "radar:impl/main",
+      "prov-uses": "radar:dataset/nyt",
+      "withParameters": [
+        "radar:hparam/encoder-lr",
+        "radar:hparam/decoder-lr",
+        "radar:hparam/focal-gamma",
+        "radar:hparam/label-smoothing",
+        "radar:hparam/batch-size"
+      ]
+    },
+    {
+      "id": "radar:trainrun/rcv1",
+      "type": "TrainingRun",
+      "runId": "radar-rcv1-train",
+      "status": "completed",
+      "prov-executedBy": "radar:impl/main",
+      "prov-uses": "radar:dataset/rcv1",
+      "withParameters": [
+        "radar:hparam/encoder-lr",
+        "radar:hparam/decoder-lr",
+        "radar:hparam/focal-gamma",
+        "radar:hparam/label-smoothing",
+        "radar:hparam/batch-size"
+      ]
+    },
+
+    {
+      "id": "radar:evalrun/wos",
+      "type": "EvaluationRun",
+      "runId": "radar-wos-eval",
+      "split": "test",
+      "prov-executedBy": "radar:impl/main",
+      "evaluates": "radar:model/radar-roberta-base",
+      "prov-generated": "radar:pred/wos"
+    },
+    {
+      "id": "radar:evalrun/nyt",
+      "type": "EvaluationRun",
+      "runId": "radar-nyt-eval",
+      "split": "test",
+      "prov-executedBy": "radar:impl/main",
+      "evaluates": "radar:model/radar-roberta-base",
+      "prov-generated": "radar:pred/nyt"
+    },
+    {
+      "id": "radar:evalrun/rcv1",
+      "type": "EvaluationRun",
+      "runId": "radar-rcv1-eval",
+      "split": "test",
+      "prov-executedBy": "radar:impl/main",
+      "evaluates": "radar:model/radar-roberta-base",
+      "prov-generated": "radar:pred/rcv1"
+    },
+
+    {
+      "id": "radar:pred/wos",
+      "type": "PredictionSet",
+      "numInstances": null,
+      "onDatasetSplit": "test",
+      "format": "internal label token format",
+      "artifactsLocation": ""
+    },
+    {
+      "id": "radar:pred/nyt",
+      "type": "PredictionSet",
+      "numInstances": null,
+      "onDatasetSplit": "test",
+      "format": "internal label token format",
+      "artifactsLocation": ""
+    },
+    {
+      "id": "radar:pred/rcv1",
+      "type": "PredictionSet",
+      "numInstances": null,
+      "onDatasetSplit": "test",
+      "format": "internal label token format",
+      "artifactsLocation": ""
+    }
+  ]
+}
