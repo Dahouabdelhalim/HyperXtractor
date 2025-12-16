@@ -322,6 +322,150 @@
         "end_word": 2953
       }
     },
+{
+    "@id": "_:hp_lr_scheduler",
+    "@type": "MLS_HyperParameter",
+    "mls:name": "Learning Rate Scheduler",
+    "mls:hasValue": "ReduceLROnPlateau",
+    "_provenance": {
+      "text": "ReduceLROnPlateau",
+      "context_left": "we use the",
+      "context_right": "scheduler [2] with patience",
+      "start_word": 2712,
+      "end_word": 2712
+    }
+  },
+  {
+    "@id": "_:hp_scheduler_patience",
+    "@type": "MLS_HyperParameter",
+    "mls:name": "LR Scheduler Patience",
+    "mls:hasValue": "3 epochs",
+    "_provenance": {
+      "text": "3",
+      "context_left": "with patience of",
+      "context_right": ". After each epoch,",
+      "start_word": 2714,
+      "end_word": 2714
+    }
+  },
+  {
+    "@id": "_:hp_lr_multiplier",
+    "@type": "MLS_HyperParameter",
+    "mls:name": "Learning Rate Multiplier",
+    "mls:hasValue": "0.1",
+    "_provenance": {
+      "text": "0.1",
+      "context_left": "by a factor of",
+      "context_right": "for both the",
+      "start_word": 2721,
+      "end_word": 2721
+    }
+  },
+  {
+    "@id": "_:hp_enc_freeze_thr",
+    "@type": "MLS_HyperParameter",
+    "mls:name": "Encoder Freezing Threshold",
+    "mls:hasValue": "5 · 10^-7",
+    "_provenance": {
+      "text": "5 · 10^-7",
+      "context_left": "it is lower than",
+      "context_right": ". At that point,",
+      "start_word": 2727,
+      "end_word": 2729
+    }
+  },
+  {
+    "@id": "_:hp_training_patience",
+    "@type": "MLS_HyperParameter",
+    "mls:name": "Training Patience (Early Stopping)",
+    "mls:hasValue": "10 epochs",
+    "_provenance": {
+      "text": "10",
+      "context_left": "a patience of",
+      "context_right": ", so it stops",
+      "start_word": 2733,
+      "end_word": 2733
+    }
+  },
+  {
+    "@id": "_:hp_label_smoothing",
+    "@type": "MLS_HyperParameter",
+    "mls:name": "Label Smoothing",
+    "mls:hasValue": "0.1",
+    "_provenance": {
+      "text": "0.1",
+      "context_left": "with label smoothing of",
+      "context_right": ". We use teacher",
+      "start_word": 2956,
+      "end_word": 2956
+    }
+  },
+  {
+    "@id": "_:hp_grad_accum_batches",
+    "@type": "MLS_HyperParameter",
+    "mls:name": "Gradient Accumulation Batches",
+    "mls:hasValue": "2 batches",
+    "_provenance": {
+      "text": "2 batches",
+      "context_left": "accumulation over",
+      "context_right": "(32 examples each).",
+      "start_word": 2959,
+      "end_word": 2960
+    }
+  },
+  {
+    "@id": "_:hp_batch_size",
+    "@type": "MLS_HyperParameter",
+    "mls:name": "Batch Size",
+    "mls:hasValue": "32 examples",
+    "_provenance": {
+      "text": "32 examples",
+      "context_left": "batches (",
+      "context_right": "each). For reproducibility,",
+      "start_word": 2961,
+      "end_word": 2962
+    }
+  },
+  {
+    "@id": "_:hp_dec_layers",
+    "@type": "MLS_HyperParameter",
+    "mls:name": "Number of Decoder Layers",
+    "mls:hasValue": "2",
+    "_provenance": {
+      "text": "two decoder layers",
+      "context_left": "the decoder has",
+      "context_right": ". Each layer has",
+      "start_word": 2235,
+      "end_word": 2237
+    }
+  },
+  {
+    "@id": "_:hp_dec_heads",
+    "@type": "MLS_HyperParameter",
+    "mls:name": "Decoder Attention Heads",
+    "mls:hasValue": "8",
+    "_provenance": {
+      "text": "eight attention heads",
+      "context_left": "block with",
+      "context_right": ", a feedforward network",
+      "start_word": 2240,
+      "end_word": 2242
+    }
+  },
+  {
+    "@id": "_:hp_dec_dropout",
+    "@type": "MLS_HyperParameter",
+    "mls:name": "Decoder Dropout Rate",
+    "mls:hasValue": "0.2",
+    "_provenance": {
+      "text": "0.2",
+      "context_left": "uses a dropout of",
+      "context_right": ". Training and Testing",
+      "start_word": 2246,
+      "end_word": 2246
+    }
+  },
+
     {
       "@id": "_:eval_wos_micro",
       "@type": "MLS_Eval",
