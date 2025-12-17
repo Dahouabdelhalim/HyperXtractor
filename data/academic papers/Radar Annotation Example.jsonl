@@ -74,7 +74,7 @@
       "@type": "Person",
       "mls:name": "Lukas Galke",
       "mls:orcid": "https://orcid.org/0000-0001-6124-1092",
-      "mls:prov-affiliatedWith": "@id": "_:org_sdu" ,
+      "mls:prov-affiliatedWith": { "@id": "_:org_sdu" },
        "_provenance": {
         "text": "Lukas Galke",
         "context_left": "Yousef Younes a,d,* ,",
@@ -133,7 +133,7 @@
         "endWord": 40
       },
       "context": "Planck Institute for Psycholinguistics <sup>c</sup>University of Southern Denmark <sup>d</sup>University of Ulm ORCID (Yousef Younes): https://orcid.org/0000-0003-1271-3633, ORCID (Lukas Galke): https://orcid.org/0000-0001-6124-1092,"
-    }
+    },
 
     {
       "@id": "_:radar_model",
