@@ -36,7 +36,7 @@
       "mls:title": "RADAr: A Transformer-based Autoregressive Decoder Architecture for Hierarchical Text Classification",
       "start_char_doc": 13,
       "end_char_doc": 112,
-      "wasDerfivedFrom": "paper",
+      "wasDerivedFrom": "paper",
       "mls:url": "arXiv:2501.13598v1",
       "mls:publicationVenue": "arXiv",
       "mls:hasAuthor": [
@@ -58,7 +58,7 @@
       "mls:name": "Yousef Younes",
       "start_char_doc": 114,
       "end_char_doc": 127,
-      "wasDerfivedFrom": "paper",
+      "wasDerivedFrom": "paper",
       "mls:email": "yousef.younes@gesis.org",
       "mls:orcid": "https://orcid.org/0000-0003-1271-3633",
       "mls:prov-affiliatedWith": [
@@ -77,7 +77,7 @@
       "mls:name": "Lukas Galke",
       "start_char_doc": 145,
       "end_char_doc": 156,
-      "wasDerfivedFrom": "paper",
+      "wasDerivedFrom": "paper",
       "mls:orcid": "https://orcid.org/0000-0001-6124-1092",
       "mls:prov-affiliatedWith": { "@id": "org_sdu" },
        "context": {
@@ -92,7 +92,7 @@
       "mls:name": "Ansgar Scherp",
       "start_char_doc": 175,
       "end_char_doc": 188,
-      "wasDerfivedFrom": "paper",
+      "wasDerivedFrom": "paper",
       "mls:orcid": "https://orcid.org/0000-0002-2653-9245",
       "mls:prov-affiliatedWith": { "@id": "org_ulm" },
       "context": {
@@ -107,7 +107,7 @@
       "mls:name": "GESIS – Leibniz-Institute for the Social Sciences",
       "start_char_doc": 214,
       "end_char_doc": 263,
-      "wasDerfivedFrom": "paper",
+      "wasDerivedFrom": "paper",
       "context": {
         "prefix": "<sup>a</sup>",
         "suffix": ""
@@ -119,7 +119,7 @@
       "name": "University of Southern Denmark",
       "start_char_doc": 331,
       "end_char_doc": 361,
-      "wasDerfivedFrom": "paper",
+      "wasDerivedFrom": "paper",
       "url": "https://www.sdu.dk/en",
       "type": "University",
       "context": {
@@ -134,7 +134,7 @@
       "name": "University of Ulm",
       "start_char_doc": 374,
       "end_char_doc": 391,
-      "wasDerfivedFrom": "paper",
+      "wasDerivedFrom": "paper",
       "url": "https://www.uni-ulm.de/en/",
       "type": "University",
       "context": {
@@ -149,7 +149,7 @@
       "mls:name": "RADAr",
       "start_char_doc": 13,
       "end_char_doc": 18,
-      "wasDerfivedFrom": "paper",
+      "wasDerivedFrom": "paper",
       "mls:description": "Transformer-based Autoregressive Decoder Architecture that is based only on an off-the-shelf RoBERTa transformer to process the input and a custom autoregressive decoder.",
       "mls:architecture": "RoBERTa Encoder + Autoregressive Decoder (2 layers)",
       "mls:achieves": [
@@ -170,394 +170,448 @@
         "suffix": "A Transformer-based Autoregressive Decoder Architecture for Hierarchical Text Classification"
       }
     },
+
     {
       "@id": "task_htc",
       "@type": "MLS_Task",
       "mls:name": "Hierarchical Text Classification (HTC)",
       "start_char_doc": 4853,
       "end_char_doc": 4891,
-      "wasDerfivedFrom": "paper",
+      "wasDerivedFrom": "paper",
       "mls:description": "Labeling a text sample based on a semantic hierarchy where labels exhibit a generalization-specialization relationship.",
       "context": {
         "prefix": "",
         "suffix": "deals with the task of labeling a text sample based on a semantic hierarchy where labels, i.e., classes, exhibit a generalization-specialization relationship [19, 30, 31, 28]."
       }
     },
+
     {
-      "@id": "_:experiment_main",
+      "@id": "experiment_main",
       "@type": "Experiment",
       "mls:description": "Training and evaluation of RADAr on three benchmark datasets compared to state of the art.",
-      "mls:realizes": { "@id": "_:task_htc" },
-      "mls:produces": { "@id": "_:radar_model" },
+      "start_char_doc": 6871,
+      "end_char_doc": 6881,
+      "wasDerivedFrom": "paper",
+      "mls:realizes": { "@id": "task_htc" },
+      "mls:produces": { "@id": "radar_model" },
       "mls:usesData": [
-        { "@id": "_:data_wos" },
-        { "@id": "_:data_nyt" },
-        { "@id": "_:data_rcv1" }
+        { "@id": "data_wos" },
+        { "@id": "data_nyt" },
+        { "@id": "data_rcv1" }
       ],
-      "mls:executes": { "@id": "_:impl_radar" },
+      "mls:executes": { "@id": "impl_radar" },
       "mls:usesParameters": [
-          { "@id": "_:hp_lr_enc" },
-          { "@id": "_:hp_lr_dec" },
-          { "@id": "_:hp_focal_gamma" }
+          { "@id": "hp_lr_enc" },
+          { "@id": "hp_lr_dec" },
+          { "@id": "hp_focal_gamma" }
       ],
-      "_provenance": {
-        "text": "Experimental Apparatus",
-        "context_left": "## 4",
-        "context_right": "Datasets and Metrics We",
-        "start_word": 2263,
-        "end_word": 2264
+      "context": {
+        "prefix": "*",
+        "suffix": "results on three HTC datasets confirm the effectiveness of the RADAr in obtaining results competitive to the state of the art with considerably less training and half inference time."
       }
     },
+
     {
-      "@id": "_:data_wos",
+      "@id": "data_wos",
       "@type": "MLS_Dataset",
       "mls:name": "Web-of-Science (WOS)",
+      "start_char_doc": 17544,
+      "end_char_doc": 17564,
+      "wasDerivedFrom": "paper",
       "mls:numClasses": 141,
       "mls:description": "Hierarchy of two levels. Exactly two labels per sample.",
-      "_provenance": {
-        "text": "Web-of-Science (WOS)",
-        "context_left": "Those are",
-        "context_right": "[16], NY-Times (NYT)",
-        "start_word": 2276,
-        "end_word": 2277
+      "context": {
+        "prefix": "**Datasets and Metrics** We use three common HTC datasets. Those are",
+        "suffix": "[16], NY-Times (NYT) [29], and RCV1-V2 [17]."
       }
     },
+
     {
-      "@id": "_:data_nyt",
+      "@id": "data_nyt",
       "@type": "MLS_Dataset",
       "mls:name": "NY-Times (NYT)",
+      "start_char_doc": 17571,
+      "end_char_doc": 17585,
+      "wasDerivedFrom": "paper",
       "mls:numClasses": 166,
       "mls:description": "Eight-level hierarchy.",
-      "_provenance": {
-        "text": "NY-Times (NYT)",
-        "context_left": "(WOS) [16],",
-        "context_right": "[29], and RCV1-V2",
-        "start_word": 2279,
-        "end_word": 2280
+      "context": {
+        "prefix": "**Datasets and Metrics** We use three common HTC datasets. Those are Web-of-Science (WOS) [16],",
+        "suffix": "[29], and RCV1-V2 [17]."
       }
     },
+
     {
-      "@id": "_:data_rcv1",
+      "@id": "data_rcv1",
       "@type": "MLS_Dataset",
       "mls:name": "RCV1-V2",
+      "start_char_doc": 17596,
+      "end_char_doc": 17603,
+      "wasDerivedFrom": "paper",
       "mls:numClasses": 103,
       "mls:description": "Four-level hierarchy. Has the largest test set.",
-      "_provenance": {
-        "text": "RCV1-V2",
-        "context_left": "[29], and",
-        "context_right": "[17]. The WOS",
-        "start_word": 2283,
-        "end_word": 2283
+      "context": {
+        "prefix": "**Datasets and Metrics** We use three common HTC datasets. Those are Web-of-Science (WOS) [16], NY-Times (NYT) [29], and",
+        "suffix": "[17]."
       }
     },
+
     {
-      "@id": "_:repo",
+      "@id": "repo",
       "@type": "SoftwareRepository",
-      "mls:name": "RADAr GitHub Repository",
+      "mls:name": "github.com/yousef-younes/RADAr",
+      "start_char_doc": 2095,
+      "end_char_doc": 2125,
+      "wasDerivedFrom": "paper",
       "mls:url": "https://github.com/yousef-younes/RADAr",
-      "mls:contains": { "@id": "_:impl_radar" },
-      "_provenance": {
-        "text": "https://github.com/yousef-younes/RADAr",
-        "context_left": "source code is available at",
-        "context_right": "<watermark>arXiv:2501.13598v1",
-        "start_word": 278,
-        "end_word": 278
+      "mls:contains": { "@id": "impl_radar" },
+      "context": {
+        "prefix": "The source code is available at https://",
+        "suffix": ""
       }
     },
+
     {
-      "@id": "_:impl_radar",
+      "@id": "impl_radar",
       "@type": "MLS_Implementation",
       "mls:identifier": "RADAr PyTorch Implementation",
       "mls:framework": "PyTorch",
-      "mls:runsIn": { "@id": "_:env_gpu" },
-      "_provenance": {
-        "text": "implemented in PyTorch",
-        "context_left": "The experiments were",
-        "context_right": "and run on an",
-        "start_word": 3027,
-        "end_word": 3029
+      "start_char_doc": 22575,
+      "end_char_doc": 22582,
+      "wasDerivedFrom": "paper",
+      "mls:runsIn": { "@id": "env_gpu" },
+      "context": {
+        "prefix": "The experiments were implemented in",
+        "suffix": "and run on an NVIDIA A100-SXM4-40GB GPU."
       }
+
     },
     {
-      "@id": "_:env_gpu",
+      "@id": "env_gpu",
       "@type": "Environment",
-      "mls:name": "NVIDIA A100 Environment",
-      "mls:hardwareSpecs": "NVIDIA A100-SXM4-40GB GPU",
-      "_provenance": {
-        "text": "NVIDIA A100-SXM4-40GB GPU",
-        "context_left": "run on an",
-        "context_right": "The hyperparameter values",
-        "start_word": 3034,
-        "end_word": 3036
+      "mls:name": "NVIDIA A100-SXM4-40GB GPU",
+      "start_char_doc": 22597,
+      "end_char_doc": 22622,
+      "wasDerivedFrom": "paper",
+      "mls:hardwareSpecs": "A100-SXM4-40GB",
+      "context": {
+        "prefix": "The experiments were implemented in PyTorch and run on an",
+        "suffix": "."
       }
+
     },
     {
-      "@id": "_:hp_lr_enc",
+      "@id": "hp_lr_enc",
       "@type": "MLS_HyperParameter",
       "mls:name": "Encoder Learning Rate",
       "mls:hasValue": "5 · 10^-5",
-      "_provenance": {
-        "text": "5 · 10^-5",
-        "context_left": "learning rates of",
-        "context_right": "and 3 · 10^-4",
-        "start_word": 2700,
-        "end_word": 2702
+      "start_char_doc": 20235,
+      "end_char_doc": 20252,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "**Procedure and Hyperparameters** During training, we use the AdamW optimizer [23] with default settings and learning rates of",
+        "suffix": "and $3 \\cdot 10^{-4}$ for the encoder and decoder, respectively."
       }
+
     },
     {
-      "@id": "_:hp_lr_dec",
+      "@id": "hp_lr_dec",
       "@type": "MLS_HyperParameter",
       "mls:name": "Decoder Learning Rate",
       "mls:hasValue": "3 · 10^-4",
-      "_provenance": {
-        "text": "3 · 10^-4",
-        "context_left": "5 · 10^-5 and",
-        "context_right": "for the encoder",
-        "start_word": 2704,
-        "end_word": 2706
+      "start_char_doc": 20257,
+      "end_char_doc": 20274,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "**Procedure and Hyperparameters** During training, we use the AdamW optimizer [23] with default settings and learning rates of $5 \\cdot 10^{-5}$ and",
+        "suffix": "for the encoder and decoder, respectively."
       }
     },
+
      {
-      "@id": "_:hp_focal_gamma",
+      "@id": "alg_focal_gamma",
+      "@type": "MLS_Algorithm",
+      "mls:name": "Focal Loss",
+      "start_char_doc": 8033,
+      "end_char_doc": 8043,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "In this section, we introduce the RADAr model depicted in Figure 1. RADAr is a transformer-based encoder-decoder model. Any encoder-only model can be used as the encoder of RADAr, but we choose to use RoBERTa base. The decoder is an autoregressive transformer-based model trained from scratch to generate a sequence of labels. The output of the next label is conditioned on the previous labels to generate the labels along the hierarchy for the HTC task. The model employs a modified version of",
+        "suffix": "[21] to pay more attention to difficult samples with high loss."
+      }
+    },
+
+     {
+      "@id": "hp_focal_gamma",
       "@type": "MLS_HyperParameter",
       "mls:name": "Focal Loss Gamma",
       "mls:hasValue": "2",
-      "_provenance": {
-        "text": "gamma = 2",
-        "context_left": "with focusing parameter",
-        "context_right": "as described in",
-        "start_word": 2951,
-        "end_word": 2953
+      "start_char_doc": 22108,
+      "end_char_doc": 22120,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "The encoder’s learning rate decreases until it is lower than $5 \\cdot 10^{-7}$. At that point, the encoder is frozen, and the decoder continues to learn alone. The training loop has a patience of 10, so it stops if the average validation loss does not decrease for ten consecutive epochs. We use focal loss with focusing parameter",
+        "suffix": "as described in Section 3."
       }
     },
+
 {
-    "@id": "_:hp_lr_scheduler",
-    "@type": "MLS_HyperParameter",
+    "@id": "alg_lr_scheduler",
+    "@type": "MLS_Algorithm",
     "mls:name": "Learning Rate Scheduler",
     "mls:hasValue": "ReduceLROnPlateau",
-    "_provenance": {
-      "text": "ReduceLROnPlateau",
-      "context_left": "we use the",
-      "context_right": "scheduler [2] with patience",
-      "start_word": 2712,
-      "end_word": 2712
-    }
+    "start_char_doc": 20445,
+    "end_char_doc": 20462,
+    "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "**Procedure and Hyperparameters** During training, we use the AdamW optimizer [23] with default settings and learning rates of $5 \\cdot 10^{-5}$ and $3 \\cdot 10^{-4}$ for the encoder and decoder, respectively. Two learning rates are necessary because the encoder is pre-trained while the decoder is trained from scratch. We also use the",
+        "suffix": "scheduler [2] with patience of 3."
+      }
   },
+
   {
-    "@id": "_:hp_scheduler_patience",
+    "@id": "hp_scheduler_patience",
     "@type": "MLS_HyperParameter",
     "mls:name": "LR Scheduler Patience",
-    "mls:hasValue": "3 epochs",
-    "_provenance": {
-      "text": "3",
-      "context_left": "with patience of",
-      "context_right": ". After each epoch,",
-      "start_word": 2714,
-      "end_word": 2714
-    }
+    "mls:hasValue": "3",
+    "start_char_doc": 20495,
+    "end_char_doc": 20495,
+    "wasDerivedFrom": "paper",
+    "context": {
+        "prefix": "**Procedure and Hyperparameters** During training, we use the AdamW optimizer [23] with default settings and learning rates of $5 \\cdot 10^{-5}$ and $3 \\cdot 10^{-4}$ for the encoder and decoder, respectively. Two learning rates are necessary because the encoder is pre-trained while the decoder is trained from scratch. We also use the ReduceLROnPlateau scheduler [2] with patience of",
+        "suffix": "."
+      }
   },
+
   {
-    "@id": "_:hp_lr_multiplier",
+    "@id": "hp_lr_multiplier",
     "@type": "MLS_HyperParameter",
     "mls:name": "Learning Rate Multiplier",
     "mls:hasValue": "0.1",
-    "_provenance": {
-      "text": "0.1",
-      "context_left": "by a factor of",
-      "context_right": "for both the",
-      "start_word": 2721,
-      "end_word": 2721
-    }
+    "start_char_doc": 20690,
+    "end_char_doc": 20693,
+    "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "**Procedure and Hyperparameters** During training, we use the AdamW optimizer [23] with default settings and learning rates of $5 \\cdot 10^{-5}$ and $3 \\cdot 10^{-4}$ for the encoder and decoder, respectively. Two learning rates are necessary because the encoder is pre-trained while the decoder is trained from scratch. We also use the ReduceLROnPlateau scheduler [2] with patience of 3. After each epoch, the average validation loss is used to measure progress. If the validation loss does not decrease for three epochs, the scheduler multiplies the learning rates by a factor of",
+        "suffix": "for both the encoder and decoder."
+      }
   },
+
   {
-    "@id": "_:hp_enc_freeze_thr",
+    "@id": "hp_enc_freeze_thr",
     "@type": "MLS_HyperParameter",
     "mls:name": "Encoder Freezing Threshold",
     "mls:hasValue": "5 · 10^-7",
-    "_provenance": {
-      "text": "5 · 10^-7",
-      "context_left": "it is lower than",
-      "context_right": ". At that point,",
-      "start_word": 2727,
-      "end_word": 2729
-    }
+    "start_char_doc": 21838,
+    "end_char_doc": 21855,
+    "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "The encoder’s learning rate decreases until it is lower than",
+        "suffix": ".At that point, the encoder is frozen, and the decoder continues to learn alone."
+      }
   },
+
   {
-    "@id": "_:hp_training_patience",
+    "@id": "hp_training_patience",
     "@type": "MLS_HyperParameter",
     "mls:name": "Training Patience (Early Stopping)",
-    "mls:hasValue": "10 epochs",
-    "_provenance": {
-      "text": "10",
-      "context_left": "a patience of",
-      "context_right": ", so it stops",
-      "start_word": 2733,
-      "end_word": 2733
-    }
+    "mls:hasValue": "10",
+    "start_char_doc": 21974,
+    "end_char_doc": 21975,
+    "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "The encoder’s learning rate decreases until it is lower than $5 \\cdot 10^{-7}$. At that point, the encoder is frozen, and the decoder continues to learn alone. The training loop has a patience of",
+        "suffix": ", so it stops if the average validation loss does not decrease for ten consecutive epochs."
+      }
   },
+
   {
-    "@id": "_:hp_label_smoothing",
+    "@id": "hp_label_smoothing",
     "@type": "MLS_HyperParameter",
     "mls:name": "Label Smoothing",
     "mls:hasValue": "0.1",
-    "_provenance": {
-      "text": "0.1",
-      "context_left": "with label smoothing of",
-      "context_right": ". We use teacher",
-      "start_word": 2956,
-      "end_word": 2956
-    }
+    "start_char_doc": 22209,
+    "end_char_doc": 22211,
+    "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "The encoder’s learning rate decreases until it is lower than $5 \\cdot 10^{-7}$. At that point, the encoder is frozen, and the decoder continues to learn alone. The training loop has a patience of 10, so it stops if the average validation loss does not decrease for ten consecutive epochs. We use focal loss with focusing parameter $\\gamma = 2$ as described in Section 3. Focal loss depends on cross-entropy with  label smoothing of",
+        "suffix": "."
+      }
   },
+
   {
-    "@id": "_:hp_grad_accum_batches",
+    "@id": "hp_grad_accum_batches",
     "@type": "MLS_HyperParameter",
     "mls:name": "Gradient Accumulation Batches",
-    "mls:hasValue": "2 batches",
-    "_provenance": {
-      "text": "2 batches",
-      "context_left": "accumulation over",
-      "context_right": "(32 examples each).",
-      "start_word": 2959,
-      "end_word": 2960
-    }
+    "mls:hasValue": "2",
+    "start_char_doc": 22272,
+    "end_char_doc": 22272,
+    "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "The encoder’s learning rate decreases until it is lower than $5 \\cdot 10^{-7}$. At that point, the encoder is frozen, and the decoder continues to learn alone. The training loop has a patience of 10, so it stops if the average validation loss does not decrease for ten consecutive epochs. We use focal loss with focusing parameter $\\gamma = 2$ as described in Section 3. Focal loss depends on cross-entropy with label smoothing of 0.1. We use teacher forcing [38] and gradient accumulation over",
+        "suffix": "batches (32 examples each)."
+      }
   },
+
   {
-    "@id": "_:hp_batch_size",
+    "@id": "hp_batch_size",
     "@type": "MLS_HyperParameter",
     "mls:name": "Batch Size",
-    "mls:hasValue": "32 examples",
-    "_provenance": {
-      "text": "32 examples",
-      "context_left": "batches (",
-      "context_right": "each). For reproducibility,",
-      "start_word": 2961,
-      "end_word": 2962
-    }
+    "mls:hasValue": "32",
+    "start_char_doc": 22283,
+    "end_char_doc": 22284,
+    "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "The encoder’s learning rate decreases until it is lower than $5 \\cdot 10^{-7}$. At that point, the encoder is frozen, and the decoder continues to learn alone. The training loop has a patience of 10, so it stops if the average validation loss does not decrease for ten consecutive epochs. We use focal loss with focusing parameter $\\gamma = 2$ as described in Section 3. Focal loss depends on cross-entropy with label smoothing of 0.1. We use teacher forcing [38] and gradient accumulation over 2 batches (",
+        "suffix": "examples each)."
+      }
   },
+
   {
-    "@id": "_:hp_dec_layers",
+    "@id": "alg_teacher_forcing",
+    "@type": "MLS_Algorithm",
+    "mls:name": "teacher forcing",
+    "start_char_doc": 22220,
+    "end_char_doc": 22235,
+    "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "The encoder’s learning rate decreases until it is lower than $5 \\cdot 10^{-7}$. At that point, the encoder is frozen, and the decoder continues to learn alone. The training loop has a patience of 10, so it stops if the average validation loss does not decrease for ten consecutive epochs. We use focal loss with focusing parameter $\\gamma = 2$ as described in Section 3. Focal loss depends on cross-entropy with label smoothing of 0.1. We use",
+        "suffix": "[38] and gradient accumulation over 2 batches (32 examples each)."
+      }
+  },
+
+  {
+    "@id": "hp_dec_layers",
     "@type": "MLS_HyperParameter",
     "mls:name": "Number of Decoder Layers",
-    "mls:hasValue": "2",
-    "_provenance": {
-      "text": "two decoder layers",
-      "context_left": "the decoder has",
-      "context_right": ". Each layer has",
-      "start_word": 2235,
-      "end_word": 2237
-    }
+    "mls:hasValue": "two",
+    "start_char_doc": 1041,
+    "end_char_doc": 1044,
+    "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "In this paper, we introduce an effective hierarchical text classifier RADAr (Transformer-based Autoregressive Decoder Architecture) that is based only on an off-the-shelf RoBERTa transformer to process the input and a custom autoregressive decoder with",
+        "suffix": "for generating the classification output."
+      }
   },
+
   {
-    "@id": "_:hp_dec_heads",
+    "@id": "hp_dec_heads",
     "@type": "MLS_HyperParameter",
     "mls:name": "Decoder Attention Heads",
-    "mls:hasValue": "8",
-    "_provenance": {
-      "text": "eight attention heads",
-      "context_left": "block with",
-      "context_right": ", a feedforward network",
-      "start_word": 2240,
-      "end_word": 2242
-    }
+    "mls:hasValue": "eight",
+    "start_char_doc": 15913,
+    "end_char_doc": 15917,
+    "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Using the WOS dataset, we conducted pre-experiments regarding the number of decoder layers and the features of its transformer blocks [36]. We observe that the optimal choice is when the decoder has two decoder layers. Each layer has a transformer block with",
+        "suffix": "attention heads, a feedforward network and uses a dropout of 0.2."
+      }
   },
+
   {
-    "@id": "_:hp_dec_dropout",
+    "@id": "hp_dec_dropout",
     "@type": "MLS_HyperParameter",
     "mls:name": "Decoder Dropout Rate",
     "mls:hasValue": "0.2",
-    "_provenance": {
-      "text": "0.2",
-      "context_left": "uses a dropout of",
-      "context_right": ". Training and Testing",
-      "start_word": 2246,
-      "end_word": 2246
-    }
+    "start_char_doc": 15981,
+    "end_char_doc": 15983,
+    "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Using the WOS dataset, we conducted pre-experiments regarding the number of decoder layers and the features of its transformer blocks [36]. We observe that the optimal choice is when the decoder has two decoder layers. Each layer has a transformer block with eight attention heads, a feedforward network and uses a dropout of ",
+        "suffix": "."
+      }
   },
 
     {
-      "@id": "_:eval_wos_micro",
+      "@id": "eval_wos_micro",
       "@type": "MLS_Eval",
       "mls:measure": "Micro-F1",
       "mls:hasValue": 87.17,
+      "start_char_doc": 31702,
+      "end_char_doc": 31707,
+      "wasDerivedFrom": "paper",
       "mls:stdDev": 0.04,
-      "_provenance": {
-        "text": "87.17(0.04)",
-        "context_left": "RADAr",
-        "context_right": "81.84(0.08)",
-        "start_word": 4099,
-        "end_word": 4099
+      "context": {
+        "prefix": "<td><strong>",
+        "suffix": "<sub>(0.04)</sub></strong></td>"
       }
     },
+
     {
-      "@id": "_:eval_wos_macro",
+      "@id": "eval_wos_macro",
       "@type": "MLS_Eval",
       "mls:measure": "Macro-F1",
       "mls:hasValue": 81.84,
+      "start_char_doc": 31757,
+      "end_char_doc": 31762,
+      "wasDerivedFrom": "paper",
       "mls:stdDev": 0.08,
-      "_provenance": {
-        "text": "81.84(0.08)",
-        "context_left": "87.17(0.04)",
-        "context_right": "79.84(0.07)",
-        "start_word": 4100,
-        "end_word": 4100
+      "context": {
+        "prefix": "<td><strong>",
+        "suffix": "<sub>(0.08)</sub></strong></td>"
       }
     },
+
     {
-      "@id": "_:eval_nyt_micro",
+      "@id": "eval_nyt_micro",
       "@type": "MLS_Eval",
       "mls:measure": "Micro-F1",
       "mls:hasValue": 79.84,
+      "start_char_doc": 31812,
+      "end_char_doc": 31817,
+      "wasDerivedFrom": "paper",
       "mls:stdDev": 0.07,
-      "_provenance": {
-        "text": "79.84(0.07)",
-        "context_left": "81.84(0.08)",
-        "context_right": "68.64(0.28)",
-        "start_word": 4101,
-        "end_word": 4101
+      "context": {
+        "prefix": "<td><strong>",
+        "suffix": "<sub>(0.07)</sub></strong></td>"
       }
     },
+
     {
-      "@id": "_:eval_nyt_macro",
+      "@id": "eval_nyt_macro",
       "@type": "MLS_Eval",
       "mls:measure": "Macro-F1",
       "mls:hasValue": 68.64,
+      "start_char_doc": 31867,
+      "end_char_doc": 31872,
+      "wasDerivedFrom": "paper",
       "mls:stdDev": 0.28,
-      "_provenance": {
-        "text": "68.64(0.28)",
-        "context_left": "79.84(0.07)",
-        "context_right": "87.23(0.05)",
-        "start_word": 4102,
-        "end_word": 4102
+      "context": {
+        "prefix": "<td><strong>",
+        "suffix": "<sub>(0.28)</sub></strong></td>"
       }
     },
+
     {
       "@id": "_:eval_rcv1_micro",
       "@type": "MLS_Eval",
       "mls:measure": "Micro-F1",
       "mls:hasValue": 87.23,
+      "start_char_doc": 30816,
+      "end_char_doc": 30821,
+      "wasDerivedFrom": "paper",
       "mls:stdDev": 0.05,
-      "_provenance": {
-        "text": "87.23(0.05)",
-        "context_left": "68.64(0.28)",
-        "context_right": "69.64(0.12)",
-        "start_word": 4103,
-        "end_word": 4103
+      "context": {
+        "prefix": "<td><strong>",
+        "suffix": "<sub>(0.05)</sub></strong></td>"
       }
     },
+
     {
-      "@id": "_:eval_rcv1_macro",
+      "@id": "eval_rcv1_macro",
       "@type": "MLS_Eval",
       "mls:measure": "Macro-F1",
       "mls:hasValue": 69.64,
+      "start_char_doc": 31977,
+      "end_char_doc": 31982,
+      "wasDerivedFrom": "paper",
       "mls:stdDev": 0.12,
-      "_provenance": {
-        "text": "69.64(0.12)",
-        "context_left": "87.23(0.05)",
-        "context_right": "our experiment",
-        "start_word": 4104,
-        "end_word": 4104
+       "context": {
+        "prefix": "<td><strong>",
+        "suffix": "<sub>(0.12)</sub></strong></td>"
       }
     }
   ]
 }
+
 
