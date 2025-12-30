@@ -467,6 +467,31 @@
       }
   },
 
+{
+  "@id": "alg_adamw",
+  "@type": "MLS_Algorithm",
+  "mls:name": "AdamW",
+  "start_char_doc": 20170,
+  "end_char_doc": 20175,
+  "wasDerivedFrom": "paper",
+  "context": {
+    "prefix": "**Procedure and Hyperparameters** During training, we use the",
+    "suffix": "optimizer [23] with default settings and learning rates of $5 \\cdot 10^{-5}$ and $3 \\cdot 10^{-4}$ for the encoder and decoder, respectively."
+  }
+},
+{
+    "@id": "alg_greedy_search",
+    "@type": "MLS_Algorithm",
+    "mls:name": "greedy search",
+    "start_char_doc": 12193,
+    "end_char_doc": 12206,
+    "wasDerivedFrom": "paper",
+    "context": {
+      "prefix": "**Decoder** The decoder is an autoregressive transformer model whose vocabulary corresponds to the label set. As such, the decoder’s vocabulary is limited to the symbolic labels [28], i.e., internal label identifiers and special tokens (see Figure 2). Our decoder iteratively uses the previously generated tokens and the encoder’s output as condition to generate the next token. It uses",
+      "suffix": "that picks the token with the highest probability at each decoding step without considering future consequences [39]."
+    }
+  },
+
   {
     "@id": "alg_teacher_forcing",
     "@type": "MLS_Algorithm",
@@ -583,7 +608,7 @@
     },
 
     {
-      "@id": "_:eval_rcv1_micro",
+      "@id": "eval_rcv1_micro",
       "@type": "MLS_Eval",
       "mls:measure": "Micro-F1",
       "mls:hasValue": 87.23,
@@ -613,5 +638,6 @@
     }
   ]
 }
+
 
 
