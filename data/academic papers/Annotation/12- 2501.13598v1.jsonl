@@ -31,148 +31,156 @@
   },
   "@graph": [
     {
-      "@id": "_:study",
+      "@id": "study",
       "@type": "Study",
       "mls:title": "RADAr: A Transformer-based Autoregressive Decoder Architecture for Hierarchical Text Classification",
+      "start_char_doc": 13,
+      "end_char_doc": 112,
+      "wasDerfivedFrom": "paper",
       "mls:url": "arXiv:2501.13598v1",
       "mls:publicationVenue": "arXiv",
       "mls:hasAuthor": [
-        { "@id": "_:author1" },
-        { "@id": "_:author2" },
-        { "@id": "_:author3" }
+        { "@id": "author1" },
+        { "@id": "author2" },
+        { "@id": "author3" }
       ],
-      "mls:implements": { "@id": "_:repo" },
-      "mls:contains": { "@id": "_:experiment_main" },
-      "_provenance": {
-        "text": "RADAr: A Transformer-based Autoregressive Decoder Architecture for Hierarchical Text Classification",
-        "context_left": "## Page 1 #",
-        "context_right": "Yousef Younes a,d,* ,",
-        "start_word": 5,
-        "end_word": 14
+      "mls:implements": { "@id": "repo" },
+      "mls:contains": { "@id": "experiment_main" },
+      "context": {
+        "prefix": "#",
+        "suffix": ""
       }
     },
+
     {
-      "@id": "_:author1",
+      "@id": "author1",
       "@type": "Person",
       "mls:name": "Yousef Younes",
+      "start_char_doc": 114,
+      "end_char_doc": 127,
+      "wasDerfivedFrom": "paper",
       "mls:email": "yousef.younes@gesis.org",
       "mls:orcid": "https://orcid.org/0000-0003-1271-3633",
       "mls:prov-affiliatedWith": [
-        { "@id": "_:org_gesis" },
-        { "@id": "_:org_ulm" }
+        { "@id": "org_gesis" },
+        { "@id": "org_ulm" }
       ],
-      "_provenance": {
-        "text": "Yousef Younes",
-        "context_left": "Hierarchical Text Classification",
-        "context_right": "a,d,* , Lukas Galke",
-        "start_word": 15,
-        "end_word": 16
+      "context": {
+        "prefix": "",
+        "suffix": "<sup>a,d,*</sup>, Lukas Galke<sup>b,c</sup> and Ansgar Scherp<sup>d</sup>"
       }
     },
+
     {
-      "@id": "_:author2",
+      "@id": "author2",
       "@type": "Person",
       "mls:name": "Lukas Galke",
+      "start_char_doc": 145,
+      "end_char_doc": 156,
+      "wasDerfivedFrom": "paper",
       "mls:orcid": "https://orcid.org/0000-0001-6124-1092",
-      "mls:prov-affiliatedWith": { "@id": "_:org_sdu" },
-       "_provenance": {
-        "text": "Lukas Galke",
-        "context_left": "Yousef Younes a,d,* ,",
-        "context_right": "b,c and Ansgar Scherp",
-        "start_word": 17,
-        "end_word": 18
+      "mls:prov-affiliatedWith": { "@id": "org_sdu" },
+       "context": {
+        "prefix": "Yousef Younes<sup>a,d,*</sup>,",
+        "suffix": "<sup>b,c</sup> and Ansgar Scherp<sup>d</sup>"
       }
     },
+
     {
-      "@id": "_:author3",
+      "@id": "author3",
       "@type": "Person",
       "mls:name": "Ansgar Scherp",
+      "start_char_doc": 175,
+      "end_char_doc": 188,
+      "wasDerfivedFrom": "paper",
       "mls:orcid": "https://orcid.org/0000-0002-2653-9245",
-      "mls:prov-affiliatedWith": { "@id": "_:org_ulm" },
-      "_provenance": {
-        "text": "Ansgar Scherp",
-        "context_left": "Lukas Galke b,c and",
-        "context_right": "d a GESIS –",
-        "start_word": 20,
-        "end_word": 21
+      "mls:prov-affiliatedWith": { "@id": "org_ulm" },
+      "context": {
+        "prefix": "Yousef Younes<sup>a,d,*</sup>, Lukas Galke<sup>b,c</sup> and",
+        "suffix": "<sup>d</sup>"
       }
     },
+
     {
-      "@id": "_:org_gesis",
+      "@id": "org_gesis",
       "@type": "Organization",
       "mls:name": "GESIS – Leibniz-Institute for the Social Sciences",
-      "_provenance": {
-        "text": "GESIS – Leibniz-Institute for the Social Sciences",
-        "context_left": "d a",
-        "context_right": "b Max Planck Institute",
-        "start_word": 22,
-        "end_word": 28
+      "start_char_doc": 214,
+      "end_char_doc": 263,
+      "wasDerfivedFrom": "paper",
+      "context": {
+        "prefix": "<sup>a</sup>",
+        "suffix": ""
       }
     },
 {
-      "@id": "_:org_sdu",
+      "@id": "org_sdu",
       "@type": "Organization",
       "name": "University of Southern Denmark",
+      "start_char_doc": 331,
+      "end_char_doc": 361,
+      "wasDerfivedFrom": "paper",
       "url": "https://www.sdu.dk/en",
       "type": "University",
-      "anchor": {
-        "startWord": 34,
-        "endWord": 37
-      },
-      "context": "the Social Sciences <sup>b</sup>Max Planck Institute for Psycholinguistics <sup>c</sup>University of Southern Denmark <sup>d</sup>University of Ulm ORCID (Yousef Younes): https://orcid.org/0000-0003-1271-3633, ORCID"
+      "context": {
+        "prefix": "<sup>c</sup>",
+        "suffix": ""
+      }
     },
 
     {
-      "@id": "_:org_ulm",
+      "@id": "org_ulm",
       "@type": "Organization",
       "name": "University of Ulm",
+      "start_char_doc": 374,
+      "end_char_doc": 391,
+      "wasDerfivedFrom": "paper",
       "url": "https://www.uni-ulm.de/en/",
       "type": "University",
-      "anchor": {
-        "startWord": 38,
-        "endWord": 40
-      },
-      "context": "Planck Institute for Psycholinguistics <sup>c</sup>University of Southern Denmark <sup>d</sup>University of Ulm ORCID (Yousef Younes): https://orcid.org/0000-0003-1271-3633, ORCID (Lukas Galke): https://orcid.org/0000-0001-6124-1092,"
+      "context": {
+        "prefix": "<sup>d</sup>",
+        "suffix": ""
+      }
     },
 
     {
-      "@id": "_:radar_model",
+      "@id": "radar_model",
       "@type": "MLS_Model",
       "mls:name": "RADAr",
+      "start_char_doc": 13,
+      "end_char_doc": 18,
+      "wasDerfivedFrom": "paper",
       "mls:description": "Transformer-based Autoregressive Decoder Architecture that is based only on an off-the-shelf RoBERTa transformer to process the input and a custom autoregressive decoder.",
       "mls:architecture": "RoBERTa Encoder + Autoregressive Decoder (2 layers)",
       "mls:achieves": [
-        { "@id": "_:eval_wos_micro" },
-        { "@id": "_:eval_wos_macro" },
-        { "@id": "_:eval_nyt_micro" },
-        { "@id": "_:eval_nyt_macro" },
-        { "@id": "_:eval_rcv1_micro" },
-        { "@id": "_:eval_rcv1_macro" }
+        { "@id": "eval_wos_micro" },
+        { "@id": "eval_wos_macro" },
+        { "@id": "eval_nyt_micro" },
+        { "@id": "eval_nyt_macro" },
+        { "@id": "eval_rcv1_micro" },
+        { "@id": "eval_rcv1_macro" }
       ],
       "mls:trainedOn": [
-        { "@id": "_:data_wos" },
-        { "@id": "_:data_nyt" },
-        { "@id": "_:data_rcv1" }
+        { "@id": "data_wos" },
+        { "@id": "data_nyt" },
+        { "@id": "data_rcv1" }
       ],
-      "_provenance": {
-        "text": "RADAr (Transformer-based Autoregressive Decoder Architecture)",
-        "context_left": "effective hierarchical text classifier",
-        "context_right": "that is based only",
-        "start_word": 93,
-        "end_word": 93
+      "context": {
+        "prefix": "#",
+        "suffix": "A Transformer-based Autoregressive Decoder Architecture for Hierarchical Text Classification"
       }
     },
     {
-      "@id": "_:task_htc",
+      "@id": "task_htc",
       "@type": "MLS_Task",
-      "mls:name": "Hierarchical Text Classification",
+      "mls:name": "Hierarchical Text Classification (HTC)",
+      "start_char_doc": 4853,
+      "end_char_doc": 4891,
+      "wasDerfivedFrom": "paper",
       "mls:description": "Labeling a text sample based on a semantic hierarchy where labels exhibit a generalization-specialization relationship.",
-      "_provenance": {
-        "text": "Hierarchical Text Classification (HTC)",
-        "context_left": "## 1 Introduction",
-        "context_right": "deals with the task",
-        "start_word": 287,
-        "end_word": 290
+      "context": {
+        "prefix": "",
+        "suffix": "deals with the task of labeling a text sample based on a semantic hierarchy where labels, i.e., classes, exhibit a generalization-specialization relationship [19, 30, 31, 28]."
       }
     },
     {
@@ -552,3 +560,4 @@
     }
   ]
 }
+
