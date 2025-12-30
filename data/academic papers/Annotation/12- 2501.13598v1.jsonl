@@ -165,6 +165,7 @@
         { "@id": "data_nyt" },
         { "@id": "data_rcv1" }
       ],
+      "evaluatedOn": [ { "@id": "data_wos" }, { "@id": "data_nyt" }, { "@id": "data_rcv1" } ],
       "context": {
         "prefix": "#",
         "suffix": "A Transformer-based Autoregressive Decoder Architecture for Hierarchical Text Classification"
@@ -203,7 +204,17 @@
       "mls:usesParameters": [
           { "@id": "hp_lr_enc" },
           { "@id": "hp_lr_dec" },
-          { "@id": "hp_focal_gamma" }
+          { "@id": "hp_focal_gamma" },
+          { "@id": "hp_scheduler_patience"},
+          { "@id": "hp_lr_multiplier"},
+          { "@id": "hp_enc_freeze_thr"},
+          { "@id": "hp_training_patience"},
+          { "@id": "hp_label_smoothing"},
+          { "@id": "hp_grad_accum_batches"},
+          { "@id": "hp_batch_size"},
+          { "@id": "hp_dec_layers"},
+          { "@id": "hp_dec_heads"}, 
+          { "@id": "hp_dec_dropout"}
       ],
       "context": {
         "prefix": "*",
@@ -638,6 +649,7 @@
     }
   ]
 }
+
 
 
 
