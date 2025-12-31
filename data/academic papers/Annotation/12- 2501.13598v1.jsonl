@@ -214,7 +214,13 @@
           { "@id": "hp_batch_size"},
           { "@id": "hp_dec_layers"},
           { "@id": "hp_dec_heads"}, 
-          { "@id": "hp_dec_dropout"}
+          { "@id": "hp_dec_dropout"},
+          { "@id": "hp_enc_lr" },
+          { "@id": "hp_dec_lr" },
+          { "@id": "hp_label_smoothing_nyt" },
+          { "@id": "hp_label_smoothing_other" },
+          { "@id": "hp_focal_gamma" },
+          { "@id": "hp_random_seed" }
       ],
       "context": {
         "prefix": "*",
@@ -888,6 +894,7 @@
     }
   ]
 }
+
 
 
 
