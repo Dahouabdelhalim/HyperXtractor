@@ -646,9 +646,249 @@
         "prefix": "<td><strong>",
         "suffix": "<sub>(0.12)</sub></strong></td>"
       }
+    },
+{
+      "@id": "hp_src_max_length",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "src_max_length",
+      "mls:hasValue": "512",
+      "file": ["nyt_config.yaml","rcv_config.yaml","wos_config.yaml"],
+      "start_char_repo": 16,
+      "end_char_repo": 19,
+      "wasDerivedFrom": "code",
+      "context": {
+        "prefix": "src_max_length:",
+        "suffix": ""
+      }
+    },
+
+    {
+      "@id": "hp_tgt_max_length_nyt",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "tgt_max_length (NYT)",
+      "mls:hasValue": "48",
+     "file": ["nyt_config.yaml"],
+      "start_char_repo": 36,
+      "end_char_repo": 38,
+      "wasDerivedFrom": "code",
+      "context": {
+        "prefix": "tgt_max_length:",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "hp_tgt_max_length_rcv1",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "tgt_max_length (RCV1)",
+      "mls:hasValue": "22",
+      "file": ["rcv_config.yaml"],
+      "start_char_repo": 36,
+      "end_char_repo": 38,
+      "wasDerivedFrom": "code",
+      "context": {
+        "prefix": "tgt_max_length:",
+        "suffix": "#17 labels and 2 are bos, eos"
+      }
+    },
+    {
+      "@id": "hp_tgt_max_length_wos",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "tgt_max_length (WOS)",
+      "mls:hasValue": "6",
+      "file": ["wos_config.yaml"],
+      "start_char_repo": 36,
+      "end_char_repo": 37,
+      "wasDerivedFrom": "code",
+      "context": {
+        "prefix": "tgt_max_length:",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "hp_batch_size",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "batch_size",
+      "mls:hasValue": "32",
+      "file": ["nyt_config.yaml","rcv_config.yaml","wos_config.yaml"],
+      "start_char_repo": 52,
+      "end_char_repo": 54,
+      "wasDerivedFrom": "code",
+      "context": {
+        "prefix": "batch_size:",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "hp_num_epochs_nyt",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "num_epochs (NYT)",
+      "mls:hasValue": "1000",
+      "file": ["nyt_config.yaml"],
+      "start_char_repo": 571,
+      "end_char_repo": 575,
+      "wasDerivedFrom": "code",
+      "context": {
+        "prefix": "num_epochs:",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "hp_num_epochs_rcv1",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "num_epochs (RCV/WOS)",
+      "mls:hasValue": "100",
+      "file": ["rcv_config.yaml", "wos_config.yaml"],
+      "start_char_repo": 608,
+      "end_char_repo": 611,
+      "wasDerivedFrom": "code",
+      "context": {
+        "prefix": "num_epochs:",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "hp_embedding_size",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "embedding_size",
+      "mls:hasValue": "768",
+      "file": ["nyt_config.yaml", "rcv_config.yaml", "wos_config.yaml"],
+      "start_char_repo": 651,
+      "end_char_repo": 654,
+      "wasDerivedFrom": "code",
+      "context": {
+        "prefix": "embedding_size:",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "hp_num_heads",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "num_heads",
+      "mls:hasValue": "8",
+      "file": ["nyt_config.yaml", "rcv_config.yaml", "wos_config.yaml"],
+      "start_char_repo": 667,
+      "end_char_repo": 667,
+      "wasDerivedFrom": "code",
+      "context": {
+        "prefix": "num_heads:",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "hp_num_decoder_layers",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "num_decoder_layers",
+      "mls:hasValue": "2",
+      "file": ["nyt_config.yaml", "rcv_config.yaml", "wos_config.yaml"],
+      "start_char_repo": 689,
+      "end_char_repo": 689,
+      "wasDerivedFrom": "code",
+      "context": {
+        "prefix": "num_decoder_layers:",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "hp_dropout",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "dropout",
+      "mls:hasValue": "0.2",
+      "file": ["nyt_config.yaml", "rcv_config.yaml", "wos_config.yaml"],
+      "start_char_repo": 699,
+      "end_char_repo": 702,
+      "wasDerivedFrom": "code",
+      "context": {
+        "prefix": "dropout:",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "hp_enc_lr",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "enc_lr",
+      "mls:hasValue": "5e-5",
+      "file": ["nyt_config.yaml", "rcv_config.yaml", "wos_config.yaml"],
+      "start_char_repo": 958,
+      "end_char_repo": 962,
+      "wasDerivedFrom": "code",
+      "context": {
+        "prefix": "enc_lr:",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "hp_dec_lr",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "dec_lr",
+      "mls:hasValue": "3e-4",
+      "file": ["nyt_config.yaml", "rcv_config.yaml", "wos_config.yaml"],
+      "start_char_repo": 971,
+      "end_char_repo": 975,
+      "wasDerivedFrom": "code",
+      "context": {
+        "prefix": "dec_lr:",
+        "suffix": ""
+    }
+    },
+    {
+      "@id": "hp_label_smoothing_nyt",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "label_smoothing (NYT)",
+      "mls:hasValue": "0.5",
+      "file": ["nyt_config.yaml"],
+      "start_char_repo": 1125,
+      "end_char_repo": 1128,
+      "wasDerivedFrom": "code",
+      "context": {
+        "prefix": "label_smoothing:",
+        "suffix": ""
+    }
+    },
+    {
+      "@id": "hp_label_smoothing_other",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "label_smoothing (RCV1/WOS)",
+      "mls:hasValue": "0.1",
+      "file": ["rcv_config.yaml", "wos_config.yaml"],
+      "start_char_repo": 1076,
+      "end_char_repo": 1079,
+      "wasDerivedFrom": "code",
+      "context": {
+        "prefix": "label_smoothing:",
+        "suffix": ""
+    }
+    },
+    {
+      "@id": "hp_focal_gamma",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "gamma (Focal Loss)",
+      "mls:hasValue": "2",
+      "file": ["nyt_config.yaml", "rcv_config.yaml", "wos_config.yaml"],
+      "start_char_repo": 1088,
+      "end_char_repo": 1088,
+      "wasDerivedFrom": "code",
+      "context": {
+        "prefix": "gamma:",
+        "suffix": ""
+    }
+    },
+    {
+      "@id": "hp_random_seed",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "random_seed",
+      "mls:hasValue": "42",
+      "file": ["nyt_config.yaml", "rcv_config.yaml", "wos_config.yaml"],
+      "start_char_repo": 1102,
+      "end_char_repo": 1104,
+      "wasDerivedFrom": "code",
+      "context": {
+        "prefix": "random_seed:",
+        "suffix": "#47 #11 #912 #211 #1007"
+    }
     }
   ]
 }
+
 
 
 
