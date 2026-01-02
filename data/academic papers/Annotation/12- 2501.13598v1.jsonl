@@ -309,12 +309,82 @@
       "end_char_doc": 22582,
       "wasDerivedFrom": "paper",
       "mls:runsIn": { "@id": "env_gpu" },
+      "mls:requires": [
+        { "@id": "dep_torch_ecosystem" },
+        { "@id": "dep_huggingface_nlp" },
+        { "@id": "dep_numerical_computing" },
+        { "@id": "dep_nvidia_cuda" },
+        { "@id": "dep_experiment_tracking" },
+        { "@id": "dep_infra_utilities" }
+      ]
       "context": {
         "prefix": "The experiments were implemented in",
         "suffix": "and run on an NVIDIA A100-SXM4-40GB GPU."
       }
 
     },
+
+{
+  "@id": "dep_torch_ecosystem",
+  "@type": "Dependency",
+  "mls:packageName": ["torch", "torchaudio", "torchvision"],
+  "mls:version": "2.2.2",
+  "mls:type": "Deep Learning Framework"
+},
+{
+  "@id": "dep_huggingface_nlp",
+  "@type": "Dependency",
+  "mls:packageName": [
+    "transformers",
+    "tokenizers",
+    "sentencepiece",
+    "huggingface-hub",
+    "safetensors"
+  ],
+  "mls:version": "4.40.1",
+  "mls:type": "NLP Libraries"
+},
+{
+  "@id": "dep_numerical_computing",
+  "@type": "Dependency",
+  "mls:packageName": [
+    "numpy",
+    "scipy",
+    "scikit-learn",
+    "sympy",
+    "networkx"
+  ],
+  "mls:version": ["numpy==1.26.4", "scipy==1.12.0"],
+  "mls:type": "Scientific computing"
+},
+{
+  "@id": "dep_nvidia_cuda",
+  "@type": "Dependency",
+  "mls:packageName": [
+    "nvidia-cublas-cu12",
+    "nvidia-cuda-runtime-cu12",
+    "nvidia-cudnn-cu12",
+    "nvidia-nccl-cu12"
+  ],
+  "mls:version": "cu12",
+  "mls:type": "GPU Acceleration"
+},
+{
+  "@id": "dep_experiment_tracking",
+  "@type": "Dependency",
+  "mls:packageName": ["wandb", "sentry-sdk", "tqdm", "psutil"],
+  "mls:version": "0.16.6",
+  "mls:type": "Monitoring and Logging",
+  "mls:isOptional": true
+},
+{
+  "@id": "dep_infra_utilities",
+  "@type": "Dependency",
+  "mls:packageName": ["PyYAML", "click", "requests", "GitPython", "Jinja2"],
+  "mls:version": "6.0.1",
+  "mls:type": "Utility Libraries"
+},
+
     {
       "@id": "env_gpu",
       "@type": "Environment",
@@ -947,4 +1017,5 @@
     }
   ]
 }
+
 
