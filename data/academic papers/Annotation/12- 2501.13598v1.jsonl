@@ -236,6 +236,10 @@
       "end_char_doc": 17564,
       "wasDerivedFrom": "paper",
       "mls:numClasses": 141,
+      "numInstances": 46985,
+      "modality": "text",
+      "language": "english",
+      "license": "",
       "mls:description": "Hierarchy of two levels. Exactly two labels per sample.",
       "context": {
         "prefix": "**Datasets and Metrics** We use three common HTC datasets. Those are",
@@ -251,6 +255,10 @@
       "end_char_doc": 17585,
       "wasDerivedFrom": "paper",
       "mls:numClasses": 166,
+      "numInstances": 36471,
+      "modality": "text",
+      "language": "english",
+      "license": "",
       "mls:description": "Eight-level hierarchy.",
       "context": {
         "prefix": "**Datasets and Metrics** We use three common HTC datasets. Those are Web-of-Science (WOS) [16],",
@@ -266,6 +274,10 @@
       "end_char_doc": 17603,
       "wasDerivedFrom": "paper",
       "mls:numClasses": 103,
+      "numInstances": 804414,
+      "modality": "text",
+      "language": "english",
+      "license": "",
       "mls:description": "Four-level hierarchy. Has the largest test set.",
       "context": {
         "prefix": "**Datasets and Metrics** We use three common HTC datasets. Those are Web-of-Science (WOS) [16], NY-Times (NYT) [29], and",
@@ -935,3 +947,4 @@
     }
   ]
 }
+
