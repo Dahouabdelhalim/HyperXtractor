@@ -58,8 +58,8 @@
       "@id": "author1",
       "@type": "Person",
       "mls:name": "Hemant Yadav",
-      "start_char_doc": 102,
-      "end_char_doc": 114,
+      "start_char_doc": 105,
+      "end_char_doc": 117,
       "wasDerivedFrom": "paper",
       "mls:email": "hemantya@iiitd.ac.in",
       "prov-affiliatedWith": { "@id": "org_midas" },
@@ -72,8 +72,8 @@
       "@id": "author2",
       "@type": "Person",
       "mls:name": "Sreyan Ghosh",
-      "start_char_doc": 117,
-      "end_char_doc": 129,
+      "start_char_doc": 120,
+      "end_char_doc": 132,
       "wasDerivedFrom": "paper",
       "mls:email": "gsreyan@gmail.com",
       "prov-affiliatedWith": { "@id": "org_midas" },
@@ -86,8 +86,8 @@
       "@id": "author3",
       "@type": "Person",
       "mls:name": "Yi Yu",
-      "start_char_doc": 132,
-      "end_char_doc": 137,
+      "start_char_doc": 135,
+      "end_char_doc": 140,
       "wasDerivedFrom": "paper",
       "mls:email": "yiyu@nii.ac.jp",
       "prov-affiliatedWith": { "@id": "org_nii" },
@@ -100,8 +100,8 @@
       "@id": "author4",
       "@type": "Person",
       "mls:name": "Rajiv Ratn Shah",
-      "start_char_doc": 140,
-      "end_char_doc": 155,
+      "start_char_doc": 143,
+      "end_char_doc": 158,
       "wasDerivedFrom": "paper",
       "mls:email": "rajivratn@iiitd.ac.in",
       "prov-affiliatedWith": { "@id": "org_midas" },
@@ -114,8 +114,8 @@
       "@id": "org_midas",
       "@type": "Organization",
       "mls:name": "MIDAS, IIIT-Delhi, India",
-      "start_char_doc": 158,
-      "end_char_doc": 182,
+      "start_char_doc": 162,
+      "end_char_doc": 186,
       "wasDerivedFrom": "paper",
       "context": {
         "prefix": "¹",
@@ -126,8 +126,8 @@
       "@id": "org_nii",
       "@type": "Organization",
       "mls:name": "National Institute of Informatics, Tokyo",
-      "start_char_doc": 184,
-      "end_char_doc": 224,
+      "start_char_doc": 188,
+      "end_char_doc": 228,
       "wasDerivedFrom": "paper",
       "context": {
         "prefix": "²",
@@ -138,12 +138,12 @@
       "@id": "task_ner_speech",
       "@type": "MLS_Task",
       "mls:name": "Named Entity Recognition from English Speech",
-      "start_char_doc": 13,
-      "end_char_doc": 60,
+      "start_char_doc": 24,
+      "end_char_doc": 68,
       "wasDerivedFrom": "paper",
       "mls:description": "Extracting semantic information (Person, Organization, Location) directly from audio in an end-to-end manner.",
       "context": {
-        "prefix": "# ",
+        "prefix": "# End-to-end",
         "suffix": "\\*"
       }
     },
@@ -151,24 +151,24 @@
       "@id": "dataset_data2",
       "@type": "MLS_Dataset",
       "mls:name": "DATA2",
-      "start_char_doc": 2570,
-      "end_char_doc": 2575,
+      "start_char_doc": 6464,
+      "end_char_doc": 6469,
       "wasDerivedFrom": "paper",
       "mls:numInstances": 70769,
       "mls:language": "English",
       "mls:modality": "Speech",
       "mls:description": "A subset of Librispeech, CommonVoice, Tedlium, and Voxforge, manually annotated for named entities (approx 150 hrs).",
       "context": {
-        "prefix": "We refer to this reduced data as ",
+        "prefix": "After the Flair NER tagger operation on DATA1, the total number of files is reduced to 70,769 (approx. 150 hrs) from 600,000 (approx. 1,000 hrs). We refer to this reduced data as",
         "suffix": "."
       }
     },
     {
       "@id": "model_e2e_ner",
       "@type": "MLS_Model",
-      "mls:name": "D-NER architecture",
-      "start_char_doc": 3832,
-      "end_char_doc": 3850,
+      "mls:name": "E2E NER",
+      "start_char_doc": 3786,
+      "end_char_doc": 3793,
       "wasDerivedFrom": "paper",
       "mls:architecture": "DeepSpeech2 (CNN + RNN) with modified Fully Connected layer",
       "mls:description": "An RNN based Baidu’s DeepSpeech2 neural architecture with modifications in the last layer to accommodate special named entity symbols.",
@@ -177,38 +177,40 @@
         { "@id": "eval_f1_macro" }
       ],
       "context": {
-        "prefix": "graph LR\n    A[Spectrogram] --> B[",
-        "suffix": "]"
+        "prefix": "To the best of our knowledge, the only work related to",
+        "suffix": "from speech is done on French datasets [11]."
       }
     },
     {
       "@id": "alg_ctc",
       "@type": "MLS_Algorithm",
-      "mls:name": "Connectionist temporal classification (CTC) loss",
-      "start_char_doc": 3314,
-      "end_char_doc": 3362,
+      "mls:name": "Connectionist temporal classification",
+      "start_char_doc": 10335,
+      "end_char_doc": 10372,
       "wasDerivedFrom": "paper",
       "context": {
-        "prefix": "We train the system using the ",
-        "suffix": " [27] (CTC) loss"
+        "prefix": "We train the system using the",
+        "suffix": "[27] (CTC) loss (see Figure 4) because CTC loss takes"
       }
     },
     {
       "@id": "alg_prefix_beam",
       "@type": "MLS_Algorithm",
       "mls:name": "Prefix beam search decoding",
-      "start_char_doc": 3538,
-      "end_char_doc": 3565,
+      "start_char_doc": 12803,
+      "end_char_doc": 12830,
       "wasDerivedFrom": "paper",
       "context": {
-        "prefix": "At the test time, the output is conditioned on an N-gram LM using ",
-        "suffix": " [28]"
+        "prefix": "We experimented with two different approaches for the NER from speech task: E2E and a classical two-step approach. For the E2E approach, experiments were carried out on the model explained in Section 4.2. At the test time,",
+        "suffix": "with a beam-width of 1024 and a 4-gram LM (trained on DATA2) is used."
       }
     },
     {
       "@id": "experiment_main",
       "@type": "Experiment",
       "mls:description": "Comparison of E2E approach vs Two-step approach on DATA2 dataset.",
+      "start_char_doc": 1120,
+      "end_char_doc": 1132,
       "wasDerivedFrom": "paper",
       "mls:realizes": { "@id": "task_ner_speech" },
       "mls:produces": { "@id": "model_e2e_ner" },
@@ -219,8 +221,8 @@
         { "@id": "hp_beam_width" }
       ],
       "context": {
-        "prefix": "Experimental results show that the ",
-        "suffix": " provides better results (F1=**0.906**) compared to the two-step approach"
+        "prefix": "Named entity recognition (NER) from text has been a widely studied problem and usually extracts semantic information from text. Until now, NER from speech is mostly studied in a two-step pipeline process that includes first applying an automatic speech recognition (ASR) system on an audio sample and then passing the predicted transcript to a NER tagger. In such cases, the error does not propagate from one step to another as both the tasks are not optimized in an end-to-end (E2E) fashion. Recent studies confirm that integrated approaches (e.g., E2E ASR) outperform sequential ones (e.g., p",
+        "suffix": "results show that the proposed E2E approach outperforms the classical two-step approach."
       }
     },
     {
@@ -228,12 +230,12 @@
       "@type": "MLS_HyperParameter",
       "mls:name": "alpha",
       "mls:hasValue": "1.96",
-      "start_char_doc": 3719,
-      "end_char_doc": 3723,
+      "start_char_doc": 11605,
+      "end_char_doc": 11609,
       "wasDerivedFrom": "paper",
       "mls:description": "Controls the contribution of LM during decoding",
       "context": {
-        "prefix": "In this study, we use values ",
+        "prefix": "Where wc(y) is the word count in the predicted transcript. α and β control the contribution of LM and the number of words in the predicted transcript. In this study, we use values",
         "suffix": " & 6.0 for α and β, respectively."
       }
     },
@@ -242,12 +244,12 @@
       "@type": "MLS_HyperParameter",
       "mls:name": "beta",
       "mls:hasValue": "6.0",
-      "start_char_doc": 3726,
-      "end_char_doc": 3729,
+      "start_char_doc": 11612,
+      "end_char_doc": 11615,
       "wasDerivedFrom": "paper",
       "mls:description": "Controls the contribution of word count during decoding",
       "context": {
-        "prefix": "In this study, we use values 1.96 & ",
+        "prefix": "Where wc(y) is the word count in the predicted transcript. α and β control the contribution of LM and the number of words in the predicted transcript. In this study, we use values 1.96 &",
         "suffix": " for α and β, respectively."
       }
     },
@@ -256,12 +258,12 @@
       "@type": "MLS_HyperParameter",
       "mls:name": "beam-width",
       "mls:hasValue": "1024",
-      "start_char_doc": 4352,
-      "end_char_doc": 4356,
+      "start_char_doc": 11950,
+      "end_char_doc": 11954,
       "wasDerivedFrom": "paper",
       "context": {
-        "prefix": "Prefix beam search decoding with a beam-width of ",
-        "suffix": " and a 4-gram LM"
+        "prefix": "To compensate for the limited data for the NER from speech task, DS2 weights are used as a starting point to train the E2E model. We train a standard DS2 architecture on the DATA1 as a baseline. This system achieves a word error rate (WER) of 2.72% on the test set with a 4-gram LM and beam-width equal to",
+        "suffix": "."
       }
     },
     {
@@ -306,4 +308,5 @@
       }
     }
   ]
+
 }
