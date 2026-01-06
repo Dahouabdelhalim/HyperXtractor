@@ -1,0 +1,309 @@
+{
+  "@context": {
+    "mls": "http://example.org/ontology/mls#",
+    "schema": "http://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "Study": "mls:Study",
+    "Experiment": "mls:Experiment",
+    "Person": "mls:Person",
+    "Organization": "mls:Organization",
+    "MLS_Task": "mls:MLS_Task",
+    "MLS_Dataset": "mls:MLS_Dataset",
+    "Method": "mls:Method",
+    "MLS_Model": "mls:MLS_Model",
+    "MLS_Eval": "mls:MLS_Eval",
+    "SoftwareRepository": "mls:SoftwareRepository",
+    "MLS_Implementation": "mls:MLS_Implementation",
+    "Environment": "mls:Environment",
+    "MLS_HyperParameter": "mls:MLS_HyperParameter",
+    "MLS_Algorithm": "mls:MLS_Algorithm",
+    "issued": { "@id": "mls:issued", "@type": "xsd:datetime" },
+    "hasAuthor": { "@id": "mls:hasAuthor", "@type": "@id" },
+    "prov-affiliatedWith": { "@id": "mls:prov-affiliatedWith", "@type": "@id" },
+    "realizes": { "@id": "mls:realizes", "@type": "@id" },
+    "produces": { "@id": "mls:produces", "@type": "@id" },
+    "usesData": { "@id": "mls:usesData", "@type": "@id" },
+    "achieves": { "@id": "mls:achieves", "@type": "@id" },
+    "implements": { "@id": "mls:implements", "@type": "@id" },
+    "runsIn": { "@id": "mls:runsIn", "@type": "@id" },
+    "usesParameters": { "@id": "mls:usesParameters", "@type": "@id" },
+    "executes": { "@id": "mls:executes", "@type": "@id" }
+  },
+  "@graph": [
+    {
+      "@id": "study",
+      "@type": "Study",
+      "mls:title": "End-to-end Named Entity Recognition from English Speech",
+      "start_char_doc": 13,
+      "end_char_doc": 68,
+      "wasDerivedFrom": "paper",
+      "mls:url": "https://arxiv.org/abs/2005.11184v1",
+      "mls:publicationVenue": "Interspeech-2020",
+      "mls:issued": "2020-05-22",
+      "mls:hasAuthor": [
+        { "@id": "author1" },
+        { "@id": "author2" },
+        { "@id": "author3" },
+        { "@id": "author4" }
+      ],
+      "mls:contains": { "@id": "experiment_main" },
+      "context": {
+        "prefix": "# ",
+        "suffix": "\\*"
+      }
+    },
+    {
+      "@id": "author1",
+      "@type": "Person",
+      "mls:name": "Hemant Yadav",
+      "start_char_doc": 102,
+      "end_char_doc": 114,
+      "wasDerivedFrom": "paper",
+      "mls:email": "hemantya@iiitd.ac.in",
+      "prov-affiliatedWith": { "@id": "org_midas" },
+      "context": {
+        "prefix": "",
+        "suffix": "¹, Sreyan Ghosh¹, Yi Yu², Rajiv Ratn Shah¹"
+      }
+    },
+    {
+      "@id": "author2",
+      "@type": "Person",
+      "mls:name": "Sreyan Ghosh",
+      "start_char_doc": 117,
+      "end_char_doc": 129,
+      "wasDerivedFrom": "paper",
+      "mls:email": "gsreyan@gmail.com",
+      "prov-affiliatedWith": { "@id": "org_midas" },
+      "context": {
+        "prefix": "Hemant Yadav¹, ",
+        "suffix": "¹, Yi Yu², Rajiv Ratn Shah¹"
+      }
+    },
+    {
+      "@id": "author3",
+      "@type": "Person",
+      "mls:name": "Yi Yu",
+      "start_char_doc": 132,
+      "end_char_doc": 137,
+      "wasDerivedFrom": "paper",
+      "mls:email": "yiyu@nii.ac.jp",
+      "prov-affiliatedWith": { "@id": "org_nii" },
+      "context": {
+        "prefix": "Hemant Yadav¹, Sreyan Ghosh¹, ",
+        "suffix": "², Rajiv Ratn Shah¹"
+      }
+    },
+    {
+      "@id": "author4",
+      "@type": "Person",
+      "mls:name": "Rajiv Ratn Shah",
+      "start_char_doc": 140,
+      "end_char_doc": 155,
+      "wasDerivedFrom": "paper",
+      "mls:email": "rajivratn@iiitd.ac.in",
+      "prov-affiliatedWith": { "@id": "org_midas" },
+      "context": {
+        "prefix": "Hemant Yadav¹, Sreyan Ghosh¹, Yi Yu², ",
+        "suffix": "¹"
+      }
+    },
+    {
+      "@id": "org_midas",
+      "@type": "Organization",
+      "mls:name": "MIDAS, IIIT-Delhi, India",
+      "start_char_doc": 158,
+      "end_char_doc": 182,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "¹",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "org_nii",
+      "@type": "Organization",
+      "mls:name": "National Institute of Informatics, Tokyo",
+      "start_char_doc": 184,
+      "end_char_doc": 224,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "²",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "task_ner_speech",
+      "@type": "MLS_Task",
+      "mls:name": "Named Entity Recognition from English Speech",
+      "start_char_doc": 13,
+      "end_char_doc": 60,
+      "wasDerivedFrom": "paper",
+      "mls:description": "Extracting semantic information (Person, Organization, Location) directly from audio in an end-to-end manner.",
+      "context": {
+        "prefix": "# ",
+        "suffix": "\\*"
+      }
+    },
+    {
+      "@id": "dataset_data2",
+      "@type": "MLS_Dataset",
+      "mls:name": "DATA2",
+      "start_char_doc": 2570,
+      "end_char_doc": 2575,
+      "wasDerivedFrom": "paper",
+      "mls:numInstances": 70769,
+      "mls:language": "English",
+      "mls:modality": "Speech",
+      "mls:description": "A subset of Librispeech, CommonVoice, Tedlium, and Voxforge, manually annotated for named entities (approx 150 hrs).",
+      "context": {
+        "prefix": "We refer to this reduced data as ",
+        "suffix": "."
+      }
+    },
+    {
+      "@id": "model_e2e_ner",
+      "@type": "MLS_Model",
+      "mls:name": "D-NER architecture",
+      "start_char_doc": 3832,
+      "end_char_doc": 3850,
+      "wasDerivedFrom": "paper",
+      "mls:architecture": "DeepSpeech2 (CNN + RNN) with modified Fully Connected layer",
+      "mls:description": "An RNN based Baidu’s DeepSpeech2 neural architecture with modifications in the last layer to accommodate special named entity symbols.",
+      "mls:achieves": [
+        { "@id": "eval_f1_micro" },
+        { "@id": "eval_f1_macro" }
+      ],
+      "context": {
+        "prefix": "graph LR\n    A[Spectrogram] --> B[",
+        "suffix": "]"
+      }
+    },
+    {
+      "@id": "alg_ctc",
+      "@type": "MLS_Algorithm",
+      "mls:name": "Connectionist temporal classification (CTC) loss",
+      "start_char_doc": 3314,
+      "end_char_doc": 3362,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "We train the system using the ",
+        "suffix": " [27] (CTC) loss"
+      }
+    },
+    {
+      "@id": "alg_prefix_beam",
+      "@type": "MLS_Algorithm",
+      "mls:name": "Prefix beam search decoding",
+      "start_char_doc": 3538,
+      "end_char_doc": 3565,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "At the test time, the output is conditioned on an N-gram LM using ",
+        "suffix": " [28]"
+      }
+    },
+    {
+      "@id": "experiment_main",
+      "@type": "Experiment",
+      "mls:description": "Comparison of E2E approach vs Two-step approach on DATA2 dataset.",
+      "wasDerivedFrom": "paper",
+      "mls:realizes": { "@id": "task_ner_speech" },
+      "mls:produces": { "@id": "model_e2e_ner" },
+      "mls:usesData": { "@id": "dataset_data2" },
+      "mls:usesParameters": [
+        { "@id": "hp_alpha" },
+        { "@id": "hp_beta" },
+        { "@id": "hp_beam_width" }
+      ],
+      "context": {
+        "prefix": "Experimental results show that the ",
+        "suffix": " provides better results (F1=**0.906**) compared to the two-step approach"
+      }
+    },
+    {
+      "@id": "hp_alpha",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "alpha",
+      "mls:hasValue": "1.96",
+      "start_char_doc": 3719,
+      "end_char_doc": 3723,
+      "wasDerivedFrom": "paper",
+      "mls:description": "Controls the contribution of LM during decoding",
+      "context": {
+        "prefix": "In this study, we use values ",
+        "suffix": " & 6.0 for α and β, respectively."
+      }
+    },
+    {
+      "@id": "hp_beta",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "beta",
+      "mls:hasValue": "6.0",
+      "start_char_doc": 3726,
+      "end_char_doc": 3729,
+      "wasDerivedFrom": "paper",
+      "mls:description": "Controls the contribution of word count during decoding",
+      "context": {
+        "prefix": "In this study, we use values 1.96 & ",
+        "suffix": " for α and β, respectively."
+      }
+    },
+    {
+      "@id": "hp_beam_width",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "beam-width",
+      "mls:hasValue": "1024",
+      "start_char_doc": 4352,
+      "end_char_doc": 4356,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Prefix beam search decoding with a beam-width of ",
+        "suffix": " and a 4-gram LM"
+      }
+    },
+    {
+      "@id": "eval_f1_micro",
+      "@type": "MLS_Eval",
+      "mls:measure": "Micro Average F1",
+      "mls:hasValue": 0.906,
+      "start_char_doc": 6251,
+      "end_char_doc": 6256,
+      "wasDerivedFrom": "paper",
+      "mls:confidenceInterval": null,
+      "context": {
+        "prefix": "Experimental results show that the E2E approach provides better results (F1=**",
+        "suffix": "**) compared to the two-step approach"
+      }
+    },
+    {
+      "@id": "eval_f1_macro",
+      "@type": "MLS_Eval",
+      "mls:measure": "Macro Average F1",
+      "mls:hasValue": 0.87,
+      "start_char_doc": 5427,
+      "end_char_doc": 5431,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "macro average | **0.96** | **0.80** | **",
+        "suffix": "**"
+      }
+    },
+    {
+      "@id": "software_repo",
+      "@type": "SoftwareRepository",
+      "mls:name": "GitHub Repository",
+      "start_char_doc": 5590,
+      "end_char_doc": 5596,
+      "wasDerivedFrom": "paper",
+      "mls:url": null,
+      "mls:description": "Pre-trained models and training configurations.",
+      "context": {
+        "prefix": "Pre-trained models and training configurations are available on ",
+        "suffix": "³"
+      }
+    }
+  ]
+}
