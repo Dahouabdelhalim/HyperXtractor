@@ -1,0 +1,428 @@
+{
+  "@context": {
+    "mls": "http://example.org/ontology/mls#",
+    "schema": "http://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "Study": "mls:Study",
+    "Experiment": "mls:Experiment",
+    "Person": "mls:Person",
+    "Organization": "mls:Organization",
+    "MLS_Task": "mls:MLS_Task",
+    "MLS_Dataset": "mls:MLS_Dataset",
+    "Method": "mls:Method",
+    "MLS_Model": "mls:MLS_Model",
+    "MLS_Eval": "mls:MLS_Eval",
+    "SoftwareRepository": "mls:SoftwareRepository",
+    "MLS_Implementation": "mls:MLS_Implementation",
+    "Environment": "mls:Environment",
+    "MLS_HyperParameter": "mls:MLS_HyperParameter",
+    "Dependency": "mls:Dependency",
+    "issued": { "@id": "mls:issued", "@type": "xsd:datetime" },
+    "hasAuthor": { "@id": "mls:hasAuthor", "@type": "@id" },
+    "prov-affiliatedWith": { "@id": "mls:prov-affiliatedWith", "@type": "@id" },
+    "realizes": { "@id": "mls:realizes", "@type": "@id" },
+    "produces": { "@id": "mls:produces", "@type": "@id" },
+    "usesData": { "@id": "mls:usesData", "@type": "@id" },
+    "achieves": { "@id": "mls:achieves", "@type": "@id" },
+    "implements": { "@id": "mls:implements", "@type": "@id" },
+    "runsIn": { "@id": "mls:runsIn", "@type": "@id" },
+    "usesParameters": { "@id": "mls:usesParameters", "@type": "@id" },
+    "requires": { "@id": "mls:requires", "@type": "@id" }
+  },
+  "@graph": [
+    {
+      "@id": "study",
+      "@type": "Study",
+      "mls:title": "SCIREX: A Challenge Dataset for Document-Level Information Extraction",
+      "start_char_doc": 13,
+      "end_char_doc": 84,
+      "wasDerivedFrom": "paper",
+      "mls:url": "https://arxiv.org/abs/2005.00512",
+      "mls:publicationVenue": "arXiv:2005.00512v1 [cs.CL]",
+      "mls:hasAuthor": [
+        { "@id": "author1" },
+        { "@id": "author2" },
+        { "@id": "author3" },
+        { "@id": "author4" }
+      ],
+      "mls:implements": { "@id": "repo" },
+      "mls:contains": { "@id": "experiment_main" },
+      "context": {
+        "prefix": "# ",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "author1",
+      "@type": "Person",
+      "mls:name": "Sarthak Jain",
+      "start_char_doc": 86,
+      "end_char_doc": 98,
+      "wasDerivedFrom": "paper",
+      "mls:email": "jain.sar@northeastern.edu",
+      "prov-affiliatedWith": { "@id": "org_northeastern" },
+      "context": {
+        "prefix": "",
+        "suffix": "²* Madeleine van Zuylen¹ Hannanah Hajishirzi¹,³ Iz Beltagy¹"
+      }
+    },
+    {
+      "@id": "author2",
+      "@type": "Person",
+      "mls:name": "Madeleine van Zuylen",
+      "start_char_doc": 102,
+      "end_char_doc": 122,
+      "wasDerivedFrom": "paper",
+      "mls:email": "madeleinev@allenai.org",
+      "prov-affiliatedWith": { "@id": "org_ai2" },
+      "context": {
+        "prefix": "Sarthak Jain²* ",
+        "suffix": "¹ Hannanah Hajishirzi¹,³ Iz Beltagy¹"
+      }
+    },
+    {
+      "@id": "author3",
+      "@type": "Person",
+      "mls:name": "Hannanah Hajishirzi",
+      "start_char_doc": 123,
+      "end_char_doc": 142,
+      "wasDerivedFrom": "paper",
+      "mls:email": "hannah@allenai.org",
+      "prov-affiliatedWith": [
+        { "@id": "org_ai2" },
+        { "@id": "org_uw" }
+      ],
+      "context": {
+        "prefix": "Madeleine van Zuylen¹ ",
+        "suffix": "¹,³ Iz Beltagy¹"
+      }
+    },
+    {
+      "@id": "author4",
+      "@type": "Person",
+      "mls:name": "Iz Beltagy",
+      "start_char_doc": 147,
+      "end_char_doc": 157,
+      "wasDerivedFrom": "paper",
+      "mls:email": "beltagy@allenai.org",
+      "prov-affiliatedWith": { "@id": "org_ai2" },
+      "context": {
+        "prefix": "Hannanah Hajishirzi¹,³ ",
+        "suffix": "¹"
+      }
+    },
+    {
+      "@id": "org_ai2",
+      "@type": "Organization",
+      "mls:name": "Allen Institute for AI",
+      "start_char_doc": 158,
+      "end_char_doc": 180,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "",
+        "suffix": "¹ Northeastern University² University of Washington³"
+      }
+    },
+    {
+      "@id": "org_northeastern",
+      "@type": "Organization",
+      "mls:name": "Northeastern University",
+      "start_char_doc": 181,
+      "end_char_doc": 204,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Allen Institute for AI¹ ",
+        "suffix": "² University of Washington³"
+      }
+    },
+    {
+      "@id": "org_uw",
+      "@type": "Organization",
+      "mls:name": "University of Washington",
+      "start_char_doc": 205,
+      "end_char_doc": 229,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Northeastern University² ",
+        "suffix": "³"
+      }
+    },
+    {
+      "@id": "task_doc_ie",
+      "@type": "MLS_Task",
+      "mls:name": "Document-Level Information Extraction",
+      "start_char_doc": 1056,
+      "end_char_doc": 1093,
+      "wasDerivedFrom": "paper",
+      "mls:description": "Extracting information from full documents, identifying document-level relationships that go beyond sentences or even sections.",
+      "context": {
+        "prefix": "Creating datasets for ",
+        "suffix": " is challenging because it requires domain expertise"
+      }
+    },
+    {
+      "@id": "task_nary_relation",
+      "@type": "MLS_Task",
+      "mls:name": "N-ary Relation Extraction",
+      "start_char_doc": 2520,
+      "end_char_doc": 2539,
+      "wasDerivedFrom": "paper",
+      "mls:description": "Extracting N-ary relations between entities in a scientific article (binary, 3-ary, and 4-ary relations).",
+      "context": {
+        "prefix": "**Relation Extraction** is the task of extracting ",
+        "suffix": " between entities in a scientific article."
+      }
+    },
+    {
+      "@id": "dataset_scirex",
+      "@type": "MLS_Dataset",
+      "mls:name": "SCIREX",
+      "start_char_doc": 490,
+      "end_char_doc": 496,
+      "wasDerivedFrom": "paper",
+      "mls:numInstances": 438,
+      "mls:language": "English",
+      "mls:modality": "Text",
+      "mls:description": "A document level IE dataset that encompasses multiple IE tasks, including salient entity identification and document level N-ary relation identification from scientific articles.",
+      "context": {
+        "prefix": "In this paper, we introduce ",
+        "suffix": ", a document level IE dataset"
+      }
+    },
+    {
+      "@id": "model_baseline",
+      "@type": "MLS_Model",
+      "mls:name": "SCIREX Baseline Model",
+      "start_char_doc": 4310,
+      "end_char_doc": 4322,
+      "wasDerivedFrom": "paper",
+      "mls:description": "A neural model that performs document-level IE tasks jointly. It uses SciBERT+BiLSTM for document representation, a CRF for mention identification, a classifier for saliency, and a clustering approach for coreference and relation extraction.",
+      "mls:architecture": "SciBERT + BiLSTM + CRF + Clustering",
+      "mls:achieves": [
+        { "@id": "eval_mention_id" },
+        { "@id": "eval_binary_rel" },
+        { "@id": "eval_4ary_rel" }
+      ],
+      "context": {
+        "prefix": "We develop a ",
+        "suffix": " that performs document-level IE tasks jointly in an end-to-end fashion."
+      }
+    },
+    {
+      "@id": "experiment_main",
+      "@type": "Experiment",
+      "mls:description": "Evaluation of the baseline neural model on the SCIREX dataset for mention identification, saliency, and relation extraction.",
+      "start_char_doc": 6229,
+      "end_char_doc": 6245,
+      "wasDerivedFrom": "paper",
+      "mls:realizes": { "@id": "task_doc_ie" },
+      "mls:produces": { "@id": "model_baseline" },
+      "mls:usesData": { "@id": "dataset_scirex" },
+      "mls:executes": { "@id": "impl_baseline" },
+      "mls:usesParameters": [
+        { "@id": "hp_lr_nonbert" },
+        { "@id": "hp_lr_bert" },
+        { "@id": "hp_epochs" },
+        { "@id": "hp_patience" },
+        { "@id": "hp_hidden_dim" },
+        { "@id": "hp_dropout" }
+      ],
+      "context": {
+        "prefix": "We compare our model with other recently introduced models... ",
+        "suffix": "The other goal of the evaluation is to establish a baseline performance on our dataset"
+      }
+    },
+    {
+      "@id": "repo",
+      "@type": "SoftwareRepository",
+      "mls:name": "github.com/allenai/SciREX",
+      "start_char_doc": 971,
+      "end_char_doc": 1000,
+      "wasDerivedFrom": "paper",
+      "mls:url": "https://github.com/allenai/SciREX",
+      "mls:contains": { "@id": "impl_baseline" },
+      "context": {
+        "prefix": "Our data and code are publicly available at ",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "impl_baseline",
+      "@type": "MLS_Implementation",
+      "mls:identifier": "SCIREX Model Implementation",
+      "mls:framework": "AllenNLP",
+      "start_char_doc": 8600,
+      "end_char_doc": 8652,
+      "wasDerivedFrom": "paper",
+      "mls:runsIn": { "@id": "env_gpu" },
+      "mls:requires": [
+        { "@id": "dep_scibert" },
+        { "@id": "dep_allennlp" }
+      ],
+      "context": {
+        "prefix": "All our models were implemented in ",
+        "suffix": "(Gardner et al., 2017)."
+      }
+    },
+    {
+      "@id": "env_gpu",
+      "@type": "Environment",
+      "mls:name": "48Gb Quadro RTX 8000 GPUs",
+      "start_char_doc": 8550,
+      "end_char_doc": 8579,
+      "wasDerivedFrom": "paper",
+      "mls:hardwareSpecs": "Quadro RTX 8000 48GB",
+      "context": {
+        "prefix": "All our models were trained using ",
+        "suffix": "."
+      }
+    },
+    {
+      "@id": "hp_lr_nonbert",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "Learning Rate (Non-BERT)",
+      "mls:hasValue": "1e-3",
+      "start_char_doc": 8415,
+      "end_char_doc": 8419,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "We train our model for 30 epochs using Adam optimizer with ",
+        "suffix": " as learning rate for all non BERT weights"
+      }
+    },
+    {
+      "@id": "hp_lr_bert",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "Learning Rate (BERT)",
+      "mls:hasValue": "2e-5",
+      "start_char_doc": 8468,
+      "end_char_doc": 8472,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "learning rate for all non BERT weights and ",
+        "suffix": " for BERT weights."
+      }
+    },
+    {
+      "@id": "hp_epochs",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "Epochs",
+      "mls:hasValue": "30",
+      "start_char_doc": 8390,
+      "end_char_doc": 8392,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "We train our model for ",
+        "suffix": " epochs using Adam optimizer"
+      }
+    },
+    {
+      "@id": "hp_patience",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "Early Stopping Patience",
+      "mls:hasValue": "7",
+      "start_char_doc": 8507,
+      "end_char_doc": 8508,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "We use early stopping with a patience value of ",
+        "suffix": " on the validation set"
+      }
+    },
+    {
+      "@id": "hp_hidden_dim",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "Hidden Layer Dimension",
+      "mls:hasValue": "128",
+      "start_char_doc": 8225,
+      "end_char_doc": 8228,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "BiLSTM with ",
+        "suffix": "-d hidden state."
+      }
+    },
+    {
+      "@id": "hp_dropout",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "Dropout",
+      "mls:hasValue": "0.2",
+      "start_char_doc": 8259,
+      "end_char_doc": 8262,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "We use a dropout of ",
+        "suffix": " after BiLSTM embeddings."
+      }
+    },
+    {
+      "@id": "dep_scibert",
+      "@type": "Dependency",
+      "mls:packageName": "SciBERT",
+      "mls:version": "base",
+      "start_char_doc": 8185,
+      "end_char_doc": 8192,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "The base document representation of our model is formed by ",
+        "suffix": "-base"
+      }
+    },
+    {
+      "@id": "dep_allennlp",
+      "@type": "Dependency",
+      "mls:packageName": "AllenNLP",
+      "start_char_doc": 8635,
+      "end_char_doc": 8643,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "All our models were implemented in ",
+        "suffix": " library"
+      }
+    },
+    {
+      "@id": "eval_mention_id",
+      "@type": "MLS_Eval",
+      "mls:measure": "Mention Identification F1",
+      "mls:hasValue": 0.712,
+      "start_char_doc": 7000,
+      "end_char_doc": 7005,
+      "wasDerivedFrom": "paper",
+      "producedBy": { "@id": "experiment_main" },
+      "context": {
+        "prefix": "Our Model | 0.707 | 0.717 | ",
+        "suffix": "**0.712**"
+      }
+    },
+    {
+      "@id": "eval_binary_rel",
+      "@type": "MLS_Eval",
+      "mls:measure": "End-to-end Binary Relations F1",
+      "mls:hasValue": 0.096,
+      "start_char_doc": 7010,
+      "end_char_doc": 7015,
+      "wasDerivedFrom": "paper",
+      "producedBy": { "@id": "experiment_main" },
+      "context": {
+        "prefix": "Our Model | **0.065** | **0.411** | ",
+        "suffix": "**0.096**"
+      }
+    },
+    {
+      "@id": "eval_4ary_rel",
+      "@type": "MLS_Eval",
+      "mls:measure": "4-ary Relation Extraction F1",
+      "mls:hasValue": 0.611,
+      "start_char_doc": 7020,
+      "end_char_doc": 7025,
+      "wasDerivedFrom": "paper",
+      "producedBy": { "@id": "experiment_main" },
+      "context": {
+        "prefix": "Our Model | **0.531** | 0.718 | ",
+        "suffix": "0.611"
+      }
+    }
+  ]
+}
