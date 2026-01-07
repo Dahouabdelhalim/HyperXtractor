@@ -1,0 +1,239 @@
+{
+  "@context": {
+    "mls": "http://example.org/ontology/mls#",
+    "schema": "http://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "Study": "mls:Study",
+    "Experiment": "mls:Experiment",
+    "Person": "mls:Person",
+    "Organization": "mls:Organization",
+    "MLS_Task": "mls:MLS_Task",
+    "MLS_Dataset": "mls:MLS_Dataset",
+    "Method": "mls:Method",
+    "MLS_Model": "mls:MLS_Model",
+    "MLS_Eval": "mls:MLS_Eval",
+    "SoftwareRepository": "mls:SoftwareRepository",
+    "MLS_Implementation": "mls:MLS_Implementation",
+    "Environment": "mls:Environment",
+    "MLS_HyperParameter": "mls:MLS_HyperParameter",
+    "issued": {
+      "@id": "mls:issued",
+      "@type": "xsd:datetime"
+    },
+    "hasAuthor": {
+      "@id": "mls:hasAuthor",
+      "@type": "@id"
+    },
+    "prov-affiliatedWith": {
+      "@id": "mls:prov-affiliatedWith",
+      "@type": "@id"
+    },
+    "realizes": {
+      "@id": "mls:realizes",
+      "@type": "@id"
+    },
+    "produces": {
+      "@id": "mls:produces",
+      "@type": "@id"
+    },
+    "usesData": {
+      "@id": "mls:usesData",
+      "@type": "@id"
+    },
+    "achieves": {
+      "@id": "mls:achieves",
+      "@type": "@id"
+    },
+    "implements": {
+      "@id": "mls:implements",
+      "@type": "@id"
+    },
+    "runsIn": {
+      "@id": "mls:runsIn",
+      "@type": "@id"
+    },
+    "usesParameters": {
+      "@id": "mls:usesParameters",
+      "@type": "@id"
+    }
+  },
+  "@graph": [
+    {
+      "@id": "study",
+      "@type": "Study",
+      "mls:title": "BertGCN: Transductive Text Classification by Combining GCN and BERT",
+      "start_char_doc": 13,
+      "end_char_doc": 81,
+      "wasDerivedFrom": "paper",
+      "mls:url": "https://github.com/ZeroRin/BertGCN",
+      "mls:publicationVenue": "Findings of the Association for Computational Linguistics: ACL-IJCNLP 2021",
+      "mls:hasAuthor": [
+        { "@id": "author1" },
+        { "@id": "author2" },
+        { "@id": "author3" },
+        { "@id": "author4" },
+        { "@id": "author5" }
+      ],
+      "mls:implements": { "@id": "repo" },
+      "mls:contains": { "@id": "experiment_main" },
+      "context": {
+        "prefix": "#",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "author1",
+      "@type": "Person",
+      "mls:name": "Yuxiao Lin",
+      "start_char_doc": 83,
+      "end_char_doc": 93,
+      "wasDerivedFrom": "paper",
+      "mls:email": "yuxiaolinling@zju.edu.cn",
+      "mls:prov-affiliatedWith": { "@id": "org_zju" },
+      "context": {
+        "prefix": "",
+        "suffix": "*"
+      }
+    },
+    {
+      "@id": "author2",
+      "@type": "Person",
+      "mls:name": "Yuxian Meng",
+      "start_char_doc": 95,
+      "end_char_doc": 106,
+      "wasDerivedFrom": "paper",
+      "mls:email": "yuxian_meng@shannonai.com",
+      "mls:prov-affiliatedWith": { "@id": "org_shannonai" },
+      "context": {
+        "prefix": "Yuxiao Lin*,",
+        "suffix": "*"
+      }
+    },
+    {
+      "@id": "org_zju",
+      "@type": "Organization",
+      "mls:name": "Computer Science Department, Zhejiang University",
+      "start_char_doc": 146,
+      "end_char_doc": 194,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "*",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "bertgcn_model",
+      "@type": "MLS_Model",
+      "mls:name": "BertGCN",
+      "start_char_doc": 240,
+      "end_char_doc": 247,
+      "wasDerivedFrom": "paper",
+      "mls:description": "BertGCN constructs a heterogeneous graph over the dataset and represents documents as nodes using BERT representations.",
+      "mls:architecture": "Heterogeneous Graph + BERT Document Encoder + GCN Layer",
+      "mls:achieves": [
+        { "@id": "eval_20ng_acc" },
+        { "@id": "eval_r8_acc" }
+      ],
+      "context": {
+        "prefix": "In this work, we propose",
+        "suffix": ", a model that combines large scale pretraining and transductive learning"
+      }
+    },
+    
+    {
+      "@id": "task_ttc",
+      "@type": "MLS_Task",
+      "mls:name": "Transductive Text Classification",
+      "start_char_doc": 37,
+      "end_char_doc": 71,
+      "wasDerivedFrom": "paper",
+      "mls:description": "Jointly learning representations for both training data and unlabeled test data by propagating label influence through graph convolution.",
+      "context": {
+        "prefix": "BertGCN:",
+        "suffix": "by Combining GCN and BERT"
+      }
+    },
+    {
+      "@id": "experiment_main",
+      "@type": "Experiment",
+      "mls:description": "Performance comparison of BertGCN against state-of-the-art models on five benchmark datasets.",
+      "start_char_doc": 743,
+      "end_char_doc": 754,
+      "wasDerivedFrom": "paper",
+      "mls:realizes": { "@id": "task_ttc" },
+      "mls:produces": { "@id": "bertgcn_model" },
+      "mls:usesData": [
+        { "@id": "data_20ng" },
+        { "@id": "data_r8" },
+        { "@id": "data_r52" },
+        { "@id": "data_ohsumed" },
+        { "@id": "data_mr" }
+      ],
+      "mls:usesParameters": [
+        { "@id": "hp_lambda" },
+        { "@id": "hp_gcn_lr" },
+        { "@id": "hp_bert_lr" }
+      ],
+      "context": {
+        "prefix": "",
+        "suffix": "show that BertGCN achieves SOTA performances on a wide range of text classification datasets."
+      }
+    },
+    {
+      "@id": "data_20ng",
+      "@type": "MLS_Dataset",
+      "mls:name": "20 Newsgroups (20NG)",
+      "start_char_doc": 12822,
+      "end_char_doc": 12835,
+      "wasDerivedFrom": "paper",
+      "mls:numClasses": 20,
+      "mls:numInstances": 18846,
+      "mls:description": "Newsgroup posts from 20 different topics.",
+      "context": {
+        "prefix": "The",
+        "suffix": "dataset contains 18,846 newsgroups posts"
+      }
+    },
+    {
+      "@id": "repo",
+      "@type": "SoftwareRepository",
+      "mls:name": "ZeroRin/BertGCN",
+      "start_char_doc": 930,
+      "end_char_doc": 963,
+      "wasDerivedFrom": "paper",
+      "mls:url": "https://github.com/ZeroRin/BertGCN",
+      "context": {
+        "prefix": "Code available at",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "hp_lambda",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "Interpolation Trade-off (lambda)",
+      "mls:hasValue": "0.7",
+      "start_char_doc": 8645,
+      "end_char_doc": 8648,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "The model reaches its best when",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "eval_20ng_acc",
+      "@type": "MLS_Eval",
+      "mls:measure": "Accuracy",
+      "mls:hasValue": 89.3,
+      "start_char_doc": 12210,
+      "end_char_doc": 12214,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "BertGCN",
+        "suffix": "(on 20NG)"
+      }
+    }
+  ]
+}
