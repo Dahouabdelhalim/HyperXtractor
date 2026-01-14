@@ -37,7 +37,7 @@
       "@type": "Study",
       "mls:title": "SCIREX: A Challenge Dataset for Document-Level Information Extraction",
       "start_char_doc": 13,
-      "end_char_doc": 84,
+      "end_char_doc": 82,
       "wasDerivedFrom": "paper",
       "mls:url": "https://arxiv.org/abs/2005.00512",
       "mls:publicationVenue": "arXiv:2005.00512v1 [cs.CL]",
@@ -58,27 +58,27 @@
       "@id": "author1",
       "@type": "Person",
       "mls:name": "Sarthak Jain",
-      "start_char_doc": 86,
-      "end_char_doc": 98,
+      "start_char_doc": 84,
+      "end_char_doc": 96,
       "wasDerivedFrom": "paper",
       "mls:email": "jain.sar@northeastern.edu",
       "prov-affiliatedWith": { "@id": "org_northeastern" },
       "context": {
         "prefix": "",
-        "suffix": "²* Madeleine van Zuylen¹ Hannanah Hajishirzi¹,³ Iz Beltagy¹"
+        "suffix": "²\\* Madeleine van Zuylen¹ Hannanah Hajishirzi¹,³ Iz Beltagy¹"
       }
     },
     {
       "@id": "author2",
       "@type": "Person",
       "mls:name": "Madeleine van Zuylen",
-      "start_char_doc": 102,
-      "end_char_doc": 122,
+      "start_char_doc": 100,
+      "end_char_doc": 120,
       "wasDerivedFrom": "paper",
       "mls:email": "madeleinev@allenai.org",
       "prov-affiliatedWith": { "@id": "org_ai2" },
       "context": {
-        "prefix": "Sarthak Jain²* ",
+        "prefix": "Sarthak Jain²\\*",
         "suffix": "¹ Hannanah Hajishirzi¹,³ Iz Beltagy¹"
       }
     },
@@ -86,8 +86,8 @@
       "@id": "author3",
       "@type": "Person",
       "mls:name": "Hannanah Hajishirzi",
-      "start_char_doc": 123,
-      "end_char_doc": 142,
+      "start_char_doc": 122,
+      "end_char_doc": 141,
       "wasDerivedFrom": "paper",
       "mls:email": "hannah@allenai.org",
       "prov-affiliatedWith": [
@@ -95,7 +95,7 @@
         { "@id": "org_uw" }
       ],
       "context": {
-        "prefix": "Madeleine van Zuylen¹ ",
+        "prefix": "Sarthak Jain²\\* Madeleine van Zuylen¹",
         "suffix": "¹,³ Iz Beltagy¹"
       }
     },
@@ -103,13 +103,13 @@
       "@id": "author4",
       "@type": "Person",
       "mls:name": "Iz Beltagy",
-      "start_char_doc": 147,
-      "end_char_doc": 157,
+      "start_char_doc": 145,
+      "end_char_doc": 155,
       "wasDerivedFrom": "paper",
       "mls:email": "beltagy@allenai.org",
       "prov-affiliatedWith": { "@id": "org_ai2" },
       "context": {
-        "prefix": "Hannanah Hajishirzi¹,³ ",
+        "prefix": "Sarthak Jain²\\* Madeleine van Zuylen¹ Hannanah Hajishirzi¹,³",
         "suffix": "¹"
       }
     },
@@ -426,3 +426,4 @@
     }
   ]
 }
+
