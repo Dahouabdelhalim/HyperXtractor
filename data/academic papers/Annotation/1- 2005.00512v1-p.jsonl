@@ -153,28 +153,71 @@
       "@id": "task_doc_ie",
       "@type": "MLS_Task",
       "mls:name": "Document-Level Information Extraction",
-      "start_char_doc": 1056,
-      "end_char_doc": 1093,
+      "start_char_doc": 45,
+      "end_char_doc": 82,
       "wasDerivedFrom": "paper",
       "mls:description": "Extracting information from full documents, identifying document-level relationships that go beyond sentences or even sections.",
       "context": {
-        "prefix": "Creating datasets for ",
-        "suffix": " is challenging because it requires domain expertise"
+        "prefix": "# SCIREX: A Challenge Dataset for",
+        "suffix": ""
       }
     },
     {
-      "@id": "task_nary_relation",
-      "@type": "MLS_Task",
-      "mls:name": "N-ary Relation Extraction",
-      "start_char_doc": 2520,
-      "end_char_doc": 2539,
-      "wasDerivedFrom": "paper",
-      "mls:description": "Extracting N-ary relations between entities in a scientific article (binary, 3-ary, and 4-ary relations).",
-      "context": {
-        "prefix": "**Relation Extraction** is the task of extracting ",
-        "suffix": " between entities in a scientific article."
-      }
-    },
+    "@id": "task_entity_recognition",
+    "@type": "MLS_Task",
+    "mls:name": "Entity Recognition",
+    "start_char_doc": 6774,
+    "end_char_doc": 6792,
+    "wasDerivedFrom": "paper",
+    "subTaskOf": { "@id": "task_doc_ie" },
+    "mls:description": "Identifying entity mentions (Method, Task, Metric, or Dataset) in a scientific article and classifying them with their types.",
+    "context": {
+      "prefix": "**",
+      "suffix": "** Our entities are abstract objects of type Method, Task, Metric, or Dataset that appear as text in a scientific article. We define “mentions” (or spans) as a specific instantiation of the entity in the text – this could be the actual name of the entity, its abbreviation, etc. The entity recognition task is to identify “entity mentions” and classify them with their types."
+    }
+  },
+  {
+    "@id": "task_salient_entity_identification",
+    "@type": "MLS_Task",
+    "mls:name": "Salient Entity Identification",
+    "start_char_doc": 7171,
+    "end_char_doc": 7200,
+    "wasDerivedFrom": "paper",
+    "subTaskOf": { "@id": "task_doc_ie" },
+    "mls:description": "Identifying entities that are central to the article's evaluation and results, specifically those belonging to a result relation tuple.",
+    "context": {
+      "prefix": "**",
+      "suffix": "** Entities appear in a scientific article are not equally important. For example, a task mentioned in the related work section is less important than the main task of the article. In our case, salient entity identification refers to finding if an entity is taking part in the article evaluation. Salient Datasets, Metrics, Tasks, and Methods are those needed to describe the article’s results. For the rest of this paper, we will use the term *salient* to refer to entities that belong to a result relation tuple."
+    }
+  },
+  {
+    "@id": "task_coreference",
+    "@type": "MLS_Task",
+    "mls:name": "Coreference",
+    "start_char_doc": 7718,
+    "end_char_doc": 7729,
+    "wasDerivedFrom": "paper",
+    "subTaskOf": { "@id": "task_doc_ie" },
+    "mls:description": "Identifying a cluster of mentions of an entity (or a salient entity) that are coreferred in a single document.",
+    "context": {
+      "prefix": "**",
+      "suffix": "** is the task of identifying a *cluster* of mentions of an entity (or a salient entity) that are coreferred in a single document."
+    }
+  },
+  {
+    "@id": "task_nary_relation",
+    "@type": "MLS_Task",
+    "mls:name": "Relation Extraction",
+    "start_char_doc": 7863,
+    "end_char_doc": 7882,
+    "wasDerivedFrom": "paper",
+    "subTaskOf": { "@id": "task_doc_ie" },
+    "mls:description": "Extracting N-ary relations (binary, 3-ary, and 4-ary) between entities of type Dataset, Method, Metric, and Task that cannot be split into binary relations.",
+    "context": {
+      "prefix": "**",
+      "suffix": "** is the task of extracting $N$-ary relations between entities in a scientific article. We are interested in discovering binary, 3-ary, and 4-ary relations between a collection of entities of type (Dataset, Method, Metric, and Task). It is important to note that this 4-ary relation can’t be split into multiple binary relations because, e.g., a dataset might have multiple tasks, and each one has its own metric, so the metric cannot be decided solely based on the dataset or the task."
+    }
+  },
     {
       "@id": "dataset_scirex",
       "@type": "MLS_Dataset",
@@ -426,5 +469,6 @@
     }
   ]
 }
+
 
 
