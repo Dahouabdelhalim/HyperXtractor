@@ -222,16 +222,32 @@
       "@id": "dataset_scirex",
       "@type": "MLS_Dataset",
       "mls:name": "SCIREX",
-      "start_char_doc": 490,
-      "end_char_doc": 496,
+      "start_char_doc": 13,
+      "end_char_doc": 19,
       "wasDerivedFrom": "paper",
       "mls:numInstances": 438,
       "mls:language": "English",
       "mls:modality": "Text",
       "mls:description": "A document level IE dataset that encompasses multiple IE tasks, including salient entity identification and document level N-ary relation identification from scientific articles.",
       "context": {
-        "prefix": "In this paper, we introduce ",
-        "suffix": ", a document level IE dataset"
+        "prefix": "#",
+        "suffix": ": A Challenge Dataset for Document-Level Information Extraction"
+      }
+    },
+    {
+      "@id": "dataset_scirec",
+      "@type": "MLS_Dataset",
+      "mls:name": "SCIERC",
+      "start_char_doc": 2037,
+      "end_char_doc": 2043,
+      "wasDerivedFrom": "paper",
+      "mls:numInstances": 500,
+      "mls:language": "English",
+      "mls:modality": "Text",
+      "mls:description": "A dataset of 500 richly annotated scientific abstracts containing mention spans and their types, coreference information between mentions, and binary relations annotations.",
+      "context": {
+        "prefix": "Extracting information about entities and their relationships from unstructured text is an important problem in NLP. Conventional datasets and methods for information extraction (IE) focus on within-sentence relations from general Newswire text (Zhang et al., 2017). However, recent work started studying the development of full IE models and datasets for short paragraphs (e.g., information extraction from abstracts of scientific articles as in",
+        "suffix": "(Luan et al., 2018)), or only extracting relations (given ground truth entities) on long documents (e.g. Jia et al. (2019)). While these tasks provide a reasonable testbed for developing IE models, a significant amount of information can only be gleaned from analyzing the full document. To this end, not much work has been done on developing full IE datasets and model for long documents."
       }
     },
     {
@@ -248,6 +264,11 @@
         { "@id": "eval_binary_rel" },
         { "@id": "eval_4ary_rel" }
       ],
+      "mls:trainedOn": [
+        { "@id": "dataset_scirec" },
+        { "@id": "dataset_scirex" }
+      ],
+      "evaluatedOn": [ { "@id": "dataset_scirec" }, { "@id": "dataset_scirex" } ],
       "context": {
         "prefix": "We develop a ",
         "suffix": " that performs document-level IE tasks jointly in an end-to-end fashion."
@@ -469,6 +490,7 @@
     }
   ]
 }
+
 
 
 
