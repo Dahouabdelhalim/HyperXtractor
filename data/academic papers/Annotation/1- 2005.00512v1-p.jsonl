@@ -117,8 +117,8 @@
       "@id": "org_ai2",
       "@type": "Organization",
       "mls:name": "Allen Institute for AI",
-      "start_char_doc": 158,
-      "end_char_doc": 180,
+      "start_char_doc": 157,
+      "end_char_doc": 179,
       "wasDerivedFrom": "paper",
       "context": {
         "prefix": "",
@@ -133,7 +133,7 @@
       "end_char_doc": 204,
       "wasDerivedFrom": "paper",
       "context": {
-        "prefix": "Allen Institute for AI¹ ",
+        "prefix": "Allen Institute for AI¹",
         "suffix": "² University of Washington³"
       }
     },
@@ -141,11 +141,11 @@
       "@id": "org_uw",
       "@type": "Organization",
       "mls:name": "University of Washington",
-      "start_char_doc": 205,
-      "end_char_doc": 229,
+      "start_char_doc": 206,
+      "end_char_doc": 230,
       "wasDerivedFrom": "paper",
       "context": {
-        "prefix": "Northeastern University² ",
+        "prefix": "Allen Institute for AI¹ Northeastern University²",
         "suffix": "³"
       }
     },
@@ -426,4 +426,5 @@
     }
   ]
 }
+
 
