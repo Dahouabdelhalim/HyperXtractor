@@ -1,0 +1,223 @@
+---
+config:
+  layout: elk
+  theme: mc
+  look: handDrawn
+---
+classDiagram
+direction TB
+  class Study {
+    +issued datetime
+    +title string
+    +abstract string
+    +url URI
+    +doi string
+    +citation string
+    +publicationVenue string
+    +timestamp date
+  }
+  class Experiment {
+    +identifier string
+    +description string
+    +objective string
+    +hypothesis string
+    +methodology string
+  }
+  class Person {
+    +name string
+    +affiliation string
+    +email string
+    +orcid string
+  }
+  class Organization {
+    +name string
+    +url URI
+    +type string
+  }
+  class MLS_Task {
+    +name string
+    +description string
+    +category string
+    +metrics string
+  }
+  class MLS_Dataset {
+    +name string
+    +description string
+    +numInstances integer
+    +language string
+    +license string
+    +modality string
+    +numClasses integer
+  }
+  class DataSource {
+    +name string
+    +url URI
+    +type string
+    +license string
+  }
+  class Method {
+    +name string
+    +description string
+    +version string
+  }
+
+class MLS_Model {
+  +architecture string
+  +parameters string
+}
+
+class MLS_Algorithm {
+  +complexity string
+  +pseudoCode URI
+}
+
+class Prompt {
+  +text string
+  +role string
+  +templateId string
+  +usesContext boolean
+}
+
+  class MLS_Eval {
+    +measure string
+    +hasValue float
+    +stdDev float
+    +confidenceInterval string
+  }
+
+  class SoftwareRepository {
+    +name string
+    +url URI
+    +version string
+    +programmingLanguage string
+    +dateModified datetime
+    +license string
+    +documentationUrl URI
+  }
+  class MLS_Implementation {
+    +identifier string
+    +codeRepository URI
+    +framework string
+    +dependencies string
+    +executionCommand string
+    +entryPoint string
+    +commitHash string
+    +branch string
+    +dependenciesHash string
+  }
+  class MLS_HyperParameter {
+    +name URI
+    +hasValue string
+    +wasDerivedFrom string
+    +type string
+    +searchSpace string
+  }
+
+  class Dependency {
+    +packageName string
+    +version string
+    +type string
+    +isOptional boolean
+  }
+  class Environment {
+    +name string
+    +description string
+    +hardwareSpecs string
+    +os string
+    +pythonVersion string
+    +requirementsFile string
+    +is dockerized boolean
+  }
+  class DataProcessingStep {
+    +id string
+    +startedAtTime datetime
+    +endedAtTime datetime
+    +description string
+    +transformationType string
+    +parameters string
+    +codeReference URI
+  }
+  class TrainingRun {
+    +runId string
+    +startedAtTime datetime
+    +endedAtTime datetime
+    +codeReference URI
+    +logFile URI
+  }
+  class EvaluationRun {
+    +runId string
+    +startedAtTime datetime
+    +endedAtTime datetime
+    +split string
+    +codeReference URI
+  }
+  class PredictionSet {
+    +id string
+    +numInstances integer
+    +onDatasetSplit string %% test set
+    +format string %% e.g., jsonl, csv
+    +artifactsLocation URI
+  }
+
+
+  Method <|-- MLS_Model
+  Method <|-- MLS_Algorithm
+  Method <|-- Prompt
+
+  Study "1" -- "*" Person : hasAuthor
+  Study "1" -- "1..*" Experiment : contains
+  Study "1" -- "0..1" SoftwareRepository : implements
+  Person "1" -- "*" Organization : prov-affiliatedWith
+
+  Experiment "1" -- "1..*" MLS_Task : realizes
+  Experiment "1" -- "1..*" MLS_Dataset : usesData
+  Experiment "1" -- "1..*" Method : produces
+  Experiment "1" -- "0..*" MLS_HyperParameter : usesParameters
+  Experiment "1" -- "1..*" MLS_Implementation : executes
+
+  MLS_Dataset "1" -- "0..*" MLS_Dataset : subDatasetOf
+  MLS_Dataset "1" -- "1..*" DataSource : prov-derivedFrom
+  MLS_Dataset "1" -- "1..*" DataProcessingStep : processedThrough
+  DataProcessingStep "1" -- "1" DataSource : prov-uses
+
+  Method "1" -- "1..*" MLS_Dataset : trainedOn
+  Method "1" -- "1..*" MLS_Dataset : evaluatedOn
+  Method "1" -- "1..*" MLS_Eval : achieves
+  Method "1" -- "1" TrainingRun : prov-producedBy
+  Method "1" -- "1..*" Method : subMethod
+
+  MLS_Eval "1" -- "1" EvaluationRun : prov-producedBy
+
+  SoftwareRepository "1" -- "1..*" MLS_Implementation : contains
+  SoftwareRepository "1" -- "1..*" Environment : supports
+  MLS_Implementation "1" -- "1" Environment : runsIn
+  MLS_Implementation "1" -- "0..*" Dependency : requires
+
+  TrainingRun "1" -- "1" MLS_Implementation : prov-executedBy
+  EvaluationRun "1" -- "1" MLS_Implementation : prov-executedBy
+  EvaluationRun "1" -- "0..*" PredictionSet : prov-generated
+  TrainingRun "1" -- "1" MLS_Dataset : prov-uses
+  EvaluationRun "1" -- "1" Method : evaluates
+
+
+  MLS_Task "1" -- "1..*" MLS_Dataset : benchmarkedOn
+
+  MLS_Task "1" -- "0..*" MLS_Task : subTaskOf
+
+  style Study fill:#dddddd,stroke:#333,stroke-width:2px
+  style Experiment fill:#dddddd,stroke:#333,stroke-width:2px
+  style Person fill:#dddddd,stroke:#333,stroke-width:2px
+  style Organization fill:#dddddd,stroke:#333,stroke-width:2px
+
+  style SoftwareRepository fill:#f9f,stroke:#333,stroke-width:2px
+  style MLS_Implementation fill:#f9f,stroke:#333,stroke-width:2px
+  style Environment fill:#f9f,stroke:#333,stroke-width:2px
+  style Dependency fill:#f9f,stroke:#333,stroke-width:2px
+  style MLS_HyperParameter fill:#f9f,stroke:#333,stroke-width:2px
+  style PredictionSet fill:#f9f,stroke:#333,stroke-width:2px
+
+
+  style DataProcessingStep fill:#ffa500,stroke:#333,stroke-width:2px
+  style TrainingRun fill:#ffa500,stroke:#333,stroke-width:2px
+  style EvaluationRun fill:#ffa500,stroke:#333,stroke-width:2px
+  style DataSource fill:#ffa500,stroke:#333,stroke-width:2px
