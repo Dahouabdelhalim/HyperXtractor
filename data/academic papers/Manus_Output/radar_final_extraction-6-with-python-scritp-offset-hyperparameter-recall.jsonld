@@ -1,0 +1,835 @@
+{
+  "@context": {
+    "mls": "http://example.org/ontology/mls#",
+    "schema": "http://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "Study": "mls:Study",
+    "Experiment": "mls:Experiment",
+    "Person": "mls:Person",
+    "Organization": "mls:Organization",
+    "MLS_Task": "mls:MLS_Task",
+    "MLS_Dataset": "mls:MLS_Dataset",
+    "DataSource": "mls:DataSource",
+    "Method": "mls:Method",
+    "MLS_Model": "mls:MLS_Model",
+    "MLS_Algorithm": "mls:MLS_Algorithm",
+    "Prompt": "mls:Prompt",
+    "MLS_Eval": "mls:MLS_Eval",
+    "SoftwareRepository": "mls:SoftwareRepository",
+    "MLS_Implementation": "mls:MLS_Implementation",
+    "MLS_HyperParameter": "mls:MLS_HyperParameter",
+    "Dependency": "mls:Dependency",
+    "Environment": "mls:Environment",
+    "DataProcessingStep": "mls:DataProcessingStep",
+    "TrainingRun": "mls:TrainingRun",
+    "EvaluationRun": "mls:EvaluationRun",
+    "PredictionSet": "mls:PredictionSet",
+    "issued": { "@id": "mls:issued", "@type": "xsd:datetime" },
+    "title": "schema:title",
+    "abstract": "schema:abstract",
+    "url": "schema:url",
+    "doi": "schema:doi",
+    "citation": "schema:citation",
+    "publicationVenue": "schema:publicationVenue",
+    "timestamp": { "@id": "schema:timestamp", "@type": "xsd:date" },
+    "identifier": "schema:identifier",
+    "description": "schema:description",
+    "objective": "schema:objective",
+    "hypothesis": "schema:hypothesis",
+    "methodology": "schema:methodology",
+    "name": "schema:name",
+    "affiliation": "schema:affiliation",
+    "email": "schema:email",
+    "orcid": "schema:orcid",
+    "type": "schema:type",
+    "category": "schema:category",
+    "metrics": "schema:metrics",
+    "numInstances": { "@id": "schema:numInstances", "@type": "xsd:integer" },
+    "language": "schema:language",
+    "license": "schema:license",
+    "modality": "schema:modality",
+    "numClasses": { "@id": "schema:numClasses", "@type": "xsd:integer" },
+    "version": "schema:version",
+    "architecture": "schema:architecture",
+    "parameters": "schema:parameters",
+    "complexity": "mls:complexity",
+    "pseudoCode": { "@id": "mls:pseudoCode", "@type": "xsd:anyURI" },
+    "text": "schema:text",
+    "role": "mls:role",
+    "templateId": "mls:templateId",
+    "usesContext": { "@id": "mls:usesContext", "@type": "xsd:boolean" },
+    "measure": "mls:measure",
+    "hasValue": { "@id": "mls:hasValue", "@type": "xsd:float" },
+    "stdDev": { "@id": "mls:stdDev", "@type": "xsd:float" },
+    "confidenceInterval": "mls:confidenceInterval",
+    "programmingLanguage": "schema:programmingLanguage",
+    "dateModified": { "@id": "schema:dateModified", "@type": "xsd:datetime" },
+    "documentationUrl": { "@id": "mls:documentationUrl", "@type": "xsd:anyURI" },
+    "codeRepository": { "@id": "mls:codeRepository", "@type": "xsd:anyURI" },
+    "framework": "mls:framework",
+    "dependencies": "mls:dependencies",
+    "executionCommand": "mls:executionCommand",
+    "entryPoint": "mls:entryPoint",
+    "commitHash": "mls:commitHash",
+    "branch": "mls:branch",
+    "dependenciesHash": "mls:dependenciesHash",
+    "packageName": "mls:packageName",
+    "isOptional": { "@id": "mls:isOptional", "@type": "xsd:boolean" },
+    "hardwareSpecs": "mls:hardwareSpecs",
+    "os": "mls:os",
+    "pythonVersion": "mls:pythonVersion",
+    "requirementsFile": "mls:requirementsFile",
+    "isDockerized": { "@id": "mls:isDockerized", "@type": "xsd:boolean" },
+    "startedAtTime": { "@id": "prov:startedAtTime", "@type": "xsd:datetime" },
+    "endedAtTime": { "@id": "prov:endedAtTime", "@type": "xsd:datetime" },
+    "transformationType": "mls:transformationType",
+    "codeReference": { "@id": "mls:codeReference", "@type": "xsd:anyURI" },
+    "runId": "mls:runId",
+    "logFile": { "@id": "mls:logFile", "@type": "xsd:anyURI" },
+    "split": "mls:split",
+    "onDatasetSplit": "mls:onDatasetSplit",
+    "format": "mls:format",
+    "artifactsLocation": { "@id": "mls:artifactsLocation", "@type": "xsd:anyURI" },
+
+    "hasAuthor": { "@id": "mls:hasAuthor", "@type": "@id" },
+    "contains": { "@id": "mls:contains", "@type": "@id" },
+    "implements": { "@id": "mls:implements", "@type": "@id" },
+    "prov-affiliatedWith": { "@id": "mls:prov-affiliatedWith", "@type": "@id" },
+    "realizes": { "@id": "mls:realizes", "@type": "@id" },
+    "usesData": { "@id": "mls:usesData", "@type": "@id" },
+    "produces": { "@id": "mls:produces", "@type": "@id" },
+    "usesParameters": { "@id": "mls:usesParameters", "@type": "@id" },
+    "executes": { "@id": "mls:executes", "@type": "@id" },
+    "subDatasetOf": { "@id": "mls:subDatasetOf", "@type": "@id" },
+    "prov-derivedFrom": { "@id": "mls:prov-derivedFrom", "@type": "@id" },
+    "processedThrough": { "@id": "mls:processedThrough", "@type": "@id" },
+    "prov-uses": { "@id": "mls:prov-uses", "@type": "@id" },
+    "trainedOn": { "@id": "mls:trainedOn", "@type": "@id" },
+    "evaluatedOn": { "@id": "mls:evaluatedOn", "@type": "@id" },
+    "achieves": { "@id": "mls:achieves", "@type": "@id" },
+    "onDataset": { "@id": "mls:onDataset", "@type": "@id" },
+    "prov-producedBy": { "@id": "mls:prov-producedBy", "@type": "@id" },
+    "subMethod": { "@id": "mls:subMethod", "@type": "@id" },
+    "evaluates": { "@id": "mls:evaluates", "@type": "@id" },
+    "supports": { "@id": "mls:supports", "@type": "@id" },
+    "runsIn": { "@id": "mls:runsIn", "@type": "@id" },
+    "requires": { "@id": "mls:requires", "@type": "@id" },
+    "prov-executedBy": { "@id": "mls:prov-executedBy", "@type": "@id" },
+    "prov-generated": { "@id": "mls:prov-generated", "@type": "@id" },
+    "benchmarkedOn": { "@id": "mls:benchmarkedOn", "@type": "@id" },
+    "subTaskOf": { "@id": "mls:subTaskOf", "@type": "@id" }
+  },
+  "@graph": [
+    {
+      "@id": "study_radar",
+      "@type": "Study",
+      "title": "RADAr: A Transformer-based Autoregressive Decoder Architecture for Hierarchical Text Classification",
+      "abstract": "Recent approaches in hierarchical text classification (HTC) rely on the capabilities of a pre-trained transformer model and exploit the label semantics and a graph encoder for the label hierarchy. In this paper, we introduce an effective hierarchical text classifier RADAr...",
+      "url": "https://arxiv.org/abs/2501.13598v1",
+      "hasAuthor": [
+        { "@id": "person_yousef" },
+        { "@id": "person_lukas" },
+        { "@id": "person_ansgar" }
+      ],
+      "contains": [
+        { "@id": "experiment_main" }
+      ],
+      "implements": { "@id": "repo_radar" },
+      "start_char_doc": 13,
+      "end_char_doc": 112,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "## Page 1 #",
+        "suffix": "Yousef Younes<sup>a,d,*</sup>, Lukas Galke<sup>b,c</sup> and"
+      }
+    },
+    {
+      "@id": "person_yousef",
+      "@type": "Person",
+      "name": "Yousef Younes",
+      "email": "yousef.younes@gesis.org",
+      "orcid": "https://orcid.org/0000-0003-1271-3633",
+      "prov-affiliatedWith": [
+        { "@id": "org_gesis" },
+        { "@id": "org_ulm" }
+      ],
+      "start_char_doc": 114,
+      "end_char_doc": 127,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Architecture for Hierarchical Text Classification",
+        "suffix": "<sup>a,d,*</sup>, Lukas Galke<sup>b,c</sup> and Ansgar"
+      }
+    },
+    {
+      "@id": "person_lukas",
+      "@type": "Person",
+      "name": "Lukas Galke",
+      "orcid": "https://orcid.org/0000-0001-6124-1092",
+      "prov-affiliatedWith": [
+        { "@id": "org_max_planck" },
+        { "@id": "org_denmark" }
+      ],
+      "start_char_doc": 145,
+      "end_char_doc": 156,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Hierarchical Text Classification Yousef Younes<sup>a,d,*</sup>,",
+        "suffix": "<sup>b,c</sup> and Ansgar Scherp<sup>d</sup> <sup>a</sup>GESIS"
+      }
+    },
+    {
+      "@id": "person_ansgar",
+      "@type": "Person",
+      "name": "Ansgar Scherp",
+      "prov-affiliatedWith": [
+        { "@id": "org_ulm" }
+      ],
+      "start_char_doc": 175,
+      "end_char_doc": 188,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Yousef Younes<sup>a,d,*</sup>, Lukas Galke<sup>b,c</sup> and",
+        "suffix": "<sup>d</sup> <sup>a</sup>GESIS – Leibniz-Institute for"
+      }
+    },
+    {
+      "@id": "org_gesis",
+      "@type": "Organization",
+      "name": "GESIS – Leibniz-Institute for the Social Sciences",
+      "start_char_doc": 214,
+      "end_char_doc": 263,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Galke<sup>b,c</sup> and Ansgar Scherp<sup>d</sup> <sup>a</sup>",
+        "suffix": "<sup>b</sup>Max Planck Institute for Psycholinguistics"
+      }
+    },
+    {
+      "@id": "org_max_planck",
+      "@type": "Organization",
+      "name": "Max Planck Institute for Psycholinguistics",
+      "start_char_doc": 276,
+      "end_char_doc": 318,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "for the Social Sciences <sup>b</sup>",
+        "suffix": "<sup>c</sup>University of Southern Denmark <sup>d</sup>University"
+      }
+    },
+    {
+      "@id": "org_denmark",
+      "@type": "Organization",
+      "name": "University of Southern Denmark",
+      "start_char_doc": 331,
+      "end_char_doc": 361,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Planck Institute for Psycholinguistics <sup>c</sup>",
+        "suffix": "<sup>d</sup>University of Ulm ORCID (Yousef"
+      }
+    },
+    {
+      "@id": "org_ulm",
+      "@type": "Organization",
+      "name": "University of Ulm",
+      "start_char_doc": 374,
+      "end_char_doc": 391,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "<sup>c</sup>University of Southern Denmark <sup>d</sup>",
+        "suffix": "ORCID (Yousef Younes): https://orcid.org/0000-0003-1271-3633, ORCID"
+      }
+    },
+    {
+      "@id": "experiment_main",
+      "@type": "Experiment",
+      "identifier": "RADAr Main Experiment",
+      "description": "Evaluation of RADAr on three benchmark datasets: WOS, NYT, and RCV1-V2",
+      "realizes": [ { "@id": "task_htc" } ],
+      "usesData": [
+        { "@id": "dataset_wos" },
+        { "@id": "dataset_nyt" },
+        { "@id": "dataset_rcv1" }
+      ],
+      "produces": [ { "@id": "method_radar" } ],
+      "usesParameters": [
+        { "@id": "hp_optimizer" },
+        { "@id": "hp_lr_encoder" },
+        { "@id": "hp_lr_decoder" },
+        { "@id": "hp_focal_loss" },
+        { "@id": "hp_decoder_layers" },
+        { "@id": "hp_attention_heads" },
+        { "@id": "hp_dropout" },
+        { "@id": "hp_scheduler" },
+        { "@id": "hp_scheduler_patience" },
+        { "@id": "hp_scheduler_factor" },
+        { "@id": "hp_training_patience" },
+        { "@id": "hp_gamma" },
+        { "@id": "hp_label_smoothing" },
+        { "@id": "hp_teacher_forcing" },
+        { "@id": "hp_grad_accum" },
+        { "@id": "hp_batch_size" },
+        { "@id": "hp_random_seed" },
+        { "@id": "hp_epochs_wos" },
+        { "@id": "hp_epochs_nyt" },
+        { "@id": "hp_epochs_rcv1" },
+        { "@id": "hp_epochs_avg" },
+        { "@id": "hp_num_params" }
+      ],
+      "executes": [ { "@id": "impl_radar" } ],
+      "start_char_doc": 17520,
+      "end_char_doc": 17542,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "## 4 Experimental Apparatus Datasets and Metrics",
+        "suffix": "common HTC datasets. Those are"
+      }
+    },
+    {
+      "@id": "task_htc",
+      "@type": "MLS_Task",
+      "name": "Hierarchical Text Classification",
+      "description": "Labeling a text sample based on a semantic hierarchy where labels exhibit a generalization-specialization relationship",
+      "metrics": "Micro-F1, Macro-F1",
+      "start_char_doc": 80,
+      "end_char_doc": 112,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Transformer-based Autoregressive Decoder Architecture for",
+        "suffix": "Yousef Younes<sup>a,d,*</sup>, Lukas Galke<sup>b,c</sup> and"
+      }
+    },
+    {
+      "@id": "dataset_wos",
+      "@type": "MLS_Dataset",
+      "name": "Web-of-Science (WOS)",
+      "numInstances": 46985,
+      "numClasses": 141,
+      "start_char_doc": 17544,
+      "end_char_doc": 17565,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "common HTC datasets. Those are",
+        "suffix": "[16], NY-Times (NYT) [29], and"
+      }
+    },
+    {
+      "@id": "dataset_nyt",
+      "@type": "MLS_Dataset",
+      "name": "NY-Times (NYT)",
+      "numInstances": 36471,
+      "numClasses": 166,
+      "start_char_doc": 17571,
+      "end_char_doc": 17585,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Those are Web-of-Science (WOS) [16],",
+        "suffix": "[29], and RCV1-V2 [17]. The"
+      }
+    },
+    {
+      "@id": "dataset_rcv1",
+      "@type": "MLS_Dataset",
+      "name": "RCV1-V2",
+      "numInstances": 804414,
+      "numClasses": 103,
+      "start_char_doc": 17596,
+      "end_char_doc": 17603,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "[16], NY-Times (NYT) [29], and",
+        "suffix": "[17]. The WOS dataset has"
+      }
+    },
+    {
+      "@id": "method_radar",
+      "@type": "Method",
+      "name": "RADAr",
+      "description": "Transformer-based Autoregressive Decoder Architecture",
+      "trainedOn": [ { "@id": "dataset_wos" }, { "@id": "dataset_nyt" }, { "@id": "dataset_rcv1" } ],
+      "evaluatedOn": [ { "@id": "dataset_wos" }, { "@id": "dataset_nyt" }, { "@id": "dataset_rcv1" } ],
+      "achieves": [
+        { "@id": "eval_wos_micro" },
+        { "@id": "eval_wos_macro" },
+        { "@id": "eval_nyt_micro" },
+        { "@id": "eval_nyt_macro" },
+        { "@id": "eval_rcv1_micro" },
+        { "@id": "eval_rcv1_macro" }
+      ],
+      "subMethod": [ { "@id": "model_roberta" }, { "@id": "model_decoder" } ],
+      "start_char_doc": 13,
+      "end_char_doc": 18,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "## Page 1 #",
+        "suffix": ": A Transformer-based Autoregressive Decoder"
+      }
+    },
+    {
+      "@id": "model_roberta",
+      "@type": "MLS_Model",
+      "name": "RoBERTa base",
+      "architecture": "Transformer Encoder",
+      "start_char_doc": 7739,
+      "end_char_doc": 7751,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "but we choose to use",
+        "suffix": ". The decoder is an"
+      }
+    },
+    {
+      "@id": "model_decoder",
+      "@type": "MLS_Model",
+      "name": "custom autoregressive decoder",
+      "architecture": "Autoregressive Transformer Decoder",
+      "parameters": "2 decoder layers, 8 attention heads",
+      "start_char_doc": 1006,
+      "end_char_doc": 1035,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "process the input and a",
+        "suffix": "with two decoder layers for"
+      }
+    },
+    {
+      "@id": "eval_wos_micro",
+      "@type": "MLS_Eval",
+      "measure": "Micro-F1",
+      "hasValue": 87.17,
+      "onDataset": { "@id": "dataset_wos" },
+      "start_char_doc": 31702,
+      "end_char_doc": 31707,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "<td>&lt;img&gt;42&lt;/img&gt;</td> </tr> <tr> <td>RADAr</td> <td><strong>",
+        "suffix": "<sub>(0.04)</sub></strong></td> <td><strong>81.84<sub>(0.08)</sub></strong></td>"
+      }
+    },
+    {
+      "@id": "eval_wos_macro",
+      "@type": "MLS_Eval",
+      "measure": "Macro-F1",
+      "hasValue": 81.84,
+      "onDataset": { "@id": "dataset_wos" },
+      "start_char_doc": 31757,
+      "end_char_doc": 31762,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "</tr> <tr> <td>RADAr</td> <td><strong>87.17<sub>(0.04)</sub></strong></td> <td><strong>",
+        "suffix": "<sub>(0.08)</sub></strong></td> <td><strong>79.84<sub>(0.07)</sub></strong></td>"
+      }
+    },
+    {
+      "@id": "eval_nyt_micro",
+      "@type": "MLS_Eval",
+      "measure": "Micro-F1",
+      "hasValue": 79.84,
+      "onDataset": { "@id": "dataset_nyt" },
+      "start_char_doc": 31812,
+      "end_char_doc": 31817,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "<tr> <td>RADAr</td> <td><strong>87.17<sub>(0.04)</sub></strong></td> <td><strong>81.84<sub>(0.08)</sub></strong></td> <td><strong>",
+        "suffix": "<sub>(0.07)</sub></strong></td> <td><strong>68.64<sub>(0.28)</sub></strong></td>"
+      }
+    },
+    {
+      "@id": "eval_nyt_macro",
+      "@type": "MLS_Eval",
+      "measure": "Macro-F1",
+      "hasValue": 68.64,
+      "onDataset": { "@id": "dataset_nyt" },
+      "start_char_doc": 31867,
+      "end_char_doc": 31872,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "<td>RADAr</td> <td><strong>87.17<sub>(0.04)</sub></strong></td> <td><strong>81.84<sub>(0.08)</sub></strong></td> <td><strong>79.84<sub>(0.07)</sub></strong></td> <td><strong>",
+        "suffix": "<sub>(0.28)</sub></strong></td> <td><strong>87.23<sub>(0.05)</sub></strong></td>"
+      }
+    },
+    {
+      "@id": "eval_rcv1_micro",
+      "@type": "MLS_Eval",
+      "measure": "Micro-F1",
+      "hasValue": 87.23,
+      "onDataset": { "@id": "dataset_rcv1" },
+      "start_char_doc": 30816,
+      "end_char_doc": 30821,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "<td><strong>87.36</strong></td> <td>82.00</td> <td><strong>80.47</strong></td> <td>70.19</td> <td><strong>",
+        "suffix": "</strong></td> <td><strong>71.07</strong></td> <td>&lt;img&gt;14&lt;/img&gt;</td>"
+      }
+    },
+    {
+      "@id": "eval_rcv1_macro",
+      "@type": "MLS_Eval",
+      "measure": "Macro-F1",
+      "hasValue": 69.64,
+      "onDataset": { "@id": "dataset_rcv1" },
+      "start_char_doc": 31977,
+      "end_char_doc": 31982,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "<td><strong>81.84<sub>(0.08)</sub></strong></td> <td><strong>79.84<sub>(0.07)</sub></strong></td> <td><strong>68.64<sub>(0.28)</sub></strong></td> <td><strong>87.23<sub>(0.05)</sub></strong></td> <td><strong>",
+        "suffix": "<sub>(0.12)</sub></strong></td> <td>our experiment</td>"
+      }
+    },
+    {
+      "@id": "repo_radar",
+      "@type": "SoftwareRepository",
+      "name": "RADAr GitHub Repository",
+      "url": "https://github.com/yousef-younes/RADAr",
+      "programmingLanguage": "Python",
+      "contains": [ { "@id": "impl_radar" } ],
+      "supports": [ { "@id": "env_a100" } ],
+      "start_char_doc": 2087,
+      "end_char_doc": 2125,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "source code is available at",
+        "suffix": "except the root label, has"
+      }
+    },
+    {
+      "@id": "impl_radar",
+      "@type": "MLS_Implementation",
+      "identifier": "RADAr PyTorch Implementation",
+      "codeRepository": "https://github.com/yousef-younes/RADAr",
+      "framework": "PyTorch",
+      "runsIn": { "@id": "env_a100" },
+      "start_char_doc": 22575,
+      "end_char_doc": 22582,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "The experiments were implemented in",
+        "suffix": "and run on an NVIDIA"
+      }
+    },
+    {
+      "@id": "env_a100",
+      "@type": "Environment",
+      "name": "NVIDIA A100 Training Environment",
+      "hardwareSpecs": "NVIDIA A100-SXM4-40GB GPU",
+      "start_char_doc": 22597,
+      "end_char_doc": 22618,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "PyTorch and run on an",
+        "suffix": "GPU. The hyperparameter values like"
+      }
+    },
+    {
+      "@id": "hp_optimizer",
+      "@type": "MLS_HyperParameter",
+      "name": "http://example.org/hp/optimizer",
+      "hasValue": "AdamW",
+      "type": "Optimizer",
+      "start_char_doc": 20170,
+      "end_char_doc": 20175,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "During training, we use the",
+        "suffix": "optimizer [23] with default settings"
+      }
+    },
+    {
+      "@id": "hp_lr_encoder",
+      "@type": "MLS_HyperParameter",
+      "name": "http://example.org/hp/learning_rate_encoder",
+      "hasValue": "5e-5",
+      "type": "Learning Rate",
+      "start_char_doc": 20236,
+      "end_char_doc": 20251,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "and learning rates of $",
+        "suffix": "$ and $3 \\cdot 10^{-4}$"
+      }
+    },
+    {
+      "@id": "hp_lr_decoder",
+      "@type": "MLS_HyperParameter",
+      "name": "http://example.org/hp/learning_rate_decoder",
+      "hasValue": "3e-4",
+      "type": "Learning Rate",
+      "start_char_doc": 20258,
+      "end_char_doc": 20273,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "$5 \\cdot 10^{-5}$ and $",
+        "suffix": "$ for the encoder and"
+      }
+    },
+    {
+      "@id": "hp_focal_loss",
+      "@type": "MLS_HyperParameter",
+      "name": "http://example.org/hp/loss_function",
+      "hasValue": "batch-level focal loss",
+      "type": "Loss Function",
+      "start_char_doc": 16120,
+      "end_char_doc": 16142,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "this imbalance, we employ a",
+        "suffix": "[21], i.e., the model aims"
+      }
+    },
+    {
+      "@id": "hp_decoder_layers",
+      "@type": "MLS_HyperParameter",
+      "name": "http://example.org/hp/num_decoder_layers",
+      "hasValue": "2",
+      "type": "Architecture Parameter",
+      "start_char_doc": 1041,
+      "end_char_doc": 1059,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "a custom autoregressive decoder with",
+        "suffix": "for generating the classification output."
+      }
+    },
+    {
+      "@id": "hp_attention_heads",
+      "@type": "MLS_HyperParameter",
+      "name": "http://example.org/hp/num_attention_heads",
+      "hasValue": "8",
+      "type": "Architecture Parameter",
+      "start_char_doc": 15913,
+      "end_char_doc": 15934,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "has a transformer block with",
+        "suffix": ", a feedforward network and"
+      }
+    },
+    {
+      "@id": "hp_dropout",
+      "@type": "MLS_HyperParameter",
+      "name": "http://example.org/hp/dropout_rate",
+      "hasValue": "0.2",
+      "type": "Regularization Parameter",
+      "start_char_doc": 15969,
+      "end_char_doc": 15983,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "feedforward network and uses a",
+        "suffix": ". **Training and Testing** The"
+      }
+    },
+    {
+      "@id": "hp_scheduler",
+      "@type": "MLS_HyperParameter",
+      "name": "http://example.org/hp/lr_scheduler",
+      "hasValue": "ReduceLROnPlateau",
+      "type": "Optimization Parameter",
+      "start_char_doc": 20445,
+      "end_char_doc": 20462,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "scratch. We also use the",
+        "suffix": "scheduler [2] with patience of"
+      }
+    },
+    {
+      "@id": "hp_scheduler_patience",
+      "@type": "MLS_HyperParameter",
+      "name": "http://example.org/hp/scheduler_patience",
+      "hasValue": "3",
+      "type": "Optimization Parameter",
+      "start_char_doc": 20482,
+      "end_char_doc": 20495,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "the ReduceLROnPlateau scheduler [2] with",
+        "suffix": ". After each epoch, the"
+      }
+    },
+    {
+      "@id": "hp_scheduler_factor",
+      "@type": "MLS_HyperParameter",
+      "name": "http://example.org/hp/scheduler_factor",
+      "hasValue": "0.1",
+      "type": "Optimization Parameter",
+      "start_char_doc": 20680,
+      "end_char_doc": 20693,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "the learning rates by a",
+        "suffix": "for both the encoder and"
+      }
+    },
+    {
+      "@id": "hp_training_patience",
+      "@type": "MLS_HyperParameter",
+      "name": "http://example.org/hp/training_patience",
+      "hasValue": "10",
+      "type": "Optimization Parameter",
+      "start_char_doc": 21961,
+      "end_char_doc": 21975,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "The training loop has a",
+        "suffix": ", so it stops if"
+      }
+    },
+    {
+      "@id": "hp_gamma",
+      "@type": "MLS_HyperParameter",
+      "name": "http://example.org/hp/focal_loss_gamma",
+      "hasValue": "2",
+      "type": "Optimization Parameter",
+      "start_char_doc": 22108,
+      "end_char_doc": 22120,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "focal loss with focusing parameter",
+        "suffix": "as described in Section 3."
+      }
+    },
+    {
+      "@id": "hp_label_smoothing",
+      "@type": "MLS_HyperParameter",
+      "name": "http://example.org/hp/label_smoothing",
+      "hasValue": "0.1",
+      "type": "Regularization Parameter",
+      "start_char_doc": 22189,
+      "end_char_doc": 22211,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "loss depends on cross-entropy with",
+        "suffix": ". We use teacher forcing"
+      }
+    },
+    {
+      "@id": "hp_teacher_forcing",
+      "@type": "MLS_HyperParameter",
+      "name": "http://example.org/hp/teacher_forcing",
+      "hasValue": "true",
+      "type": "Optimization Parameter",
+      "start_char_doc": 22220,
+      "end_char_doc": 22235,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "smoothing of 0.1. We use",
+        "suffix": "[38] and gradient accumulation over"
+      }
+    },
+    {
+      "@id": "hp_grad_accum",
+      "@type": "MLS_HyperParameter",
+      "name": "http://example.org/hp/gradient_accumulation_steps",
+      "hasValue": "2",
+      "type": "Optimization Parameter",
+      "start_char_doc": 22245,
+      "end_char_doc": 22281,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "use teacher forcing [38] and",
+        "suffix": "(32 examples each). For reproducibility,"
+      }
+    },
+    {
+      "@id": "hp_batch_size",
+      "@type": "MLS_HyperParameter",
+      "name": "http://example.org/hp/batch_size",
+      "hasValue": "32",
+      "type": "Optimization Parameter",
+      "start_char_doc": 22283,
+      "end_char_doc": 22299,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "accumulation over 2 batches (",
+        "suffix": "). For reproducibility, we use"
+      }
+    },
+    {
+      "@id": "hp_random_seed",
+      "@type": "MLS_HyperParameter",
+      "name": "http://example.org/hp/random_seed",
+      "hasValue": "fixed",
+      "type": "Optimization Parameter",
+      "start_char_doc": 22332,
+      "end_char_doc": 22349,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "For reproducibility, we use a",
+        "suffix": ". With these settings, the"
+      }
+    },
+    {
+      "@id": "hp_epochs_wos",
+      "@type": "MLS_HyperParameter",
+      "name": "http://example.org/hp/num_epochs_wos",
+      "hasValue": "29",
+      "type": "Optimization Parameter",
+      "start_char_doc": 22382,
+      "end_char_doc": 22401,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "With these settings, the model",
+        "suffix": "training epochs on the WOS,"
+      }
+    },
+    {
+      "@id": "hp_epochs_nyt",
+      "@type": "MLS_HyperParameter",
+      "name": "http://example.org/hp/num_epochs_nyt",
+      "hasValue": "30",
+      "type": "Optimization Parameter",
+      "start_char_doc": 22382,
+      "end_char_doc": 22401,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "With these settings, the model",
+        "suffix": "training epochs on the WOS,"
+      }
+    },
+    {
+      "@id": "hp_epochs_rcv1",
+      "@type": "MLS_HyperParameter",
+      "name": "http://example.org/hp/num_epochs_rcv1",
+      "hasValue": "40",
+      "type": "Optimization Parameter",
+      "start_char_doc": 22382,
+      "end_char_doc": 22401,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "With these settings, the model",
+        "suffix": "training epochs on the WOS,"
+      }
+    },
+    {
+      "@id": "hp_epochs_avg",
+      "@type": "MLS_HyperParameter",
+      "name": "http://example.org/hp/num_epochs_avg",
+      "hasValue": "23",
+      "type": "Optimization Parameter",
+      "start_char_doc": 22517,
+      "end_char_doc": 22526,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "10, the model saturates at",
+        "suffix": "on average. The experiments were"
+      }
+    },
+    {
+      "@id": "hp_num_params",
+      "@type": "MLS_HyperParameter",
+      "name": "http://example.org/hp/num_parameters",
+      "hasValue": "137M",
+      "type": "Architecture Parameter",
+      "start_char_doc": 26508,
+      "end_char_doc": 26512,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "more parameters than HBGL (",
+        "suffix": "vs. 110M), it requires less"
+      }
+    }
+  ]
+}
