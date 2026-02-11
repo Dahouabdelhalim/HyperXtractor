@@ -600,7 +600,45 @@
         "suffix": "examples each)."
       }
   },
-
+    {
+      "@id": "hp_epochs_wos",
+      "@type": "MLS_HyperParameter",
+      "name": "num epochs wos",
+      "hasValue": "29",
+      "start_char_doc": 22387,
+      "end_char_doc": 22389,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "The encoder’s learning rate decreases until it is lower than $5 \\cdot 10^{-7}$. At that point, the encoder is frozen, and the decoder continues to learn alone. The training loop has a patience of 10, so it stops if the average validation loss does not decrease for ten consecutive epochs. We use focal loss with focusing parameter $\\gamma = 2$ as described in Section 3. Focal loss depends on cross-entropy with label smoothing of 0.1. We use teacher forcing [38] and gradient accumulation over 2 batches (32 examples each). For reproducibility, we use a fixed random seed. With these settings, the model took",
+        "suffix": "30, and 40 training epochs on the WOS, NYT, and RCV1-V2 datasets, respectively."
+      }
+    },
+    {
+      "@id": "hp_epochs_nyt",
+      "@type": "MLS_HyperParameter",
+      "name": "num epochs nyt",
+      "hasValue": "30",
+      "start_char_doc": 22391,
+      "end_char_doc": 22393,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "The encoder’s learning rate decreases until it is lower than $5 \\cdot 10^{-7}$. At that point, the encoder is frozen, and the decoder continues to learn alone. The training loop has a patience of 10, so it stops if the average validation loss does not decrease for ten consecutive epochs. We use focal loss with focusing parameter $\\gamma = 2$ as described in Section 3. Focal loss depends on cross-entropy with label smoothing of 0.1. We use teacher forcing [38] and gradient accumulation over 2 batches (32 examples each). For reproducibility, we use a fixed random seed. With these settings, the model took 29,",
+        "suffix": "40 training epochs on the WOS, NYT, and RCV1-V2 datasets, respectively."
+      }
+    },
+    {
+      "@id": "hp_epochs_rcv1",
+      "@type": "MLS_HyperParameter",
+      "name": "num epochs rcv1",
+      "hasValue": "40",
+      "start_char_doc": 22399,
+      "end_char_doc": 22401,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "The encoder’s learning rate decreases until it is lower than $5 \\cdot 10^{-7}$. At that point, the encoder is frozen, and the decoder continues to learn alone. The training loop has a patience of 10, so it stops if the average validation loss does not decrease for ten consecutive epochs. We use focal loss with focusing parameter $\\gamma = 2$ as described in Section 3. Focal loss depends on cross-entropy with label smoothing of 0.1. We use teacher forcing [38] and gradient accumulation over 2 batches (32 examples each). For reproducibility, we use a fixed random seed. With these settings, the model took 29, 30, and ",
+        "suffix": "training epochs on the WOS, NYT, and RCV1-V2 datasets, respectively."
+      }
+    },
 {
   "@id": "alg_adamw",
   "@type": "MLS_Algorithm",
@@ -1017,5 +1055,6 @@
     }
   ]
 }
+
 
 
