@@ -1,0 +1,1975 @@
+{
+  "@context": {
+    "mls": "http://example.org/ontology/mls#",
+    "schema": "http://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "SoftwareRepository": "mls:SoftwareRepository",
+    "MLS_Implementation": "mls:MLS_Implementation",
+    "Environment": "mls:Environment",
+    "Dependency": "mls:Dependency",
+    "MLS_HyperParameter": "mls:MLS_HyperParameter",
+    "DataProcessingStep": "mls:DataProcessingStep",
+    "TrainingRun": "mls:TrainingRun",
+    "EvaluationRun": "mls:EvaluationRun",
+    "PredictionSet": "mls:PredictionSet",
+    "name": "schema:name",
+    "url": "schema:url",
+    "description": "schema:description",
+    "identifier": "schema:identifier",
+    "programmingLanguage": "schema:programmingLanguage",
+    "codeRepository": {
+      "@id": "mls:codeRepository",
+      "@type": "xsd:anyURI"
+    },
+    "framework": "mls:framework",
+    "entryPoint": "mls:entryPoint",
+    "commitHash": "mls:commitHash",
+    "packageName": "mls:packageName",
+    "version": "schema:version",
+    "dependencyType": "mls:dependencyType",
+    "isOptional": {
+      "@id": "mls:isOptional",
+      "@type": "xsd:boolean"
+    },
+    "pythonVersion": "mls:pythonVersion",
+    "requirementsFile": "mls:requirementsFile",
+    "isDockerized": {
+      "@id": "mls:isDockerized",
+      "@type": "xsd:boolean"
+    },
+    "hasValue": {
+      "@id": "mls:hasValue",
+      "@type": "xsd:string"
+    },
+    "codeReference": "mls:codeReference",
+    "sourceFile": "mls:sourceFile",
+    "sourceLine": {
+      "@id": "mls:sourceLine",
+      "@type": "xsd:integer"
+    },
+    "transformationType": "mls:transformationType",
+    "runId": "mls:runId",
+    "logFile": {
+      "@id": "mls:logFile",
+      "@type": "xsd:anyURI"
+    },
+    "split": "mls:split",
+    "evaluationScript": "mls:evaluationScript",
+    "metricsFile": "mls:metricsFile",
+    "predictionFormat": "mls:predictionFormat",
+    "storageLocation": "mls:storageLocation",
+    "owner": "mls:owner",
+    "platform": "mls:platform",
+    "contains": {
+      "@id": "mls:contains",
+      "@type": "@id"
+    },
+    "supports": {
+      "@id": "mls:supports",
+      "@type": "@id"
+    },
+    "runsIn": {
+      "@id": "mls:runsIn",
+      "@type": "@id"
+    },
+    "requires": {
+      "@id": "mls:requires",
+      "@type": "@id"
+    },
+    "prov-executedBy": {
+      "@id": "prov:executedBy",
+      "@type": "@id"
+    },
+    "producedBy": {
+      "@id": "mls:producedBy",
+      "@type": "@id"
+    },
+    "wasDerivedFrom": {
+      "@id": "prov:wasDerivedFrom",
+      "@type": "xsd:string"
+    }
+  },
+  "@graph": [
+    {
+      "@id": "repo_yousef_younes_radar",
+      "@type": "SoftwareRepository",
+      "name": "RADAr",
+      "url": "https://github.com/yousef-younes/RADAr",
+      "owner": "yousef-younes",
+      "platform": "GitHub",
+      "programmingLanguage": "Python",
+      "contains": [
+        {
+          "@id": "impl_radar"
+        }
+      ],
+      "supports": [
+        {
+          "@id": "env_radar"
+        }
+      ],
+      "start_char_doc": 3,
+      "end_char_doc": 8,
+      "context": {
+        "prefix": "##",
+        "suffix": ": A Transformer-based Autoregressive Decoder"
+      },
+      "path": "README.md",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "impl_radar",
+      "@type": "MLS_Implementation",
+      "identifier": "RADAr Implementation",
+      "codeRepository": "https://github.com/yousef-younes/RADAr",
+      "framework": "PyTorch",
+      "entryPoint": "main.py",
+      "commitHash": "5cb2b78",
+      "runsIn": {
+        "@id": "env_radar"
+      },
+      "requires": [
+        {
+          "@id": "dep_appdirs"
+        },
+        {
+          "@id": "dep_certifi"
+        },
+        {
+          "@id": "dep_charset_normalizer"
+        },
+        {
+          "@id": "dep_click"
+        },
+        {
+          "@id": "dep_docker_pycreds"
+        },
+        {
+          "@id": "dep_filelock"
+        },
+        {
+          "@id": "dep_fsspec"
+        },
+        {
+          "@id": "dep_gitdb"
+        },
+        {
+          "@id": "dep_gitpython"
+        },
+        {
+          "@id": "dep_huggingface_hub"
+        },
+        {
+          "@id": "dep_idna"
+        },
+        {
+          "@id": "dep_jinja2"
+        },
+        {
+          "@id": "dep_joblib"
+        },
+        {
+          "@id": "dep_markupsafe"
+        },
+        {
+          "@id": "dep_mkl_fft"
+        },
+        {
+          "@id": "dep_mkl_random"
+        },
+        {
+          "@id": "dep_mkl_service"
+        },
+        {
+          "@id": "dep_mpmath"
+        },
+        {
+          "@id": "dep_networkx"
+        },
+        {
+          "@id": "dep_numpy"
+        },
+        {
+          "@id": "dep_nvidia_cublas_cu12"
+        },
+        {
+          "@id": "dep_nvidia_cuda_cupti_cu12"
+        },
+        {
+          "@id": "dep_nvidia_cuda_nvrtc_cu12"
+        },
+        {
+          "@id": "dep_nvidia_cuda_runtime_cu12"
+        },
+        {
+          "@id": "dep_nvidia_cudnn_cu12"
+        },
+        {
+          "@id": "dep_nvidia_cufft_cu12"
+        },
+        {
+          "@id": "dep_nvidia_curand_cu12"
+        },
+        {
+          "@id": "dep_nvidia_cusolver_cu12"
+        },
+        {
+          "@id": "dep_nvidia_cusparse_cu12"
+        },
+        {
+          "@id": "dep_nvidia_nccl_cu12"
+        },
+        {
+          "@id": "dep_nvidia_nvjitlink_cu12"
+        },
+        {
+          "@id": "dep_nvidia_nvtx_cu12"
+        },
+        {
+          "@id": "dep_packaging"
+        },
+        {
+          "@id": "dep_pillow"
+        },
+        {
+          "@id": "dep_protobuf"
+        },
+        {
+          "@id": "dep_psutil"
+        },
+        {
+          "@id": "dep_pygments"
+        },
+        {
+          "@id": "dep_pyyaml"
+        },
+        {
+          "@id": "dep_regex"
+        },
+        {
+          "@id": "dep_requests"
+        },
+        {
+          "@id": "dep_safetensors"
+        },
+        {
+          "@id": "dep_scikit_learn"
+        },
+        {
+          "@id": "dep_scipy"
+        },
+        {
+          "@id": "dep_sentencepiece"
+        },
+        {
+          "@id": "dep_sentry_sdk"
+        },
+        {
+          "@id": "dep_setproctitle"
+        },
+        {
+          "@id": "dep_setuptools"
+        },
+        {
+          "@id": "dep_six"
+        },
+        {
+          "@id": "dep_smmap"
+        },
+        {
+          "@id": "dep_sympy"
+        },
+        {
+          "@id": "dep_threadpoolctl"
+        },
+        {
+          "@id": "dep_tokenizers"
+        },
+        {
+          "@id": "dep_torch"
+        },
+        {
+          "@id": "dep_torchaudio"
+        },
+        {
+          "@id": "dep_torchvision"
+        },
+        {
+          "@id": "dep_tqdm"
+        },
+        {
+          "@id": "dep_transformers"
+        },
+        {
+          "@id": "dep_typing_extensions"
+        },
+        {
+          "@id": "dep_urllib3"
+        },
+        {
+          "@id": "dep_wandb"
+        },
+        {
+          "@id": "dep_wheel"
+        }
+      ],
+      "start_char_doc": 1568,
+      "end_char_doc": 1575,
+      "context": {
+        "prefix": "please use the comman: python",
+        "suffix": "xxx where \"xxx\" is a"
+      },
+      "path": "README.md",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "env_radar",
+      "@type": "Environment",
+      "name": "RADAr Environment",
+      "framework": "PyTorch",
+      "pythonVersion": null,
+      "requirementsFile": "requirements.txt",
+      "isDockerized": false,
+      "start_char_doc": 0,
+      "end_char_doc": 0,
+      "context": {
+        "prefix": "",
+        "suffix": ""
+      },
+      "path": "",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "dep_appdirs",
+      "@type": "Dependency",
+      "packageName": "appdirs",
+      "version": "1.4.4",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "codeReference": "requirements.txt",
+      "start_char_doc": 0,
+      "end_char_doc": 0,
+      "context": {
+        "prefix": "",
+        "suffix": ""
+      },
+      "path": "",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "dep_certifi",
+      "@type": "Dependency",
+      "packageName": "certifi",
+      "version": "2024.2.2",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "codeReference": "requirements.txt",
+      "start_char_doc": 0,
+      "end_char_doc": 0,
+      "context": {
+        "prefix": "",
+        "suffix": ""
+      },
+      "path": "",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "dep_charset_normalizer",
+      "@type": "Dependency",
+      "packageName": "charset-normalizer",
+      "version": "3.3.2",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "codeReference": "requirements.txt",
+      "start_char_doc": 0,
+      "end_char_doc": 0,
+      "context": {
+        "prefix": "",
+        "suffix": ""
+      },
+      "path": "",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "dep_click",
+      "@type": "Dependency",
+      "packageName": "click",
+      "version": "8.1.7",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "codeReference": "requirements.txt",
+      "start_char_doc": 0,
+      "end_char_doc": 0,
+      "context": {
+        "prefix": "",
+        "suffix": ""
+      },
+      "path": "",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "dep_docker_pycreds",
+      "@type": "Dependency",
+      "packageName": "docker-pycreds",
+      "version": "0.4.0",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "codeReference": "requirements.txt",
+      "start_char_doc": 0,
+      "end_char_doc": 0,
+      "context": {
+        "prefix": "",
+        "suffix": ""
+      },
+      "path": "",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "dep_filelock",
+      "@type": "Dependency",
+      "packageName": "filelock",
+      "version": "3.13.4",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "codeReference": "requirements.txt",
+      "start_char_doc": 0,
+      "end_char_doc": 0,
+      "context": {
+        "prefix": "",
+        "suffix": ""
+      },
+      "path": "",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "dep_fsspec",
+      "@type": "Dependency",
+      "packageName": "fsspec",
+      "version": "2024.3.1",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "codeReference": "requirements.txt",
+      "start_char_doc": 0,
+      "end_char_doc": 0,
+      "context": {
+        "prefix": "",
+        "suffix": ""
+      },
+      "path": "",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "dep_gitdb",
+      "@type": "Dependency",
+      "packageName": "gitdb",
+      "version": "4.0.11",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "codeReference": "requirements.txt",
+      "start_char_doc": 0,
+      "end_char_doc": 0,
+      "context": {
+        "prefix": "",
+        "suffix": ""
+      },
+      "path": "",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "dep_gitpython",
+      "@type": "Dependency",
+      "packageName": "GitPython",
+      "version": "3.1.43",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "codeReference": "requirements.txt",
+      "start_char_doc": 0,
+      "end_char_doc": 0,
+      "context": {
+        "prefix": "",
+        "suffix": ""
+      },
+      "path": "",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "dep_huggingface_hub",
+      "@type": "Dependency",
+      "packageName": "huggingface-hub",
+      "version": "0.22.2",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "codeReference": "requirements.txt",
+      "start_char_doc": 0,
+      "end_char_doc": 0,
+      "context": {
+        "prefix": "",
+        "suffix": ""
+      },
+      "path": "",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "dep_idna",
+      "@type": "Dependency",
+      "packageName": "idna",
+      "version": "3.7",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "codeReference": "requirements.txt",
+      "start_char_doc": 0,
+      "end_char_doc": 0,
+      "context": {
+        "prefix": "",
+        "suffix": ""
+      },
+      "path": "",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "dep_jinja2",
+      "@type": "Dependency",
+      "packageName": "Jinja2",
+      "version": "3.1.3",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "codeReference": "requirements.txt",
+      "start_char_doc": 0,
+      "end_char_doc": 0,
+      "context": {
+        "prefix": "",
+        "suffix": ""
+      },
+      "path": "",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "dep_joblib",
+      "@type": "Dependency",
+      "packageName": "joblib",
+      "version": null,
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "codeReference": "requirements.txt",
+      "start_char_doc": 0,
+      "end_char_doc": 0,
+      "context": {
+        "prefix": "",
+        "suffix": ""
+      },
+      "path": "",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "dep_markupsafe",
+      "@type": "Dependency",
+      "packageName": "MarkupSafe",
+      "version": "2.1.5",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "codeReference": "requirements.txt",
+      "start_char_doc": 0,
+      "end_char_doc": 0,
+      "context": {
+        "prefix": "",
+        "suffix": ""
+      },
+      "path": "",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "dep_mkl_fft",
+      "@type": "Dependency",
+      "packageName": "mkl-fft",
+      "version": null,
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "codeReference": "requirements.txt",
+      "start_char_doc": 0,
+      "end_char_doc": 0,
+      "context": {
+        "prefix": "",
+        "suffix": ""
+      },
+      "path": "",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "dep_mkl_random",
+      "@type": "Dependency",
+      "packageName": "mkl-random",
+      "version": null,
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "codeReference": "requirements.txt",
+      "start_char_doc": 0,
+      "end_char_doc": 0,
+      "context": {
+        "prefix": "",
+        "suffix": ""
+      },
+      "path": "",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "dep_mkl_service",
+      "@type": "Dependency",
+      "packageName": "mkl-service",
+      "version": "2.4.0",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "codeReference": "requirements.txt",
+      "start_char_doc": 0,
+      "end_char_doc": 0,
+      "context": {
+        "prefix": "",
+        "suffix": ""
+      },
+      "path": "",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "dep_mpmath",
+      "@type": "Dependency",
+      "packageName": "mpmath",
+      "version": "1.3.0",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "codeReference": "requirements.txt",
+      "start_char_doc": 0,
+      "end_char_doc": 0,
+      "context": {
+        "prefix": "",
+        "suffix": ""
+      },
+      "path": "",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "dep_networkx",
+      "@type": "Dependency",
+      "packageName": "networkx",
+      "version": "3.3",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "codeReference": "requirements.txt",
+      "start_char_doc": 0,
+      "end_char_doc": 0,
+      "context": {
+        "prefix": "",
+        "suffix": ""
+      },
+      "path": "",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "dep_numpy",
+      "@type": "Dependency",
+      "packageName": "numpy",
+      "version": null,
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "codeReference": "requirements.txt",
+      "start_char_doc": 108,
+      "end_char_doc": 120,
+      "context": {
+        "prefix": "typing import List import pickle",
+        "suffix": "as np import torch import"
+      },
+      "path": "utils.py",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "dep_nvidia_cublas_cu12",
+      "@type": "Dependency",
+      "packageName": "nvidia-cublas-cu12",
+      "version": "12.1.3.1",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "codeReference": "requirements.txt",
+      "start_char_doc": 0,
+      "end_char_doc": 0,
+      "context": {
+        "prefix": "",
+        "suffix": ""
+      },
+      "path": "",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "dep_nvidia_cuda_cupti_cu12",
+      "@type": "Dependency",
+      "packageName": "nvidia-cuda-cupti-cu12",
+      "version": "12.1.105",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "codeReference": "requirements.txt",
+      "start_char_doc": 0,
+      "end_char_doc": 0,
+      "context": {
+        "prefix": "",
+        "suffix": ""
+      },
+      "path": "",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "dep_nvidia_cuda_nvrtc_cu12",
+      "@type": "Dependency",
+      "packageName": "nvidia-cuda-nvrtc-cu12",
+      "version": "12.1.105",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "codeReference": "requirements.txt",
+      "start_char_doc": 0,
+      "end_char_doc": 0,
+      "context": {
+        "prefix": "",
+        "suffix": ""
+      },
+      "path": "",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "dep_nvidia_cuda_runtime_cu12",
+      "@type": "Dependency",
+      "packageName": "nvidia-cuda-runtime-cu12",
+      "version": "12.1.105",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "codeReference": "requirements.txt",
+      "start_char_doc": 0,
+      "end_char_doc": 0,
+      "context": {
+        "prefix": "",
+        "suffix": ""
+      },
+      "path": "",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "dep_nvidia_cudnn_cu12",
+      "@type": "Dependency",
+      "packageName": "nvidia-cudnn-cu12",
+      "version": "8.9.2.26",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "codeReference": "requirements.txt",
+      "start_char_doc": 0,
+      "end_char_doc": 0,
+      "context": {
+        "prefix": "",
+        "suffix": ""
+      },
+      "path": "",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "dep_nvidia_cufft_cu12",
+      "@type": "Dependency",
+      "packageName": "nvidia-cufft-cu12",
+      "version": "11.0.2.54",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "codeReference": "requirements.txt",
+      "start_char_doc": 0,
+      "end_char_doc": 0,
+      "context": {
+        "prefix": "",
+        "suffix": ""
+      },
+      "path": "",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "dep_nvidia_curand_cu12",
+      "@type": "Dependency",
+      "packageName": "nvidia-curand-cu12",
+      "version": "10.3.2.106",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "codeReference": "requirements.txt",
+      "start_char_doc": 0,
+      "end_char_doc": 0,
+      "context": {
+        "prefix": "",
+        "suffix": ""
+      },
+      "path": "",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "dep_nvidia_cusolver_cu12",
+      "@type": "Dependency",
+      "packageName": "nvidia-cusolver-cu12",
+      "version": "11.4.5.107",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "codeReference": "requirements.txt",
+      "start_char_doc": 0,
+      "end_char_doc": 0,
+      "context": {
+        "prefix": "",
+        "suffix": ""
+      },
+      "path": "",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "dep_nvidia_cusparse_cu12",
+      "@type": "Dependency",
+      "packageName": "nvidia-cusparse-cu12",
+      "version": "12.1.0.106",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "codeReference": "requirements.txt",
+      "start_char_doc": 0,
+      "end_char_doc": 0,
+      "context": {
+        "prefix": "",
+        "suffix": ""
+      },
+      "path": "",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "dep_nvidia_nccl_cu12",
+      "@type": "Dependency",
+      "packageName": "nvidia-nccl-cu12",
+      "version": "2.19.3",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "codeReference": "requirements.txt",
+      "start_char_doc": 0,
+      "end_char_doc": 0,
+      "context": {
+        "prefix": "",
+        "suffix": ""
+      },
+      "path": "",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "dep_nvidia_nvjitlink_cu12",
+      "@type": "Dependency",
+      "packageName": "nvidia-nvjitlink-cu12",
+      "version": "12.4.127",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "codeReference": "requirements.txt",
+      "start_char_doc": 0,
+      "end_char_doc": 0,
+      "context": {
+        "prefix": "",
+        "suffix": ""
+      },
+      "path": "",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "dep_nvidia_nvtx_cu12",
+      "@type": "Dependency",
+      "packageName": "nvidia-nvtx-cu12",
+      "version": "12.1.105",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "codeReference": "requirements.txt",
+      "start_char_doc": 0,
+      "end_char_doc": 0,
+      "context": {
+        "prefix": "",
+        "suffix": ""
+      },
+      "path": "",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "dep_packaging",
+      "@type": "Dependency",
+      "packageName": "packaging",
+      "version": "24.0",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "codeReference": "requirements.txt",
+      "start_char_doc": 0,
+      "end_char_doc": 0,
+      "context": {
+        "prefix": "",
+        "suffix": ""
+      },
+      "path": "",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "dep_pillow",
+      "@type": "Dependency",
+      "packageName": "pillow",
+      "version": "10.3.0",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "codeReference": "requirements.txt",
+      "start_char_doc": 0,
+      "end_char_doc": 0,
+      "context": {
+        "prefix": "",
+        "suffix": ""
+      },
+      "path": "",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "dep_protobuf",
+      "@type": "Dependency",
+      "packageName": "protobuf",
+      "version": "4.25.3",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "codeReference": "requirements.txt",
+      "start_char_doc": 0,
+      "end_char_doc": 0,
+      "context": {
+        "prefix": "",
+        "suffix": ""
+      },
+      "path": "",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "dep_psutil",
+      "@type": "Dependency",
+      "packageName": "psutil",
+      "version": "5.9.8",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "codeReference": "requirements.txt",
+      "start_char_doc": 0,
+      "end_char_doc": 0,
+      "context": {
+        "prefix": "",
+        "suffix": ""
+      },
+      "path": "",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "dep_pygments",
+      "@type": "Dependency",
+      "packageName": "Pygments",
+      "version": "2.17.2",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "codeReference": "requirements.txt",
+      "start_char_doc": 0,
+      "end_char_doc": 0,
+      "context": {
+        "prefix": "",
+        "suffix": ""
+      },
+      "path": "",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "dep_pyyaml",
+      "@type": "Dependency",
+      "packageName": "PyYAML",
+      "version": "6.0.1",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "codeReference": "requirements.txt",
+      "start_char_doc": 0,
+      "end_char_doc": 0,
+      "context": {
+        "prefix": "",
+        "suffix": ""
+      },
+      "path": "",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "dep_regex",
+      "@type": "Dependency",
+      "packageName": "regex",
+      "version": "2024.4.16",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "codeReference": "requirements.txt",
+      "start_char_doc": 0,
+      "end_char_doc": 0,
+      "context": {
+        "prefix": "",
+        "suffix": ""
+      },
+      "path": "",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "dep_requests",
+      "@type": "Dependency",
+      "packageName": "requests",
+      "version": "2.31.0",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "codeReference": "requirements.txt",
+      "start_char_doc": 0,
+      "end_char_doc": 0,
+      "context": {
+        "prefix": "",
+        "suffix": ""
+      },
+      "path": "",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "dep_safetensors",
+      "@type": "Dependency",
+      "packageName": "safetensors",
+      "version": "0.4.3",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "codeReference": "requirements.txt",
+      "start_char_doc": 0,
+      "end_char_doc": 0,
+      "context": {
+        "prefix": "",
+        "suffix": ""
+      },
+      "path": "",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "dep_scikit_learn",
+      "@type": "Dependency",
+      "packageName": "scikit-learn",
+      "version": null,
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "codeReference": "requirements.txt",
+      "start_char_doc": 0,
+      "end_char_doc": 0,
+      "context": {
+        "prefix": "",
+        "suffix": ""
+      },
+      "path": "",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "dep_scipy",
+      "@type": "Dependency",
+      "packageName": "scipy",
+      "version": null,
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "codeReference": "requirements.txt",
+      "start_char_doc": 0,
+      "end_char_doc": 0,
+      "context": {
+        "prefix": "",
+        "suffix": ""
+      },
+      "path": "",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "dep_sentencepiece",
+      "@type": "Dependency",
+      "packageName": "sentencepiece",
+      "version": "0.2.0",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "codeReference": "requirements.txt",
+      "start_char_doc": 0,
+      "end_char_doc": 0,
+      "context": {
+        "prefix": "",
+        "suffix": ""
+      },
+      "path": "",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "dep_sentry_sdk",
+      "@type": "Dependency",
+      "packageName": "sentry-sdk",
+      "version": "1.45.0",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "codeReference": "requirements.txt",
+      "start_char_doc": 0,
+      "end_char_doc": 0,
+      "context": {
+        "prefix": "",
+        "suffix": ""
+      },
+      "path": "",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "dep_setproctitle",
+      "@type": "Dependency",
+      "packageName": "setproctitle",
+      "version": "1.3.3",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "codeReference": "requirements.txt",
+      "start_char_doc": 0,
+      "end_char_doc": 0,
+      "context": {
+        "prefix": "",
+        "suffix": ""
+      },
+      "path": "",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "dep_setuptools",
+      "@type": "Dependency",
+      "packageName": "setuptools",
+      "version": "68.2.2",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "codeReference": "requirements.txt",
+      "start_char_doc": 0,
+      "end_char_doc": 0,
+      "context": {
+        "prefix": "",
+        "suffix": ""
+      },
+      "path": "",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "dep_six",
+      "@type": "Dependency",
+      "packageName": "six",
+      "version": "1.16.0",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "codeReference": "requirements.txt",
+      "start_char_doc": 658,
+      "end_char_doc": 661,
+      "context": {
+        "prefix": "into text and lable and",
+        "suffix": "files will be created. train.src,"
+      },
+      "path": "README.md",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "dep_smmap",
+      "@type": "Dependency",
+      "packageName": "smmap",
+      "version": "5.0.1",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "codeReference": "requirements.txt",
+      "start_char_doc": 0,
+      "end_char_doc": 0,
+      "context": {
+        "prefix": "",
+        "suffix": ""
+      },
+      "path": "",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "dep_sympy",
+      "@type": "Dependency",
+      "packageName": "sympy",
+      "version": "1.12",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "codeReference": "requirements.txt",
+      "start_char_doc": 0,
+      "end_char_doc": 0,
+      "context": {
+        "prefix": "",
+        "suffix": ""
+      },
+      "path": "",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "dep_threadpoolctl",
+      "@type": "Dependency",
+      "packageName": "threadpoolctl",
+      "version": null,
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "codeReference": "requirements.txt",
+      "start_char_doc": 0,
+      "end_char_doc": 0,
+      "context": {
+        "prefix": "",
+        "suffix": ""
+      },
+      "path": "",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "dep_tokenizers",
+      "@type": "Dependency",
+      "packageName": "tokenizers",
+      "version": "0.19.1",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "codeReference": "requirements.txt",
+      "start_char_doc": 0,
+      "end_char_doc": 0,
+      "context": {
+        "prefix": "",
+        "suffix": ""
+      },
+      "path": "",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "dep_torch",
+      "@type": "Dependency",
+      "packageName": "torch",
+      "version": "2.2.2",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "codeReference": "requirements.txt",
+      "start_char_doc": 384,
+      "end_char_doc": 389,
+      "context": {
+        "prefix": "T5Config, PhrasalConstraint, BartForConditionalGeneration, BartTokenizer from",
+        "suffix": ".utils.data import Dataset, DataLoader import"
+      },
+      "path": "T5_BART_exps.py",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "dep_torchaudio",
+      "@type": "Dependency",
+      "packageName": "torchaudio",
+      "version": "2.2.2",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "codeReference": "requirements.txt",
+      "start_char_doc": 0,
+      "end_char_doc": 0,
+      "context": {
+        "prefix": "",
+        "suffix": ""
+      },
+      "path": "",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "dep_torchvision",
+      "@type": "Dependency",
+      "packageName": "torchvision",
+      "version": "0.17.2",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "codeReference": "requirements.txt",
+      "start_char_doc": 0,
+      "end_char_doc": 0,
+      "context": {
+        "prefix": "",
+        "suffix": ""
+      },
+      "path": "",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "dep_tqdm",
+      "@type": "Dependency",
+      "packageName": "tqdm",
+      "version": "4.66.2",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "codeReference": "requirements.txt",
+      "start_char_doc": 485,
+      "end_char_doc": 494,
+      "context": {
+        "prefix": "nn import json import os",
+        "suffix": "import tqdm from sklearn.metrics import"
+      },
+      "path": "T5_BART_exps.py",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "dep_transformers",
+      "@type": "Dependency",
+      "packageName": "transformers",
+      "version": "4.40.1",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "codeReference": "requirements.txt",
+      "start_char_doc": 240,
+      "end_char_doc": 257,
+      "context": {
+        "prefix": "specific set of vocabuarly '''",
+        "suffix": "import T5Tokenizer, T5ForConditionalGeneration, T5Config, PhrasalConstraint,"
+      },
+      "path": "T5_BART_exps.py",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "dep_typing_extensions",
+      "@type": "Dependency",
+      "packageName": "typing_extensions",
+      "version": "4.11.0",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "codeReference": "requirements.txt",
+      "start_char_doc": 0,
+      "end_char_doc": 0,
+      "context": {
+        "prefix": "",
+        "suffix": ""
+      },
+      "path": "",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "dep_urllib3",
+      "@type": "Dependency",
+      "packageName": "urllib3",
+      "version": "2.2.1",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "codeReference": "requirements.txt",
+      "start_char_doc": 0,
+      "end_char_doc": 0,
+      "context": {
+        "prefix": "",
+        "suffix": ""
+      },
+      "path": "",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "dep_wandb",
+      "@type": "Dependency",
+      "packageName": "wandb",
+      "version": "0.16.6",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "codeReference": "requirements.txt",
+      "start_char_doc": 593,
+      "end_char_doc": 605,
+      "context": {
+        "prefix": "torch import torch.nn #hyperparameter optimization",
+        "suffix": "#debug library import pdb import"
+      },
+      "path": "sweep_code.py",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "dep_wheel",
+      "@type": "Dependency",
+      "packageName": "wheel",
+      "version": "0.41.2",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "codeReference": "requirements.txt",
+      "start_char_doc": 0,
+      "end_char_doc": 0,
+      "context": {
+        "prefix": "",
+        "suffix": ""
+      },
+      "path": "",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "hp_src_max_length",
+      "@type": "MLS_HyperParameter",
+      "name": "src_max_length",
+      "hasValue": "512",
+      "codeReference": [
+        "nyt_config.yaml",
+        "rcv_config.yaml",
+        "wos_config.yaml"
+      ],
+      "sourceFile": "nyt_config.yaml",
+      "start_char_doc": 3445,
+      "end_char_doc": 3459,
+      "context": {
+        "prefix": "enumerate(train_progress_bar): contexts = encoder_tokenizer(x,padding=True, truncation=True,max_length=config.",
+        "suffix": ",return_tensors='pt') #tokenize target sequences and"
+      },
+      "path": "main.py",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "hp_tgt_max_length",
+      "@type": "MLS_HyperParameter",
+      "name": "tgt_max_length",
+      "hasValue": "48",
+      "codeReference": [
+        "nyt_config.yaml",
+        "rcv_config.yaml",
+        "wos_config.yaml"
+      ],
+      "sourceFile": "nyt_config.yaml",
+      "start_char_doc": 2798,
+      "end_char_doc": 2812,
+      "context": {
+        "prefix": "decoder_tokenizer = LabelTokenizer(config.label_file,config.hiera_file,max_length = config.",
+        "suffix": ") #the number of trianing"
+      },
+      "path": "main.py",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "hp_batch_size",
+      "@type": "MLS_HyperParameter",
+      "name": "batch_size",
+      "hasValue": "32",
+      "codeReference": [
+        "nyt_config.yaml",
+        "rcv_config.yaml",
+        "wos_config.yaml"
+      ],
+      "sourceFile": "nyt_config.yaml",
+      "start_char_doc": 4312,
+      "end_char_doc": 4322,
+      "context": {
+        "prefix": "MultilabelDataset(train_texts, train_lbl) train_dataloader = DataLoader(train_dataset,",
+        "suffix": "=32, shuffle=True) # load valid"
+      },
+      "path": "T5_BART_exps.py",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "hp_device",
+      "@type": "MLS_HyperParameter",
+      "name": "device",
+      "hasValue": "1",
+      "codeReference": [
+        "nyt_config.yaml",
+        "rcv_config.yaml",
+        "wos_config.yaml"
+      ],
+      "sourceFile": "nyt_config.yaml",
+      "start_char_doc": 688,
+      "end_char_doc": 694,
+      "context": {
+        "prefix": "= \"|\" os.environ[\"CUDA_VISIBLE_DEVICES\"] = \"1\"",
+        "suffix": "= torch.device('cuda' if torch.cuda.is_available() else"
+      },
+      "path": "T5_BART_exps.py",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "hp_tgt_vocab_size",
+      "@type": "MLS_HyperParameter",
+      "name": "tgt_vocab_size",
+      "hasValue": "170",
+      "codeReference": [
+        "nyt_config.yaml",
+        "rcv_config.yaml",
+        "wos_config.yaml"
+      ],
+      "sourceFile": "nyt_config.yaml",
+      "start_char_doc": 10206,
+      "end_char_doc": 10220,
+      "context": {
+        "prefix": "the form [[1,0,1],[1,1,0],....[0,0,1]] num_labels= config.",
+        "suffix": "-4 #4 accounts for <s>"
+      },
+      "path": "main.py",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "hp_src_pad_idx",
+      "@type": "MLS_HyperParameter",
+      "name": "src_pad_idx",
+      "hasValue": "0",
+      "codeReference": [
+        "nyt_config.yaml",
+        "rcv_config.yaml",
+        "wos_config.yaml"
+      ],
+      "sourceFile": "nyt_config.yaml",
+      "start_char_doc": 2547,
+      "end_char_doc": 2558,
+      "context": {
+        "prefix": "Trainable Parameters:{total_params}\\n\\n\") pad_idx = config.",
+        "suffix": "encoder_tokenizer = AutoTokenizer.from_pretrained(config.encoder_model) # Define"
+      },
+      "path": "main.py",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "hp_tgt_pad_idx",
+      "@type": "MLS_HyperParameter",
+      "name": "tgt_pad_idx",
+      "hasValue": "0",
+      "codeReference": [
+        "nyt_config.yaml",
+        "rcv_config.yaml",
+        "wos_config.yaml"
+      ],
+      "sourceFile": "nyt_config.yaml",
+      "start_char_doc": 7207,
+      "end_char_doc": 7218,
+      "context": {
+        "prefix": "def __init__(self, gamma=0, weight=None, label_smoothing=0.0,",
+        "suffix": "=0): super(FocalLoss, self).__init__() self.gamma ="
+      },
+      "path": "model.py",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "hp_tgt_bos",
+      "@type": "MLS_HyperParameter",
+      "name": "tgt_bos",
+      "hasValue": "1",
+      "codeReference": [
+        "nyt_config.yaml",
+        "rcv_config.yaml",
+        "wos_config.yaml"
+      ],
+      "sourceFile": "nyt_config.yaml",
+      "start_char_doc": 5939,
+      "end_char_doc": 5946,
+      "context": {
+        "prefix": "start token tgt = torch.full((enc_src.size(0),1),self.config.",
+        "suffix": ").to(enc_src.device) #tgt = torch.tensor([[self.config.tgt_bos]*enc_src.size(0)], device=enc_src.device)"
+      },
+      "path": "model.py",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "hp_tgt_eos",
+      "@type": "MLS_HyperParameter",
+      "name": "tgt_eos",
+      "hasValue": "2",
+      "codeReference": [
+        "nyt_config.yaml",
+        "rcv_config.yaml",
+        "wos_config.yaml"
+      ],
+      "sourceFile": "nyt_config.yaml",
+      "start_char_doc": 6959,
+      "end_char_doc": 6966,
+      "context": {
+        "prefix": "batches if (predicted == self.config.",
+        "suffix": ").all(): break return tgt[:, 1:]"
+      },
+      "path": "model.py",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "hp_num_epochs",
+      "@type": "MLS_HyperParameter",
+      "name": "num_epochs",
+      "hasValue": "1000",
+      "codeReference": [
+        "nyt_config.yaml",
+        "rcv_config.yaml",
+        "wos_config.yaml"
+      ],
+      "sourceFile": "nyt_config.yaml",
+      "start_char_doc": 4717,
+      "end_char_doc": 4727,
+      "context": {
+        "prefix": "torch.optim.AdamW(model.parameters(), lr=1e-5) total_loss = float('inf')",
+        "suffix": "= 10 for epoch in"
+      },
+      "path": "T5_BART_exps.py",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "hp_embedding_size",
+      "@type": "MLS_HyperParameter",
+      "name": "embedding_size",
+      "hasValue": "768",
+      "codeReference": [
+        "nyt_config.yaml",
+        "rcv_config.yaml",
+        "wos_config.yaml"
+      ],
+      "sourceFile": "nyt_config.yaml",
+      "start_char_doc": 5897,
+      "end_char_doc": 5911,
+      "context": {
+        "prefix": "else: return tmp def get_label_",
+        "suffix": "(self): return self.num_labels #tokens are"
+      },
+      "path": "label_tokenizer.py",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "hp_num_heads",
+      "@type": "MLS_HyperParameter",
+      "name": "num_heads",
+      "hasValue": "8",
+      "codeReference": [
+        "nyt_config.yaml",
+        "rcv_config.yaml",
+        "wos_config.yaml"
+      ],
+      "sourceFile": "nyt_config.yaml",
+      "start_char_doc": 4527,
+      "end_char_doc": 4536,
+      "context": {
+        "prefix": "#positional_encoding(max_length,embed_size) self.layers = nn.ModuleList( [DecoderBlock(config.embedding_size,config.",
+        "suffix": ", config.forward_expansion,config.dropout, config.device) for _"
+      },
+      "path": "model.py",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "hp_num_decoder_layers",
+      "@type": "MLS_HyperParameter",
+      "name": "num_decoder_layers",
+      "hasValue": "2",
+      "codeReference": [
+        "nyt_config.yaml",
+        "rcv_config.yaml",
+        "wos_config.yaml"
+      ],
+      "sourceFile": "nyt_config.yaml",
+      "start_char_doc": 4629,
+      "end_char_doc": 4647,
+      "context": {
+        "prefix": "config.device) for _ in range(config.",
+        "suffix": ")] ) self.fc_out = nn.Linear(config.embedding_size,config.tgt_vocab_size)"
+      },
+      "path": "model.py",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "hp_dropout",
+      "@type": "MLS_HyperParameter",
+      "name": "dropout",
+      "hasValue": "0.2",
+      "codeReference": [
+        "nyt_config.yaml",
+        "rcv_config.yaml",
+        "wos_config.yaml"
+      ],
+      "sourceFile": "nyt_config.yaml",
+      "start_char_doc": 2528,
+      "end_char_doc": 2535,
+      "context": {
+        "prefix": "TransformerBlock(nn.Module): def __init__(self, embed_size, heads,",
+        "suffix": ", forward_expansion): super(TransformerBlock, self).__init__() self.attention=SelfAttention(embed_size,heads)"
+      },
+      "path": "model.py",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "hp_forward_expansion",
+      "@type": "MLS_HyperParameter",
+      "name": "forward_expansion",
+      "hasValue": "4",
+      "codeReference": [
+        "nyt_config.yaml",
+        "rcv_config.yaml",
+        "wos_config.yaml"
+      ],
+      "sourceFile": "nyt_config.yaml",
+      "start_char_doc": 2537,
+      "end_char_doc": 2554,
+      "context": {
+        "prefix": "def __init__(self, embed_size, heads, dropout,",
+        "suffix": "): super(TransformerBlock, self).__init__() self.attention=SelfAttention(embed_size,heads) self.norm1"
+      },
+      "path": "model.py",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "hp_encoder_model",
+      "@type": "MLS_HyperParameter",
+      "name": "encoder_model",
+      "hasValue": "roberta-base",
+      "codeReference": [
+        "nyt_config.yaml",
+        "rcv_config.yaml",
+        "wos_config.yaml"
+      ],
+      "sourceFile": "nyt_config.yaml",
+      "start_char_doc": 2621,
+      "end_char_doc": 2634,
+      "context": {
+        "prefix": "= config.src_pad_idx encoder_tokenizer = AutoTokenizer.from_pretrained(config.",
+        "suffix": ") # Define the user-defined"
+      },
+      "path": "main.py",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "hp_lr_patience",
+      "@type": "MLS_HyperParameter",
+      "name": "lr_patience",
+      "hasValue": "3",
+      "codeReference": [
+        "nyt_config.yaml",
+        "rcv_config.yaml",
+        "wos_config.yaml"
+      ],
+      "sourceFile": "nyt_config.yaml",
+      "start_char_doc": 1525,
+      "end_char_doc": 1536,
+      "context": {
+        "prefix": "= lr_scheduler.ReduceLROnPlateau(optimizer, mode='min', factor=0.1, patience=int(config.",
+        "suffix": "), verbose=True) saved_epoch = 0"
+      },
+      "path": "main.py",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "hp_patience",
+      "@type": "MLS_HyperParameter",
+      "name": "patience",
+      "hasValue": "10",
+      "codeReference": [
+        "nyt_config.yaml",
+        "rcv_config.yaml",
+        "wos_config.yaml"
+      ],
+      "sourceFile": "nyt_config.yaml",
+      "start_char_doc": 1505,
+      "end_char_doc": 1513,
+      "context": {
+        "prefix": "scheduler = lr_scheduler.ReduceLROnPlateau(optimizer, mode='min', factor=0.1,",
+        "suffix": "=int(config.lr_patience), verbose=True) saved_epoch = 0"
+      },
+      "path": "main.py",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "hp_enc_lr",
+      "@type": "MLS_HyperParameter",
+      "name": "enc_lr",
+      "hasValue": "5e-5",
+      "codeReference": [
+        "nyt_config.yaml",
+        "rcv_config.yaml",
+        "wos_config.yaml"
+      ],
+      "sourceFile": "nyt_config.yaml",
+      "start_char_doc": 1320,
+      "end_char_doc": 1326,
+      "context": {
+        "prefix": "optim.AdamW([ {'params': model.encoder.parameters(), 'lr': float(config.",
+        "suffix": ")}, {'params': model.decoder.parameters(), 'lr': float(config.dec_lr)}"
+      },
+      "path": "main.py",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "hp_dec_lr",
+      "@type": "MLS_HyperParameter",
+      "name": "dec_lr",
+      "hasValue": "3e-4",
+      "codeReference": [
+        "nyt_config.yaml",
+        "rcv_config.yaml",
+        "wos_config.yaml"
+      ],
+      "sourceFile": "nyt_config.yaml",
+      "start_char_doc": 1392,
+      "end_char_doc": 1398,
+      "context": {
+        "prefix": "float(config.enc_lr)}, {'params': model.decoder.parameters(), 'lr': float(config.",
+        "suffix": ")} ]) scheduler = lr_scheduler.ReduceLROnPlateau(optimizer,"
+      },
+      "path": "main.py",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "hp_accumulation_steps",
+      "@type": "MLS_HyperParameter",
+      "name": "accumulation_steps",
+      "hasValue": "2",
+      "codeReference": [
+        "nyt_config.yaml",
+        "rcv_config.yaml",
+        "wos_config.yaml"
+      ],
+      "sourceFile": "nyt_config.yaml",
+      "start_char_doc": 917,
+      "end_char_doc": 935,
+      "context": {
+        "prefix": "accumulate before optimization step (NEW)",
+        "suffix": "= config.accumulation_steps num_training_steps_per_epoch = math.ceil(len(train_data)/config.batch_size)"
+      },
+      "path": "main.py",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "hp_continue_training",
+      "@type": "MLS_HyperParameter",
+      "name": "continue_training",
+      "hasValue": "False",
+      "codeReference": [
+        "nyt_config.yaml",
+        "rcv_config.yaml",
+        "wos_config.yaml"
+      ],
+      "sourceFile": "nyt_config.yaml",
+      "start_char_doc": 1589,
+      "end_char_doc": 1606,
+      "context": {
+        "prefix": "saved_epoch = 0 if config.",
+        "suffix": ": #load stored dictionary checkpoint"
+      },
+      "path": "main.py",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "hp_shuffle",
+      "@type": "MLS_HyperParameter",
+      "name": "shuffle",
+      "hasValue": "False",
+      "codeReference": [
+        "nyt_config.yaml",
+        "rcv_config.yaml",
+        "wos_config.yaml"
+      ],
+      "sourceFile": "nyt_config.yaml",
+      "start_char_doc": 4327,
+      "end_char_doc": 4334,
+      "context": {
+        "prefix": "train_lbl) train_dataloader = DataLoader(train_dataset, batch_size=32,",
+        "suffix": "=True) # load valid data"
+      },
+      "path": "T5_BART_exps.py",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "hp_pre_train_mask",
+      "@type": "MLS_HyperParameter",
+      "name": "pre_train_mask",
+      "hasValue": "True",
+      "codeReference": [
+        "nyt_config.yaml",
+        "rcv_config.yaml",
+        "wos_config.yaml"
+      ],
+      "sourceFile": "nyt_config.yaml",
+      "start_char_doc": 4899,
+      "end_char_doc": 4913,
+      "context": {
+        "prefix": "tgt_len = tgt.shape if self.config.",
+        "suffix": ": tgt_mask = torch.ones((tgt_len,tgt_len)).expand(N,1,tgt_len,tgt_len) else:"
+      },
+      "path": "model.py",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "hp_label_smoothing",
+      "@type": "MLS_HyperParameter",
+      "name": "label_smoothing",
+      "hasValue": "0.5",
+      "codeReference": [
+        "nyt_config.yaml",
+        "rcv_config.yaml",
+        "wos_config.yaml"
+      ],
+      "sourceFile": "nyt_config.yaml",
+      "start_char_doc": 7187,
+      "end_char_doc": 7202,
+      "context": {
+        "prefix": "FocalLoss(nn.Module): def __init__(self, gamma=0, weight=None,",
+        "suffix": "=0.0,tgt_pad_idx=0): super(FocalLoss, self).__init__() self.gamma ="
+      },
+      "path": "model.py",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "hp_gamma",
+      "@type": "MLS_HyperParameter",
+      "name": "gamma",
+      "hasValue": "2",
+      "codeReference": [
+        "nyt_config.yaml",
+        "rcv_config.yaml",
+        "wos_config.yaml"
+      ],
+      "sourceFile": "nyt_config.yaml",
+      "start_char_doc": 7165,
+      "end_char_doc": 7170,
+      "context": {
+        "prefix": "sequences class FocalLoss(nn.Module): def __init__(self,",
+        "suffix": "=0, weight=None, label_smoothing=0.0,tgt_pad_idx=0): super(FocalLoss, self).__init__()"
+      },
+      "path": "model.py",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "hp_random_seed",
+      "@type": "MLS_HyperParameter",
+      "name": "random_seed",
+      "hasValue": "42",
+      "codeReference": [
+        "nyt_config.yaml",
+        "rcv_config.yaml",
+        "wos_config.yaml"
+      ],
+      "sourceFile": "nyt_config.yaml",
+      "start_char_doc": 417,
+      "end_char_doc": 428,
+      "context": {
+        "prefix": "clean_output_labels, compute_metrics, flaten_labels, prepare_labels_for_matrics_computation, get_logger,set_",
+        "suffix": "s,make_sure_dir_exits_or_create from model import RADAr"
+      },
+      "path": "main.py",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "hp_wandb",
+      "@type": "MLS_HyperParameter",
+      "name": "wandb",
+      "hasValue": "False",
+      "codeReference": "wos_config.yaml",
+      "sourceFile": "wos_config.yaml",
+      "start_char_doc": 600,
+      "end_char_doc": 605,
+      "context": {
+        "prefix": "import torch.nn #hyperparameter optimization import",
+        "suffix": "#debug library import pdb import"
+      },
+      "path": "sweep_code.py",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "training_radar",
+      "@type": "TrainingRun",
+      "runId": "RADAr_training",
+      "description": "Training run for RADAr",
+      "codeReference": "main.py",
+      "logFile": "logs/wos/LOG_FILE.txt",
+      "prov-executedBy": {
+        "@id": "impl_radar"
+      },
+      "start_char_doc": 1568,
+      "end_char_doc": 1575,
+      "context": {
+        "prefix": "please use the comman: python",
+        "suffix": "xxx where \"xxx\" is a"
+      },
+      "path": "README.md",
+      "wasDerivedFrom": "code"
+    },
+    {
+      "@id": "preprocess_radar",
+      "@type": "DataProcessingStep",
+      "identifier": "RADAr Data Preprocessing",
+      "transformationType": "preprocessing",
+      "description": "Data preprocessing and preparation pipeline",
+      "codeReference": "data_preparation",
+      "prov-executedBy": {
+        "@id": "impl_radar"
+      },
+      "start_char_doc": 365,
+      "end_char_doc": 369,
+      "context": {
+        "prefix": "1. We use the same",
+        "suffix": "splits and preprocessing as HBGL."
+      },
+      "path": "README.md",
+      "wasDerivedFrom": "code"
+    }
+  ]
+}
