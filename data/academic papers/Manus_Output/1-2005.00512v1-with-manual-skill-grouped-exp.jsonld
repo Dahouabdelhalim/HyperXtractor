@@ -1,0 +1,1067 @@
+{
+  "@context": {
+    "mls": "http://example.org/ontology/mls#",
+    "schema": "http://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "Study": "mls:Study",
+    "Experiment": "mls:Experiment",
+    "Person": "mls:Person",
+    "Organization": "mls:Organization",
+    "MLS_Task": "mls:MLS_Task",
+    "MLS_Dataset": "mls:MLS_Dataset",
+    "DataSource": "mls:DataSource",
+    "Method": "mls:Method",
+    "MLS_Model": "mls:MLS_Model",
+    "MLS_Algorithm": "mls:MLS_Algorithm",
+    "Prompt": "mls:Prompt",
+    "MLS_Eval": "mls:MLS_Eval",
+    "SoftwareRepository": "mls:SoftwareRepository",
+    "MLS_Implementation": "mls:MLS_Implementation",
+    "MLS_HyperParameter": "mls:MLS_HyperParameter",
+    "HP_Optimization": "mls:HP_Optimization",
+    "HP_Training": "mls:HP_Training",
+    "HP_Architecture": "mls:HP_Architecture",
+    "HP_Data": "mls:HP_Data",
+    "LearningRate": "mls:LearningRate",
+    "Momentum": "mls:Momentum",
+    "WeightDecay": "mls:WeightDecay",
+    "WarmupSteps": "mls:WarmupSteps",
+    "DecayRate": "mls:DecayRate",
+    "BatchSize": "mls:BatchSize",
+    "NumEpochs": "mls:NumEpochs",
+    "MaxSteps": "mls:MaxSteps",
+    "GradientAccumulationSteps": "mls:GradientAccumulationSteps",
+    "NumWorkers": "mls:NumWorkers",
+    "RandomSeed": "mls:RandomSeed",
+    "NumLayers": "mls:NumLayers",
+    "HiddenSize": "mls:HiddenSize",
+    "EmbeddingDim": "mls:EmbeddingDim",
+    "Dropout": "mls:Dropout",
+    "AttentionHeads": "mls:AttentionHeads",
+    "UnknownArchitectureHP": "mls:UnknownArchitectureHP",
+    "MaxSequenceLength": "mls:MaxSequenceLength",
+    "TrainValTestSplit": "mls:TrainValTestSplit",
+    "Patience": "mls:Patience",
+    "Dependency": "mls:Dependency",
+    "Environment": "mls:Environment",
+    "DataProcessingStep": "mls:DataProcessingStep",
+    "TrainingRun": "mls:TrainingRun",
+    "EvaluationRun": "mls:EvaluationRun",
+    "PredictionSet": "mls:PredictionSet",
+    "issued": { "@id": "mls:issued", "@type": "xsd:datetime" },
+    "title": "schema:title",
+    "abstract": "schema:abstract",
+    "url": "schema:url",
+    "doi": "schema:doi",
+    "citation": "schema:citation",
+    "publicationVenue": "schema:publicationVenue",
+    "timestamp": { "@id": "schema:timestamp", "@type": "xsd:date" },
+    "identifier": "schema:identifier",
+    "description": "schema:description",
+    "objective": "schema:objective",
+    "hypothesis": "schema:hypothesis",
+    "methodology": "schema:methodology",
+    "name": "schema:name",
+    "affiliation": "schema:affiliation",
+    "email": "schema:email",
+    "orcid": "schema:orcid",
+    "type": "schema:type",
+    "category": "schema:category",
+    "metrics": "schema:metrics",
+    "numInstances": { "@id": "schema:numInstances", "@type": "xsd:integer" },
+    "language": "schema:language",
+    "license": "schema:license",
+    "modality": "schema:modality",
+    "numClasses": { "@id": "schema:numClasses", "@type": "xsd:integer" },
+    "version": "schema:version",
+    "architecture": "schema:architecture",
+    "parameters": "schema:parameters",
+    "complexity": "mls:complexity",
+    "pseudoCode": { "@id": "mls:pseudoCode", "@type": "xsd:anyURI" },
+    "text": "schema:text",
+    "role": "mls:role",
+    "templateId": "mls:templateId",
+    "usesContext": { "@id": "mls:usesContext", "@type": "xsd:boolean" },
+    "measure": "mls:measure",
+    "hasValue": { "@id": "mls:hasValue", "@type": "xsd:float" },
+    "stdDev": { "@id": "mls:stdDev", "@type": "xsd:float" },
+    "confidenceInterval": "mls:confidenceInterval",
+    "programmingLanguage": "schema:programmingLanguage",
+    "dateModified": { "@id": "schema:dateModified", "@type": "xsd:datetime" },
+    "documentationUrl": { "@id": "mls:documentationUrl", "@type": "xsd:anyURI" },
+    "codeRepository": { "@id": "mls:codeRepository", "@type": "xsd:anyURI" },
+    "framework": "mls:framework",
+    "dependencies": "mls:dependencies",
+    "executionCommand": "mls:executionCommand",
+    "entryPoint": "mls:entryPoint",
+    "commitHash": "mls:commitHash",
+    "branch": "mls:branch",
+    "dependenciesHash": "mls:dependenciesHash",
+    "packageName": "mls:packageName",
+    "isOptional": { "@id": "mls:isOptional", "@type": "xsd:boolean" },
+    "hardwareSpecs": "mls:hardwareSpecs",
+    "os": "mls:os",
+    "pythonVersion": "mls:pythonVersion",
+    "requirementsFile": "mls:requirementsFile",
+    "isDockerized": { "@id": "mls:isDockerized", "@type": "xsd:boolean" },
+    "startedAtTime": { "@id": "prov:startedAtTime", "@type": "xsd:datetime" },
+    "endedAtTime": { "@id": "prov:endedAtTime", "@type": "xsd:datetime" },
+    "transformationType": "mls:transformationType",
+    "codeReference": { "@id": "mls:codeReference", "@type": "xsd:anyURI" },
+    "runId": "mls:runId",
+    "logFile": { "@id": "mls:logFile", "@type": "xsd:anyURI" },
+    "split": "mls:split",
+    "onDatasetSplit": "mls:onDatasetSplit",
+    "format": "mls:format",
+    "artifactsLocation": { "@id": "mls:artifactsLocation", "@type": "xsd:anyURI" },
+    "hpCategory": "mls:hpCategory",
+    "hpType": "mls:hpType",
+    "searchSpace": "mls:searchSpace",
+    "uncertain": { "@id": "mls:uncertain", "@type": "xsd:boolean" },
+    "hasAuthor": { "@id": "mls:hasAuthor", "@type": "@id" },
+    "contains": { "@id": "mls:contains", "@type": "@id" },
+    "implements": { "@id": "mls:implements", "@type": "@id" },
+    "prov-affiliatedWith": { "@id": "mls:prov-affiliatedWith", "@type": "@id" },
+    "realizes": { "@id": "mls:realizes", "@type": "@id" },
+    "usesData": { "@id": "mls:usesData", "@type": "@id" },
+    "produces": { "@id": "mls:produces", "@type": "@id" },
+    "usesParameters": { "@id": "mls:usesParameters", "@type": "@id" },
+    "executes": { "@id": "mls:executes", "@type": "@id" },
+    "subDatasetOf": { "@id": "mls:subDatasetOf", "@type": "@id" },
+    "prov-derivedFrom": { "@id": "mls:prov-derivedFrom", "@type": "@id" },
+    "processedThrough": { "@id": "mls:processedThrough", "@type": "@id" },
+    "prov-uses": { "@id": "mls:prov-uses", "@type": "@id" },
+    "trainedOn": { "@id": "mls:trainedOn", "@type": "@id" },
+    "evaluatedOn": { "@id": "mls:evaluatedOn", "@type": "@id" },
+    "achieves": { "@id": "mls:achieves", "@type": "@id" },
+    "prov-producedBy": { "@id": "mls:prov-producedBy", "@type": "@id" },
+    "subMethod": { "@id": "mls:subMethod", "@type": "@id" },
+    "evaluates": { "@id": "mls:evaluates", "@type": "@id" },
+    "supports": { "@id": "mls:supports", "@type": "@id" },
+    "runsIn": { "@id": "mls:runsIn", "@type": "@id" },
+    "requires": { "@id": "mls:requires", "@type": "@id" },
+    "prov-executedBy": { "@id": "mls:prov-executedBy", "@type": "@id" },
+    "prov-generated": { "@id": "mls:prov-generated", "@type": "@id" },
+    "benchmarkedOn": { "@id": "mls:benchmarkedOn", "@type": "@id" },
+    "subTaskOf": { "@id": "mls:subTaskOf", "@type": "@id" },
+    "dependsOn": { "@id": "mls:dependsOn", "@type": "@id" },
+    "usedIn": { "@id": "mls:usedIn", "@type": "@id" },
+    "trains": { "@id": "mls:trains", "@type": "@id" },
+    "producedBy": { "@id": "mls:producedBy", "@type": "@id" },
+    "sourceFile": "mls:sourceFile",
+    "sourceLine": { "@id": "mls:sourceLine", "@type": "xsd:integer" },
+    "dependencyType": "mls:dependencyType",
+    "owner": "mls:owner",
+    "platform": "mls:platform",
+    "entryPointCommand": "mls:entryPointCommand",
+    "evaluationScript": "mls:evaluationScript",
+    "evaluationSplit": "mls:evaluationSplit",
+    "metricsFile": "mls:metricsFile",
+    "inputDataset": { "@id": "mls:inputDataset", "@type": "@id" },
+    "outputDataset": { "@id": "mls:outputDataset", "@type": "@id" },
+    "predictionFormat": "mls:predictionFormat",
+    "storageLocation": "mls:storageLocation",
+    "modelVersion": "mls:modelVersion",
+    "appliedTo": { "@id": "mls:appliedTo", "@type": "@id" },
+    "wasGeneratedBy": { "@id": "prov:wasGeneratedBy", "@type": "@id" },
+    "wasDerivedFrom": { "@id": "prov:wasDerivedFrom", "@type": "@id" },
+    "wasAssociatedWith": { "@id": "prov:wasAssociatedWith", "@type": "@id" },
+    "used": { "@id": "prov:used", "@type": "@id" }
+  },
+  "@graph": [
+    {
+      "@id": "study:scirex",
+      "@type": "Study",
+      "schema:title": "SCIREX: A Challenge Dataset for Document-Level Information Extraction",
+      "schema:abstract": "Extracting information from full documents is an important problem in many domains, but most previous work focus on identifying relationships within a sentence or a paragraph. It is challenging to create a large-scale information extraction (IE) dataset at the document level since it requires an understanding of the whole document to annotate entities and their document-level relationships that usually span beyond sentences or even sections. In this paper, we introduce SCIREX, a document level IE dataset that encompasses multiple IE tasks, including salient entity identification and document level N-ary relation identification from scientific articles. We annotate our dataset by integrating automatic and human annotations, leveraging existing scientific knowledge resources. We develop a neural model as a strong baseline that extends previous state-of-the-art IE models to document-level IE. Analyzing the model performance shows a significant gap between human performance and current baselines, inviting the community to use our dataset as a challenge to develop document-level IE models. Our data and code are publicly available at https://github.com/allenai/SciREX",
+      "schema:url": "https://arxiv.org/abs/2005.00512",
+      "schema:doi": "arXiv:2005.00512v1",
+      "schema:citation": null,
+      "schema:publicationVenue": "arXiv (cs.CL)",
+      "schema:timestamp": "2020-05-01",
+      "hasAuthor": [
+        { "@id": "person:sarthak_jain" },
+        { "@id": "person:madeleine_van_zuylen" },
+        { "@id": "person:hannanah_hajishirzi" },
+        { "@id": "person:iz_beltagy" }
+      ],
+      "contains": [{ "@id": "exp:group_scirex" }],
+      "implements": { "@id": "repo:scirex" },
+      "start_char_doc": 13,
+      "end_char_doc": 82,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "## Page 1 #",
+        "suffix": "Sarthak Jain\u00b2\\* Madeleine van Zuylen\u00b9"
+      }
+    },
+
+    {
+      "@id": "person:sarthak_jain",
+      "@type": "Person",
+      "schema:name": "Sarthak Jain",
+      "schema:affiliation": "Northeastern University",
+      "schema:email": "jain.sar@northeastern.edu",
+      "schema:orcid": null,
+      "prov-affiliatedWith": [{ "@id": "org:northeastern" }],
+      "start_char_doc": 84,
+      "end_char_doc": 96,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Dataset for Document-Level Information Extraction",
+        "suffix": "\u00b2\\* Madeleine van Zuylen\u00b9 Hannanah"
+      }
+    },
+    {
+      "@id": "person:madeleine_van_zuylen",
+      "@type": "Person",
+      "schema:name": "Madeleine van Zuylen",
+      "schema:affiliation": "Allen Institute for AI",
+      "schema:email": "madeleinev@allenai.org",
+      "schema:orcid": null,
+      "prov-affiliatedWith": [{ "@id": "org:ai2" }],
+      "start_char_doc": 100,
+      "end_char_doc": 120,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Document-Level Information Extraction Sarthak Jain\u00b2\\*",
+        "suffix": "\u00b9 Hannanah Hajishirzi\u00b9,\u00b3 Iz Beltagy\u00b9"
+      }
+    },
+    {
+      "@id": "person:hannanah_hajishirzi",
+      "@type": "Person",
+      "schema:name": "Hannanah Hajishirzi",
+      "schema:affiliation": "Allen Institute for AI, University of Washington",
+      "schema:email": "hannah@allenai.org",
+      "schema:orcid": null,
+      "prov-affiliatedWith": [
+        { "@id": "org:ai2" },
+        { "@id": "org:uw" }
+      ],
+      "start_char_doc": 122,
+      "end_char_doc": 141,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Sarthak Jain\u00b2\\* Madeleine van Zuylen\u00b9",
+        "suffix": "\u00b9,\u00b3 Iz Beltagy\u00b9 Allen Institute"
+      }
+    },
+    {
+      "@id": "person:iz_beltagy",
+      "@type": "Person",
+      "schema:name": "Iz Beltagy",
+      "schema:affiliation": "Allen Institute for AI",
+      "schema:email": "beltagy@allenai.org",
+      "schema:orcid": null,
+      "prov-affiliatedWith": [{ "@id": "org:ai2" }],
+      "start_char_doc": 145,
+      "end_char_doc": 155,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Madeleine van Zuylen\u00b9 Hannanah Hajishirzi\u00b9,\u00b3",
+        "suffix": "\u00b9 Allen Institute for AI\u00b9"
+      }
+    },
+
+    {
+      "@id": "org:ai2",
+      "@type": "Organization",
+      "schema:name": "Allen Institute for AI",
+      "schema:url": "https://allenai.org",
+      "schema:type": "Research Institute",
+      "start_char_doc": 157,
+      "end_char_doc": 179,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Zuylen\u00b9 Hannanah Hajishirzi\u00b9,\u00b3 Iz Beltagy\u00b9",
+        "suffix": "\u00b9 Northeastern University\u00b2 University of"
+      }
+    },
+    {
+      "@id": "org:northeastern",
+      "@type": "Organization",
+      "schema:name": "Northeastern University",
+      "schema:url": null,
+      "schema:type": "University",
+      "start_char_doc": 181,
+      "end_char_doc": 204,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Beltagy\u00b9 Allen Institute for AI\u00b9",
+        "suffix": "\u00b2 University of Washington\u00b3 jain.sar@northeastern.edu"
+      }
+    },
+    {
+      "@id": "org:uw",
+      "@type": "Organization",
+      "schema:name": "University of Washington",
+      "schema:url": null,
+      "schema:type": "University",
+      "start_char_doc": 206,
+      "end_char_doc": 230,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Institute for AI\u00b9 Northeastern University\u00b2",
+        "suffix": "\u00b3 jain.sar@northeastern.edu {madeleinev, hannah, beltagy}@allenai.org"
+      }
+    },
+
+    {
+      "@id": "task:doc_level_ie",
+      "@type": "MLS_Task",
+      "schema:name": "Document-Level Information Extraction",
+      "schema:description": "Extracting entities, their coreferences, salient entity identification, and N-ary relation extraction from full scientific documents. Encompasses entity recognition, salient entity identification, coreference resolution, and N-ary relation extraction.",
+      "schema:category": "Information Extraction",
+      "schema:metrics": "F1 score (macro average for mention identification; positive class F1 for binary classification tasks and relation extraction)",
+      "benchmarkedOn": [{ "@id": "dataset:scirex" }],
+      "subTaskOf": [],
+      "start_char_doc": 798,
+      "end_char_doc": 823,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "paper, we introduce SCIREX, a",
+        "suffix": "that encompasses multiple IE tasks,"
+      }
+    },
+
+    {
+      "@id": "dataset:scirex",
+      "@type": "MLS_Dataset",
+      "schema:name": "SCIREX",
+      "schema:description": "A document-level information extraction dataset consisting of 438 fully annotated scientific articles from ML conferences. Annotated with entity mentions, coreferences, salient entities, and N-ary relations (Dataset, Metric, Task, Method tuples). Average per document: 5,737 words, 22 sections, 360 mentions, 8 salient entities, 16 binary relations, 5 4-ary relations.",
+      "schema:numInstances": 438,
+      "schema:language": "English",
+      "schema:license": null,
+      "schema:modality": "Text",
+      "schema:numClasses": 4,
+      "subDatasetOf": [],
+      "prov-derivedFrom": [{ "@id": "source:pwc" }],
+      "processedThrough": [],
+      "start_char_doc": 788,
+      "end_char_doc": 823,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "In this paper, we introduce",
+        "suffix": "that encompasses multiple IE tasks,"
+      }
+    },
+    {
+      "@id": "dataset:scierc",
+      "@type": "MLS_Dataset",
+      "schema:name": "SCIERC",
+      "schema:description": "A paragraph-level information extraction dataset from abstracts of scientific articles, used for pre-training the automatic labeling model and for comparison evaluation. Average 130 words per document.",
+      "schema:numInstances": null,
+      "schema:language": "English",
+      "schema:license": null,
+      "schema:modality": "Text",
+      "schema:numClasses": null,
+      "subDatasetOf": [],
+      "prov-derivedFrom": [],
+      "processedThrough": [],
+      "start_char_doc": 2037,
+      "end_char_doc": 2043,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "of scientific articles as in",
+        "suffix": "(Luan et al., 2018)), or"
+      }
+    },
+
+    {
+      "@id": "source:pwc",
+      "@type": "DataSource",
+      "schema:name": "Papers with Code (PwC)",
+      "schema:url": "https://github.com/paperswithcode/paperswithcode-data",
+      "schema:type": "Knowledge Base",
+      "schema:license": "Public",
+      "start_char_doc": 8897,
+      "end_char_doc": 8919,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "**Existing KB: Papers with Code**",
+        "suffix": "<sup>3</sup> is a publicly available"
+      }
+    },
+
+    {
+      "@id": "model:scirex_baseline",
+      "@type": ["MLS_Model", "Method"],
+      "schema:name": "SCIREX Baseline Model",
+      "schema:description": "A neural end-to-end document-level information extraction model. Uses SciBERT-base + BiLSTM for document representation, a CRF tagger for mention identification and classification, feedforward layers for salient mention classification, a separate SciBERT-based pairwise coreference model, agglomerative hierarchical clustering for entity clustering, and section-level relation extraction with FFN classification.",
+      "schema:version": null,
+      "schema:architecture": "SciBERT-base + BiLSTM + CRF + FFN + Agglomerative Clustering",
+      "schema:parameters": null,
+      "trainedOn": [{ "@id": "dataset:scirex" }],
+      "evaluatedOn": [
+        { "@id": "dataset:scirex" },
+        { "@id": "dataset:scierc" }
+      ],
+      "achieves": [
+        { "@id": "eval:mention_id_f1" },
+        { "@id": "eval:binary_rel_f1" },
+        { "@id": "eval:4ary_rel_f1" }
+      ],
+      "prov-producedBy": null,
+      "subMethod": [
+        { "@id": "model:scibert_encoder" },
+        { "@id": "method:bilstm" },
+        { "@id": "method:crf_tagger" },
+        { "@id": "model:coref_model" }
+      ],
+      "start_char_doc": 1101,
+      "end_char_doc": 1147,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "leveraging existing scientific knowledge resources.",
+        "suffix": "that extends previous state-of-the-art IE"
+      }
+    },
+    {
+      "@id": "model:scibert_encoder",
+      "@type": ["MLS_Model", "Method"],
+      "schema:name": "SciBERT-base",
+      "schema:description": "Pretrained contextualized token encoder used for section-level encoding. Sections longer than 512 tokens are broken into subsections encoded separately.",
+      "schema:version": "base",
+      "schema:architecture": "Transformer (BERT)",
+      "schema:parameters": null,
+      "trainedOn": [],
+      "evaluatedOn": [],
+      "achieves": [],
+      "prov-producedBy": null,
+      "subMethod": [],
+      "start_char_doc": 17082,
+      "end_char_doc": 17112,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "pretrained contextualized token encodings using",
+        "suffix": "over each section separately to"
+      }
+    },
+    {
+      "@id": "method:bilstm",
+      "@type": "Method",
+      "schema:name": "BiLSTM",
+      "schema:description": "Bidirectional LSTM layer on top of concatenated section-level SciBERT token embeddings for document-level information flow across sections. 128-d hidden state.",
+      "schema:version": null,
+      "trainedOn": [],
+      "evaluatedOn": [],
+      "achieves": [],
+      "prov-producedBy": null,
+      "subMethod": [],
+      "start_char_doc": 39446,
+      "end_char_doc": 39476,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "(Beltagy et al., 2019) and",
+        "suffix": ". We use a dropout"
+      }
+    },
+    {
+      "@id": "method:crf_tagger",
+      "@type": "Method",
+      "schema:name": "BIOUL CRF Tagger",
+      "schema:description": "A BIOUL-based CRF sequence tagger on top of BERT-BiLSTM embeddings for mention span identification and type classification.",
+      "schema:version": null,
+      "trainedOn": [],
+      "evaluatedOn": [],
+      "achieves": [],
+      "prov-producedBy": null,
+      "subMethod": [],
+      "start_char_doc": 17648,
+      "end_char_doc": 17670,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "their types. We train a",
+        "suffix": "on top of the BERT-BiLSTM"
+      }
+    },
+    {
+      "@id": "model:coref_model",
+      "@type": ["MLS_Model", "Method"],
+      "schema:name": "SciBERT Pairwise Coreference Model",
+      "schema:description": "A separate SciBERT-based model for pairwise coreference resolution. Encodes two mention surface forms as [CLS] mention1 [SEP] mention2 [SEP] and uses a linear classification layer on the [CLS] embedding to compute coreference scores.",
+      "schema:version": null,
+      "schema:architecture": "SciBERT-base + Linear",
+      "schema:parameters": null,
+      "trainedOn": [],
+      "evaluatedOn": [],
+      "achieves": [],
+      "prov-producedBy": null,
+      "subMethod": [],
+      "start_char_doc": 17082,
+      "end_char_doc": 17112,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "pretrained contextualized token encodings using",
+        "suffix": "over each section separately to"
+      }
+    },
+
+    {
+      "@id": "eval:mention_id_f1",
+      "@type": "MLS_Eval",
+      "mls:measure": "Macro Average F1 (Mention Identification)",
+      "mls:hasValue": 0.712,
+      "mls:stdDev": null,
+      "mls:confidenceInterval": null,
+      "mls:onDataset": { "@id": "dataset:scirex" },
+      "prov-producedBy": null,
+      "start_char_doc": 30159,
+      "end_char_doc": 30164,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "<td>Our Model</td> <td>0.707</td> <td>0.717</td> <td><strong>",
+        "suffix": "</strong></td> </tr> <tr> <td colspan=\"4\">End-to-end"
+      }
+    },
+    {
+      "@id": "eval:mention_id_precision",
+      "@type": "MLS_Eval",
+      "mls:measure": "Precision (Mention Identification)",
+      "mls:hasValue": 0.707,
+      "mls:stdDev": null,
+      "mls:confidenceInterval": null,
+      "mls:onDataset": { "@id": "dataset:scirex" },
+      "prov-producedBy": null,
+      "start_char_doc": 30121,
+      "end_char_doc": 30126,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "</tr> <tr> <td>Our Model</td> <td>",
+        "suffix": "</td> <td>0.717</td> <td><strong>0.712</strong></td> </tr> <tr>"
+      }
+    },
+    {
+      "@id": "eval:mention_id_recall",
+      "@type": "MLS_Eval",
+      "mls:measure": "Recall (Mention Identification)",
+      "mls:hasValue": 0.717,
+      "mls:stdDev": null,
+      "mls:confidenceInterval": null,
+      "mls:onDataset": { "@id": "dataset:scirex" },
+      "prov-producedBy": null,
+      "start_char_doc": 30136,
+      "end_char_doc": 30141,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "<tr> <td>Our Model</td> <td>0.707</td> <td>",
+        "suffix": "</td> <td><strong>0.712</strong></td> </tr> <tr> <td"
+      }
+    },
+    {
+      "@id": "eval:binary_rel_f1",
+      "@type": "MLS_Eval",
+      "mls:measure": "F1 (End-to-end Binary Relations)",
+      "mls:hasValue": 0.096,
+      "mls:stdDev": null,
+      "mls:confidenceInterval": null,
+      "mls:onDataset": { "@id": "dataset:scirex" },
+      "prov-producedBy": null,
+      "start_char_doc": 30605,
+      "end_char_doc": 30610,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "<td>Our Model</td> <td><strong>0.065</strong></td> <td><strong>0.411</strong></td> <td><strong>",
+        "suffix": "</strong></td> </tr> <tr> <td colspan=\"4\">4-ary"
+      }
+    },
+    {
+      "@id": "eval:binary_rel_precision",
+      "@type": "MLS_Eval",
+      "mls:measure": "Precision (End-to-end Binary Relations)",
+      "mls:hasValue": 0.065,
+      "mls:stdDev": null,
+      "mls:confidenceInterval": null,
+      "mls:onDataset": { "@id": "dataset:scirex" },
+      "prov-producedBy": null,
+      "start_char_doc": 30541,
+      "end_char_doc": 30546,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "</tr> <tr> <td>Our Model</td> <td><strong>",
+        "suffix": "</strong></td> <td><strong>0.411</strong></td> <td><strong>0.096</strong></td> </tr> <tr>"
+      }
+    },
+    {
+      "@id": "eval:binary_rel_recall",
+      "@type": "MLS_Eval",
+      "mls:measure": "Recall (End-to-end Binary Relations)",
+      "mls:hasValue": 0.411,
+      "mls:stdDev": null,
+      "mls:confidenceInterval": null,
+      "mls:onDataset": { "@id": "dataset:scirex" },
+      "prov-producedBy": null,
+      "start_char_doc": 30573,
+      "end_char_doc": 30578,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "<tr> <td>Our Model</td> <td><strong>0.065</strong></td> <td><strong>",
+        "suffix": "</strong></td> <td><strong>0.096</strong></td> </tr> <tr> <td"
+      }
+    },
+    {
+      "@id": "eval:4ary_rel_f1",
+      "@type": "MLS_Eval",
+      "mls:measure": "F1 (4-ary Relation Extraction)",
+      "mls:hasValue": 0.611,
+      "mls:stdDev": null,
+      "mls:confidenceInterval": null,
+      "mls:onDataset": { "@id": "dataset:scirex" },
+      "prov-producedBy": null,
+      "start_char_doc": 30859,
+      "end_char_doc": 30864,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "<td>Our Model</td> <td><strong>0.531</strong></td> <td>0.718</td> <td>",
+        "suffix": "</td> </tr> </tbody> </table> Table"
+      }
+    },
+    {
+      "@id": "eval:4ary_rel_precision",
+      "@type": "MLS_Eval",
+      "mls:measure": "Precision (4-ary Relation Extraction)",
+      "mls:hasValue": 0.531,
+      "mls:stdDev": null,
+      "mls:confidenceInterval": null,
+      "mls:onDataset": { "@id": "dataset:scirex" },
+      "prov-producedBy": null,
+      "start_char_doc": 30820,
+      "end_char_doc": 30825,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "</tr> <tr> <td>Our Model</td> <td><strong>",
+        "suffix": "</strong></td> <td>0.718</td> <td>0.611</td> </tr> </tbody>"
+      }
+    },
+    {
+      "@id": "eval:4ary_rel_recall",
+      "@type": "MLS_Eval",
+      "mls:measure": "Recall (4-ary Relation Extraction)",
+      "mls:hasValue": 0.718,
+      "mls:stdDev": null,
+      "mls:confidenceInterval": null,
+      "mls:onDataset": { "@id": "dataset:scirex" },
+      "prov-producedBy": null,
+      "start_char_doc": 30844,
+      "end_char_doc": 30849,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "<tr> <td>Our Model</td> <td><strong>0.531</strong></td> <td>",
+        "suffix": "</td> <td>0.611</td> </tr> </tbody> </table>"
+      }
+    },
+
+    {
+      "@id": "hp:lr_nonbert",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "http://example.org/hp/learning_rate_nonbert",
+      "mls:hasValue": "1e-3",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "float",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Optimization",
+      "hpType": "LearningRate",
+      "uncertain": false,
+      "start_char_doc": 39919,
+      "end_char_doc": 39940,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "epochs using Adam optimizer with",
+        "suffix": "for all non BERT weights"
+      }
+    },
+    {
+      "@id": "hp:lr_bert",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "http://example.org/hp/learning_rate_bert",
+      "mls:hasValue": "2e-5",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "float",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Optimization",
+      "hpType": "LearningRate",
+      "uncertain": false,
+      "start_char_doc": 39970,
+      "end_char_doc": 39991,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "all non BERT weights and",
+        "suffix": ". We use early stopping"
+      }
+    },
+    {
+      "@id": "hp:num_epochs",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "http://example.org/hp/num_epochs",
+      "mls:hasValue": "30",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "integer",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Training",
+      "hpType": "NumEpochs",
+      "uncertain": false,
+      "start_char_doc": 39883,
+      "end_char_doc": 39892,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "We train our model for",
+        "suffix": "using Adam optimizer with 1e-3"
+      }
+    },
+    {
+      "@id": "hp:patience",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "http://example.org/hp/patience",
+      "mls:hasValue": "7",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "integer",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Training",
+      "hpType": "Patience",
+      "uncertain": false,
+      "start_char_doc": 40022,
+      "end_char_doc": 40041,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "use early stopping with a",
+        "suffix": "on the validation set using"
+      }
+    },
+    {
+      "@id": "hp:dropout",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "http://example.org/hp/dropout",
+      "mls:hasValue": "0.2",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "float",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Architecture",
+      "hpType": "Dropout",
+      "uncertain": false,
+      "start_char_doc": 39487,
+      "end_char_doc": 39501,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "hidden state. We use a",
+        "suffix": "after BiLSTM embeddings. All feedforward"
+      }
+    },
+    {
+      "@id": "hp:hidden_size_bilstm",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "http://example.org/hp/hidden_size_bilstm",
+      "mls:hasValue": "128",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "integer",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Architecture",
+      "hpType": "HiddenSize",
+      "uncertain": false,
+      "start_char_doc": 39458,
+      "end_char_doc": 39476,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "al., 2019) and BiLSTM with",
+        "suffix": ". We use a dropout"
+      }
+    },
+    {
+      "@id": "hp:ffn_num_layers",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "http://example.org/hp/ffn_num_layers",
+      "mls:hasValue": "2",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "integer",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Architecture",
+      "hpType": "NumLayers",
+      "uncertain": false,
+      "start_char_doc": 39568,
+      "end_char_doc": 39608,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "feedforward networks are composed of",
+        "suffix": "with gelu activation and with"
+      }
+    },
+    {
+      "@id": "hp:ffn_hidden_size",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "http://example.org/hp/ffn_hidden_size",
+      "mls:hasValue": "128",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "integer",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Architecture",
+      "hpType": "HiddenSize",
+      "uncertain": false,
+      "start_char_doc": 39568,
+      "end_char_doc": 39608,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "feedforward networks are composed of",
+        "suffix": "with gelu activation and with"
+      }
+    },
+    {
+      "@id": "hp:activation",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "http://example.org/hp/activation",
+      "mls:hasValue": "gelu",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "string",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Architecture",
+      "hpType": "UnknownArchitectureHP",
+      "uncertain": true,
+      "start_char_doc": 39614,
+      "end_char_doc": 39629,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "each of dimension 128 with",
+        "suffix": "and with a dropout of"
+      }
+    },
+    {
+      "@id": "hp:max_seq_length",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "http://example.org/hp/max_seq_length",
+      "mls:hasValue": "512",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "integer",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Data",
+      "hpType": "MaxSequenceLength",
+      "uncertain": false,
+      "start_char_doc": 19727,
+      "end_char_doc": 19753,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "the section is bigger than",
+        "suffix": ", it is broken into"
+      }
+    },
+    {
+      "@id": "hp:train_val_test_split",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "http://example.org/hp/train_val_test_split",
+      "mls:hasValue": "70%/30%/30%",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "string",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Data",
+      "hpType": "TrainValTestSplit",
+      "uncertain": false,
+      "start_char_doc": 39294,
+      "end_char_doc": 39345,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "our 438 annotated documents into",
+        "suffix": ". The base document representation"
+      }
+    },
+
+    {
+      "@id": "repo:scirex",
+      "@type": "SoftwareRepository",
+      "schema:name": "SciREX",
+      "schema:url": "https://github.com/allenai/SciREX",
+      "schema:version": null,
+      "schema:programmingLanguage": "Python",
+      "schema:dateModified": null,
+      "schema:license": null,
+      "mls:documentationUrl": null,
+      "contains": [{ "@id": "impl:scirex" }],
+      "supports": [{ "@id": "env:gpu" }],
+      "start_char_doc": 1462,
+      "end_char_doc": 1495,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "code are publicly available at",
+        "suffix": "&lt;watermark&gt;arXiv:2005.00512v1 [cs.CL] 1 May 2020&lt;/watermark&gt;"
+      }
+    },
+
+    {
+      "@id": "impl:scirex",
+      "@type": "MLS_Implementation",
+      "schema:identifier": "SCIREX Implementation",
+      "mls:codeRepository": "https://github.com/allenai/SciREX",
+      "mls:framework": "AllenNLP",
+      "mls:dependencies": null,
+      "mls:executionCommand": null,
+      "mls:entryPoint": null,
+      "mls:commitHash": null,
+      "mls:branch": null,
+      "mls:dependenciesHash": null,
+      "runsIn": { "@id": "env:gpu" },
+      "requires": [
+        { "@id": "dep:allennlp" },
+        { "@id": "dep:scibert" },
+        { "@id": "dep:spacy" }
+      ],
+      "start_char_doc": 40488,
+      "end_char_doc": 40504,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "our models were implemented in",
+        "suffix": "(Gardner et al., 2017). ##"
+      }
+    },
+
+    {
+      "@id": "dep:allennlp",
+      "@type": "Dependency",
+      "mls:packageName": "AllenNLP",
+      "mls:version": null,
+      "mls:type": "ML Framework",
+      "mls:isOptional": false,
+      "start_char_doc": 40488,
+      "end_char_doc": 40504,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "our models were implemented in",
+        "suffix": "(Gardner et al., 2017). ##"
+      }
+    },
+    {
+      "@id": "dep:scibert",
+      "@type": "Dependency",
+      "mls:packageName": "SciBERT",
+      "mls:version": "base",
+      "mls:type": "Pretrained Model",
+      "mls:isOptional": false,
+      "start_char_doc": 17082,
+      "end_char_doc": 17112,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "pretrained contextualized token encodings using",
+        "suffix": "over each section separately to"
+      }
+    },
+    {
+      "@id": "dep:spacy",
+      "@type": "Dependency",
+      "mls:packageName": "Spacy",
+      "mls:version": null,
+      "mls:type": "NLP Library",
+      "mls:isOptional": false,
+      "start_char_doc": 12331,
+      "end_char_doc": 12336,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "and sentences, we use the",
+        "suffix": "(https://spacy.io/) library. **Automatic Labeling** Given"
+      }
+    },
+
+    {
+      "@id": "env:gpu",
+      "@type": "Environment",
+      "schema:name": "Training Environment",
+      "schema:description": "GPU-based training environment. Training takes approximately 3 hours for the multitask model.",
+      "mls:hardwareSpecs": "48Gb Quadro RTX 8000 GPU",
+      "mls:os": null,
+      "mls:pythonVersion": null,
+      "mls:requirementsFile": null,
+      "mls:isDockerized": null,
+      "start_char_doc": 40134,
+      "end_char_doc": 40159,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "our models were trained using",
+        "suffix": ". The multitask model takes"
+      }
+    },
+
+    {
+      "@id": "exp:group_scirex",
+      "@type": "mls:ExperimentGroup",
+      "schema:identifier": "SCIREX Document-Level IE Experiments",
+      "schema:description": "End-to-end evaluation of the SCIREX baseline model on the SCIREX dataset across three subtasks: mention identification, end-to-end binary relation extraction, and 4-ary relation extraction.",
+      "schema:objective": "Establish baseline performance on the SCIREX dataset and identify bottlenecks in document-level IE.",
+      "schema:hypothesis": "A document-level neural model that jointly performs mention identification, saliency classification, coreference resolution, and relation extraction will outperform paragraph-level approaches on cross-section relations, though identifying salient entities remains the key bottleneck.",
+      "schema:methodology": "Joint training of mention identification (CRF), saliency classification (FFN), and relation extraction (section-level FFN) with SciBERT+BiLSTM document representation. Separate SciBERT model for pairwise coreference. Three losses weighted equally: negative log-likelihood (mention ID), binary cross-entropy (saliency), binary cross-entropy (relations). Evaluated on SCIREX test set with macro F1 for mentions and positive class F1 for relations.",
+      "realizes": [{ "@id": "task:doc_level_ie" }],
+      "usesData": [{ "@id": "dataset:scirex" }],
+      "produces": [{ "@id": "model:scirex_baseline" }],
+      "usesParameters": [
+        { "@id": "hp:lr_nonbert" },
+        { "@id": "hp:lr_bert" },
+        { "@id": "hp:num_epochs" },
+        { "@id": "hp:patience" },
+        { "@id": "hp:dropout" },
+        { "@id": "hp:hidden_size_bilstm" },
+        { "@id": "hp:ffn_num_layers" },
+        { "@id": "hp:ffn_hidden_size" },
+        { "@id": "hp:activation" },
+        { "@id": "hp:max_seq_length" },
+        { "@id": "hp:train_val_test_split" }
+      ],
+      "executes": [{ "@id": "impl:scirex" }],
+      "start_char_doc": 30121,
+      "end_char_doc": 30864,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "<td>Our Model</td> <td>",
+        "suffix": "</td> </tr> </tbody> </table> Table"
+      },
+      "mls:hasSubExperiment": [
+        {
+          "@id": "exp:mention_identification",
+          "@type": "Experiment",
+          "schema:identifier": "Mention Identification on SCIREX",
+          "mls:result": "P=0.707, R=0.717, F1=0.712",
+          "mls:evaluationMeasure": [
+            { "@id": "eval:mention_id_f1" },
+            { "@id": "eval:mention_id_precision" },
+            { "@id": "eval:mention_id_recall" }
+          ],
+          "start_char_doc": 30121,
+          "end_char_doc": 30164,
+          "context": {
+            "prefix": "<td>Our Model</td> <td>",
+            "suffix": "</strong></td> </tr> <tr> <td colspan=\"4\">End-to-end"
+          }
+        },
+        {
+          "@id": "exp:binary_relations",
+          "@type": "Experiment",
+          "schema:identifier": "End-to-end Binary Relation Extraction on SCIREX",
+          "mls:result": "P=0.065, R=0.411, F1=0.096",
+          "mls:evaluationMeasure": [
+            { "@id": "eval:binary_rel_f1" },
+            { "@id": "eval:binary_rel_precision" },
+            { "@id": "eval:binary_rel_recall" }
+          ],
+          "start_char_doc": 30541,
+          "end_char_doc": 30610,
+          "context": {
+            "prefix": "<td>Our Model</td> <td><strong>",
+            "suffix": "</strong></td> </tr> <tr> <td colspan=\"4\">4-ary"
+          }
+        },
+        {
+          "@id": "exp:4ary_relations",
+          "@type": "Experiment",
+          "schema:identifier": "4-ary Relation Extraction on SCIREX",
+          "mls:result": "P=0.531, R=0.718, F1=0.611",
+          "mls:evaluationMeasure": [
+            { "@id": "eval:4ary_rel_f1" },
+            { "@id": "eval:4ary_rel_precision" },
+            { "@id": "eval:4ary_rel_recall" }
+          ],
+          "start_char_doc": 30820,
+          "end_char_doc": 30864,
+          "context": {
+            "prefix": "<td>Our Model</td> <td><strong>",
+            "suffix": "</td> </tr> </tbody> </table> Table"
+          }
+        }
+      ]
+    }
+  ]
+}
