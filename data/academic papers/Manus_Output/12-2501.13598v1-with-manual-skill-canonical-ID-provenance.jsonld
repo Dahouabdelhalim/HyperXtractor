@@ -1,0 +1,1376 @@
+{
+  "@context": {
+    "mls": "http://www.w3.org/ns/mls#",
+    "schema": "http://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "model": "https://w3id.org/mlskg/model/",
+    "algo": "https://w3id.org/mlskg/algorithm/",
+    "method": "https://w3id.org/mlskg/method/",
+    "dataset": "https://w3id.org/mlskg/dataset/",
+    "datasource": "https://w3id.org/mlskg/datasource/",
+    "task": "https://w3id.org/mlskg/task/",
+    "eval": "https://w3id.org/mlskg/eval/",
+    "hp": "https://w3id.org/mlskg/hp/",
+    "impl": "https://w3id.org/mlskg/implementation/",
+    "env": "https://w3id.org/mlskg/environment/",
+    "prompt": "https://w3id.org/mlskg/prompt/",
+    "person": "https://w3id.org/mlskg/person/",
+    "org": "https://w3id.org/mlskg/organization/",
+    "study": "https://w3id.org/mlskg/study/",
+    "exp": "https://w3id.org/mlskg/experiment/",
+    "repo": "https://w3id.org/mlskg/repository/",
+    "dep": "https://w3id.org/mlskg/dependency/",
+    "expg": "https://w3id.org/mlskg/experimentgroup/",
+    "valueSource": "https://w3id.org/mlskg/meta/valueSource",
+    "mention": "https://w3id.org/mlskg/meta/mention",
+    "Study": "mls:Study",
+    "Experiment": "mls:Experiment",
+    "Person": "mls:Person",
+    "Organization": "mls:Organization",
+    "MLS_Task": "mls:MLS_Task",
+    "MLS_Dataset": "mls:MLS_Dataset",
+    "DataSource": "mls:DataSource",
+    "Method": "Method",
+    "MLS_Model": "mls:MLS_Model",
+    "MLS_Algorithm": "mls:MLS_Algorithm",
+    "Prompt": "Prompt",
+    "MLS_Eval": "mls:MLS_Eval",
+    "SoftwareRepository": "SoftwareRepository",
+    "MLS_Implementation": "mls:MLS_Implementation",
+    "MLS_HyperParameter": "mls:MLS_HyperParameter",
+    "HP_Optimization": "HP_Optimization",
+    "HP_Training": "HP_Training",
+    "HP_Architecture": "HP_Architecture",
+    "HP_Data": "HP_Data",
+    "LearningRate": "LearningRate",
+    "Momentum": "Momentum",
+    "WeightDecay": "WeightDecay",
+    "WarmupSteps": "WarmupSteps",
+    "DecayRate": "DecayRate",
+    "BatchSize": "BatchSize",
+    "NumEpochs": "NumEpochs",
+    "MaxSteps": "MaxSteps",
+    "GradientAccumulationSteps": "GradientAccumulationSteps",
+    "NumWorkers": "NumWorkers",
+    "RandomSeed": "RandomSeed",
+    "Patience": "Patience",
+    "NumLayers": "NumLayers",
+    "HiddenSize": "HiddenSize",
+    "EmbeddingDim": "EmbeddingDim",
+    "Dropout": "Dropout",
+    "AttentionHeads": "AttentionHeads",
+    "UnknownArchitectureHP": "UnknownArchitectureHP",
+    "MaxSequenceLength": "MaxSequenceLength",
+    "TrainValTestSplit": "TrainValTestSplit",
+    "Dependency": "Dependency",
+    "Environment": "Environment",
+    "DataProcessingStep": "DataProcessingStep",
+    "TrainingRun": "TrainingRun",
+    "EvaluationRun": "EvaluationRun",
+    "PredictionSet": "PredictionSet",
+    "issued": { "@id": "xsd:issued", "@type": "xsd:datetime" },
+    "title": "schema:title",
+    "abstract": "schema:abstract",
+    "url": "schema:url",
+    "doi": "schema:doi",
+    "citation": "schema:citation",
+    "publicationVenue": "schema:publicationVenue",
+    "timestamp": { "@id": "schema:timestamp", "@type": "xsd:date" },
+    "identifier": "schema:identifier",
+    "description": "schema:description",
+    "objective": "schema:objective",
+    "hypothesis": "schema:hypothesis",
+    "methodology": "schema:methodology",
+    "name": "schema:name",
+    "affiliation": "schema:affiliation",
+    "email": "schema:email",
+    "orcid": "schema:orcid",
+    "type": "schema:type",
+    "category": "schema:category",
+    "metrics": "schema:metrics",
+    "numInstances": { "@id": "schema:numInstances", "@type": "xsd:integer" },
+    "language": "schema:language",
+    "license": "schema:license",
+    "modality": "schema:modality",
+    "numClasses": { "@id": "schema:numClasses", "@type": "xsd:integer" },
+    "version": "schema:version",
+    "architecture": "schema:architecture",
+    "parameters": "schema:parameters",
+    "complexity": "mls:complexity",
+    "pseudoCode": { "@id": "mls:pseudoCode", "@type": "xsd:anyURI" },
+    "text": "schema:text",
+    "role": "mls:role",
+    "templateId": "mls:templateId",
+    "usesContext": { "@id": "mls:usesContext", "@type": "xsd:boolean" },
+    "measure": "mls:measure",
+    "hasValue": { "@id": "mls:hasValue", "@type": "xsd:float" },
+    "stdDev": { "@id": "mls:stdDev", "@type": "xsd:float" },
+    "confidenceInterval": "mls:confidenceInterval",
+    "programmingLanguage": "schema:programmingLanguage",
+    "dateModified": { "@id": "schema:dateModified", "@type": "xsd:datetime" },
+    "documentationUrl": { "@id": "mls:documentationUrl", "@type": "xsd:anyURI" },
+    "codeRepository": { "@id": "mls:codeRepository", "@type": "xsd:anyURI" },
+    "framework": "mls:framework",
+    "dependencies": "mls:dependencies",
+    "executionCommand": "mls:executionCommand",
+    "entryPoint": "mls:entryPoint",
+    "commitHash": "mls:commitHash",
+    "branch": "mls:branch",
+    "dependenciesHash": "mls:dependenciesHash",
+    "packageName": "mls:packageName",
+    "isOptional": { "@id": "mls:isOptional", "@type": "xsd:boolean" },
+    "hardwareSpecs": "mls:hardwareSpecs",
+    "os": "mls:os",
+    "pythonVersion": "mls:pythonVersion",
+    "requirementsFile": "mls:requirementsFile",
+    "isDockerized": { "@id": "mls:isDockerized", "@type": "xsd:boolean" },
+    "startedAtTime": { "@id": "prov:startedAtTime", "@type": "xsd:datetime" },
+    "endedAtTime": { "@id": "prov:endedAtTime", "@type": "xsd:datetime" },
+    "transformationType": "mls:transformationType",
+    "codeReference": { "@id": "mls:codeReference", "@type": "xsd:anyURI" },
+    "runId": "mls:runId",
+    "logFile": { "@id": "mls:logFile", "@type": "xsd:anyURI" },
+    "split": "mls:split",
+    "onDatasetSplit": "mls:onDatasetSplit",
+    "format": "mls:format",
+    "artifactsLocation": { "@id": "mls:artifactsLocation", "@type": "xsd:anyURI" },
+    "hpCategory": "mls:hpCategory",
+    "hpType": "mls:hpType",
+    "searchSpace": "mls:searchSpace",
+    "uncertain": { "@id": "mls:uncertain", "@type": "xsd:boolean" },
+    "hasAuthor": { "@id": "mls:hasAuthor", "@type": "@id" },
+    "contains": { "@id": "mls:contains", "@type": "@id" },
+    "implements": { "@id": "mls:implements", "@type": "@id" },
+    "prov-affiliatedWith": { "@id": "mls:prov-affiliatedWith", "@type": "@id" },
+    "realizes": { "@id": "mls:realizes", "@type": "@id" },
+    "usesData": { "@id": "mls:usesData", "@type": "@id" },
+    "produces": { "@id": "mls:produces", "@type": "@id" },
+    "usesParameters": { "@id": "mls:usesParameters", "@type": "@id" },
+    "executes": { "@id": "mls:executes", "@type": "@id" },
+    "subDatasetOf": { "@id": "mls:subDatasetOf", "@type": "@id" },
+    "prov-derivedFrom": { "@id": "mls:prov-derivedFrom", "@type": "@id" },
+    "processedThrough": { "@id": "mls:processedThrough", "@type": "@id" },
+    "prov-uses": { "@id": "mls:prov-uses", "@type": "@id" },
+    "trainedOn": { "@id": "mls:trainedOn", "@type": "@id" },
+    "evaluatedOn": { "@id": "mls:evaluatedOn", "@type": "@id" },
+    "achieves": { "@id": "mls:achieves", "@type": "@id" },
+    "prov-producedBy": { "@id": "mls:prov-producedBy", "@type": "@id" },
+    "subMethod": { "@id": "mls:subMethod", "@type": "@id" },
+    "evaluates": { "@id": "mls:evaluates", "@type": "@id" },
+    "supports": { "@id": "mls:supports", "@type": "@id" },
+    "runsIn": { "@id": "mls:runsIn", "@type": "@id" },
+    "requires": { "@id": "mls:requires", "@type": "@id" },
+    "prov-executedBy": { "@id": "mls:prov-executedBy", "@type": "@id" },
+    "prov-generated": { "@id": "mls:prov-generated", "@type": "@id" },
+    "benchmarkedOn": { "@id": "mls:benchmarkedOn", "@type": "@id" },
+    "subTaskOf": { "@id": "mls:subTaskOf", "@type": "@id" },
+    "dependsOn": { "@id": "mls:dependsOn", "@type": "@id" },
+    "usedIn": { "@id": "mls:usedIn", "@type": "@id" },
+    "trains": { "@id": "mls:trains", "@type": "@id" },
+    "producedBy": { "@id": "mls:producedBy", "@type": "@id" },
+    "sourceFile": "mls:sourceFile",
+    "sourceLine": { "@id": "mls:sourceLine", "@type": "xsd:integer" },
+    "dependencyType": "mls:dependencyType",
+    "owner": "mls:owner",
+    "platform": "mls:platform",
+    "entryPointCommand": "mls:entryPointCommand",
+    "evaluationScript": "mls:evaluationScript",
+    "evaluationSplit": "mls:evaluationSplit",
+    "metricsFile": "mls:metricsFile",
+    "inputDataset": { "@id": "mls:inputDataset", "@type": "@id" },
+    "outputDataset": { "@id": "mls:outputDataset", "@type": "@id" },
+    "predictionFormat": "mls:predictionFormat",
+    "storageLocation": "mls:storageLocation",
+    "modelVersion": "mls:modelVersion",
+    "appliedTo": { "@id": "mls:appliedTo", "@type": "@id" },
+    "wasGeneratedBy": { "@id": "prov:wasGeneratedBy", "@type": "@id" },
+    "wasDerivedFrom": { "@id": "prov:wasDerivedFrom", "@type": "@id" },
+    "wasAssociatedWith": { "@id": "prov:wasAssociatedWith", "@type": "@id" },
+    "used": { "@id": "prov:used", "@type": "@id" }
+  },
+  "@graph": [
+    {
+      "@id": "study:radar_autoregressive_decoder_htc_2025",
+      "@type": "Study",
+      "mention": {
+        "start_char_doc": 13,
+        "end_char_doc": 112,
+        "prefix": "## Page 1 #",
+        "suffix": "Yousef Younes<sup>a,d,*</sup>, Lukas Galke<sup>b,c</sup> and",
+        "valueSource": "extracted"
+      },
+      "schema:title": {
+        "value": "RADAr: A Transformer-based Autoregressive Decoder Architecture for Hierarchical Text Classification",
+        "start_char_doc": 13,
+        "end_char_doc": 112,
+        "prefix": "## Page 1 #",
+        "suffix": "Yousef Younes<sup>a,d,*</sup>, Lukas Galke<sup>b,c</sup> and",
+        "valueSource": "extracted"
+      },
+      "schema:abstract": {
+        "value": "Recent approaches in hierarchical text classification (HTC) rely on the capabilities of a pre-trained transformer model and exploit the label semantics and a graph encoder for the label hierarchy. In this paper, we introduce an effective hierarchical text classifier RADAr (Transformer-based Autoregressive Decoder Architecture) that is based only on an off-the-shelf RoBERTa transformer to process the input and a custom autoregressive decoder with two decoder layers for generating the classification output. Thus, unlike existing approaches for HTC, the encoder of RADAr has no explicit encoding of the label hierarchy and the decoder solely relies on the samples\u2019 label sequences observed during training. We demonstrate on three benchmark datasets that RADAr achieves results competitive to the state of the art with less training and inference time. Our model consistently performs better when organizing the label sequences from children to parents versus the inverse, as done in existing HTC approaches. Our experiments show that neither the label semantics nor an explicit graph encoder for the hierarchy is needed. This has strong practical implications for HTC as the architecture has fewer requirements and provides a speed-up by a factor of 2 at inference time. Moreover, training a separate decoder from scratch in conjunction with fine-tuning the encoder allows future researchers and practitioners to exchange the encoder part as new models arise. The source code is available at https://github.com/yousef-younes/RADAr",
+        "start_char_doc": 591,
+        "end_char_doc": 2125,
+        "prefix": "ORCID (Ansgar Scherp): https://orcid.org/0000-0002-2653-9245 **Abstract.**",
+        "suffix": "except the root label, has",
+        "valueSource": "extracted"
+      },
+      "schema:url": {
+        "value": "https://arxiv.org/abs/2501.13598",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:doi": {
+        "value": "arXiv:2501.13598v1",
+        "start_char_doc": 4720,
+        "end_char_doc": 4758,
+        "prefix": "encoder [6, 14]. --- &lt;watermark&gt;",
+        "suffix": "&lt;/watermark&gt; * Corresponding Author. Email:",
+        "valueSource": "extracted"
+      },
+      "schema:citation": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:publicationVenue": {
+        "value": "arXiv (cs.LG)",
+        "start_char_doc": 4720,
+        "end_char_doc": 4758,
+        "prefix": "encoder [6, 14]. --- &lt;watermark&gt;",
+        "suffix": "&lt;/watermark&gt; * Corresponding Author. Email:",
+        "valueSource": "extracted"
+      },
+      "schema:timestamp": {
+        "value": "2025-01-23",
+        "start_char_doc": 4747,
+        "end_char_doc": 4758,
+        "prefix": "&lt;watermark&gt;arXiv:2501.13598v1 [cs.LG]",
+        "suffix": "&lt;/watermark&gt; * Corresponding Author. Email:",
+        "valueSource": "extracted"
+      },
+      "hasAuthor": [
+        { "@id": "person:younes_yousef" },
+        { "@id": "person:galke_lukas" },
+        { "@id": "person:scherp_ansgar" }
+      ],
+      "contains": [
+        { "@id": "expg:group_hierarchical_text_classification_2025" }
+      ],
+      "implements": { "@id": "repo:radar" }
+    },
+
+    {
+      "@id": "person:younes_yousef",
+      "@type": "Person",
+      "mention": {
+        "start_char_doc": 114,
+        "end_char_doc": 127,
+        "prefix": "Architecture for Hierarchical Text Classification",
+        "suffix": "<sup>a,d,*</sup>, Lukas Galke<sup>b,c</sup> and Ansgar",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "Yousef Younes",
+        "start_char_doc": 114,
+        "end_char_doc": 127,
+        "prefix": "Architecture for Hierarchical Text Classification",
+        "suffix": "<sup>a,d,*</sup>, Lukas Galke<sup>b,c</sup> and Ansgar",
+        "valueSource": "extracted"
+      },
+      "schema:affiliation": {
+        "value": "GESIS \u2013 Leibniz-Institute for the Social Sciences; University of Ulm",
+        "start_char_doc": 214,
+        "end_char_doc": 263,
+        "prefix": "Ansgar Scherp<sup>d</sup> <sup>a</sup>",
+        "suffix": "<sup>b</sup>Max Planck Institute for Psycholinguistics",
+        "valueSource": "extracted"
+      },
+      "schema:email": {
+        "value": "yousef.younes@gesis.org",
+        "start_char_doc": 4809,
+        "end_char_doc": 4832,
+        "prefix": "* Corresponding Author. Email:",
+        "suffix": "## 1 Introduction Hierarchical Text",
+        "valueSource": "extracted"
+      },
+      "schema:orcid": {
+        "value": "https://orcid.org/0000-0003-1271-3633",
+        "start_char_doc": 416,
+        "end_char_doc": 453,
+        "prefix": "of Ulm ORCID (Yousef Younes):",
+        "suffix": ", ORCID (Lukas Galke): https://orcid.org/0000-0001-6124-1092,",
+        "valueSource": "extracted"
+      },
+      "prov-affiliatedWith": [
+        { "@id": "org:gesis_leibniz_institute_for_the_social_sciences" },
+        { "@id": "org:university_of_ulm" }
+      ]
+    },
+    {
+      "@id": "person:galke_lukas",
+      "@type": "Person",
+      "mention": {
+        "start_char_doc": 145,
+        "end_char_doc": 156,
+        "prefix": "Hierarchical Text Classification Yousef Younes<sup>a,d,*</sup>,",
+        "suffix": "<sup>b,c</sup> and Ansgar Scherp<sup>d</sup> <sup>a</sup>GESIS",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "Lukas Galke",
+        "start_char_doc": 145,
+        "end_char_doc": 156,
+        "prefix": "Hierarchical Text Classification Yousef Younes<sup>a,d,*</sup>,",
+        "suffix": "<sup>b,c</sup> and Ansgar Scherp<sup>d</sup> <sup>a</sup>GESIS",
+        "valueSource": "extracted"
+      },
+      "schema:affiliation": {
+        "value": "Max Planck Institute for Psycholinguistics; University of Southern Denmark",
+        "start_char_doc": 276,
+        "end_char_doc": 361,
+        "prefix": "for the Social Sciences <sup>b</sup>",
+        "suffix": "<sup>d</sup>University of Ulm ORCID (Yousef",
+        "valueSource": "extracted"
+      },
+      "schema:email": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:orcid": {
+        "value": "https://orcid.org/0000-0001-6124-1092",
+        "start_char_doc": 476,
+        "end_char_doc": 513,
+        "prefix": "ORCID (Lukas Galke):",
+        "suffix": ", ORCID (Ansgar Scherp): https://orcid.org/0000-0002-2653-9245",
+        "valueSource": "extracted"
+      },
+      "prov-affiliatedWith": [
+        { "@id": "org:max_planck_institute_for_psycholinguistics" },
+        { "@id": "org:university_of_southern_denmark" }
+      ]
+    },
+    {
+      "@id": "person:scherp_ansgar",
+      "@type": "Person",
+      "mention": {
+        "start_char_doc": 175,
+        "end_char_doc": 188,
+        "prefix": "Yousef Younes<sup>a,d,*</sup>, Lukas Galke<sup>b,c</sup> and",
+        "suffix": "<sup>d</sup> <sup>a</sup>GESIS \u2013 Leibniz-Institute for",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "Ansgar Scherp",
+        "start_char_doc": 175,
+        "end_char_doc": 188,
+        "prefix": "Yousef Younes<sup>a,d,*</sup>, Lukas Galke<sup>b,c</sup> and",
+        "suffix": "<sup>d</sup> <sup>a</sup>GESIS \u2013 Leibniz-Institute for",
+        "valueSource": "extracted"
+      },
+      "schema:affiliation": {
+        "value": "University of Ulm",
+        "start_char_doc": 374,
+        "end_char_doc": 391,
+        "prefix": "<sup>c</sup>University of Southern Denmark <sup>d</sup>",
+        "suffix": "ORCID (Yousef Younes): https://orcid.org/0000-0003-1271-3633, ORCID",
+        "valueSource": "extracted"
+      },
+      "schema:email": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:orcid": {
+        "value": "https://orcid.org/0000-0002-2653-9245",
+        "start_char_doc": 538,
+        "end_char_doc": 575,
+        "prefix": "ORCID (Ansgar Scherp):",
+        "suffix": "**Abstract.** Recent approaches in hierarchical",
+        "valueSource": "extracted"
+      },
+      "prov-affiliatedWith": [
+        { "@id": "org:university_of_ulm" }
+      ]
+    },
+
+    {
+      "@id": "org:gesis_leibniz_institute_for_the_social_sciences",
+      "@type": "Organization",
+      "mention": {
+        "start_char_doc": 214,
+        "end_char_doc": 263,
+        "prefix": "Ansgar Scherp<sup>d</sup> <sup>a</sup>",
+        "suffix": "<sup>b</sup>Max Planck Institute for Psycholinguistics",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "GESIS \u2013 Leibniz-Institute for the Social Sciences",
+        "start_char_doc": 214,
+        "end_char_doc": 263,
+        "prefix": "Ansgar Scherp<sup>d</sup> <sup>a</sup>",
+        "suffix": "<sup>b</sup>Max Planck Institute for Psycholinguistics",
+        "valueSource": "extracted"
+      },
+      "schema:url": { "value": null, "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "schema:type": { "value": "Research Institute", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" }
+    },
+    {
+      "@id": "org:max_planck_institute_for_psycholinguistics",
+      "@type": "Organization",
+      "mention": {
+        "start_char_doc": 276,
+        "end_char_doc": 318,
+        "prefix": "for the Social Sciences <sup>b</sup>",
+        "suffix": "<sup>c</sup>University of Southern Denmark <sup>d</sup>University",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "Max Planck Institute for Psycholinguistics",
+        "start_char_doc": 276,
+        "end_char_doc": 318,
+        "prefix": "for the Social Sciences <sup>b</sup>",
+        "suffix": "<sup>c</sup>University of Southern Denmark <sup>d</sup>University",
+        "valueSource": "extracted"
+      },
+      "schema:url": { "value": null, "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "schema:type": { "value": "Research Institute", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" }
+    },
+    {
+      "@id": "org:university_of_southern_denmark",
+      "@type": "Organization",
+      "mention": {
+        "start_char_doc": 331,
+        "end_char_doc": 361,
+        "prefix": "Planck Institute for Psycholinguistics <sup>c</sup>",
+        "suffix": "<sup>d</sup>University of Ulm ORCID (Yousef",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "University of Southern Denmark",
+        "start_char_doc": 331,
+        "end_char_doc": 361,
+        "prefix": "Planck Institute for Psycholinguistics <sup>c</sup>",
+        "suffix": "<sup>d</sup>University of Ulm ORCID (Yousef",
+        "valueSource": "extracted"
+      },
+      "schema:url": { "value": null, "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "schema:type": { "value": "University", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" }
+    },
+    {
+      "@id": "org:university_of_ulm",
+      "@type": "Organization",
+      "mention": {
+        "start_char_doc": 374,
+        "end_char_doc": 391,
+        "prefix": "<sup>c</sup>University of Southern Denmark <sup>d</sup>",
+        "suffix": "ORCID (Yousef Younes): https://orcid.org/0000-0003-1271-3633, ORCID",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "University of Ulm",
+        "start_char_doc": 374,
+        "end_char_doc": 391,
+        "prefix": "<sup>c</sup>University of Southern Denmark <sup>d</sup>",
+        "suffix": "ORCID (Yousef Younes): https://orcid.org/0000-0003-1271-3633, ORCID",
+        "valueSource": "extracted"
+      },
+      "schema:url": { "value": null, "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "schema:type": { "value": "University", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" }
+    },
+
+    {
+      "@id": "task:hierarchical_text_classification",
+      "@type": "MLS_Task",
+      "mention": {
+        "start_char_doc": 612,
+        "end_char_doc": 650,
+        "prefix": "**Abstract.** Recent approaches in",
+        "suffix": "rely on the capabilities of",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "Hierarchical Text Classification (HTC)",
+        "start_char_doc": 612,
+        "end_char_doc": 650,
+        "prefix": "**Abstract.** Recent approaches in",
+        "suffix": "rely on the capabilities of",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "Labeling a text sample based on a semantic hierarchy where labels exhibit a generalization-specialization relationship. The model predicts a subset of labels from a tree-structured hierarchy for a given text instance.",
+        "start_char_doc": 4853,
+        "end_char_doc": 4891,
+        "prefix": "## 1 Introduction",
+        "suffix": "deals with the task of",
+        "valueSource": "extracted"
+      },
+      "schema:category": { "value": "Text Classification", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "schema:metrics": {
+        "value": "Micro-F1, Macro-F1",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "benchmarkedOn": [
+        { "@id": "dataset:wos" },
+        { "@id": "dataset:nyt" },
+        { "@id": "dataset:rcv1_v2" }
+      ],
+      "subTaskOf": []
+    },
+
+    {
+      "@id": "dataset:wos",
+      "@type": "MLS_Dataset",
+      "mention": {
+        "start_char_doc": 17544,
+        "end_char_doc": 17564,
+        "prefix": "common HTC datasets. Those are",
+        "suffix": "[16], NY-Times (NYT) [29], and",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "Web-of-Science (WOS)",
+        "start_char_doc": 17544,
+        "end_char_doc": 17564,
+        "prefix": "common HTC datasets. Those are",
+        "suffix": "[16], NY-Times (NYT) [29], and",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "Hierarchical text classification dataset with a two-level label hierarchy. Each sample has exactly two labels (one child and its parent).",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:numInstances": {
+        "value": 46985,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:language": { "value": "English", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "schema:license": { "value": null, "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "schema:modality": { "value": "Text", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "schema:numClasses": {
+        "value": 141,
+        "start_char_doc": 21294,
+        "end_char_doc": 21297,
+        "prefix": "<td>WOS</td> <td>",
+        "suffix": "</td> <td>2</td> <td>2.0/2.0/2.0</td>",
+        "valueSource": "extracted"
+      },
+      "subDatasetOf": [],
+      "prov-derivedFrom": [{ "@id": "datasource:wos" }],
+      "processedThrough": []
+    },
+    {
+      "@id": "dataset:nyt",
+      "@type": "MLS_Dataset",
+      "mention": {
+        "start_char_doc": 17571,
+        "end_char_doc": 17585,
+        "prefix": "Those are Web-of-Science (WOS) [16],",
+        "suffix": "[29], and RCV1-V2 [17]. The",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "NY-Times (NYT)",
+        "start_char_doc": 17571,
+        "end_char_doc": 17585,
+        "prefix": "Those are Web-of-Science (WOS) [16],",
+        "suffix": "[29], and RCV1-V2 [17]. The",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "Hierarchical text classification dataset with an eight-level label hierarchy.",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:numInstances": {
+        "value": 36471,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:language": { "value": "English", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "schema:license": { "value": null, "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "schema:modality": { "value": "Text", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "schema:numClasses": {
+        "value": 166,
+        "start_char_doc": 21451,
+        "end_char_doc": 21454,
+        "prefix": "<td>NYT</td> <td>",
+        "suffix": "</td> <td>8</td> <td>7.6/7.6/7.5</td>",
+        "valueSource": "extracted"
+      },
+      "subDatasetOf": [],
+      "prov-derivedFrom": [{ "@id": "datasource:nyt" }],
+      "processedThrough": []
+    },
+    {
+      "@id": "dataset:rcv1_v2",
+      "@type": "MLS_Dataset",
+      "mention": {
+        "start_char_doc": 17596,
+        "end_char_doc": 17603,
+        "prefix": "[16], NY-Times (NYT) [29], and",
+        "suffix": "[17]. The WOS dataset has",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "RCV1-V2",
+        "start_char_doc": 17596,
+        "end_char_doc": 17603,
+        "prefix": "[16], NY-Times (NYT) [29], and",
+        "suffix": "[17]. The WOS dataset has",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "Hierarchical text classification dataset with a four-level label hierarchy. Has the largest test set among the three benchmarks.",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:numInstances": {
+        "value": 804414,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:language": { "value": "English", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "schema:license": { "value": null, "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "schema:modality": { "value": "Text", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "schema:numClasses": {
+        "value": 103,
+        "start_char_doc": 21612,
+        "end_char_doc": 21615,
+        "prefix": "<td>RCV1-V2</td> <td>",
+        "suffix": "</td> <td>4</td> <td>3.18/3.18/3.24</td>",
+        "valueSource": "extracted"
+      },
+      "subDatasetOf": [],
+      "prov-derivedFrom": [{ "@id": "datasource:rcv1_v2" }],
+      "processedThrough": []
+    },
+
+    {
+      "@id": "datasource:wos",
+      "@type": "DataSource",
+      "mention": {
+        "start_char_doc": 17544,
+        "end_char_doc": 17564,
+        "prefix": "common HTC datasets. Those are",
+        "suffix": "[16], NY-Times (NYT) [29], and",
+        "valueSource": "extracted"
+      },
+      "schema:name": { "value": "Web-of-Science (WOS)", "start_char_doc": 17544, "end_char_doc": 17564, "prefix": "common HTC datasets. Those are", "suffix": "[16], NY-Times (NYT) [29], and", "valueSource": "extracted" },
+      "schema:url": { "value": null, "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "schema:type": { "value": "Dataset", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "schema:license": { "value": null, "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" }
+    },
+    {
+      "@id": "datasource:nyt",
+      "@type": "DataSource",
+      "mention": {
+        "start_char_doc": 17571,
+        "end_char_doc": 17585,
+        "prefix": "Those are Web-of-Science (WOS) [16],",
+        "suffix": "[29], and RCV1-V2 [17]. The",
+        "valueSource": "extracted"
+      },
+      "schema:name": { "value": "NY-Times (NYT)", "start_char_doc": 17571, "end_char_doc": 17585, "prefix": "Those are Web-of-Science (WOS) [16],", "suffix": "[29], and RCV1-V2 [17]. The", "valueSource": "extracted" },
+      "schema:url": { "value": null, "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "schema:type": { "value": "Dataset", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "schema:license": { "value": null, "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" }
+    },
+    {
+      "@id": "datasource:rcv1_v2",
+      "@type": "DataSource",
+      "mention": {
+        "start_char_doc": 17596,
+        "end_char_doc": 17603,
+        "prefix": "[16], NY-Times (NYT) [29], and",
+        "suffix": "[17]. The WOS dataset has",
+        "valueSource": "extracted"
+      },
+      "schema:name": { "value": "RCV1-V2", "start_char_doc": 17596, "end_char_doc": 17603, "prefix": "[16], NY-Times (NYT) [29], and", "suffix": "[17]. The WOS dataset has", "valueSource": "extracted" },
+      "schema:url": { "value": null, "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "schema:type": { "value": "Dataset", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "schema:license": { "value": null, "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" }
+    },
+
+    {
+      "@id": "model:radar",
+      "@type": ["MLS_Model", "Method"],
+      "mention": {
+        "start_char_doc": 13,
+        "end_char_doc": 18,
+        "prefix": "## Page 1 #",
+        "suffix": ": A Transformer-based Autoregressive Decoder",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "RADAr",
+        "start_char_doc": 13,
+        "end_char_doc": 18,
+        "prefix": "## Page 1 #",
+        "suffix": ": A Transformer-based Autoregressive Decoder",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "Transformer-based Autoregressive Decoder Architecture for hierarchical text classification. Uses an off-the-shelf RoBERTa-base encoder and a custom autoregressive decoder with two decoder layers. Does not use a graph encoder for the label hierarchy nor label semantics. Labels are organized from children to parents and encoded as symbolic labels.",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:version": { "value": null, "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "schema:architecture": {
+        "value": "RoBERTa-base encoder + custom autoregressive decoder (2 layers, 8 heads)",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:parameters": {
+        "value": "137M",
+        "start_char_doc": 26508,
+        "end_char_doc": 26512,
+        "prefix": "more parameters than HBGL (",
+        "suffix": "vs. 110M), it requires less",
+        "valueSource": "extracted"
+      },
+      "trainedOn": [
+        { "@id": "dataset:wos" },
+        { "@id": "dataset:nyt" },
+        { "@id": "dataset:rcv1_v2" }
+      ],
+      "evaluatedOn": [
+        { "@id": "dataset:wos" },
+        { "@id": "dataset:nyt" },
+        { "@id": "dataset:rcv1_v2" }
+      ],
+      "achieves": [
+        { "@id": "eval:micro_f1_radar_wos" },
+        { "@id": "eval:macro_f1_radar_wos" },
+        { "@id": "eval:micro_f1_radar_nyt" },
+        { "@id": "eval:macro_f1_radar_nyt" },
+        { "@id": "eval:micro_f1_radar_rcv1_v2" },
+        { "@id": "eval:macro_f1_radar_rcv1_v2" }
+      ],
+      "prov-producedBy": null,
+      "subMethod": [
+        { "@id": "model:roberta_base" },
+        { "@id": "method:autoregressive_decoder" }
+      ]
+    },
+    {
+      "@id": "model:roberta_base",
+      "@type": ["MLS_Model", "Method"],
+      "mention": {
+        "start_char_doc": 7739,
+        "end_char_doc": 7751,
+        "prefix": "but we choose to use",
+        "suffix": ". The decoder is an",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "RoBERTa base",
+        "start_char_doc": 7739,
+        "end_char_doc": 7751,
+        "prefix": "but we choose to use",
+        "suffix": ". The decoder is an",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "Off-the-shelf pre-trained transformer encoder. Produces a fixed-size context tensor of size (512, 768) capturing linguistic information from the input text. Fine-tuned during training with a separate learning rate.",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:version": { "value": "base", "start_char_doc": 7747, "end_char_doc": 7751, "prefix": "we choose to use RoBERTa", "suffix": ". The decoder is an", "valueSource": "extracted" },
+      "schema:architecture": { "value": "Transformer (encoder-only)", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "schema:parameters": { "value": null, "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "trainedOn": [],
+      "evaluatedOn": [],
+      "achieves": [],
+      "prov-producedBy": null,
+      "subMethod": []
+    },
+    {
+      "@id": "method:autoregressive_decoder",
+      "@type": "Method",
+      "mention": {
+        "start_char_doc": 1013,
+        "end_char_doc": 1059,
+        "prefix": "the input and a custom",
+        "suffix": "for generating the classification output.",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "Autoregressive Decoder",
+        "start_char_doc": 1013,
+        "end_char_doc": 1035,
+        "prefix": "the input and a custom",
+        "suffix": "with two decoder layers for",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "Custom autoregressive transformer-based decoder trained from scratch. Consists of embedding and position embedding layers, two decoder layers (each with multi-head self-attention with 8 heads, layer normalization, dropout 0.2, cross-attention with encoder output, and a feedforward network), and a linear layer for logits. Uses greedy search for token generation and teacher forcing during training.",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:version": { "value": null, "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "trainedOn": [],
+      "evaluatedOn": [],
+      "achieves": [],
+      "prov-producedBy": null,
+      "subMethod": []
+    },
+
+    {
+      "@id": "algo:focal_loss",
+      "@type": ["MLS_Algorithm", "Method"],
+      "mention": {
+        "start_char_doc": 16120,
+        "end_char_doc": 16142,
+        "prefix": "this imbalance, we employ a",
+        "suffix": "[21], i.e., the model aims",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "Focal Loss (batch-level)",
+        "start_char_doc": 16120,
+        "end_char_doc": 16142,
+        "prefix": "this imbalance, we employ a",
+        "suffix": "[21], i.e., the model aims",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "A modified version of cross-entropy loss that pays more attention to difficult samples with high loss. Applied at the batch level: computes model confidence e^(-loss), then perplexity 1-e^(-loss), raises to the power of focusing parameter gamma to get the modulating factor, and adjusts the batch cross-entropy loss. Uses label smoothing of 0.1.",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:version": { "value": null, "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:complexity": { "value": null, "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:pseudoCode": { "value": null, "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "trainedOn": [],
+      "evaluatedOn": [],
+      "achieves": [],
+      "prov-producedBy": null,
+      "subMethod": []
+    },
+
+    {
+      "@id": "eval:micro_f1_radar_wos",
+      "@type": "MLS_Eval",
+      "mention": { "start_char_doc": 31702, "end_char_doc": 31724, "prefix": "<td>RADAr</td> <td><strong>", "suffix": "</strong></td> <td><strong>81.84<sub>(0.08)</sub></strong></td>", "valueSource": "extracted" },
+      "mls:measure": { "value": "Micro-F1", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:hasValue": { "value": 87.17, "start_char_doc": 31702, "end_char_doc": 31707, "prefix": "<td>RADAr</td> <td><strong>", "suffix": "<sub>(0.04)</sub></strong></td> <td><strong>81.84<sub>(0.08)</sub></strong></td>", "valueSource": "extracted" },
+      "mls:stdDev": { "value": 0.04, "start_char_doc": 31711, "end_char_doc": 31715, "prefix": "<td><strong>87.17<sub>(", "suffix": ")</sub></strong></td> <td><strong>81.84<sub>(0.08)</sub></strong></td>", "valueSource": "extracted" },
+      "mls:confidenceInterval": { "value": null, "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:onDataset": { "@id": "dataset:wos" },
+      "prov-producedBy": null
+    },
+    {
+      "@id": "eval:macro_f1_radar_wos",
+      "@type": "MLS_Eval",
+      "mention": { "start_char_doc": 31757, "end_char_doc": 31779, "prefix": "<td><strong>87.17<sub>(0.04)</sub></strong></td> <td><strong>", "suffix": "</strong></td> <td><strong>79.84<sub>(0.07)</sub></strong></td>", "valueSource": "extracted" },
+      "mls:measure": { "value": "Macro-F1", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:hasValue": { "value": 81.84, "start_char_doc": 31757, "end_char_doc": 31762, "prefix": "<td><strong>87.17<sub>(0.04)</sub></strong></td> <td><strong>", "suffix": "<sub>(0.08)</sub></strong></td>", "valueSource": "extracted" },
+      "mls:stdDev": { "value": 0.08, "start_char_doc": 31766, "end_char_doc": 31770, "prefix": "<td><strong>81.84<sub>(", "suffix": ")</sub></strong></td> <td><strong>79.84<sub>(0.07)</sub></strong></td>", "valueSource": "extracted" },
+      "mls:confidenceInterval": { "value": null, "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:onDataset": { "@id": "dataset:wos" },
+      "prov-producedBy": null
+    },
+    {
+      "@id": "eval:micro_f1_radar_nyt",
+      "@type": "MLS_Eval",
+      "mention": { "start_char_doc": 31812, "end_char_doc": 31834, "prefix": "<td><strong>81.84<sub>(0.08)</sub></strong></td> <td><strong>", "suffix": "</strong></td> <td><strong>68.64<sub>(0.28)</sub></strong></td>", "valueSource": "extracted" },
+      "mls:measure": { "value": "Micro-F1", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:hasValue": { "value": 79.84, "start_char_doc": 31812, "end_char_doc": 31817, "prefix": "<td><strong>81.84<sub>(0.08)</sub></strong></td> <td><strong>", "suffix": "<sub>(0.07)</sub></strong></td>", "valueSource": "extracted" },
+      "mls:stdDev": { "value": 0.07, "start_char_doc": 31821, "end_char_doc": 31825, "prefix": "<td><strong>79.84<sub>(", "suffix": ")</sub></strong></td> <td><strong>68.64<sub>(0.28)</sub></strong></td>", "valueSource": "extracted" },
+      "mls:confidenceInterval": { "value": null, "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:onDataset": { "@id": "dataset:nyt" },
+      "prov-producedBy": null
+    },
+    {
+      "@id": "eval:macro_f1_radar_nyt",
+      "@type": "MLS_Eval",
+      "mention": { "start_char_doc": 31867, "end_char_doc": 31889, "prefix": "<td><strong>79.84<sub>(0.07)</sub></strong></td> <td><strong>", "suffix": "</strong></td> <td><strong>87.23<sub>(0.05)</sub></strong></td>", "valueSource": "extracted" },
+      "mls:measure": { "value": "Macro-F1", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:hasValue": { "value": 68.64, "start_char_doc": 31867, "end_char_doc": 31872, "prefix": "<td><strong>79.84<sub>(0.07)</sub></strong></td> <td><strong>", "suffix": "<sub>(0.28)</sub></strong></td>", "valueSource": "extracted" },
+      "mls:stdDev": { "value": 0.28, "start_char_doc": 31876, "end_char_doc": 31880, "prefix": "<td><strong>68.64<sub>(", "suffix": ")</sub></strong></td> <td><strong>87.23<sub>(0.05)</sub></strong></td>", "valueSource": "extracted" },
+      "mls:confidenceInterval": { "value": null, "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:onDataset": { "@id": "dataset:nyt" },
+      "prov-producedBy": null
+    },
+    {
+      "@id": "eval:micro_f1_radar_rcv1_v2",
+      "@type": "MLS_Eval",
+      "mention": { "start_char_doc": 31922, "end_char_doc": 31944, "prefix": "<td><strong>68.64<sub>(0.28)</sub></strong></td> <td><strong>", "suffix": "</strong></td> <td><strong>69.64<sub>(0.12)</sub></strong></td>", "valueSource": "extracted" },
+      "mls:measure": { "value": "Micro-F1", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:hasValue": { "value": 87.23, "start_char_doc": 31922, "end_char_doc": 31927, "prefix": "<td><strong>68.64<sub>(0.28)</sub></strong></td> <td><strong>", "suffix": "<sub>(0.05)</sub></strong></td>", "valueSource": "extracted" },
+      "mls:stdDev": { "value": 0.05, "start_char_doc": 31931, "end_char_doc": 31935, "prefix": "<td><strong>87.23<sub>(", "suffix": ")</sub></strong></td> <td><strong>69.64<sub>(0.12)</sub></strong></td>", "valueSource": "extracted" },
+      "mls:confidenceInterval": { "value": null, "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:onDataset": { "@id": "dataset:rcv1_v2" },
+      "prov-producedBy": null
+    },
+    {
+      "@id": "eval:macro_f1_radar_rcv1_v2",
+      "@type": "MLS_Eval",
+      "mention": { "start_char_doc": 31977, "end_char_doc": 31999, "prefix": "<td><strong>87.23<sub>(0.05)</sub></strong></td> <td><strong>", "suffix": "</strong></td> <td>our experiment</td> </tr>", "valueSource": "extracted" },
+      "mls:measure": { "value": "Macro-F1", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:hasValue": { "value": 69.64, "start_char_doc": 31977, "end_char_doc": 31982, "prefix": "<td><strong>87.23<sub>(0.05)</sub></strong></td> <td><strong>", "suffix": "<sub>(0.12)</sub></strong></td>", "valueSource": "extracted" },
+      "mls:stdDev": { "value": 0.12, "start_char_doc": 31986, "end_char_doc": 31990, "prefix": "<td><strong>69.64<sub>(", "suffix": ")</sub></strong></td> <td>our experiment</td>", "valueSource": "extracted" },
+      "mls:confidenceInterval": { "value": null, "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:onDataset": { "@id": "dataset:rcv1_v2" },
+      "prov-producedBy": null
+    },
+
+    {
+      "@id": "hp:learning_rate_encoder",
+      "@type": "MLS_HyperParameter",
+      "mention": { "start_char_doc": 20235, "end_char_doc": 20252, "prefix": "settings and learning rates of", "suffix": "and $3 \\cdot 10^{-4}$ for", "valueSource": "extracted" },
+      "mls:name": { "value": "http://example.org/hp/learning_rate_encoder", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:hasValue": { "value": "5e-5", "start_char_doc": 20235, "end_char_doc": 20252, "prefix": "settings and learning rates of", "suffix": "and $3 \\cdot 10^{-4}$ for", "valueSource": "extracted" },
+      "mls:wasDerivedFrom": { "value": "paper", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:type": { "value": "float", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:searchSpace": { "value": "[5e-4, 5e-6]", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "hpCategory": "HP_Optimization",
+      "hpType": "LearningRate",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:learning_rate_decoder",
+      "@type": "MLS_HyperParameter",
+      "mention": { "start_char_doc": 20257, "end_char_doc": 20274, "prefix": "of $5 \\cdot 10^{-5}$ and", "suffix": "for the encoder and decoder,", "valueSource": "extracted" },
+      "mls:name": { "value": "http://example.org/hp/learning_rate_decoder", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:hasValue": { "value": "3e-4", "start_char_doc": 20257, "end_char_doc": 20274, "prefix": "of $5 \\cdot 10^{-5}$ and", "suffix": "for the encoder and decoder,", "valueSource": "extracted" },
+      "mls:wasDerivedFrom": { "value": "paper", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:type": { "value": "float", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:searchSpace": { "value": null, "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "hpCategory": "HP_Optimization",
+      "hpType": "LearningRate",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:learning_rate_lower_bound",
+      "@type": "MLS_HyperParameter",
+      "mention": { "start_char_doc": 21838, "end_char_doc": 21855, "prefix": "until it is lower than", "suffix": ". At that point, the", "valueSource": "extracted" },
+      "mls:name": { "value": "http://example.org/hp/learning_rate_lower_bound", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:hasValue": { "value": "5e-7", "start_char_doc": 21838, "end_char_doc": 21855, "prefix": "until it is lower than", "suffix": ". At that point, the", "valueSource": "extracted" },
+      "mls:wasDerivedFrom": { "value": "paper", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:type": { "value": "float", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:searchSpace": { "value": null, "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "hpCategory": "HP_Optimization",
+      "hpType": "LearningRate",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:scheduler_patience",
+      "@type": "MLS_HyperParameter",
+      "mention": { "start_char_doc": 20482, "end_char_doc": 20495, "prefix": "the ReduceLROnPlateau scheduler [2] with", "suffix": ". After each epoch, the", "valueSource": "extracted" },
+      "mls:name": { "value": "http://example.org/hp/scheduler_patience", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:hasValue": { "value": "3", "start_char_doc": 20482, "end_char_doc": 20495, "prefix": "the ReduceLROnPlateau scheduler [2] with", "suffix": ". After each epoch, the", "valueSource": "extracted" },
+      "mls:wasDerivedFrom": { "value": "paper", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:type": { "value": "integer", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:searchSpace": { "value": null, "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "hpCategory": "HP_Optimization",
+      "hpType": "Patience",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:decay_factor",
+      "@type": "MLS_HyperParameter",
+      "mention": { "start_char_doc": 20680, "end_char_doc": 20693, "prefix": "the learning rates by a", "suffix": "for both the encoder and", "valueSource": "extracted" },
+      "mls:name": { "value": "http://example.org/hp/decay_factor", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:hasValue": { "value": "0.1", "start_char_doc": 20680, "end_char_doc": 20693, "prefix": "the learning rates by a", "suffix": "for both the encoder and", "valueSource": "extracted" },
+      "mls:wasDerivedFrom": { "value": "paper", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:type": { "value": "float", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:searchSpace": { "value": null, "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "hpCategory": "HP_Optimization",
+      "hpType": "DecayRate",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:training_patience",
+      "@type": "MLS_HyperParameter",
+      "mention": { "start_char_doc": 21961, "end_char_doc": 21975, "prefix": "The training loop has a", "suffix": ", so it stops if", "valueSource": "extracted" },
+      "mls:name": { "value": "http://example.org/hp/training_patience", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:hasValue": { "value": "10", "start_char_doc": 21961, "end_char_doc": 21975, "prefix": "The training loop has a", "suffix": ", so it stops if", "valueSource": "extracted" },
+      "mls:wasDerivedFrom": { "value": "paper", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:type": { "value": "integer", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:searchSpace": { "value": null, "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "hpCategory": "HP_Training",
+      "hpType": "Patience",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:gamma_focal_loss",
+      "@type": "MLS_HyperParameter",
+      "mention": { "start_char_doc": 22089, "end_char_doc": 22120, "prefix": "We use focal loss with", "suffix": "as described in Section 3.", "valueSource": "extracted" },
+      "mls:name": { "value": "http://example.org/hp/gamma", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:hasValue": { "value": "2", "start_char_doc": 22108, "end_char_doc": 22120, "prefix": "focal loss with focusing parameter", "suffix": "as described in Section 3.", "valueSource": "extracted" },
+      "mls:wasDerivedFrom": { "value": "paper", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:type": { "value": "integer", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:searchSpace": { "value": null, "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "hpCategory": "HP_Training",
+      "hpType": "HP_Training",
+      "uncertain": true
+    },
+    {
+      "@id": "hp:label_smoothing",
+      "@type": "MLS_HyperParameter",
+      "mention": { "start_char_doc": 22189, "end_char_doc": 22211, "prefix": "loss depends on cross-entropy with", "suffix": ". We use teacher forcing", "valueSource": "extracted" },
+      "mls:name": { "value": "http://example.org/hp/label_smoothing", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:hasValue": { "value": "0.1", "start_char_doc": 22189, "end_char_doc": 22211, "prefix": "loss depends on cross-entropy with", "suffix": ". We use teacher forcing", "valueSource": "extracted" },
+      "mls:wasDerivedFrom": { "value": "paper", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:type": { "value": "float", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:searchSpace": { "value": null, "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "hpCategory": "HP_Training",
+      "hpType": "HP_Training",
+      "uncertain": true
+    },
+    {
+      "@id": "hp:batch_size",
+      "@type": "MLS_HyperParameter",
+      "mention": { "start_char_doc": 22283, "end_char_doc": 22299, "prefix": "accumulation over 2 batches (", "suffix": "). For reproducibility, we use", "valueSource": "extracted" },
+      "mls:name": { "value": "http://example.org/hp/batch_size", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:hasValue": { "value": "32", "start_char_doc": 22283, "end_char_doc": 22299, "prefix": "accumulation over 2 batches (", "suffix": "). For reproducibility, we use", "valueSource": "extracted" },
+      "mls:wasDerivedFrom": { "value": "paper", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:type": { "value": "integer", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:searchSpace": { "value": null, "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "hpCategory": "HP_Training",
+      "hpType": "BatchSize",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:gradient_accumulation_steps",
+      "@type": "MLS_HyperParameter",
+      "mention": { "start_char_doc": 22245, "end_char_doc": 22281, "prefix": "use teacher forcing [38] and", "suffix": "(32 examples each). For reproducibility,", "valueSource": "extracted" },
+      "mls:name": { "value": "http://example.org/hp/gradient_accumulation_steps", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:hasValue": { "value": "2", "start_char_doc": 22245, "end_char_doc": 22281, "prefix": "use teacher forcing [38] and", "suffix": "(32 examples each). For reproducibility,", "valueSource": "extracted" },
+      "mls:wasDerivedFrom": { "value": "paper", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:type": { "value": "integer", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:searchSpace": { "value": null, "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "hpCategory": "HP_Training",
+      "hpType": "GradientAccumulationSteps",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:num_epochs_wos",
+      "@type": "MLS_HyperParameter",
+      "mention": { "start_char_doc": 22387, "end_char_doc": 22401, "prefix": "these settings, the model took", "suffix": "training epochs on the WOS,", "valueSource": "extracted" },
+      "mls:name": { "value": "http://example.org/hp/num_epochs_wos", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:hasValue": { "value": "29", "start_char_doc": 22387, "end_char_doc": 22389, "prefix": "these settings, the model took", "suffix": ", 30, and 40 training epochs", "valueSource": "extracted" },
+      "mls:wasDerivedFrom": { "value": "paper", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:type": { "value": "integer", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:searchSpace": { "value": null, "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "hpCategory": "HP_Training",
+      "hpType": "NumEpochs",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:num_epochs_nyt",
+      "@type": "MLS_HyperParameter",
+      "mention": { "start_char_doc": 22391, "end_char_doc": 22393, "prefix": "the model took 29,", "suffix": ", and 40 training epochs on", "valueSource": "extracted" },
+      "mls:name": { "value": "http://example.org/hp/num_epochs_nyt", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:hasValue": { "value": "30", "start_char_doc": 22391, "end_char_doc": 22393, "prefix": "the model took 29,", "suffix": ", and 40 training epochs on", "valueSource": "extracted" },
+      "mls:wasDerivedFrom": { "value": "paper", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:type": { "value": "integer", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:searchSpace": { "value": null, "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "hpCategory": "HP_Training",
+      "hpType": "NumEpochs",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:num_epochs_rcv1_v2",
+      "@type": "MLS_HyperParameter",
+      "mention": { "start_char_doc": 22399, "end_char_doc": 22401, "prefix": "the model took 29, 30, and", "suffix": "training epochs on the WOS,", "valueSource": "extracted" },
+      "mls:name": { "value": "http://example.org/hp/num_epochs_rcv1_v2", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:hasValue": { "value": "40", "start_char_doc": 22399, "end_char_doc": 22401, "prefix": "the model took 29, 30, and", "suffix": "training epochs on the WOS,", "valueSource": "extracted" },
+      "mls:wasDerivedFrom": { "value": "paper", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:type": { "value": "integer", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:searchSpace": { "value": null, "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "hpCategory": "HP_Training",
+      "hpType": "NumEpochs",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:random_seed",
+      "@type": "MLS_HyperParameter",
+      "mention": { "start_char_doc": 22332, "end_char_doc": 22349, "prefix": "For reproducibility, we use a", "suffix": ". With these settings, the", "valueSource": "extracted" },
+      "mls:name": { "value": "http://example.org/hp/random_seed", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:hasValue": { "value": "fixed", "start_char_doc": 22332, "end_char_doc": 22349, "prefix": "For reproducibility, we use a", "suffix": ". With these settings, the", "valueSource": "extracted" },
+      "mls:wasDerivedFrom": { "value": "paper", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:type": { "value": "string", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:searchSpace": { "value": null, "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "hpCategory": "HP_Training",
+      "hpType": "RandomSeed",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:num_decoder_layers",
+      "@type": "MLS_HyperParameter",
+      "mention": { "start_char_doc": 1041, "end_char_doc": 1059, "prefix": "a custom autoregressive decoder with", "suffix": "for generating the classification output.", "valueSource": "extracted" },
+      "mls:name": { "value": "http://example.org/hp/num_decoder_layers", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:hasValue": { "value": "2", "start_char_doc": 1041, "end_char_doc": 1059, "prefix": "a custom autoregressive decoder with", "suffix": "for generating the classification output.", "valueSource": "extracted" },
+      "mls:wasDerivedFrom": { "value": "paper", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:type": { "value": "integer", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:searchSpace": { "value": null, "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "hpCategory": "HP_Architecture",
+      "hpType": "NumLayers",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:attention_heads_decoder",
+      "@type": "MLS_HyperParameter",
+      "mention": { "start_char_doc": 15913, "end_char_doc": 15934, "prefix": "has a transformer block with", "suffix": ", a feedforward network and", "valueSource": "extracted" },
+      "mls:name": { "value": "http://example.org/hp/num_attention_heads_decoder", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:hasValue": { "value": "8", "start_char_doc": 15913, "end_char_doc": 15934, "prefix": "has a transformer block with", "suffix": ", a feedforward network and", "valueSource": "extracted" },
+      "mls:wasDerivedFrom": { "value": "paper", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:type": { "value": "integer", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:searchSpace": { "value": null, "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "hpCategory": "HP_Architecture",
+      "hpType": "AttentionHeads",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:dropout_decoder",
+      "@type": "MLS_HyperParameter",
+      "mention": { "start_char_doc": 15969, "end_char_doc": 15983, "prefix": "feedforward network and uses a", "suffix": ". **Training and Testing** The", "valueSource": "extracted" },
+      "mls:name": { "value": "http://example.org/hp/dropout_decoder", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:hasValue": { "value": "0.2", "start_char_doc": 15969, "end_char_doc": 15983, "prefix": "feedforward network and uses a", "suffix": ". **Training and Testing** The", "valueSource": "extracted" },
+      "mls:wasDerivedFrom": { "value": "paper", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:type": { "value": "float", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:searchSpace": { "value": null, "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "hpCategory": "HP_Architecture",
+      "hpType": "Dropout",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:hidden_size_encoder",
+      "@type": "MLS_HyperParameter",
+      "mention": { "start_char_doc": 11665, "end_char_doc": 11675, "prefix": "output, a tensor of size", "suffix": ", as input to the", "valueSource": "extracted" },
+      "mls:name": { "value": "http://example.org/hp/hidden_size_encoder", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:hasValue": { "value": "768", "start_char_doc": 11665, "end_char_doc": 11675, "prefix": "output, a tensor of size", "suffix": ", as input to the", "valueSource": "extracted" },
+      "mls:wasDerivedFrom": { "value": "paper", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:type": { "value": "integer", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:searchSpace": { "value": null, "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "hpCategory": "HP_Architecture",
+      "hpType": "HiddenSize",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:max_sequence_length",
+      "@type": "MLS_HyperParameter",
+      "mention": { "start_char_doc": 11666, "end_char_doc": 11669, "prefix": "a tensor of size (", "suffix": ", 768), as input to", "valueSource": "extracted" },
+      "mls:name": { "value": "http://example.org/hp/max_seq_length", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:hasValue": { "value": "512", "start_char_doc": 11666, "end_char_doc": 11669, "prefix": "a tensor of size (", "suffix": ", 768), as input to", "valueSource": "extracted" },
+      "mls:wasDerivedFrom": { "value": "paper", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:type": { "value": "integer", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:searchSpace": { "value": null, "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "hpCategory": "HP_Data",
+      "hpType": "MaxSequenceLength",
+      "uncertain": false
+    },
+
+    {
+      "@id": "repo:radar",
+      "@type": "SoftwareRepository",
+      "mention": { "start_char_doc": 2087, "end_char_doc": 2125, "prefix": "source code is available at", "suffix": "except the root label, has", "valueSource": "extracted" },
+      "schema:name": { "value": "RADAr", "start_char_doc": 13, "end_char_doc": 18, "prefix": "## Page 1 #", "suffix": ": A Transformer-based Autoregressive Decoder", "valueSource": "extracted" },
+      "schema:url": { "value": "https://github.com/yousef-younes/RADAr", "start_char_doc": 2087, "end_char_doc": 2125, "prefix": "source code is available at", "suffix": "except the root label, has", "valueSource": "extracted" },
+      "schema:version": { "value": null, "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "schema:programmingLanguage": { "value": "Python", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "schema:dateModified": { "value": null, "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "schema:license": { "value": null, "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:documentationUrl": { "value": null, "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "contains": [{ "@id": "impl:radar_pytorch" }],
+      "supports": [{ "@id": "env:nvidia_a100_sxm4_40gb" }]
+    },
+
+    {
+      "@id": "impl:radar_pytorch",
+      "@type": "MLS_Implementation",
+      "mention": { "start_char_doc": 22560, "end_char_doc": 22582, "prefix": "on average. The experiments were", "suffix": "and run on an NVIDIA", "valueSource": "extracted" },
+      "schema:identifier": { "value": "RADAr PyTorch Implementation", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:codeRepository": { "value": "https://github.com/yousef-younes/RADAr", "start_char_doc": 2087, "end_char_doc": 2125, "prefix": "source code is available at", "suffix": "except the root label, has", "valueSource": "extracted" },
+      "mls:framework": { "value": "PyTorch", "start_char_doc": 22575, "end_char_doc": 22582, "prefix": "The experiments were implemented in", "suffix": "and run on an NVIDIA", "valueSource": "extracted" },
+      "mls:dependencies": { "value": null, "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:executionCommand": { "value": null, "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:entryPoint": { "value": null, "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:commitHash": { "value": null, "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:branch": { "value": null, "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:dependenciesHash": { "value": null, "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "runsIn": { "@id": "env:nvidia_a100_sxm4_40gb" },
+      "requires": [
+        { "@id": "dep:pytorch" },
+        { "@id": "dep:transformers" },
+        { "@id": "dep:wandb" }
+      ]
+    },
+
+    {
+      "@id": "dep:pytorch",
+      "@type": "Dependency",
+      "mention": { "start_char_doc": 22575, "end_char_doc": 22582, "prefix": "The experiments were implemented in", "suffix": "and run on an NVIDIA", "valueSource": "extracted" },
+      "mls:packageName": { "value": "PyTorch", "start_char_doc": 22575, "end_char_doc": 22582, "prefix": "The experiments were implemented in", "suffix": "and run on an NVIDIA", "valueSource": "extracted" },
+      "mls:version": { "value": null, "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:type": { "value": "ML Framework", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:isOptional": { "value": false, "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" }
+    },
+    {
+      "@id": "dep:transformers",
+      "@type": "Dependency",
+      "mention": { "start_char_doc": 7739, "end_char_doc": 7751, "prefix": "but we choose to use", "suffix": ". The decoder is an", "valueSource": "extracted" },
+      "mls:packageName": { "value": "Transformers (HuggingFace)", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:version": { "value": null, "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:type": { "value": "NLP Library", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:isOptional": { "value": false, "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" }
+    },
+    {
+      "@id": "dep:wandb",
+      "@type": "Dependency",
+      "mention": { "start_char_doc": 22784, "end_char_doc": 22789, "prefix": "on the validation sets using", "suffix": "[5] as follows. We specify", "valueSource": "extracted" },
+      "mls:packageName": { "value": "wandb", "start_char_doc": 22784, "end_char_doc": 22789, "prefix": "on the validation sets using", "suffix": "[5] as follows. We specify", "valueSource": "extracted" },
+      "mls:version": { "value": null, "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:type": { "value": "Experiment Tracking", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:isOptional": { "value": false, "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" }
+    },
+
+    {
+      "@id": "env:nvidia_a100_sxm4_40gb",
+      "@type": "Environment",
+      "mention": { "start_char_doc": 22597, "end_char_doc": 22618, "prefix": "PyTorch and run on an", "suffix": "GPU. The hyperparameter values like", "valueSource": "extracted" },
+      "schema:name": { "value": "NVIDIA A100 GPU Environment", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "schema:description": { "value": "GPU-based training and inference environment for RADAr experiments.", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:hardwareSpecs": { "value": "NVIDIA A100-SXM4-40GB GPU", "start_char_doc": 22597, "end_char_doc": 22618, "prefix": "PyTorch and run on an", "suffix": "GPU. The hyperparameter values like", "valueSource": "extracted" },
+      "mls:os": { "value": null, "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:pythonVersion": { "value": null, "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:requirementsFile": { "value": null, "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "mls:isDockerized": { "value": null, "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" }
+    },
+
+    {
+      "@id": "expg:group_hierarchical_text_classification_2025",
+      "@type": "mls:ExperimentGroup",
+      "mention": { "start_char_doc": 31702, "end_char_doc": 31999, "prefix": "<td>RADAr</td> <td><strong>", "suffix": "</strong></td> <td>our experiment</td> </tr>", "valueSource": "extracted" },
+      "schema:identifier": { "value": "RADAr Hierarchical Text Classification Experiments", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "schema:description": { "value": "Evaluation of the RADAr model on three benchmark HTC datasets (WOS, NYT, RCV1-V2). Results are averaged over five runs with different random seeds.", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "schema:objective": { "value": "Demonstrate that RADAr achieves results competitive to the state of the art on HTC benchmarks without using a graph encoder for the label hierarchy or label semantics.", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "schema:hypothesis": { "value": "An encoder-decoder model using an off-the-shelf RoBERTa encoder and a simple autoregressive decoder, without explicit graph encoding of the label hierarchy or label semantics, can achieve competitive HTC performance with less training and inference time compared to state-of-the-art models that rely on these features.", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "schema:methodology": { "value": "Train RADAr (RoBERTa-base encoder + 2-layer autoregressive decoder) on each dataset with AdamW optimizer, separate learning rates for encoder (5e-5) and decoder (3e-4), ReduceLROnPlateau scheduler with patience 3, batch-level focal loss with gamma=2, label smoothing 0.1, gradient accumulation over 2 batches of 32 examples, teacher forcing, and greedy search decoding. Labels organized from children to parents with symbolic labels and <unk> level separators. Report mean and standard deviation of Micro-F1 and Macro-F1 over five runs.", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+      "realizes": [{ "@id": "task:hierarchical_text_classification" }],
+      "usesData": [
+        { "@id": "dataset:wos" },
+        { "@id": "dataset:nyt" },
+        { "@id": "dataset:rcv1_v2" }
+      ],
+      "produces": [{ "@id": "model:radar" }],
+      "usesParameters": [
+        { "@id": "hp:learning_rate_encoder" },
+        { "@id": "hp:learning_rate_decoder" },
+        { "@id": "hp:learning_rate_lower_bound" },
+        { "@id": "hp:scheduler_patience" },
+        { "@id": "hp:decay_factor" },
+        { "@id": "hp:training_patience" },
+        { "@id": "hp:gamma_focal_loss" },
+        { "@id": "hp:label_smoothing" },
+        { "@id": "hp:batch_size" },
+        { "@id": "hp:gradient_accumulation_steps" },
+        { "@id": "hp:random_seed" },
+        { "@id": "hp:num_decoder_layers" },
+        { "@id": "hp:attention_heads_decoder" },
+        { "@id": "hp:dropout_decoder" },
+        { "@id": "hp:hidden_size_encoder" },
+        { "@id": "hp:max_sequence_length" }
+      ],
+      "executes": [{ "@id": "impl:radar_pytorch" }],
+      "mls:hasSubExperiment": [
+        {
+          "@id": "exp:radar_wos",
+          "@type": "Experiment",
+          "schema:identifier": { "value": "RADAr on WOS", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+          "mention": { "start_char_doc": 31702, "end_char_doc": 31779, "prefix": "<td>RADAr</td> <td><strong>", "suffix": "</strong></td> <td><strong>79.84<sub>(0.07)</sub></strong></td>", "valueSource": "extracted" },
+          "usesData": [{ "@id": "dataset:wos" }],
+          "usesParameters": [{ "@id": "hp:num_epochs_wos" }],
+          "mls:result": { "value": "Micro-F1=87.17 (std 0.04), Macro-F1=81.84 (std 0.08)", "start_char_doc": 31702, "end_char_doc": 31779, "prefix": "<td>RADAr</td> <td><strong>", "suffix": "</strong></td> <td><strong>79.84<sub>(0.07)</sub></strong></td>", "valueSource": "extracted" },
+          "mls:evaluationMeasure": [
+            { "@id": "eval:micro_f1_radar_wos" },
+            { "@id": "eval:macro_f1_radar_wos" }
+          ]
+        },
+        {
+          "@id": "exp:radar_nyt",
+          "@type": "Experiment",
+          "schema:identifier": { "value": "RADAr on NYT", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+          "mention": { "start_char_doc": 31812, "end_char_doc": 31889, "prefix": "<td><strong>81.84<sub>(0.08)</sub></strong></td> <td><strong>", "suffix": "</strong></td> <td><strong>87.23<sub>(0.05)</sub></strong></td>", "valueSource": "extracted" },
+          "usesData": [{ "@id": "dataset:nyt" }],
+          "usesParameters": [{ "@id": "hp:num_epochs_nyt" }],
+          "mls:result": { "value": "Micro-F1=79.84 (std 0.07), Macro-F1=68.64 (std 0.28)", "start_char_doc": 31812, "end_char_doc": 31889, "prefix": "<td><strong>81.84<sub>(0.08)</sub></strong></td> <td><strong>", "suffix": "</strong></td> <td><strong>87.23<sub>(0.05)</sub></strong></td>", "valueSource": "extracted" },
+          "mls:evaluationMeasure": [
+            { "@id": "eval:micro_f1_radar_nyt" },
+            { "@id": "eval:macro_f1_radar_nyt" }
+          ]
+        },
+        {
+          "@id": "exp:radar_rcv1_v2",
+          "@type": "Experiment",
+          "schema:identifier": { "value": "RADAr on RCV1-V2", "start_char_doc": null, "end_char_doc": null, "prefix": null, "suffix": null, "valueSource": "inferred" },
+          "mention": { "start_char_doc": 31922, "end_char_doc": 31999, "prefix": "<td><strong>68.64<sub>(0.28)</sub></strong></td> <td><strong>", "suffix": "</strong></td> <td>our experiment</td> </tr>", "valueSource": "extracted" },
+          "usesData": [{ "@id": "dataset:rcv1_v2" }],
+          "usesParameters": [{ "@id": "hp:num_epochs_rcv1_v2" }],
+          "mls:result": { "value": "Micro-F1=87.23 (std 0.05), Macro-F1=69.64 (std 0.12)", "start_char_doc": 31922, "end_char_doc": 31999, "prefix": "<td><strong>68.64<sub>(0.28)</sub></strong></td> <td><strong>", "suffix": "</strong></td> <td>our experiment</td> </tr>", "valueSource": "extracted" },
+          "mls:evaluationMeasure": [
+            { "@id": "eval:micro_f1_radar_rcv1_v2" },
+            { "@id": "eval:macro_f1_radar_rcv1_v2" }
+          ]
+        }
+      ]
+    }
+  ]
+}
