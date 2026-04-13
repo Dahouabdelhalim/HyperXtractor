@@ -6,6 +6,7 @@ config:
 ---
 classDiagram
 direction TB
+
   class Study {
     +issued datetime
     +title string
@@ -16,30 +17,34 @@ direction TB
     +publicationVenue string
     +timestamp date
   }
+
   class Experiment {
-    +identifier string
     +description string
     +objective string
     +hypothesis string
     +methodology string
   }
+
   class Person {
     +name string
     +affiliation string
     +email string
     +orcid string
   }
+
   class Organization {
     +name string
     +url URI
     +type string
   }
+
   class MLS_Task {
     +name string
     +description string
     +category string
     +metrics string
   }
+
   class MLS_Dataset {
     +name string
     +description string
@@ -49,34 +54,36 @@ direction TB
     +modality string
     +numClasses integer
   }
+
   class DataSource {
     +name string
     +url URI
     +type string
     +license string
   }
+
   class Method {
     +name string
     +description string
     +version string
   }
 
-class MLS_Model {
-  +architecture string
-  +parameters string
-}
+  class MLS_Model {
+    +architecture string
+    +parameters string
+  }
 
-class MLS_Algorithm {
-  +complexity string
-  +pseudoCode URI
-}
+  class MLS_Algorithm {
+    +complexity string
+    +pseudoCode URI
+  }
 
-class Prompt {
-  +text string
-  +role string
-  +templateId string
-  +usesContext boolean
-}
+  class Prompt {
+    +text string
+    +role string
+    +templateId string
+    +usesContext boolean
+  }
 
   class MLS_Eval {
     +measure string
@@ -94,17 +101,15 @@ class Prompt {
     +license string
     +documentationUrl URI
   }
+
   class MLS_Implementation {
-    +identifier string
     +codeRepository URI
     +framework string
-    +dependencies string
     +executionCommand string
     +entryPoint string
-    +commitHash string
     +branch string
-    +dependenciesHash string
   }
+
   class MLS_HyperParameter {
     +name URI
     +hasValue string
@@ -113,7 +118,7 @@ class Prompt {
     +searchSpace string
   }
 
-  class Dependency {
+   class Dependency {
     +packageName string
     +version string
     +type string
@@ -159,6 +164,57 @@ class Prompt {
     +artifactsLocation URI
   }
 
+  class HP_Optimization
+  class HP_Training
+  class HP_Architecture
+  class HP_Data
+  MLS_HyperParameter -- HP_Optimization
+  MLS_HyperParameter -- HP_Training
+  MLS_HyperParameter -- HP_Architecture
+  MLS_HyperParameter -- HP_Data
+  class LearningRate
+  class Momentum
+  class WeightDecay
+  class WarmupSteps
+  class DecayRate
+
+  HP_Optimization -- LearningRate
+  HP_Optimization -- Momentum
+  HP_Optimization -- WeightDecay
+  HP_Optimization -- WarmupSteps
+  HP_Optimization -- DecayRate
+  class BatchSize
+  class NumEpochs
+  class MaxSteps
+  class GradientAccumulationSteps
+  class NumWorkers
+  class RandomSeed
+  class Patience
+
+  HP_Training -- BatchSize
+  HP_Training -- NumEpochs
+  HP_Training -- MaxSteps
+  HP_Training -- GradientAccumulationSteps
+  HP_Training -- NumWorkers
+  HP_Training -- RandomSeed
+  HP_Training -- Patience
+  class NumLayers
+  class HiddenSize
+  class EmbeddingDim
+  class Dropout
+  class AttentionHeads
+
+  HP_Architecture -- NumLayers
+  HP_Architecture -- HiddenSize
+  HP_Architecture -- EmbeddingDim
+  HP_Architecture -- Dropout
+  HP_Architecture -- AttentionHeads
+  class MaxSequenceLength
+  class TrainValTestSplit
+
+  HP_Data -- MaxSequenceLength
+  HP_Data -- TrainValTestSplit
+  Experiment "1" -- "0..*" MLS_HyperParameter : usesParameters
 
   Method <|-- MLS_Model
   Method <|-- MLS_Algorithm
@@ -172,8 +228,8 @@ class Prompt {
   Experiment "1" -- "1..*" MLS_Task : realizes
   Experiment "1" -- "1..*" MLS_Dataset : usesData
   Experiment "1" -- "1..*" Method : produces
-  Experiment "1" -- "0..*" MLS_HyperParameter : usesParameters
   Experiment "1" -- "1..*" MLS_Implementation : executes
+Experiment "1" -- "1..*" Experiment : subExperiment
 
   MLS_Dataset "1" -- "0..*" MLS_Dataset : subDatasetOf
   MLS_Dataset "1" -- "1..*" DataSource : prov-derivedFrom
@@ -199,11 +255,8 @@ class Prompt {
   TrainingRun "1" -- "1" MLS_Dataset : prov-uses
   EvaluationRun "1" -- "1" Method : evaluates
 
-
   MLS_Task "1" -- "1..*" MLS_Dataset : benchmarkedOn
-
   MLS_Task "1" -- "0..*" MLS_Task : subTaskOf
-
   style Study fill:#dddddd,stroke:#333,stroke-width:2px
   style Experiment fill:#dddddd,stroke:#333,stroke-width:2px
   style Person fill:#dddddd,stroke:#333,stroke-width:2px
@@ -216,8 +269,34 @@ class Prompt {
   style MLS_HyperParameter fill:#f9f,stroke:#333,stroke-width:2px
   style PredictionSet fill:#f9f,stroke:#333,stroke-width:2px
 
-
   style DataProcessingStep fill:#ffa500,stroke:#333,stroke-width:2px
   style TrainingRun fill:#ffa500,stroke:#333,stroke-width:2px
   style EvaluationRun fill:#ffa500,stroke:#333,stroke-width:2px
   style DataSource fill:#ffa500,stroke:#333,stroke-width:2px
+
+  style HP_Optimization fill:#e8d7ff,stroke:#333,stroke-width:2px
+  style HP_Training fill:#e8d7ff,stroke:#333,stroke-width:2px
+  style HP_Architecture fill:#e8d7ff,stroke:#333,stroke-width:2px
+  style HP_Data fill:#e8d7ff,stroke:#333,stroke-width:2px
+
+  style LearningRate fill:#f3ebff,stroke:#333,stroke-width:1.5px
+  style Momentum fill:#f3ebff,stroke:#333,stroke-width:1.5px
+  style WeightDecay fill:#f3ebff,stroke:#333,stroke-width:1.5px
+  style WarmupSteps fill:#f3ebff,stroke:#333,stroke-width:1.5px
+  style DecayRate fill:#f3ebff,stroke:#333,stroke-width:1.5px
+
+  style BatchSize fill:#f3ebff,stroke:#333,stroke-width:1.5px
+  style NumEpochs fill:#f3ebff,stroke:#333,stroke-width:1.5px
+  style MaxSteps fill:#f3ebff,stroke:#333,stroke-width:1.5px
+  style GradientAccumulationSteps fill:#f3ebff,stroke:#333,stroke-width:1.5px
+  style NumWorkers fill:#f3ebff,stroke:#333,stroke-width:1.5px
+  style RandomSeed fill:#f3ebff,stroke:#333,stroke-width:1.5px
+
+  style NumLayers fill:#f3ebff,stroke:#333,stroke-width:1.5px
+  style HiddenSize fill:#f3ebff,stroke:#333,stroke-width:1.5px
+  style EmbeddingDim fill:#f3ebff,stroke:#333,stroke-width:1.5px
+  style Dropout fill:#f3ebff,stroke:#333,stroke-width:1.5px
+  style AttentionHeads fill:#f3ebff,stroke:#333,stroke-width:1.5px
+
+  style MaxSequenceLength fill:#f3ebff,stroke:#333,stroke-width:1.5px
+  style TrainValTestSplit fill:#f3ebff,stroke:#333,stroke-width:1.5px
