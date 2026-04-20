@@ -1,0 +1,2768 @@
+{
+  "@context": {
+    "mls": "http://www.w3.org/ns/mls#",
+    "schema": "http://schema.org/",
+    "prov": "http://www.w3.org/ns/prov#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "model": "https://w3id.org/mlskg/model/",
+    "algo": "https://w3id.org/mlskg/algorithm/",
+    "method": "https://w3id.org/mlskg/method/",
+    "dataset": "https://w3id.org/mlskg/dataset/",
+    "datasource": "https://w3id.org/mlskg/datasource/",
+    "task": "https://w3id.org/mlskg/task/",
+    "eval": "https://w3id.org/mlskg/eval/",
+    "hp": "https://w3id.org/mlskg/hp/",
+    "impl": "https://w3id.org/mlskg/implementation/",
+    "env": "https://w3id.org/mlskg/environment/",
+    "prompt": "https://w3id.org/mlskg/prompt/",
+    "person": "https://w3id.org/mlskg/person/",
+    "org": "https://w3id.org/mlskg/organization/",
+    "study": "https://w3id.org/mlskg/study/",
+    "exp": "https://w3id.org/mlskg/experiment/",
+    "repo": "https://w3id.org/mlskg/repository/",
+    "mention": "https://w3id.org/mlskg/meta/mention",
+    "valueSource": "https://w3id.org/mlskg/meta/valueSource",
+    "Study": "mls:Study",
+    "Experiment": "mls:Experiment",
+    "Person": "mls:Person",
+    "Organization": "mls:Organization",
+    "MLS_Task": "mls:MLS_Task",
+    "MLS_Dataset": "mls:MLS_Dataset",
+    "DataSource": "mls:DataSource",
+    "Method": "mls:Method",
+    "MLS_Model": "mls:MLS_Model",
+    "MLS_Eval": "mls:MLS_Eval",
+    "SoftwareRepository": "mls:SoftwareRepository",
+    "MLS_Implementation": "mls:MLS_Implementation",
+    "Environment": "mls:Environment",
+    "MLS_HyperParameter": "mls:MLS_HyperParameter",
+    "title": "schema:title",
+    "abstract": "schema:abstract",
+    "url": {
+      "@id": "schema:url",
+      "@type": "xsd:anyURI"
+    },
+    "doi": "schema:doi",
+    "citation": "schema:citation",
+    "publicationVenue": "schema:publicationVenue",
+    "issued": {
+      "@id": "schema:datePublished",
+      "@type": "xsd:date"
+    },
+    "name": "schema:name",
+    "description": "schema:description",
+    "objective": "schema:abstract",
+    "hypothesis": "schema:abstract",
+    "methodology": "schema:description",
+    "affiliation": "schema:affiliation",
+    "email": "schema:email",
+    "orcid": "schema:identifier",
+    "category": "schema:category",
+    "metrics": "schema:measurementTechnique",
+    "numInstances": "schema:numberOfItems",
+    "language": "schema:inLanguage",
+    "license": "schema:license",
+    "modality": "schema:encodingFormat",
+    "numClasses": "schema:numberOfItems",
+    "architecture": "schema:architecture",
+    "parameters": "schema:size",
+    "version": "schema:version",
+    "measure": "mls:measure",
+    "hasValue": "mls:hasValue",
+    "stdDev": "mls:stdDev",
+    "confidenceInterval": "mls:confidenceInterval",
+    "codeRepository": {
+      "@id": "mls:codeRepository",
+      "@type": "xsd:anyURI"
+    },
+    "framework": "mls:framework",
+    "executionCommand": "mls:executionCommand",
+    "entryPoint": "mls:entryPoint",
+    "branch": "mls:branch",
+    "programmingLanguage": "schema:programmingLanguage",
+    "dateModified": {
+      "@id": "schema:dateModified",
+      "@type": "xsd:dateTime"
+    },
+    "documentationUrl": {
+      "@id": "mls:documentationUrl",
+      "@type": "xsd:anyURI"
+    },
+    "hardwareSpecs": "mls:hardwareSpecs",
+    "os": "mls:operatingSystem",
+    "pythonVersion": "mls:pythonVersion",
+    "type": "mls:type",
+    "searchSpace": "mls:searchSpace",
+    "hpCategory": "mls:hpCategory",
+    "hpType": "mls:hpType",
+    "uncertain": "mls:uncertain",
+    "hasAuthor": {
+      "@id": "mls:hasAuthor",
+      "@type": "@id"
+    },
+    "contains": {
+      "@id": "mls:contains",
+      "@type": "@id"
+    },
+    "implements": {
+      "@id": "mls:implements",
+      "@type": "@id"
+    },
+    "prov-affiliatedWith": {
+      "@id": "mls:prov-affiliatedWith",
+      "@type": "@id"
+    },
+    "realizes": {
+      "@id": "mls:realizes",
+      "@type": "@id"
+    },
+    "usesData": {
+      "@id": "mls:usesData",
+      "@type": "@id"
+    },
+    "produces": {
+      "@id": "mls:produces",
+      "@type": "@id"
+    },
+    "usesParameters": {
+      "@id": "mls:usesParameters",
+      "@type": "@id"
+    },
+    "executes": {
+      "@id": "mls:executes",
+      "@type": "@id"
+    },
+    "prov-derivedFrom": {
+      "@id": "mls:prov-derivedFrom",
+      "@type": "@id"
+    },
+    "trainedOn": {
+      "@id": "mls:trainedOn",
+      "@type": "@id"
+    },
+    "evaluatedOn": {
+      "@id": "mls:evaluatedOn",
+      "@type": "@id"
+    },
+    "achieves": {
+      "@id": "mls:achieves",
+      "@type": "@id"
+    },
+    "subMethod": {
+      "@id": "mls:subMethod",
+      "@type": "@id"
+    },
+    "supports": {
+      "@id": "mls:supports",
+      "@type": "@id"
+    },
+    "runsIn": {
+      "@id": "mls:runsIn",
+      "@type": "@id"
+    },
+    "benchmarkedOn": {
+      "@id": "mls:benchmarkedOn",
+      "@type": "@id"
+    },
+    "wasGeneratedBy": {
+      "@id": "prov:wasGeneratedBy",
+      "@type": "@id"
+    },
+    "wasDerivedFrom": {
+      "@id": "prov:wasDerivedFrom",
+      "@type": "@id"
+    },
+    "wasAssociatedWith": {
+      "@id": "prov:wasAssociatedWith",
+      "@type": "@id"
+    },
+    "used": {
+      "@id": "prov:used",
+      "@type": "@id"
+    }
+  },
+  "@graph": [
+    {
+      "@id": "study:learning_transferable_visual_models_from_natural_language_supervision_2021",
+      "@type": "Study",
+      "mention": {
+        "start_char_doc": 13,
+        "end_char_doc": 82,
+        "prefix": "## Page 1 #",
+        "suffix": "Alec Radford\\*¹ Jong Wook Kim\\*¹",
+        "valueSource": "extracted"
+      },
+      "title": {
+        "value": "Learning Transferable Visual Models From Natural Language Supervision",
+        "start_char_doc": 13,
+        "end_char_doc": 82,
+        "prefix": "## Page 1 #",
+        "suffix": "Alec Radford\\*¹ Jong Wook Kim\\*¹",
+        "valueSource": "extracted"
+      },
+      "abstract": {
+        "value": "State-of-the-art computer vision systems are trained to predict a fixed set of predetermined object categories. This restricted form of supervision limits their generality and usability since additional labeled data is needed to specify any other visual concept. Learning directly from raw text about images is a promising alternative which leverages a much broader source of supervision. We demonstrate that the simple pre-training task of predicting which caption goes with which image is an efficient and scalable way to learn SOTA image representations from scratch on a dataset of 400 million (image, text) pairs collected from the internet. After pre-training, natural language is used to reference learned visual concepts (or describe new ones) enabling zero-shot transfer of the model to downstream tasks. We study the performance of this approach by benchmarking on over 30 different existing computer vision datasets, spanning tasks such as OCR, action recognition in videos, geo-localization, and many types of fine-grained object classification. The model transfers non-trivially to most tasks and is often competitive with a fully supervised baseline without the need for any dataset specific training. For instance, we match the accuracy of the original ResNet-50 on ImageNet zero-shot without needing to use any of the 1.28 million training examples it was trained on. We release our code and pre-trained model weights at https://github.com/OpenAI/CLIP.",
+        "start_char_doc": 358,
+        "end_char_doc": 1826,
+        "prefix": "26 Feb 2021&lt;/watermark&gt; ## Abstract",
+        "suffix": "## 1. Introduction and Motivating",
+        "valueSource": "extracted"
+      },
+      "url": {
+        "value": "https://arxiv.org/abs/2103.00020v1",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "doi": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "citation": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "publicationVenue": {
+        "value": "arXiv",
+        "start_char_doc": 288,
+        "end_char_doc": 293,
+        "prefix": "Gretchen Krueger¹ Ilya Sutskever¹ &lt;watermark&gt;",
+        "suffix": ":2103.00020v1 [cs.CV] 26 Feb 2021&lt;/watermark&gt;",
+        "valueSource": "extracted"
+      },
+      "issued": {
+        "value": "26 Feb 2021",
+        "start_char_doc": 315,
+        "end_char_doc": 326,
+        "prefix": "Krueger¹ Ilya Sutskever¹ &lt;watermark&gt;arXiv:2103.00020v1 [cs.CV]",
+        "suffix": "&lt;/watermark&gt; ## Abstract State-of-the-art computer",
+        "valueSource": "extracted"
+      },
+      "hasAuthor": [
+        {
+          "@id": "person:radford_alec"
+        },
+        {
+          "@id": "person:kim_jong_wook"
+        },
+        {
+          "@id": "person:hallacy_chris"
+        },
+        {
+          "@id": "person:ramesh_aditya"
+        },
+        {
+          "@id": "person:goh_gabriel"
+        },
+        {
+          "@id": "person:agarwal_sandhini"
+        },
+        {
+          "@id": "person:sastry_girish"
+        },
+        {
+          "@id": "person:askell_amanda"
+        },
+        {
+          "@id": "person:mishkin_pamela"
+        },
+        {
+          "@id": "person:clark_jack"
+        },
+        {
+          "@id": "person:krueger_gretchen"
+        },
+        {
+          "@id": "person:sutskever_ilya"
+        }
+      ],
+      "contains": [
+        {
+          "@id": "exp:clip_wit_imagenet"
+        }
+      ],
+      "implements": {
+        "@id": "repo:openai_clip"
+      }
+    },
+    {
+      "@id": "person:radford_alec",
+      "@type": "Person",
+      "mention": {
+        "start_char_doc": 84,
+        "end_char_doc": 96,
+        "prefix": "Models From Natural Language Supervision",
+        "suffix": "\\*¹ Jong Wook Kim\\*¹ Chris",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "Alec Radford",
+        "start_char_doc": 84,
+        "end_char_doc": 96,
+        "prefix": "Models From Natural Language Supervision",
+        "suffix": "\\*¹ Jong Wook Kim\\*¹ Chris",
+        "valueSource": "extracted"
+      },
+      "affiliation": {
+        "value": "OpenAI",
+        "start_char_doc": 2119,
+        "end_char_doc": 2125,
+        "prefix": "al., 2019). \\*Equal contribution ¹",
+        "suffix": ", San Francisco, CA 94110,",
+        "valueSource": "extracted"
+      },
+      "email": {
+        "value": "alec@openai.com",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "orcid": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "prov-affiliatedWith": [
+        {
+          "@id": "org:openai"
+        }
+      ]
+    },
+    {
+      "@id": "person:kim_jong_wook",
+      "@type": "Person",
+      "mention": {
+        "start_char_doc": 100,
+        "end_char_doc": 113,
+        "prefix": "Natural Language Supervision Alec Radford\\*¹",
+        "suffix": "\\*¹ Chris Hallacy¹ Aditya Ramesh¹",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "Jong Wook Kim",
+        "start_char_doc": 100,
+        "end_char_doc": 113,
+        "prefix": "Natural Language Supervision Alec Radford\\*¹",
+        "suffix": "\\*¹ Chris Hallacy¹ Aditya Ramesh¹",
+        "valueSource": "extracted"
+      },
+      "affiliation": {
+        "value": "OpenAI",
+        "start_char_doc": 2119,
+        "end_char_doc": 2125,
+        "prefix": "al., 2019). \\*Equal contribution ¹",
+        "suffix": ", San Francisco, CA 94110,",
+        "valueSource": "extracted"
+      },
+      "email": {
+        "value": "jongwook@openai.com",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "orcid": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "prov-affiliatedWith": [
+        {
+          "@id": "org:openai"
+        }
+      ]
+    },
+    {
+      "@id": "person:hallacy_chris",
+      "@type": "Person",
+      "mention": {
+        "start_char_doc": 117,
+        "end_char_doc": 130,
+        "prefix": "Alec Radford\\*¹ Jong Wook Kim\\*¹",
+        "suffix": "¹ Aditya Ramesh¹ Gabriel Goh¹",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "Chris Hallacy",
+        "start_char_doc": 117,
+        "end_char_doc": 130,
+        "prefix": "Alec Radford\\*¹ Jong Wook Kim\\*¹",
+        "suffix": "¹ Aditya Ramesh¹ Gabriel Goh¹",
+        "valueSource": "extracted"
+      },
+      "affiliation": {
+        "value": "OpenAI",
+        "start_char_doc": 2119,
+        "end_char_doc": 2125,
+        "prefix": "al., 2019). \\*Equal contribution ¹",
+        "suffix": ", San Francisco, CA 94110,",
+        "valueSource": "extracted"
+      },
+      "email": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "orcid": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "prov-affiliatedWith": [
+        {
+          "@id": "org:openai"
+        }
+      ]
+    },
+    {
+      "@id": "person:ramesh_aditya",
+      "@type": "Person",
+      "mention": {
+        "start_char_doc": 132,
+        "end_char_doc": 145,
+        "prefix": "Jong Wook Kim\\*¹ Chris Hallacy¹",
+        "suffix": "¹ Gabriel Goh¹ Sandhini Agarwal¹",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "Aditya Ramesh",
+        "start_char_doc": 132,
+        "end_char_doc": 145,
+        "prefix": "Jong Wook Kim\\*¹ Chris Hallacy¹",
+        "suffix": "¹ Gabriel Goh¹ Sandhini Agarwal¹",
+        "valueSource": "extracted"
+      },
+      "affiliation": {
+        "value": "OpenAI",
+        "start_char_doc": 2119,
+        "end_char_doc": 2125,
+        "prefix": "al., 2019). \\*Equal contribution ¹",
+        "suffix": ", San Francisco, CA 94110,",
+        "valueSource": "extracted"
+      },
+      "email": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "orcid": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "prov-affiliatedWith": [
+        {
+          "@id": "org:openai"
+        }
+      ]
+    },
+    {
+      "@id": "person:goh_gabriel",
+      "@type": "Person",
+      "mention": {
+        "start_char_doc": 147,
+        "end_char_doc": 158,
+        "prefix": "Kim\\*¹ Chris Hallacy¹ Aditya Ramesh¹",
+        "suffix": "¹ Sandhini Agarwal¹ Girish Sastry¹",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "Gabriel Goh",
+        "start_char_doc": 147,
+        "end_char_doc": 158,
+        "prefix": "Kim\\*¹ Chris Hallacy¹ Aditya Ramesh¹",
+        "suffix": "¹ Sandhini Agarwal¹ Girish Sastry¹",
+        "valueSource": "extracted"
+      },
+      "affiliation": {
+        "value": "OpenAI",
+        "start_char_doc": 2119,
+        "end_char_doc": 2125,
+        "prefix": "al., 2019). \\*Equal contribution ¹",
+        "suffix": ", San Francisco, CA 94110,",
+        "valueSource": "extracted"
+      },
+      "email": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "orcid": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "prov-affiliatedWith": [
+        {
+          "@id": "org:openai"
+        }
+      ]
+    },
+    {
+      "@id": "person:agarwal_sandhini",
+      "@type": "Person",
+      "mention": {
+        "start_char_doc": 160,
+        "end_char_doc": 176,
+        "prefix": "Hallacy¹ Aditya Ramesh¹ Gabriel Goh¹",
+        "suffix": "¹ Girish Sastry¹ Amanda Askell¹",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "Sandhini Agarwal",
+        "start_char_doc": 160,
+        "end_char_doc": 176,
+        "prefix": "Hallacy¹ Aditya Ramesh¹ Gabriel Goh¹",
+        "suffix": "¹ Girish Sastry¹ Amanda Askell¹",
+        "valueSource": "extracted"
+      },
+      "affiliation": {
+        "value": "OpenAI",
+        "start_char_doc": 2119,
+        "end_char_doc": 2125,
+        "prefix": "al., 2019). \\*Equal contribution ¹",
+        "suffix": ", San Francisco, CA 94110,",
+        "valueSource": "extracted"
+      },
+      "email": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "orcid": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "prov-affiliatedWith": [
+        {
+          "@id": "org:openai"
+        }
+      ]
+    },
+    {
+      "@id": "person:sastry_girish",
+      "@type": "Person",
+      "mention": {
+        "start_char_doc": 178,
+        "end_char_doc": 191,
+        "prefix": "Ramesh¹ Gabriel Goh¹ Sandhini Agarwal¹",
+        "suffix": "¹ Amanda Askell¹ Pamela Mishkin¹",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "Girish Sastry",
+        "start_char_doc": 178,
+        "end_char_doc": 191,
+        "prefix": "Ramesh¹ Gabriel Goh¹ Sandhini Agarwal¹",
+        "suffix": "¹ Amanda Askell¹ Pamela Mishkin¹",
+        "valueSource": "extracted"
+      },
+      "affiliation": {
+        "value": "OpenAI",
+        "start_char_doc": 2119,
+        "end_char_doc": 2125,
+        "prefix": "al., 2019). \\*Equal contribution ¹",
+        "suffix": ", San Francisco, CA 94110,",
+        "valueSource": "extracted"
+      },
+      "email": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "orcid": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "prov-affiliatedWith": [
+        {
+          "@id": "org:openai"
+        }
+      ]
+    },
+    {
+      "@id": "person:askell_amanda",
+      "@type": "Person",
+      "mention": {
+        "start_char_doc": 193,
+        "end_char_doc": 206,
+        "prefix": "Goh¹ Sandhini Agarwal¹ Girish Sastry¹",
+        "suffix": "¹ Pamela Mishkin¹ Jack Clark¹",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "Amanda Askell",
+        "start_char_doc": 193,
+        "end_char_doc": 206,
+        "prefix": "Goh¹ Sandhini Agarwal¹ Girish Sastry¹",
+        "suffix": "¹ Pamela Mishkin¹ Jack Clark¹",
+        "valueSource": "extracted"
+      },
+      "affiliation": {
+        "value": "OpenAI",
+        "start_char_doc": 2119,
+        "end_char_doc": 2125,
+        "prefix": "al., 2019). \\*Equal contribution ¹",
+        "suffix": ", San Francisco, CA 94110,",
+        "valueSource": "extracted"
+      },
+      "email": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "orcid": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "prov-affiliatedWith": [
+        {
+          "@id": "org:openai"
+        }
+      ]
+    },
+    {
+      "@id": "person:mishkin_pamela",
+      "@type": "Person",
+      "mention": {
+        "start_char_doc": 208,
+        "end_char_doc": 222,
+        "prefix": "Agarwal¹ Girish Sastry¹ Amanda Askell¹",
+        "suffix": "¹ Jack Clark¹ Gretchen Krueger¹",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "Pamela Mishkin",
+        "start_char_doc": 208,
+        "end_char_doc": 222,
+        "prefix": "Agarwal¹ Girish Sastry¹ Amanda Askell¹",
+        "suffix": "¹ Jack Clark¹ Gretchen Krueger¹",
+        "valueSource": "extracted"
+      },
+      "affiliation": {
+        "value": "OpenAI",
+        "start_char_doc": 2119,
+        "end_char_doc": 2125,
+        "prefix": "al., 2019). \\*Equal contribution ¹",
+        "suffix": ", San Francisco, CA 94110,",
+        "valueSource": "extracted"
+      },
+      "email": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "orcid": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "prov-affiliatedWith": [
+        {
+          "@id": "org:openai"
+        }
+      ]
+    },
+    {
+      "@id": "person:clark_jack",
+      "@type": "Person",
+      "mention": {
+        "start_char_doc": 224,
+        "end_char_doc": 234,
+        "prefix": "Sastry¹ Amanda Askell¹ Pamela Mishkin¹",
+        "suffix": "¹ Gretchen Krueger¹ Ilya Sutskever¹",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "Jack Clark",
+        "start_char_doc": 224,
+        "end_char_doc": 234,
+        "prefix": "Sastry¹ Amanda Askell¹ Pamela Mishkin¹",
+        "suffix": "¹ Gretchen Krueger¹ Ilya Sutskever¹",
+        "valueSource": "extracted"
+      },
+      "affiliation": {
+        "value": "OpenAI",
+        "start_char_doc": 2119,
+        "end_char_doc": 2125,
+        "prefix": "al., 2019). \\*Equal contribution ¹",
+        "suffix": ", San Francisco, CA 94110,",
+        "valueSource": "extracted"
+      },
+      "email": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "orcid": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "prov-affiliatedWith": [
+        {
+          "@id": "org:openai"
+        }
+      ]
+    },
+    {
+      "@id": "person:krueger_gretchen",
+      "@type": "Person",
+      "mention": {
+        "start_char_doc": 236,
+        "end_char_doc": 252,
+        "prefix": "Askell¹ Pamela Mishkin¹ Jack Clark¹",
+        "suffix": "¹ Ilya Sutskever¹ &lt;watermark&gt;arXiv:2103.00020v1 [cs.CV]",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "Gretchen Krueger",
+        "start_char_doc": 236,
+        "end_char_doc": 252,
+        "prefix": "Askell¹ Pamela Mishkin¹ Jack Clark¹",
+        "suffix": "¹ Ilya Sutskever¹ &lt;watermark&gt;arXiv:2103.00020v1 [cs.CV]",
+        "valueSource": "extracted"
+      },
+      "affiliation": {
+        "value": "OpenAI",
+        "start_char_doc": 2119,
+        "end_char_doc": 2125,
+        "prefix": "al., 2019). \\*Equal contribution ¹",
+        "suffix": ", San Francisco, CA 94110,",
+        "valueSource": "extracted"
+      },
+      "email": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "orcid": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "prov-affiliatedWith": [
+        {
+          "@id": "org:openai"
+        }
+      ]
+    },
+    {
+      "@id": "person:sutskever_ilya",
+      "@type": "Person",
+      "mention": {
+        "start_char_doc": 254,
+        "end_char_doc": 268,
+        "prefix": "Mishkin¹ Jack Clark¹ Gretchen Krueger¹",
+        "suffix": "¹ &lt;watermark&gt;arXiv:2103.00020v1 [cs.CV] 26 Feb",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "Ilya Sutskever",
+        "start_char_doc": 254,
+        "end_char_doc": 268,
+        "prefix": "Mishkin¹ Jack Clark¹ Gretchen Krueger¹",
+        "suffix": "¹ &lt;watermark&gt;arXiv:2103.00020v1 [cs.CV] 26 Feb",
+        "valueSource": "extracted"
+      },
+      "affiliation": {
+        "value": "OpenAI",
+        "start_char_doc": 2119,
+        "end_char_doc": 2125,
+        "prefix": "al., 2019). \\*Equal contribution ¹",
+        "suffix": ", San Francisco, CA 94110,",
+        "valueSource": "extracted"
+      },
+      "email": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "orcid": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "prov-affiliatedWith": [
+        {
+          "@id": "org:openai"
+        }
+      ]
+    },
+    {
+      "@id": "org:openai",
+      "@type": "Organization",
+      "mention": {
+        "start_char_doc": 2119,
+        "end_char_doc": 2125,
+        "prefix": "al., 2019). \\*Equal contribution ¹",
+        "suffix": ", San Francisco, CA 94110,",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "OpenAI",
+        "start_char_doc": 2119,
+        "end_char_doc": 2125,
+        "prefix": "al., 2019). \\*Equal contribution ¹",
+        "suffix": ", San Francisco, CA 94110,",
+        "valueSource": "extracted"
+      },
+      "url": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "type": {
+        "value": "AI research organization",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "task:zero_shot_image_classification",
+      "@type": "MLS_Task",
+      "mention": {
+        "start_char_doc": 30540,
+        "end_char_doc": 30564,
+        "prefix": "in its dataset. To perform",
+        "suffix": ", we reuse this capability.",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "zero-shot classification",
+        "start_char_doc": 30540,
+        "end_char_doc": 30564,
+        "prefix": "in its dataset. To perform",
+        "suffix": ", we reuse this capability.",
+        "valueSource": "extracted"
+      },
+      "description": {
+        "value": "To perform zero-shot classification, we reuse this capability.",
+        "start_char_doc": 30529,
+        "end_char_doc": 30591,
+        "prefix": "paired together in its dataset.",
+        "suffix": "For each dataset, we use",
+        "valueSource": "extracted"
+      },
+      "category": {
+        "value": "computer vision",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "metrics": {
+        "value": "top-1 accuracy; top-5 accuracy",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "benchmarkedOn": [
+        {
+          "@id": "dataset:imagenet"
+        }
+      ]
+    },
+    {
+      "@id": "datasource:public_internet",
+      "@type": "DataSource",
+      "mention": {
+        "start_char_doc": 15101,
+        "end_char_doc": 15143,
+        "prefix": "collected form a variety of",
+        "suffix": ". To attempt to cover",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "publicly available sources on the Internet",
+        "start_char_doc": 15101,
+        "end_char_doc": 15143,
+        "prefix": "collected form a variety of",
+        "suffix": ". To attempt to cover",
+        "valueSource": "extracted"
+      },
+      "url": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "type": {
+        "value": "web data source",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "license": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "dataset:webimagetext",
+      "@type": "MLS_Dataset",
+      "mention": {
+        "start_char_doc": 15841,
+        "end_char_doc": 15844,
+        "prefix": "refer to this dataset as",
+        "suffix": "for WebImageText. ### 2.3. Selecting",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "WIT",
+        "start_char_doc": 15841,
+        "end_char_doc": 15844,
+        "prefix": "refer to this dataset as",
+        "suffix": "for WebImageText. ### 2.3. Selecting",
+        "valueSource": "extracted"
+      },
+      "description": {
+        "value": "We refer to this dataset as WIT for WebImageText.",
+        "start_char_doc": 15813,
+        "end_char_doc": 15862,
+        "prefix": "dataset used to train GPT-2.",
+        "suffix": "### 2.3. Selecting an Efficient",
+        "valueSource": "extracted"
+      },
+      "numInstances": {
+        "value": 400000000,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "language": {
+        "value": "English",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "license": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "modality": {
+        "value": "image-text",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "numClasses": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "prov-derivedFrom": [
+        {
+          "@id": "datasource:public_internet"
+        }
+      ]
+    },
+    {
+      "@id": "dataset:imagenet",
+      "@type": "MLS_Dataset",
+      "mention": {
+        "start_char_doc": 1639,
+        "end_char_doc": 1647,
+        "prefix": "of the original ResNet-50 on",
+        "suffix": "zero-shot without needing to use",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "ImageNet",
+        "start_char_doc": 1639,
+        "end_char_doc": 1647,
+        "prefix": "of the original ResNet-50 on",
+        "suffix": "zero-shot without needing to use",
+        "valueSource": "extracted"
+      },
+      "description": {
+        "value": "Image classification benchmark used for zero-shot evaluation.",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "numInstances": {
+        "value": 1280000,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "language": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "license": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "modality": {
+        "value": "image",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "numClasses": {
+        "value": 1000,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "method:contrastive_language_image_pretraining",
+      "@type": "Method",
+      "mention": {
+        "start_char_doc": 9007,
+        "end_char_doc": 9046,
+        "prefix": "which we call CLIP, for",
+        "suffix": ", is an efficient method",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "Contrastive Language-Image Pre-training",
+        "start_char_doc": 9007,
+        "end_char_doc": 9046,
+        "prefix": "which we call CLIP, for",
+        "suffix": ", is an efficient method",
+        "valueSource": "extracted"
+      },
+      "description": {
+        "value": "CLIP learns a multi-modal embedding space by jointly training an image encoder and text encoder to maximize the cosine similarity of the image and text embeddings of the N real pairs in the batch while minimizing the cosine similarity of the embeddings of the N^2 - N incorrect pairings.",
+        "start_char_doc": 18309,
+        "end_char_doc": 18600,
+        "prefix": "actually occurred. To do this,",
+        "suffix": "We optimize a symmetric cross",
+        "valueSource": "extracted"
+      },
+      "version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "trainedOn": [
+        {
+          "@id": "dataset:webimagetext"
+        }
+      ],
+      "evaluatedOn": [
+        {
+          "@id": "dataset:imagenet"
+        }
+      ],
+      "achieves": [
+        {
+          "@id": "eval:imagenet_zero_shot_top_1_accuracy"
+        },
+        {
+          "@id": "eval:imagenet_zero_shot_top_5_accuracy"
+        }
+      ],
+      "subMethod": [
+        {
+          "@id": "model:clip"
+        },
+        {
+          "@id": "model:clip_vit_l_14_336px"
+        }
+      ]
+    },
+    {
+      "@id": "model:clip",
+      "@type": "MLS_Model",
+      "mention": {
+        "start_char_doc": 8997,
+        "end_char_doc": 9001,
+        "prefix": "from scratch, which we call",
+        "suffix": ", for Contrastive Language-Image Pre-training,",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "CLIP",
+        "start_char_doc": 8997,
+        "end_char_doc": 9001,
+        "prefix": "from scratch, which we call",
+        "suffix": ", for Contrastive Language-Image Pre-training,",
+        "valueSource": "extracted"
+      },
+      "description": {
+        "value": "we call CLIP, for Contrastive Language-Image Pre-training",
+        "start_char_doc": 8989,
+        "end_char_doc": 9046,
+        "prefix": "ConVIRT trained from scratch, which",
+        "suffix": ", is an efficient method",
+        "valueSource": "extracted"
+      },
+      "architecture": {
+        "value": "joint image encoder and text encoder with linear projection into a multimodal embedding space",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "parameters": {
+        "value": "63M-parameter text encoder base with scalable image encoders",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "trainedOn": [
+        {
+          "@id": "dataset:webimagetext"
+        }
+      ],
+      "evaluatedOn": [
+        {
+          "@id": "dataset:imagenet"
+        }
+      ],
+      "achieves": [
+        {
+          "@id": "eval:imagenet_zero_shot_top_1_accuracy"
+        },
+        {
+          "@id": "eval:imagenet_zero_shot_top_5_accuracy"
+        }
+      ]
+    },
+    {
+      "@id": "model:clip_vit_l_14_336px",
+      "@type": "MLS_Model",
+      "mention": {
+        "start_char_doc": 26792,
+        "end_char_doc": 26806,
+        "prefix": "We denote this model as",
+        "suffix": ". Unless otherwise specified, all",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "ViT-L/14@336px",
+        "start_char_doc": 26792,
+        "end_char_doc": 26806,
+        "prefix": "We denote this model as",
+        "suffix": ". Unless otherwise specified, all",
+        "valueSource": "extracted"
+      },
+      "description": {
+        "value": "For the ViT-L/14 we also pre-train at a higher 336 pixel resolution for one additional epoch to boost performance similar to FixRes (Touvron et al., 2019). We denote this model as ViT-L/14@336px.",
+        "start_char_doc": 26612,
+        "end_char_doc": 26807,
+        "prefix": "days on 256 V100 GPUs.",
+        "suffix": "Unless otherwise specified, all results",
+        "valueSource": "extracted"
+      },
+      "architecture": {
+        "value": "Vision Transformer image encoder with 24 layers, width 1024, 16 heads, and 336 pixel input resolution",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "parameters": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "trainedOn": [
+        {
+          "@id": "dataset:webimagetext"
+        }
+      ],
+      "evaluatedOn": [
+        {
+          "@id": "dataset:imagenet"
+        }
+      ],
+      "achieves": [
+        {
+          "@id": "eval:imagenet_zero_shot_top_1_accuracy"
+        },
+        {
+          "@id": "eval:imagenet_zero_shot_top_5_accuracy"
+        }
+      ]
+    },
+    {
+      "@id": "eval:imagenet_zero_shot_top_1_accuracy",
+      "@type": "MLS_Eval",
+      "mention": {
+        "start_char_doc": 32467,
+        "end_char_doc": 32472,
+        "prefix": "proof of concept 11.5% to",
+        "suffix": "and matches the performance of",
+        "valueSource": "extracted"
+      },
+      "measure": {
+        "value": "ImageNet zero-shot top-1 accuracy",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hasValue": {
+        "value": 76.2,
+        "start_char_doc": 32467,
+        "end_char_doc": 32472,
+        "prefix": "proof of concept 11.5% to",
+        "suffix": "and matches the performance of",
+        "valueSource": "extracted"
+      },
+      "stdDev": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "confidenceInterval": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "wasGeneratedBy": {
+        "@id": "exp:clip_wit_imagenet"
+      }
+    },
+    {
+      "@id": "eval:imagenet_zero_shot_top_5_accuracy",
+      "@type": "MLS_Eval",
+      "mention": {
+        "start_char_doc": 32735,
+        "end_char_doc": 32738,
+        "prefix": "and this model has a",
+        "suffix": "top-5 accuracy, matching Inception-V4 (Szegedy",
+        "valueSource": "extracted"
+      },
+      "measure": {
+        "value": "ImageNet zero-shot top-5 accuracy",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hasValue": {
+        "value": 95.0,
+        "start_char_doc": 32735,
+        "end_char_doc": 32738,
+        "prefix": "and this model has a",
+        "suffix": "top-5 accuracy, matching Inception-V4 (Szegedy",
+        "valueSource": "extracted"
+      },
+      "stdDev": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "confidenceInterval": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "wasGeneratedBy": {
+        "@id": "exp:clip_wit_imagenet"
+      }
+    },
+    {
+      "@id": "repo:openai_clip",
+      "@type": "SoftwareRepository",
+      "mention": {
+        "start_char_doc": 1795,
+        "end_char_doc": 1825,
+        "prefix": "and pre-trained model weights at",
+        "suffix": ". ## 1. Introduction and",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "OpenAI/CLIP",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "url": {
+        "value": "https://github.com/OpenAI/CLIP",
+        "start_char_doc": 1795,
+        "end_char_doc": 1825,
+        "prefix": "and pre-trained model weights at",
+        "suffix": ". ## 1. Introduction and",
+        "valueSource": "extracted"
+      },
+      "version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "programmingLanguage": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "dateModified": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "license": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "documentationUrl": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "wasDerivedFrom": {
+        "@id": "study:learning_transferable_visual_models_from_natural_language_supervision_2021"
+      },
+      "supports": [
+        {
+          "@id": "env:nvidia_v100"
+        }
+      ]
+    },
+    {
+      "@id": "impl:openai_clip",
+      "@type": "MLS_Implementation",
+      "mention": {
+        "start_char_doc": 18726,
+        "end_char_doc": 18748,
+        "prefix": "of the core of an",
+        "suffix": ". To our knowledge this",
+        "valueSource": "extracted"
+      },
+      "codeRepository": {
+        "value": "https://github.com/OpenAI/CLIP",
+        "start_char_doc": 1795,
+        "end_char_doc": 1825,
+        "prefix": "and pre-trained model weights at",
+        "suffix": ". ## 1. Introduction and",
+        "valueSource": "extracted"
+      },
+      "framework": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "executionCommand": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "entryPoint": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "branch": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "runsIn": {
+        "@id": "env:nvidia_v100"
+      },
+      "wasDerivedFrom": {
+        "@id": "repo:openai_clip"
+      }
+    },
+    {
+      "@id": "env:nvidia_v100",
+      "@type": "Environment",
+      "mention": {
+        "start_char_doc": 26530,
+        "end_char_doc": 26543,
+        "prefix": "18 days to train on",
+        "suffix": "while the largest Vision Transformer",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "NVIDIA V100 GPU environment",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hardwareSpecs": {
+        "value": "592 V100 GPUs",
+        "start_char_doc": 26530,
+        "end_char_doc": 26543,
+        "prefix": "18 days to train on",
+        "suffix": "while the largest Vision Transformer",
+        "valueSource": "extracted"
+      },
+      "os": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "pythonVersion": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "hp:num_epochs",
+      "@type": "MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 266401,
+        "end_char_doc": 266416,
+        "prefix": "size</td> <td>49408</td> </tr> <tr> <td>",
+        "suffix": "</td> <td>32</td> </tr> <tr> <td>Maximum",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "Training epochs",
+        "start_char_doc": 266401,
+        "end_char_doc": 266416,
+        "prefix": "size</td> <td>49408</td> </tr> <tr> <td>",
+        "suffix": "</td> <td>32</td> </tr> <tr> <td>Maximum",
+        "valueSource": "extracted"
+      },
+      "hasValue": {
+        "value": 32,
+        "start_char_doc": 266432,
+        "end_char_doc": 266434,
+        "prefix": "</tr> <tr> <td>Training epochs</td> <td>",
+        "suffix": "</td> </tr> <tr> <td>Maximum temperature</td>",
+        "valueSource": "extracted"
+      },
+      "wasDerivedFromText": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "type": {
+        "value": "number",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "searchSpace": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hpCategory": "HP_Training",
+      "hpType": "NumEpochs",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:weight_decay",
+      "@type": "MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 266544,
+        "end_char_doc": 266556,
+        "prefix": "temperature</td> <td>100.0</td> </tr> <tr> <td>",
+        "suffix": "</td> <td>0.2</td> </tr> <tr> <td>Warm-up",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "Weight decay",
+        "start_char_doc": 266544,
+        "end_char_doc": 266556,
+        "prefix": "temperature</td> <td>100.0</td> </tr> <tr> <td>",
+        "suffix": "</td> <td>0.2</td> </tr> <tr> <td>Warm-up",
+        "valueSource": "extracted"
+      },
+      "hasValue": {
+        "value": 0.2,
+        "start_char_doc": 266572,
+        "end_char_doc": 266575,
+        "prefix": "</tr> <tr> <td>Weight decay</td> <td>",
+        "suffix": "</td> </tr> <tr> <td>Warm-up iterations</td>",
+        "valueSource": "extracted"
+      },
+      "wasDerivedFromText": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "type": {
+        "value": "number",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "searchSpace": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hpCategory": "HP_Optimization",
+      "hpType": "WeightDecay",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:warmup_steps",
+      "@type": "MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 266610,
+        "end_char_doc": 266628,
+        "prefix": "decay</td> <td>0.2</td> </tr> <tr> <td>",
+        "suffix": "</td> <td>2000</td> </tr> <tr> <td>Adam",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "Warm-up iterations",
+        "start_char_doc": 266610,
+        "end_char_doc": 266628,
+        "prefix": "decay</td> <td>0.2</td> </tr> <tr> <td>",
+        "suffix": "</td> <td>2000</td> </tr> <tr> <td>Adam",
+        "valueSource": "extracted"
+      },
+      "hasValue": {
+        "value": 2000,
+        "start_char_doc": 266644,
+        "end_char_doc": 266648,
+        "prefix": "</tr> <tr> <td>Warm-up iterations</td> <td>",
+        "suffix": "</td> </tr> <tr> <td>Adam $\\beta_1$</td>",
+        "valueSource": "extracted"
+      },
+      "wasDerivedFromText": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "type": {
+        "value": "number",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "searchSpace": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hpCategory": "HP_Optimization",
+      "hpType": "WarmupSteps",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:adam_beta_1",
+      "@type": "MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 266683,
+        "end_char_doc": 266697,
+        "prefix": "iterations</td> <td>2000</td> </tr> <tr> <td>",
+        "suffix": "</td> <td>0.9</td> </tr> <tr> <td>Adam",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "Adam beta1",
+        "start_char_doc": 266683,
+        "end_char_doc": 266697,
+        "prefix": "iterations</td> <td>2000</td> </tr> <tr> <td>",
+        "suffix": "</td> <td>0.9</td> </tr> <tr> <td>Adam",
+        "valueSource": "extracted"
+      },
+      "hasValue": {
+        "value": 0.9,
+        "start_char_doc": 266713,
+        "end_char_doc": 266716,
+        "prefix": "</tr> <tr> <td>Adam $\\beta_1$</td> <td>",
+        "suffix": "</td> </tr> <tr> <td>Adam $\\beta_2$</td>",
+        "valueSource": "extracted"
+      },
+      "wasDerivedFromText": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "type": {
+        "value": "number",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "searchSpace": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hpCategory": "HP_Optimization",
+      "hpType": "Momentum",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:adam_beta_2_resnet",
+      "@type": "MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 266751,
+        "end_char_doc": 266765,
+        "prefix": "$\\beta_1$</td> <td>0.9</td> </tr> <tr> <td>",
+        "suffix": "</td> <td>0.999 (ResNet), 0.98 (ViT)</td>",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "Adam beta2",
+        "start_char_doc": 266751,
+        "end_char_doc": 266765,
+        "prefix": "$\\beta_1$</td> <td>0.9</td> </tr> <tr> <td>",
+        "suffix": "</td> <td>0.999 (ResNet), 0.98 (ViT)</td>",
+        "valueSource": "extracted"
+      },
+      "hasValue": {
+        "value": 0.999,
+        "start_char_doc": 266781,
+        "end_char_doc": 266786,
+        "prefix": "</tr> <tr> <td>Adam $\\beta_2$</td> <td>",
+        "suffix": "(ResNet), 0.98 (ViT)</td> </tr> <tr>",
+        "valueSource": "extracted"
+      },
+      "wasDerivedFromText": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "type": {
+        "value": "number",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "searchSpace": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hpCategory": "HP_Optimization",
+      "hpType": "Momentum",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:adam_beta_2_vit",
+      "@type": "MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 266751,
+        "end_char_doc": 266765,
+        "prefix": "$\\beta_1$</td> <td>0.9</td> </tr> <tr> <td>",
+        "suffix": "</td> <td>0.999 (ResNet), 0.98 (ViT)</td>",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "Adam beta2",
+        "start_char_doc": 266751,
+        "end_char_doc": 266765,
+        "prefix": "$\\beta_1$</td> <td>0.9</td> </tr> <tr> <td>",
+        "suffix": "</td> <td>0.999 (ResNet), 0.98 (ViT)</td>",
+        "valueSource": "extracted"
+      },
+      "hasValue": {
+        "value": 0.98,
+        "start_char_doc": 266797,
+        "end_char_doc": 266801,
+        "prefix": "<tr> <td>Adam $\\beta_2$</td> <td>0.999 (ResNet),",
+        "suffix": "(ViT)</td> </tr> <tr> <td>Adam $\\epsilon$</td>",
+        "valueSource": "extracted"
+      },
+      "wasDerivedFromText": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "type": {
+        "value": "number",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "searchSpace": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hpCategory": "HP_Optimization",
+      "hpType": "Momentum",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:batch_size",
+      "@type": "MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 25942,
+        "end_char_doc": 25956,
+        "prefix": "We use a very large",
+        "suffix": "of 32,768. Mixed-precision (Micikevicius et",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "minibatch size",
+        "start_char_doc": 25942,
+        "end_char_doc": 25956,
+        "prefix": "We use a very large",
+        "suffix": "of 32,768. Mixed-precision (Micikevicius et",
+        "valueSource": "extracted"
+      },
+      "hasValue": {
+        "value": 32768,
+        "start_char_doc": 25960,
+        "end_char_doc": 25966,
+        "prefix": "very large minibatch size of",
+        "suffix": ". Mixed-precision (Micikevicius et al.,",
+        "valueSource": "extracted"
+      },
+      "wasDerivedFromText": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "type": {
+        "value": "number",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "searchSpace": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hpCategory": "HP_Training",
+      "hpType": "BatchSize",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:text_num_layers",
+      "@type": "MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 23102,
+        "end_char_doc": 23110,
+        "prefix": "size we use a 63M-parameter",
+        "suffix": "512-wide model with 8 attention",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "12-layer",
+        "start_char_doc": 23102,
+        "end_char_doc": 23110,
+        "prefix": "size we use a 63M-parameter",
+        "suffix": "512-wide model with 8 attention",
+        "valueSource": "extracted"
+      },
+      "hasValue": {
+        "value": 12,
+        "start_char_doc": 23102,
+        "end_char_doc": 23104,
+        "prefix": "size we use a 63M-parameter",
+        "suffix": "-layer 512-wide model with 8",
+        "valueSource": "extracted"
+      },
+      "wasDerivedFromText": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "type": {
+        "value": "number",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "searchSpace": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hpCategory": "HP_Architecture",
+      "hpType": "NumLayers",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:text_hidden_size",
+      "@type": "MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 23111,
+        "end_char_doc": 23119,
+        "prefix": "we use a 63M-parameter 12-layer",
+        "suffix": "model with 8 attention heads.",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "512-wide",
+        "start_char_doc": 23111,
+        "end_char_doc": 23119,
+        "prefix": "we use a 63M-parameter 12-layer",
+        "suffix": "model with 8 attention heads.",
+        "valueSource": "extracted"
+      },
+      "hasValue": {
+        "value": 512,
+        "start_char_doc": 23111,
+        "end_char_doc": 23114,
+        "prefix": "we use a 63M-parameter 12-layer",
+        "suffix": "-wide model with 8 attention",
+        "valueSource": "extracted"
+      },
+      "wasDerivedFromText": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "type": {
+        "value": "number",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "searchSpace": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hpCategory": "HP_Architecture",
+      "hpType": "HiddenSize",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:text_attention_heads",
+      "@type": "MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 23131,
+        "end_char_doc": 23148,
+        "prefix": "63M-parameter 12-layer 512-wide model with",
+        "suffix": ". The transformer operates on",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "8 attention heads",
+        "start_char_doc": 23131,
+        "end_char_doc": 23148,
+        "prefix": "63M-parameter 12-layer 512-wide model with",
+        "suffix": ". The transformer operates on",
+        "valueSource": "extracted"
+      },
+      "hasValue": {
+        "value": 8,
+        "start_char_doc": 23131,
+        "end_char_doc": 23132,
+        "prefix": "63M-parameter 12-layer 512-wide model with",
+        "suffix": "attention heads. The transformer operates",
+        "valueSource": "extracted"
+      },
+      "wasDerivedFromText": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "type": {
+        "value": "number",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "searchSpace": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hpCategory": "HP_Architecture",
+      "hpType": "AttentionHeads",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:max_sequence_length",
+      "@type": "MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 23328,
+        "end_char_doc": 23347,
+        "prefix": "2015). For computational efficiency, the",
+        "suffix": "was capped at 76. The",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "max sequence length",
+        "start_char_doc": 23328,
+        "end_char_doc": 23347,
+        "prefix": "2015). For computational efficiency, the",
+        "suffix": "was capped at 76. The",
+        "valueSource": "extracted"
+      },
+      "hasValue": {
+        "value": 76,
+        "start_char_doc": 23362,
+        "end_char_doc": 23364,
+        "prefix": "sequence length was capped at",
+        "suffix": ". The text sequence is",
+        "valueSource": "extracted"
+      },
+      "wasDerivedFromText": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "type": {
+        "value": "number",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "searchSpace": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hpCategory": "HP_Data",
+      "hpType": "MaxSequenceLength",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:temperature_initialization",
+      "@type": "MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 20418,
+        "end_char_doc": 20439,
+        "prefix": "used during training. Finally, the",
+        "suffix": "which controls the range of",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "temperature parameter",
+        "start_char_doc": 20418,
+        "end_char_doc": 20439,
+        "prefix": "used during training. Finally, the",
+        "suffix": "which controls the range of",
+        "valueSource": "extracted"
+      },
+      "hasValue": {
+        "value": 0.07,
+        "start_char_doc": 25777,
+        "end_char_doc": 25781,
+        "prefix": "initialized to the equivalent of",
+        "suffix": "from (Wu et al., 2018)",
+        "valueSource": "extracted"
+      },
+      "wasDerivedFromText": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "type": {
+        "value": "number",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "searchSpace": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hpCategory": "HP_Optimization",
+      "hpType": "HP_Optimization",
+      "uncertain": true
+    },
+    {
+      "@id": "hp:maximum_temperature",
+      "@type": "MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 266469,
+        "end_char_doc": 266488,
+        "prefix": "epochs</td> <td>32</td> </tr> <tr> <td>",
+        "suffix": "</td> <td>100.0</td> </tr> <tr> <td>Weight",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "Maximum temperature",
+        "start_char_doc": 266469,
+        "end_char_doc": 266488,
+        "prefix": "epochs</td> <td>32</td> </tr> <tr> <td>",
+        "suffix": "</td> <td>100.0</td> </tr> <tr> <td>Weight",
+        "valueSource": "extracted"
+      },
+      "hasValue": {
+        "value": 100.0,
+        "start_char_doc": 266504,
+        "end_char_doc": 266509,
+        "prefix": "</tr> <tr> <td>Maximum temperature</td> <td>",
+        "suffix": "</td> </tr> <tr> <td>Weight decay</td>",
+        "valueSource": "extracted"
+      },
+      "wasDerivedFromText": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "type": {
+        "value": "number",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "searchSpace": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hpCategory": "HP_Optimization",
+      "hpType": "HP_Optimization",
+      "uncertain": true
+    },
+    {
+      "@id": "hp:learning_rate_vit_l_14_336px",
+      "@type": "MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 267044,
+        "end_char_doc": 267057,
+        "prefix": "<table> <thead> <tr> <th>Model</th> <th>",
+        "suffix": "</th> <th>Embedding dimension</th> <th>Input resolution</th>",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "Learning rate",
+        "start_char_doc": 267044,
+        "end_char_doc": 267057,
+        "prefix": "<table> <thead> <tr> <th>Model</th> <th>",
+        "suffix": "</th> <th>Embedding dimension</th> <th>Input resolution</th>",
+        "valueSource": "extracted"
+      },
+      "hasValue": {
+        "value": "2 × 10^-5",
+        "start_char_doc": 269504,
+        "end_char_doc": 269522,
+        "prefix": "<td>12</td> </tr> <tr> <td>ViT-L/14-336px</td> <td>",
+        "suffix": "</td> <td>768</td> <td>336</td> <td>24</td> <td>1024</td>",
+        "valueSource": "extracted"
+      },
+      "wasDerivedFromText": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "type": {
+        "value": "string",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "searchSpace": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hpCategory": "HP_Optimization",
+      "hpType": "LearningRate",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:embedding_dim_vit_l_14_336px",
+      "@type": "MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 267073,
+        "end_char_doc": 267092,
+        "prefix": "<tr> <th>Model</th> <th>Learning rate</th> <th>",
+        "suffix": "</th> <th>Input resolution</th> <th>ResNet blocks</th>",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "Embedding dimension",
+        "start_char_doc": 267073,
+        "end_char_doc": 267092,
+        "prefix": "<tr> <th>Model</th> <th>Learning rate</th> <th>",
+        "suffix": "</th> <th>Input resolution</th> <th>ResNet blocks</th>",
+        "valueSource": "extracted"
+      },
+      "hasValue": {
+        "value": 768,
+        "start_char_doc": 269538,
+        "end_char_doc": 269541,
+        "prefix": "<td>ViT-L/14-336px</td> <td>$2 \\times 10^{-5}$</td> <td>",
+        "suffix": "</td> <td>336</td> <td>24</td> <td>1024</td> <td>16</td>",
+        "valueSource": "extracted"
+      },
+      "wasDerivedFromText": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "type": {
+        "value": "number",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "searchSpace": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hpCategory": "HP_Architecture",
+      "hpType": "EmbeddingDim",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:vit_l_14_336px_num_layers",
+      "@type": "MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 268596,
+        "end_char_doc": 268621,
+        "prefix": "<th>Embedding dimension</th> <th>Input resolution</th> <th>",
+        "suffix": "</th> <th>width</th> <th>heads</th> <th>Text Transformer",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "Vision Transformer layers",
+        "start_char_doc": 268596,
+        "end_char_doc": 268621,
+        "prefix": "<th>Embedding dimension</th> <th>Input resolution</th> <th>",
+        "suffix": "</th> <th>width</th> <th>heads</th> <th>Text Transformer",
+        "valueSource": "extracted"
+      },
+      "hasValue": {
+        "value": 24,
+        "start_char_doc": 269576,
+        "end_char_doc": 269578,
+        "prefix": "\\times 10^{-5}$</td> <td>768</td> <td>336</td> <td>",
+        "suffix": "</td> <td>1024</td> <td>16</td> <td>12</td> <td>768</td>",
+        "valueSource": "extracted"
+      },
+      "wasDerivedFromText": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "type": {
+        "value": "number",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "searchSpace": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hpCategory": "HP_Architecture",
+      "hpType": "NumLayers",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:vit_l_14_336px_hidden_size",
+      "@type": "MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 268637,
+        "end_char_doc": 268642,
+        "prefix": "resolution</th> <th>Vision Transformer layers</th> <th>",
+        "suffix": "</th> <th>heads</th> <th>Text Transformer layers</th>",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "width",
+        "start_char_doc": 268637,
+        "end_char_doc": 268642,
+        "prefix": "resolution</th> <th>Vision Transformer layers</th> <th>",
+        "suffix": "</th> <th>heads</th> <th>Text Transformer layers</th>",
+        "valueSource": "extracted"
+      },
+      "hasValue": {
+        "value": 1024,
+        "start_char_doc": 269362,
+        "end_char_doc": 269366,
+        "prefix": "10^{-4}$</td> <td>768</td> <td>224</td> <td>24</td> <td>",
+        "suffix": "</td> <td>16</td> <td>12</td> <td>768</td> <td>12</td>",
+        "valueSource": "extracted"
+      },
+      "wasDerivedFromText": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "type": {
+        "value": "number",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "searchSpace": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hpCategory": "HP_Architecture",
+      "hpType": "HiddenSize",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:vit_l_14_336px_attention_heads",
+      "@type": "MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 268658,
+        "end_char_doc": 268663,
+        "prefix": "<th>Vision Transformer layers</th> <th>width</th> <th>",
+        "suffix": "</th> <th>Text Transformer layers</th> <th>width</th>",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "heads",
+        "start_char_doc": 268658,
+        "end_char_doc": 268663,
+        "prefix": "<th>Vision Transformer layers</th> <th>width</th> <th>",
+        "suffix": "</th> <th>Text Transformer layers</th> <th>width</th>",
+        "valueSource": "extracted"
+      },
+      "hasValue": {
+        "value": 16,
+        "start_char_doc": 267962,
+        "end_char_doc": 267964,
+        "prefix": "<td>640</td> <td>10</td> </tr> <tr> <td>RN50x",
+        "suffix": "</td> <td>$4 \\times 10^{-4}$</td> <td>768</td>",
+        "valueSource": "extracted"
+      },
+      "wasDerivedFromText": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "type": {
+        "value": "number",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "searchSpace": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hpCategory": "HP_Architecture",
+      "hpType": "AttentionHeads",
+      "uncertain": false
+    },
+    {
+      "@id": "exp:clip_wit_imagenet",
+      "@type": "Experiment",
+      "mention": {
+        "start_char_doc": 27103,
+        "end_char_doc": 27121,
+        "prefix": "## 3. Experiments ### 3.1.",
+        "suffix": "#### 3.1.1. MOTIVATION In computer",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "Zero-Shot Transfer",
+        "start_char_doc": 27103,
+        "end_char_doc": 27121,
+        "prefix": "## 3. Experiments ### 3.1.",
+        "suffix": "#### 3.1.1. MOTIVATION In computer",
+        "valueSource": "extracted"
+      },
+      "description": {
+        "value": "CLIP is pre-trained to predict if an image and a text snippet are paired together in its dataset. To perform zero-shot classification, we reuse this capability.",
+        "start_char_doc": 30431,
+        "end_char_doc": 30591,
+        "prefix": "USING CLIP FOR ZERO-SHOT TRANSFER",
+        "suffix": "For each dataset, we use",
+        "valueSource": "extracted"
+      },
+      "objective": {
+        "value": "Learn transferable visual representations from natural language supervision and evaluate them through zero-shot transfer.",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hypothesis": {
+        "value": "Web-scale contrastive training on image-text pairs produces visual models that transfer zero-shot to downstream computer vision benchmarks.",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "methodology": {
+        "value": "Given a batch of N (image, text) pairs, CLIP is trained to predict which of the N × N possible (image, text) pairings across a batch actually occurred.",
+        "start_char_doc": 18136,
+        "end_char_doc": 18296,
+        "prefix": "of zero-shot transfer to ImageNet.",
+        "suffix": "To do this, CLIP learns",
+        "valueSource": "extracted"
+      },
+      "realizes": [
+        {
+          "@id": "task:zero_shot_image_classification"
+        }
+      ],
+      "usesData": [
+        {
+          "@id": "dataset:webimagetext"
+        },
+        {
+          "@id": "dataset:imagenet"
+        }
+      ],
+      "produces": [
+        {
+          "@id": "method:contrastive_language_image_pretraining"
+        },
+        {
+          "@id": "model:clip"
+        },
+        {
+          "@id": "model:clip_vit_l_14_336px"
+        }
+      ],
+      "usesParameters": [
+        {
+          "@id": "hp:num_epochs"
+        },
+        {
+          "@id": "hp:weight_decay"
+        },
+        {
+          "@id": "hp:warmup_steps"
+        },
+        {
+          "@id": "hp:adam_beta_1"
+        },
+        {
+          "@id": "hp:adam_beta_2_resnet"
+        },
+        {
+          "@id": "hp:adam_beta_2_vit"
+        },
+        {
+          "@id": "hp:batch_size"
+        },
+        {
+          "@id": "hp:text_num_layers"
+        },
+        {
+          "@id": "hp:text_hidden_size"
+        },
+        {
+          "@id": "hp:text_attention_heads"
+        },
+        {
+          "@id": "hp:max_sequence_length"
+        },
+        {
+          "@id": "hp:temperature_initialization"
+        },
+        {
+          "@id": "hp:maximum_temperature"
+        },
+        {
+          "@id": "hp:learning_rate_vit_l_14_336px"
+        },
+        {
+          "@id": "hp:embedding_dim_vit_l_14_336px"
+        },
+        {
+          "@id": "hp:vit_l_14_336px_num_layers"
+        },
+        {
+          "@id": "hp:vit_l_14_336px_hidden_size"
+        },
+        {
+          "@id": "hp:vit_l_14_336px_attention_heads"
+        }
+      ],
+      "executes": [
+        {
+          "@id": "impl:openai_clip"
+        }
+      ],
+      "used": [
+        {
+          "@id": "dataset:webimagetext"
+        },
+        {
+          "@id": "dataset:imagenet"
+        },
+        {
+          "@id": "model:clip"
+        }
+      ],
+      "wasAssociatedWith": [
+        {
+          "@id": "hp:num_epochs"
+        },
+        {
+          "@id": "hp:weight_decay"
+        },
+        {
+          "@id": "hp:warmup_steps"
+        },
+        {
+          "@id": "hp:adam_beta_1"
+        },
+        {
+          "@id": "hp:adam_beta_2_resnet"
+        },
+        {
+          "@id": "hp:adam_beta_2_vit"
+        },
+        {
+          "@id": "hp:batch_size"
+        },
+        {
+          "@id": "hp:text_num_layers"
+        },
+        {
+          "@id": "hp:text_hidden_size"
+        },
+        {
+          "@id": "hp:text_attention_heads"
+        },
+        {
+          "@id": "hp:max_sequence_length"
+        },
+        {
+          "@id": "hp:temperature_initialization"
+        },
+        {
+          "@id": "hp:maximum_temperature"
+        },
+        {
+          "@id": "hp:learning_rate_vit_l_14_336px"
+        },
+        {
+          "@id": "hp:embedding_dim_vit_l_14_336px"
+        },
+        {
+          "@id": "hp:vit_l_14_336px_num_layers"
+        },
+        {
+          "@id": "hp:vit_l_14_336px_hidden_size"
+        },
+        {
+          "@id": "hp:vit_l_14_336px_attention_heads"
+        },
+        {
+          "@id": "impl:openai_clip"
+        }
+      ]
+    }
+  ]
+}
