@@ -1,0 +1,3733 @@
+{
+  "@context": {
+    "mls": "http://www.w3.org/ns/mls#",
+    "schema": "http://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "Study": "mls:Study",
+    "Experiment": "mls:Experiment",
+    "ExperimentGroup": "mls:ExperimentGroup",
+    "Person": "mls:Person",
+    "Organization": "mls:Organization",
+    "MLS_Task": "mls:MLS_Task",
+    "MLS_Dataset": "mls:MLS_Dataset",
+    "DataSource": "mls:DataSource",
+    "Method": "Method",
+    "MLS_Model": "mls:MLS_Model",
+    "MLS_Algorithm": "mls:MLS_Algorithm",
+    "Prompt": "Prompt",
+    "MLS_Eval": "mls:MLS_Eval",
+    "SoftwareRepository": "SoftwareRepository",
+    "MLS_Implementation": "mls:MLS_Implementation",
+    "MLS_HyperParameter": "mls:MLS_HyperParameter",
+    "HP_Optimization": "HP_Optimization",
+    "HP_Training": "HP_Training",
+    "HP_Architecture": "HP_Architecture",
+    "HP_Data": "HP_Data",
+    "LearningRate": "LearningRate",
+    "Momentum": "Momentum",
+    "WeightDecay": "WeightDecay",
+    "WarmupSteps": "WarmupSteps",
+    "DecayRate": "DecayRate",
+    "BatchSize": "BatchSize",
+    "NumEpochs": "NumEpochs",
+    "MaxSteps": "MaxSteps",
+    "GradientAccumulationSteps": "GradientAccumulationSteps",
+    "NumWorkers": "NumWorkers",
+    "RandomSeed": "RandomSeed",
+    "NumLayers": "NumLayers",
+    "HiddenSize": "HiddenSize",
+    "EmbeddingDim": "EmbeddingDim",
+    "Dropout": "Dropout",
+    "AttentionHeads": "AttentionHeads",
+    "MaxSequenceLength": "MaxSequenceLength",
+    "TrainValTestSplit": "TrainValTestSplit",
+    "Dependency": "Dependency",
+    "Environment": "Environment",
+    "DataProcessingStep": "DataProcessingStep",
+    "TrainingRun": "TrainingRun",
+    "EvaluationRun": "EvaluationRun",
+    "PredictionSet": "PredictionSet",
+    "model": "https://w3id.org/mlskg/model/",
+    "algo": "https://w3id.org/mlskg/algorithm/",
+    "method": "https://w3id.org/mlskg/method/",
+    "dataset": "https://w3id.org/mlskg/dataset/",
+    "datasource": "https://w3id.org/mlskg/datasource/",
+    "task": "https://w3id.org/mlskg/task/",
+    "eval": "https://w3id.org/mlskg/eval/",
+    "hp": "https://w3id.org/mlskg/hp/",
+    "impl": "https://w3id.org/mlskg/implementation/",
+    "env": "https://w3id.org/mlskg/environment/",
+    "prompt": "https://w3id.org/mlskg/prompt/",
+    "person": "https://w3id.org/mlskg/person/",
+    "org": "https://w3id.org/mlskg/organization/",
+    "study": "https://w3id.org/mlskg/study/",
+    "exp": "https://w3id.org/mlskg/experiment/",
+    "expg": "https://w3id.org/mlskg/experimentgroup/",
+    "repo": "https://w3id.org/mlskg/repo/",
+    "valueSource": "https://w3id.org/mlskg/meta/valueSource",
+    "mention": "https://w3id.org/mlskg/meta/mention",
+    "issued": {"@id": "xsd:issued", "@type": "xsd:datetime"},
+    "title": "schema:title",
+    "abstract": "schema:abstract",
+    "url": "schema:url",
+    "doi": "schema:doi",
+    "citation": "schema:citation",
+    "publicationVenue": "schema:publicationVenue",
+    "timestamp": {"@id": "schema:timestamp", "@type": "xsd:date"},
+    "identifier": "schema:identifier",
+    "description": "schema:description",
+    "objective": "schema:objective",
+    "hypothesis": "schema:hypothesis",
+    "methodology": "schema:methodology",
+    "name": "schema:name",
+    "affiliation": "schema:affiliation",
+    "email": "schema:email",
+    "orcid": "schema:orcid",
+    "type": "schema:type",
+    "category": "schema:category",
+    "metrics": "schema:metrics",
+    "numInstances": {"@id": "schema:numInstances", "@type": "xsd:integer"},
+    "language": "schema:language",
+    "license": "schema:license",
+    "modality": "schema:modality",
+    "numClasses": {"@id": "schema:numClasses", "@type": "xsd:integer"},
+    "version": "schema:version",
+    "architecture": "schema:architecture",
+    "parameters": "schema:parameters",
+    "complexity": "mls:complexity",
+    "pseudoCode": {"@id": "mls:pseudoCode", "@type": "xsd:anyURI"},
+    "text": "schema:text",
+    "role": "mls:role",
+    "templateId": "mls:templateId",
+    "usesContext": {"@id": "mls:usesContext", "@type": "xsd:boolean"},
+    "measure": "mls:measure",
+    "hasValue": {"@id": "mls:hasValue", "@type": "xsd:float"},
+    "stdDev": {"@id": "mls:stdDev", "@type": "xsd:float"},
+    "confidenceInterval": "mls:confidenceInterval",
+    "programmingLanguage": "schema:programmingLanguage",
+    "dateModified": {"@id": "schema:dateModified", "@type": "xsd:datetime"},
+    "documentationUrl": {"@id": "mls:documentationUrl", "@type": "xsd:anyURI"},
+    "codeRepository": {"@id": "mls:codeRepository", "@type": "xsd:anyURI"},
+    "framework": "mls:framework",
+    "dependencies": "mls:dependencies",
+    "executionCommand": "mls:executionCommand",
+    "entryPoint": "mls:entryPoint",
+    "commitHash": "mls:commitHash",
+    "branch": "mls:branch",
+    "dependenciesHash": "mls:dependenciesHash",
+    "packageName": "mls:packageName",
+    "isOptional": {"@id": "mls:isOptional", "@type": "xsd:boolean"},
+    "hardwareSpecs": "mls:hardwareSpecs",
+    "os": "mls:os",
+    "pythonVersion": "mls:pythonVersion",
+    "requirementsFile": "mls:requirementsFile",
+    "isDockerized": {"@id": "mls:isDockerized", "@type": "xsd:boolean"},
+    "startedAtTime": {"@id": "prov:startedAtTime", "@type": "xsd:datetime"},
+    "endedAtTime": {"@id": "prov:endedAtTime", "@type": "xsd:datetime"},
+    "transformationType": "mls:transformationType",
+    "codeReference": {"@id": "mls:codeReference", "@type": "xsd:anyURI"},
+    "runId": "mls:runId",
+    "logFile": {"@id": "mls:logFile", "@type": "xsd:anyURI"},
+    "split": "mls:split",
+    "onDatasetSplit": "mls:onDatasetSplit",
+    "format": "mls:format",
+    "artifactsLocation": {"@id": "mls:artifactsLocation", "@type": "xsd:anyURI"},
+    "hpCategory": "mls:hpCategory",
+    "hpType": "mls:hpType",
+    "searchSpace": "mls:searchSpace",
+    "uncertain": {"@id": "mls:uncertain", "@type": "xsd:boolean"},
+    "hasAuthor": {"@id": "mls:hasAuthor", "@type": "@id"},
+    "contains": {"@id": "mls:contains", "@type": "@id"},
+    "implements": {"@id": "mls:implements", "@type": "@id"},
+    "prov-affiliatedWith": {"@id": "mls:prov-affiliatedWith", "@type": "@id"},
+    "realizes": {"@id": "mls:realizes", "@type": "@id"},
+    "usesData": {"@id": "mls:usesData", "@type": "@id"},
+    "produces": {"@id": "mls:produces", "@type": "@id"},
+    "usesParameters": {"@id": "mls:usesParameters", "@type": "@id"},
+    "executes": {"@id": "mls:executes", "@type": "@id"},
+    "subDatasetOf": {"@id": "mls:subDatasetOf", "@type": "@id"},
+    "prov-derivedFrom": {"@id": "mls:prov-derivedFrom", "@type": "@id"},
+    "processedThrough": {"@id": "mls:processedThrough", "@type": "@id"},
+    "prov-uses": {"@id": "mls:prov-uses", "@type": "@id"},
+    "trainedOn": {"@id": "mls:trainedOn", "@type": "@id"},
+    "evaluatedOn": {"@id": "mls:evaluatedOn", "@type": "@id"},
+    "achieves": {"@id": "mls:achieves", "@type": "@id"},
+    "prov-producedBy": {"@id": "mls:prov-producedBy", "@type": "@id"},
+    "subMethod": {"@id": "mls:subMethod", "@type": "@id"},
+    "evaluates": {"@id": "mls:evaluates", "@type": "@id"},
+    "supports": {"@id": "mls:supports", "@type": "@id"},
+    "runsIn": {"@id": "mls:runsIn", "@type": "@id"},
+    "requires": {"@id": "mls:requires", "@type": "@id"},
+    "prov-executedBy": {"@id": "mls:prov-executedBy", "@type": "@id"},
+    "prov-generated": {"@id": "mls:prov-generated", "@type": "@id"},
+    "benchmarkedOn": {"@id": "mls:benchmarkedOn", "@type": "@id"},
+    "subTaskOf": {"@id": "mls:subTaskOf", "@type": "@id"},
+    "dependsOn": {"@id": "mls:dependsOn", "@type": "@id"},
+    "usedIn": {"@id": "mls:usedIn", "@type": "@id"},
+    "trains": {"@id": "mls:trains", "@type": "@id"},
+    "producedBy": {"@id": "mls:producedBy", "@type": "@id"},
+    "sourceFile": "mls:sourceFile",
+    "sourceLine": {"@id": "mls:sourceLine", "@type": "xsd:integer"},
+    "dependencyType": "mls:dependencyType",
+    "owner": "mls:owner",
+    "platform": "mls:platform",
+    "entryPointCommand": "mls:entryPointCommand",
+    "evaluationScript": "mls:evaluationScript",
+    "evaluationSplit": "mls:evaluationSplit",
+    "metricsFile": "mls:metricsFile",
+    "inputDataset": {"@id": "mls:inputDataset", "@type": "@id"},
+    "outputDataset": {"@id": "mls:outputDataset", "@type": "@id"},
+    "predictionFormat": "mls:predictionFormat",
+    "storageLocation": "mls:storageLocation",
+    "modelVersion": "mls:modelVersion",
+    "appliedTo": {"@id": "mls:appliedTo", "@type": "@id"},
+    "wasGeneratedBy": {"@id": "prov:wasGeneratedBy", "@type": "@id"},
+    "wasDerivedFrom": {"@id": "prov:wasDerivedFrom", "@type": "@id"},
+    "wasAssociatedWith": {"@id": "prov:wasAssociatedWith", "@type": "@id"},
+    "used": {"@id": "prov:used", "@type": "@id"},
+    "mls:hasSubExperiment": {"@id": "mls:hasSubExperiment", "@type": "@id"}
+  },
+  "@graph": [
+    {
+      "@id": "study:paq_65m_probably_asked_questions_2021",
+      "@type": "Study",
+      "mention": {
+        "start_char_doc": 13,
+        "end_char_doc": 83,
+        "prefix": "## Page 1 #",
+        "suffix": "Patrick Lewis†‡ Yuxiang Wu‡ Linqing",
+        "valueSource": "extracted"
+      },
+      "schema:title": {
+        "value": "PAQ: 65 Million Probably-Asked Questions and What You Can Do With Them",
+        "start_char_doc": 13,
+        "end_char_doc": 83,
+        "prefix": "## Page 1 #",
+        "suffix": "Patrick Lewis†‡ Yuxiang Wu‡ Linqing",
+        "valueSource": "extracted"
+      },
+      "schema:abstract": {
+        "value": "Open-domain Question Answering models which directly leverage question-answer (QA) pairs, such as closed-book QA (CBQA) models and QA-pair retrievers, show promise in terms of speed and memory compared to conventional models which retrieve and read from text corpora. QA-pair retrievers also offer interpretable answers, a high degree of control, and are trivial to update at test time with new knowledge. However, these models lack the accuracy of retrieve-and-read systems, as substantially less knowledge is covered by the available QA-pairs relative to text corpora like Wikipedia. To facilitate improved QA-pair models, we introduce Probably Asked Questions (PAQ), a very large resource of 65M automatically-generated QA-pairs. We introduce a new QA-pair retriever, RePAQ, to complement PAQ. We find that PAQ preempts and caches test questions, enabling RePAQ to match the accuracy of recent retrieve-and-read models, whilst being significantly faster. Using PAQ, we train CBQA models which outperform comparable baselines by 5%, but trail RePAQ by over 15%, indicating the effectiveness of explicit retrieval. RePAQ can be configured for size (under 500MB) or speed (over 1K questions per second) whilst retaining high accuracy. Lastly, we demonstrate RePAQ's strength at selective QA, abstaining from answering when it is likely to be incorrect. This enables RePAQ to \"back-off\" to a more expensive state-of-the-art model, leading to a combined system which is both more accurate and 2x faster than the state-of-the-art model alone.",
+        "start_char_doc": 372,
+        "end_char_doc": 1871,
+        "prefix": "## Abstract",
+        "suffix": "## 1 Introduction",
+        "valueSource": "extracted"
+      },
+      "schema:url": {
+        "value": "https://arxiv.org/abs/2102.07033v1",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:doi": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:citation": {
+        "value": "Lewis et al., 2021",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:publicationVenue": {
+        "value": "arXiv preprint",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:timestamp": {
+        "value": "2021-02-13",
+        "start_char_doc": 328,
+        "end_char_doc": 339,
+        "prefix": "plewis@fb.com <watermark>arXiv:2102.07033v1 [cs.CL]",
+        "suffix": "</watermark> ## Abstract Open-domain Question",
+        "valueSource": "extracted"
+      },
+      "hasAuthor": [
+        {"@id": "person:lewis_patrick"},
+        {"@id": "person:wu_yuxiang"},
+        {"@id": "person:liu_linqing"},
+        {"@id": "person:minervini_pasquale"},
+        {"@id": "person:kuttler_heinrich"},
+        {"@id": "person:piktus_aleksandra"},
+        {"@id": "person:stenetorp_pontus"},
+        {"@id": "person:riedel_sebastian"}
+      ],
+      "contains": [
+        {"@id": "expg:group_open_domain_qa_2021"}
+      ],
+      "implements": {"@id": "repo:facebookresearch_paq"}
+    },
+
+    {
+      "@id": "person:lewis_patrick",
+      "@type": "Person",
+      "mention": {
+        "start_char_doc": 85,
+        "end_char_doc": 98,
+        "prefix": "You Can Do With Them",
+        "suffix": "†‡ Yuxiang Wu‡ Linqing Liu‡",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "Patrick Lewis",
+        "start_char_doc": 85,
+        "end_char_doc": 98,
+        "prefix": "You Can Do With Them",
+        "suffix": "†‡ Yuxiang Wu‡ Linqing Liu‡",
+        "valueSource": "extracted"
+      },
+      "schema:email": {
+        "value": "plewis@fb.com",
+        "start_char_doc": 269,
+        "end_char_doc": 282,
+        "prefix": "AI Research ‡University College London",
+        "suffix": "<watermark>arXiv:2102.07033v1 [cs.CL] 13 Feb",
+        "valueSource": "extracted"
+      },
+      "schema:orcid": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "prov-affiliatedWith": [
+        {"@id": "org:facebook_ai_research"},
+        {"@id": "org:university_college_london"}
+      ]
+    },
+    {
+      "@id": "person:wu_yuxiang",
+      "@type": "Person",
+      "mention": {
+        "start_char_doc": 101,
+        "end_char_doc": 111,
+        "prefix": "Do With Them Patrick Lewis†‡",
+        "suffix": "‡ Linqing Liu‡ Pasquale Minervini‡",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "Yuxiang Wu",
+        "start_char_doc": 101,
+        "end_char_doc": 111,
+        "prefix": "Do With Them Patrick Lewis†‡",
+        "suffix": "‡ Linqing Liu‡ Pasquale Minervini‡",
+        "valueSource": "extracted"
+      },
+      "schema:email": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:orcid": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "prov-affiliatedWith": [
+        {"@id": "org:university_college_london"}
+      ]
+    },
+    {
+      "@id": "person:liu_linqing",
+      "@type": "Person",
+      "mention": {
+        "start_char_doc": 113,
+        "end_char_doc": 124,
+        "prefix": "Them Patrick Lewis†‡ Yuxiang Wu‡",
+        "suffix": "‡ Pasquale Minervini‡ Heinrich Küttler‡",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "Linqing Liu",
+        "start_char_doc": 113,
+        "end_char_doc": 124,
+        "prefix": "Them Patrick Lewis†‡ Yuxiang Wu‡",
+        "suffix": "‡ Pasquale Minervini‡ Heinrich Küttler‡",
+        "valueSource": "extracted"
+      },
+      "schema:email": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:orcid": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "prov-affiliatedWith": [
+        {"@id": "org:university_college_london"}
+      ]
+    },
+    {
+      "@id": "person:minervini_pasquale",
+      "@type": "Person",
+      "mention": {
+        "start_char_doc": 126,
+        "end_char_doc": 144,
+        "prefix": "Lewis†‡ Yuxiang Wu‡ Linqing Liu‡",
+        "suffix": "‡ Heinrich Küttler‡ Aleksandra Piktus†",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "Pasquale Minervini",
+        "start_char_doc": 126,
+        "end_char_doc": 144,
+        "prefix": "Lewis†‡ Yuxiang Wu‡ Linqing Liu‡",
+        "suffix": "‡ Heinrich Küttler‡ Aleksandra Piktus†",
+        "valueSource": "extracted"
+      },
+      "schema:email": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:orcid": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "prov-affiliatedWith": [
+        {"@id": "org:university_college_london"}
+      ]
+    },
+    {
+      "@id": "person:kuttler_heinrich",
+      "@type": "Person",
+      "mention": {
+        "start_char_doc": 146,
+        "end_char_doc": 162,
+        "prefix": "Wu‡ Linqing Liu‡ Pasquale Minervini‡",
+        "suffix": "‡ Aleksandra Piktus† Pontus Stenetorp‡",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "Heinrich Küttler",
+        "start_char_doc": 146,
+        "end_char_doc": 162,
+        "prefix": "Wu‡ Linqing Liu‡ Pasquale Minervini‡",
+        "suffix": "‡ Aleksandra Piktus† Pontus Stenetorp‡",
+        "valueSource": "extracted"
+      },
+      "schema:email": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:orcid": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "prov-affiliatedWith": [
+        {"@id": "org:university_college_london"}
+      ]
+    },
+    {
+      "@id": "person:piktus_aleksandra",
+      "@type": "Person",
+      "mention": {
+        "start_char_doc": 164,
+        "end_char_doc": 181,
+        "prefix": "Liu‡ Pasquale Minervini‡ Heinrich Küttler‡",
+        "suffix": "† Pontus Stenetorp‡ Sebastian Riedel‡‡",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "Aleksandra Piktus",
+        "start_char_doc": 164,
+        "end_char_doc": 181,
+        "prefix": "Liu‡ Pasquale Minervini‡ Heinrich Küttler‡",
+        "suffix": "† Pontus Stenetorp‡ Sebastian Riedel‡‡",
+        "valueSource": "extracted"
+      },
+      "schema:email": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:orcid": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "prov-affiliatedWith": [
+        {"@id": "org:facebook_ai_research"}
+      ]
+    },
+    {
+      "@id": "person:stenetorp_pontus",
+      "@type": "Person",
+      "mention": {
+        "start_char_doc": 183,
+        "end_char_doc": 199,
+        "prefix": "Minervini‡ Heinrich Küttler‡ Aleksandra Piktus†",
+        "suffix": "‡ Sebastian Riedel‡‡ †Facebook AI",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "Pontus Stenetorp",
+        "start_char_doc": 183,
+        "end_char_doc": 199,
+        "prefix": "Minervini‡ Heinrich Küttler‡ Aleksandra Piktus†",
+        "suffix": "‡ Sebastian Riedel‡‡ †Facebook AI",
+        "valueSource": "extracted"
+      },
+      "schema:email": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:orcid": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "prov-affiliatedWith": [
+        {"@id": "org:university_college_london"}
+      ]
+    },
+    {
+      "@id": "person:riedel_sebastian",
+      "@type": "Person",
+      "mention": {
+        "start_char_doc": 201,
+        "end_char_doc": 217,
+        "prefix": "Küttler‡ Aleksandra Piktus† Pontus Stenetorp‡",
+        "suffix": "‡‡ †Facebook AI Research ‡University",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "Sebastian Riedel",
+        "start_char_doc": 201,
+        "end_char_doc": 217,
+        "prefix": "Küttler‡ Aleksandra Piktus† Pontus Stenetorp‡",
+        "suffix": "‡‡ †Facebook AI Research ‡University",
+        "valueSource": "extracted"
+      },
+      "schema:email": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:orcid": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "prov-affiliatedWith": [
+        {"@id": "org:facebook_ai_research"},
+        {"@id": "org:university_college_london"}
+      ]
+    },
+
+    {
+      "@id": "org:facebook_ai_research",
+      "@type": "Organization",
+      "mention": {
+        "start_char_doc": 221,
+        "end_char_doc": 241,
+        "prefix": "Pontus Stenetorp‡ Sebastian Riedel‡‡ †",
+        "suffix": "‡University College London plewis@fb.com",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "Facebook AI Research",
+        "start_char_doc": 221,
+        "end_char_doc": 241,
+        "prefix": "Pontus Stenetorp‡ Sebastian Riedel‡‡ †",
+        "suffix": "‡University College London plewis@fb.com",
+        "valueSource": "extracted"
+      },
+      "schema:url": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:type": {
+        "value": "Research Lab",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "org:university_college_london",
+      "@type": "Organization",
+      "mention": {
+        "start_char_doc": 243,
+        "end_char_doc": 268,
+        "prefix": "Riedel‡‡ †Facebook AI Research ‡",
+        "suffix": "plewis@fb.com <watermark>arXiv:2102.07033v1 [cs.CL]",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "University College London",
+        "start_char_doc": 243,
+        "end_char_doc": 268,
+        "prefix": "Riedel‡‡ †Facebook AI Research ‡",
+        "suffix": "plewis@fb.com <watermark>arXiv:2102.07033v1 [cs.CL]",
+        "valueSource": "extracted"
+      },
+      "schema:url": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:type": {
+        "value": "University",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+
+    {
+      "@id": "task:open_domain_question_answering",
+      "@type": "MLS_Task",
+      "mention": {
+        "start_char_doc": 372,
+        "end_char_doc": 402,
+        "prefix": "## Abstract",
+        "suffix": "models which directly leverage question-answer",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "Open-domain Question Answering",
+        "start_char_doc": 372,
+        "end_char_doc": 402,
+        "prefix": "## Abstract",
+        "suffix": "models which directly leverage question-answer",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "The task of answering natural language factoid questions from an open set of domains",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:category": {
+        "value": "Question Answering",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:metrics": {
+        "value": "Exact Match",
+        "start_char_doc": 15442,
+        "end_char_doc": 15453,
+        "prefix": "training QA-pairs only, using validation",
+        "suffix": "score for early stopping (Rajpurkar",
+        "valueSource": "extracted"
+      },
+      "benchmarkedOn": [
+        {"@id": "dataset:natural_questions"},
+        {"@id": "dataset:triviaqa"}
+      ]
+    },
+
+    {
+      "@id": "dataset:natural_questions",
+      "@type": "MLS_Dataset",
+      "mention": {
+        "start_char_doc": 11005,
+        "end_char_doc": 11022,
+        "prefix": "and obtain positive passages from",
+        "suffix": "(NQ, Kwiatkowski et al., 2019b).",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "Natural Questions",
+        "start_char_doc": 11005,
+        "end_char_doc": 11022,
+        "prefix": "and obtain positive passages from",
+        "suffix": "(NQ, Kwiatkowski et al., 2019b).",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "A benchmark for question answering research with standard Open-Domain splits consisting of 79,168 train, 8,757 development, and 3,610 test question-answer pairs",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:numInstances": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:language": {
+        "value": "English",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:license": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:modality": {
+        "value": "text",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:numClasses": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "prov-derivedFrom": [
+        {"@id": "datasource:wikipedia_en"}
+      ]
+    },
+    {
+      "@id": "dataset:triviaqa",
+      "@type": "MLS_Dataset",
+      "mention": {
+        "start_char_doc": 5051,
+        "end_char_doc": 5059,
+        "prefix": "(Kwiatkowski et al., 2019a) and",
+        "suffix": "(Joshi et al., 2017). PAQ",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "TriviaQA",
+        "start_char_doc": 5051,
+        "end_char_doc": 5059,
+        "prefix": "(Kwiatkowski et al., 2019a) and",
+        "suffix": "(Joshi et al., 2017). PAQ",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "A large scale distantly supervised challenge dataset for reading comprehension",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:numInstances": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:language": {
+        "value": "English",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:license": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:modality": {
+        "value": "text",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:numClasses": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "prov-derivedFrom": [
+        {"@id": "datasource:wikipedia_en"}
+      ]
+    },
+    {
+      "@id": "dataset:squad",
+      "@type": "MLS_Dataset",
+      "mention": {
+        "start_char_doc": 13467,
+        "end_char_doc": 13472,
+        "prefix": "dataset from NQ, TriviaQA, and",
+        "suffix": ", and perform standard fine-tuning",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "SQuAD",
+        "start_char_doc": 13467,
+        "end_char_doc": 13472,
+        "prefix": "dataset from NQ, TriviaQA, and",
+        "suffix": ", and perform standard fine-tuning",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "100,000+ Questions for Machine Comprehension of Text",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:numInstances": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:language": {
+        "value": "English",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:license": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:modality": {
+        "value": "text",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:numClasses": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "prov-derivedFrom": []
+    },
+    {
+      "@id": "dataset:paq",
+      "@type": "MLS_Dataset",
+      "mention": {
+        "start_char_doc": 1011,
+        "end_char_doc": 1035,
+        "prefix": "QA-pair models, we introduce *",
+        "suffix": "* (PAQ), a very large",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "Probably Asked Questions (PAQ)",
+        "start_char_doc": 1011,
+        "end_char_doc": 1035,
+        "prefix": "QA-pair models, we introduce *",
+        "suffix": "* (PAQ), a very large",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "A very large resource of 65M automatically-generated QA-pairs, a semi-structured Knowledge Base of natural language QA-pairs automatically constructed using a question generation model and Wikipedia",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:numInstances": {
+        "value": "65000000",
+        "start_char_doc": 24020,
+        "end_char_doc": 24041,
+        "prefix": "Table 1, PAQ consists of",
+        "suffix": ".<sup>6</sup> This was obtained by",
+        "valueSource": "extracted"
+      },
+      "schema:language": {
+        "value": "English",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:license": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:modality": {
+        "value": "text",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:numClasses": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "prov-derivedFrom": [
+        {"@id": "datasource:wikipedia_en"}
+      ]
+    },
+
+    {
+      "@id": "datasource:wikipedia_en",
+      "@type": "DataSource",
+      "mention": {
+        "start_char_doc": 21545,
+        "end_char_doc": 21559,
+        "prefix": "in Section 3 to the",
+        "suffix": "from Karpukhin et al. (2020a),",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "Wikipedia dump",
+        "start_char_doc": 21545,
+        "end_char_doc": 21559,
+        "prefix": "in Section 3 to the",
+        "suffix": "from Karpukhin et al. (2020a),",
+        "valueSource": "extracted"
+      },
+      "schema:url": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:type": {
+        "value": "Encyclopedia corpus",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:license": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+
+    {
+      "@id": "method:paq_generation_pipeline",
+      "@type": "Method",
+      "mention": {
+        "start_char_doc": 1011,
+        "end_char_doc": 1035,
+        "prefix": "QA-pair models, we introduce *",
+        "suffix": "* (PAQ), a very large",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "PAQ Generation Pipeline",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:description": {
+        "value": "A pipeline for automatically generating QA-pairs from Wikipedia, consisting of passage selection, answer extraction, question generation, and global filtering components",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "trainedOn": [
+        {"@id": "dataset:natural_questions"},
+        {"@id": "dataset:triviaqa"},
+        {"@id": "dataset:squad"}
+      ],
+      "evaluatedOn": [
+        {"@id": "dataset:natural_questions"},
+        {"@id": "dataset:triviaqa"}
+      ],
+      "achieves": [],
+      "subMethod": [
+        {"@id": "model:repaq"},
+        {"@id": "model:bart_base_question_generator"},
+        {"@id": "model:roberta_passage_selector"},
+        {"@id": "model:fid_base_filter"}
+      ]
+    },
+
+    {
+      "@id": "model:repaq",
+      "@type": ["MLS_Model", "Method"],
+      "mention": {
+        "start_char_doc": 1145,
+        "end_char_doc": 1150,
+        "prefix": "introduce a new QA-pair retriever,",
+        "suffix": ", to complement PAQ. We",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "RePAQ",
+        "start_char_doc": 1145,
+        "end_char_doc": 1150,
+        "prefix": "introduce a new QA-pair retriever,",
+        "suffix": ", to complement PAQ. We",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "A QA-pair retriever model using dense Maximum Inner Product Search-based retrieval and optionally re-ranking, designed to retrieve from PAQ",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:architecture": {
+        "value": "Dense MIPS retriever with ALBERT encoder and optional ALBERT cross-encoder reranker",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:parameters": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "trainedOn": [
+        {"@id": "dataset:natural_questions"},
+        {"@id": "dataset:triviaqa"},
+        {"@id": "dataset:paq"}
+      ],
+      "evaluatedOn": [
+        {"@id": "dataset:natural_questions"},
+        {"@id": "dataset:triviaqa"}
+      ],
+      "achieves": [
+        {"@id": "eval:repaq_reranker_nq_em"},
+        {"@id": "eval:repaq_reranker_tqa_em"},
+        {"@id": "eval:repaq_retriever_nq_em"},
+        {"@id": "eval:repaq_multitask_reranker_nq_em"},
+        {"@id": "eval:repaq_multitask_reranker_tqa_em"},
+        {"@id": "eval:repaq_backoff_nq_em"},
+        {"@id": "eval:repaq_backoff_tqa_em"}
+      ],
+      "subMethod": [
+        {"@id": "model:albert_retriever"},
+        {"@id": "model:albert_reranker"}
+      ]
+    },
+    {
+      "@id": "model:albert_retriever",
+      "@type": ["MLS_Model", "Method"],
+      "mention": {
+        "start_char_doc": 18733,
+        "end_char_doc": 18739,
+        "prefix": "$g$. We implement $p_{ret}$ with",
+        "suffix": "(Lan et al., 2020) with",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "ALBERT retriever",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:description": {
+        "value": "Dense question embedder using ALBERT with output dimension of 768, trained with a latent variable approach similar to RAG",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:architecture": {
+        "value": "ALBERT encoder with 768-dimensional output",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:parameters": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "trainedOn": [
+        {"@id": "dataset:natural_questions"},
+        {"@id": "dataset:paq"}
+      ],
+      "evaluatedOn": [],
+      "achieves": [],
+      "subMethod": []
+    },
+    {
+      "@id": "model:albert_reranker",
+      "@type": ["MLS_Model", "Method"],
+      "mention": {
+        "start_char_doc": 21085,
+        "end_char_doc": 21099,
+        "prefix": "when using architectures such as",
+        "suffix": ". ## 5 Results We",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "ALBERT reranker",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:description": {
+        "value": "Cross-encoder reranker using ALBERT that scores concatenated input question, retrieved question and answer, trained with negative log likelihood on 10 negatives",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:architecture": {
+        "value": "ALBERT cross-encoder (up to xxlarge)",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:parameters": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "trainedOn": [
+        {"@id": "dataset:paq"}
+      ],
+      "evaluatedOn": [],
+      "achieves": [],
+      "subMethod": []
+    },
+    {
+      "@id": "model:bart_base_question_generator",
+      "@type": ["MLS_Model", "Method"],
+      "mention": {
+        "start_char_doc": 13510,
+        "end_char_doc": 13519,
+        "prefix": "and perform standard fine-tuning of",
+        "suffix": "(Lewis et al., 2019a) to",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "BART-base question generator",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:description": {
+        "value": "Question generation model fine-tuned from BART-base on NQ, TriviaQA, and SQuAD to generate questions given a passage and answer",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:architecture": {
+        "value": "BART-base seq2seq",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:parameters": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "trainedOn": [
+        {"@id": "dataset:natural_questions"},
+        {"@id": "dataset:triviaqa"},
+        {"@id": "dataset:squad"}
+      ],
+      "evaluatedOn": [],
+      "achieves": [],
+      "subMethod": []
+    },
+    {
+      "@id": "model:roberta_passage_selector",
+      "@type": ["MLS_Model", "Method"],
+      "mention": {
+        "start_char_doc": 10943,
+        "end_char_doc": 10950,
+        "prefix": "negatives. We implement $p_s$ with",
+        "suffix": "(Liu et al., 2019a) and",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "RoBERTa passage selector",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:description": {
+        "value": "Passage selection model based on RoBERTa-base that identifies passages likely to contain information humans may ask about, achieving 84.7% recall on NQ dev set",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:architecture": {
+        "value": "RoBERTa-base with MLP classifier on [CLS] token",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:parameters": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "trainedOn": [
+        {"@id": "dataset:natural_questions"}
+      ],
+      "evaluatedOn": [],
+      "achieves": [],
+      "subMethod": []
+    },
+    {
+      "@id": "model:fid_base_filter",
+      "@type": ["MLS_Model", "Method"],
+      "mention": {
+        "start_char_doc": 14461,
+        "end_char_doc": 14469,
+        "prefix": "strong downstream results. We use",
+        "suffix": "with 50 retrieved passages, trained",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "FiD-base global filter",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:description": {
+        "value": "FiD-base model with 50 retrieved passages used for global filtering of generated QA-pairs, trained on NQ",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:architecture": {
+        "value": "Fusion-in-Decoder base",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:parameters": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "trainedOn": [
+        {"@id": "dataset:natural_questions"}
+      ],
+      "evaluatedOn": [],
+      "achieves": [],
+      "subMethod": []
+    },
+    {
+      "@id": "model:bart_large_cbqa",
+      "@type": ["MLS_Model", "Method"],
+      "mention": {
+        "start_char_doc": 15016,
+        "end_char_doc": 15026,
+        "prefix": "Closed-Book QA We fine-tune a",
+        "suffix": "(Lewis et al., 2019a) with",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "BART-large CBQA",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:description": {
+        "value": "BART-large fine-tuned on PAQ and NQ for closed-book question answering, using batch size of 512 and 70 epochs on PAQ",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:architecture": {
+        "value": "BART-large seq2seq",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:parameters": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "trainedOn": [
+        {"@id": "dataset:natural_questions"},
+        {"@id": "dataset:paq"}
+      ],
+      "evaluatedOn": [
+        {"@id": "dataset:natural_questions"},
+        {"@id": "dataset:triviaqa"}
+      ],
+      "achieves": [
+        {"@id": "eval:bart_large_cbqa_nq_em"},
+        {"@id": "eval:bart_large_cbqa_tqa_em"}
+      ],
+      "subMethod": []
+    },
+
+    {
+      "@id": "eval:repaq_reranker_nq_em",
+      "@type": "MLS_Eval",
+      "mention": {
+        "start_char_doc": 26834,
+        "end_char_doc": 26838,
+        "prefix": "for RePAQ on NQ (",
+        "suffix": "%, row 9), outperforming recent",
+        "valueSource": "extracted"
+      },
+      "mls:measure": {
+        "value": "Exact Match",
+        "start_char_doc": 15442,
+        "end_char_doc": 15453,
+        "prefix": "training QA-pairs only, using validation",
+        "suffix": "score for early stopping (Rajpurkar",
+        "valueSource": "extracted"
+      },
+      "mls:hasValue": {
+        "value": 47.7,
+        "start_char_doc": 26834,
+        "end_char_doc": 26838,
+        "prefix": "for RePAQ on NQ (",
+        "suffix": "%, row 9), outperforming recent",
+        "valueSource": "extracted"
+      },
+      "mls:stdDev": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:confidenceInterval": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:onDataset": {"@id": "dataset:natural_questions"}
+    },
+    {
+      "@id": "eval:repaq_reranker_tqa_em",
+      "@type": "MLS_Eval",
+      "mention": {
+        "start_char_doc": 30126,
+        "end_char_doc": 30130,
+        "prefix": "et al., 2021)</td> <td>40.9</td> <td>",
+        "suffix": "</td> </tr> <tr> <td>7</td> <td>Closed-book</td>",
+        "valueSource": "extracted"
+      },
+      "mls:measure": {
+        "value": "Exact Match",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": 50.7,
+        "start_char_doc": 30126,
+        "end_char_doc": 30130,
+        "prefix": "et al., 2021)</td> <td>40.9</td> <td>",
+        "suffix": "</td> </tr> <tr> <td>7</td> <td>Closed-book</td>",
+        "valueSource": "extracted"
+      },
+      "mls:stdDev": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:confidenceInterval": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:onDataset": {"@id": "dataset:triviaqa"}
+    },
+    {
+      "@id": "eval:repaq_retriever_nq_em",
+      "@type": "MLS_Eval",
+      "mention": {
+        "start_char_doc": 30404,
+        "end_char_doc": 30408,
+        "prefix": "retriever</td> <td>RePAQ (retriever only)</td> <td>",
+        "suffix": "</td> <td>38.8</td> </tr> <tr>",
+        "valueSource": "extracted"
+      },
+      "mls:measure": {
+        "value": "Exact Match",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": 41.2,
+        "start_char_doc": 30404,
+        "end_char_doc": 30408,
+        "prefix": "retriever</td> <td>RePAQ (retriever only)</td> <td>",
+        "suffix": "</td> <td>38.8</td> </tr> <tr>",
+        "valueSource": "extracted"
+      },
+      "mls:stdDev": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:confidenceInterval": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:onDataset": {"@id": "dataset:natural_questions"}
+    },
+    {
+      "@id": "eval:repaq_multitask_reranker_nq_em",
+      "@type": "MLS_Eval",
+      "mention": {
+        "start_char_doc": 30865,
+        "end_char_doc": 30869,
+        "prefix": "retriever</td> <td>RePAQ-multitask (with reranker)</td> <td>",
+        "suffix": "</td> <td>52.1</td> </tr> <tr>",
+        "valueSource": "extracted"
+      },
+      "mls:measure": {
+        "value": "Exact Match",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": 47.6,
+        "start_char_doc": 30865,
+        "end_char_doc": 30869,
+        "prefix": "retriever</td> <td>RePAQ-multitask (with reranker)</td> <td>",
+        "suffix": "</td> <td>52.1</td> </tr> <tr>",
+        "valueSource": "extracted"
+      },
+      "mls:stdDev": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:confidenceInterval": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:onDataset": {"@id": "dataset:natural_questions"}
+    },
+    {
+      "@id": "eval:repaq_multitask_reranker_tqa_em",
+      "@type": "MLS_Eval",
+      "mention": {
+        "start_char_doc": 30885,
+        "end_char_doc": 30889,
+        "prefix": "<td>RePAQ-multitask (with reranker)</td> <td>47.6</td> <td>",
+        "suffix": "</td> </tr> <tr> <td>12</td> <td>QA-pair",
+        "valueSource": "extracted"
+      },
+      "mls:measure": {
+        "value": "Exact Match",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": 52.1,
+        "start_char_doc": 30885,
+        "end_char_doc": 30889,
+        "prefix": "<td>RePAQ-multitask (with reranker)</td> <td>47.6</td> <td>",
+        "suffix": "</td> </tr> <tr> <td>12</td> <td>QA-pair",
+        "valueSource": "extracted"
+      },
+      "mls:stdDev": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:confidenceInterval": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:onDataset": {"@id": "dataset:triviaqa"}
+    },
+    {
+      "@id": "eval:repaq_backoff_nq_em",
+      "@type": "MLS_Eval",
+      "mention": {
+        "start_char_doc": 31026,
+        "end_char_doc": 31030,
+        "prefix": "retriever</td> <td>RePAQ-multitask w/FiD-Large Backoff</td> <td>",
+        "suffix": "</td> <td>67.3</td> </tr> </tbody>",
+        "valueSource": "extracted"
+      },
+      "mls:measure": {
+        "value": "Exact Match",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": 52.3,
+        "start_char_doc": 31026,
+        "end_char_doc": 31030,
+        "prefix": "retriever</td> <td>RePAQ-multitask w/FiD-Large Backoff</td> <td>",
+        "suffix": "</td> <td>67.3</td> </tr> </tbody>",
+        "valueSource": "extracted"
+      },
+      "mls:stdDev": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:confidenceInterval": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:onDataset": {"@id": "dataset:natural_questions"}
+    },
+    {
+      "@id": "eval:repaq_backoff_tqa_em",
+      "@type": "MLS_Eval",
+      "mention": {
+        "start_char_doc": 31046,
+        "end_char_doc": 31050,
+        "prefix": "<td>RePAQ-multitask w/FiD-Large Backoff</td> <td>52.3</td> <td>",
+        "suffix": "</td> </tr> </tbody> </table> Table",
+        "valueSource": "extracted"
+      },
+      "mls:measure": {
+        "value": "Exact Match",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": 67.3,
+        "start_char_doc": 31046,
+        "end_char_doc": 31050,
+        "prefix": "<td>RePAQ-multitask w/FiD-Large Backoff</td> <td>52.3</td> <td>",
+        "suffix": "</td> </tr> </tbody> </table> Table",
+        "valueSource": "extracted"
+      },
+      "mls:stdDev": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:confidenceInterval": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:onDataset": {"@id": "dataset:triviaqa"}
+    },
+    {
+      "@id": "eval:bart_large_cbqa_nq_em",
+      "@type": "MLS_Eval",
+      "mention": {
+        "start_char_doc": 30257,
+        "end_char_doc": 30261,
+        "prefix": "<td>BART-large, pre-finetuned on PAQ</td> <td>",
+        "suffix": "</td> <td>33.2</td> </tr> <tr>",
+        "valueSource": "extracted"
+      },
+      "mls:measure": {
+        "value": "Exact Match",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": 32.7,
+        "start_char_doc": 30257,
+        "end_char_doc": 30261,
+        "prefix": "<td>BART-large, pre-finetuned on PAQ</td> <td>",
+        "suffix": "</td> <td>33.2</td> </tr> <tr>",
+        "valueSource": "extracted"
+      },
+      "mls:stdDev": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:confidenceInterval": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:onDataset": {"@id": "dataset:natural_questions"}
+    },
+    {
+      "@id": "eval:bart_large_cbqa_tqa_em",
+      "@type": "MLS_Eval",
+      "mention": {
+        "start_char_doc": 30277,
+        "end_char_doc": 30281,
+        "prefix": "pre-finetuned on PAQ</td> <td>32.7</td> <td>",
+        "suffix": "</td> </tr> <tr> <td>8</td> <td>QA-pair",
+        "valueSource": "extracted"
+      },
+      "mls:measure": {
+        "value": "Exact Match",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": 33.2,
+        "start_char_doc": 30277,
+        "end_char_doc": 30281,
+        "prefix": "pre-finetuned on PAQ</td> <td>32.7</td> <td>",
+        "suffix": "</td> </tr> <tr> <td>8</td> <td>QA-pair",
+        "valueSource": "extracted"
+      },
+      "mls:stdDev": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:confidenceInterval": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:onDataset": {"@id": "dataset:triviaqa"}
+    },
+
+    {
+      "@id": "repo:facebookresearch_paq",
+      "@type": "SoftwareRepository",
+      "mention": {
+        "start_char_doc": 8827,
+        "end_char_doc": 8866,
+        "prefix": "will be made available at",
+        "suffix": "--- ## Page 3",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "facebookresearch/PAQ",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:url": {
+        "value": "https://github.com/facebookresearch/PAQ",
+        "start_char_doc": 8827,
+        "end_char_doc": 8866,
+        "prefix": "will be made available at",
+        "suffix": "--- ## Page 3",
+        "valueSource": "extracted"
+      },
+      "schema:version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:programmingLanguage": {
+        "value": "Python",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:dateModified": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:license": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:documentationUrl": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "contains": [
+        {"@id": "impl:paq_pytorch_fairseq"}
+      ],
+      "supports": [
+        {"@id": "env:nvidia_v100_pytorch"}
+      ]
+    },
+
+    {
+      "@id": "impl:paq_pytorch_fairseq",
+      "@type": "MLS_Implementation",
+      "mention": {
+        "start_char_doc": 74880,
+        "end_char_doc": 74887,
+        "prefix": "RePAQ retrievers were trained using",
+        "suffix": "(Ott et al., 2019), and",
+        "valueSource": "extracted"
+      },
+      "schema:identifier": {
+        "value": "PAQ PyTorch/Fairseq Implementation",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:codeRepository": {
+        "value": "https://github.com/facebookresearch/PAQ",
+        "start_char_doc": 8827,
+        "end_char_doc": 8866,
+        "prefix": "will be made available at",
+        "suffix": "--- ## Page 3",
+        "valueSource": "extracted"
+      },
+      "mls:framework": {
+        "value": "PyTorch, Fairseq, HuggingFace Transformers",
+        "start_char_doc": 72183,
+        "end_char_doc": 72251,
+        "prefix": "parallel. Models are implemented in",
+        "suffix": ". Measurements are repeated 3",
+        "valueSource": "extracted"
+      },
+      "mls:executionCommand": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:entryPoint": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:branch": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "runsIn": {"@id": "env:nvidia_v100_pytorch"},
+      "requires": [
+        {"@id": "dep:pytorch"},
+        {"@id": "dep:fairseq"},
+        {"@id": "dep:transformers"},
+        {"@id": "dep:faiss"}
+      ]
+    },
+
+    {
+      "@id": "dep:pytorch",
+      "@type": "Dependency",
+      "mention": {
+        "start_char_doc": 72183,
+        "end_char_doc": 72190,
+        "prefix": "parallel. Models are implemented in",
+        "suffix": "(Paszke et al., 2019) using",
+        "valueSource": "extracted"
+      },
+      "mls:packageName": {
+        "value": "PyTorch",
+        "start_char_doc": 72183,
+        "end_char_doc": 72190,
+        "prefix": "parallel. Models are implemented in",
+        "suffix": "(Paszke et al., 2019) using",
+        "valueSource": "extracted"
+      },
+      "mls:version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:type": {
+        "value": "Deep Learning Framework",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:isOptional": {
+        "value": false,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "dep:fairseq",
+      "@type": "Dependency",
+      "mention": {
+        "start_char_doc": 74880,
+        "end_char_doc": 74887,
+        "prefix": "RePAQ retrievers were trained using",
+        "suffix": "(Ott et al., 2019), and",
+        "valueSource": "extracted"
+      },
+      "mls:packageName": {
+        "value": "Fairseq",
+        "start_char_doc": 74880,
+        "end_char_doc": 74887,
+        "prefix": "RePAQ retrievers were trained using",
+        "suffix": "(Ott et al., 2019), and",
+        "valueSource": "extracted"
+      },
+      "mls:version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:type": {
+        "value": "Sequence Modeling Toolkit",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:isOptional": {
+        "value": false,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "dep:transformers",
+      "@type": "Dependency",
+      "mention": {
+        "start_char_doc": 72219,
+        "end_char_doc": 72251,
+        "prefix": "(Paszke et al., 2019) using",
+        "suffix": ". Measurements are repeated 3",
+        "valueSource": "extracted"
+      },
+      "mls:packageName": {
+        "value": "HuggingFace Transformers",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:type": {
+        "value": "NLP Library",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:isOptional": {
+        "value": false,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "dep:faiss",
+      "@type": "Dependency",
+      "mention": {
+        "start_char_doc": 19802,
+        "end_char_doc": 19807,
+        "prefix": "Efficient MIPS libraries such as",
+        "suffix": "(Johnson et al., 2017) enable",
+        "valueSource": "extracted"
+      },
+      "mls:packageName": {
+        "value": "FAISS",
+        "start_char_doc": 19802,
+        "end_char_doc": 19807,
+        "prefix": "Efficient MIPS libraries such as",
+        "suffix": "(Johnson et al., 2017) enable",
+        "valueSource": "extracted"
+      },
+      "mls:version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:type": {
+        "value": "Similarity Search Library",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:isOptional": {
+        "value": false,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+
+    {
+      "@id": "env:nvidia_v100_pytorch",
+      "@type": "Environment",
+      "mention": {
+        "start_char_doc": 74732,
+        "end_char_doc": 74755,
+        "prefix": "days on a machine with",
+        "suffix": ". Validation Exact match score",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "NVIDIA V100 GPU cluster with PyTorch",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:description": {
+        "value": "Machine learning workstation with 80 CPU cores, 512GB CPU RAM, and 8 NVIDIA 32GB V100 GPUs",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hardwareSpecs": {
+        "value": "8 NVIDIA 32GB V100 GPUs, 80 CPU cores, 512GB CPU RAM",
+        "start_char_doc": 74732,
+        "end_char_doc": 74755,
+        "prefix": "days on a machine with",
+        "suffix": ". Validation Exact match score",
+        "valueSource": "extracted"
+      },
+      "mls:os": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:pythonVersion": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:requirementsFile": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:isDockerized": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+
+    {
+      "@id": "hp:batch_size_cbqa",
+      "@type": "MLS_HyperParameter",
+      "hpCategory": "HP_Training",
+      "hpType": "BatchSize",
+      "uncertain": false,
+      "mention": {
+        "start_char_doc": 15227,
+        "end_char_doc": 15244,
+        "prefix": "the validation set and a",
+        "suffix": ", and note learning is",
+        "valueSource": "extracted"
+      },
+      "mls:name": {
+        "value": "batch size",
+        "start_char_doc": 15227,
+        "end_char_doc": 15237,
+        "prefix": "the validation set and a",
+        "suffix": "of 512, and note learning",
+        "valueSource": "extracted"
+      },
+      "mls:hasValue": {
+        "value": "512",
+        "start_char_doc": 15241,
+        "end_char_doc": 15244,
+        "prefix": "and a batch size of",
+        "suffix": ", and note learning is",
+        "valueSource": "extracted"
+      },
+      "mls:wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:type": {
+        "value": "integer",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:searchSpace": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "hp:num_epochs_cbqa",
+      "@type": "MLS_HyperParameter",
+      "hpCategory": "HP_Training",
+      "hpType": "NumEpochs",
+      "uncertain": false,
+      "mention": {
+        "start_char_doc": 15283,
+        "end_char_doc": 15292,
+        "prefix": "note learning is slow, requiring",
+        "suffix": "on PAQ. Following recent best",
+        "valueSource": "extracted"
+      },
+      "mls:name": {
+        "value": "epochs",
+        "start_char_doc": 15286,
+        "end_char_doc": 15292,
+        "prefix": "is slow, requiring 70",
+        "suffix": "on PAQ. Following recent best",
+        "valueSource": "extracted"
+      },
+      "mls:hasValue": {
+        "value": "70",
+        "start_char_doc": 15283,
+        "end_char_doc": 15285,
+        "prefix": "note learning is slow, requiring",
+        "suffix": "epochs on PAQ. Following recent",
+        "valueSource": "extracted"
+      },
+      "mls:wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:type": {
+        "value": "integer",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:searchSpace": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "hp:learning_rate_cbqa_max",
+      "@type": "MLS_HyperParameter",
+      "hpCategory": "HP_Optimization",
+      "hpType": "LearningRate",
+      "uncertain": false,
+      "mention": {
+        "start_char_doc": 75270,
+        "end_char_doc": 75304,
+        "prefix": "but learning became unstable with",
+        "suffix": ".",
+        "valueSource": "extracted"
+      },
+      "mls:name": {
+        "value": "learning rate (max stable)",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "0.0001",
+        "start_char_doc": 75298,
+        "end_char_doc": 75304,
+        "prefix": "with learning rates greater than",
+        "suffix": ".",
+        "valueSource": "extracted"
+      },
+      "mls:wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:type": {
+        "value": "float",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:searchSpace": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "hp:embedding_dim_retriever",
+      "@type": "MLS_HyperParameter",
+      "hpCategory": "HP_Architecture",
+      "hpType": "EmbeddingDim",
+      "uncertain": false,
+      "mention": {
+        "start_char_doc": 18767,
+        "end_char_doc": 18790,
+        "prefix": "et al., 2020) with an",
+        "suffix": ", and $p_{gen}$ with BART-large",
+        "valueSource": "extracted"
+      },
+      "mls:name": {
+        "value": "output dimension",
+        "start_char_doc": 18767,
+        "end_char_doc": 18783,
+        "prefix": "et al., 2020) with an",
+        "suffix": "of 768, and $p_{gen}$ with",
+        "valueSource": "extracted"
+      },
+      "mls:hasValue": {
+        "value": "768",
+        "start_char_doc": 18787,
+        "end_char_doc": 18790,
+        "prefix": "with an output dimension of",
+        "suffix": ", and $p_{gen}$ with BART-large",
+        "valueSource": "extracted"
+      },
+      "mls:wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:type": {
+        "value": "integer",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:searchSpace": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "hp:top_k_retrieval_training",
+      "@type": "MLS_HyperParameter",
+      "hpCategory": "HP_Training",
+      "hpType": "HP_Training",
+      "uncertain": true,
+      "mention": {
+        "start_char_doc": 18864,
+        "end_char_doc": 18890,
+        "prefix": "2019a). We train using the",
+        "suffix": ", and refresh the embedding",
+        "valueSource": "extracted"
+      },
+      "mls:name": {
+        "value": "top-K retrieved QA-pairs for training",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "100",
+        "start_char_doc": 18868,
+        "end_char_doc": 18871,
+        "prefix": "We train using the top",
+        "suffix": "retrieved QA-pairs, and refresh the",
+        "valueSource": "extracted"
+      },
+      "mls:wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:type": {
+        "value": "integer",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:searchSpace": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "hp:max_span_length_answer_extraction",
+      "@type": "MLS_HyperParameter",
+      "hpCategory": "HP_Data",
+      "hpType": "MaxSequenceLength",
+      "uncertain": false,
+      "mention": {
+        "start_char_doc": 12921,
+        "end_char_doc": 12930,
+        "prefix": "possible spans of up to",
+        "suffix": ", before feeding them into",
+        "valueSource": "extracted"
+      },
+      "mls:name": {
+        "value": "max answer span length",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "30",
+        "start_char_doc": 12928,
+        "end_char_doc": 12930,
+        "prefix": "all possible spans of up to length",
+        "suffix": ", before feeding them into",
+        "valueSource": "extracted"
+      },
+      "mls:wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:type": {
+        "value": "integer",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:searchSpace": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "hp:beam_size_question_generation",
+      "@type": "MLS_HyperParameter",
+      "hpCategory": "HP_Training",
+      "hpType": "HP_Training",
+      "uncertain": true,
+      "mention": {
+        "start_char_doc": 23408,
+        "end_char_doc": 23422,
+        "prefix": "per passage and use a",
+        "suffix": "for question generation. In",
+        "valueSource": "extracted"
+      },
+      "mls:name": {
+        "value": "beam size",
+        "start_char_doc": 23408,
+        "end_char_doc": 23417,
+        "prefix": "per passage and use a",
+        "suffix": "of 4 for question generation.",
+        "valueSource": "extracted"
+      },
+      "mls:hasValue": {
+        "value": "4",
+        "start_char_doc": 23421,
+        "end_char_doc": 23422,
+        "prefix": "and use a beam size of",
+        "suffix": "for question generation. In",
+        "valueSource": "extracted"
+      },
+      "mls:wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:type": {
+        "value": "integer",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:searchSpace": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "hp:answers_per_passage",
+      "@type": "MLS_HyperParameter",
+      "hpCategory": "HP_Data",
+      "hpType": "HP_Data",
+      "uncertain": true,
+      "mention": {
+        "start_char_doc": 23376,
+        "end_char_doc": 23397,
+        "prefix": "NQ and TriviaQA. We extract",
+        "suffix": "and use a beam size",
+        "valueSource": "extracted"
+      },
+      "mls:name": {
+        "value": "answers per passage",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "8",
+        "start_char_doc": 23376,
+        "end_char_doc": 23377,
+        "prefix": "NQ and TriviaQA. We extract",
+        "suffix": "answers per passage and use",
+        "valueSource": "extracted"
+      },
+      "mls:wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:type": {
+        "value": "integer",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:searchSpace": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "hp:num_negatives_reranker",
+      "@type": "MLS_HyperParameter",
+      "hpCategory": "HP_Training",
+      "hpType": "HP_Training",
+      "uncertain": true,
+      "mention": {
+        "start_char_doc": 20808,
+        "end_char_doc": 20820,
+        "prefix": "likelihood of positives relative to",
+        "suffix": ", and rerank 50 retrieved",
+        "valueSource": "extracted"
+      },
+      "mls:name": {
+        "value": "number of negatives for reranker training",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "10",
+        "start_char_doc": 20808,
+        "end_char_doc": 20810,
+        "prefix": "likelihood of positives relative to",
+        "suffix": "negatives, and rerank 50 retrieved",
+        "valueSource": "extracted"
+      },
+      "mls:wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:type": {
+        "value": "integer",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:searchSpace": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "hp:rerank_top_k",
+      "@type": "MLS_HyperParameter",
+      "hpCategory": "HP_Training",
+      "hpType": "HP_Training",
+      "uncertain": true,
+      "mention": {
+        "start_char_doc": 20826,
+        "end_char_doc": 20851,
+        "prefix": "relative to 10 negatives, and",
+        "suffix": "at test time. The reranker",
+        "valueSource": "extracted"
+      },
+      "mls:name": {
+        "value": "rerank top-K at test time",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "50",
+        "start_char_doc": 20833,
+        "end_char_doc": 20835,
+        "prefix": "10 negatives, and rerank",
+        "suffix": "retrieved pairs at test time.",
+        "valueSource": "extracted"
+      },
+      "mls:wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:type": {
+        "value": "integer",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:searchSpace": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "hp:index_refresh_interval",
+      "@type": "MLS_HyperParameter",
+      "hpCategory": "HP_Training",
+      "hpType": "HP_Training",
+      "uncertain": true,
+      "mention": {
+        "start_char_doc": 18896,
+        "end_char_doc": 18946,
+        "prefix": "top 100 retrieved QA-pairs, and",
+        "suffix": ". Once the embedder $g_q$",
+        "valueSource": "extracted"
+      },
+      "mls:name": {
+        "value": "embedding index refresh interval",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "5",
+        "start_char_doc": 18939,
+        "end_char_doc": 18940,
+        "prefix": "refresh the embedding index every",
+        "suffix": "training steps. Once the embedder",
+        "valueSource": "extracted"
+      },
+      "mls:wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:type": {
+        "value": "integer",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:searchSpace": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "hp:passage_length",
+      "@type": "MLS_HyperParameter",
+      "hpCategory": "HP_Data",
+      "hpType": "MaxSequenceLength",
+      "uncertain": false,
+      "mention": {
+        "start_char_doc": 21619,
+        "end_char_doc": 21636,
+        "prefix": "(2020a), which splits Wikipedia into",
+        "suffix": ". We use passage selection",
+        "valueSource": "extracted"
+      },
+      "mls:name": {
+        "value": "passage length",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "100",
+        "start_char_doc": 21619,
+        "end_char_doc": 21622,
+        "prefix": "(2020a), which splits Wikipedia into",
+        "suffix": "-word passages. We use passage",
+        "valueSource": "extracted"
+      },
+      "mls:wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:type": {
+        "value": "integer",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:searchSpace": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+
+    {
+      "@id": "expg:group_open_domain_qa_2021",
+      "@type": "mls:ExperimentGroup",
+      "mention": {
+        "start_char_doc": 21101,
+        "end_char_doc": 21114,
+        "prefix": "ALBERT-xxlarge. ## 5 Results",
+        "suffix": "first examine the PAQ resource",
+        "valueSource": "extracted"
+      },
+      "mls:hypothesis": {
+        "value": "Massively expanding the coverage of QA-pairs via PAQ enables CBQA and QA-pair retriever models which are competitive with retrieve-and-read models in terms of accuracy, while offering advantages in speed, memory, and interpretability",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:methodology": {
+        "value": "Evaluate RePAQ (retriever and reranker configurations) and BART-large CBQA models trained on PAQ against state-of-the-art retrieve-and-read systems on NQ and TriviaQA using Exact Match score",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:evaluationMeasure": {"@id": "eval:repaq_reranker_nq_em"},
+      "mls:task": {"@id": "task:open_domain_question_answering"},
+      "mls:hasSubExperiment": [
+        {
+          "@id": "exp:repaq_reranker_natural_questions",
+          "@type": "mls:Experiment",
+          "mention": {
+            "start_char_doc": 26834,
+            "end_char_doc": 26838,
+            "prefix": "for RePAQ on NQ (",
+            "suffix": "%, row 9), outperforming recent",
+            "valueSource": "extracted"
+          },
+          "schema:description": {
+            "value": "RePAQ with reranker evaluated on NaturalQuestions, achieving 47.7% Exact Match",
+            "start_char_doc": null,
+            "end_char_doc": null,
+            "prefix": null,
+            "suffix": null,
+            "valueSource": "inferred"
+          },
+          "realizes": [{"@id": "task:open_domain_question_answering"}],
+          "usesData": [{"@id": "dataset:natural_questions"}, {"@id": "dataset:paq"}],
+          "produces": [{"@id": "model:repaq"}],
+          "usesParameters": [
+            {"@id": "hp:embedding_dim_retriever"},
+            {"@id": "hp:top_k_retrieval_training"},
+            {"@id": "hp:num_negatives_reranker"},
+            {"@id": "hp:rerank_top_k"},
+            {"@id": "hp:index_refresh_interval"}
+          ],
+          "executes": [{"@id": "impl:paq_pytorch_fairseq"}],
+          "mls:result": {
+            "value": "47.7% Exact Match on NQ",
+            "start_char_doc": 26834,
+            "end_char_doc": 26838,
+            "prefix": "for RePAQ on NQ (",
+            "suffix": "%, row 9), outperforming recent",
+            "valueSource": "extracted"
+          }
+        },
+        {
+          "@id": "exp:repaq_reranker_triviaqa",
+          "@type": "mls:Experiment",
+          "mention": {
+            "start_char_doc": 30126,
+            "end_char_doc": 30130,
+            "prefix": "et al., 2021)</td> <td>40.9</td> <td>",
+            "suffix": "</td> </tr> <tr> <td>7</td>",
+            "valueSource": "extracted"
+          },
+          "schema:description": {
+            "value": "RePAQ with reranker evaluated on TriviaQA, achieving 50.7% Exact Match",
+            "start_char_doc": null,
+            "end_char_doc": null,
+            "prefix": null,
+            "suffix": null,
+            "valueSource": "inferred"
+          },
+          "realizes": [{"@id": "task:open_domain_question_answering"}],
+          "usesData": [{"@id": "dataset:triviaqa"}, {"@id": "dataset:paq"}],
+          "produces": [{"@id": "model:repaq"}],
+          "usesParameters": [
+            {"@id": "hp:embedding_dim_retriever"},
+            {"@id": "hp:top_k_retrieval_training"},
+            {"@id": "hp:num_negatives_reranker"},
+            {"@id": "hp:rerank_top_k"},
+            {"@id": "hp:index_refresh_interval"}
+          ],
+          "executes": [{"@id": "impl:paq_pytorch_fairseq"}],
+          "mls:result": {
+            "value": "50.7% Exact Match on TriviaQA",
+            "start_char_doc": 30126,
+            "end_char_doc": 30130,
+            "prefix": "et al., 2021)</td> <td>40.9</td> <td>",
+            "suffix": "</td> </tr> <tr> <td>7</td>",
+            "valueSource": "extracted"
+          }
+        },
+        {
+          "@id": "exp:repaq_backoff_natural_questions",
+          "@type": "mls:Experiment",
+          "mention": {
+            "start_char_doc": 31026,
+            "end_char_doc": 31030,
+            "prefix": "retriever</td> <td>RePAQ-multitask w/FiD-Large Backoff</td> <td>",
+            "suffix": "</td> <td>67.3</td> </tr>",
+            "valueSource": "extracted"
+          },
+          "schema:description": {
+            "value": "RePAQ-multitask with FiD-Large backoff evaluated on NQ, achieving 52.3% Exact Match, being 2.1x faster than FiD-large alone",
+            "start_char_doc": null,
+            "end_char_doc": null,
+            "prefix": null,
+            "suffix": null,
+            "valueSource": "inferred"
+          },
+          "realizes": [{"@id": "task:open_domain_question_answering"}],
+          "usesData": [{"@id": "dataset:natural_questions"}, {"@id": "dataset:paq"}],
+          "produces": [{"@id": "model:repaq"}],
+          "usesParameters": [],
+          "executes": [{"@id": "impl:paq_pytorch_fairseq"}],
+          "mls:result": {
+            "value": "52.3% Exact Match on NQ",
+            "start_char_doc": 31026,
+            "end_char_doc": 31030,
+            "prefix": "retriever</td> <td>RePAQ-multitask w/FiD-Large Backoff</td> <td>",
+            "suffix": "</td> <td>67.3</td> </tr>",
+            "valueSource": "extracted"
+          }
+        },
+        {
+          "@id": "exp:bart_large_cbqa_natural_questions",
+          "@type": "mls:Experiment",
+          "mention": {
+            "start_char_doc": 30257,
+            "end_char_doc": 30261,
+            "prefix": "<td>BART-large, pre-finetuned on PAQ</td> <td>",
+            "suffix": "</td> <td>33.2</td> </tr>",
+            "valueSource": "extracted"
+          },
+          "schema:description": {
+            "value": "BART-large CBQA model pre-finetuned on PAQ and then finetuned on NQ, achieving 32.7% Exact Match on NQ",
+            "start_char_doc": null,
+            "end_char_doc": null,
+            "prefix": null,
+            "suffix": null,
+            "valueSource": "inferred"
+          },
+          "realizes": [{"@id": "task:open_domain_question_answering"}],
+          "usesData": [{"@id": "dataset:natural_questions"}, {"@id": "dataset:paq"}],
+          "produces": [{"@id": "model:bart_large_cbqa"}],
+          "usesParameters": [
+            {"@id": "hp:batch_size_cbqa"},
+            {"@id": "hp:num_epochs_cbqa"},
+            {"@id": "hp:learning_rate_cbqa_max"}
+          ],
+          "executes": [{"@id": "impl:paq_pytorch_fairseq"}],
+          "mls:result": {
+            "value": "32.7% Exact Match on NQ",
+            "start_char_doc": 30257,
+            "end_char_doc": 30261,
+            "prefix": "<td>BART-large, pre-finetuned on PAQ</td> <td>",
+            "suffix": "</td> <td>33.2</td> </tr>",
+            "valueSource": "extracted"
+          }
+        },
+        {
+          "@id": "exp:bart_large_cbqa_triviaqa",
+          "@type": "mls:Experiment",
+          "mention": {
+            "start_char_doc": 30277,
+            "end_char_doc": 30281,
+            "prefix": "pre-finetuned on PAQ</td> <td>32.7</td> <td>",
+            "suffix": "</td> </tr> <tr> <td>8</td> <td>QA-pair",
+            "valueSource": "extracted"
+          },
+          "schema:description": {
+            "value": "BART-large CBQA model pre-finetuned on PAQ, achieving 33.2% Exact Match on TriviaQA",
+            "start_char_doc": null,
+            "end_char_doc": null,
+            "prefix": null,
+            "suffix": null,
+            "valueSource": "inferred"
+          },
+          "realizes": [{"@id": "task:open_domain_question_answering"}],
+          "usesData": [{"@id": "dataset:triviaqa"}, {"@id": "dataset:paq"}],
+          "produces": [{"@id": "model:bart_large_cbqa"}],
+          "usesParameters": [
+            {"@id": "hp:batch_size_cbqa"},
+            {"@id": "hp:num_epochs_cbqa"},
+            {"@id": "hp:learning_rate_cbqa_max"}
+          ],
+          "executes": [{"@id": "impl:paq_pytorch_fairseq"}],
+          "mls:result": {
+            "value": "33.2% Exact Match on TriviaQA",
+            "start_char_doc": 30277,
+            "end_char_doc": 30281,
+            "prefix": "pre-finetuned on PAQ</td> <td>32.7</td> <td>",
+            "suffix": "</td> </tr> <tr> <td>8</td> <td>QA-pair",
+            "valueSource": "extracted"
+          }
+        }
+      ]
+    },
+
+    {
+      "@id": "algo:mips",
+      "@type": "MLS_Algorithm",
+      "mention": {
+        "start_char_doc": 16752,
+        "end_char_doc": 16756,
+        "prefix": "using dense Maximum Inner Product Search (",
+        "suffix": ")-based retrieval. Given a",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "Maximum Inner Product Search (MIPS)",
+        "start_char_doc": 16752,
+        "end_char_doc": 16756,
+        "prefix": "using dense Maximum Inner Product Search (",
+        "suffix": ")-based retrieval. Given a",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "Dense retrieval algorithm using maximum inner product search for efficient nearest-neighbor lookup of question embeddings",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:category": {
+        "value": "Retrieval",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:complexity": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:pseudoCode": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "algo:hnsw",
+      "@type": "MLS_Algorithm",
+      "mention": {
+        "start_char_doc": 35344,
+        "end_char_doc": 35348,
+        "prefix": "use the FAISS library with",
+        "suffix": "indexes for approximate MIPS.",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "Hierarchical Navigable Small World (HNSW)",
+        "start_char_doc": 35344,
+        "end_char_doc": 35348,
+        "prefix": "use the FAISS library with",
+        "suffix": "indexes for approximate MIPS.",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "Approximate nearest neighbor search algorithm used for efficient MIPS indexing in FAISS",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:category": {
+        "value": "Approximate Nearest Neighbor Search",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:complexity": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:pseudoCode": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+
+    {
+      "@id": "hp:hnsw_dimensions",
+      "@type": "MLS_HyperParameter",
+      "hpCategory": "HP_Architecture",
+      "hpType": "EmbeddingDim",
+      "uncertain": false,
+      "mention": {
+        "start_char_doc": 72458,
+        "end_char_doc": 72472,
+        "prefix": "HNSW index with",
+        "suffix": ", ef_construction of 80,",
+        "valueSource": "extracted"
+      },
+      "mls:name": {
+        "value": "HNSW index dimensions",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "768",
+        "start_char_doc": 72458,
+        "end_char_doc": 72461,
+        "prefix": "HNSW index with",
+        "suffix": "dimensions, ef_construction of 80,",
+        "valueSource": "extracted"
+      },
+      "mls:wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:type": {
+        "value": "integer",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:searchSpace": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "hp:hnsw_ef_construction",
+      "@type": "MLS_HyperParameter",
+      "hpCategory": "HP_Architecture",
+      "hpType": "HP_Architecture",
+      "uncertain": true,
+      "mention": {
+        "start_char_doc": 72482,
+        "end_char_doc": 72503,
+        "prefix": "768 dimensions,",
+        "suffix": ", ef_search of 32,",
+        "valueSource": "extracted"
+      },
+      "mls:name": {
+        "value": "ef_construction",
+        "start_char_doc": 72482,
+        "end_char_doc": 72497,
+        "prefix": "768 dimensions,",
+        "suffix": "of 80, ef_search of",
+        "valueSource": "extracted"
+      },
+      "mls:hasValue": {
+        "value": "80",
+        "start_char_doc": 72501,
+        "end_char_doc": 72503,
+        "prefix": "ef_construction of",
+        "suffix": ", ef_search of 32,",
+        "valueSource": "extracted"
+      },
+      "mls:wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:type": {
+        "value": "integer",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:searchSpace": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "hp:hnsw_ef_search",
+      "@type": "MLS_HyperParameter",
+      "hpCategory": "HP_Architecture",
+      "hpType": "HP_Architecture",
+      "uncertain": true,
+      "mention": {
+        "start_char_doc": 72505,
+        "end_char_doc": 72520,
+        "prefix": "ef_construction of 80,",
+        "suffix": ", store_n of 256,",
+        "valueSource": "extracted"
+      },
+      "mls:name": {
+        "value": "ef_search",
+        "start_char_doc": 72505,
+        "end_char_doc": 72514,
+        "prefix": "ef_construction of 80,",
+        "suffix": "of 32, store_n of",
+        "valueSource": "extracted"
+      },
+      "mls:hasValue": {
+        "value": "32",
+        "start_char_doc": 72518,
+        "end_char_doc": 72520,
+        "prefix": "ef_search of",
+        "suffix": ", store_n of 256,",
+        "valueSource": "extracted"
+      },
+      "mls:wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:type": {
+        "value": "integer",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:searchSpace": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "hp:hnsw_store_n",
+      "@type": "MLS_HyperParameter",
+      "hpCategory": "HP_Architecture",
+      "hpType": "HP_Architecture",
+      "uncertain": true,
+      "mention": {
+        "start_char_doc": 72526,
+        "end_char_doc": 72540,
+        "prefix": "ef_search of 32,",
+        "suffix": ", and 2048 index",
+        "valueSource": "extracted"
+      },
+      "mls:name": {
+        "value": "store_n",
+        "start_char_doc": 72526,
+        "end_char_doc": 72533,
+        "prefix": "ef_search of 32,",
+        "suffix": "of 256, and 2048",
+        "valueSource": "extracted"
+      },
+      "mls:hasValue": {
+        "value": "256",
+        "start_char_doc": 72537,
+        "end_char_doc": 72540,
+        "prefix": "store_n of",
+        "suffix": ", and 2048 index",
+        "valueSource": "extracted"
+      },
+      "mls:wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:type": {
+        "value": "integer",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:searchSpace": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "hp:hnsw_index_searches",
+      "@type": "MLS_HyperParameter",
+      "hpCategory": "HP_Architecture",
+      "hpType": "HP_Architecture",
+      "uncertain": true,
+      "mention": {
+        "start_char_doc": 72561,
+        "end_char_doc": 72580,
+        "prefix": "store_n of 256, and",
+        "suffix": "in parallel. Models are",
+        "valueSource": "extracted"
+      },
+      "mls:name": {
+        "value": "index searches (parallel)",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "2048",
+        "start_char_doc": 72561,
+        "end_char_doc": 72565,
+        "prefix": "store_n of 256, and",
+        "suffix": "index searches in parallel.",
+        "valueSource": "extracted"
+      },
+      "mls:wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:type": {
+        "value": "integer",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:searchSpace": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "hp:num_passages_generation",
+      "@type": "MLS_HyperParameter",
+      "hpCategory": "HP_Data",
+      "hpType": "HP_Data",
+      "uncertain": true,
+      "mention": {
+        "start_char_doc": 21687,
+        "end_char_doc": 21699,
+        "prefix": "model $p_s$ to rank all",
+        "suffix": ", and generate from the",
+        "valueSource": "extracted"
+      },
+      "mls:name": {
+        "value": "total passages ranked",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "21000000",
+        "start_char_doc": 21687,
+        "end_char_doc": 21690,
+        "prefix": "model $p_s$ to rank all",
+        "suffix": "M passages, and generate from",
+        "valueSource": "extracted"
+      },
+      "mls:wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:type": {
+        "value": "integer",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:searchSpace": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "hp:top_passages_for_generation",
+      "@type": "MLS_HyperParameter",
+      "hpCategory": "HP_Data",
+      "hpType": "HP_Data",
+      "uncertain": true,
+      "mention": {
+        "start_char_doc": 21723,
+        "end_char_doc": 21730,
+        "prefix": "and generate from the top",
+        "suffix": ", before applying global filtering.",
+        "valueSource": "extracted"
+      },
+      "mls:name": {
+        "value": "top passages for question generation",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "10000000",
+        "start_char_doc": 21727,
+        "end_char_doc": 21730,
+        "prefix": "and generate from the top",
+        "suffix": ", before applying global filtering.",
+        "valueSource": "extracted"
+      },
+      "mls:wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:type": {
+        "value": "integer",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:searchSpace": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "hp:num_retrieved_passages_filter",
+      "@type": "MLS_HyperParameter",
+      "hpCategory": "HP_Data",
+      "hpType": "HP_Data",
+      "uncertain": true,
+      "mention": {
+        "start_char_doc": 14461,
+        "end_char_doc": 14496,
+        "prefix": "strong downstream results. We use",
+        "suffix": ", trained on NQ (Izacard",
+        "valueSource": "extracted"
+      },
+      "mls:name": {
+        "value": "number of retrieved passages for FiD filter",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "50",
+        "start_char_doc": 14479,
+        "end_char_doc": 14481,
+        "prefix": "We use FiD-base with",
+        "suffix": "retrieved passages, trained on NQ",
+        "valueSource": "extracted"
+      },
+      "mls:wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:type": {
+        "value": "integer",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:searchSpace": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "hp:top_k_reranker_retrieval",
+      "@type": "MLS_HyperParameter",
+      "hpCategory": "HP_Training",
+      "hpType": "HP_Training",
+      "uncertain": true,
+      "mention": {
+        "start_char_doc": 20517,
+        "end_char_doc": 20532,
+        "prefix": "reranker to score the top",
+        "suffix": "from the retriever. We",
+        "valueSource": "extracted"
+      },
+      "mls:name": {
+        "value": "top-K QA-pairs for reranker input",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "2000",
+        "start_char_doc": 20521,
+        "end_char_doc": 20523,
+        "prefix": "reranker to score the top",
+        "suffix": "K QA-pairs from the retriever.",
+        "valueSource": "extracted"
+      },
+      "mls:wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:type": {
+        "value": "integer",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:searchSpace": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    }
+  ]
+}
+
