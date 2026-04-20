@@ -1,0 +1,2432 @@
+{
+  "@context": {
+    "mls": "http://www.w3.org/ns/mls#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "schema": "http://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "study": "https://w3id.org/mlskg/study/",
+    "dataset": "https://w3id.org/mlskg/dataset/",
+    "datasource": "https://w3id.org/mlskg/datasource/",
+    "task": "https://w3id.org/mlskg/task/",
+    "method": "https://w3id.org/mlskg/method/",
+    "repo": "https://w3id.org/mlskg/repository/",
+    "impl": "https://w3id.org/mlskg/implementation/",
+    "env": "https://w3id.org/mlskg/environment/",
+    "hp": "https://w3id.org/mlskg/hp/",
+    "eval": "https://w3id.org/mlskg/eval/",
+    "person": "https://w3id.org/mlskg/person/",
+    "org": "https://w3id.org/mlskg/organization/",
+    "exp": "https://w3id.org/mlskg/experiment/",
+    "mention": "https://w3id.org/mlskg/meta/mention",
+    "valueSource": "https://w3id.org/mlskg/meta/valueSource",
+    "Study": "mls:Study",
+    "Experiment": "mls:Experiment",
+    "Person": "mls:Person",
+    "Organization": "mls:Organization",
+    "MLS_Task": "mls:MLS_Task",
+    "MLS_Dataset": "mls:MLS_Dataset",
+    "DataSource": "mls:DataSource",
+    "Method": "mls:Method",
+    "SoftwareRepository": "mls:SoftwareRepository",
+    "MLS_Implementation": "mls:MLS_Implementation",
+    "Environment": "mls:Environment",
+    "MLS_HyperParameter": "mls:MLS_HyperParameter",
+    "MLS_Eval": "mls:MLS_Eval",
+    "title": "schema:title",
+    "abstract": "schema:abstract",
+    "url": {
+      "@id": "schema:url",
+      "@type": "xsd:anyURI"
+    },
+    "doi": "schema:doi",
+    "citation": "schema:citation",
+    "publicationVenue": "schema:publicationVenue",
+    "timestamp": "schema:datePublished",
+    "name": "schema:name",
+    "affiliation": "schema:affiliation",
+    "email": "schema:email",
+    "orcid": "schema:identifier",
+    "type": "schema:type",
+    "description": "schema:description",
+    "category": "schema:category",
+    "metrics": "schema:measurementTechnique",
+    "numInstances": "schema:numberOfItems",
+    "language": "schema:inLanguage",
+    "license": "schema:license",
+    "modality": "schema:encodingFormat",
+    "version": "schema:version",
+    "objective": "schema:abstract",
+    "hypothesis": "schema:creativeWorkStatus",
+    "methodology": "schema:method",
+    "codeRepository": {
+      "@id": "mls:codeRepository",
+      "@type": "xsd:anyURI"
+    },
+    "framework": "mls:framework",
+    "executionCommand": "mls:executionCommand",
+    "entryPoint": "mls:entryPoint",
+    "branch": "mls:branch",
+    "documentationUrl": {
+      "@id": "mls:documentationUrl",
+      "@type": "xsd:anyURI"
+    },
+    "hardwareSpecs": "mls:hardwareSpecs",
+    "os": "mls:os",
+    "pythonVersion": "mls:pythonVersion",
+    "nameUri": {
+      "@id": "mls:name",
+      "@type": "xsd:anyURI"
+    },
+    "hasValue": "mls:hasValue",
+    "wasDerivedFromText": "mls:wasDerivedFrom",
+    "searchSpace": "mls:searchSpace",
+    "hpCategory": "mls:hpCategory",
+    "hpType": "mls:hpType",
+    "uncertain": "mls:uncertain",
+    "measure": "mls:measure",
+    "stdDev": "mls:stdDev",
+    "confidenceInterval": "mls:confidenceInterval",
+    "appliedTo": {
+      "@id": "mls:appliedTo",
+      "@type": "@id"
+    },
+    "evaluates": {
+      "@id": "mls:evaluates",
+      "@type": "@id"
+    },
+    "hasAuthor": {
+      "@id": "mls:hasAuthor",
+      "@type": "@id"
+    },
+    "contains": {
+      "@id": "mls:contains",
+      "@type": "@id"
+    },
+    "implements": {
+      "@id": "mls:implements",
+      "@type": "@id"
+    },
+    "prov-affiliatedWith": {
+      "@id": "mls:prov-affiliatedWith",
+      "@type": "@id"
+    },
+    "realizes": {
+      "@id": "mls:realizes",
+      "@type": "@id"
+    },
+    "usesData": {
+      "@id": "mls:usesData",
+      "@type": "@id"
+    },
+    "produces": {
+      "@id": "mls:produces",
+      "@type": "@id"
+    },
+    "usesParameters": {
+      "@id": "mls:usesParameters",
+      "@type": "@id"
+    },
+    "executes": {
+      "@id": "mls:executes",
+      "@type": "@id"
+    },
+    "prov-derivedFrom": {
+      "@id": "mls:prov-derivedFrom",
+      "@type": "@id"
+    },
+    "trainedOn": {
+      "@id": "mls:trainedOn",
+      "@type": "@id"
+    },
+    "evaluatedOn": {
+      "@id": "mls:evaluatedOn",
+      "@type": "@id"
+    },
+    "achieves": {
+      "@id": "mls:achieves",
+      "@type": "@id"
+    },
+    "subTaskOf": {
+      "@id": "mls:subTaskOf",
+      "@type": "@id"
+    },
+    "benchmarkedOn": {
+      "@id": "mls:benchmarkedOn",
+      "@type": "@id"
+    },
+    "containsImpl": {
+      "@id": "mls:contains",
+      "@type": "@id"
+    },
+    "supports": {
+      "@id": "mls:supports",
+      "@type": "@id"
+    },
+    "runsIn": {
+      "@id": "mls:runsIn",
+      "@type": "@id"
+    },
+    "requires": {
+      "@id": "mls:requires",
+      "@type": "@id"
+    }
+  },
+  "@graph": [
+    {
+      "@id": "study:scirex_a_challenge_dataset_for_document_level_information_extraction_2020",
+      "@type": "Study",
+      "mention": {
+        "start_char_doc": 13,
+        "end_char_doc": 82,
+        "prefix": "## Page 1 #",
+        "suffix": "Sarthak Jain²* Madeleine van Zuylen¹",
+        "valueSource": "extracted"
+      },
+      "title": {
+        "value": "SciREX: A Challenge Dataset for Document-Level Information Extraction",
+        "start_char_doc": 13,
+        "end_char_doc": 82,
+        "prefix": "## Page 1 #",
+        "suffix": "Sarthak Jain²* Madeleine van Zuylen¹",
+        "valueSource": "extracted"
+      },
+      "abstract": {
+        "value": "Extracting information from full documents is an important problem in many domains, but most previous work focus on identifying relationships within a sentence or a paragraph. It is challenging to create a large-scale information extraction (IE) dataset at the document level since it requires an understanding of the whole document to annotate entities and their document-level relationships that usually span beyond sentences or even sections. In this paper, we introduce SciREX, a document level IE dataset that encompasses multiple IE tasks, including salient entity identification and document level N-ary relation identification from scientific articles. We annotate our dataset by integrating automatic and human annotations, leveraging existing scientific knowledge resources. We develop a neural model as a strong baseline that extends previous state-of-the-art IE models to document-level IE. Analyzing the model performance shows a significant gap between human performance and current baselines, inviting the community to use our dataset as a challenge to develop document-level IE models. Our data and code are publicly available at https://github.com/allenai/SciREX",
+        "start_char_doc": 387,
+        "end_char_doc": 1566,
+        "prefix": "1 May 2020&lt;/watermark&gt; ## Abstract",
+        "suffix": "## 1 Introduction Extracting information",
+        "valueSource": "extracted"
+      },
+      "url": {
+        "value": "https://arxiv.org/abs/2005.00512v1",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "doi": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "citation": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "publicationVenue": {
+        "value": "arXiv",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "timestamp": {
+        "value": "2020-05-01",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hasAuthor": [
+        {
+          "@id": "person:jain_sarthak"
+        },
+        {
+          "@id": "person:van_zuylen_madeleine"
+        },
+        {
+          "@id": "person:hajishirzi_hannaneh"
+        },
+        {
+          "@id": "person:beltagy_iz"
+        }
+      ],
+      "contains": [
+        {
+          "@id": "exp:document_level_information_extraction_2020"
+        }
+      ],
+      "implements": {
+        "@id": "repo:scirex"
+      }
+    },
+    {
+      "@id": "person:jain_sarthak",
+      "@type": "Person",
+      "mention": {
+        "start_char_doc": 84,
+        "end_char_doc": 96,
+        "prefix": "Dataset for Document-Level Information Extraction",
+        "suffix": "²* Madeleine van Zuylen¹ Hannaneh",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "Sarthak Jain",
+        "start_char_doc": 84,
+        "end_char_doc": 96,
+        "prefix": "Dataset for Document-Level Information Extraction",
+        "suffix": "²* Madeleine van Zuylen¹ Hannaneh",
+        "valueSource": "extracted"
+      },
+      "affiliation": {
+        "value": "Northeastern University",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "email": {
+        "value": "jain.sar@northeastern.edu",
+        "start_char_doc": 231,
+        "end_char_doc": 256,
+        "prefix": "Northeastern University² University of Washington³",
+        "suffix": "{madeleinev, hannah, beltagy}@allenai.org &lt;watermark&gt;arXiv:2005.00512v1 [cs.CL]",
+        "valueSource": "extracted"
+      },
+      "orcid": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "prov-affiliatedWith": [
+        {
+          "@id": "org:northeastern_university"
+        }
+      ]
+    },
+    {
+      "@id": "person:van_zuylen_madeleine",
+      "@type": "Person",
+      "mention": {
+        "start_char_doc": 99,
+        "end_char_doc": 119,
+        "prefix": "Document-Level Information Extraction Sarthak Jain²*",
+        "suffix": "¹ Hannaneh Hajishirzi¹,³ Iz Beltagy¹",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "Madeleine van Zuylen",
+        "start_char_doc": 99,
+        "end_char_doc": 119,
+        "prefix": "Document-Level Information Extraction Sarthak Jain²*",
+        "suffix": "¹ Hannaneh Hajishirzi¹,³ Iz Beltagy¹",
+        "valueSource": "extracted"
+      },
+      "affiliation": {
+        "value": "Allen Institute for AI",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "email": {
+        "value": "madeleinev@allenai.org",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "orcid": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "prov-affiliatedWith": [
+        {
+          "@id": "org:allen_institute_for_ai"
+        }
+      ]
+    },
+    {
+      "@id": "person:hajishirzi_hannaneh",
+      "@type": "Person",
+      "mention": {
+        "start_char_doc": 121,
+        "end_char_doc": 140,
+        "prefix": "Sarthak Jain²* Madeleine van Zuylen¹",
+        "suffix": "¹,³ Iz Beltagy¹ Allen Institute",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "Hannaneh Hajishirzi",
+        "start_char_doc": 121,
+        "end_char_doc": 140,
+        "prefix": "Sarthak Jain²* Madeleine van Zuylen¹",
+        "suffix": "¹,³ Iz Beltagy¹ Allen Institute",
+        "valueSource": "extracted"
+      },
+      "affiliation": {
+        "value": "Allen Institute for AI; University of Washington",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "email": {
+        "value": "hannah@allenai.org",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "orcid": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "prov-affiliatedWith": [
+        {
+          "@id": "org:allen_institute_for_ai"
+        },
+        {
+          "@id": "org:university_of_washington"
+        }
+      ]
+    },
+    {
+      "@id": "person:beltagy_iz",
+      "@type": "Person",
+      "mention": {
+        "start_char_doc": 144,
+        "end_char_doc": 154,
+        "prefix": "Madeleine van Zuylen¹ Hannaneh Hajishirzi¹,³",
+        "suffix": "¹ Allen Institute for AI¹",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "Iz Beltagy",
+        "start_char_doc": 144,
+        "end_char_doc": 154,
+        "prefix": "Madeleine van Zuylen¹ Hannaneh Hajishirzi¹,³",
+        "suffix": "¹ Allen Institute for AI¹",
+        "valueSource": "extracted"
+      },
+      "affiliation": {
+        "value": "Allen Institute for AI",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "email": {
+        "value": "beltagy@allenai.org",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "orcid": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "prov-affiliatedWith": [
+        {
+          "@id": "org:allen_institute_for_ai"
+        }
+      ]
+    },
+    {
+      "@id": "org:allen_institute_for_ai",
+      "@type": "Organization",
+      "mention": {
+        "start_char_doc": 156,
+        "end_char_doc": 178,
+        "prefix": "Zuylen¹ Hannaneh Hajishirzi¹,³ Iz Beltagy¹",
+        "suffix": "¹ Northeastern University² University of",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "Allen Institute for AI",
+        "start_char_doc": 156,
+        "end_char_doc": 178,
+        "prefix": "Zuylen¹ Hannaneh Hajishirzi¹,³ Iz Beltagy¹",
+        "suffix": "¹ Northeastern University² University of",
+        "valueSource": "extracted"
+      },
+      "url": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "type": {
+        "value": "research institute",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "org:northeastern_university",
+      "@type": "Organization",
+      "mention": {
+        "start_char_doc": 180,
+        "end_char_doc": 203,
+        "prefix": "Beltagy¹ Allen Institute for AI¹",
+        "suffix": "² University of Washington³ jain.sar@northeastern.edu",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "Northeastern University",
+        "start_char_doc": 180,
+        "end_char_doc": 203,
+        "prefix": "Beltagy¹ Allen Institute for AI¹",
+        "suffix": "² University of Washington³ jain.sar@northeastern.edu",
+        "valueSource": "extracted"
+      },
+      "url": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "type": {
+        "value": "university",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "org:university_of_washington",
+      "@type": "Organization",
+      "mention": {
+        "start_char_doc": 205,
+        "end_char_doc": 229,
+        "prefix": "Institute for AI¹ Northeastern University²",
+        "suffix": "³ jain.sar@northeastern.edu {madeleinev, hannah, beltagy}@allenai.org",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "University of Washington",
+        "start_char_doc": 205,
+        "end_char_doc": 229,
+        "prefix": "Institute for AI¹ Northeastern University²",
+        "suffix": "³ jain.sar@northeastern.edu {madeleinev, hannah, beltagy}@allenai.org",
+        "valueSource": "extracted"
+      },
+      "url": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "type": {
+        "value": "university",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "dataset:scirex",
+      "@type": "MLS_Dataset",
+      "mention": {
+        "start_char_doc": 5161,
+        "end_char_doc": 5167,
+        "prefix": "as follows, 1. we introduce",
+        "suffix": ", a dataset that evaluates",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "SCIREX",
+        "start_char_doc": 5161,
+        "end_char_doc": 5167,
+        "prefix": "as follows, 1. we introduce",
+        "suffix": ", a dataset that evaluates",
+        "valueSource": "extracted"
+      },
+      "description": {
+        "value": "a document level IE dataset that encompasses multiple IE tasks, including salient entity identification and document level N-ary relation identification from scientific articles",
+        "start_char_doc": 869,
+        "end_char_doc": 1046,
+        "prefix": "this paper, we introduce SciREX,",
+        "suffix": ". We annotate our dataset",
+        "valueSource": "extracted"
+      },
+      "numInstances": {
+        "value": 438,
+        "start_char_doc": 18301,
+        "end_char_doc": 18304,
+        "prefix": "we build a dataset of",
+        "suffix": "fully annotated documents. Table 1",
+        "valueSource": "extracted"
+      },
+      "language": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "license": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "modality": {
+        "value": "scientific articles",
+        "start_char_doc": 2008,
+        "end_char_doc": 2027,
+        "prefix": "information extraction from abstracts of",
+        "suffix": "as in SciERC (Luan et",
+        "valueSource": "extracted"
+      },
+      "prov-derivedFrom": [
+        {
+          "@id": "datasource:papers_with_code"
+        }
+      ]
+    },
+    {
+      "@id": "datasource:papers_with_code",
+      "@type": "DataSource",
+      "mention": {
+        "start_char_doc": 11969,
+        "end_char_doc": 11985,
+        "prefix": "simpler annotation task. **Existing KB:",
+        "suffix": "** Papers with Code (PwC)³",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "Papers with Code",
+        "start_char_doc": 11969,
+        "end_char_doc": 11985,
+        "prefix": "simpler annotation task. **Existing KB:",
+        "suffix": "** Papers with Code (PwC)³",
+        "valueSource": "extracted"
+      },
+      "url": {
+        "value": "https://github.com/paperswithcode/paperswithcode-data",
+        "start_char_doc": 12898,
+        "end_char_doc": 12951,
+        "prefix": "we use LaTeXXML (https://dlmf.nist. ³",
+        "suffix": "--- ## Page 4 <table>",
+        "valueSource": "extracted"
+      },
+      "type": {
+        "value": "publicly available corpus",
+        "start_char_doc": 12017,
+        "end_char_doc": 12042,
+        "prefix": "with Code (PwC)³ is a",
+        "suffix": "of 1,170 articles published in",
+        "valueSource": "extracted"
+      },
+      "license": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "task:document_level_information_extraction",
+      "@type": "MLS_Task",
+      "mention": {
+        "start_char_doc": 9671,
+        "end_char_doc": 9708,
+        "prefix": "and construct a dataset for",
+        "suffix": "from scientific articles. This section",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "document-level information extraction",
+        "start_char_doc": 9671,
+        "end_char_doc": 9708,
+        "prefix": "and construct a dataset for",
+        "suffix": "from scientific articles. This section",
+        "valueSource": "extracted"
+      },
+      "description": {
+        "value": "the task of identifying the main results of a scientific article as a tuple (Dataset, Metric, Task, Method) from raw text",
+        "start_char_doc": 3443,
+        "end_char_doc": 3564,
+        "prefix": "articles. Our dataset focuses on",
+        "suffix": ". It consists of three",
+        "valueSource": "extracted"
+      },
+      "category": {
+        "value": "information extraction",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "metrics": {
+        "value": "F1 score",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "benchmarkedOn": [
+        {
+          "@id": "dataset:scirex"
+        }
+      ]
+    },
+    {
+      "@id": "task:entity_recognition",
+      "@type": "MLS_Task",
+      "mention": {
+        "start_char_doc": 9866,
+        "end_char_doc": 9884,
+        "prefix": "### 3.1 Task Definition **",
+        "suffix": "** Our entities are abstract",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "Entity Recognition",
+        "start_char_doc": 9866,
+        "end_char_doc": 9884,
+        "prefix": "### 3.1 Task Definition **",
+        "suffix": "** Our entities are abstract",
+        "valueSource": "extracted"
+      },
+      "description": {
+        "value": "Identify entity mentions and classify them with their types.",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "category": {
+        "value": "information extraction",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "metrics": {
+        "value": "F1 score",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "benchmarkedOn": [
+        {
+          "@id": "dataset:scirex"
+        }
+      ],
+      "subTaskOf": {
+        "@id": "task:document_level_information_extraction"
+      }
+    },
+    {
+      "@id": "task:salient_entity_identification",
+      "@type": "MLS_Task",
+      "mention": {
+        "start_char_doc": 10486,
+        "end_char_doc": 10515,
+        "prefix": "the article. In our case,",
+        "suffix": "refers to finding if an",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "salient entity identification",
+        "start_char_doc": 10486,
+        "end_char_doc": 10515,
+        "prefix": "the article. In our case,",
+        "suffix": "refers to finding if an",
+        "valueSource": "extracted"
+      },
+      "description": {
+        "value": "Find whether an entity takes part in the article evaluation.",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "category": {
+        "value": "information extraction",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "metrics": {
+        "value": "F1 score",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "benchmarkedOn": [
+        {
+          "@id": "dataset:scirex"
+        }
+      ],
+      "subTaskOf": {
+        "@id": "task:document_level_information_extraction"
+      }
+    },
+    {
+      "@id": "task:coreference",
+      "@type": "MLS_Task",
+      "mention": {
+        "start_char_doc": 10810,
+        "end_char_doc": 10821,
+        "prefix": "a result relation tuple. **",
+        "suffix": "** is the task of",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "Coreference",
+        "start_char_doc": 10810,
+        "end_char_doc": 10821,
+        "prefix": "a result relation tuple. **",
+        "suffix": "** is the task of",
+        "valueSource": "extracted"
+      },
+      "description": {
+        "value": "Identify clusters of mentions that are coreferred in a single document.",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "category": {
+        "value": "information extraction",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "metrics": {
+        "value": "F1 score",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "benchmarkedOn": [
+        {
+          "@id": "dataset:scirex"
+        }
+      ],
+      "subTaskOf": {
+        "@id": "task:document_level_information_extraction"
+      }
+    },
+    {
+      "@id": "task:document_level_n_ary_relation_identification",
+      "@type": "MLS_Task",
+      "mention": {
+        "start_char_doc": 977,
+        "end_char_doc": 1021,
+        "prefix": "including salient entity identification and",
+        "suffix": "from scientific articles. We annotate",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "document level N-ary relation identification",
+        "start_char_doc": 977,
+        "end_char_doc": 1021,
+        "prefix": "including salient entity identification and",
+        "suffix": "from scientific articles. We annotate",
+        "valueSource": "extracted"
+      },
+      "description": {
+        "value": "Extract binary, 3-ary, and 4-ary relations between Dataset, Method, Metric, and Task entities across full documents.",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "category": {
+        "value": "information extraction",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "metrics": {
+        "value": "F1 score",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "benchmarkedOn": [
+        {
+          "@id": "dataset:scirex"
+        }
+      ],
+      "subTaskOf": {
+        "@id": "task:document_level_information_extraction"
+      }
+    },
+    {
+      "@id": "task:binary_relation_extraction",
+      "@type": "MLS_Task",
+      "mention": {
+        "start_char_doc": 32115,
+        "end_char_doc": 32142,
+        "prefix": "<td><b>0.712</b></td> </tr> <tr> <td colspan=\"4\">",
+        "suffix": "</td> </tr> <tr> <td>DYGIE++ (Abstracts",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "binary relation extraction",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "description": {
+        "value": "Binary relation extraction derived from splitting each 4-ary relation into six binary relations.",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "category": {
+        "value": "information extraction",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "metrics": {
+        "value": "Precision, Recall, F1",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "benchmarkedOn": [
+        {
+          "@id": "dataset:scirex"
+        }
+      ],
+      "subTaskOf": {
+        "@id": "task:document_level_n_ary_relation_identification"
+      }
+    },
+    {
+      "@id": "task:four_ary_relation_extraction",
+      "@type": "MLS_Task",
+      "mention": {
+        "start_char_doc": 32673,
+        "end_char_doc": 32703,
+        "prefix": "<td><b>0.096</b></td> </tr> <tr> <td colspan=\"4\">",
+        "suffix": "</td> </tr> <tr> <td>DocTAET</td> <td>0.477</td>",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "4-ary relation extraction",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "description": {
+        "value": "Classification of candidate 4-tuples of clusters as expressed or not expressed in the document.",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "category": {
+        "value": "information extraction",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "metrics": {
+        "value": "Precision, Recall, F1",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "benchmarkedOn": [
+        {
+          "@id": "dataset:scirex"
+        }
+      ],
+      "subTaskOf": {
+        "@id": "task:document_level_n_ary_relation_identification"
+      }
+    },
+    {
+      "@id": "method:document_level_ie_baseline_model",
+      "@type": "Method",
+      "mention": {
+        "start_char_doc": 5398,
+        "end_char_doc": 5412,
+        "prefix": "task. 2. We develop a",
+        "suffix": "that, to the best of",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "baseline model",
+        "start_char_doc": 5398,
+        "end_char_doc": 5412,
+        "prefix": "task. 2. We develop a",
+        "suffix": "that, to the best of",
+        "valueSource": "extracted"
+      },
+      "description": {
+        "value": "it uses a two-level BERT+BiLSTM method to get token representations which are passed to a CRF layer to identify mentions. Each mention is classified as being salient or not. A coreference model is trained to cluster these mentions into entities. A final classification layer predicts relationships between 4-tuple of entities (clusters).",
+        "start_char_doc": 23342,
+        "end_char_doc": 23679,
+        "prefix": "2: Overview of our model;",
+        "suffix": "&lt;/img&gt; **Mention clustering** Given a",
+        "valueSource": "extracted"
+      },
+      "version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "trainedOn": [
+        {
+          "@id": "dataset:scirex"
+        }
+      ],
+      "evaluatedOn": [
+        {
+          "@id": "dataset:scirex"
+        }
+      ],
+      "achieves": [
+        {
+          "@id": "eval:mention_identification_precision"
+        },
+        {
+          "@id": "eval:mention_identification_recall"
+        },
+        {
+          "@id": "eval:mention_identification_f1"
+        },
+        {
+          "@id": "eval:binary_relation_precision"
+        },
+        {
+          "@id": "eval:binary_relation_recall"
+        },
+        {
+          "@id": "eval:binary_relation_f1"
+        },
+        {
+          "@id": "eval:four_ary_relation_precision"
+        },
+        {
+          "@id": "eval:four_ary_relation_recall"
+        },
+        {
+          "@id": "eval:four_ary_relation_f1"
+        }
+      ]
+    },
+    {
+      "@id": "repo:scirex",
+      "@type": "SoftwareRepository",
+      "mention": {
+        "start_char_doc": 1533,
+        "end_char_doc": 1566,
+        "prefix": "code are publicly available at",
+        "suffix": "## 1 Introduction Extracting information",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "SciREX",
+        "start_char_doc": 5161,
+        "end_char_doc": 5167,
+        "prefix": "as follows, 1. we introduce",
+        "suffix": ", a dataset that evaluates",
+        "valueSource": "extracted"
+      },
+      "url": {
+        "value": "https://github.com/allenai/SciREX",
+        "start_char_doc": 1533,
+        "end_char_doc": 1566,
+        "prefix": "code are publicly available at",
+        "suffix": "## 1 Introduction Extracting information",
+        "valueSource": "extracted"
+      },
+      "version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "programmingLanguage": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "license": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "documentationUrl": {
+        "value": "https://github.com/allenai/SciREX/blob/master/Annotation%20Guidelines.pdf",
+        "start_char_doc": 51717,
+        "end_char_doc": 51790,
+        "prefix": "guidelines can be found at",
+        "suffix": "Note, for Method type entities,",
+        "valueSource": "extracted"
+      },
+      "containsImpl": [
+        {
+          "@id": "impl:scirex_allennlp"
+        }
+      ],
+      "supports": [
+        {
+          "@id": "env:quadro_rtx_8000_allennlp"
+        }
+      ]
+    },
+    {
+      "@id": "impl:scirex_allennlp",
+      "@type": "MLS_Implementation",
+      "mention": {
+        "start_char_doc": 51605,
+        "end_char_doc": 51621,
+        "prefix": "our models were implemented in",
+        "suffix": "(Gardner et al., 2017). ##",
+        "valueSource": "extracted"
+      },
+      "codeRepository": {
+        "value": "https://github.com/allenai/SciREX",
+        "start_char_doc": 1533,
+        "end_char_doc": 1566,
+        "prefix": "code are publicly available at",
+        "suffix": "## 1 Introduction Extracting information",
+        "valueSource": "extracted"
+      },
+      "framework": {
+        "value": "AllenNLP library",
+        "start_char_doc": 51605,
+        "end_char_doc": 51621,
+        "prefix": "our models were implemented in",
+        "suffix": "(Gardner et al., 2017). ##",
+        "valueSource": "extracted"
+      },
+      "executionCommand": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "entryPoint": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "branch": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "runsIn": {
+        "@id": "env:quadro_rtx_8000_allennlp"
+      }
+    },
+    {
+      "@id": "env:quadro_rtx_8000_allennlp",
+      "@type": "Environment",
+      "mention": {
+        "start_char_doc": 51251,
+        "end_char_doc": 51276,
+        "prefix": "our models were trained using",
+        "suffix": ". The multitask model takes",
+        "valueSource": "extracted"
+      },
+      "hardwareSpecs": {
+        "value": "48Gb Quadro RTX 8000 GPUs",
+        "start_char_doc": 51251,
+        "end_char_doc": 51276,
+        "prefix": "our models were trained using",
+        "suffix": ". The multitask model takes",
+        "valueSource": "extracted"
+      },
+      "os": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "pythonVersion": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "exp:document_level_information_extraction_2020",
+      "@type": "Experiment",
+      "mention": {
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "description": {
+        "value": "Evaluation of the proposed baseline model on SCIREX.",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "objective": {
+        "value": "Establish baseline performance on SCIREX and assess the difficulty of the document-level IE subtasks.",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hypothesis": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "methodology": {
+        "value": "Joint end-to-end document-level IE evaluation with component-wise and end-to-end settings.",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "realizes": [
+        {
+          "@id": "task:document_level_information_extraction"
+        },
+        {
+          "@id": "task:entity_recognition"
+        },
+        {
+          "@id": "task:salient_entity_identification"
+        },
+        {
+          "@id": "task:coreference"
+        },
+        {
+          "@id": "task:document_level_n_ary_relation_identification"
+        },
+        {
+          "@id": "task:binary_relation_extraction"
+        },
+        {
+          "@id": "task:four_ary_relation_extraction"
+        }
+      ],
+      "usesData": [
+        {
+          "@id": "dataset:scirex"
+        }
+      ],
+      "produces": [
+        {
+          "@id": "method:document_level_ie_baseline_model"
+        }
+      ],
+      "usesParameters": [
+        {
+          "@id": "hp:dropout_bilstm_0_2"
+        },
+        {
+          "@id": "hp:dropout_ffn_0_2"
+        },
+        {
+          "@id": "hp:num_layers_ffn_2"
+        },
+        {
+          "@id": "hp:hidden_size_bilstm_128"
+        },
+        {
+          "@id": "hp:hidden_size_attention_128"
+        },
+        {
+          "@id": "hp:max_sequence_length_512"
+        },
+        {
+          "@id": "hp:num_epochs_30"
+        },
+        {
+          "@id": "hp:learning_rate_non_bert_1e_3"
+        },
+        {
+          "@id": "hp:learning_rate_bert_2e_5"
+        },
+        {
+          "@id": "hp:patience_7"
+        }
+      ],
+      "executes": [
+        {
+          "@id": "impl:scirex_allennlp"
+        }
+      ]
+    },
+    {
+      "@id": "hp:dropout_bilstm_0_2",
+      "@type": "MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 50604,
+        "end_char_doc": 50611,
+        "prefix": "hidden state. We use a",
+        "suffix": "of 0.2 after BiLSTM embeddings.",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "dropout",
+        "start_char_doc": 50604,
+        "end_char_doc": 50611,
+        "prefix": "hidden state. We use a",
+        "suffix": "of 0.2 after BiLSTM embeddings.",
+        "valueSource": "extracted"
+      },
+      "nameUri": {
+        "value": "https://w3id.org/mlskg/hp/dropout",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hasValue": {
+        "value": 0.2,
+        "start_char_doc": 50615,
+        "end_char_doc": 50618,
+        "prefix": "We use a dropout of",
+        "suffix": "after BiLSTM embeddings. All feedforward",
+        "valueSource": "extracted"
+      },
+      "wasDerivedFromText": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "type": {
+        "value": "number",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "searchSpace": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hpCategory": "HP_Architecture",
+      "hpType": "Dropout",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:dropout_ffn_0_2",
+      "@type": "MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 50604,
+        "end_char_doc": 50611,
+        "prefix": "hidden state. We use a",
+        "suffix": "of 0.2 after BiLSTM embeddings.",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "dropout",
+        "start_char_doc": 50604,
+        "end_char_doc": 50611,
+        "prefix": "hidden state. We use a",
+        "suffix": "of 0.2 after BiLSTM embeddings.",
+        "valueSource": "extracted"
+      },
+      "nameUri": {
+        "value": "https://w3id.org/mlskg/hp/dropout",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hasValue": {
+        "value": 0.2,
+        "start_char_doc": 50769,
+        "end_char_doc": 50772,
+        "prefix": "and with a dropout of",
+        "suffix": "between layers. For additive attention",
+        "valueSource": "extracted"
+      },
+      "wasDerivedFromText": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "type": {
+        "value": "number",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "searchSpace": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hpCategory": "HP_Architecture",
+      "hpType": "Dropout",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:num_layers_ffn_2",
+      "@type": "MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 50685,
+        "end_char_doc": 50702,
+        "prefix": "feedforward networks are composed of",
+        "suffix": ", each of dimension 128",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "num_layers",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "nameUri": {
+        "value": "https://w3id.org/mlskg/hp/num_layers",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hasValue": {
+        "value": "two hidden layers",
+        "start_char_doc": 50685,
+        "end_char_doc": 50688,
+        "prefix": "feedforward networks are composed of",
+        "suffix": "hidden layers, each of dimension",
+        "valueSource": "extracted"
+      },
+      "wasDerivedFromText": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "type": {
+        "value": "string",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "searchSpace": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hpCategory": "HP_Architecture",
+      "hpType": "NumLayers",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:hidden_size_bilstm_128",
+      "@type": "MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 50575,
+        "end_char_doc": 50593,
+        "prefix": "al., 2019) and BiLSTM with",
+        "suffix": ". We use a dropout",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "hidden_size",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "nameUri": {
+        "value": "https://w3id.org/mlskg/hp/hidden_size",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hasValue": {
+        "value": 128,
+        "start_char_doc": 50575,
+        "end_char_doc": 50578,
+        "prefix": "al., 2019) and BiLSTM with",
+        "suffix": "-d hidden state. We use",
+        "valueSource": "extracted"
+      },
+      "wasDerivedFromText": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "type": {
+        "value": "number",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "searchSpace": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hpCategory": "HP_Architecture",
+      "hpType": "HiddenSize",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:hidden_size_attention_128",
+      "@type": "MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 50575,
+        "end_char_doc": 50593,
+        "prefix": "al., 2019) and BiLSTM with",
+        "suffix": ". We use a dropout",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "hidden_size",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "nameUri": {
+        "value": "https://w3id.org/mlskg/hp/hidden_size",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hasValue": {
+        "value": 128,
+        "start_char_doc": 50932,
+        "end_char_doc": 50935,
+        "prefix": "through the feedforward layer with",
+        "suffix": "-d hidden state and performing",
+        "valueSource": "extracted"
+      },
+      "wasDerivedFromText": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "type": {
+        "value": "number",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "searchSpace": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hpCategory": "HP_Architecture",
+      "hpType": "HiddenSize",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:max_sequence_length_512",
+      "@type": "MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 23168,
+        "end_char_doc": 23178,
+        "prefix": "the section is bigger than",
+        "suffix": "(SciBERT limit), it is broken",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "max_seq_length",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "nameUri": {
+        "value": "https://w3id.org/mlskg/hp/max_seq_length",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hasValue": {
+        "value": 512,
+        "start_char_doc": 23168,
+        "end_char_doc": 23171,
+        "prefix": "the section is bigger than",
+        "suffix": "tokens (SciBERT limit), it is",
+        "valueSource": "extracted"
+      },
+      "wasDerivedFromText": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "type": {
+        "value": "number",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "searchSpace": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hpCategory": "HP_Data",
+      "hpType": "MaxSequenceLength",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:num_epochs_30",
+      "@type": "MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 51000,
+        "end_char_doc": 51009,
+        "prefix": "We train our model for",
+        "suffix": "using Adam optimizer with 1e-3",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "epochs",
+        "start_char_doc": 51003,
+        "end_char_doc": 51009,
+        "prefix": "train our model for 30",
+        "suffix": "using Adam optimizer with 1e-3",
+        "valueSource": "extracted"
+      },
+      "nameUri": {
+        "value": "https://w3id.org/mlskg/hp/epochs",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hasValue": {
+        "value": 30,
+        "start_char_doc": 51000,
+        "end_char_doc": 51002,
+        "prefix": "We train our model for",
+        "suffix": "epochs using Adam optimizer with",
+        "valueSource": "extracted"
+      },
+      "wasDerivedFromText": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "type": {
+        "value": "number",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "searchSpace": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hpCategory": "HP_Training",
+      "hpType": "NumEpochs",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:learning_rate_non_bert_1e_3",
+      "@type": "MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 51036,
+        "end_char_doc": 51040,
+        "prefix": "epochs using Adam optimizer with",
+        "suffix": "as learning rate for all",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "learning_rate",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "nameUri": {
+        "value": "https://w3id.org/mlskg/hp/learning_rate",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hasValue": {
+        "value": "1e-3",
+        "start_char_doc": 51036,
+        "end_char_doc": 51040,
+        "prefix": "epochs using Adam optimizer with",
+        "suffix": "as learning rate for all",
+        "valueSource": "extracted"
+      },
+      "wasDerivedFromText": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "type": {
+        "value": "string",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "searchSpace": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hpCategory": "HP_Optimization",
+      "hpType": "LearningRate",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:learning_rate_bert_2e_5",
+      "@type": "MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 51087,
+        "end_char_doc": 51091,
+        "prefix": "all non BERT weights and",
+        "suffix": "for BERT weights. We use",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "learning_rate",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "nameUri": {
+        "value": "https://w3id.org/mlskg/hp/learning_rate",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hasValue": {
+        "value": "2e-5",
+        "start_char_doc": 51087,
+        "end_char_doc": 51091,
+        "prefix": "all non BERT weights and",
+        "suffix": "for BERT weights. We use",
+        "valueSource": "extracted"
+      },
+      "wasDerivedFromText": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "type": {
+        "value": "string",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "searchSpace": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hpCategory": "HP_Optimization",
+      "hpType": "LearningRate",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:patience_7",
+      "@type": "MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 51139,
+        "end_char_doc": 51158,
+        "prefix": "use early stopping with a",
+        "suffix": "on the validation set using",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "patience",
+        "start_char_doc": 51139,
+        "end_char_doc": 51147,
+        "prefix": "use early stopping with a",
+        "suffix": "value of 7 on the",
+        "valueSource": "extracted"
+      },
+      "nameUri": {
+        "value": "https://w3id.org/mlskg/hp/patience",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hasValue": {
+        "value": 7,
+        "start_char_doc": 51157,
+        "end_char_doc": 51158,
+        "prefix": "with a patience value of",
+        "suffix": "on the validation set using",
+        "valueSource": "extracted"
+      },
+      "wasDerivedFromText": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "type": {
+        "value": "number",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "searchSpace": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hpCategory": "HP_Training",
+      "hpType": "Patience",
+      "uncertain": false
+    },
+    {
+      "@id": "eval:mention_identification_precision",
+      "@type": "MLS_Eval",
+      "mention": {
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "measure": {
+        "value": "Precision",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hasValue": {
+        "value": 0.707,
+        "start_char_doc": 32014,
+        "end_char_doc": 32019,
+        "prefix": "</tr> <tr> <td>Our Model</td> <td>",
+        "suffix": "</td> <td>0.717</td> <td><b>0.712</b></td> </tr> <tr>",
+        "valueSource": "extracted"
+      },
+      "stdDev": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "confidenceInterval": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "evaluates": {
+        "@id": "task:entity_recognition"
+      },
+      "appliedTo": {
+        "@id": "dataset:scirex"
+      }
+    },
+    {
+      "@id": "eval:mention_identification_recall",
+      "@type": "MLS_Eval",
+      "mention": {
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "measure": {
+        "value": "Recall",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hasValue": {
+        "value": 0.717,
+        "start_char_doc": 32035,
+        "end_char_doc": 32040,
+        "prefix": "<tr> <td>Our Model</td> <td>0.707</td> <td>",
+        "suffix": "</td> <td><b>0.712</b></td> </tr> <tr> <td",
+        "valueSource": "extracted"
+      },
+      "stdDev": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "confidenceInterval": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "evaluates": {
+        "@id": "task:entity_recognition"
+      },
+      "appliedTo": {
+        "@id": "dataset:scirex"
+      }
+    },
+    {
+      "@id": "eval:mention_identification_f1",
+      "@type": "MLS_Eval",
+      "mention": {
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "measure": {
+        "value": "F1",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hasValue": {
+        "value": 0.712,
+        "start_char_doc": 32059,
+        "end_char_doc": 32064,
+        "prefix": "<td>Our Model</td> <td>0.707</td> <td>0.717</td> <td><b>",
+        "suffix": "</b></td> </tr> <tr> <td colspan=\"4\">End-to-end",
+        "valueSource": "extracted"
+      },
+      "stdDev": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "confidenceInterval": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "evaluates": {
+        "@id": "task:entity_recognition"
+      },
+      "appliedTo": {
+        "@id": "dataset:scirex"
+      }
+    },
+    {
+      "@id": "eval:binary_relation_precision",
+      "@type": "MLS_Eval",
+      "mention": {
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "measure": {
+        "value": "Precision",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hasValue": {
+        "value": 0.065,
+        "start_char_doc": 32561,
+        "end_char_doc": 32566,
+        "prefix": "</tr> <tr> <td>Our Model</td> <td><b>",
+        "suffix": "</b></td> <td><b>0.411</b></td> <td><b>0.096</b></td> </tr> <tr>",
+        "valueSource": "extracted"
+      },
+      "stdDev": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "confidenceInterval": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "evaluates": {
+        "@id": "task:binary_relation_extraction"
+      },
+      "appliedTo": {
+        "@id": "dataset:scirex"
+      }
+    },
+    {
+      "@id": "eval:binary_relation_recall",
+      "@type": "MLS_Eval",
+      "mention": {
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "measure": {
+        "value": "Recall",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hasValue": {
+        "value": 0.411,
+        "start_char_doc": 32589,
+        "end_char_doc": 32594,
+        "prefix": "<tr> <td>Our Model</td> <td><b>0.065</b></td> <td><b>",
+        "suffix": "</b></td> <td><b>0.096</b></td> </tr> <tr> <td",
+        "valueSource": "extracted"
+      },
+      "stdDev": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "confidenceInterval": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "evaluates": {
+        "@id": "task:binary_relation_extraction"
+      },
+      "appliedTo": {
+        "@id": "dataset:scirex"
+      }
+    },
+    {
+      "@id": "eval:binary_relation_f1",
+      "@type": "MLS_Eval",
+      "mention": {
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "measure": {
+        "value": "F1",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hasValue": {
+        "value": 0.096,
+        "start_char_doc": 32617,
+        "end_char_doc": 32622,
+        "prefix": "<td>Our Model</td> <td><b>0.065</b></td> <td><b>0.411</b></td> <td><b>",
+        "suffix": "</b></td> </tr> <tr> <td colspan=\"4\">4-ary",
+        "valueSource": "extracted"
+      },
+      "stdDev": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "confidenceInterval": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "evaluates": {
+        "@id": "task:binary_relation_extraction"
+      },
+      "appliedTo": {
+        "@id": "dataset:scirex"
+      }
+    },
+    {
+      "@id": "eval:four_ary_relation_precision",
+      "@type": "MLS_Eval",
+      "mention": {
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "measure": {
+        "value": "Precision",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hasValue": {
+        "value": 0.531,
+        "start_char_doc": 32878,
+        "end_char_doc": 32883,
+        "prefix": "</tr> <tr> <td>Our Model</td> <td><b>",
+        "suffix": "</b></td> <td>0.718</td> <td>0.611</td> </tr> </tbody>",
+        "valueSource": "extracted"
+      },
+      "stdDev": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "confidenceInterval": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "evaluates": {
+        "@id": "task:four_ary_relation_extraction"
+      },
+      "appliedTo": {
+        "@id": "dataset:scirex"
+      }
+    },
+    {
+      "@id": "eval:four_ary_relation_recall",
+      "@type": "MLS_Eval",
+      "mention": {
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "measure": {
+        "value": "Recall",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hasValue": {
+        "value": 0.718,
+        "start_char_doc": 32903,
+        "end_char_doc": 32908,
+        "prefix": "<tr> <td>Our Model</td> <td><b>0.531</b></td> <td>",
+        "suffix": "</td> <td>0.611</td> </tr> </tbody> </table>",
+        "valueSource": "extracted"
+      },
+      "stdDev": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "confidenceInterval": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "evaluates": {
+        "@id": "task:four_ary_relation_extraction"
+      },
+      "appliedTo": {
+        "@id": "dataset:scirex"
+      }
+    },
+    {
+      "@id": "eval:four_ary_relation_f1",
+      "@type": "MLS_Eval",
+      "mention": {
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "measure": {
+        "value": "F1",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hasValue": {
+        "value": 0.611,
+        "start_char_doc": 32924,
+        "end_char_doc": 32929,
+        "prefix": "<td>Our Model</td> <td><b>0.531</b></td> <td>0.718</td> <td>",
+        "suffix": "</td> </tr> </tbody> </table> Table",
+        "valueSource": "extracted"
+      },
+      "stdDev": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "confidenceInterval": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "evaluates": {
+        "@id": "task:four_ary_relation_extraction"
+      },
+      "appliedTo": {
+        "@id": "dataset:scirex"
+      }
+    }
+  ]
+}
