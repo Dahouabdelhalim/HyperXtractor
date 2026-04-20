@@ -1,0 +1,1312 @@
+{
+  "@context": {
+    "mls": "http://www.w3.org/ns/mls#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "schema": "http://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "model": "https://w3id.org/mlskg/model/",
+    "algo": "https://w3id.org/mlskg/algorithm/",
+    "method": "https://w3id.org/mlskg/method/",
+    "dataset": "https://w3id.org/mlskg/dataset/",
+    "datasource": "https://w3id.org/mlskg/datasource/",
+    "task": "https://w3id.org/mlskg/task/",
+    "eval": "https://w3id.org/mlskg/eval/",
+    "hp": "https://w3id.org/mlskg/hp/",
+    "impl": "https://w3id.org/mlskg/implementation/",
+    "env": "https://w3id.org/mlskg/environment/",
+    "prompt": "https://w3id.org/mlskg/prompt/",
+    "person": "https://w3id.org/mlskg/person/",
+    "org": "https://w3id.org/mlskg/organization/",
+    "study": "https://w3id.org/mlskg/study/",
+    "exp": "https://w3id.org/mlskg/experiment/",
+    "repo": "https://w3id.org/mlskg/repository/",
+    "valueSource": "https://w3id.org/mlskg/meta/valueSource",
+    "mention": "https://w3id.org/mlskg/meta/mention"
+  },
+  "@graph": [
+    {
+      "@id": "study:fairface_face_attribute_dataset_balanced_race_gender_age_2019",
+      "@type": "mls:Study",
+      "mention": {
+        "start_char_doc": 11,
+        "end_char_doc": 78,
+        "prefix": "## Page 1",
+        "suffix": "Kimmo Kärkkäinen UCLA kimmo@cs.ucla.edu Jungseock",
+        "valueSource": "extracted"
+      },
+      "schema:title": {
+        "value": "FairFace: Face Attribute Dataset for Balanced Race, Gender, and Age",
+        "start_char_doc": 11,
+        "end_char_doc": 78,
+        "prefix": "## Page 1",
+        "suffix": "Kimmo Kärkkäinen UCLA kimmo@cs.ucla.edu Jungseock",
+        "valueSource": "extracted"
+      },
+      "schema:abstract": {
+        "value": "Existing public face datasets are strongly biased toward Caucasian faces, and other races (e.g., Latino) are significantly underrepresented. This can lead to inconsistent model accuracy, limit the applicability of face analytic systems to non-White race groups, and adversely affect research findings based on such skewed data. To mitigate the race bias in these datasets, we construct a novel face image dataset, containing 108,501 images, with an emphasis of balanced race composition in the dataset. We define 7 race groups: White, Black, Indian, East Asian, Southeast Asian, Middle East, and Latino. Images were collected from the YFCC-100M Flickr dataset and labeled with race, gender, and age groups. Evaluations were performed on existing face attribute datasets as well as novel image datasets to measure generalization performance. We find that the model trained from our dataset is substantially more accurate on novel datasets and the accuracy is consistent between race and gender groups. The dataset will be released via {https://github.com/joojs/fairface}.",
+        "start_char_doc": 249,
+        "end_char_doc": 1319,
+        "prefix": "[cs.CV] 14 Aug 2019&lt;/watermark&gt; **Abstract**",
+        "suffix": "**1. Introduction** To date, numerous",
+        "valueSource": "extracted"
+      },
+      "schema:url": {
+        "value": "https://arxiv.org/abs/1908.04913",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:doi": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:citation": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:publicationVenue": {
+        "value": "arXiv",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:timestamp": {
+        "value": "14 Aug 2019",
+        "start_char_doc": 204,
+        "end_char_doc": 215,
+        "prefix": "Joo UCLA jjoo@comm.ucla.edu &lt;watermark&gt;arXiv:1908.04913v1 [cs.CV]",
+        "suffix": "&lt;/watermark&gt; **Abstract** Existing public face",
+        "valueSource": "extracted"
+      },
+      "mls:hasAuthor": [
+        {
+          "@id": "person:karkkainen_kimmo"
+        },
+        {
+          "@id": "person:joo_jungseock"
+        }
+      ],
+      "mls:contains": [
+        {
+          "@id": "exp:fairface_generalization_2019"
+        }
+      ],
+      "mls:implements": {
+        "@id": "repo:fairface"
+      }
+    },
+    {
+      "@id": "person:karkkainen_kimmo",
+      "@type": "mls:Person",
+      "mention": {
+        "start_char_doc": 80,
+        "end_char_doc": 96,
+        "prefix": "Balanced Race, Gender, and Age",
+        "suffix": "UCLA kimmo@cs.ucla.edu Jungseock Joo UCLA",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "Kimmo Kärkkäinen",
+        "start_char_doc": 80,
+        "end_char_doc": 96,
+        "prefix": "Balanced Race, Gender, and Age",
+        "suffix": "UCLA kimmo@cs.ucla.edu Jungseock Joo UCLA",
+        "valueSource": "extracted"
+      },
+      "schema:affiliation": {
+        "value": "UCLA",
+        "start_char_doc": 97,
+        "end_char_doc": 101,
+        "prefix": "Gender, and Age Kimmo Kärkkäinen",
+        "suffix": "kimmo@cs.ucla.edu Jungseock Joo UCLA jjoo@comm.ucla.edu",
+        "valueSource": "extracted"
+      },
+      "schema:email": {
+        "value": "kimmo@cs.ucla.edu",
+        "start_char_doc": 102,
+        "end_char_doc": 119,
+        "prefix": "and Age Kimmo Kärkkäinen UCLA",
+        "suffix": "Jungseock Joo UCLA jjoo@comm.ucla.edu &lt;watermark&gt;arXiv:1908.04913v1",
+        "valueSource": "extracted"
+      },
+      "schema:identifier": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "prov:affiliatedWith": [
+        {
+          "@id": "org:ucla"
+        }
+      ]
+    },
+    {
+      "@id": "person:joo_jungseock",
+      "@type": "mls:Person",
+      "mention": {
+        "start_char_doc": 121,
+        "end_char_doc": 134,
+        "prefix": "Age Kimmo Kärkkäinen UCLA kimmo@cs.ucla.edu",
+        "suffix": "UCLA jjoo@comm.ucla.edu &lt;watermark&gt;arXiv:1908.04913v1 [cs.CV] 14",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "Jungseock Joo",
+        "start_char_doc": 121,
+        "end_char_doc": 134,
+        "prefix": "Age Kimmo Kärkkäinen UCLA kimmo@cs.ucla.edu",
+        "suffix": "UCLA jjoo@comm.ucla.edu &lt;watermark&gt;arXiv:1908.04913v1 [cs.CV] 14",
+        "valueSource": "extracted"
+      },
+      "schema:affiliation": {
+        "value": "UCLA",
+        "start_char_doc": 135,
+        "end_char_doc": 139,
+        "prefix": "Kärkkäinen UCLA kimmo@cs.ucla.edu Jungseock Joo",
+        "suffix": "jjoo@comm.ucla.edu &lt;watermark&gt;arXiv:1908.04913v1 [cs.CV] 14 Aug",
+        "valueSource": "extracted"
+      },
+      "schema:email": {
+        "value": "jjoo@comm.ucla.edu",
+        "start_char_doc": 140,
+        "end_char_doc": 158,
+        "prefix": "UCLA kimmo@cs.ucla.edu Jungseock Joo UCLA",
+        "suffix": "&lt;watermark&gt;arXiv:1908.04913v1 [cs.CV] 14 Aug 2019&lt;/watermark&gt;",
+        "valueSource": "extracted"
+      },
+      "schema:identifier": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "prov:affiliatedWith": [
+        {
+          "@id": "org:ucla"
+        }
+      ]
+    },
+    {
+      "@id": "org:ucla",
+      "@type": "mls:Organization",
+      "mention": {
+        "start_char_doc": 97,
+        "end_char_doc": 101,
+        "prefix": "Gender, and Age Kimmo Kärkkäinen",
+        "suffix": "kimmo@cs.ucla.edu Jungseock Joo UCLA jjoo@comm.ucla.edu",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "UCLA",
+        "start_char_doc": 97,
+        "end_char_doc": 101,
+        "prefix": "Gender, and Age Kimmo Kärkkäinen",
+        "suffix": "kimmo@cs.ucla.edu Jungseock Joo UCLA jjoo@comm.ucla.edu",
+        "valueSource": "extracted"
+      },
+      "schema:url": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:type": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "task:face_attribute_recognition",
+      "@type": "mls:MLS_Task",
+      "mention": {
+        "start_char_doc": 8668,
+        "end_char_doc": 8694,
+        "prefix": "### 2.1. Face Attribute Recognition",
+        "suffix": "is a task to classify",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "Face attribute recognition",
+        "start_char_doc": 8668,
+        "end_char_doc": 8694,
+        "prefix": "### 2.1. Face Attribute Recognition",
+        "suffix": "is a task to classify",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "Face attribute recognition is a task to classify various human attributes such as gender, race, age, emotions, expressions or other facial traits from facial appearance [31, 25, 74, 37].",
+        "start_char_doc": 8668,
+        "end_char_doc": 8854,
+        "prefix": "### 2.1. Face Attribute Recognition",
+        "suffix": "While there have been many",
+        "valueSource": "extracted"
+      },
+      "schema:category": {
+        "value": "computer vision classification",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:metrics": {
+        "value": "Classification accuracy on external validation datasets",
+        "start_char_doc": 42368,
+        "end_char_doc": 42423,
+        "prefix": "</tr> </tbody> </table> Table 6:",
+        "suffix": ". <table> <thead> <tr> <th",
+        "valueSource": "extracted"
+      },
+      "mls:benchmarkedOn": [
+        {
+          "@id": "dataset:fairface"
+        },
+        {
+          "@id": "dataset:geo_tagged_tweets"
+        },
+        {
+          "@id": "dataset:media_photographs"
+        },
+        {
+          "@id": "dataset:protest_dataset"
+        }
+      ],
+      "mls:subTaskOf": []
+    },
+    {
+      "@id": "dataset:fairface",
+      "@type": "mls:MLS_Dataset",
+      "mention": {
+        "start_char_doc": 11,
+        "end_char_doc": 19,
+        "prefix": "## Page 1",
+        "suffix": ": Face Attribute Dataset for",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "FairFace",
+        "start_char_doc": 11,
+        "end_char_doc": 19,
+        "prefix": "## Page 1",
+        "suffix": ": Face Attribute Dataset for",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "This paper proposes a novel face image dataset balanced on race, gender and age.",
+        "start_char_doc": 31324,
+        "end_char_doc": 31404,
+        "prefix": "(See Figure 3) 5. Conclusion",
+        "suffix": "Compared to existing large-scale in-the-wild",
+        "valueSource": "extracted"
+      },
+      "schema:numberOfItems": {
+        "value": "108,501",
+        "start_char_doc": 674,
+        "end_char_doc": 681,
+        "prefix": "novel face image dataset, containing",
+        "suffix": "images, with an emphasis of",
+        "valueSource": "extracted"
+      },
+      "schema:inLanguage": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:license": {
+        "value": "“Attribution” and “Share Alike” Creative Commons licenses",
+        "start_char_doc": 18597,
+        "end_char_doc": 18654,
+        "prefix": "We only used images with",
+        "suffix": ", which allow derivative work",
+        "valueSource": "extracted"
+      },
+      "mls:modality": {
+        "value": "image",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:numClasses": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "datasource:yahoo_yfcc100m"
+        },
+        {
+          "@id": "datasource:twitter"
+        },
+        {
+          "@id": "datasource:online_newspaper_outlets"
+        }
+      ]
+    },
+    {
+      "@id": "dataset:geo_tagged_tweets",
+      "@type": "mls:MLS_Dataset",
+      "mention": {
+        "start_char_doc": 22089,
+        "end_char_doc": 22106,
+        "prefix": "different locations as follows. **",
+        "suffix": ".** First we consider images",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "Geo-tagged Tweets",
+        "start_char_doc": 22089,
+        "end_char_doc": 22106,
+        "prefix": "different locations as follows. **",
+        "suffix": ".** First we consider images",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "First we consider images uploaded by Twitter users whose locations are identified by geotags (longitude and latitude), provided by [51]. From this set, we chose four countries (France, Iraq, Philippines, and Venezuela) and randomly sampled 5,000 faces.",
+        "start_char_doc": 22110,
+        "end_char_doc": 22362,
+        "prefix": "locations as follows. **Geo-tagged Tweets.**",
+        "suffix": "**Media Photographs.** Next, we also",
+        "valueSource": "extracted"
+      },
+      "schema:numberOfItems": {
+        "value": "5,000",
+        "start_char_doc": 22350,
+        "end_char_doc": 22355,
+        "prefix": "and Venezuela) and randomly sampled",
+        "suffix": "faces. **Media Photographs.** Next, we",
+        "valueSource": "extracted"
+      },
+      "schema:inLanguage": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:license": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:modality": {
+        "value": "image",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:numClasses": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "datasource:twitter"
+        }
+      ]
+    },
+    {
+      "@id": "dataset:media_photographs",
+      "@type": "mls:MLS_Dataset",
+      "mention": {
+        "start_char_doc": 22366,
+        "end_char_doc": 22383,
+        "prefix": "randomly sampled 5,000 faces. **",
+        "suffix": ".** Next, we also use",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "Media Photographs",
+        "start_char_doc": 22366,
+        "end_char_doc": 22383,
+        "prefix": "randomly sampled 5,000 faces. **",
+        "suffix": ".** Next, we also use",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "Next, we also use photographs posted by 500 online professional media outlets. Specifically, we use a public dataset of tweet IDs [36] posted by 4,000 known media accounts, e.g., @nytimes.",
+        "start_char_doc": 22387,
+        "end_char_doc": 22575,
+        "prefix": "sampled 5,000 faces. **Media Photographs.**",
+        "suffix": "Note that although we use",
+        "valueSource": "extracted"
+      },
+      "schema:numberOfItems": {
+        "value": "8,000",
+        "start_char_doc": 22864,
+        "end_char_doc": 22869,
+        "prefix": "ordinary users. We randomly sampled",
+        "suffix": "faces from the set. **Protest",
+        "valueSource": "extracted"
+      },
+      "schema:inLanguage": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:license": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:modality": {
+        "value": "image",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:numClasses": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "datasource:twitter"
+        },
+        {
+          "@id": "datasource:online_newspaper_outlets"
+        }
+      ]
+    },
+    {
+      "@id": "dataset:protest_dataset",
+      "@type": "mls:MLS_Dataset",
+      "mention": {
+        "start_char_doc": 22893,
+        "end_char_doc": 22908,
+        "prefix": "faces from the set. **",
+        "suffix": ".** Lastly, we also use",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "Protest Dataset",
+        "start_char_doc": 22893,
+        "end_char_doc": 22908,
+        "prefix": "faces from the set. **",
+        "suffix": ".** Lastly, we also use",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "Lastly, we also use a public image dataset collected for a recent protest activity study [64]. The authors collected the majority of data from Google Image search by using keywords such as “Venezuela protest” or “football game” (for hard negatives).",
+        "start_char_doc": 22912,
+        "end_char_doc": 23161,
+        "prefix": "from the set. **Protest Dataset.**",
+        "suffix": "The dataset exhibits a wide",
+        "valueSource": "extracted"
+      },
+      "schema:numberOfItems": {
+        "value": "8,000",
+        "start_char_doc": 23305,
+        "end_char_doc": 23310,
+        "prefix": "various countries. We randomly sampled",
+        "suffix": "faces from the set. These",
+        "valueSource": "extracted"
+      },
+      "schema:inLanguage": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:license": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:modality": {
+        "value": "image",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:numClasses": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "datasource:google_image_search"
+        }
+      ]
+    },
+    {
+      "@id": "datasource:yahoo_yfcc100m",
+      "@type": "mls:DataSource",
+      "mention": {
+        "start_char_doc": 17425,
+        "end_char_doc": 17447,
+        "prefix": "a huge public image dataset,",
+        "suffix": "[59], and detected faces from",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "Yahoo YFCC100M dataset",
+        "start_char_doc": 17425,
+        "end_char_doc": 17447,
+        "prefix": "a huge public image dataset,",
+        "suffix": "[59], and detected faces from",
+        "valueSource": "extracted"
+      },
+      "schema:url": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:type": {
+        "value": "public image dataset",
+        "start_char_doc": 17403,
+        "end_char_doc": 17423,
+        "prefix": "We started from a huge",
+        "suffix": ", Yahoo YFCC100M dataset [59],",
+        "valueSource": "extracted"
+      },
+      "schema:license": {
+        "value": "“Attribution” and “Share Alike” Creative Commons licenses",
+        "start_char_doc": 18597,
+        "end_char_doc": 18654,
+        "prefix": "We only used images with",
+        "suffix": ", which allow derivative work",
+        "valueSource": "extracted"
+      }
+    },
+    {
+      "@id": "datasource:twitter",
+      "@type": "mls:DataSource",
+      "mention": {
+        "start_char_doc": 3564,
+        "end_char_doc": 3571,
+        "prefix": "from other sources such as",
+        "suffix": "and online newspaper outlets. We",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "Twitter",
+        "start_char_doc": 3564,
+        "end_char_doc": 3571,
+        "prefix": "from other sources such as",
+        "suffix": "and online newspaper outlets. We",
+        "valueSource": "extracted"
+      },
+      "schema:url": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:type": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:license": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "datasource:online_newspaper_outlets",
+      "@type": "mls:DataSource",
+      "mention": {
+        "start_char_doc": 3576,
+        "end_char_doc": 3600,
+        "prefix": "sources such as Twitter and",
+        "suffix": ". We define 7 race",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "online newspaper outlets",
+        "start_char_doc": 3576,
+        "end_char_doc": 3600,
+        "prefix": "sources such as Twitter and",
+        "suffix": ". We define 7 race",
+        "valueSource": "extracted"
+      },
+      "schema:url": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:type": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:license": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "datasource:google_image_search",
+      "@type": "mls:DataSource",
+      "mention": {
+        "start_char_doc": 23055,
+        "end_char_doc": 23074,
+        "prefix": "the majority of data from",
+        "suffix": "by using keywords such as",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "Google Image search",
+        "start_char_doc": 23055,
+        "end_char_doc": 23074,
+        "prefix": "the majority of data from",
+        "suffix": "by using keywords such as",
+        "valueSource": "extracted"
+      },
+      "schema:url": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:type": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:license": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "repo:fairface",
+      "@type": "mls:SoftwareRepository",
+      "mention": {
+        "start_char_doc": 1284,
+        "end_char_doc": 1317,
+        "prefix": "will be released via {",
+        "suffix": "}. **1. Introduction** To date,",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "fairface",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:url": {
+        "value": "https://github.com/joojs/fairface",
+        "start_char_doc": 1284,
+        "end_char_doc": 1317,
+        "prefix": "will be released via {",
+        "suffix": "}. **1. Introduction** To date,",
+        "valueSource": "extracted"
+      },
+      "schema:version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:programmingLanguage": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:dateModified": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:license": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:documentationUrl": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "prov:wasAssociatedWith": [
+        {
+          "@id": "person:joo_jungseock"
+        }
+      ]
+    },
+    {
+      "@id": "impl:pytorch_fairface",
+      "@type": "mls:MLS_Implementation",
+      "mention": {
+        "start_char_doc": 20446,
+        "end_char_doc": 20453,
+        "prefix": "The experiment was done in",
+        "suffix": ". Throughout the evaluations, we",
+        "valueSource": "extracted"
+      },
+      "mls:codeRepository": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:framework": {
+        "value": "pyTorch",
+        "start_char_doc": 20446,
+        "end_char_doc": 20453,
+        "prefix": "The experiment was done in",
+        "suffix": ". Throughout the evaluations, we",
+        "valueSource": "extracted"
+      },
+      "mls:executionCommand": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:entryPoint": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:branch": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "hp:learning_rate_fairface_resnet_34",
+      "@type": "mls:MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 20266,
+        "end_char_doc": 20279,
+        "prefix": "ADAM optimization [29] with a",
+        "suffix": "of 0.0001. Given an image,",
+        "valueSource": "extracted"
+      },
+      "mls:name": {
+        "value": "learning rate",
+        "start_char_doc": 20266,
+        "end_char_doc": 20279,
+        "prefix": "ADAM optimization [29] with a",
+        "suffix": "of 0.0001. Given an image,",
+        "valueSource": "extracted"
+      },
+      "mls:hasValue": {
+        "value": "0.0001",
+        "start_char_doc": 20283,
+        "end_char_doc": 20289,
+        "prefix": "with a learning rate of",
+        "suffix": ". Given an image, we",
+        "valueSource": "extracted"
+      },
+      "mls:wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:type": {
+        "value": "float",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:searchSpace": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hpCategory": "HP_Optimization",
+      "hpType": "LearningRate",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:num_layers_resnet_34",
+      "@type": "mls:MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 20179,
+        "end_char_doc": 20188,
+        "prefix": "used an identical model architecture,",
+        "suffix": "[18], to be trained from",
+        "valueSource": "extracted"
+      },
+      "mls:name": {
+        "value": "num_layers",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "34",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:type": {
+        "value": "integer",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:searchSpace": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hpCategory": "HP_Architecture",
+      "hpType": "NumLayers",
+      "uncertain": false
+    },
+    {
+      "@id": "model:fairface_resnet_34",
+      "@type": "mls:MLS_Model",
+      "mention": {
+        "start_char_doc": 23593,
+        "end_char_doc": 23607,
+        "prefix": "the three variants of the",
+        "suffix": "by limiting the size of",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "FairFace model",
+        "start_char_doc": 23593,
+        "end_char_doc": 23607,
+        "prefix": "the three variants of the",
+        "suffix": "by limiting the size of",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "ResNet-34 attribute classifier trained on FairFace and evaluated on external validation datasets.",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:architecture": {
+        "value": "ResNet-34",
+        "start_char_doc": 20179,
+        "end_char_doc": 20188,
+        "prefix": "used an identical model architecture,",
+        "suffix": "[18], to be trained from",
+        "valueSource": "extracted"
+      },
+      "schema:parameters": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:trainedOn": [
+        {
+          "@id": "dataset:fairface"
+        }
+      ],
+      "mls:evaluatedOn": [
+        {
+          "@id": "dataset:geo_tagged_tweets"
+        },
+        {
+          "@id": "dataset:media_photographs"
+        },
+        {
+          "@id": "dataset:protest_dataset"
+        }
+      ],
+      "mls:achieves": [
+        {
+          "@id": "eval:race_accuracy_external_validation_avg"
+        },
+        {
+          "@id": "eval:gender_accuracy_external_validation_avg"
+        },
+        {
+          "@id": "eval:age_accuracy_external_validation_avg"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "exp:fairface_generalization_2019"
+      }
+    },
+    {
+      "@id": "eval:race_accuracy_external_validation_avg",
+      "@type": "mls:MLS_Eval",
+      "mention": {
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:measure": {
+        "value": "Average race classification accuracy on external validation datasets",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": ".815",
+        "start_char_doc": 46277,
+        "end_char_doc": 46281,
+        "prefix": "<tr> <td rowspan=\"4\">Average</td> <td>FairFace</td> <td>",
+        "suffix": "</td> <td>.816</td> <td>.815</td> <td>.928</td> <td>.639</td>",
+        "valueSource": "extracted"
+      },
+      "mls:stdDev": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:confidenceInterval": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "eval:gender_accuracy_external_validation_avg",
+      "@type": "mls:MLS_Eval",
+      "mention": {
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:measure": {
+        "value": "Average gender classification accuracy on external validation datasets",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": ".957",
+        "start_char_doc": 53020,
+        "end_char_doc": 53024,
+        "prefix": "<tr> <td rowspan=\"4\">Average</td> <td>FairFace</td> <td>",
+        "suffix": "</td> <td>.950</td> <td>.959</td> <td>.962</td> <td>.951</td>",
+        "valueSource": "extracted"
+      },
+      "mls:stdDev": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:confidenceInterval": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "eval:age_accuracy_external_validation_avg",
+      "@type": "mls:MLS_Eval",
+      "mention": {
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:measure": {
+        "value": "Average age classification accuracy on external validation datasets",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": ".536",
+        "start_char_doc": 57983,
+        "end_char_doc": 57987,
+        "prefix": "<tr> <td rowspan=\"3\">Average</td> <td>FairFace</td> <td>",
+        "suffix": "</td> <td>.547</td> <td>.531</td> <td>.525</td> <td>.550</td>",
+        "valueSource": "extracted"
+      },
+      "mls:stdDev": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:confidenceInterval": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "exp:fairface_generalization_2019",
+      "@type": "mls:Experiment",
+      "mention": {
+        "start_char_doc": 21716,
+        "end_char_doc": 21768,
+        "prefix": "Generalization Performance #### 4.3.1 Datasets",
+        "suffix": ", we consider three novel",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "To test the generalization performance of the models, we consider three novel datasets.",
+        "start_char_doc": 21716,
+        "end_char_doc": 21803,
+        "prefix": "Generalization Performance #### 4.3.1 Datasets",
+        "suffix": "Note that these datasets were",
+        "valueSource": "extracted"
+      },
+      "schema:objective": {
+        "value": "To test the generalization performance of the models",
+        "start_char_doc": 21716,
+        "end_char_doc": 21768,
+        "prefix": "Generalization Performance #### 4.3.1 Datasets",
+        "suffix": ", we consider three novel",
+        "valueSource": "extracted"
+      },
+      "schema:hypothesis": {
+        "value": "we show that our new dataset perform better on the novel data, not only on average, but also across racial groups, i.e. more consistent.",
+        "start_char_doc": 3996,
+        "end_char_doc": 4132,
+        "prefix": "non-White faces are present. Second,",
+        "suffix": "Third, to the best of",
+        "valueSource": "extracted"
+      },
+      "schema:methodology": {
+        "value": "To compare model performance of different datasets, we used an identical model architecture, ResNet-34 [18], to be trained from each dataset. We used ADAM optimization [29] with a learning rate of 0.0001. Given an image, we detected faces using the dlib¹’s CNN-based face detector [28] and ran the attribute classifier on each face. The experiment was done in pyTorch.",
+        "start_char_doc": 20086,
+        "end_char_doc": 20454,
+        "prefix": "4.2. Model and Cross-Dataset Performance",
+        "suffix": "Throughout the evaluations, we compare",
+        "valueSource": "extracted"
+      },
+      "mls:realizes": [
+        {
+          "@id": "task:face_attribute_recognition"
+        }
+      ],
+      "mls:usesData": [
+        {
+          "@id": "dataset:fairface"
+        },
+        {
+          "@id": "dataset:geo_tagged_tweets"
+        },
+        {
+          "@id": "dataset:media_photographs"
+        },
+        {
+          "@id": "dataset:protest_dataset"
+        }
+      ],
+      "mls:produces": [
+        {
+          "@id": "model:fairface_resnet_34"
+        }
+      ],
+      "mls:usesParameters": [
+        {
+          "@id": "hp:learning_rate_fairface_resnet_34"
+        },
+        {
+          "@id": "hp:num_layers_resnet_34"
+        }
+      ],
+      "mls:executes": [
+        {
+          "@id": "impl:pytorch_fairface"
+        }
+      ],
+      "prov:wasAssociatedWith": [
+        {
+          "@id": "person:karkkainen_kimmo"
+        },
+        {
+          "@id": "person:joo_jungseock"
+        }
+      ],
+      "prov:used": [
+        {
+          "@id": "dataset:fairface"
+        },
+        {
+          "@id": "dataset:geo_tagged_tweets"
+        },
+        {
+          "@id": "dataset:media_photographs"
+        },
+        {
+          "@id": "dataset:protest_dataset"
+        }
+      ]
+    }
+  ]
+}
