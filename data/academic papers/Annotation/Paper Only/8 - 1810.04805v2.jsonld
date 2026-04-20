@@ -1,0 +1,3315 @@
+{
+  "@context": {
+    "mls": "http://www.w3.org/ns/mls#",
+    "schema": "http://schema.org/",
+    "prov": "http://www.w3.org/ns/prov#",
+    "model": "https://w3id.org/mlskg/model/",
+    "algo": "https://w3id.org/mlskg/algorithm/",
+    "method": "https://w3id.org/mlskg/method/",
+    "dataset": "https://w3id.org/mlskg/dataset/",
+    "datasource": "https://w3id.org/mlskg/datasource/",
+    "task": "https://w3id.org/mlskg/task/",
+    "eval": "https://w3id.org/mlskg/eval/",
+    "hp": "https://w3id.org/mlskg/hp/",
+    "impl": "https://w3id.org/mlskg/implementation/",
+    "env": "https://w3id.org/mlskg/environment/",
+    "person": "https://w3id.org/mlskg/person/",
+    "org": "https://w3id.org/mlskg/organization/",
+    "study": "https://w3id.org/mlskg/study/",
+    "exp": "https://w3id.org/mlskg/experiment/",
+    "expg": "https://w3id.org/mlskg/experiment_group/",
+    "repo": "https://w3id.org/mlskg/repository/",
+    "valueSource": "https://w3id.org/mlskg/meta/valueSource",
+    "mention": "https://w3id.org/mlskg/meta/mention",
+    "title": "schema:title",
+    "abstract": "schema:abstract",
+    "url": "schema:url",
+    "doi": "schema:doi",
+    "citation": "schema:citation",
+    "publicationVenue": "schema:isPartOf",
+    "timestamp": "schema:datePublished",
+    "description": "schema:description",
+    "objective": "mls:objective",
+    "hypothesis": "mls:hypothesis",
+    "methodology": "mls:methodology",
+    "name": "schema:name",
+    "affiliation": "schema:affiliation",
+    "email": "schema:email",
+    "orcid": "schema:identifier",
+    "type": "schema:additionalType",
+    "category": "schema:category",
+    "metrics": "mls:metrics",
+    "numInstances": "schema:numberOfItems",
+    "language": "schema:inLanguage",
+    "license": "schema:license",
+    "modality": "mls:modality",
+    "numClasses": "mls:numClasses",
+    "version": "schema:version",
+    "architecture": "mls:architecture",
+    "parameters": "mls:parameters",
+    "measure": "mls:measure",
+    "hasValue": "mls:hasValue",
+    "stdDev": "mls:stdDev",
+    "confidenceInterval": "mls:confidenceInterval",
+    "programmingLanguage": "schema:programmingLanguage",
+    "dateModified": "schema:dateModified",
+    "documentationUrl": "schema:url",
+    "codeRepository": "mls:codeRepository",
+    "framework": "mls:framework",
+    "executionCommand": "mls:executionCommand",
+    "entryPoint": "mls:entryPoint",
+    "branch": "schema:branch",
+    "searchSpace": "mls:searchSpace",
+    "hardwareSpecs": "mls:hardwareSpecs",
+    "os": "schema:operatingSystem",
+    "pythonVersion": "schema:runtimeVersion",
+    "isDockerized": "mls:isDockerized",
+    "hasAuthor": {
+      "@id": "mls:hasAuthor",
+      "@type": "@id"
+    },
+    "contains": {
+      "@id": "mls:contains",
+      "@type": "@id"
+    },
+    "implements": {
+      "@id": "mls:implements",
+      "@type": "@id"
+    },
+    "prov-affiliatedWith": {
+      "@id": "mls:prov-affiliatedWith",
+      "@type": "@id"
+    },
+    "realizes": {
+      "@id": "mls:realizes",
+      "@type": "@id"
+    },
+    "usesData": {
+      "@id": "mls:usesData",
+      "@type": "@id"
+    },
+    "produces": {
+      "@id": "mls:produces",
+      "@type": "@id"
+    },
+    "usesParameters": {
+      "@id": "mls:usesParameters",
+      "@type": "@id"
+    },
+    "executes": {
+      "@id": "mls:executes",
+      "@type": "@id"
+    },
+    "subDatasetOf": {
+      "@id": "mls:subDatasetOf",
+      "@type": "@id"
+    },
+    "prov-derivedFrom": {
+      "@id": "mls:prov-derivedFrom",
+      "@type": "@id"
+    },
+    "trainedOn": {
+      "@id": "mls:trainedOn",
+      "@type": "@id"
+    },
+    "evaluatedOn": {
+      "@id": "mls:evaluatedOn",
+      "@type": "@id"
+    },
+    "achieves": {
+      "@id": "mls:achieves",
+      "@type": "@id"
+    },
+    "subMethod": {
+      "@id": "mls:subMethod",
+      "@type": "@id"
+    },
+    "supports": {
+      "@id": "mls:supports",
+      "@type": "@id"
+    },
+    "runsIn": {
+      "@id": "mls:runsIn",
+      "@type": "@id"
+    },
+    "requires": {
+      "@id": "mls:requires",
+      "@type": "@id"
+    },
+    "mls:hasSubExperiment": {
+      "@type": "@id"
+    },
+    "prov:wasGeneratedBy": {
+      "@type": "@id"
+    },
+    "prov:wasDerivedFrom": {
+      "@type": "@id"
+    },
+    "prov:wasAssociatedWith": {
+      "@type": "@id"
+    },
+    "prov:used": {
+      "@type": "@id"
+    }
+  },
+  "@graph": [
+    {
+      "@id": "study:bert_pre_training_of_deep_bidirectional_transformers_for_language_understanding_2019",
+      "@type": "mls:Study",
+      "mention": {
+        "start_char_doc": 13,
+        "end_char_doc": 93,
+        "prefix": "## Page 1 #",
+        "suffix": "Jacob Devlin Ming-Wei Chang Kenton",
+        "valueSource": "extracted"
+      },
+      "title": {
+        "value": "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding",
+        "start_char_doc": 13,
+        "end_char_doc": 93,
+        "prefix": "## Page 1 #",
+        "suffix": "Jacob Devlin Ming-Wei Chang Kenton",
+        "valueSource": "extracted"
+      },
+      "abstract": {
+        "value": "We introduce a new language representation model called **BERT**, which stands for **Bidirectional Encoder Representations from Transformers**. Unlike recent language representation models (Peters et al., 2018a; Radford et al., 2018), BERT is designed to pre-train deep bidirectional representations from unlabeled text by jointly conditioning on both left and right context in all layers. As a result, the pre-trained BERT model can be fine-tuned with just one additional output layer to create state-of-the-art models for a wide range of tasks, such as question answering and language inference, without substantial task-specific architecture modifications.\n\nBERT is conceptually simple and empirically powerful. It obtains new state-of-the-art results on eleven natural language processing tasks, including pushing the GLUE score to 80.5% (7.7% point absolute improvement), MultiNLI accuracy to 86.7% (4.6% absolute improvement), SQuAD v1.1 question answering Test F1 to 93.2 (1.5 point absolute improvement) and SQuAD v2.0 Test F1 to 83.1 (5.1 point absolute improvement).",
+        "start_char_doc": 318,
+        "end_char_doc": 1394,
+        "prefix": "24 May 2019&lt;/watermark&gt; ## Abstract",
+        "suffix": "## 1 Introduction Language model",
+        "valueSource": "extracted"
+      },
+      "url": {
+        "value": "https://arxiv.org/abs/1810.04805v2",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "doi": null,
+      "citation": null,
+      "publicationVenue": {
+        "value": "arXiv",
+        "start_char_doc": 248,
+        "end_char_doc": 253,
+        "prefix": "{jacobdevlin, mingweichang, kentonl, kristout}@google.com &lt;watermark&gt;",
+        "suffix": ":1810.04805v2 [cs.CL] 24 May 2019&lt;/watermark&gt;",
+        "valueSource": "extracted"
+      },
+      "timestamp": {
+        "value": "2019-05-24",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hasAuthor": [
+        {
+          "@id": "person:devlin_jacob"
+        },
+        {
+          "@id": "person:chang_ming_wei"
+        },
+        {
+          "@id": "person:lee_kenton"
+        },
+        {
+          "@id": "person:toutanova_kristina"
+        }
+      ],
+      "contains": [
+        {
+          "@id": "expg:group_bert_2019"
+        }
+      ],
+      "implements": {
+        "@id": "repo:google_research_bert"
+      }
+    },
+    {
+      "@id": "person:devlin_jacob",
+      "@type": "mls:Person",
+      "mention": {
+        "start_char_doc": 95,
+        "end_char_doc": 107,
+        "prefix": "Bidirectional Transformers for Language Understanding",
+        "suffix": "Ming-Wei Chang Kenton Lee Kristina",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "Jacob Devlin",
+        "start_char_doc": 95,
+        "end_char_doc": 107,
+        "prefix": "Bidirectional Transformers for Language Understanding",
+        "suffix": "Ming-Wei Chang Kenton Lee Kristina",
+        "valueSource": "extracted"
+      },
+      "affiliation": {
+        "value": "Google AI Language",
+        "start_char_doc": 153,
+        "end_char_doc": 171,
+        "prefix": "Chang Kenton Lee Kristina Toutanova",
+        "suffix": "{jacobdevlin, mingweichang, kentonl, kristout}@google.com &lt;watermark&gt;arXiv:1810.04805v2",
+        "valueSource": "extracted"
+      },
+      "email": {
+        "value": "jacobdevlin@google.com",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "orcid": null,
+      "prov-affiliatedWith": [
+        {
+          "@id": "org:google_ai_language"
+        }
+      ]
+    },
+    {
+      "@id": "person:chang_ming_wei",
+      "@type": "mls:Person",
+      "mention": {
+        "start_char_doc": 108,
+        "end_char_doc": 122,
+        "prefix": "for Language Understanding Jacob Devlin",
+        "suffix": "Kenton Lee Kristina Toutanova Google",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "Ming-Wei Chang",
+        "start_char_doc": 108,
+        "end_char_doc": 122,
+        "prefix": "for Language Understanding Jacob Devlin",
+        "suffix": "Kenton Lee Kristina Toutanova Google",
+        "valueSource": "extracted"
+      },
+      "affiliation": {
+        "value": "Google AI Language",
+        "start_char_doc": 153,
+        "end_char_doc": 171,
+        "prefix": "Chang Kenton Lee Kristina Toutanova",
+        "suffix": "{jacobdevlin, mingweichang, kentonl, kristout}@google.com &lt;watermark&gt;arXiv:1810.04805v2",
+        "valueSource": "extracted"
+      },
+      "email": {
+        "value": "mingweichang@google.com",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "orcid": null,
+      "prov-affiliatedWith": [
+        {
+          "@id": "org:google_ai_language"
+        }
+      ]
+    },
+    {
+      "@id": "person:lee_kenton",
+      "@type": "mls:Person",
+      "mention": {
+        "start_char_doc": 123,
+        "end_char_doc": 133,
+        "prefix": "Understanding Jacob Devlin Ming-Wei Chang",
+        "suffix": "Kristina Toutanova Google AI Language",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "Kenton Lee",
+        "start_char_doc": 123,
+        "end_char_doc": 133,
+        "prefix": "Understanding Jacob Devlin Ming-Wei Chang",
+        "suffix": "Kristina Toutanova Google AI Language",
+        "valueSource": "extracted"
+      },
+      "affiliation": {
+        "value": "Google AI Language",
+        "start_char_doc": 153,
+        "end_char_doc": 171,
+        "prefix": "Chang Kenton Lee Kristina Toutanova",
+        "suffix": "{jacobdevlin, mingweichang, kentonl, kristout}@google.com &lt;watermark&gt;arXiv:1810.04805v2",
+        "valueSource": "extracted"
+      },
+      "email": {
+        "value": "kentonl@google.com",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "orcid": null,
+      "prov-affiliatedWith": [
+        {
+          "@id": "org:google_ai_language"
+        }
+      ]
+    },
+    {
+      "@id": "person:toutanova_kristina",
+      "@type": "mls:Person",
+      "mention": {
+        "start_char_doc": 134,
+        "end_char_doc": 152,
+        "prefix": "Devlin Ming-Wei Chang Kenton Lee",
+        "suffix": "Google AI Language {jacobdevlin, mingweichang,",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "Kristina Toutanova",
+        "start_char_doc": 134,
+        "end_char_doc": 152,
+        "prefix": "Devlin Ming-Wei Chang Kenton Lee",
+        "suffix": "Google AI Language {jacobdevlin, mingweichang,",
+        "valueSource": "extracted"
+      },
+      "affiliation": {
+        "value": "Google AI Language",
+        "start_char_doc": 153,
+        "end_char_doc": 171,
+        "prefix": "Chang Kenton Lee Kristina Toutanova",
+        "suffix": "{jacobdevlin, mingweichang, kentonl, kristout}@google.com &lt;watermark&gt;arXiv:1810.04805v2",
+        "valueSource": "extracted"
+      },
+      "email": {
+        "value": "kristout@google.com",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "orcid": null,
+      "prov-affiliatedWith": [
+        {
+          "@id": "org:google_ai_language"
+        }
+      ]
+    },
+    {
+      "@id": "org:google_ai_language",
+      "@type": "mls:Organization",
+      "mention": {
+        "start_char_doc": 153,
+        "end_char_doc": 171,
+        "prefix": "Chang Kenton Lee Kristina Toutanova",
+        "suffix": "{jacobdevlin, mingweichang, kentonl, kristout}@google.com &lt;watermark&gt;arXiv:1810.04805v2",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "Google AI Language",
+        "start_char_doc": 153,
+        "end_char_doc": 171,
+        "prefix": "Chang Kenton Lee Kristina Toutanova",
+        "suffix": "{jacobdevlin, mingweichang, kentonl, kristout}@google.com &lt;watermark&gt;arXiv:1810.04805v2",
+        "valueSource": "extracted"
+      },
+      "url": null,
+      "type": {
+        "value": "research organization",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "task:masked_language_modeling",
+      "@type": "mls:MLS_Task",
+      "mention": {
+        "start_char_doc": 3759,
+        "end_char_doc": 3780,
+        "prefix": "constraint by using a “",
+        "suffix": "” (MLM) pre-training objective, inspired",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "masked language model",
+        "start_char_doc": 3759,
+        "end_char_doc": 3780,
+        "prefix": "constraint by using a “",
+        "suffix": "” (MLM) pre-training objective, inspired",
+        "valueSource": "extracted"
+      },
+      "description": {
+        "value": "Predict masked tokens from bidirectional context during pre-training.",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "category": {
+        "value": "pre-training objective",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "metrics": null
+    },
+    {
+      "@id": "task:next_sentence_prediction",
+      "@type": "mls:MLS_Task",
+      "mention": {
+        "start_char_doc": 4309,
+        "end_char_doc": 4333,
+        "prefix": "we also use a “",
+        "suffix": "” task that jointly pre-trains",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "next sentence prediction",
+        "start_char_doc": 4309,
+        "end_char_doc": 4333,
+        "prefix": "we also use a “",
+        "suffix": "” task that jointly pre-trains",
+        "valueSource": "extracted"
+      },
+      "description": {
+        "value": "Predict whether sentence B follows sentence A during pre-training.",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "category": {
+        "value": "pre-training objective",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "metrics": null
+    },
+    {
+      "@id": "task:question_answering",
+      "@type": "mls:MLS_Task",
+      "mention": {
+        "start_char_doc": 873,
+        "end_char_doc": 891,
+        "prefix": "range of tasks, such as",
+        "suffix": "and language inference, without substantial",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "question answering",
+        "start_char_doc": 873,
+        "end_char_doc": 891,
+        "prefix": "range of tasks, such as",
+        "suffix": "and language inference, without substantial",
+        "valueSource": "extracted"
+      },
+      "description": {
+        "value": "Given a question and a passage from Wikipedia containing the answer, the task is to predict the answer text span in the passage.",
+        "start_char_doc": 26025,
+        "end_char_doc": 26153,
+        "prefix": "pairs (Rajpurkar et al., 2016).",
+        "suffix": "As shown in Figure 1,",
+        "valueSource": "extracted"
+      },
+      "category": {
+        "value": "token-level task",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "metrics": {
+        "value": "F1",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "task:natural_language_inference",
+      "@type": "mls:MLS_Task",
+      "mention": {
+        "start_char_doc": 16181,
+        "end_char_doc": 16213,
+        "prefix": "as Question Answering (QA) and",
+        "suffix": "are based on understanding the",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "Natural Language Inference (NLI)",
+        "start_char_doc": 16181,
+        "end_char_doc": 16213,
+        "prefix": "as Question Answering (QA) and",
+        "suffix": "are based on understanding the",
+        "valueSource": "extracted"
+      },
+      "description": {
+        "value": "Many important downstream tasks such as Question Answering (QA) and Natural Language Inference (NLI) are based on understanding the relationship between two sentences, which is not directly captured by language modeling.",
+        "start_char_doc": 16113,
+        "end_char_doc": 16333,
+        "prefix": "#2: Next Sentence Prediction (NSP)**",
+        "suffix": "In order to train a",
+        "valueSource": "extracted"
+      },
+      "category": {
+        "value": "sentence-level task",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "metrics": {
+        "value": "accuracy",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "task:grounded_commonsense_inference",
+      "@type": "mls:MLS_Task",
+      "mention": {
+        "start_char_doc": 32767,
+        "end_char_doc": 32797,
+        "prefix": "sentence-pair completion examples that evaluate",
+        "suffix": "(Zellers et al., 2018). Given",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "grounded commonsense inference",
+        "start_char_doc": 32767,
+        "end_char_doc": 32797,
+        "prefix": "sentence-pair completion examples that evaluate",
+        "suffix": "(Zellers et al., 2018). Given",
+        "valueSource": "extracted"
+      },
+      "description": {
+        "value": "The Situations With Adversarial Generations (SWAG) dataset contains 113k sentence-pair completion examples that evaluate grounded commonsense inference (Zellers et al., 2018).",
+        "start_char_doc": 32646,
+        "end_char_doc": 32821,
+        "prefix": "best system. ### 4.4 SWAG",
+        "suffix": "Given a sentence, the task",
+        "valueSource": "extracted"
+      },
+      "category": {
+        "value": "multiple-choice reasoning",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "metrics": {
+        "value": "accuracy",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "datasource:bookscorpus",
+      "@type": "mls:DataSource",
+      "mention": {
+        "start_char_doc": 19194,
+        "end_char_doc": 19205,
+        "prefix": "pre-training corpus we use the",
+        "suffix": "(800M words) (Zhu et al.,",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "BooksCorpus",
+        "start_char_doc": 19194,
+        "end_char_doc": 19205,
+        "prefix": "pre-training corpus we use the",
+        "suffix": "(800M words) (Zhu et al.,",
+        "valueSource": "extracted"
+      },
+      "url": null,
+      "type": {
+        "value": "book corpus",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "license": null
+    },
+    {
+      "@id": "datasource:wikipedia_en",
+      "@type": "mls:DataSource",
+      "mention": {
+        "start_char_doc": 19242,
+        "end_char_doc": 19259,
+        "prefix": "(Zhu et al., 2015) and",
+        "suffix": "(2,500M words). For Wikipedia we",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "English Wikipedia",
+        "start_char_doc": 19242,
+        "end_char_doc": 19259,
+        "prefix": "(Zhu et al., 2015) and",
+        "suffix": "(2,500M words). For Wikipedia we",
+        "valueSource": "extracted"
+      },
+      "url": null,
+      "type": {
+        "value": "encyclopedia corpus",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "license": null
+    },
+    {
+      "@id": "dataset:bookscorpus",
+      "@type": "mls:MLS_Dataset",
+      "mention": {
+        "start_char_doc": 19194,
+        "end_char_doc": 19205,
+        "prefix": "pre-training corpus we use the",
+        "suffix": "(800M words) (Zhu et al.,",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "BooksCorpus",
+        "start_char_doc": 19194,
+        "end_char_doc": 19205,
+        "prefix": "pre-training corpus we use the",
+        "suffix": "(800M words) (Zhu et al.,",
+        "valueSource": "extracted"
+      },
+      "description": {
+        "value": "BooksCorpus (800M words)",
+        "start_char_doc": 19194,
+        "end_char_doc": 19218,
+        "prefix": "pre-training corpus we use the",
+        "suffix": "(Zhu et al., 2015) and",
+        "valueSource": "extracted"
+      },
+      "numInstances": null,
+      "language": null,
+      "license": null,
+      "modality": {
+        "value": "text",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "numClasses": null,
+      "prov-derivedFrom": [
+        {
+          "@id": "datasource:bookscorpus"
+        }
+      ]
+    },
+    {
+      "@id": "dataset:english_wikipedia",
+      "@type": "mls:MLS_Dataset",
+      "mention": {
+        "start_char_doc": 19242,
+        "end_char_doc": 19259,
+        "prefix": "(Zhu et al., 2015) and",
+        "suffix": "(2,500M words). For Wikipedia we",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "English Wikipedia",
+        "start_char_doc": 19242,
+        "end_char_doc": 19259,
+        "prefix": "(Zhu et al., 2015) and",
+        "suffix": "(2,500M words). For Wikipedia we",
+        "valueSource": "extracted"
+      },
+      "description": {
+        "value": "English Wikipedia (2,500M words)",
+        "start_char_doc": 19242,
+        "end_char_doc": 19274,
+        "prefix": "(Zhu et al., 2015) and",
+        "suffix": ". For Wikipedia we extract",
+        "valueSource": "extracted"
+      },
+      "numInstances": null,
+      "language": {
+        "value": "English",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "license": null,
+      "modality": {
+        "value": "text",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "numClasses": null,
+      "prov-derivedFrom": [
+        {
+          "@id": "datasource:wikipedia_en"
+        }
+      ]
+    },
+    {
+      "@id": "dataset:glue",
+      "@type": "mls:MLS_Dataset",
+      "mention": {
+        "start_char_doc": 1140,
+        "end_char_doc": 1144,
+        "prefix": "processing tasks, including pushing the",
+        "suffix": "score to 80.5% (7.7% point",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "GLUE",
+        "start_char_doc": 1140,
+        "end_char_doc": 1144,
+        "prefix": "processing tasks, including pushing the",
+        "suffix": "score to 80.5% (7.7% point",
+        "valueSource": "extracted"
+      },
+      "description": {
+        "value": "The General Language Understanding Evaluation (GLUE) benchmark (Wang et al., 2018a) is a collection of diverse natural language understanding tasks.",
+        "start_char_doc": 21339,
+        "end_char_doc": 21487,
+        "prefix": "11 NLP tasks. **4.1 GLUE**",
+        "suffix": "Detailed descriptions of GLUE datasets",
+        "valueSource": "extracted"
+      },
+      "numInstances": null,
+      "language": null,
+      "license": null,
+      "modality": {
+        "value": "text",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "numClasses": null
+    },
+    {
+      "@id": "dataset:multinli",
+      "@type": "mls:MLS_Dataset",
+      "mention": {
+        "start_char_doc": 1195,
+        "end_char_doc": 1203,
+        "prefix": "80.5% (7.7% point absolute improvement),",
+        "suffix": "accuracy to 86.7% (4.6% absolute",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "MultiNLI",
+        "start_char_doc": 1195,
+        "end_char_doc": 1203,
+        "prefix": "80.5% (7.7% point absolute improvement),",
+        "suffix": "accuracy to 86.7% (4.6% absolute",
+        "valueSource": "extracted"
+      },
+      "description": {
+        "value": "Multi-Genre Natural Language Inference is a large-scale, crowdsourced entailment classification task (Williams et al., 2018).",
+        "start_char_doc": 66240,
+        "end_char_doc": 66365,
+        "prefix": "Wang et al. (2018a): **MNLI**",
+        "suffix": "Given a pair of sentences,",
+        "valueSource": "extracted"
+      },
+      "numInstances": null,
+      "language": null,
+      "license": null,
+      "modality": {
+        "value": "text",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "numClasses": null,
+      "subDatasetOf": {
+        "@id": "dataset:glue"
+      }
+    },
+    {
+      "@id": "dataset:squad_1_1",
+      "@type": "mls:MLS_Dataset",
+      "mention": {
+        "start_char_doc": 1251,
+        "end_char_doc": 1261,
+        "prefix": "to 86.7% (4.6% absolute improvement),",
+        "suffix": "question answering Test F1 to",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "SQuAD v1.1",
+        "start_char_doc": 1251,
+        "end_char_doc": 1261,
+        "prefix": "to 86.7% (4.6% absolute improvement),",
+        "suffix": "question answering Test F1 to",
+        "valueSource": "extracted"
+      },
+      "description": {
+        "value": "The Stanford Question Answering Dataset (SQuAD v1.1) is a collection of 100k crowd-sourced question/answer pairs (Rajpurkar et al., 2016).",
+        "start_char_doc": 25886,
+        "end_char_doc": 26024,
+        "prefix": "5.2. ## 4.2 SQuAD v1.1",
+        "suffix": "Given a question and a",
+        "valueSource": "extracted"
+      },
+      "numInstances": null,
+      "language": null,
+      "license": null,
+      "modality": {
+        "value": "text",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "numClasses": null,
+      "prov-derivedFrom": [
+        {
+          "@id": "datasource:wikipedia_en"
+        }
+      ]
+    },
+    {
+      "@id": "dataset:squad_2_0",
+      "@type": "mls:MLS_Dataset",
+      "mention": {
+        "start_char_doc": 1334,
+        "end_char_doc": 1344,
+        "prefix": "(1.5 point absolute improvement) and",
+        "suffix": "Test F1 to 83.1 (5.1",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "SQuAD v2.0",
+        "start_char_doc": 1334,
+        "end_char_doc": 1344,
+        "prefix": "(1.5 point absolute improvement) and",
+        "suffix": "Test F1 to 83.1 (5.1",
+        "valueSource": "extracted"
+      },
+      "description": {
+        "value": "The SQuAD 2.0 task extends the SQuAD 1.1 problem definition by allowing for the possibility that no short answer exists in the provided paragraph, making the problem more realistic.",
+        "start_char_doc": 31435,
+        "end_char_doc": 31616,
+        "prefix": "margin.<sup>12</sup> ### 4.3 SQuAD v2.0",
+        "suffix": "We use a simple approach",
+        "valueSource": "extracted"
+      },
+      "numInstances": null,
+      "language": null,
+      "license": null,
+      "modality": {
+        "value": "text",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "numClasses": null,
+      "prov-derivedFrom": [
+        {
+          "@id": "datasource:wikipedia_en"
+        }
+      ]
+    },
+    {
+      "@id": "dataset:swag",
+      "@type": "mls:MLS_Dataset",
+      "mention": {
+        "start_char_doc": 32640,
+        "end_char_doc": 32644,
+        "prefix": "previous best system. ### 4.4",
+        "suffix": "The Situations With Adversarial Generations",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "SWAG",
+        "start_char_doc": 32640,
+        "end_char_doc": 32644,
+        "prefix": "previous best system. ### 4.4",
+        "suffix": "The Situations With Adversarial Generations",
+        "valueSource": "extracted"
+      },
+      "description": {
+        "value": "The Situations With Adversarial Generations (SWAG) dataset contains 113k sentence-pair completion examples that evaluate grounded commonsense inference (Zellers et al., 2018).",
+        "start_char_doc": 32646,
+        "end_char_doc": 32821,
+        "prefix": "best system. ### 4.4 SWAG",
+        "suffix": "Given a sentence, the task",
+        "valueSource": "extracted"
+      },
+      "numInstances": null,
+      "language": null,
+      "license": null,
+      "modality": {
+        "value": "text",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "numClasses": null
+    },
+    {
+      "@id": "dataset:triviaqa",
+      "@type": "mls:MLS_Dataset",
+      "mention": {
+        "start_char_doc": 27545,
+        "end_char_doc": 27553,
+        "prefix": "system by first fine-tuning on",
+        "suffix": "(Joshi et al., 2017) before",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "TriviaQA",
+        "start_char_doc": 27545,
+        "end_char_doc": 27553,
+        "prefix": "system by first fine-tuning on",
+        "suffix": "(Joshi et al., 2017) before",
+        "valueSource": "extracted"
+      },
+      "description": null,
+      "numInstances": null,
+      "language": null,
+      "license": null,
+      "modality": {
+        "value": "text",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "numClasses": null
+    },
+    {
+      "@id": "method:bert",
+      "@type": "mls:Method",
+      "mention": {
+        "start_char_doc": 13,
+        "end_char_doc": 17,
+        "prefix": "## Page 1 #",
+        "suffix": ": Pre-training of Deep Bidirectional",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "BERT",
+        "start_char_doc": 13,
+        "end_char_doc": 17,
+        "prefix": "## Page 1 #",
+        "suffix": ": Pre-training of Deep Bidirectional",
+        "valueSource": "extracted"
+      },
+      "description": {
+        "value": "BERT is designed to pre-train deep bidirectional representations from unlabeled text by jointly conditioning on both left and right context in all layers.",
+        "start_char_doc": 553,
+        "end_char_doc": 707,
+        "prefix": "2018a; Radford et al., 2018),",
+        "suffix": "As a result, the pre-trained",
+        "valueSource": "extracted"
+      },
+      "version": null,
+      "trainedOn": [
+        {
+          "@id": "dataset:bookscorpus"
+        },
+        {
+          "@id": "dataset:english_wikipedia"
+        }
+      ],
+      "evaluatedOn": [
+        {
+          "@id": "dataset:glue"
+        },
+        {
+          "@id": "dataset:multinli"
+        },
+        {
+          "@id": "dataset:squad_1_1"
+        },
+        {
+          "@id": "dataset:squad_2_0"
+        },
+        {
+          "@id": "dataset:swag"
+        }
+      ],
+      "subMethod": [
+        {
+          "@id": "method:masked_language_modeling"
+        },
+        {
+          "@id": "method:next_sentence_prediction"
+        },
+        {
+          "@id": "model:bert_base"
+        },
+        {
+          "@id": "model:bert_large"
+        }
+      ]
+    },
+    {
+      "@id": "method:masked_language_modeling",
+      "@type": "mls:Method",
+      "mention": {
+        "start_char_doc": 3759,
+        "end_char_doc": 3780,
+        "prefix": "constraint by using a “",
+        "suffix": "” (MLM) pre-training objective, inspired",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "masked language model",
+        "start_char_doc": 3759,
+        "end_char_doc": 3780,
+        "prefix": "constraint by using a “",
+        "suffix": "” (MLM) pre-training objective, inspired",
+        "valueSource": "extracted"
+      },
+      "description": {
+        "value": "Randomly mask 15% of token positions and predict the original tokens from bidirectional context.",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "version": null,
+      "trainedOn": [
+        {
+          "@id": "dataset:bookscorpus"
+        },
+        {
+          "@id": "dataset:english_wikipedia"
+        }
+      ]
+    },
+    {
+      "@id": "method:next_sentence_prediction",
+      "@type": "mls:Method",
+      "mention": {
+        "start_char_doc": 4309,
+        "end_char_doc": 4333,
+        "prefix": "we also use a “",
+        "suffix": "” task that jointly pre-trains",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "next sentence prediction",
+        "start_char_doc": 4309,
+        "end_char_doc": 4333,
+        "prefix": "we also use a “",
+        "suffix": "” task that jointly pre-trains",
+        "valueSource": "extracted"
+      },
+      "description": {
+        "value": "we pre-train for a binarized next sentence prediction task that can be trivially generated from any monolingual corpus.",
+        "start_char_doc": 16401,
+        "end_char_doc": 16520,
+        "prefix": "model that understands sentence relationships,",
+        "suffix": "Specifically, when choosing the sentences",
+        "valueSource": "extracted"
+      },
+      "version": null,
+      "trainedOn": [
+        {
+          "@id": "dataset:bookscorpus"
+        },
+        {
+          "@id": "dataset:english_wikipedia"
+        }
+      ]
+    },
+    {
+      "@id": "model:bert_base",
+      "@type": "mls:MLS_Model",
+      "mention": {
+        "start_char_doc": 11696,
+        "end_char_doc": 11752,
+        "prefix": "results on two model sizes:",
+        "suffix": "and BERT$_{LARGE}$ (L=24, H=1024, A=16,",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "BERT$_{BASE}$",
+        "start_char_doc": 11696,
+        "end_char_doc": 11709,
+        "prefix": "results on two model sizes:",
+        "suffix": "(L=12, H=768, A=12, Total Parameters=110M)",
+        "valueSource": "extracted"
+      },
+      "description": {
+        "value": "Base-sized BERT variant.",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "version": {
+        "value": "BASE",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "architecture": {
+        "value": "multi-layer bidirectional Transformer encoder",
+        "start_char_doc": 11038,
+        "end_char_doc": 11083,
+        "prefix": "BERT’s model architecture is a",
+        "suffix": "based on the original implementation",
+        "valueSource": "extracted"
+      },
+      "parameters": {
+        "value": "110M",
+        "start_char_doc": 11747,
+        "end_char_doc": 11751,
+        "prefix": "(L=12, H=768, A=12, Total Parameters=",
+        "suffix": ") and BERT$_{LARGE}$ (L=24, H=1024,",
+        "valueSource": "extracted"
+      },
+      "trainedOn": [
+        {
+          "@id": "dataset:bookscorpus"
+        },
+        {
+          "@id": "dataset:english_wikipedia"
+        }
+      ]
+    },
+    {
+      "@id": "model:bert_large",
+      "@type": "mls:MLS_Model",
+      "mention": {
+        "start_char_doc": 11757,
+        "end_char_doc": 11815,
+        "prefix": "H=768, A=12, Total Parameters=110M) and",
+        "suffix": ". BERT$_{BASE}$ was chosen to",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "BERT$_{LARGE}$",
+        "start_char_doc": 11757,
+        "end_char_doc": 11771,
+        "prefix": "H=768, A=12, Total Parameters=110M) and",
+        "suffix": "(L=24, H=1024, A=16, Total Parameters=340M).",
+        "valueSource": "extracted"
+      },
+      "description": {
+        "value": "Large-sized BERT variant used for the headline downstream results.",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "version": {
+        "value": "LARGE",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "architecture": {
+        "value": "multi-layer bidirectional Transformer encoder",
+        "start_char_doc": 11038,
+        "end_char_doc": 11083,
+        "prefix": "BERT’s model architecture is a",
+        "suffix": "based on the original implementation",
+        "valueSource": "extracted"
+      },
+      "parameters": {
+        "value": "340M",
+        "start_char_doc": 11810,
+        "end_char_doc": 11814,
+        "prefix": "(L=24, H=1024, A=16, Total Parameters=",
+        "suffix": "). BERT$_{BASE}$ was chosen to",
+        "valueSource": "extracted"
+      },
+      "trainedOn": [
+        {
+          "@id": "dataset:bookscorpus"
+        },
+        {
+          "@id": "dataset:english_wikipedia"
+        }
+      ],
+      "evaluatedOn": [
+        {
+          "@id": "dataset:glue"
+        },
+        {
+          "@id": "dataset:multinli"
+        },
+        {
+          "@id": "dataset:squad_1_1"
+        },
+        {
+          "@id": "dataset:squad_2_0"
+        },
+        {
+          "@id": "dataset:swag"
+        }
+      ],
+      "achieves": [
+        {
+          "@id": "eval:glue_score"
+        },
+        {
+          "@id": "eval:multinli_accuracy"
+        },
+        {
+          "@id": "eval:squad_1_1_f1"
+        },
+        {
+          "@id": "eval:squad_2_0_f1"
+        },
+        {
+          "@id": "eval:swag_test_accuracy"
+        }
+      ]
+    },
+    {
+      "@id": "repo:google_research_bert",
+      "@type": "mls:SoftwareRepository",
+      "mention": {
+        "start_char_doc": 5296,
+        "end_char_doc": 5335,
+        "prefix": "pre-trained models are available at",
+        "suffix": ". ## 2 Related Work",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "google-research/bert",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "url": {
+        "value": "https://github.com/google-research/bert",
+        "start_char_doc": 5296,
+        "end_char_doc": 5335,
+        "prefix": "pre-trained models are available at",
+        "suffix": ". ## 2 Related Work",
+        "valueSource": "extracted"
+      },
+      "version": null,
+      "programmingLanguage": null,
+      "dateModified": null,
+      "license": null,
+      "documentationUrl": null,
+      "contains": [
+        {
+          "@id": "impl:tensor2tensor_bert"
+        }
+      ],
+      "supports": [
+        {
+          "@id": "env:cloud_tpu_pod_16_chips"
+        },
+        {
+          "@id": "env:cloud_tpu_64_chips"
+        }
+      ]
+    },
+    {
+      "@id": "impl:tensor2tensor_bert",
+      "@type": "mls:MLS_Implementation",
+      "mention": {
+        "start_char_doc": 11176,
+        "end_char_doc": 11197,
+        "prefix": "(2017) and released in the",
+        "suffix": ".¹ Because the use of",
+        "valueSource": "extracted"
+      },
+      "codeRepository": {
+        "value": "https://github.com/google-research/bert",
+        "start_char_doc": 5296,
+        "end_char_doc": 5335,
+        "prefix": "pre-trained models are available at",
+        "suffix": ". ## 2 Related Work",
+        "valueSource": "extracted"
+      },
+      "framework": {
+        "value": "tensor2tensor library",
+        "start_char_doc": 11176,
+        "end_char_doc": 11197,
+        "prefix": "(2017) and released in the",
+        "suffix": ".¹ Because the use of",
+        "valueSource": "extracted"
+      },
+      "executionCommand": null,
+      "entryPoint": null,
+      "branch": null,
+      "runsIn": {
+        "@id": "env:cloud_tpu_pod_16_chips"
+      },
+      "prov:wasDerivedFrom": {
+        "@id": "repo:google_research_bert"
+      }
+    },
+    {
+      "@id": "env:cloud_tpu_pod_16_chips",
+      "@type": "mls:Environment",
+      "mention": {
+        "start_char_doc": 61903,
+        "end_char_doc": 61996,
+        "prefix": "mean next sentence prediction likelihood.",
+        "suffix": "¹³ Training of BERTLARGE was",
+        "valueSource": "extracted"
+      },
+      "hardwareSpecs": {
+        "value": "4 Cloud TPUs in Pod configuration (16 TPU chips total)",
+        "start_char_doc": 61903,
+        "end_char_doc": 61996,
+        "prefix": "mean next sentence prediction likelihood.",
+        "suffix": "¹³ Training of BERTLARGE was",
+        "valueSource": "extracted"
+      },
+      "os": null,
+      "pythonVersion": null,
+      "isDockerized": null
+    },
+    {
+      "@id": "env:cloud_tpu_64_chips",
+      "@type": "mls:Environment",
+      "mention": {
+        "start_char_doc": 61999,
+        "end_char_doc": 62073,
+        "prefix": "configuration (16 TPU chips total).¹³",
+        "suffix": "Each pre-training took 4 days",
+        "valueSource": "extracted"
+      },
+      "hardwareSpecs": {
+        "value": "16 Cloud TPUs (64 TPU chips total)",
+        "start_char_doc": 61999,
+        "end_char_doc": 62073,
+        "prefix": "configuration (16 TPU chips total).¹³",
+        "suffix": "Each pre-training took 4 days",
+        "valueSource": "extracted"
+      },
+      "os": null,
+      "pythonVersion": null,
+      "isDockerized": null
+    },
+    {
+      "@id": "hp:masking_rate",
+      "@type": "mls:MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 15692,
+        "end_char_doc": 15718,
+        "prefix": "The training data generator chooses",
+        "suffix": "at random for prediction. If",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "15% token masking rate",
+        "start_char_doc": 15692,
+        "end_char_doc": 15718,
+        "prefix": "The training data generator chooses",
+        "suffix": "at random for prediction. If",
+        "valueSource": "extracted"
+      },
+      "hasValue": {
+        "value": "15%",
+        "start_char_doc": 15692,
+        "end_char_doc": 15695,
+        "prefix": "The training data generator chooses",
+        "suffix": "of the token positions at",
+        "valueSource": "extracted"
+      },
+      "wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "type": null,
+      "searchSpace": null,
+      "hpCategory": "HP_Data",
+      "hpType": "HP_Data",
+      "uncertain": true
+    },
+    {
+      "@id": "hp:batch_size_pretraining",
+      "@type": "mls:MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 61288,
+        "end_char_doc": 61298,
+        "prefix": "word pieces. We train with",
+        "suffix": "of 256 sequences (256 sequences",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "batch size",
+        "start_char_doc": 61288,
+        "end_char_doc": 61298,
+        "prefix": "word pieces. We train with",
+        "suffix": "of 256 sequences (256 sequences",
+        "valueSource": "extracted"
+      },
+      "hasValue": {
+        "value": "256",
+        "start_char_doc": 61302,
+        "end_char_doc": 61305,
+        "prefix": "train with batch size of",
+        "suffix": "sequences (256 sequences * 512",
+        "valueSource": "extracted"
+      },
+      "wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "type": null,
+      "searchSpace": null,
+      "hpCategory": "HP_Training",
+      "hpType": "BatchSize",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:max_steps_pretraining",
+      "@type": "mls:MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 61382,
+        "end_char_doc": 61387,
+        "prefix": "= 128,000 tokens/batch) for 1,000,000",
+        "suffix": ", which is approximately 40",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "steps",
+        "start_char_doc": 61382,
+        "end_char_doc": 61387,
+        "prefix": "= 128,000 tokens/batch) for 1,000,000",
+        "suffix": ", which is approximately 40",
+        "valueSource": "extracted"
+      },
+      "hasValue": {
+        "value": "1,000,000",
+        "start_char_doc": 61372,
+        "end_char_doc": 61381,
+        "prefix": "tokens = 128,000 tokens/batch) for",
+        "suffix": "steps, which is approximately 40",
+        "valueSource": "extracted"
+      },
+      "wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "type": null,
+      "searchSpace": null,
+      "hpCategory": "HP_Training",
+      "hpType": "MaxSteps",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:learning_rate_pretraining",
+      "@type": "mls:MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 61473,
+        "end_char_doc": 61486,
+        "prefix": "corpus. We use Adam with",
+        "suffix": "of 1e-4, β₁ = 0.9,",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "learning rate",
+        "start_char_doc": 61473,
+        "end_char_doc": 61486,
+        "prefix": "corpus. We use Adam with",
+        "suffix": "of 1e-4, β₁ = 0.9,",
+        "valueSource": "extracted"
+      },
+      "hasValue": {
+        "value": "1e-4",
+        "start_char_doc": 61490,
+        "end_char_doc": 61494,
+        "prefix": "Adam with learning rate of",
+        "suffix": ", β₁ = 0.9, β₂",
+        "valueSource": "extracted"
+      },
+      "wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "type": null,
+      "searchSpace": null,
+      "hpCategory": "HP_Optimization",
+      "hpType": "LearningRate",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:beta1_pretraining",
+      "@type": "mls:MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 61496,
+        "end_char_doc": 61498,
+        "prefix": "with learning rate of 1e-4,",
+        "suffix": "= 0.9, β₂ = 0.999,",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "β₁",
+        "start_char_doc": 61496,
+        "end_char_doc": 61498,
+        "prefix": "with learning rate of 1e-4,",
+        "suffix": "= 0.9, β₂ = 0.999,",
+        "valueSource": "extracted"
+      },
+      "hasValue": {
+        "value": "0.9",
+        "start_char_doc": 61501,
+        "end_char_doc": 61504,
+        "prefix": "rate of 1e-4, β₁ =",
+        "suffix": ", β₂ = 0.999, L2",
+        "valueSource": "extracted"
+      },
+      "wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "type": null,
+      "searchSpace": null,
+      "hpCategory": "HP_Optimization",
+      "hpType": "Momentum",
+      "uncertain": true
+    },
+    {
+      "@id": "hp:beta2_pretraining",
+      "@type": "mls:MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 61506,
+        "end_char_doc": 61508,
+        "prefix": "of 1e-4, β₁ = 0.9,",
+        "suffix": "= 0.999, L2 weight decay",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "β₂",
+        "start_char_doc": 61506,
+        "end_char_doc": 61508,
+        "prefix": "of 1e-4, β₁ = 0.9,",
+        "suffix": "= 0.999, L2 weight decay",
+        "valueSource": "extracted"
+      },
+      "hasValue": {
+        "value": "0.999",
+        "start_char_doc": 61511,
+        "end_char_doc": 61516,
+        "prefix": "β₁ = 0.9, β₂ =",
+        "suffix": ", L2 weight decay of",
+        "valueSource": "extracted"
+      },
+      "wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "type": null,
+      "searchSpace": null,
+      "hpCategory": "HP_Optimization",
+      "hpType": "Momentum",
+      "uncertain": true
+    },
+    {
+      "@id": "hp:weight_decay_pretraining",
+      "@type": "mls:MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 61518,
+        "end_char_doc": 61533,
+        "prefix": "= 0.9, β₂ = 0.999,",
+        "suffix": "of 0.01, learning rate warmup",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "L2 weight decay",
+        "start_char_doc": 61518,
+        "end_char_doc": 61533,
+        "prefix": "= 0.9, β₂ = 0.999,",
+        "suffix": "of 0.01, learning rate warmup",
+        "valueSource": "extracted"
+      },
+      "hasValue": {
+        "value": "0.01",
+        "start_char_doc": 61537,
+        "end_char_doc": 61541,
+        "prefix": "0.999, L2 weight decay of",
+        "suffix": ", learning rate warmup over",
+        "valueSource": "extracted"
+      },
+      "wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "type": null,
+      "searchSpace": null,
+      "hpCategory": "HP_Optimization",
+      "hpType": "WeightDecay",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:warmup_steps_pretraining",
+      "@type": "mls:MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 61543,
+        "end_char_doc": 61563,
+        "prefix": "L2 weight decay of 0.01,",
+        "suffix": "over the first 10,000 steps,",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "learning rate warmup",
+        "start_char_doc": 61543,
+        "end_char_doc": 61563,
+        "prefix": "L2 weight decay of 0.01,",
+        "suffix": "over the first 10,000 steps,",
+        "valueSource": "extracted"
+      },
+      "hasValue": {
+        "value": "10,000",
+        "start_char_doc": 61579,
+        "end_char_doc": 61585,
+        "prefix": "rate warmup over the first",
+        "suffix": "steps, and linear decay of",
+        "valueSource": "extracted"
+      },
+      "wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "type": null,
+      "searchSpace": null,
+      "hpCategory": "HP_Optimization",
+      "hpType": "WarmupSteps",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:learning_rate_decay_pretraining",
+      "@type": "mls:MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 61597,
+        "end_char_doc": 61630,
+        "prefix": "the first 10,000 steps, and",
+        "suffix": ". We use a dropout",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "linear decay of the learning rate",
+        "start_char_doc": 61597,
+        "end_char_doc": 61630,
+        "prefix": "the first 10,000 steps, and",
+        "suffix": ". We use a dropout",
+        "valueSource": "extracted"
+      },
+      "hasValue": {
+        "value": "linear",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "type": null,
+      "searchSpace": null,
+      "hpCategory": "HP_Optimization",
+      "hpType": "DecayRate",
+      "uncertain": true
+    },
+    {
+      "@id": "hp:dropout_bert",
+      "@type": "mls:MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 61641,
+        "end_char_doc": 61660,
+        "prefix": "learning rate. We use a",
+        "suffix": "of 0.1 on all layers.",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "dropout probability",
+        "start_char_doc": 61641,
+        "end_char_doc": 61660,
+        "prefix": "learning rate. We use a",
+        "suffix": "of 0.1 on all layers.",
+        "valueSource": "extracted"
+      },
+      "hasValue": {
+        "value": "0.1",
+        "start_char_doc": 61664,
+        "end_char_doc": 61667,
+        "prefix": "use a dropout probability of",
+        "suffix": "on all layers. We use",
+        "valueSource": "extracted"
+      },
+      "wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "type": null,
+      "searchSpace": null,
+      "hpCategory": "HP_Architecture",
+      "hpType": "Dropout",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:num_layers_bert_base",
+      "@type": "mls:MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 11711,
+        "end_char_doc": 11715,
+        "prefix": "two model sizes: BERT$_{BASE}$ (",
+        "suffix": ", H=768, A=12, Total Parameters=110M)",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "L",
+        "start_char_doc": 11711,
+        "end_char_doc": 11715,
+        "prefix": "two model sizes: BERT$_{BASE}$ (",
+        "suffix": ", H=768, A=12, Total Parameters=110M)",
+        "valueSource": "extracted"
+      },
+      "hasValue": {
+        "value": "12",
+        "start_char_doc": 11713,
+        "end_char_doc": 11715,
+        "prefix": "two model sizes: BERT$_{BASE}$ (L=",
+        "suffix": ", H=768, A=12, Total Parameters=110M)",
+        "valueSource": "extracted"
+      },
+      "wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "type": null,
+      "searchSpace": null,
+      "hpCategory": "HP_Architecture",
+      "hpType": "NumLayers",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:hidden_size_bert_base",
+      "@type": "mls:MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 11717,
+        "end_char_doc": 11722,
+        "prefix": "two model sizes: BERT$_{BASE}$ (L=12,",
+        "suffix": ", A=12, Total Parameters=110M) and",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "H",
+        "start_char_doc": 11717,
+        "end_char_doc": 11722,
+        "prefix": "two model sizes: BERT$_{BASE}$ (L=12,",
+        "suffix": ", A=12, Total Parameters=110M) and",
+        "valueSource": "extracted"
+      },
+      "hasValue": {
+        "value": "768",
+        "start_char_doc": 11719,
+        "end_char_doc": 11722,
+        "prefix": "model sizes: BERT$_{BASE}$ (L=12, H=",
+        "suffix": ", A=12, Total Parameters=110M) and",
+        "valueSource": "extracted"
+      },
+      "wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "type": null,
+      "searchSpace": null,
+      "hpCategory": "HP_Architecture",
+      "hpType": "HiddenSize",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:attention_heads_bert_base",
+      "@type": "mls:MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 11724,
+        "end_char_doc": 11728,
+        "prefix": "model sizes: BERT$_{BASE}$ (L=12, H=768,",
+        "suffix": ", Total Parameters=110M) and BERT$_{LARGE}$",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "A",
+        "start_char_doc": 11724,
+        "end_char_doc": 11728,
+        "prefix": "model sizes: BERT$_{BASE}$ (L=12, H=768,",
+        "suffix": ", Total Parameters=110M) and BERT$_{LARGE}$",
+        "valueSource": "extracted"
+      },
+      "hasValue": {
+        "value": "12",
+        "start_char_doc": 11726,
+        "end_char_doc": 11728,
+        "prefix": "sizes: BERT$_{BASE}$ (L=12, H=768, A=",
+        "suffix": ", Total Parameters=110M) and BERT$_{LARGE}$",
+        "valueSource": "extracted"
+      },
+      "wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "type": null,
+      "searchSpace": null,
+      "hpCategory": "HP_Architecture",
+      "hpType": "AttentionHeads",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:num_layers_bert_large",
+      "@type": "mls:MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 11773,
+        "end_char_doc": 11777,
+        "prefix": "Total Parameters=110M) and BERT$_{LARGE}$ (",
+        "suffix": ", H=1024, A=16, Total Parameters=340M).",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "L",
+        "start_char_doc": 11773,
+        "end_char_doc": 11777,
+        "prefix": "Total Parameters=110M) and BERT$_{LARGE}$ (",
+        "suffix": ", H=1024, A=16, Total Parameters=340M).",
+        "valueSource": "extracted"
+      },
+      "hasValue": {
+        "value": "24",
+        "start_char_doc": 11775,
+        "end_char_doc": 11777,
+        "prefix": "Total Parameters=110M) and BERT$_{LARGE}$ (L=",
+        "suffix": ", H=1024, A=16, Total Parameters=340M).",
+        "valueSource": "extracted"
+      },
+      "wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "type": null,
+      "searchSpace": null,
+      "hpCategory": "HP_Architecture",
+      "hpType": "NumLayers",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:hidden_size_bert_large",
+      "@type": "mls:MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 11779,
+        "end_char_doc": 11785,
+        "prefix": "Total Parameters=110M) and BERT$_{LARGE}$ (L=24,",
+        "suffix": ", A=16, Total Parameters=340M). BERT$_{BASE}$",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "H",
+        "start_char_doc": 11779,
+        "end_char_doc": 11785,
+        "prefix": "Total Parameters=110M) and BERT$_{LARGE}$ (L=24,",
+        "suffix": ", A=16, Total Parameters=340M). BERT$_{BASE}$",
+        "valueSource": "extracted"
+      },
+      "hasValue": {
+        "value": "1024",
+        "start_char_doc": 11781,
+        "end_char_doc": 11785,
+        "prefix": "Parameters=110M) and BERT$_{LARGE}$ (L=24, H=",
+        "suffix": ", A=16, Total Parameters=340M). BERT$_{BASE}$",
+        "valueSource": "extracted"
+      },
+      "wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "type": null,
+      "searchSpace": null,
+      "hpCategory": "HP_Architecture",
+      "hpType": "HiddenSize",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:attention_heads_bert_large",
+      "@type": "mls:MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 11787,
+        "end_char_doc": 11791,
+        "prefix": "Parameters=110M) and BERT$_{LARGE}$ (L=24, H=1024,",
+        "suffix": ", Total Parameters=340M). BERT$_{BASE}$ was",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "A",
+        "start_char_doc": 11787,
+        "end_char_doc": 11791,
+        "prefix": "Parameters=110M) and BERT$_{LARGE}$ (L=24, H=1024,",
+        "suffix": ", Total Parameters=340M). BERT$_{BASE}$ was",
+        "valueSource": "extracted"
+      },
+      "hasValue": {
+        "value": "16",
+        "start_char_doc": 11789,
+        "end_char_doc": 11791,
+        "prefix": "and BERT$_{LARGE}$ (L=24, H=1024, A=",
+        "suffix": ", Total Parameters=340M). BERT$_{BASE}$ was",
+        "valueSource": "extracted"
+      },
+      "wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "type": null,
+      "searchSpace": null,
+      "hpCategory": "HP_Architecture",
+      "hpType": "AttentionHeads",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:max_sequence_length_128",
+      "@type": "mls:MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 62295,
+        "end_char_doc": 62310,
+        "prefix": "we pre-train the model with",
+        "suffix": "of 128 for 90% of",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "sequence length",
+        "start_char_doc": 62295,
+        "end_char_doc": 62310,
+        "prefix": "we pre-train the model with",
+        "suffix": "of 128 for 90% of",
+        "valueSource": "extracted"
+      },
+      "hasValue": {
+        "value": "128",
+        "start_char_doc": 62314,
+        "end_char_doc": 62317,
+        "prefix": "model with sequence length of",
+        "suffix": "for 90% of the steps.",
+        "valueSource": "extracted"
+      },
+      "wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "type": null,
+      "searchSpace": null,
+      "hpCategory": "HP_Data",
+      "hpType": "MaxSequenceLength",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:max_sequence_length_512",
+      "@type": "mls:MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 62384,
+        "end_char_doc": 62395,
+        "prefix": "10% of the steps of",
+        "suffix": "512 to learn the positional",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "sequence of",
+        "start_char_doc": 62384,
+        "end_char_doc": 62395,
+        "prefix": "10% of the steps of",
+        "suffix": "512 to learn the positional",
+        "valueSource": "extracted"
+      },
+      "hasValue": {
+        "value": "512",
+        "start_char_doc": 62396,
+        "end_char_doc": 62399,
+        "prefix": "the steps of sequence of",
+        "suffix": "to learn the positional embeddings.",
+        "valueSource": "extracted"
+      },
+      "wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "type": null,
+      "searchSpace": null,
+      "hpCategory": "HP_Data",
+      "hpType": "MaxSequenceLength",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:batch_size_glue",
+      "@type": "mls:MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 24490,
+        "end_char_doc": 24500,
+        "prefix": "their components. We use a",
+        "suffix": "of 32 and fine-tune for",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "batch size",
+        "start_char_doc": 24490,
+        "end_char_doc": 24500,
+        "prefix": "their components. We use a",
+        "suffix": "of 32 and fine-tune for",
+        "valueSource": "extracted"
+      },
+      "hasValue": {
+        "value": "32",
+        "start_char_doc": 24504,
+        "end_char_doc": 24506,
+        "prefix": "use a batch size of",
+        "suffix": "and fine-tune for 3 epochs",
+        "valueSource": "extracted"
+      },
+      "wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "type": null,
+      "searchSpace": null,
+      "hpCategory": "HP_Training",
+      "hpType": "BatchSize",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:num_epochs_glue",
+      "@type": "mls:MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 24525,
+        "end_char_doc": 24533,
+        "prefix": "of 32 and fine-tune for",
+        "suffix": "over the data for all",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "epochs",
+        "start_char_doc": 24525,
+        "end_char_doc": 24533,
+        "prefix": "of 32 and fine-tune for",
+        "suffix": "over the data for all",
+        "valueSource": "extracted"
+      },
+      "hasValue": {
+        "value": "3",
+        "start_char_doc": 24525,
+        "end_char_doc": 24526,
+        "prefix": "of 32 and fine-tune for",
+        "suffix": "epochs over the data for",
+        "valueSource": "extracted"
+      },
+      "wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "type": null,
+      "searchSpace": null,
+      "hpCategory": "HP_Training",
+      "hpType": "NumEpochs",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:learning_rate_glue_search",
+      "@type": "mls:MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 24616,
+        "end_char_doc": 24629,
+        "prefix": "we selected the best fine-tuning",
+        "suffix": "(among 5e-5, 4e-5, 3e-5, and",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "learning rate",
+        "start_char_doc": 24616,
+        "end_char_doc": 24629,
+        "prefix": "we selected the best fine-tuning",
+        "suffix": "(among 5e-5, 4e-5, 3e-5, and",
+        "valueSource": "extracted"
+      },
+      "hasValue": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "type": null,
+      "searchSpace": {
+        "value": "5e-5, 4e-5, 3e-5, and 2e-5",
+        "start_char_doc": 24637,
+        "end_char_doc": 24663,
+        "prefix": "best fine-tuning learning rate (among",
+        "suffix": ") on the Dev set.",
+        "valueSource": "extracted"
+      },
+      "hpCategory": "HP_Optimization",
+      "hpType": "LearningRate",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:batch_size_squad_1_1",
+      "@type": "mls:MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 27104,
+        "end_char_doc": 27114,
+        "prefix": "rate of 5e-5 and a",
+        "suffix": "of 32. Table 2 shows",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "batch size",
+        "start_char_doc": 27104,
+        "end_char_doc": 27114,
+        "prefix": "rate of 5e-5 and a",
+        "suffix": "of 32. Table 2 shows",
+        "valueSource": "extracted"
+      },
+      "hasValue": {
+        "value": "32",
+        "start_char_doc": 27118,
+        "end_char_doc": 27120,
+        "prefix": "and a batch size of",
+        "suffix": ". Table 2 shows top",
+        "valueSource": "extracted"
+      },
+      "wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "type": null,
+      "searchSpace": null,
+      "hpCategory": "HP_Training",
+      "hpType": "BatchSize",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:num_epochs_squad_1_1",
+      "@type": "mls:MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 27060,
+        "end_char_doc": 27068,
+        "prefix": "end positions. We fine-tune for",
+        "suffix": "with a learning rate of",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "epochs",
+        "start_char_doc": 27060,
+        "end_char_doc": 27068,
+        "prefix": "end positions. We fine-tune for",
+        "suffix": "with a learning rate of",
+        "valueSource": "extracted"
+      },
+      "hasValue": {
+        "value": "3",
+        "start_char_doc": 27060,
+        "end_char_doc": 27061,
+        "prefix": "end positions. We fine-tune for",
+        "suffix": "epochs with a learning rate",
+        "valueSource": "extracted"
+      },
+      "wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "type": null,
+      "searchSpace": null,
+      "hpCategory": "HP_Training",
+      "hpType": "NumEpochs",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:learning_rate_squad_1_1",
+      "@type": "mls:MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 27076,
+        "end_char_doc": 27089,
+        "prefix": "for 3 epochs with a",
+        "suffix": "of 5e-5 and a batch",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "learning rate",
+        "start_char_doc": 27076,
+        "end_char_doc": 27089,
+        "prefix": "for 3 epochs with a",
+        "suffix": "of 5e-5 and a batch",
+        "valueSource": "extracted"
+      },
+      "hasValue": {
+        "value": "5e-5",
+        "start_char_doc": 27093,
+        "end_char_doc": 27097,
+        "prefix": "with a learning rate of",
+        "suffix": "and a batch size of",
+        "valueSource": "extracted"
+      },
+      "wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "type": null,
+      "searchSpace": null,
+      "hpCategory": "HP_Optimization",
+      "hpType": "LearningRate",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:batch_size_squad_2_0",
+      "@type": "mls:MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 32354,
+        "end_char_doc": 32364,
+        "prefix": "rate of 5e-5 and a",
+        "suffix": "of 48. The results compared",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "batch size",
+        "start_char_doc": 32354,
+        "end_char_doc": 32364,
+        "prefix": "rate of 5e-5 and a",
+        "suffix": "of 48. The results compared",
+        "valueSource": "extracted"
+      },
+      "hasValue": {
+        "value": "48",
+        "start_char_doc": 32368,
+        "end_char_doc": 32370,
+        "prefix": "and a batch size of",
+        "suffix": ". The results compared to",
+        "valueSource": "extracted"
+      },
+      "wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "type": null,
+      "searchSpace": null,
+      "hpCategory": "HP_Training",
+      "hpType": "BatchSize",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:num_epochs_squad_2_0",
+      "@type": "mls:MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 32310,
+        "end_char_doc": 32318,
+        "prefix": "this model. We fine-tuned for",
+        "suffix": "with a learning rate of",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "epochs",
+        "start_char_doc": 32310,
+        "end_char_doc": 32318,
+        "prefix": "this model. We fine-tuned for",
+        "suffix": "with a learning rate of",
+        "valueSource": "extracted"
+      },
+      "hasValue": {
+        "value": "2",
+        "start_char_doc": 32310,
+        "end_char_doc": 32311,
+        "prefix": "this model. We fine-tuned for",
+        "suffix": "epochs with a learning rate",
+        "valueSource": "extracted"
+      },
+      "wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "type": null,
+      "searchSpace": null,
+      "hpCategory": "HP_Training",
+      "hpType": "NumEpochs",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:learning_rate_squad_2_0",
+      "@type": "mls:MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 32326,
+        "end_char_doc": 32339,
+        "prefix": "for 2 epochs with a",
+        "suffix": "of 5e-5 and a batch",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "learning rate",
+        "start_char_doc": 32326,
+        "end_char_doc": 32339,
+        "prefix": "for 2 epochs with a",
+        "suffix": "of 5e-5 and a batch",
+        "valueSource": "extracted"
+      },
+      "hasValue": {
+        "value": "5e-5",
+        "start_char_doc": 32343,
+        "end_char_doc": 32347,
+        "prefix": "with a learning rate of",
+        "suffix": "and a batch size of",
+        "valueSource": "extracted"
+      },
+      "wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "type": null,
+      "searchSpace": null,
+      "hpCategory": "HP_Optimization",
+      "hpType": "LearningRate",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:batch_size_swag",
+      "@type": "mls:MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 33360,
+        "end_char_doc": 33370,
+        "prefix": "rate of 2e-5 and a",
+        "suffix": "of 16. Results are presented",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "batch size",
+        "start_char_doc": 33360,
+        "end_char_doc": 33370,
+        "prefix": "rate of 2e-5 and a",
+        "suffix": "of 16. Results are presented",
+        "valueSource": "extracted"
+      },
+      "hasValue": {
+        "value": "16",
+        "start_char_doc": 33374,
+        "end_char_doc": 33376,
+        "prefix": "and a batch size of",
+        "suffix": ". Results are presented in",
+        "valueSource": "extracted"
+      },
+      "wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "type": null,
+      "searchSpace": null,
+      "hpCategory": "HP_Training",
+      "hpType": "BatchSize",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:num_epochs_swag",
+      "@type": "mls:MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 33316,
+        "end_char_doc": 33324,
+        "prefix": "We fine-tune the model for",
+        "suffix": "with a learning rate of",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "epochs",
+        "start_char_doc": 33316,
+        "end_char_doc": 33324,
+        "prefix": "We fine-tune the model for",
+        "suffix": "with a learning rate of",
+        "valueSource": "extracted"
+      },
+      "hasValue": {
+        "value": "3",
+        "start_char_doc": 33316,
+        "end_char_doc": 33317,
+        "prefix": "We fine-tune the model for",
+        "suffix": "epochs with a learning rate",
+        "valueSource": "extracted"
+      },
+      "wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "type": null,
+      "searchSpace": null,
+      "hpCategory": "HP_Training",
+      "hpType": "NumEpochs",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:learning_rate_swag",
+      "@type": "mls:MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 33332,
+        "end_char_doc": 33345,
+        "prefix": "for 3 epochs with a",
+        "suffix": "of 2e-5 and a batch",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "learning rate",
+        "start_char_doc": 33332,
+        "end_char_doc": 33345,
+        "prefix": "for 3 epochs with a",
+        "suffix": "of 2e-5 and a batch",
+        "valueSource": "extracted"
+      },
+      "hasValue": {
+        "value": "2e-5",
+        "start_char_doc": 33349,
+        "end_char_doc": 33353,
+        "prefix": "with a learning rate of",
+        "suffix": "and a batch size of",
+        "valueSource": "extracted"
+      },
+      "wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "type": null,
+      "searchSpace": null,
+      "hpCategory": "HP_Optimization",
+      "hpType": "LearningRate",
+      "uncertain": false
+    },
+    {
+      "@id": "eval:glue_score",
+      "@type": "mls:MLS_Eval",
+      "mention": {
+        "start_char_doc": 1140,
+        "end_char_doc": 1159,
+        "prefix": "processing tasks, including pushing the",
+        "suffix": "(7.7% point absolute improvement), MultiNLI",
+        "valueSource": "extracted"
+      },
+      "measure": {
+        "value": "GLUE score",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hasValue": {
+        "value": "80.5%",
+        "start_char_doc": 1154,
+        "end_char_doc": 1159,
+        "prefix": "pushing the GLUE score to",
+        "suffix": "(7.7% point absolute improvement), MultiNLI",
+        "valueSource": "extracted"
+      },
+      "stdDev": null,
+      "confidenceInterval": null,
+      "prov:wasGeneratedBy": {
+        "@id": "exp:glue_evaluation"
+      }
+    },
+    {
+      "@id": "eval:multinli_accuracy",
+      "@type": "mls:MLS_Eval",
+      "mention": {
+        "start_char_doc": 1195,
+        "end_char_doc": 1221,
+        "prefix": "80.5% (7.7% point absolute improvement),",
+        "suffix": "(4.6% absolute improvement), SQuAD v1.1",
+        "valueSource": "extracted"
+      },
+      "measure": {
+        "value": "accuracy",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hasValue": {
+        "value": "86.7%",
+        "start_char_doc": 1216,
+        "end_char_doc": 1221,
+        "prefix": "absolute improvement), MultiNLI accuracy to",
+        "suffix": "(4.6% absolute improvement), SQuAD v1.1",
+        "valueSource": "extracted"
+      },
+      "stdDev": null,
+      "confidenceInterval": null,
+      "prov:wasGeneratedBy": {
+        "@id": "exp:glue_evaluation"
+      }
+    },
+    {
+      "@id": "eval:squad_1_1_f1",
+      "@type": "mls:MLS_Eval",
+      "mention": {
+        "start_char_doc": 1251,
+        "end_char_doc": 1296,
+        "prefix": "to 86.7% (4.6% absolute improvement),",
+        "suffix": "(1.5 point absolute improvement) and",
+        "valueSource": "extracted"
+      },
+      "measure": {
+        "value": "F1",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hasValue": {
+        "value": "93.2",
+        "start_char_doc": 1292,
+        "end_char_doc": 1296,
+        "prefix": "question answering Test F1 to",
+        "suffix": "(1.5 point absolute improvement) and",
+        "valueSource": "extracted"
+      },
+      "stdDev": null,
+      "confidenceInterval": null,
+      "prov:wasGeneratedBy": {
+        "@id": "exp:squad_1_1_evaluation"
+      }
+    },
+    {
+      "@id": "eval:squad_2_0_f1",
+      "@type": "mls:MLS_Eval",
+      "mention": {
+        "start_char_doc": 1334,
+        "end_char_doc": 1360,
+        "prefix": "(1.5 point absolute improvement) and",
+        "suffix": "(5.1 point absolute improvement). ##",
+        "valueSource": "extracted"
+      },
+      "measure": {
+        "value": "F1",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hasValue": {
+        "value": "83.1",
+        "start_char_doc": 1356,
+        "end_char_doc": 1360,
+        "prefix": "SQuAD v2.0 Test F1 to",
+        "suffix": "(5.1 point absolute improvement). ##",
+        "valueSource": "extracted"
+      },
+      "stdDev": null,
+      "confidenceInterval": null,
+      "prov:wasGeneratedBy": {
+        "@id": "exp:squad_2_0_evaluation"
+      }
+    },
+    {
+      "@id": "eval:swag_test_accuracy",
+      "@type": "mls:MLS_Eval",
+      "mention": {
+        "start_char_doc": 34058,
+        "end_char_doc": 34078,
+        "prefix": "<td>-</td> </tr> <tr> <td>BERT<sub>LARGE</sub></td> <td><b>86.6</b></td>",
+        "suffix": "</tr> <tr> <td>Human (expert)<sup>†</sup></td> <td>-</td>",
+        "valueSource": "extracted"
+      },
+      "measure": {
+        "value": "accuracy",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hasValue": {
+        "value": "86.3",
+        "start_char_doc": 34065,
+        "end_char_doc": 34069,
+        "prefix": "</tr> <tr> <td>BERT<sub>LARGE</sub></td> <td><b>86.6</b></td> <td><b>",
+        "suffix": "</b></td> </tr> <tr> <td>Human (expert)<sup>†</sup></td>",
+        "valueSource": "extracted"
+      },
+      "stdDev": null,
+      "confidenceInterval": null,
+      "prov:wasGeneratedBy": {
+        "@id": "exp:swag_evaluation"
+      }
+    },
+    {
+      "@id": "expg:group_bert_2019",
+      "@type": "mls:ExperimentGroup",
+      "mention": {
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "description": {
+        "value": "Grouped experiments supporting the BERT contribution claim.",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "objective": {
+        "value": "We show that pre-trained representations reduce the need for many heavily-engineered task-specific architectures.",
+        "start_char_doc": 4866,
+        "end_char_doc": 4979,
+        "prefix": "left-to-right and right-to-left LMs. *",
+        "suffix": "BERT is the first fine-tuning",
+        "valueSource": "extracted"
+      },
+      "hypothesis": {
+        "value": "We demonstrate the importance of bidirectional pre-training for language representations.",
+        "start_char_doc": 4443,
+        "end_char_doc": 4532,
+        "prefix": "paper are as follows: *",
+        "suffix": "Unlike Radford et al. (2018),",
+        "valueSource": "extracted"
+      },
+      "methodology": {
+        "value": "BERT is designed to pre-train deep bidirectional representations from unlabeled text by jointly conditioning on both left and right context in all layers.",
+        "start_char_doc": 553,
+        "end_char_doc": 707,
+        "prefix": "2018a; Radford et al., 2018),",
+        "suffix": "As a result, the pre-trained",
+        "valueSource": "extracted"
+      },
+      "mls:hasSubExperiment": [
+        {
+          "@id": "exp:pretraining"
+        },
+        {
+          "@id": "exp:glue_evaluation"
+        },
+        {
+          "@id": "exp:squad_1_1_evaluation"
+        },
+        {
+          "@id": "exp:squad_2_0_evaluation"
+        },
+        {
+          "@id": "exp:swag_evaluation"
+        }
+      ]
+    },
+    {
+      "@id": "exp:pretraining",
+      "@type": "mls:Experiment",
+      "mention": {
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "description": {
+        "value": "For the pre-training corpus we use the BooksCorpus (800M words) (Zhu et al., 2015) and English Wikipedia (2,500M words).",
+        "start_char_doc": 19155,
+        "end_char_doc": 19275,
+        "prefix": "literature on language model pre-training.",
+        "suffix": "For Wikipedia we extract only",
+        "valueSource": "extracted"
+      },
+      "objective": {
+        "value": "Pre-train deep bidirectional language representations with MLM and NSP.",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "realizes": [
+        {
+          "@id": "task:masked_language_modeling"
+        },
+        {
+          "@id": "task:next_sentence_prediction"
+        }
+      ],
+      "usesData": [
+        {
+          "@id": "dataset:bookscorpus"
+        },
+        {
+          "@id": "dataset:english_wikipedia"
+        }
+      ],
+      "produces": [
+        {
+          "@id": "method:bert"
+        },
+        {
+          "@id": "model:bert_base"
+        },
+        {
+          "@id": "model:bert_large"
+        }
+      ],
+      "usesParameters": [
+        {
+          "@id": "hp:masking_rate"
+        },
+        {
+          "@id": "hp:batch_size_pretraining"
+        },
+        {
+          "@id": "hp:max_steps_pretraining"
+        },
+        {
+          "@id": "hp:learning_rate_pretraining"
+        },
+        {
+          "@id": "hp:beta1_pretraining"
+        },
+        {
+          "@id": "hp:beta2_pretraining"
+        },
+        {
+          "@id": "hp:weight_decay_pretraining"
+        },
+        {
+          "@id": "hp:warmup_steps_pretraining"
+        },
+        {
+          "@id": "hp:learning_rate_decay_pretraining"
+        },
+        {
+          "@id": "hp:dropout_bert"
+        },
+        {
+          "@id": "hp:num_layers_bert_base"
+        },
+        {
+          "@id": "hp:hidden_size_bert_base"
+        },
+        {
+          "@id": "hp:attention_heads_bert_base"
+        },
+        {
+          "@id": "hp:num_layers_bert_large"
+        },
+        {
+          "@id": "hp:hidden_size_bert_large"
+        },
+        {
+          "@id": "hp:attention_heads_bert_large"
+        },
+        {
+          "@id": "hp:max_sequence_length_128"
+        },
+        {
+          "@id": "hp:max_sequence_length_512"
+        }
+      ],
+      "executes": [
+        {
+          "@id": "impl:tensor2tensor_bert"
+        }
+      ],
+      "prov:wasAssociatedWith": [
+        {
+          "@id": "hp:batch_size_pretraining"
+        },
+        {
+          "@id": "hp:learning_rate_pretraining"
+        },
+        {
+          "@id": "hp:weight_decay_pretraining"
+        }
+      ],
+      "prov:used": [
+        {
+          "@id": "dataset:bookscorpus"
+        },
+        {
+          "@id": "dataset:english_wikipedia"
+        }
+      ]
+    },
+    {
+      "@id": "exp:glue_evaluation",
+      "@type": "mls:Experiment",
+      "mention": {
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "description": {
+        "value": "We use a batch size of 32 and fine-tune for 3 epochs over the data for all GLUE tasks.",
+        "start_char_doc": 24481,
+        "end_char_doc": 24567,
+        "prefix": "as one of their components.",
+        "suffix": "For each task, we selected",
+        "valueSource": "extracted"
+      },
+      "objective": {
+        "value": "Evaluate BERT on the GLUE benchmark and MultiNLI.",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "realizes": [
+        {
+          "@id": "task:natural_language_inference"
+        }
+      ],
+      "usesData": [
+        {
+          "@id": "dataset:glue"
+        },
+        {
+          "@id": "dataset:multinli"
+        }
+      ],
+      "produces": [
+        {
+          "@id": "model:bert_large"
+        }
+      ],
+      "usesParameters": [
+        {
+          "@id": "hp:batch_size_glue"
+        },
+        {
+          "@id": "hp:num_epochs_glue"
+        },
+        {
+          "@id": "hp:learning_rate_glue_search"
+        }
+      ],
+      "executes": [
+        {
+          "@id": "impl:tensor2tensor_bert"
+        }
+      ],
+      "prov:wasAssociatedWith": [
+        {
+          "@id": "hp:batch_size_glue"
+        },
+        {
+          "@id": "hp:num_epochs_glue"
+        },
+        {
+          "@id": "hp:learning_rate_glue_search"
+        }
+      ],
+      "prov:used": [
+        {
+          "@id": "dataset:glue"
+        },
+        {
+          "@id": "dataset:multinli"
+        },
+        {
+          "@id": "model:bert_large"
+        }
+      ]
+    },
+    {
+      "@id": "exp:squad_1_1_evaluation",
+      "@type": "mls:Experiment",
+      "mention": {
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "description": {
+        "value": "We fine-tune for 3 epochs with a learning rate of 5e-5 and a batch size of 32.",
+        "start_char_doc": 27043,
+        "end_char_doc": 27121,
+        "prefix": "correct start and end positions.",
+        "suffix": "Table 2 shows top leaderboard",
+        "valueSource": "extracted"
+      },
+      "objective": {
+        "value": "Fine-tune BERT for extractive question answering on SQuAD v1.1.",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "realizes": [
+        {
+          "@id": "task:question_answering"
+        }
+      ],
+      "usesData": [
+        {
+          "@id": "dataset:squad_1_1"
+        },
+        {
+          "@id": "dataset:triviaqa"
+        }
+      ],
+      "produces": [
+        {
+          "@id": "model:bert_large"
+        }
+      ],
+      "usesParameters": [
+        {
+          "@id": "hp:batch_size_squad_1_1"
+        },
+        {
+          "@id": "hp:num_epochs_squad_1_1"
+        },
+        {
+          "@id": "hp:learning_rate_squad_1_1"
+        }
+      ],
+      "executes": [
+        {
+          "@id": "impl:tensor2tensor_bert"
+        }
+      ],
+      "prov:wasAssociatedWith": [
+        {
+          "@id": "hp:batch_size_squad_1_1"
+        },
+        {
+          "@id": "hp:num_epochs_squad_1_1"
+        },
+        {
+          "@id": "hp:learning_rate_squad_1_1"
+        }
+      ],
+      "prov:used": [
+        {
+          "@id": "dataset:squad_1_1"
+        },
+        {
+          "@id": "dataset:triviaqa"
+        },
+        {
+          "@id": "model:bert_large"
+        }
+      ]
+    },
+    {
+      "@id": "exp:squad_2_0_evaluation",
+      "@type": "mls:Experiment",
+      "mention": {
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "description": {
+        "value": "We fine-tuned for 2 epochs with a learning rate of 5e-5 and a batch size of 48.",
+        "start_char_doc": 32292,
+        "end_char_doc": 32371,
+        "prefix": "TriviaQA data for this model.",
+        "suffix": "The results compared to prior",
+        "valueSource": "extracted"
+      },
+      "objective": {
+        "value": "Fine-tune BERT for answerable and unanswerable question answering on SQuAD v2.0.",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "realizes": [
+        {
+          "@id": "task:question_answering"
+        }
+      ],
+      "usesData": [
+        {
+          "@id": "dataset:squad_2_0"
+        }
+      ],
+      "produces": [
+        {
+          "@id": "model:bert_large"
+        }
+      ],
+      "usesParameters": [
+        {
+          "@id": "hp:batch_size_squad_2_0"
+        },
+        {
+          "@id": "hp:num_epochs_squad_2_0"
+        },
+        {
+          "@id": "hp:learning_rate_squad_2_0"
+        }
+      ],
+      "executes": [
+        {
+          "@id": "impl:tensor2tensor_bert"
+        }
+      ],
+      "prov:wasAssociatedWith": [
+        {
+          "@id": "hp:batch_size_squad_2_0"
+        },
+        {
+          "@id": "hp:num_epochs_squad_2_0"
+        },
+        {
+          "@id": "hp:learning_rate_squad_2_0"
+        }
+      ],
+      "prov:used": [
+        {
+          "@id": "dataset:squad_2_0"
+        },
+        {
+          "@id": "model:bert_large"
+        }
+      ]
+    },
+    {
+      "@id": "exp:swag_evaluation",
+      "@type": "mls:Experiment",
+      "mention": {
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "description": {
+        "value": "We fine-tune the model for 3 epochs with a learning rate of 2e-5 and a batch size of 16.",
+        "start_char_doc": 33289,
+        "end_char_doc": 33377,
+        "prefix": "normalized with a softmax layer.",
+        "suffix": "Results are presented in Table",
+        "valueSource": "extracted"
+      },
+      "objective": {
+        "value": "Fine-tune BERT for grounded commonsense inference on SWAG.",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "realizes": [
+        {
+          "@id": "task:grounded_commonsense_inference"
+        }
+      ],
+      "usesData": [
+        {
+          "@id": "dataset:swag"
+        }
+      ],
+      "produces": [
+        {
+          "@id": "model:bert_large"
+        }
+      ],
+      "usesParameters": [
+        {
+          "@id": "hp:batch_size_swag"
+        },
+        {
+          "@id": "hp:num_epochs_swag"
+        },
+        {
+          "@id": "hp:learning_rate_swag"
+        }
+      ],
+      "executes": [
+        {
+          "@id": "impl:tensor2tensor_bert"
+        }
+      ],
+      "prov:wasAssociatedWith": [
+        {
+          "@id": "hp:batch_size_swag"
+        },
+        {
+          "@id": "hp:num_epochs_swag"
+        },
+        {
+          "@id": "hp:learning_rate_swag"
+        }
+      ],
+      "prov:used": [
+        {
+          "@id": "dataset:swag"
+        },
+        {
+          "@id": "model:bert_large"
+        }
+      ]
+    }
+  ]
+}
