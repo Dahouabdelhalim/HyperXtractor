@@ -1,0 +1,2658 @@
+{
+  "@context": {
+    "mls": "http://www.w3.org/ns/mls#",
+    "schema": "http://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "model": "https://w3id.org/mlskg/model/",
+    "algo": "https://w3id.org/mlskg/algorithm/",
+    "method": "https://w3id.org/mlskg/method/",
+    "dataset": "https://w3id.org/mlskg/dataset/",
+    "datasource": "https://w3id.org/mlskg/datasource/",
+    "task": "https://w3id.org/mlskg/task/",
+    "eval": "https://w3id.org/mlskg/eval/",
+    "hp": "https://w3id.org/mlskg/hp/",
+    "impl": "https://w3id.org/mlskg/implementation/",
+    "env": "https://w3id.org/mlskg/environment/",
+    "prompt": "https://w3id.org/mlskg/prompt/",
+    "person": "https://w3id.org/mlskg/person/",
+    "org": "https://w3id.org/mlskg/organization/",
+    "study": "https://w3id.org/mlskg/study/",
+    "exp": "https://w3id.org/mlskg/experiment/",
+    "expg": "https://w3id.org/mlskg/experiment-group/",
+    "repo": "https://w3id.org/mlskg/repository/",
+    "mention": "https://w3id.org/mlskg/meta/mention",
+    "valueSource": "https://w3id.org/mlskg/meta/valueSource"
+  },
+  "@graph": [
+    {
+      "@id": "study:distantly_supervised_named_entity_recognition_with_adaptive_teacher_learning_and_fine_grained_student_ensemble_2022",
+      "@type": "mls:Study",
+      "mention": {
+        "start_char_doc": 88,
+        "end_char_doc": 198,
+        "prefix": "[cs.CL] 13 Dec 2022&lt;/watermark&gt; #",
+        "suffix": "Xiaoye Qu,¹ Jun Zeng², Daizong",
+        "valueSource": "extracted"
+      },
+      "schema:title": {
+        "value": "Distantly-Supervised Named Entity Recognition with Adaptive Teacher Learning and Fine-grained Student Ensemble",
+        "start_char_doc": 88,
+        "end_char_doc": 198,
+        "prefix": "[cs.CL] 13 Dec 2022&lt;/watermark&gt; #",
+        "suffix": "Xiaoye Qu,¹ Jun Zeng², Daizong",
+        "valueSource": "extracted"
+      },
+      "schema:abstract": {
+        "value": "Distantly-Supervised Named Entity Recognition (DS-NER) effectively alleviates the data scarcity problem in NER by automatically generating training samples. Unfortunately, the distant supervision may induce noisy labels, thus undermining the robustness of the learned models and restricting the practical application. To relieve this problem, recent works adopt self-training teacher-student frameworks to gradually refine the training labels and improve the generalization ability of NER models. However, we argue that the performance of the current self-training frameworks for DS-NER is severely underestimated by their plain designs, including both inadequate student learning and coarse-grained teacher updating. Therefore, in this paper, we make the first attempt to alleviate these issues by proposing: (1) adaptive teacher learning comprised of joint training of two teacher-student networks and considering both consistent and inconsistent predictions between two teachers, thus promoting comprehensive student learning. (2) fine-grained student ensemble that updates each fragment of the teacher model with a temporal moving average of the corresponding fragment of the student, which enhances consistent predictions on each model fragment against noise. To verify the effectiveness of our proposed method, we conduct experiments on four DS-NER datasets. The experimental results demonstrate that our method significantly surpasses previous SOTA methods. The code is available at https://github.com/zenhjunpro/ATSEN.",
+        "start_char_doc": 705,
+        "end_char_doc": 2231,
+        "prefix": "dzliu@stu.pku.edu.cn, {junzeng, panzhou}@hust.edu.cn ## Abstract",
+        "suffix": "## Introduction Named Entity Recognition",
+        "valueSource": "extracted"
+      },
+      "schema:url": {
+        "value": "https://arxiv.org/abs/2212.06522v1",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:doi": null,
+      "schema:citation": null,
+      "schema:publicationVenue": null,
+      "schema:timestamp": {
+        "value": "13 Dec 2022",
+        "start_char_doc": 55,
+        "end_char_doc": 66,
+        "prefix": "## Page 1 &lt;watermark&gt;arXiv:2212.06522v1 [cs.CL]",
+        "suffix": "&lt;/watermark&gt; # Distantly-Supervised Named Entity",
+        "valueSource": "extracted"
+      },
+      "mls:hasAuthor": [
+        {
+          "@id": "person:qu_xiaoye"
+        },
+        {
+          "@id": "person:zeng_jun"
+        },
+        {
+          "@id": "person:liu_daizong"
+        },
+        {
+          "@id": "person:wang_zhefeng"
+        },
+        {
+          "@id": "person:huai_baoxing"
+        },
+        {
+          "@id": "person:zhou_pan"
+        }
+      ],
+      "mls:contains": [
+        {
+          "@id": "expg:group_distantly_supervised_named_entity_recognition_2022"
+        }
+      ],
+      "mls:implements": {
+        "@id": "repo:atsen"
+      }
+    },
+    {
+      "@id": "org:huawei_cloud",
+      "@type": "mls:Organization",
+      "mention": {
+        "start_char_doc": 281,
+        "end_char_doc": 293,
+        "prefix": "Baoxing Huai¹, Pan Zhou⁴* ¹",
+        "suffix": "²School of Software Engineering, Huazhong",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "Huawei Cloud",
+        "start_char_doc": 281,
+        "end_char_doc": 293,
+        "prefix": "Baoxing Huai¹, Pan Zhou⁴* ¹",
+        "suffix": "²School of Software Engineering, Huazhong",
+        "valueSource": "extracted"
+      },
+      "schema:url": null,
+      "schema:type": null
+    },
+    {
+      "@id": "org:school_of_software_engineering_huazhong_university_of_science_and_technology",
+      "@type": "mls:Organization",
+      "mention": {
+        "start_char_doc": 295,
+        "end_char_doc": 372,
+        "prefix": "Pan Zhou⁴* ¹Huawei Cloud ²",
+        "suffix": "³Peking University ⁴Hubei Key Laboratory",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "School of Software Engineering, Huazhong University of Science and Technology",
+        "start_char_doc": 295,
+        "end_char_doc": 372,
+        "prefix": "Pan Zhou⁴* ¹Huawei Cloud ²",
+        "suffix": "³Peking University ⁴Hubei Key Laboratory",
+        "valueSource": "extracted"
+      },
+      "schema:url": null,
+      "schema:type": null
+    },
+    {
+      "@id": "org:peking_university",
+      "@type": "mls:Organization",
+      "mention": {
+        "start_char_doc": 374,
+        "end_char_doc": 391,
+        "prefix": "of Science and Technology ³",
+        "suffix": "⁴Hubei Key Laboratory of Distributed",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "Peking University",
+        "start_char_doc": 374,
+        "end_char_doc": 391,
+        "prefix": "of Science and Technology ³",
+        "suffix": "⁴Hubei Key Laboratory of Distributed",
+        "valueSource": "extracted"
+      },
+      "schema:url": null,
+      "schema:type": null
+    },
+    {
+      "@id": "org:hubei_key_laboratory_of_distributed_system_security_hubei_engineering_research_center_on_big_data_security_school_of_cyber_science_and_engineering_huazhong_university_of_science_and_technology",
+      "@type": "mls:Organization",
+      "mention": {
+        "start_char_doc": 393,
+        "end_char_doc": 588,
+        "prefix": "and Technology ³Peking University ⁴",
+        "suffix": "{quxiaoye, wangzhefeng, huaibaoxing}@huawei.com, dzliu@stu.pku.edu.cn, {junzeng,",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "Hubei Key Laboratory of Distributed System Security, Hubei Engineering Research Center on Big Data Security, School of Cyber Science and Engineering, Huazhong University of Science and Technology",
+        "start_char_doc": 393,
+        "end_char_doc": 588,
+        "prefix": "and Technology ³Peking University ⁴",
+        "suffix": "{quxiaoye, wangzhefeng, huaibaoxing}@huawei.com, dzliu@stu.pku.edu.cn, {junzeng,",
+        "valueSource": "extracted"
+      },
+      "schema:url": null,
+      "schema:type": null
+    },
+    {
+      "@id": "person:qu_xiaoye",
+      "@type": "mls:Person",
+      "mention": {
+        "start_char_doc": 200,
+        "end_char_doc": 209,
+        "prefix": "Learning and Fine-grained Student Ensemble",
+        "suffix": ",¹ Jun Zeng², Daizong Liu³,",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "Xiaoye Qu",
+        "start_char_doc": 200,
+        "end_char_doc": 209,
+        "prefix": "Learning and Fine-grained Student Ensemble",
+        "suffix": ",¹ Jun Zeng², Daizong Liu³,",
+        "valueSource": "extracted"
+      },
+      "schema:affiliation": {
+        "value": "Huawei Cloud",
+        "start_char_doc": 281,
+        "end_char_doc": 293,
+        "prefix": "Baoxing Huai¹, Pan Zhou⁴* ¹",
+        "suffix": "²School of Software Engineering, Huazhong",
+        "valueSource": "extracted"
+      },
+      "schema:email": {
+        "value": "quxiaoye@huawei.com",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:orcid": null,
+      "prov:affiliatedWith": [
+        {
+          "@id": "org:huawei_cloud"
+        }
+      ]
+    },
+    {
+      "@id": "person:zeng_jun",
+      "@type": "mls:Person",
+      "mention": {
+        "start_char_doc": 212,
+        "end_char_doc": 220,
+        "prefix": "Fine-grained Student Ensemble Xiaoye Qu,¹",
+        "suffix": "², Daizong Liu³, Zhefeng Wang¹*,",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "Jun Zeng",
+        "start_char_doc": 212,
+        "end_char_doc": 220,
+        "prefix": "Fine-grained Student Ensemble Xiaoye Qu,¹",
+        "suffix": "², Daizong Liu³, Zhefeng Wang¹*,",
+        "valueSource": "extracted"
+      },
+      "schema:affiliation": {
+        "value": "School of Software Engineering, Huazhong University of Science and Technology",
+        "start_char_doc": 295,
+        "end_char_doc": 372,
+        "prefix": "Pan Zhou⁴* ¹Huawei Cloud ²",
+        "suffix": "³Peking University ⁴Hubei Key Laboratory",
+        "valueSource": "extracted"
+      },
+      "schema:email": {
+        "value": "junzeng@hust.edu.cn",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:orcid": null,
+      "prov:affiliatedWith": [
+        {
+          "@id": "org:school_of_software_engineering_huazhong_university_of_science_and_technology"
+        }
+      ]
+    },
+    {
+      "@id": "person:liu_daizong",
+      "@type": "mls:Person",
+      "mention": {
+        "start_char_doc": 223,
+        "end_char_doc": 234,
+        "prefix": "Ensemble Xiaoye Qu,¹ Jun Zeng²,",
+        "suffix": "³, Zhefeng Wang¹*, Baoxing Huai¹,",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "Daizong Liu",
+        "start_char_doc": 223,
+        "end_char_doc": 234,
+        "prefix": "Ensemble Xiaoye Qu,¹ Jun Zeng²,",
+        "suffix": "³, Zhefeng Wang¹*, Baoxing Huai¹,",
+        "valueSource": "extracted"
+      },
+      "schema:affiliation": {
+        "value": "Peking University",
+        "start_char_doc": 374,
+        "end_char_doc": 391,
+        "prefix": "of Science and Technology ³",
+        "suffix": "⁴Hubei Key Laboratory of Distributed",
+        "valueSource": "extracted"
+      },
+      "schema:email": {
+        "value": "dzliu@stu.pku.edu.cn",
+        "start_char_doc": 638,
+        "end_char_doc": 658,
+        "prefix": "and Technology {quxiaoye, wangzhefeng, huaibaoxing}@huawei.com,",
+        "suffix": ", {junzeng, panzhou}@hust.edu.cn ## Abstract",
+        "valueSource": "extracted"
+      },
+      "schema:orcid": null,
+      "prov:affiliatedWith": [
+        {
+          "@id": "org:peking_university"
+        }
+      ]
+    },
+    {
+      "@id": "person:wang_zhefeng",
+      "@type": "mls:Person",
+      "mention": {
+        "start_char_doc": 237,
+        "end_char_doc": 249,
+        "prefix": "Qu,¹ Jun Zeng², Daizong Liu³,",
+        "suffix": "¹*, Baoxing Huai¹, Pan Zhou⁴*",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "Zhefeng Wang",
+        "start_char_doc": 237,
+        "end_char_doc": 249,
+        "prefix": "Qu,¹ Jun Zeng², Daizong Liu³,",
+        "suffix": "¹*, Baoxing Huai¹, Pan Zhou⁴*",
+        "valueSource": "extracted"
+      },
+      "schema:affiliation": {
+        "value": "Huawei Cloud",
+        "start_char_doc": 281,
+        "end_char_doc": 293,
+        "prefix": "Baoxing Huai¹, Pan Zhou⁴* ¹",
+        "suffix": "²School of Software Engineering, Huazhong",
+        "valueSource": "extracted"
+      },
+      "schema:email": {
+        "value": "wangzhefeng@huawei.com",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:orcid": null,
+      "prov:affiliatedWith": [
+        {
+          "@id": "org:huawei_cloud"
+        }
+      ]
+    },
+    {
+      "@id": "person:huai_baoxing",
+      "@type": "mls:Person",
+      "mention": {
+        "start_char_doc": 253,
+        "end_char_doc": 265,
+        "prefix": "Zeng², Daizong Liu³, Zhefeng Wang¹*,",
+        "suffix": "¹, Pan Zhou⁴* ¹Huawei Cloud",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "Baoxing Huai",
+        "start_char_doc": 253,
+        "end_char_doc": 265,
+        "prefix": "Zeng², Daizong Liu³, Zhefeng Wang¹*,",
+        "suffix": "¹, Pan Zhou⁴* ¹Huawei Cloud",
+        "valueSource": "extracted"
+      },
+      "schema:affiliation": {
+        "value": "Huawei Cloud",
+        "start_char_doc": 281,
+        "end_char_doc": 293,
+        "prefix": "Baoxing Huai¹, Pan Zhou⁴* ¹",
+        "suffix": "²School of Software Engineering, Huazhong",
+        "valueSource": "extracted"
+      },
+      "schema:email": {
+        "value": "huaibaoxing@huawei.com",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:orcid": null,
+      "prov:affiliatedWith": [
+        {
+          "@id": "org:huawei_cloud"
+        }
+      ]
+    },
+    {
+      "@id": "person:zhou_pan",
+      "@type": "mls:Person",
+      "mention": {
+        "start_char_doc": 268,
+        "end_char_doc": 276,
+        "prefix": "Liu³, Zhefeng Wang¹*, Baoxing Huai¹,",
+        "suffix": "⁴* ¹Huawei Cloud ²School of",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "Pan Zhou",
+        "start_char_doc": 268,
+        "end_char_doc": 276,
+        "prefix": "Liu³, Zhefeng Wang¹*, Baoxing Huai¹,",
+        "suffix": "⁴* ¹Huawei Cloud ²School of",
+        "valueSource": "extracted"
+      },
+      "schema:affiliation": {
+        "value": "Hubei Key Laboratory of Distributed System Security, Hubei Engineering Research Center on Big Data Security, School of Cyber Science and Engineering, Huazhong University of Science and Technology",
+        "start_char_doc": 393,
+        "end_char_doc": 588,
+        "prefix": "and Technology ³Peking University ⁴",
+        "suffix": "{quxiaoye, wangzhefeng, huaibaoxing}@huawei.com, dzliu@stu.pku.edu.cn, {junzeng,",
+        "valueSource": "extracted"
+      },
+      "schema:email": {
+        "value": "panzhou@hust.edu.cn",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:orcid": null,
+      "prov:affiliatedWith": [
+        {
+          "@id": "org:hubei_key_laboratory_of_distributed_system_security_hubei_engineering_research_center_on_big_data_security_school_of_cyber_science_and_engineering_huazhong_university_of_science_and_technology"
+        }
+      ]
+    },
+    {
+      "@id": "task:distantly_supervised_named_entity_recognition",
+      "@type": "mls:MLS_Task",
+      "mention": {
+        "start_char_doc": 705,
+        "end_char_doc": 759,
+        "prefix": "dzliu@stu.pku.edu.cn, {junzeng, panzhou}@hust.edu.cn ## Abstract",
+        "suffix": "effectively alleviates the data scarcity",
+        "valueSource": "extracted"
+      },
+      "mls:name": {
+        "value": "Distantly-Supervised Named Entity Recognition (DS-NER)",
+        "start_char_doc": 705,
+        "end_char_doc": 759,
+        "prefix": "dzliu@stu.pku.edu.cn, {junzeng, panzhou}@hust.edu.cn ## Abstract",
+        "suffix": "effectively alleviates the data scarcity",
+        "valueSource": "extracted"
+      },
+      "mls:description": {
+        "value": "A named entity recognition setting that uses distantly generated noisy labels rather than manual token-level annotations.",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:category": {
+        "value": "named entity recognition",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:metrics": {
+        "value": "Precision, Recall, F1",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:benchmarkedOn": [
+        {
+          "@id": "dataset:conll03"
+        },
+        {
+          "@id": "dataset:ontonotes_5_0"
+        },
+        {
+          "@id": "dataset:webpage"
+        },
+        {
+          "@id": "dataset:twitter"
+        }
+      ]
+    },
+    {
+      "@id": "dataset:conll03",
+      "@type": "mls:MLS_Dataset",
+      "mention": {
+        "start_char_doc": 25696,
+        "end_char_doc": 25703,
+        "prefix": "of them as follows: **",
+        "suffix": "** (Sang and De Meulder",
+        "valueSource": "extracted"
+      },
+      "mls:name": {
+        "value": "CoNLL03",
+        "start_char_doc": 25696,
+        "end_char_doc": 25703,
+        "prefix": "of them as follows: **",
+        "suffix": "** (Sang and De Meulder",
+        "valueSource": "extracted"
+      },
+      "mls:description": {
+        "value": "English DS-NER benchmark with four entity types.",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:numInstances": null,
+      "mls:language": {
+        "value": "English",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:license": null,
+      "mls:modality": {
+        "value": "text",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:numClasses": {
+        "value": "4",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "prov:wasDerivedFrom": {
+        "@id": "study:distantly_supervised_named_entity_recognition_with_adaptive_teacher_learning_and_fine_grained_student_ensemble_2022"
+      }
+    },
+    {
+      "@id": "dataset:ontonotes_5_0",
+      "@type": "mls:MLS_Dataset",
+      "mention": {
+        "start_char_doc": 25866,
+        "end_char_doc": 25879,
+        "prefix": "location, organization, and miscellaneous. **",
+        "suffix": "** (Weischedel et al. 2013)",
+        "valueSource": "extracted"
+      },
+      "mls:name": {
+        "value": "OntoNotes 5.0",
+        "start_char_doc": 25866,
+        "end_char_doc": 25879,
+        "prefix": "location, organization, and miscellaneous. **",
+        "suffix": "** (Weischedel et al. 2013)",
+        "valueSource": "extracted"
+      },
+      "mls:description": {
+        "value": "Multi-domain DS-NER benchmark with eighteen entity types.",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:numInstances": null,
+      "mls:language": null,
+      "mls:license": null,
+      "mls:modality": {
+        "value": "text",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:numClasses": {
+        "value": "18",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "prov:wasDerivedFrom": {
+        "@id": "study:distantly_supervised_named_entity_recognition_with_adaptive_teacher_learning_and_fine_grained_student_ensemble_2022"
+      }
+    },
+    {
+      "@id": "dataset:webpage",
+      "@type": "mls:MLS_Dataset",
+      "mention": {
+        "start_char_doc": 26042,
+        "end_char_doc": 26049,
+        "prefix": "of 18 entity types. **",
+        "suffix": "** (Ratinov and Roth 2009)",
+        "valueSource": "extracted"
+      },
+      "mls:name": {
+        "value": "Webpage",
+        "start_char_doc": 26042,
+        "end_char_doc": 26049,
+        "prefix": "of 18 entity types. **",
+        "suffix": "** (Ratinov and Roth 2009)",
+        "valueSource": "extracted"
+      },
+      "mls:description": {
+        "value": "DS-NER benchmark built from personal, academic, and conference webpages.",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:numInstances": null,
+      "mls:language": null,
+      "mls:license": null,
+      "mls:modality": {
+        "value": "text",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:numClasses": {
+        "value": "4",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "prov:wasDerivedFrom": {
+        "@id": "study:distantly_supervised_named_entity_recognition_with_adaptive_teacher_learning_and_fine_grained_student_ensemble_2022"
+      }
+    },
+    {
+      "@id": "dataset:twitter",
+      "@type": "mls:MLS_Dataset",
+      "mention": {
+        "start_char_doc": 26205,
+        "end_char_doc": 26212,
+        "prefix": "that cover 783 entities. **",
+        "suffix": "** (Godin et al. 2015)",
+        "valueSource": "extracted"
+      },
+      "mls:name": {
+        "value": "Twitter",
+        "start_char_doc": 26205,
+        "end_char_doc": 26212,
+        "prefix": "that cover 783 entities. **",
+        "suffix": "** (Godin et al. 2015)",
+        "valueSource": "extracted"
+      },
+      "mls:description": {
+        "value": "DS-NER benchmark from the WNUT 2016 NER shared task with ten entity types.",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:numInstances": null,
+      "mls:language": null,
+      "mls:license": null,
+      "mls:modality": {
+        "value": "text",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:numClasses": {
+        "value": "10",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "prov:wasDerivedFrom": {
+        "@id": "study:distantly_supervised_named_entity_recognition_with_adaptive_teacher_learning_and_fine_grained_student_ensemble_2022"
+      }
+    },
+    {
+      "@id": "method:atsen",
+      "@type": "mls:Method",
+      "mention": {
+        "start_char_doc": 6944,
+        "end_char_doc": 6949,
+        "prefix": "and Fine-grained Student ENsemble (",
+        "suffix": ") for DS-NER. Specifically, we",
+        "valueSource": "extracted"
+      },
+      "mls:name": {
+        "value": "ATSEN",
+        "start_char_doc": 6944,
+        "end_char_doc": 6949,
+        "prefix": "and Fine-grained Student ENsemble (",
+        "suffix": ") for DS-NER. Specifically, we",
+        "valueSource": "extracted"
+      },
+      "mls:description": {
+        "value": "Adaptive Teacher Learning and Fine-grained Student Ensemble for distantly-supervised named entity recognition.",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:trainedOn": [
+        {
+          "@id": "dataset:conll03"
+        },
+        {
+          "@id": "dataset:ontonotes_5_0"
+        },
+        {
+          "@id": "dataset:webpage"
+        },
+        {
+          "@id": "dataset:twitter"
+        }
+      ],
+      "mls:evaluatedOn": [
+        {
+          "@id": "dataset:conll03"
+        },
+        {
+          "@id": "dataset:ontonotes_5_0"
+        },
+        {
+          "@id": "dataset:webpage"
+        },
+        {
+          "@id": "dataset:twitter"
+        }
+      ],
+      "mls:subMethod": [
+        {
+          "@id": "method:adaptive_teacher_learning"
+        },
+        {
+          "@id": "method:fine_grained_student_ensemble"
+        },
+        {
+          "@id": "method:segment_ensemble"
+        }
+      ],
+      "mls:achieves": [
+        {
+          "@id": "eval:precision_atsen_conll03"
+        },
+        {
+          "@id": "eval:recall_atsen_conll03"
+        },
+        {
+          "@id": "eval:f1_atsen_conll03"
+        },
+        {
+          "@id": "eval:precision_atsen_ontonotes_5_0"
+        },
+        {
+          "@id": "eval:recall_atsen_ontonotes_5_0"
+        },
+        {
+          "@id": "eval:f1_atsen_ontonotes_5_0"
+        },
+        {
+          "@id": "eval:precision_atsen_webpage"
+        },
+        {
+          "@id": "eval:recall_atsen_webpage"
+        },
+        {
+          "@id": "eval:f1_atsen_webpage"
+        },
+        {
+          "@id": "eval:precision_atsen_twitter"
+        },
+        {
+          "@id": "eval:recall_atsen_twitter"
+        },
+        {
+          "@id": "eval:f1_atsen_twitter"
+        }
+      ]
+    },
+    {
+      "@id": "method:adaptive_teacher_learning",
+      "@type": "mls:Method",
+      "mention": {
+        "start_char_doc": 1519,
+        "end_char_doc": 1544,
+        "prefix": "these issues by proposing: (1)",
+        "suffix": "comprised of joint training of",
+        "valueSource": "extracted"
+      },
+      "mls:name": {
+        "value": "adaptive teacher learning",
+        "start_char_doc": 1519,
+        "end_char_doc": 1544,
+        "prefix": "these issues by proposing: (1)",
+        "suffix": "comprised of joint training of",
+        "valueSource": "extracted"
+      },
+      "mls:description": {
+        "value": "Jointly trains students from two teachers using consistent predictions and adaptive distillation over disagreement.",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "method:fine_grained_student_ensemble",
+      "@type": "mls:Method",
+      "mention": {
+        "start_char_doc": 1739,
+        "end_char_doc": 1768,
+        "prefix": "promoting comprehensive student learning. (2)",
+        "suffix": "that updates each fragment of",
+        "valueSource": "extracted"
+      },
+      "mls:name": {
+        "value": "fine-grained student ensemble",
+        "start_char_doc": 1739,
+        "end_char_doc": 1768,
+        "prefix": "promoting comprehensive student learning. (2)",
+        "suffix": "that updates each fragment of",
+        "valueSource": "extracted"
+      },
+      "mls:description": {
+        "value": "Updates teacher fragments with temporal moving averages of corresponding student fragments to improve robustness.",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:subMethod": [
+        {
+          "@id": "method:segment_ensemble"
+        }
+      ]
+    },
+    {
+      "@id": "method:segment_ensemble",
+      "@type": "mls:Method",
+      "mention": {
+        "start_char_doc": 20417,
+        "end_char_doc": 20433,
+        "prefix": "a preliminary version, named **",
+        "suffix": "(SE)**. During each iteration, the",
+        "valueSource": "extracted"
+      },
+      "mls:name": {
+        "value": "segment ensemble",
+        "start_char_doc": 20417,
+        "end_char_doc": 20433,
+        "prefix": "a preliminary version, named **",
+        "suffix": "(SE)**. During each iteration, the",
+        "valueSource": "extracted"
+      },
+      "mls:description": {
+        "value": "A preliminary ensemble variant that selectively replaces teacher units with student units.",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "repo:atsen",
+      "@type": "mls:SoftwareRepository",
+      "mention": {
+        "start_char_doc": 2195,
+        "end_char_doc": 2230,
+        "prefix": "The code is available at",
+        "suffix": ". ## Introduction Named Entity",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "ATSEN",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:url": {
+        "value": "https://github.com/zenhjunpro/ATSEN",
+        "start_char_doc": 2195,
+        "end_char_doc": 2230,
+        "prefix": "The code is available at",
+        "suffix": ". ## Introduction Named Entity",
+        "valueSource": "extracted"
+      },
+      "schema:version": null,
+      "schema:programmingLanguage": null,
+      "schema:dateModified": null,
+      "schema:license": null,
+      "mls:documentationUrl": null,
+      "mls:contains": [
+        {
+          "@id": "impl:atsen"
+        }
+      ]
+    },
+    {
+      "@id": "env:unspecified_training_environment",
+      "@type": "mls:Environment",
+      "mention": {
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hardwareSpecs": null,
+      "mls:os": null,
+      "mls:pythonVersion": null
+    },
+    {
+      "@id": "impl:atsen",
+      "@type": "mls:MLS_Implementation",
+      "mention": {
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:codeRepository": {
+        "value": "https://github.com/zenhjunpro/ATSEN",
+        "start_char_doc": 2195,
+        "end_char_doc": 2230,
+        "prefix": "The code is available at",
+        "suffix": ". ## Introduction Named Entity",
+        "valueSource": "extracted"
+      },
+      "mls:framework": {
+        "value": "RoBERTa and DistilRoBERTa teacher-student token classification models",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:executionCommand": null,
+      "mls:entryPoint": null,
+      "mls:branch": null,
+      "mls:runsIn": {
+        "@id": "env:unspecified_training_environment"
+      },
+      "prov:wasDerivedFrom": {
+        "@id": "repo:atsen"
+      }
+    },
+    {
+      "@id": "hp:num_epochs_max_training",
+      "@type": "mls:MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:name": {
+        "value": "max training epoch",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "50",
+        "start_char_doc": 28189,
+        "end_char_doc": 28191,
+        "prefix": "The max training epoch is",
+        "suffix": "for all datasets. The training",
+        "valueSource": "extracted"
+      },
+      "mls:wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:type": {
+        "value": "string",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Training",
+      "hpType": "NumEpochs",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:confidence_threshold_sigma_1",
+      "@type": "mls:MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:name": {
+        "value": "confidence threshold sigma_1",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "0.9",
+        "start_char_doc": 33226,
+        "end_char_doc": 33229,
+        "prefix": "the confidence threshold $\\sigma_1$ is",
+        "suffix": "for all datasets. In the",
+        "valueSource": "extracted"
+      },
+      "mls:wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:type": {
+        "value": "string",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Training",
+      "hpType": "HP_Training",
+      "uncertain": true
+    },
+    {
+      "@id": "hp:batch_size_conll03",
+      "@type": "mls:MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:name": {
+        "value": "batch size",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "16",
+        "start_char_doc": 28237,
+        "end_char_doc": 28239,
+        "prefix": "The training batch size is",
+        "suffix": "for CoNLL03, Webpage, and Twitter",
+        "valueSource": "extracted"
+      },
+      "mls:wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:type": {
+        "value": "string",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Training",
+      "hpType": "BatchSize",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:batch_size_ontonotes_5_0",
+      "@type": "mls:MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:name": {
+        "value": "batch size",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "32",
+        "start_char_doc": 28278,
+        "end_char_doc": 28280,
+        "prefix": "CoNLL03, Webpage, and Twitter and",
+        "suffix": "for OntoNotes 5.0. The learning",
+        "valueSource": "extracted"
+      },
+      "mls:wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:type": {
+        "value": "string",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Training",
+      "hpType": "BatchSize",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:batch_size_webpage",
+      "@type": "mls:MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:name": {
+        "value": "batch size",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "16",
+        "start_char_doc": 28237,
+        "end_char_doc": 28239,
+        "prefix": "The training batch size is",
+        "suffix": "for CoNLL03, Webpage, and Twitter",
+        "valueSource": "extracted"
+      },
+      "mls:wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:type": {
+        "value": "string",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Training",
+      "hpType": "BatchSize",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:batch_size_twitter",
+      "@type": "mls:MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:name": {
+        "value": "batch size",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "16",
+        "start_char_doc": 28237,
+        "end_char_doc": 28239,
+        "prefix": "The training batch size is",
+        "suffix": "for CoNLL03, Webpage, and Twitter",
+        "valueSource": "extracted"
+      },
+      "mls:wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:type": {
+        "value": "string",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Training",
+      "hpType": "BatchSize",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:learning_rate_conll03",
+      "@type": "mls:MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:name": {
+        "value": "learning rate",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "1e-5",
+        "start_char_doc": 28328,
+        "end_char_doc": 28332,
+        "prefix": "learning rate is set to",
+        "suffix": "for CoNLL03 and Webpage, and",
+        "valueSource": "extracted"
+      },
+      "mls:wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:type": {
+        "value": "string",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Optimization",
+      "hpType": "LearningRate",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:learning_rate_ontonotes_5_0",
+      "@type": "mls:MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:name": {
+        "value": "learning rate",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "2e-5",
+        "start_char_doc": 28362,
+        "end_char_doc": 28366,
+        "prefix": "for CoNLL03 and Webpage, and",
+        "suffix": "for OntoNotes 5.0 and Twitter.",
+        "valueSource": "extracted"
+      },
+      "mls:wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:type": {
+        "value": "string",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Optimization",
+      "hpType": "LearningRate",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:learning_rate_webpage",
+      "@type": "mls:MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:name": {
+        "value": "learning rate",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "1e-5",
+        "start_char_doc": 28328,
+        "end_char_doc": 28332,
+        "prefix": "learning rate is set to",
+        "suffix": "for CoNLL03 and Webpage, and",
+        "valueSource": "extracted"
+      },
+      "mls:wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:type": {
+        "value": "string",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Optimization",
+      "hpType": "LearningRate",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:learning_rate_twitter",
+      "@type": "mls:MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:name": {
+        "value": "learning rate",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "2e-5",
+        "start_char_doc": 28362,
+        "end_char_doc": 28366,
+        "prefix": "for CoNLL03 and Webpage, and",
+        "suffix": "for OntoNotes 5.0 and Twitter.",
+        "valueSource": "extracted"
+      },
+      "mls:wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:type": {
+        "value": "string",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Optimization",
+      "hpType": "LearningRate",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:pretraining_num_epochs_conll03",
+      "@type": "mls:MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:name": {
+        "value": "pretraining epochs",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "1",
+        "start_char_doc": 28463,
+        "end_char_doc": 28464,
+        "prefix": "noisy labels, we separately train",
+        "suffix": ", 2, 12, and 6",
+        "valueSource": "extracted"
+      },
+      "mls:wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:type": {
+        "value": "string",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Training",
+      "hpType": "NumEpochs",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:pretraining_num_epochs_ontonotes_5_0",
+      "@type": "mls:MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:name": {
+        "value": "pretraining epochs",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "2",
+        "start_char_doc": 28466,
+        "end_char_doc": 28467,
+        "prefix": "labels, we separately train 1,",
+        "suffix": ", 12, and 6 epochs",
+        "valueSource": "extracted"
+      },
+      "mls:wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:type": {
+        "value": "string",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Training",
+      "hpType": "NumEpochs",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:pretraining_num_epochs_webpage",
+      "@type": "mls:MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:name": {
+        "value": "pretraining epochs",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "12",
+        "start_char_doc": 28469,
+        "end_char_doc": 28471,
+        "prefix": "we separately train 1, 2,",
+        "suffix": ", and 6 epochs for",
+        "valueSource": "extracted"
+      },
+      "mls:wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:type": {
+        "value": "string",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Training",
+      "hpType": "NumEpochs",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:pretraining_num_epochs_twitter",
+      "@type": "mls:MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:name": {
+        "value": "pretraining epochs",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "6",
+        "start_char_doc": 28477,
+        "end_char_doc": 28478,
+        "prefix": "train 1, 2, 12, and",
+        "suffix": "epochs for CoNLL03, OntoNotes 5.0,",
+        "valueSource": "extracted"
+      },
+      "mls:wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:type": {
+        "value": "string",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Training",
+      "hpType": "NumEpochs",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:smoothing_coefficient_m_conll03",
+      "@type": "mls:MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:name": {
+        "value": "smoothing coefficient m",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "0.995",
+        "start_char_doc": 33294,
+        "end_char_doc": 33299,
+        "prefix": "fine-grained student ensemble, $m$ are",
+        "suffix": ", 0.995, 0.99, 0.995 and",
+        "valueSource": "extracted"
+      },
+      "mls:wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:type": {
+        "value": "string",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Training",
+      "hpType": "HP_Training",
+      "uncertain": true
+    },
+    {
+      "@id": "hp:smoothing_coefficient_m_ontonotes_5_0",
+      "@type": "mls:MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:name": {
+        "value": "smoothing coefficient m",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "0.995",
+        "start_char_doc": 33301,
+        "end_char_doc": 33306,
+        "prefix": "student ensemble, $m$ are 0.995,",
+        "suffix": ", 0.99, 0.995 and $\\sigma_2$",
+        "valueSource": "extracted"
+      },
+      "mls:wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:type": {
+        "value": "string",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Training",
+      "hpType": "HP_Training",
+      "uncertain": true
+    },
+    {
+      "@id": "hp:smoothing_coefficient_m_webpage",
+      "@type": "mls:MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:name": {
+        "value": "smoothing coefficient m",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "0.99",
+        "start_char_doc": 33294,
+        "end_char_doc": 33298,
+        "prefix": "fine-grained student ensemble, $m$ are",
+        "suffix": "5, 0.995, 0.99, 0.995 and",
+        "valueSource": "extracted"
+      },
+      "mls:wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:type": {
+        "value": "string",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Training",
+      "hpType": "HP_Training",
+      "uncertain": true
+    },
+    {
+      "@id": "hp:smoothing_coefficient_m_twitter",
+      "@type": "mls:MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:name": {
+        "value": "smoothing coefficient m",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "0.995",
+        "start_char_doc": 33314,
+        "end_char_doc": 33319,
+        "prefix": "$m$ are 0.995, 0.995, 0.99,",
+        "suffix": "and $\\sigma_2$ is set to",
+        "valueSource": "extracted"
+      },
+      "mls:wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:type": {
+        "value": "string",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Training",
+      "hpType": "HP_Training",
+      "uncertain": true
+    },
+    {
+      "@id": "hp:sigma_2_conll03",
+      "@type": "mls:MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:name": {
+        "value": "sigma_2",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "0.8",
+        "start_char_doc": 33345,
+        "end_char_doc": 33348,
+        "prefix": "and $\\sigma_2$ is set to",
+        "suffix": ", 0.995, 0.8, and 0.75",
+        "valueSource": "extracted"
+      },
+      "mls:wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:type": {
+        "value": "string",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Training",
+      "hpType": "HP_Training",
+      "uncertain": true
+    },
+    {
+      "@id": "hp:sigma_2_ontonotes_5_0",
+      "@type": "mls:MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:name": {
+        "value": "sigma_2",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "0.995",
+        "start_char_doc": 33350,
+        "end_char_doc": 33355,
+        "prefix": "$\\sigma_2$ is set to 0.8,",
+        "suffix": ", 0.8, and 0.75 for",
+        "valueSource": "extracted"
+      },
+      "mls:wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:type": {
+        "value": "string",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Training",
+      "hpType": "HP_Training",
+      "uncertain": true
+    },
+    {
+      "@id": "hp:sigma_2_webpage",
+      "@type": "mls:MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:name": {
+        "value": "sigma_2",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "0.8",
+        "start_char_doc": 33357,
+        "end_char_doc": 33360,
+        "prefix": "is set to 0.8, 0.995,",
+        "suffix": ", and 0.75 for dataset",
+        "valueSource": "extracted"
+      },
+      "mls:wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:type": {
+        "value": "string",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Training",
+      "hpType": "HP_Training",
+      "uncertain": true
+    },
+    {
+      "@id": "hp:sigma_2_twitter",
+      "@type": "mls:MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:name": {
+        "value": "sigma_2",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "0.75",
+        "start_char_doc": 33366,
+        "end_char_doc": 33370,
+        "prefix": "to 0.8, 0.995, 0.8, and",
+        "suffix": "for dataset CoNLL03, OntoNotes 5.0,",
+        "valueSource": "extracted"
+      },
+      "mls:wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:type": {
+        "value": "string",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Training",
+      "hpType": "HP_Training",
+      "uncertain": true
+    },
+    {
+      "@id": "expg:group_distantly_supervised_named_entity_recognition_2022",
+      "@type": "mls:ExperimentGroup",
+      "mention": {
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hypothesis": {
+        "value": "Combining adaptive learning from both agreement and disagreement between two teachers with fine-grained teacher updates improves DS-NER robustness and performance.",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:methodology": {
+        "value": "Two teacher-student networks generate reliable labels through consistency and threshold selection, train students with adaptive distillation, and update teachers with a fine-grained student ensemble.",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:task": {
+        "@id": "task:distantly_supervised_named_entity_recognition"
+      },
+      "mls:produces": [
+        {
+          "@id": "method:atsen"
+        }
+      ],
+      "mls:executes": [
+        {
+          "@id": "impl:atsen"
+        }
+      ],
+      "mls:usesParameters": [
+        {
+          "@id": "hp:num_epochs_max_training"
+        },
+        {
+          "@id": "hp:confidence_threshold_sigma_1"
+        }
+      ],
+      "prov:wasAssociatedWith": [
+        {
+          "@id": "hp:num_epochs_max_training"
+        },
+        {
+          "@id": "hp:confidence_threshold_sigma_1"
+        }
+      ],
+      "mls:hasSubExperiment": [
+        {
+          "@id": "exp:atsen_conll03"
+        },
+        {
+          "@id": "exp:atsen_ontonotes_5_0"
+        },
+        {
+          "@id": "exp:atsen_webpage"
+        },
+        {
+          "@id": "exp:atsen_twitter"
+        }
+      ]
+    },
+    {
+      "@id": "exp:atsen_conll03",
+      "@type": "mls:Experiment",
+      "mention": {
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:usesData": [
+        {
+          "@id": "dataset:conll03"
+        }
+      ],
+      "mls:usesParameters": [
+        {
+          "@id": "hp:batch_size_conll03"
+        },
+        {
+          "@id": "hp:learning_rate_conll03"
+        },
+        {
+          "@id": "hp:pretraining_num_epochs_conll03"
+        },
+        {
+          "@id": "hp:smoothing_coefficient_m_conll03"
+        },
+        {
+          "@id": "hp:sigma_2_conll03"
+        }
+      ],
+      "prov:wasAssociatedWith": [
+        {
+          "@id": "hp:batch_size_conll03"
+        },
+        {
+          "@id": "hp:learning_rate_conll03"
+        },
+        {
+          "@id": "hp:pretraining_num_epochs_conll03"
+        },
+        {
+          "@id": "hp:smoothing_coefficient_m_conll03"
+        },
+        {
+          "@id": "hp:sigma_2_conll03"
+        }
+      ]
+    },
+    {
+      "@id": "exp:atsen_ontonotes_5_0",
+      "@type": "mls:Experiment",
+      "mention": {
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:usesData": [
+        {
+          "@id": "dataset:ontonotes_5_0"
+        }
+      ],
+      "mls:usesParameters": [
+        {
+          "@id": "hp:batch_size_ontonotes_5_0"
+        },
+        {
+          "@id": "hp:learning_rate_ontonotes_5_0"
+        },
+        {
+          "@id": "hp:pretraining_num_epochs_ontonotes_5_0"
+        },
+        {
+          "@id": "hp:smoothing_coefficient_m_ontonotes_5_0"
+        },
+        {
+          "@id": "hp:sigma_2_ontonotes_5_0"
+        }
+      ],
+      "prov:wasAssociatedWith": [
+        {
+          "@id": "hp:batch_size_ontonotes_5_0"
+        },
+        {
+          "@id": "hp:learning_rate_ontonotes_5_0"
+        },
+        {
+          "@id": "hp:pretraining_num_epochs_ontonotes_5_0"
+        },
+        {
+          "@id": "hp:smoothing_coefficient_m_ontonotes_5_0"
+        },
+        {
+          "@id": "hp:sigma_2_ontonotes_5_0"
+        }
+      ]
+    },
+    {
+      "@id": "exp:atsen_webpage",
+      "@type": "mls:Experiment",
+      "mention": {
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:usesData": [
+        {
+          "@id": "dataset:webpage"
+        }
+      ],
+      "mls:usesParameters": [
+        {
+          "@id": "hp:batch_size_webpage"
+        },
+        {
+          "@id": "hp:learning_rate_webpage"
+        },
+        {
+          "@id": "hp:pretraining_num_epochs_webpage"
+        },
+        {
+          "@id": "hp:smoothing_coefficient_m_webpage"
+        },
+        {
+          "@id": "hp:sigma_2_webpage"
+        }
+      ],
+      "prov:wasAssociatedWith": [
+        {
+          "@id": "hp:batch_size_webpage"
+        },
+        {
+          "@id": "hp:learning_rate_webpage"
+        },
+        {
+          "@id": "hp:pretraining_num_epochs_webpage"
+        },
+        {
+          "@id": "hp:smoothing_coefficient_m_webpage"
+        },
+        {
+          "@id": "hp:sigma_2_webpage"
+        }
+      ]
+    },
+    {
+      "@id": "exp:atsen_twitter",
+      "@type": "mls:Experiment",
+      "mention": {
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:usesData": [
+        {
+          "@id": "dataset:twitter"
+        }
+      ],
+      "mls:usesParameters": [
+        {
+          "@id": "hp:batch_size_twitter"
+        },
+        {
+          "@id": "hp:learning_rate_twitter"
+        },
+        {
+          "@id": "hp:pretraining_num_epochs_twitter"
+        },
+        {
+          "@id": "hp:smoothing_coefficient_m_twitter"
+        },
+        {
+          "@id": "hp:sigma_2_twitter"
+        }
+      ],
+      "prov:wasAssociatedWith": [
+        {
+          "@id": "hp:batch_size_twitter"
+        },
+        {
+          "@id": "hp:learning_rate_twitter"
+        },
+        {
+          "@id": "hp:pretraining_num_epochs_twitter"
+        },
+        {
+          "@id": "hp:smoothing_coefficient_m_twitter"
+        },
+        {
+          "@id": "hp:sigma_2_twitter"
+        }
+      ]
+    },
+    {
+      "@id": "eval:precision_atsen_conll03",
+      "@type": "mls:MLS_Eval",
+      "mention": {
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:measure": {
+        "value": "Precision",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "86.14",
+        "start_char_doc": 32621,
+        "end_char_doc": 32626,
+        "prefix": "<td>51.09</td> </tr> <tr> <td>ATSEN</td> <td>",
+        "suffix": "</td> <td>85.05</td> <td>85.59</td> <td>66.97</td> <td>71.05</td>",
+        "valueSource": "extracted"
+      },
+      "mls:stdDev": null,
+      "mls:confidenceInterval": null,
+      "prov:wasGeneratedBy": {
+        "@id": "exp:atsen_conll03"
+      }
+    },
+    {
+      "@id": "eval:recall_atsen_conll03",
+      "@type": "mls:MLS_Eval",
+      "mention": {
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:measure": {
+        "value": "Recall",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "85.05",
+        "start_char_doc": 32642,
+        "end_char_doc": 32647,
+        "prefix": "</tr> <tr> <td>ATSEN</td> <td>86.14</td> <td>",
+        "suffix": "</td> <td>85.59</td> <td>66.97</td> <td>71.05</td> <td>68.95</td>",
+        "valueSource": "extracted"
+      },
+      "mls:stdDev": null,
+      "mls:confidenceInterval": null,
+      "prov:wasGeneratedBy": {
+        "@id": "exp:atsen_conll03"
+      }
+    },
+    {
+      "@id": "eval:f1_atsen_conll03",
+      "@type": "mls:MLS_Eval",
+      "mention": {
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:measure": {
+        "value": "F1",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "85.59",
+        "start_char_doc": 32663,
+        "end_char_doc": 32668,
+        "prefix": "<tr> <td>ATSEN</td> <td>86.14</td> <td>85.05</td> <td>",
+        "suffix": "</td> <td>66.97</td> <td>71.05</td> <td>68.95</td> <td>71.08</td>",
+        "valueSource": "extracted"
+      },
+      "mls:stdDev": null,
+      "mls:confidenceInterval": null,
+      "prov:wasGeneratedBy": {
+        "@id": "exp:atsen_conll03"
+      }
+    },
+    {
+      "@id": "eval:precision_atsen_ontonotes_5_0",
+      "@type": "mls:MLS_Eval",
+      "mention": {
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:measure": {
+        "value": "Precision",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "66.97",
+        "start_char_doc": 32684,
+        "end_char_doc": 32689,
+        "prefix": "<td>ATSEN</td> <td>86.14</td> <td>85.05</td> <td>85.59</td> <td>",
+        "suffix": "</td> <td>71.05</td> <td>68.95</td> <td>71.08</td> <td>70.03</td>",
+        "valueSource": "extracted"
+      },
+      "mls:stdDev": null,
+      "mls:confidenceInterval": null,
+      "prov:wasGeneratedBy": {
+        "@id": "exp:atsen_ontonotes_5_0"
+      }
+    },
+    {
+      "@id": "eval:recall_atsen_ontonotes_5_0",
+      "@type": "mls:MLS_Eval",
+      "mention": {
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:measure": {
+        "value": "Recall",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "71.05",
+        "start_char_doc": 32705,
+        "end_char_doc": 32710,
+        "prefix": "<td>86.14</td> <td>85.05</td> <td>85.59</td> <td>66.97</td> <td>",
+        "suffix": "</td> <td>68.95</td> <td>71.08</td> <td>70.03</td> <td>70.55</td>",
+        "valueSource": "extracted"
+      },
+      "mls:stdDev": null,
+      "mls:confidenceInterval": null,
+      "prov:wasGeneratedBy": {
+        "@id": "exp:atsen_ontonotes_5_0"
+      }
+    },
+    {
+      "@id": "eval:f1_atsen_ontonotes_5_0",
+      "@type": "mls:MLS_Eval",
+      "mention": {
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:measure": {
+        "value": "F1",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "68.95",
+        "start_char_doc": 32726,
+        "end_char_doc": 32731,
+        "prefix": "<td>85.05</td> <td>85.59</td> <td>66.97</td> <td>71.05</td> <td>",
+        "suffix": "</td> <td>71.08</td> <td>70.03</td> <td>70.55</td> <td>62.32</td>",
+        "valueSource": "extracted"
+      },
+      "mls:stdDev": null,
+      "mls:confidenceInterval": null,
+      "prov:wasGeneratedBy": {
+        "@id": "exp:atsen_ontonotes_5_0"
+      }
+    },
+    {
+      "@id": "eval:precision_atsen_webpage",
+      "@type": "mls:MLS_Eval",
+      "mention": {
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:measure": {
+        "value": "Precision",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "71.08",
+        "start_char_doc": 32747,
+        "end_char_doc": 32752,
+        "prefix": "<td>85.59</td> <td>66.97</td> <td>71.05</td> <td>68.95</td> <td>",
+        "suffix": "</td> <td>70.03</td> <td>70.55</td> <td>62.32</td> <td>45.30</td>",
+        "valueSource": "extracted"
+      },
+      "mls:stdDev": null,
+      "mls:confidenceInterval": null,
+      "prov:wasGeneratedBy": {
+        "@id": "exp:atsen_webpage"
+      }
+    },
+    {
+      "@id": "eval:recall_atsen_webpage",
+      "@type": "mls:MLS_Eval",
+      "mention": {
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:measure": {
+        "value": "Recall",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "70.03",
+        "start_char_doc": 32768,
+        "end_char_doc": 32773,
+        "prefix": "<td>66.97</td> <td>71.05</td> <td>68.95</td> <td>71.08</td> <td>",
+        "suffix": "</td> <td>70.55</td> <td>62.32</td> <td>45.30</td> <td>52.46</td>",
+        "valueSource": "extracted"
+      },
+      "mls:stdDev": null,
+      "mls:confidenceInterval": null,
+      "prov:wasGeneratedBy": {
+        "@id": "exp:atsen_webpage"
+      }
+    },
+    {
+      "@id": "eval:f1_atsen_webpage",
+      "@type": "mls:MLS_Eval",
+      "mention": {
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:measure": {
+        "value": "F1",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "70.55",
+        "start_char_doc": 32789,
+        "end_char_doc": 32794,
+        "prefix": "<td>71.05</td> <td>68.95</td> <td>71.08</td> <td>70.03</td> <td>",
+        "suffix": "</td> <td>62.32</td> <td>45.30</td> <td>52.46</td> </tr>",
+        "valueSource": "extracted"
+      },
+      "mls:stdDev": null,
+      "mls:confidenceInterval": null,
+      "prov:wasGeneratedBy": {
+        "@id": "exp:atsen_webpage"
+      }
+    },
+    {
+      "@id": "eval:precision_atsen_twitter",
+      "@type": "mls:MLS_Eval",
+      "mention": {
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:measure": {
+        "value": "Precision",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "62.32",
+        "start_char_doc": 32810,
+        "end_char_doc": 32815,
+        "prefix": "<td>68.95</td> <td>71.08</td> <td>70.03</td> <td>70.55</td> <td>",
+        "suffix": "</td> <td>45.30</td> <td>52.46</td> </tr> </tbody>",
+        "valueSource": "extracted"
+      },
+      "mls:stdDev": null,
+      "mls:confidenceInterval": null,
+      "prov:wasGeneratedBy": {
+        "@id": "exp:atsen_twitter"
+      }
+    },
+    {
+      "@id": "eval:recall_atsen_twitter",
+      "@type": "mls:MLS_Eval",
+      "mention": {
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:measure": {
+        "value": "Recall",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "45.30",
+        "start_char_doc": 32831,
+        "end_char_doc": 32836,
+        "prefix": "<td>71.08</td> <td>70.03</td> <td>70.55</td> <td>62.32</td> <td>",
+        "suffix": "</td> <td>52.46</td> </tr> </tbody> </table>",
+        "valueSource": "extracted"
+      },
+      "mls:stdDev": null,
+      "mls:confidenceInterval": null,
+      "prov:wasGeneratedBy": {
+        "@id": "exp:atsen_twitter"
+      }
+    },
+    {
+      "@id": "eval:f1_atsen_twitter",
+      "@type": "mls:MLS_Eval",
+      "mention": {
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:measure": {
+        "value": "F1",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "52.46",
+        "start_char_doc": 32852,
+        "end_char_doc": 32857,
+        "prefix": "<td>70.03</td> <td>70.55</td> <td>62.32</td> <td>45.30</td> <td>",
+        "suffix": "</td> </tr> </tbody> </table> Table",
+        "valueSource": "extracted"
+      },
+      "mls:stdDev": null,
+      "mls:confidenceInterval": null,
+      "prov:wasGeneratedBy": {
+        "@id": "exp:atsen_twitter"
+      }
+    }
+  ]
+}
