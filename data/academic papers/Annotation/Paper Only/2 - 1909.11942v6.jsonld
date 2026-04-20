@@ -1,0 +1,3688 @@
+{
+  "@context": {
+    "mls": "http://www.w3.org/ns/mls#",
+    "schema": "http://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "Study": "mls:Study",
+    "Experiment": "mls:Experiment",
+    "Person": "mls:Person",
+    "Organization": "mls:Organization",
+    "MLS_Task": "mls:MLS_Task",
+    "MLS_Dataset": "mls:MLS_Dataset",
+    "DataSource": "mls:DataSource",
+    "Method": "Method",
+    "MLS_Model": "mls:MLS_Model",
+    "MLS_Algorithm": "mls:MLS_Algorithm",
+    "Prompt": "Prompt",
+    "MLS_Eval": "mls:MLS_Eval",
+    "SoftwareRepository": "SoftwareRepository",
+    "MLS_Implementation": "mls:MLS_Implementation",
+    "MLS_HyperParameter": "msl:MLS_HyperParameter",
+    "HP_Optimization": "HP_Optimization",
+    "HP_Training": "HP_Training",
+    "HP_Architecture": "HP_Architecture",
+    "HP_Data": "HP_Data",
+    "LearningRate": "LearningRate",
+    "Momentum": "Momentum",
+    "WeightDecay": "WeightDecay",
+    "WarmupSteps": "WarmupSteps",
+    "DecayRate": "DecayRate",
+    "BatchSize": "BatchSize",
+    "NumEpochs": "NumEpochs",
+    "MaxSteps": "MaxSteps",
+    "GradientAccumulationSteps": "GradientAccumulationSteps",
+    "NumWorkers": "NumWorkers",
+    "RandomSeed": "RandomSeed",
+    "NumLayers": "NumLayers",
+    "HiddenSize": "HiddenSize",
+    "EmbeddingDim": "EmbeddingDim",
+    "Dropout": "Dropout",
+    "AttentionHeads": "AttentionHeads",
+    "MaxSequenceLength": "MaxSequenceLength",
+    "TrainValTestSplit": "TrainValTestSplit",
+    "Dependency": "Dependency",
+    "Environment": "Environment",
+    "DataProcessingStep": "DataProcessingStep",
+    "TrainingRun": "TrainingRun",
+    "EvaluationRun": "EvaluationRun",
+    "PredictionSet": "PredictionSet",
+    "issued": {
+      "@id": "xsd:issued",
+      "@type": "xsd:datetime"
+    },
+    "title": "schema:title",
+    "abstract": "schema:abstract",
+    "url": "schema:url",
+    "doi": "schema:doi",
+    "citation": "schema:citation",
+    "publicationVenue": "schema:publicationVenue",
+    "timestamp": {
+      "@id": "schema:timestamp",
+      "@type": "xsd:date"
+    },
+    "identifier": "schema:identifier",
+    "description": "schema:description",
+    "objective": "schema:objective",
+    "hypothesis": "schema:hypothesis",
+    "methodology": "schema:methodology",
+    "name": "schema:name",
+    "affiliation": "schema:affiliation",
+    "email": "schema:email",
+    "orcid": "schema:orcid",
+    "type": "schema:type",
+    "category": "schema:category",
+    "metrics": "schema:metrics",
+    "numInstances": {
+      "@id": "schema:numInstances",
+      "@type": "xsd:integer"
+    },
+    "language": "schema:language",
+    "license": "schema:license",
+    "modality": "schema:modality",
+    "numClasses": {
+      "@id": "schema:numClasses",
+      "@type": "xsd:integer"
+    },
+    "version": "schema:version",
+    "architecture": "schema:architecture",
+    "parameters": "schema:parameters",
+    "complexity": "mls:complexity",
+    "pseudoCode": {
+      "@id": "mls:pseudoCode",
+      "@type": "xsd:anyURI"
+    },
+    "text": "schema:text",
+    "role": "mls:role",
+    "templateId": "mls:templateId",
+    "usesContext": {
+      "@id": "mls:usesContext",
+      "@type": "xsd:boolean"
+    },
+    "measure": "mls:measure",
+    "hasValue": {
+      "@id": "mls:hasValue",
+      "@type": "xsd:float"
+    },
+    "stdDev": {
+      "@id": "mls:stdDev",
+      "@type": "xsd:float"
+    },
+    "confidenceInterval": "mls:confidenceInterval",
+    "programmingLanguage": "schema:programmingLanguage",
+    "dateModified": {
+      "@id": "schema:dateModified",
+      "@type": "xsd:datetime"
+    },
+    "documentationUrl": {
+      "@id": "mls:documentationUrl",
+      "@type": "xsd:anyURI"
+    },
+    "codeRepository": {
+      "@id": "mls:codeRepository",
+      "@type": "xsd:anyURI"
+    },
+    "framework": "mls:framework",
+    "dependencies": "mls:dependencies",
+    "executionCommand": "mls:executionCommand",
+    "entryPoint": "mls:entryPoint",
+    "commitHash": "mls:commitHash",
+    "branch": "mls:branch",
+    "dependenciesHash": "mls:dependenciesHash",
+    "packageName": "mls:packageName",
+    "isOptional": {
+      "@id": "mls:isOptional",
+      "@type": "xsd:boolean"
+    },
+    "hardwareSpecs": "mls:hardwareSpecs",
+    "os": "mls:os",
+    "pythonVersion": "mls:pythonVersion",
+    "requirementsFile": "mls:requirementsFile",
+    "isDockerized": {
+      "@id": "mls:isDockerized",
+      "@type": "xsd:boolean"
+    },
+    "startedAtTime": {
+      "@id": "prov:startedAtTime",
+      "@type": "xsd:datetime"
+    },
+    "endedAtTime": {
+      "@id": "prov:endedAtTime",
+      "@type": "xsd:datetime"
+    },
+    "transformationType": "mls:transformationType",
+    "codeReference": {
+      "@id": "mls:codeReference",
+      "@type": "xsd:anyURI"
+    },
+    "runId": "mls:runId",
+    "logFile": {
+      "@id": "mls:logFile",
+      "@type": "xsd:anyURI"
+    },
+    "split": "mls:split",
+    "onDatasetSplit": "mls:onDatasetSplit",
+    "format": "mls:format",
+    "artifactsLocation": {
+      "@id": "mls:artifactsLocation",
+      "@type": "xsd:anyURI"
+    },
+    "hpCategory": "mls:hpCategory",
+    "hpType": "mls:hpType",
+    "searchSpace": "mls:searchSpace",
+    "uncertain": {
+      "@id": "mls:uncertain",
+      "@type": "xsd:boolean"
+    },
+    "hasAuthor": {
+      "@id": "mls:hasAuthor",
+      "@type": "@id"
+    },
+    "contains": {
+      "@id": "mls:contains",
+      "@type": "@id"
+    },
+    "implements": {
+      "@id": "mls:implements",
+      "@type": "@id"
+    },
+    "prov-affiliatedWith": {
+      "@id": "mls:prov-affiliatedWith",
+      "@type": "@id"
+    },
+    "realizes": {
+      "@id": "mls:realizes",
+      "@type": "@id"
+    },
+    "usesData": {
+      "@id": "mls:usesData",
+      "@type": "@id"
+    },
+    "produces": {
+      "@id": "mls:produces",
+      "@type": "@id"
+    },
+    "usesParameters": {
+      "@id": "mls:usesParameters",
+      "@type": "@id"
+    },
+    "executes": {
+      "@id": "mls:executes",
+      "@type": "@id"
+    },
+    "subDatasetOf": {
+      "@id": "mls:subDatasetOf",
+      "@type": "@id"
+    },
+    "prov-derivedFrom": {
+      "@id": "mls:prov-derivedFrom",
+      "@type": "@id"
+    },
+    "processedThrough": {
+      "@id": "mls:processedThrough",
+      "@type": "@id"
+    },
+    "prov-uses": {
+      "@id": "mls:prov-uses",
+      "@type": "@id"
+    },
+    "trainedOn": {
+      "@id": "mls:trainedOn",
+      "@type": "@id"
+    },
+    "evaluatedOn": {
+      "@id": "mls:evaluatedOn",
+      "@type": "@id"
+    },
+    "achieves": {
+      "@id": "mls:achieves",
+      "@type": "@id"
+    },
+    "prov-producedBy": {
+      "@id": "mls:prov-producedBy",
+      "@type": "@id"
+    },
+    "subMethod": {
+      "@id": "mls:subMethod",
+      "@type": "@id"
+    },
+    "evaluates": {
+      "@id": "mls:evaluates",
+      "@type": "@id"
+    },
+    "supports": {
+      "@id": "mls:supports",
+      "@type": "@id"
+    },
+    "runsIn": {
+      "@id": "mls:runsIn",
+      "@type": "@id"
+    },
+    "requires": {
+      "@id": "mls:requires",
+      "@type": "@id"
+    },
+    "prov-executedBy": {
+      "@id": "mls:prov-executedBy",
+      "@type": "@id"
+    },
+    "prov-generated": {
+      "@id": "mls:prov-generated",
+      "@type": "@id"
+    },
+    "benchmarkedOn": {
+      "@id": "mls:benchmarkedOn",
+      "@type": "@id"
+    },
+    "subTaskOf": {
+      "@id": "mls:subTaskOf",
+      "@type": "@id"
+    },
+    "dependsOn": {
+      "@id": "mls:dependsOn",
+      "@type": "@id"
+    },
+    "usedIn": {
+      "@id": "mls:usedIn",
+      "@type": "@id"
+    },
+    "trains": {
+      "@id": "mls:trains",
+      "@type": "@id"
+    },
+    "producedBy": {
+      "@id": "mls:producedBy",
+      "@type": "@id"
+    },
+    "sourceFile": "mls:sourceFile",
+    "sourceLine": {
+      "@id": "mls:sourceLine",
+      "@type": "xsd:integer"
+    },
+    "dependencyType": "mls:dependencyType",
+    "owner": "mls:owner",
+    "platform": "mls:platform",
+    "entryPointCommand": "mls:entryPointCommand",
+    "evaluationScript": "mls:evaluationScript",
+    "evaluationSplit": "mls:evaluationSplit",
+    "metricsFile": "mls:metricsFile",
+    "inputDataset": {
+      "@id": "mls:inputDataset",
+      "@type": "@id"
+    },
+    "outputDataset": {
+      "@id": "mls:outputDataset",
+      "@type": "@id"
+    },
+    "predictionFormat": "mls:predictionFormat",
+    "storageLocation": "mls:storageLocation",
+    "modelVersion": "mls:modelVersion",
+    "appliedTo": {
+      "@id": "mls:appliedTo",
+      "@type": "@id"
+    },
+    "wasGeneratedBy": {
+      "@id": "prov:wasGeneratedBy",
+      "@type": "@id"
+    },
+    "wasDerivedFrom": {
+      "@id": "prov:wasDerivedFrom",
+      "@type": "@id"
+    },
+    "wasAssociatedWith": {
+      "@id": "prov:wasAssociatedWith",
+      "@type": "@id"
+    },
+    "used": {
+      "@id": "prov:used",
+      "@type": "@id"
+    }
+  },
+  "@graph": [
+    {
+      "@id": "study:albert_lite_bert_2020",
+      "@type": "Study",
+      "schema:title": "ALBERT: A Lite BERT for Self-Supervised Learning of Language Representations",
+      "schema:abstract": "Increasing model size when pretraining natural language representations often results in improved performance on downstream tasks. However, at some point further model increases become harder due to GPU/TPU memory limitations and longer training times. To address these problems, we present two parameter-reduction techniques to lower memory consumption and increase the training speed of BERT. Comprehensive empirical evidence shows that our proposed methods lead to models that scale much better compared to the original BERT. We also use a self-supervised loss that focuses on modeling inter-sentence coherence, and show it consistently helps downstream tasks with multi-sentence inputs. As a result, our best model establishes new state-of-the-art results on the GLUE, RACE, and SQUAD benchmarks while having fewer parameters compared to BERT-large. The code and the pretrained models are available at https://github.com/google-research/ALBERT.",
+      "schema:url": "https://arxiv.org/abs/1909.11942",
+      "schema:doi": null,
+      "schema:citation": "Lan, Z., Chen, M., Goodman, S., Gimpel, K., Sharma, P., & Soricut, R. (2020). ALBERT: A Lite BERT for Self-Supervised Learning of Language Representations. In ICLR 2020.",
+      "schema:publicationVenue": "ICLR 2020",
+      "schema:timestamp": "2020-02-09",
+      "hasAuthor": [
+        {
+          "@id": "person:lan_zhenzhong"
+        },
+        {
+          "@id": "person:chen_mingda"
+        },
+        {
+          "@id": "person:goodman_sebastian"
+        },
+        {
+          "@id": "person:gimpel_kevin"
+        },
+        {
+          "@id": "person:sharma_piyush"
+        },
+        {
+          "@id": "person:soricut_radu"
+        }
+      ],
+      "contains": [
+        {
+          "@id": "exp:albert_xxlarge_glue"
+        },
+        {
+          "@id": "exp:albert_xxlarge_squad_1_1"
+        },
+        {
+          "@id": "exp:albert_xxlarge_squad_2_0"
+        },
+        {
+          "@id": "exp:albert_xxlarge_race"
+        }
+      ],
+      "implements": {
+        "@id": "repo:google_research_albert"
+      },
+      "start_char_doc": 59,
+      "end_char_doc": 135,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "paper at ICLR 2020 #",
+        "suffix": "Zhenzhong Lan¹ Mingda Chen²* Sebastian"
+      }
+    },
+    {
+      "@id": "person:lan_zhenzhong",
+      "@type": "Person",
+      "schema:name": "Zhenzhong Lan",
+      "schema:affiliation": null,
+      "schema:email": "lanzhzh@google.com",
+      "schema:orcid": null,
+      "prov-affiliatedWith": [
+        {
+          "@id": "org:google_research"
+        }
+      ],
+      "start_char_doc": 137,
+      "end_char_doc": 150,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "SELF-SUPERVISED LEARNING OF LANGUAGE REPRESENTATIONS",
+        "suffix": "¹ Mingda Chen²* Sebastian Goodman¹"
+      }
+    },
+    {
+      "@id": "person:chen_mingda",
+      "@type": "Person",
+      "schema:name": "Mingda Chen",
+      "schema:affiliation": null,
+      "schema:email": "mchen@ttic.edu",
+      "schema:orcid": null,
+      "prov-affiliatedWith": [
+        {
+          "@id": "org:ttic"
+        }
+      ],
+      "start_char_doc": 152,
+      "end_char_doc": 163,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "OF LANGUAGE REPRESENTATIONS Zhenzhong Lan¹",
+        "suffix": "²* Sebastian Goodman¹ Kevin Gimpel²"
+      }
+    },
+    {
+      "@id": "person:goodman_sebastian",
+      "@type": "Person",
+      "schema:name": "Sebastian Goodman",
+      "schema:affiliation": null,
+      "schema:email": "seabass@google.com",
+      "schema:orcid": null,
+      "prov-affiliatedWith": [
+        {
+          "@id": "org:google_research"
+        }
+      ],
+      "start_char_doc": 166,
+      "end_char_doc": 183,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "REPRESENTATIONS Zhenzhong Lan¹ Mingda Chen²*",
+        "suffix": "¹ Kevin Gimpel² Piyush Sharma¹"
+      }
+    },
+    {
+      "@id": "person:gimpel_kevin",
+      "@type": "Person",
+      "schema:name": "Kevin Gimpel",
+      "schema:affiliation": null,
+      "schema:email": "kgimpel@ttic.edu",
+      "schema:orcid": null,
+      "prov-affiliatedWith": [
+        {
+          "@id": "org:ttic"
+        }
+      ],
+      "start_char_doc": 185,
+      "end_char_doc": 197,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Lan¹ Mingda Chen²* Sebastian Goodman¹",
+        "suffix": "² Piyush Sharma¹ Radu Soricut¹"
+      }
+    },
+    {
+      "@id": "person:sharma_piyush",
+      "@type": "Person",
+      "schema:name": "Piyush Sharma",
+      "schema:affiliation": null,
+      "schema:email": "piyushsharma@google.com",
+      "schema:orcid": null,
+      "prov-affiliatedWith": [
+        {
+          "@id": "org:google_research"
+        }
+      ],
+      "start_char_doc": 199,
+      "end_char_doc": 212,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Chen²* Sebastian Goodman¹ Kevin Gimpel²",
+        "suffix": "¹ Radu Soricut¹ ¹Google Research"
+      }
+    },
+    {
+      "@id": "person:soricut_radu",
+      "@type": "Person",
+      "schema:name": "Radu Soricut",
+      "schema:affiliation": null,
+      "schema:email": "rsoricut@google.com",
+      "schema:orcid": null,
+      "prov-affiliatedWith": [
+        {
+          "@id": "org:google_research"
+        }
+      ],
+      "start_char_doc": 214,
+      "end_char_doc": 226,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Goodman¹ Kevin Gimpel² Piyush Sharma¹",
+        "suffix": "¹ ¹Google Research ²Toyota Technological"
+      }
+    },
+    {
+      "@id": "org:google_research",
+      "@type": "Organization",
+      "schema:name": "Google Research",
+      "schema:url": null,
+      "schema:type": "Research Lab",
+      "start_char_doc": 229,
+      "end_char_doc": 244,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Piyush Sharma¹ Radu Soricut¹ ¹",
+        "suffix": "²Toyota Technological Institute at Chicago"
+      }
+    },
+    {
+      "@id": "org:ttic",
+      "@type": "Organization",
+      "schema:name": "Toyota Technological Institute at Chicago",
+      "schema:url": null,
+      "schema:type": "Academic Institution",
+      "start_char_doc": 246,
+      "end_char_doc": 287,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Radu Soricut¹ ¹Google Research ²",
+        "suffix": "{lanzhzh, seabass, piyushsharma, rsoricut}@google.com"
+      }
+    },
+    {
+      "@id": "exp:albert_xxlarge_glue",
+      "@type": "Experiment",
+      "schema:identifier": "ALBERT-xxlarge GLUE Evaluation",
+      "schema:description": "ALBERT-xxlarge ensemble evaluated on GLUE benchmark achieving state-of-the-art score of 89.4",
+      "schema:objective": "Achieve state-of-the-art on the GLUE benchmark with parameter-efficient ALBERT model",
+      "schema:hypothesis": "Parameter-reduction techniques combined with SOP loss produce models that achieve SOTA on GLUE while having fewer parameters than BERT-large",
+      "schema:methodology": "Pretrain ALBERT-xxlarge with MLM and SOP losses on BookCorpus and English Wikipedia, fine-tune on GLUE tasks with task-specific hyperparameters, report median over five runs on dev set and submit to leaderboard for test set",
+      "realizes": [
+        {
+          "@id": "task:natural_language_understanding"
+        }
+      ],
+      "usesData": [
+        {
+          "@id": "dataset:glue"
+        }
+      ],
+      "produces": [
+        {
+          "@id": "model:albert_xxlarge"
+        }
+      ],
+      "usesParameters": [
+        {
+          "@id": "hp:batch_size_pretraining"
+        },
+        {
+          "@id": "hp:learning_rate_pretraining"
+        },
+        {
+          "@id": "hp:max_steps_pretraining"
+        },
+        {
+          "@id": "hp:max_seq_length_pretraining"
+        },
+        {
+          "@id": "hp:vocab_size"
+        },
+        {
+          "@id": "hp:num_layers_xxlarge"
+        },
+        {
+          "@id": "hp:hidden_size_xxlarge"
+        },
+        {
+          "@id": "hp:embedding_dim"
+        },
+        {
+          "@id": "hp:dropout_pretraining"
+        }
+      ],
+      "executes": [
+        {
+          "@id": "impl:albert_implementation"
+        }
+      ],
+      "start_char_doc": 45193,
+      "end_char_doc": 45213,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "for all three benchmarks, achieving",
+        "suffix": ", a SQuAD 2.0 test"
+      }
+    },
+    {
+      "@id": "exp:albert_xxlarge_squad_1_1",
+      "@type": "Experiment",
+      "schema:identifier": "ALBERT-xxlarge SQuAD v1.1 Evaluation",
+      "schema:description": "ALBERT ensemble evaluated on SQuAD v1.1 achieving F1/EM of 95.5/90.1",
+      "schema:objective": "Achieve state-of-the-art on SQuAD v1.1",
+      "schema:hypothesis": null,
+      "schema:methodology": "Fine-tune ALBERT-xxlarge on SQuAD v1.1 with task-specific hyperparameters from Table 14",
+      "realizes": [
+        {
+          "@id": "task:natural_language_understanding"
+        }
+      ],
+      "usesData": [
+        {
+          "@id": "dataset:squad_1_1"
+        }
+      ],
+      "produces": [
+        {
+          "@id": "model:albert_xxlarge"
+        }
+      ],
+      "usesParameters": [
+        {
+          "@id": "hp:batch_size_pretraining"
+        },
+        {
+          "@id": "hp:learning_rate_pretraining"
+        },
+        {
+          "@id": "hp:max_steps_pretraining"
+        },
+        {
+          "@id": "hp:max_seq_length_pretraining"
+        },
+        {
+          "@id": "hp:learning_rate_squad_1_1"
+        },
+        {
+          "@id": "hp:batch_size_squad_1_1"
+        },
+        {
+          "@id": "hp:training_steps_squad_1_1"
+        },
+        {
+          "@id": "hp:warmup_steps_squad_1_1"
+        },
+        {
+          "@id": "hp:max_seq_length_squad_1_1"
+        },
+        {
+          "@id": "hp:dropout_squad_1_1"
+        },
+        {
+          "@id": "hp:classifier_dropout_squad_1_1"
+        }
+      ],
+      "executes": [
+        {
+          "@id": "impl:albert_implementation"
+        }
+      ],
+      "start_char_doc": 47862,
+      "end_char_doc": 47871,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "(88.5/82.3)</td> </tr> <tr> <td>ALBERT</td> <td><b>",
+        "suffix": "</b></td> <td><b>91.4/88.9</b></td>"
+      }
+    },
+    {
+      "@id": "exp:albert_xxlarge_squad_2_0",
+      "@type": "Experiment",
+      "schema:identifier": "ALBERT-xxlarge SQuAD v2.0 Evaluation",
+      "schema:description": "ALBERT ensemble evaluated on SQuAD v2.0 achieving F1/EM of 92.2/89.7",
+      "schema:objective": "Achieve state-of-the-art on SQuAD v2.0",
+      "schema:hypothesis": null,
+      "schema:methodology": "Fine-tune ALBERT-xxlarge on SQuAD v2.0 with task-specific hyperparameters from Table 14",
+      "realizes": [
+        {
+          "@id": "task:natural_language_understanding"
+        }
+      ],
+      "usesData": [
+        {
+          "@id": "dataset:squad_2_0"
+        }
+      ],
+      "produces": [
+        {
+          "@id": "model:albert_xxlarge"
+        }
+      ],
+      "usesParameters": [
+        {
+          "@id": "hp:batch_size_pretraining"
+        },
+        {
+          "@id": "hp:learning_rate_pretraining"
+        },
+        {
+          "@id": "hp:max_steps_pretraining"
+        },
+        {
+          "@id": "hp:max_seq_length_pretraining"
+        },
+        {
+          "@id": "hp:learning_rate_squad_2_0"
+        },
+        {
+          "@id": "hp:batch_size_squad_2_0"
+        },
+        {
+          "@id": "hp:training_steps_squad_2_0"
+        },
+        {
+          "@id": "hp:warmup_steps_squad_2_0"
+        },
+        {
+          "@id": "hp:max_seq_length_squad_2_0"
+        },
+        {
+          "@id": "hp:dropout_squad_2_0"
+        },
+        {
+          "@id": "hp:classifier_dropout_squad_2_0"
+        }
+      ],
+      "executes": [
+        {
+          "@id": "impl:albert_implementation"
+        }
+      ],
+      "start_char_doc": 47926,
+      "end_char_doc": 47935,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "<td><b>95.5/90.1</b></td> <td><b>91.4/88.9</b></td> <td><b>",
+        "suffix": "</b></td> <td><b>89.4 (91.2/88.6)</b></td>"
+      }
+    },
+    {
+      "@id": "exp:albert_xxlarge_race",
+      "@type": "Experiment",
+      "schema:identifier": "ALBERT-xxlarge RACE Evaluation",
+      "schema:description": "ALBERT ensemble evaluated on RACE achieving accuracy of 89.4 (91.2/88.6)",
+      "schema:objective": "Achieve state-of-the-art on RACE reading comprehension benchmark",
+      "schema:hypothesis": null,
+      "schema:methodology": "Fine-tune ALBERT-xxlarge on RACE with task-specific hyperparameters from Table 14",
+      "realizes": [
+        {
+          "@id": "task:natural_language_understanding"
+        }
+      ],
+      "usesData": [
+        {
+          "@id": "dataset:race"
+        }
+      ],
+      "produces": [
+        {
+          "@id": "model:albert_xxlarge"
+        }
+      ],
+      "usesParameters": [
+        {
+          "@id": "hp:batch_size_pretraining"
+        },
+        {
+          "@id": "hp:learning_rate_pretraining"
+        },
+        {
+          "@id": "hp:max_steps_pretraining"
+        },
+        {
+          "@id": "hp:max_seq_length_pretraining"
+        },
+        {
+          "@id": "hp:learning_rate_race"
+        },
+        {
+          "@id": "hp:batch_size_race"
+        },
+        {
+          "@id": "hp:training_steps_race"
+        },
+        {
+          "@id": "hp:warmup_steps_race"
+        },
+        {
+          "@id": "hp:max_seq_length_race"
+        },
+        {
+          "@id": "hp:dropout_race"
+        },
+        {
+          "@id": "hp:classifier_dropout_race"
+        }
+      ],
+      "executes": [
+        {
+          "@id": "impl:albert_implementation"
+        }
+      ],
+      "start_char_doc": 47958,
+      "end_char_doc": 47974,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "<td><b>92.2/89.7</b></td> <td><b>",
+        "suffix": "</b></td> </tr> </tbody> </table> Table"
+      }
+    },
+    {
+      "@id": "task:natural_language_understanding",
+      "@type": "MLS_Task",
+      "schema:name": "Natural Language Understanding",
+      "schema:description": "Evaluating model capabilities for understanding natural language across multiple benchmarks including GLUE, SQuAD, and RACE",
+      "schema:category": "NLU",
+      "schema:metrics": "Accuracy, F1, EM",
+      "benchmarkedOn": [
+        {
+          "@id": "dataset:glue"
+        },
+        {
+          "@id": "dataset:squad_1_1"
+        },
+        {
+          "@id": "dataset:squad_2_0"
+        },
+        {
+          "@id": "dataset:race"
+        }
+      ],
+      "subTaskOf": [],
+      "start_char_doc": 5588,
+      "end_char_doc": 5618,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "SQuAD, and RACE benchmarks for",
+        "suffix": ". Specifically, we push the"
+      }
+    },
+    {
+      "@id": "task:language_representation_pretraining",
+      "@type": "MLS_Task",
+      "schema:name": "Language Representation Pretraining",
+      "schema:description": "Self-supervised pretraining using masked language modeling (MLM) and sentence-order prediction (SOP) losses",
+      "schema:category": "Self-supervised Learning",
+      "schema:metrics": "MLM accuracy, SOP accuracy",
+      "benchmarkedOn": [],
+      "subTaskOf": [],
+      "start_char_doc": 15556,
+      "end_char_doc": 15586,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "loss.** In addition to the",
+        "suffix": "loss (Devlin et al., 2019),"
+      }
+    },
+    {
+      "@id": "dataset:bookcorpus",
+      "@type": "MLS_Dataset",
+      "schema:name": "BookCorpus",
+      "schema:description": "Large book corpus used for pretraining",
+      "schema:numInstances": null,
+      "schema:language": "English",
+      "schema:license": null,
+      "schema:modality": "text",
+      "schema:numClasses": null,
+      "subDatasetOf": [],
+      "prov-derivedFrom": [
+        {
+          "@id": "datasource:bookcorpus"
+        }
+      ],
+      "processedThrough": [],
+      "start_char_doc": 20246,
+      "end_char_doc": 20256,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "2019) setup in using the",
+        "suffix": "(Zhu et al., 2015) and"
+      }
+    },
+    {
+      "@id": "dataset:english_wikipedia",
+      "@type": "MLS_Dataset",
+      "schema:name": "English Wikipedia",
+      "schema:description": "English Wikipedia text used for pretraining",
+      "schema:numInstances": null,
+      "schema:language": "English",
+      "schema:license": null,
+      "schema:modality": "text",
+      "schema:numClasses": null,
+      "subDatasetOf": [],
+      "prov-derivedFrom": [
+        {
+          "@id": "datasource:wikipedia_en"
+        }
+      ],
+      "processedThrough": [],
+      "start_char_doc": 20280,
+      "end_char_doc": 20297,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "(Zhu et al., 2015) and",
+        "suffix": "(Devlin et al., 2019) for"
+      }
+    },
+    {
+      "@id": "dataset:glue",
+      "@type": "MLS_Dataset",
+      "schema:name": "GLUE",
+      "schema:description": "General Language Understanding Evaluation benchmark comprising 9 NLU tasks",
+      "schema:numInstances": null,
+      "schema:language": "English",
+      "schema:license": null,
+      "schema:modality": "text",
+      "schema:numClasses": null,
+      "subDatasetOf": [],
+      "prov-derivedFrom": [],
+      "processedThrough": [],
+      "start_char_doc": 1245,
+      "end_char_doc": 1249,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "new state-of-the-art results on the",
+        "suffix": ", RACE, and SQUAD benchmarks"
+      }
+    },
+    {
+      "@id": "dataset:squad_1_1",
+      "@type": "MLS_Dataset",
+      "schema:name": "SQuAD v1.1",
+      "schema:description": "Stanford Question Answering Dataset v1.1 with 100,000+ human-annotated question/answer pairs from Wikipedia",
+      "schema:numInstances": null,
+      "schema:language": "English",
+      "schema:license": null,
+      "schema:modality": "text",
+      "schema:numClasses": null,
+      "subDatasetOf": [],
+      "prov-derivedFrom": [],
+      "processedThrough": [],
+      "start_char_doc": 23907,
+      "end_char_doc": 23917,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "for several representative downstream tasks:",
+        "suffix": "(+1.9%), SQuAD v2.0 (+3.1%), MNLI"
+      }
+    },
+    {
+      "@id": "dataset:squad_2_0",
+      "@type": "MLS_Dataset",
+      "schema:name": "SQuAD v2.0",
+      "schema:description": "Stanford Question Answering Dataset v2.0 with additional 50,000+ unanswerable questions",
+      "schema:numInstances": null,
+      "schema:language": "English",
+      "schema:license": null,
+      "schema:modality": "text",
+      "schema:numClasses": null,
+      "subDatasetOf": [],
+      "prov-derivedFrom": [],
+      "processedThrough": [],
+      "start_char_doc": 23927,
+      "end_char_doc": 23937,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "downstream tasks: SQuAD v1.1 (+1.9%),",
+        "suffix": "(+3.1%), MNLI (+1.4%), SST-2 (+2.2%),"
+      }
+    },
+    {
+      "@id": "dataset:race",
+      "@type": "MLS_Dataset",
+      "schema:name": "RACE",
+      "schema:description": "Large-scale reading comprehension dataset from English examinations with nearly 100,000 questions",
+      "schema:numInstances": null,
+      "schema:language": "English",
+      "schema:license": null,
+      "schema:modality": "text",
+      "schema:numClasses": null,
+      "subDatasetOf": [],
+      "prov-derivedFrom": [],
+      "processedThrough": [],
+      "start_char_doc": 1251,
+      "end_char_doc": 1255,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "state-of-the-art results on the GLUE,",
+        "suffix": ", and SQUAD benchmarks while"
+      }
+    },
+    {
+      "@id": "dataset:mnli",
+      "@type": "MLS_Dataset",
+      "schema:name": "MNLI",
+      "schema:description": "Multi-Genre Natural Language Inference",
+      "schema:numInstances": null,
+      "schema:language": "English",
+      "schema:license": null,
+      "schema:modality": "text",
+      "schema:numClasses": null,
+      "subDatasetOf": [
+        {
+          "@id": "dataset:glue"
+        }
+      ],
+      "prov-derivedFrom": [],
+      "processedThrough": [],
+      "start_char_doc": 23947,
+      "end_char_doc": 23951,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "v1.1 (+1.9%), SQuAD v2.0 (+3.1%),",
+        "suffix": "(+1.4%), SST-2 (+2.2%), and RACE"
+      }
+    },
+    {
+      "@id": "dataset:sst_2",
+      "@type": "MLS_Dataset",
+      "schema:name": "SST-2",
+      "schema:description": "Stanford Sentiment Treebank binary classification",
+      "schema:numInstances": null,
+      "schema:language": "English",
+      "schema:license": null,
+      "schema:modality": "text",
+      "schema:numClasses": null,
+      "subDatasetOf": [
+        {
+          "@id": "dataset:glue"
+        }
+      ],
+      "prov-derivedFrom": [],
+      "processedThrough": [],
+      "start_char_doc": 23961,
+      "end_char_doc": 23966,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "SQuAD v2.0 (+3.1%), MNLI (+1.4%),",
+        "suffix": "(+2.2%), and RACE (+8.4%). Another"
+      }
+    },
+    {
+      "@id": "dataset:cola",
+      "@type": "MLS_Dataset",
+      "schema:name": "CoLA",
+      "schema:description": "Corpus of Linguistic Acceptability",
+      "schema:numInstances": null,
+      "schema:language": "English",
+      "schema:license": null,
+      "schema:modality": "text",
+      "schema:numClasses": null,
+      "subDatasetOf": [
+        {
+          "@id": "dataset:glue"
+        }
+      ],
+      "prov-derivedFrom": [],
+      "processedThrough": [],
+      "start_char_doc": 40491,
+      "end_char_doc": 40495,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "<th>QQP</th> <th>RTE</th> <th>SST</th> <th>MRPC</th> <th>",
+        "suffix": "</th> <th>STS</th> <th>WNLI</th> <th>Avg</th> </tr>"
+      }
+    },
+    {
+      "@id": "dataset:sts",
+      "@type": "MLS_Dataset",
+      "schema:name": "STS",
+      "schema:description": "Semantic Textual Similarity Benchmark",
+      "schema:numInstances": null,
+      "schema:language": "English",
+      "schema:license": null,
+      "schema:modality": "text",
+      "schema:numClasses": null,
+      "subDatasetOf": [
+        {
+          "@id": "dataset:glue"
+        }
+      ],
+      "prov-derivedFrom": [],
+      "processedThrough": [],
+      "start_char_doc": 40511,
+      "end_char_doc": 40514,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "<th>RTE</th> <th>SST</th> <th>MRPC</th> <th>CoLA</th> <th>",
+        "suffix": "</th> <th>WNLI</th> <th>Avg</th> </tr> </thead>"
+      }
+    },
+    {
+      "@id": "dataset:qqp",
+      "@type": "MLS_Dataset",
+      "schema:name": "QQP",
+      "schema:description": "Quora Question Pairs",
+      "schema:numInstances": null,
+      "schema:language": "English",
+      "schema:license": null,
+      "schema:modality": "text",
+      "schema:numClasses": null,
+      "subDatasetOf": [
+        {
+          "@id": "dataset:glue"
+        }
+      ],
+      "prov-derivedFrom": [],
+      "processedThrough": [],
+      "start_char_doc": 40414,
+      "end_char_doc": 40417,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "<tr> <th>Models</th> <th>MNLI</th> <th>QNLI</th> <th>",
+        "suffix": "</th> <th>RTE</th> <th>SST</th> <th>MRPC</th> <th>CoLA</th>"
+      }
+    },
+    {
+      "@id": "dataset:qnli",
+      "@type": "MLS_Dataset",
+      "schema:name": "QNLI",
+      "schema:description": "Question Natural Language Inference",
+      "schema:numInstances": null,
+      "schema:language": "English",
+      "schema:license": null,
+      "schema:modality": "text",
+      "schema:numClasses": null,
+      "subDatasetOf": [
+        {
+          "@id": "dataset:glue"
+        }
+      ],
+      "prov-derivedFrom": [],
+      "processedThrough": [],
+      "start_char_doc": 40394,
+      "end_char_doc": 40398,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "<thead> <tr> <th>Models</th> <th>MNLI</th> <th>",
+        "suffix": "</th> <th>QQP</th> <th>RTE</th> <th>SST</th> <th>MRPC</th>"
+      }
+    },
+    {
+      "@id": "dataset:rte",
+      "@type": "MLS_Dataset",
+      "schema:name": "RTE",
+      "schema:description": "Recognizing Textual Entailment",
+      "schema:numInstances": null,
+      "schema:language": "English",
+      "schema:license": null,
+      "schema:modality": "text",
+      "schema:numClasses": null,
+      "subDatasetOf": [
+        {
+          "@id": "dataset:glue"
+        }
+      ],
+      "prov-derivedFrom": [],
+      "processedThrough": [],
+      "start_char_doc": 40433,
+      "end_char_doc": 40436,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "<th>Models</th> <th>MNLI</th> <th>QNLI</th> <th>QQP</th> <th>",
+        "suffix": "</th> <th>SST</th> <th>MRPC</th> <th>CoLA</th> <th>STS</th>"
+      }
+    },
+    {
+      "@id": "dataset:mrpc",
+      "@type": "MLS_Dataset",
+      "schema:name": "MRPC",
+      "schema:description": "Microsoft Research Paraphrase Corpus",
+      "schema:numInstances": null,
+      "schema:language": "English",
+      "schema:license": null,
+      "schema:modality": "text",
+      "schema:numClasses": null,
+      "subDatasetOf": [
+        {
+          "@id": "dataset:glue"
+        }
+      ],
+      "prov-derivedFrom": [],
+      "processedThrough": [],
+      "start_char_doc": 40471,
+      "end_char_doc": 40475,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "<th>QNLI</th> <th>QQP</th> <th>RTE</th> <th>SST</th> <th>",
+        "suffix": "</th> <th>CoLA</th> <th>STS</th> <th>WNLI</th> <th>Avg</th>"
+      }
+    },
+    {
+      "@id": "dataset:wnli",
+      "@type": "MLS_Dataset",
+      "schema:name": "WNLI",
+      "schema:description": "Winograd Natural Language Inference",
+      "schema:numInstances": null,
+      "schema:language": "English",
+      "schema:license": null,
+      "schema:modality": "text",
+      "schema:numClasses": null,
+      "subDatasetOf": [
+        {
+          "@id": "dataset:glue"
+        }
+      ],
+      "prov-derivedFrom": [],
+      "processedThrough": [],
+      "start_char_doc": 40530,
+      "end_char_doc": 40534,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "<th>SST</th> <th>MRPC</th> <th>CoLA</th> <th>STS</th> <th>",
+        "suffix": "</th> <th>Avg</th> </tr> </thead> <tbody>"
+      }
+    },
+    {
+      "@id": "datasource:bookcorpus",
+      "@type": "DataSource",
+      "schema:name": "BookCorpus",
+      "schema:url": null,
+      "schema:type": "Book corpus",
+      "schema:license": null,
+      "start_char_doc": 20246,
+      "end_char_doc": 20256,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "2019) setup in using the",
+        "suffix": "(Zhu et al., 2015) and"
+      }
+    },
+    {
+      "@id": "datasource:wikipedia_en",
+      "@type": "DataSource",
+      "schema:name": "English Wikipedia",
+      "schema:url": null,
+      "schema:type": "Encyclopedia",
+      "schema:license": null,
+      "start_char_doc": 20280,
+      "end_char_doc": 20297,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "(Zhu et al., 2015) and",
+        "suffix": "(Devlin et al., 2019) for"
+      }
+    },
+    {
+      "@id": "method:albert",
+      "@type": "Method",
+      "schema:name": "A Lite BERT (ALBERT)",
+      "schema:description": "ALBERT incorporates two parameter reduction techniques (factorized embedding parameterization and cross-layer parameter sharing) and a sentence-order prediction loss to create parameter-efficient language representations",
+      "schema:version": null,
+      "trainedOn": [
+        {
+          "@id": "dataset:bookcorpus"
+        },
+        {
+          "@id": "dataset:english_wikipedia"
+        }
+      ],
+      "evaluatedOn": [
+        {
+          "@id": "dataset:glue"
+        },
+        {
+          "@id": "dataset:squad_1_1"
+        },
+        {
+          "@id": "dataset:squad_2_0"
+        },
+        {
+          "@id": "dataset:race"
+        }
+      ],
+      "achieves": [
+        {
+          "@id": "eval:glue_score_89_4"
+        },
+        {
+          "@id": "eval:squad_2_0_f1_92_2"
+        },
+        {
+          "@id": "eval:race_accuracy_89_4"
+        }
+      ],
+      "prov-producedBy": null,
+      "subMethod": [
+        {
+          "@id": "method:factorized_embedding_parameterization"
+        },
+        {
+          "@id": "method:cross_layer_parameter_sharing"
+        },
+        {
+          "@id": "method:sentence_order_prediction"
+        }
+      ],
+      "start_char_doc": 3854,
+      "end_char_doc": 3865,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "the aforementioned problems, by designing",
+        "suffix": "(ALBERT) architecture that has significantly"
+      }
+    },
+    {
+      "@id": "method:factorized_embedding_parameterization",
+      "@type": "Method",
+      "schema:name": "Factorized Embedding Parameterization",
+      "schema:description": "Decomposing the large vocabulary embedding matrix into two smaller matrices, separating the size of the hidden layers from the size of vocabulary embedding",
+      "schema:version": null,
+      "trainedOn": [],
+      "evaluatedOn": [],
+      "achieves": [],
+      "prov-producedBy": null,
+      "subMethod": [],
+      "start_char_doc": 4102,
+      "end_char_doc": 4139,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "The first one is a",
+        "suffix": ". By decomposing the large"
+      }
+    },
+    {
+      "@id": "method:cross_layer_parameter_sharing",
+      "@type": "Method",
+      "schema:name": "Cross-layer Parameter Sharing",
+      "schema:description": "Sharing all parameters across transformer layers to prevent parameter growth with network depth",
+      "schema:version": null,
+      "trainedOn": [],
+      "evaluatedOn": [],
+      "achieves": [],
+      "prov-producedBy": null,
+      "subMethod": [],
+      "start_char_doc": 4462,
+      "end_char_doc": 4491,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "embeddings. The second technique is",
+        "suffix": ". This technique prevents the"
+      }
+    },
+    {
+      "@id": "method:sentence_order_prediction",
+      "@type": "Method",
+      "schema:name": "Sentence-Order Prediction (SOP)",
+      "schema:description": "A self-supervised loss that focuses on modeling inter-sentence coherence by predicting whether two consecutive text segments have been swapped",
+      "schema:version": null,
+      "trainedOn": [],
+      "evaluatedOn": [],
+      "achieves": [],
+      "prov-producedBy": null,
+      "subMethod": [],
+      "start_char_doc": 5055,
+      "end_char_doc": 5086,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "introduce a self-supervised loss for",
+        "suffix": ". SOP primary focuses on"
+      }
+    },
+    {
+      "@id": "model:albert_xxlarge",
+      "@type": [
+        "MLS_Model",
+        "Method"
+      ],
+      "schema:name": "ALBERT-xxlarge",
+      "schema:description": "The largest ALBERT configuration with 12 layers, hidden size 4096, embedding size 128, and cross-layer parameter sharing",
+      "schema:version": null,
+      "schema:architecture": "Transformer encoder with GELU nonlinearities, factorized embedding parameterization, and cross-layer parameter sharing",
+      "schema:parameters": "235M",
+      "trainedOn": [
+        {
+          "@id": "dataset:bookcorpus"
+        },
+        {
+          "@id": "dataset:english_wikipedia"
+        }
+      ],
+      "evaluatedOn": [
+        {
+          "@id": "dataset:glue"
+        },
+        {
+          "@id": "dataset:squad_1_1"
+        },
+        {
+          "@id": "dataset:squad_2_0"
+        },
+        {
+          "@id": "dataset:race"
+        }
+      ],
+      "achieves": [
+        {
+          "@id": "eval:glue_score_89_4"
+        },
+        {
+          "@id": "eval:squad_2_0_f1_92_2"
+        },
+        {
+          "@id": "eval:race_accuracy_89_4"
+        },
+        {
+          "@id": "eval:squad_1_1_f1_em_ensemble"
+        },
+        {
+          "@id": "eval:squad_2_0_f1_em_ensemble"
+        },
+        {
+          "@id": "eval:squad_2_0_f1_em_single"
+        },
+        {
+          "@id": "eval:race_accuracy_single"
+        }
+      ],
+      "prov-producedBy": null,
+      "subMethod": [
+        {
+          "@id": "method:factorized_embedding_parameterization"
+        },
+        {
+          "@id": "method:cross_layer_parameter_sharing"
+        },
+        {
+          "@id": "method:sentence_order_prediction"
+        }
+      ],
+      "start_char_doc": 19571,
+      "end_char_doc": 19585,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "only 60M parameters and an",
+        "suffix": "configuration with $H = 4096$"
+      }
+    },
+    {
+      "@id": "model:albert_base",
+      "@type": [
+        "MLS_Model",
+        "Method"
+      ],
+      "schema:name": "ALBERT-base",
+      "schema:description": "Base ALBERT configuration with 12 layers, hidden size 768, embedding size 128, and cross-layer parameter sharing",
+      "schema:version": null,
+      "schema:architecture": "Transformer encoder with factorized embeddings and cross-layer parameter sharing",
+      "schema:parameters": "12M",
+      "trainedOn": [
+        {
+          "@id": "dataset:bookcorpus"
+        },
+        {
+          "@id": "dataset:english_wikipedia"
+        }
+      ],
+      "evaluatedOn": [],
+      "achieves": [],
+      "prov-producedBy": null,
+      "subMethod": [],
+      "start_char_doc": 24728,
+      "end_char_doc": 24739,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "embedding size $E$ using an",
+        "suffix": "configuration setting (see Table 1),"
+      }
+    },
+    {
+      "@id": "model:albert_large",
+      "@type": [
+        "MLS_Model",
+        "Method"
+      ],
+      "schema:name": "ALBERT-large",
+      "schema:description": "Large ALBERT configuration with 24 layers, hidden size 1024, embedding size 128, and cross-layer parameter sharing",
+      "schema:version": null,
+      "schema:architecture": "Transformer encoder with factorized embeddings and cross-layer parameter sharing",
+      "schema:parameters": "18M",
+      "trainedOn": [
+        {
+          "@id": "dataset:bookcorpus"
+        },
+        {
+          "@id": "dataset:english_wikipedia"
+        }
+      ],
+      "evaluatedOn": [],
+      "achieves": [],
+      "prov-producedBy": null,
+      "subMethod": [],
+      "start_char_doc": 14887,
+      "end_char_doc": 14899,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "each layer for BERT-large and",
+        "suffix": ".</caption> </img> Figure 1 shows"
+      }
+    },
+    {
+      "@id": "model:albert_xlarge",
+      "@type": [
+        "MLS_Model",
+        "Method"
+      ],
+      "schema:name": "ALBERT-xlarge",
+      "schema:description": "Extra-large ALBERT configuration with 24 layers, hidden size 2048, embedding size 128, and cross-layer parameter sharing",
+      "schema:version": null,
+      "schema:architecture": "Transformer encoder with factorized embeddings and cross-layer parameter sharing",
+      "schema:parameters": "60M",
+      "trainedOn": [
+        {
+          "@id": "dataset:bookcorpus"
+        },
+        {
+          "@id": "dataset:english_wikipedia"
+        }
+      ],
+      "evaluatedOn": [],
+      "achieves": [],
+      "prov-producedBy": null,
+      "subMethod": [],
+      "start_char_doc": 19496,
+      "end_char_doc": 19509,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "BERT-large, 18M versus 334M. An",
+        "suffix": "configuration with $H = 2048$"
+      }
+    },
+    {
+      "@id": "algo:lamb",
+      "@type": [
+        "MLS_Algorithm",
+        "Method"
+      ],
+      "schema:name": "LAMB",
+      "schema:description": "Layer-wise Adaptive Moments optimizer for large batch training",
+      "schema:version": null,
+      "mls:complexity": null,
+      "mls:pseudoCode": null,
+      "trainedOn": [],
+      "evaluatedOn": [],
+      "achieves": [],
+      "prov-producedBy": null,
+      "subMethod": [],
+      "start_char_doc": 21713,
+      "end_char_doc": 21717,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "size of 4096 and a",
+        "suffix": "optimizer with learning rate 0.00176"
+      }
+    },
+    {
+      "@id": "eval:glue_score_89_4",
+      "@type": "MLS_Eval",
+      "mls:measure": "GLUE Score (Avg)",
+      "mls:hasValue": 89.4,
+      "mls:stdDev": null,
+      "mls:confidenceInterval": null,
+      "mls:onDataset": {
+        "@id": "dataset:glue"
+      },
+      "prov-producedBy": null,
+      "start_char_doc": 45193,
+      "end_char_doc": 45213,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "for all three benchmarks, achieving",
+        "suffix": ", a SQuAD 2.0 test"
+      }
+    },
+    {
+      "@id": "eval:squad_2_0_f1_92_2",
+      "@type": "MLS_Eval",
+      "mls:measure": "F1",
+      "mls:hasValue": 92.2,
+      "mls:stdDev": null,
+      "mls:confidenceInterval": null,
+      "mls:onDataset": {
+        "@id": "dataset:squad_2_0"
+      },
+      "prov-producedBy": null,
+      "start_char_doc": 45215,
+      "end_char_doc": 45248,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "a GLUE score of 89.4,",
+        "suffix": ", and a RACE test"
+      }
+    },
+    {
+      "@id": "eval:race_accuracy_89_4",
+      "@type": "MLS_Eval",
+      "mls:measure": "Accuracy",
+      "mls:hasValue": 89.4,
+      "mls:stdDev": null,
+      "mls:confidenceInterval": null,
+      "mls:onDataset": {
+        "@id": "dataset:race"
+      },
+      "prov-producedBy": null,
+      "start_char_doc": 45254,
+      "end_char_doc": 45282,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "F1 score of 92.2, and",
+        "suffix": ". The latter appears to"
+      }
+    },
+    {
+      "@id": "eval:squad_1_1_f1_em_ensemble",
+      "@type": "MLS_Eval",
+      "mls:measure": "F1/EM (ensemble)",
+      "mls:hasValue": "95.5/90.1",
+      "mls:stdDev": null,
+      "mls:confidenceInterval": null,
+      "mls:onDataset": {
+        "@id": "dataset:squad_1_1"
+      },
+      "prov-producedBy": null,
+      "start_char_doc": 47862,
+      "end_char_doc": 47871,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "(88.5/82.3)</td> </tr> <tr> <td>ALBERT</td> <td><b>",
+        "suffix": "</b></td> <td><b>91.4/88.9</b></td>"
+      }
+    },
+    {
+      "@id": "eval:squad_2_0_f1_em_ensemble",
+      "@type": "MLS_Eval",
+      "mls:measure": "F1/EM (ensemble)",
+      "mls:hasValue": "91.4/88.9",
+      "mls:stdDev": null,
+      "mls:confidenceInterval": null,
+      "mls:onDataset": {
+        "@id": "dataset:squad_2_0"
+      },
+      "prov-producedBy": null,
+      "start_char_doc": 47894,
+      "end_char_doc": 47903,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "<td>ALBERT</td> <td><b>95.5/90.1</b></td> <td><b>",
+        "suffix": "</b></td> <td><b>92.2/89.7</b></td>"
+      }
+    },
+    {
+      "@id": "eval:squad_2_0_f1_em_single",
+      "@type": "MLS_Eval",
+      "mls:measure": "F1/EM (single)",
+      "mls:hasValue": "90.9/88.1",
+      "mls:stdDev": null,
+      "mls:confidenceInterval": null,
+      "mls:onDataset": {
+        "@id": "dataset:squad_2_0"
+      },
+      "prov-producedBy": null,
+      "start_char_doc": 47021,
+      "end_char_doc": 47030,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "<td><b>94.8/89.3</b></td> <td><b>90.2/87.4</b></td> <td><b>",
+        "suffix": "</b></td> <td><b>86.5 (89.0/85.5)</b></td>"
+      }
+    },
+    {
+      "@id": "eval:race_accuracy_single",
+      "@type": "MLS_Eval",
+      "mls:measure": "Accuracy (Overall/Middle/High, single)",
+      "mls:hasValue": "86.5 (89.0/85.5)",
+      "mls:stdDev": null,
+      "mls:confidenceInterval": null,
+      "mls:onDataset": {
+        "@id": "dataset:race"
+      },
+      "prov-producedBy": null,
+      "start_char_doc": 47053,
+      "end_char_doc": 47069,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "<td><b>90.9/88.1</b></td> <td><b>",
+        "suffix": "</b></td> </tr> <tr> <td colspan=\"5\"><i>Ensembles"
+      }
+    },
+    {
+      "@id": "eval:glue_mnli_91_3",
+      "@type": "MLS_Eval",
+      "mls:measure": "MNLI (m/mm)",
+      "mls:hasValue": 91.3,
+      "mls:stdDev": null,
+      "mls:confidenceInterval": null,
+      "mls:onDataset": {
+        "@id": "dataset:mnli"
+      },
+      "prov-producedBy": null,
+      "start_char_doc": 43450,
+      "end_char_doc": 43471,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "<td>ALBERT</td> <td>",
+        "suffix": "</td> <td><strong>99.2</strong></td>"
+      }
+    },
+    {
+      "@id": "eval:glue_qnli_99_2",
+      "@type": "MLS_Eval",
+      "mls:measure": "QNLI",
+      "mls:hasValue": 99.2,
+      "mls:stdDev": null,
+      "mls:confidenceInterval": null,
+      "mls:onDataset": {
+        "@id": "dataset:qnli"
+      },
+      "prov-producedBy": null,
+      "start_char_doc": 43487,
+      "end_char_doc": 43508,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "<td><strong>91.3</strong></td> <td>",
+        "suffix": "</td> <td>90.5</td>"
+      }
+    },
+    {
+      "@id": "eval:glue_sst_97_1",
+      "@type": "MLS_Eval",
+      "mls:measure": "SST-2",
+      "mls:hasValue": 97.1,
+      "mls:stdDev": null,
+      "mls:confidenceInterval": null,
+      "mls:onDataset": {
+        "@id": "dataset:sst_2"
+      },
+      "prov-producedBy": null,
+      "start_char_doc": 43581,
+      "end_char_doc": 43602,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "<td>90.5</td> <td><strong>89.2</strong></td> <td>",
+        "suffix": "</td> <td><strong>93.4</strong></td>"
+      }
+    },
+    {
+      "@id": "eval:glue_sts_92_5",
+      "@type": "MLS_Eval",
+      "mls:measure": "STS-B",
+      "mls:hasValue": 92.5,
+      "mls:stdDev": null,
+      "mls:confidenceInterval": null,
+      "mls:onDataset": {
+        "@id": "dataset:sts"
+      },
+      "prov-producedBy": null,
+      "start_char_doc": 43675,
+      "end_char_doc": 43696,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "<td><strong>93.4</strong></td> <td>69.1</td> <td>",
+        "suffix": "</td> <td><strong>91.8</strong></td>"
+      }
+    },
+    {
+      "@id": "hp:batch_size_pretraining",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "batch_size",
+      "mls:hasValue": "4096",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": null,
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Training",
+      "hpType": "BatchSize",
+      "uncertain": false,
+      "start_char_doc": 21688,
+      "end_char_doc": 21706,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "the model updates use a",
+        "suffix": "and a LAMB optimizer with"
+      }
+    },
+    {
+      "@id": "hp:learning_rate_pretraining",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "learning_rate",
+      "mls:hasValue": "0.00176",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": null,
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Optimization",
+      "hpType": "LearningRate",
+      "uncertain": false,
+      "start_char_doc": 21747,
+      "end_char_doc": 21754,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "LAMB optimizer with learning rate",
+        "suffix": "(You et al., 2019). We"
+      }
+    },
+    {
+      "@id": "hp:max_steps_pretraining",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "training_steps",
+      "mls:hasValue": "125000",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": null,
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Training",
+      "hpType": "MaxSteps",
+      "uncertain": false,
+      "start_char_doc": 21799,
+      "end_char_doc": 21812,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "We train all models for",
+        "suffix": "unless otherwise specified. Training was"
+      }
+    },
+    {
+      "@id": "hp:max_seq_length_pretraining",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "max_seq_length",
+      "mls:hasValue": "512",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": null,
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Data",
+      "hpType": "MaxSequenceLength",
+      "uncertain": false,
+      "start_char_doc": 20610,
+      "end_char_doc": 20613,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "the maximum input length to",
+        "suffix": ", and randomly generate input"
+      }
+    },
+    {
+      "@id": "hp:vocab_size",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "vocabulary_size",
+      "mls:hasValue": "30000",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": null,
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Data",
+      "hpType": "HP_Data",
+      "uncertain": true,
+      "start_char_doc": 12632,
+      "end_char_doc": 12638,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "a vocabulary size $V$ of",
+        "suffix": ". <page_number>3</page_number> --- ## Page"
+      }
+    },
+    {
+      "@id": "hp:num_layers_xxlarge",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "num_layers (xxlarge)",
+      "mls:hasValue": "12",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": null,
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Architecture",
+      "hpType": "NumLayers",
+      "uncertain": false,
+      "start_char_doc": 17769,
+      "end_char_doc": 17771,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "<tr> <td>xxlarge</td> <td>235M</td> <td>",
+        "suffix": "</td> <td>4096</td> <td>128</td> <td>True</td>"
+      }
+    },
+    {
+      "@id": "hp:hidden_size_xxlarge",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "hidden_size (xxlarge)",
+      "mls:hasValue": "4096",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": null,
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Architecture",
+      "hpType": "HiddenSize",
+      "uncertain": false,
+      "start_char_doc": 17777,
+      "end_char_doc": 17781,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "<tr> <td>xxlarge</td> <td>235M</td> <td>12</td> <td>",
+        "suffix": "</td> <td>128</td> <td>True</td> </tr> </tbody>"
+      }
+    },
+    {
+      "@id": "hp:embedding_dim",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "embedding_dim",
+      "mls:hasValue": "128",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": null,
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Architecture",
+      "hpType": "EmbeddingDim",
+      "uncertain": false,
+      "start_char_doc": 27051,
+      "end_char_doc": 27075,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "these results, we use an",
+        "suffix": "in all future settings, as"
+      }
+    },
+    {
+      "@id": "hp:dropout_pretraining",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "dropout (pretraining)",
+      "mls:hasValue": "0",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": null,
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Architecture",
+      "hpType": "Dropout",
+      "uncertain": false,
+      "start_char_doc": 44229,
+      "end_char_doc": 44239,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "MLM and SOP losses, and",
+        "suffix": ". <sup>4</sup>Following Liu et al."
+      }
+    },
+    {
+      "@id": "hp:attention_heads_formula",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "num_attention_heads",
+      "mls:hasValue": "H/64",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": null,
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Architecture",
+      "hpType": "AttentionHeads",
+      "uncertain": false,
+      "start_char_doc": 11299,
+      "end_char_doc": 11303,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "attention heads to be $",
+        "suffix": "$. There are three main"
+      }
+    },
+    {
+      "@id": "hp:ffn_size_formula",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "feed_forward_filter_size",
+      "mls:hasValue": "4H",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": null,
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Architecture",
+      "hpType": "HiddenSize",
+      "uncertain": true,
+      "start_char_doc": 11254,
+      "end_char_doc": 11256,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "feed-forward/filter size to be $",
+        "suffix": "$ and the number of"
+      }
+    },
+    {
+      "@id": "hp:ngram_max_length",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "n_gram_max_length",
+      "mls:hasValue": "3",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": null,
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Data",
+      "hpType": "HP_Data",
+      "uncertain": true,
+      "start_char_doc": 21503,
+      "end_char_doc": 21549,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "\\frac{1/n}{\\sum_{k=1}^{N} 1/k}$$ We set the",
+        "suffix": "(i.e., the MLM target can"
+      }
+    },
+    {
+      "@id": "hp:learning_rate_cola",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "learning_rate (CoLA)",
+      "mls:hasValue": "1.00E-05",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "float",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Optimization",
+      "hpType": "LearningRate",
+      "uncertain": false,
+      "start_char_doc": 74624,
+      "end_char_doc": 74632,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "</thead> <tbody> <tr> <td>CoLA</td> <td>",
+        "suffix": "</td> <td>16</td> <td>0</td> <td>0.1</td>"
+      }
+    },
+    {
+      "@id": "hp:batch_size_cola",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "batch_size (CoLA)",
+      "mls:hasValue": "16",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "integer",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Training",
+      "hpType": "BatchSize",
+      "uncertain": false,
+      "start_char_doc": 74624,
+      "end_char_doc": 74632,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Table 14 row for CoLA",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "hp:training_steps_cola",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "training_steps (CoLA)",
+      "mls:hasValue": "5336",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "integer",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Training",
+      "hpType": "MaxSteps",
+      "uncertain": false,
+      "start_char_doc": 74624,
+      "end_char_doc": 74632,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Table 14 row for CoLA",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "hp:warmup_steps_cola",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "warmup_steps (CoLA)",
+      "mls:hasValue": "320",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "integer",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Optimization",
+      "hpType": "WarmupSteps",
+      "uncertain": false,
+      "start_char_doc": 74624,
+      "end_char_doc": 74632,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Table 14 row for CoLA",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "hp:max_seq_length_cola",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "max_seq_length (CoLA)",
+      "mls:hasValue": "512",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "integer",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Data",
+      "hpType": "MaxSequenceLength",
+      "uncertain": false,
+      "start_char_doc": 74624,
+      "end_char_doc": 74632,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Table 14 row for CoLA",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "hp:dropout_cola",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "albert_dropout (CoLA)",
+      "mls:hasValue": "0",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "float",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Architecture",
+      "hpType": "Dropout",
+      "uncertain": false,
+      "start_char_doc": 74624,
+      "end_char_doc": 74632,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Table 14 row for CoLA",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "hp:classifier_dropout_cola",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "classifier_dropout (CoLA)",
+      "mls:hasValue": "0.1",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "float",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Architecture",
+      "hpType": "Dropout",
+      "uncertain": false,
+      "start_char_doc": 74624,
+      "end_char_doc": 74632,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Table 14 row for CoLA",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "hp:learning_rate_sts",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "learning_rate (STS)",
+      "mls:hasValue": "2.00E-05",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "float",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Optimization",
+      "hpType": "LearningRate",
+      "uncertain": false,
+      "start_char_doc": 74798,
+      "end_char_doc": 74806,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "<td>512</td> </tr> <tr> <td>STS</td> <td>",
+        "suffix": "</td> <td>16</td> <td>0</td> <td>0.1</td>"
+      }
+    },
+    {
+      "@id": "hp:batch_size_sts",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "batch_size (STS)",
+      "mls:hasValue": "16",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "integer",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Training",
+      "hpType": "BatchSize",
+      "uncertain": false,
+      "start_char_doc": 74798,
+      "end_char_doc": 74806,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Table 14 row for STS",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "hp:training_steps_sts",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "training_steps (STS)",
+      "mls:hasValue": "3598",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "integer",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Training",
+      "hpType": "MaxSteps",
+      "uncertain": false,
+      "start_char_doc": 74798,
+      "end_char_doc": 74806,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Table 14 row for STS",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "hp:warmup_steps_sts",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "warmup_steps (STS)",
+      "mls:hasValue": "214",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "integer",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Optimization",
+      "hpType": "WarmupSteps",
+      "uncertain": false,
+      "start_char_doc": 74798,
+      "end_char_doc": 74806,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Table 14 row for STS",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "hp:max_seq_length_sts",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "max_seq_length (STS)",
+      "mls:hasValue": "512",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "integer",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Data",
+      "hpType": "MaxSequenceLength",
+      "uncertain": false,
+      "start_char_doc": 74798,
+      "end_char_doc": 74806,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Table 14 row for STS",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "hp:dropout_sts",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "albert_dropout (STS)",
+      "mls:hasValue": "0",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "float",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Architecture",
+      "hpType": "Dropout",
+      "uncertain": false,
+      "start_char_doc": 74798,
+      "end_char_doc": 74806,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Table 14 row for STS",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "hp:classifier_dropout_sts",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "classifier_dropout (STS)",
+      "mls:hasValue": "0.1",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "float",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Architecture",
+      "hpType": "Dropout",
+      "uncertain": false,
+      "start_char_doc": 74798,
+      "end_char_doc": 74806,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Table 14 row for STS",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "hp:learning_rate_sst_2",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "learning_rate (SST-2)",
+      "mls:hasValue": "1.00E-05",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "float",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Optimization",
+      "hpType": "LearningRate",
+      "uncertain": false,
+      "start_char_doc": 74968,
+      "end_char_doc": 74976,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "<td>512</td> </tr> <tr> <td>SST-2</td> <td>",
+        "suffix": "</td> <td>32</td> <td>0</td> <td>0.1</td>"
+      }
+    },
+    {
+      "@id": "hp:batch_size_sst_2",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "batch_size (SST-2)",
+      "mls:hasValue": "32",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "integer",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Training",
+      "hpType": "BatchSize",
+      "uncertain": false,
+      "start_char_doc": 74968,
+      "end_char_doc": 74976,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Table 14 row for SST-2",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "hp:training_steps_sst_2",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "training_steps (SST-2)",
+      "mls:hasValue": "20935",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "integer",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Training",
+      "hpType": "MaxSteps",
+      "uncertain": false,
+      "start_char_doc": 74968,
+      "end_char_doc": 74976,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Table 14 row for SST-2",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "hp:warmup_steps_sst_2",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "warmup_steps (SST-2)",
+      "mls:hasValue": "1256",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "integer",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Optimization",
+      "hpType": "WarmupSteps",
+      "uncertain": false,
+      "start_char_doc": 74968,
+      "end_char_doc": 74976,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Table 14 row for SST-2",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "hp:max_seq_length_sst_2",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "max_seq_length (SST-2)",
+      "mls:hasValue": "512",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "integer",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Data",
+      "hpType": "MaxSequenceLength",
+      "uncertain": false,
+      "start_char_doc": 74968,
+      "end_char_doc": 74976,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Table 14 row for SST-2",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "hp:dropout_sst_2",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "albert_dropout (SST-2)",
+      "mls:hasValue": "0",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "float",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Architecture",
+      "hpType": "Dropout",
+      "uncertain": false,
+      "start_char_doc": 74968,
+      "end_char_doc": 74976,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Table 14 row for SST-2",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "hp:classifier_dropout_sst_2",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "classifier_dropout (SST-2)",
+      "mls:hasValue": "0.1",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "float",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Architecture",
+      "hpType": "Dropout",
+      "uncertain": false,
+      "start_char_doc": 74968,
+      "end_char_doc": 74976,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Table 14 row for SST-2",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "hp:learning_rate_mnli",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "learning_rate (MNLI)",
+      "mls:hasValue": "3.00E-05",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "float",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Optimization",
+      "hpType": "LearningRate",
+      "uncertain": false,
+      "start_char_doc": 75151,
+      "end_char_doc": 75159,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "<td>512</td> </tr> <tr> <td>MNLI</td> <td>",
+        "suffix": "</td> <td>128</td> <td>0</td> <td>0.1</td>"
+      }
+    },
+    {
+      "@id": "hp:batch_size_mnli",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "batch_size (MNLI)",
+      "mls:hasValue": "128",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "integer",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Training",
+      "hpType": "BatchSize",
+      "uncertain": false,
+      "start_char_doc": 75151,
+      "end_char_doc": 75159,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Table 14 row for MNLI",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "hp:training_steps_mnli",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "training_steps (MNLI)",
+      "mls:hasValue": "10000",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "integer",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Training",
+      "hpType": "MaxSteps",
+      "uncertain": false,
+      "start_char_doc": 75151,
+      "end_char_doc": 75159,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Table 14 row for MNLI",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "hp:warmup_steps_mnli",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "warmup_steps (MNLI)",
+      "mls:hasValue": "1000",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "integer",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Optimization",
+      "hpType": "WarmupSteps",
+      "uncertain": false,
+      "start_char_doc": 75151,
+      "end_char_doc": 75159,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Table 14 row for MNLI",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "hp:max_seq_length_mnli",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "max_seq_length (MNLI)",
+      "mls:hasValue": "512",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "integer",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Data",
+      "hpType": "MaxSequenceLength",
+      "uncertain": false,
+      "start_char_doc": 75151,
+      "end_char_doc": 75159,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Table 14 row for MNLI",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "hp:dropout_mnli",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "albert_dropout (MNLI)",
+      "mls:hasValue": "0",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "float",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Architecture",
+      "hpType": "Dropout",
+      "uncertain": false,
+      "start_char_doc": 75151,
+      "end_char_doc": 75159,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Table 14 row for MNLI",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "hp:classifier_dropout_mnli",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "classifier_dropout (MNLI)",
+      "mls:hasValue": "0.1",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "float",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Architecture",
+      "hpType": "Dropout",
+      "uncertain": false,
+      "start_char_doc": 75151,
+      "end_char_doc": 75159,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Table 14 row for MNLI",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "hp:learning_rate_qnli",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "learning_rate (QNLI)",
+      "mls:hasValue": "1.00E-05",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "float",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Optimization",
+      "hpType": "LearningRate",
+      "uncertain": false,
+      "start_char_doc": 75325,
+      "end_char_doc": 75333,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "<td>512</td> </tr> <tr> <td>QNLI</td> <td>",
+        "suffix": "</td> <td>32</td> <td>0</td> <td>0.1</td>"
+      }
+    },
+    {
+      "@id": "hp:batch_size_qnli",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "batch_size (QNLI)",
+      "mls:hasValue": "32",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "integer",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Training",
+      "hpType": "BatchSize",
+      "uncertain": false,
+      "start_char_doc": 75325,
+      "end_char_doc": 75333,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Table 14 row for QNLI",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "hp:training_steps_qnli",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "training_steps (QNLI)",
+      "mls:hasValue": "33112",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "integer",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Training",
+      "hpType": "MaxSteps",
+      "uncertain": false,
+      "start_char_doc": 75325,
+      "end_char_doc": 75333,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Table 14 row for QNLI",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "hp:warmup_steps_qnli",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "warmup_steps (QNLI)",
+      "mls:hasValue": "1986",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "integer",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Optimization",
+      "hpType": "WarmupSteps",
+      "uncertain": false,
+      "start_char_doc": 75325,
+      "end_char_doc": 75333,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Table 14 row for QNLI",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "hp:max_seq_length_qnli",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "max_seq_length (QNLI)",
+      "mls:hasValue": "512",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "integer",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Data",
+      "hpType": "MaxSequenceLength",
+      "uncertain": false,
+      "start_char_doc": 75325,
+      "end_char_doc": 75333,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Table 14 row for QNLI",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "hp:dropout_qnli",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "albert_dropout (QNLI)",
+      "mls:hasValue": "0",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "float",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Architecture",
+      "hpType": "Dropout",
+      "uncertain": false,
+      "start_char_doc": 75325,
+      "end_char_doc": 75333,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Table 14 row for QNLI",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "hp:classifier_dropout_qnli",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "classifier_dropout (QNLI)",
+      "mls:hasValue": "0.1",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "float",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Architecture",
+      "hpType": "Dropout",
+      "uncertain": false,
+      "start_char_doc": 75325,
+      "end_char_doc": 75333,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Table 14 row for QNLI",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "hp:learning_rate_qqp",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "learning_rate (QQP)",
+      "mls:hasValue": "5.00E-05",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "float",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Optimization",
+      "hpType": "LearningRate",
+      "uncertain": false,
+      "start_char_doc": 75505,
+      "end_char_doc": 75513,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "<td>512</td> </tr> <tr> <td>QQP</td> <td>",
+        "suffix": "</td> <td>128</td> <td>0.1</td> <td>0.1</td>"
+      }
+    },
+    {
+      "@id": "hp:batch_size_qqp",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "batch_size (QQP)",
+      "mls:hasValue": "128",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "integer",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Training",
+      "hpType": "BatchSize",
+      "uncertain": false,
+      "start_char_doc": 75505,
+      "end_char_doc": 75513,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Table 14 row for QQP",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "hp:training_steps_qqp",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "training_steps (QQP)",
+      "mls:hasValue": "14000",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "integer",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Training",
+      "hpType": "MaxSteps",
+      "uncertain": false,
+      "start_char_doc": 75505,
+      "end_char_doc": 75513,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Table 14 row for QQP",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "hp:warmup_steps_qqp",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "warmup_steps (QQP)",
+      "mls:hasValue": "1000",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "integer",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Optimization",
+      "hpType": "WarmupSteps",
+      "uncertain": false,
+      "start_char_doc": 75505,
+      "end_char_doc": 75513,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Table 14 row for QQP",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "hp:max_seq_length_qqp",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "max_seq_length (QQP)",
+      "mls:hasValue": "512",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "integer",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Data",
+      "hpType": "MaxSequenceLength",
+      "uncertain": false,
+      "start_char_doc": 75505,
+      "end_char_doc": 75513,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Table 14 row for QQP",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "hp:dropout_qqp",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "albert_dropout (QQP)",
+      "mls:hasValue": "0.1",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "float",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Architecture",
+      "hpType": "Dropout",
+      "uncertain": false,
+      "start_char_doc": 75505,
+      "end_char_doc": 75513,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Table 14 row for QQP",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "hp:classifier_dropout_qqp",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "classifier_dropout (QQP)",
+      "mls:hasValue": "0.1",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "float",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Architecture",
+      "hpType": "Dropout",
+      "uncertain": false,
+      "start_char_doc": 75505,
+      "end_char_doc": 75513,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Table 14 row for QQP",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "hp:learning_rate_rte",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "learning_rate (RTE)",
+      "mls:hasValue": "3.00E-05",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "float",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Optimization",
+      "hpType": "LearningRate",
+      "uncertain": false,
+      "start_char_doc": 75682,
+      "end_char_doc": 75690,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "<td>512</td> </tr> <tr> <td>RTE</td> <td>",
+        "suffix": "</td> <td>32</td> <td>0.1</td> <td>0.1</td>"
+      }
+    },
+    {
+      "@id": "hp:batch_size_rte",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "batch_size (RTE)",
+      "mls:hasValue": "32",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "integer",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Training",
+      "hpType": "BatchSize",
+      "uncertain": false,
+      "start_char_doc": 75682,
+      "end_char_doc": 75690,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Table 14 row for RTE",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "hp:training_steps_rte",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "training_steps (RTE)",
+      "mls:hasValue": "800",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "integer",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Training",
+      "hpType": "MaxSteps",
+      "uncertain": false,
+      "start_char_doc": 75682,
+      "end_char_doc": 75690,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Table 14 row for RTE",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "hp:warmup_steps_rte",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "warmup_steps (RTE)",
+      "mls:hasValue": "200",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "integer",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Optimization",
+      "hpType": "WarmupSteps",
+      "uncertain": false,
+      "start_char_doc": 75682,
+      "end_char_doc": 75690,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Table 14 row for RTE",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "hp:max_seq_length_rte",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "max_seq_length (RTE)",
+      "mls:hasValue": "512",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "integer",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Data",
+      "hpType": "MaxSequenceLength",
+      "uncertain": false,
+      "start_char_doc": 75682,
+      "end_char_doc": 75690,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Table 14 row for RTE",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "hp:dropout_rte",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "albert_dropout (RTE)",
+      "mls:hasValue": "0.1",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "float",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Architecture",
+      "hpType": "Dropout",
+      "uncertain": false,
+      "start_char_doc": 75682,
+      "end_char_doc": 75690,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Table 14 row for RTE",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "hp:classifier_dropout_rte",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "classifier_dropout (RTE)",
+      "mls:hasValue": "0.1",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "float",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Architecture",
+      "hpType": "Dropout",
+      "uncertain": false,
+      "start_char_doc": 75682,
+      "end_char_doc": 75690,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Table 14 row for RTE",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "hp:learning_rate_mrpc",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "learning_rate (MRPC)",
+      "mls:hasValue": "2.00E-05",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "float",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Optimization",
+      "hpType": "LearningRate",
+      "uncertain": false,
+      "start_char_doc": 75858,
+      "end_char_doc": 75866,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "<td>512</td> </tr> <tr> <td>MRPC</td> <td>",
+        "suffix": "</td> <td>32</td> <td>0</td> <td>0.1</td>"
+      }
+    },
+    {
+      "@id": "hp:batch_size_mrpc",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "batch_size (MRPC)",
+      "mls:hasValue": "32",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "integer",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Training",
+      "hpType": "BatchSize",
+      "uncertain": false,
+      "start_char_doc": 75858,
+      "end_char_doc": 75866,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Table 14 row for MRPC",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "hp:training_steps_mrpc",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "training_steps (MRPC)",
+      "mls:hasValue": "800",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "integer",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Training",
+      "hpType": "MaxSteps",
+      "uncertain": false,
+      "start_char_doc": 75858,
+      "end_char_doc": 75866,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Table 14 row for MRPC",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "hp:warmup_steps_mrpc",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "warmup_steps (MRPC)",
+      "mls:hasValue": "200",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "integer",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Optimization",
+      "hpType": "WarmupSteps",
+      "uncertain": false,
+      "start_char_doc": 75858,
+      "end_char_doc": 75866,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Table 14 row for MRPC",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "hp:max_seq_length_mrpc",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "max_seq_length (MRPC)",
+      "mls:hasValue": "512",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "integer",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Data",
+      "hpType": "MaxSequenceLength",
+      "uncertain": false,
+      "start_char_doc": 75858,
+      "end_char_doc": 75866,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Table 14 row for MRPC",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "hp:dropout_mrpc",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "albert_dropout (MRPC)",
+      "mls:hasValue": "0",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "float",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Architecture",
+      "hpType": "Dropout",
+      "uncertain": false,
+      "start_char_doc": 75858,
+      "end_char_doc": 75866,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Table 14 row for MRPC",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "hp:classifier_dropout_mrpc",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "classifier_dropout (MRPC)",
+      "mls:hasValue": "0.1",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "float",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Architecture",
+      "hpType": "Dropout",
+      "uncertain": false,
+      "start_char_doc": 75858,
+      "end_char_doc": 75866,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Table 14 row for MRPC",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "hp:learning_rate_wnli",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "learning_rate (WNLI)",
+      "mls:hasValue": "2.00E-05",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "float",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Optimization",
+      "hpType": "LearningRate",
+      "uncertain": false,
+      "start_char_doc": 76032,
+      "end_char_doc": 76040,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "<td>512</td> </tr> <tr> <td>WNLI</td> <td>",
+        "suffix": "</td> <td>16</td> <td>0.1</td> <td>0.1</td>"
+      }
+    },
+    {
+      "@id": "hp:batch_size_wnli",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "batch_size (WNLI)",
+      "mls:hasValue": "16",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "integer",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Training",
+      "hpType": "BatchSize",
+      "uncertain": false,
+      "start_char_doc": 76032,
+      "end_char_doc": 76040,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Table 14 row for WNLI",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "hp:training_steps_wnli",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "training_steps (WNLI)",
+      "mls:hasValue": "2000",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "integer",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Training",
+      "hpType": "MaxSteps",
+      "uncertain": false,
+      "start_char_doc": 76032,
+      "end_char_doc": 76040,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Table 14 row for WNLI",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "hp:warmup_steps_wnli",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "warmup_steps (WNLI)",
+      "mls:hasValue": "250",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "integer",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Optimization",
+      "hpType": "WarmupSteps",
+      "uncertain": false,
+      "start_char_doc": 76032,
+      "end_char_doc": 76040,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Table 14 row for WNLI",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "hp:max_seq_length_wnli",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "max_seq_length (WNLI)",
+      "mls:hasValue": "512",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "integer",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Data",
+      "hpType": "MaxSequenceLength",
+      "uncertain": false,
+      "start_char_doc": 76032,
+      "end_char_doc": 76040,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Table 14 row for WNLI",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "hp:dropout_wnli",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "albert_dropout (WNLI)",
+      "mls:hasValue": "0.1",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "float",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Architecture",
+      "hpType": "Dropout",
+      "uncertain": false,
+      "start_char_doc": 76032,
+      "end_char_doc": 76040,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Table 14 row for WNLI",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "hp:classifier_dropout_wnli",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "classifier_dropout (WNLI)",
+      "mls:hasValue": "0.1",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "float",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Architecture",
+      "hpType": "Dropout",
+      "uncertain": false,
+      "start_char_doc": 76032,
+      "end_char_doc": 76040,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Table 14 row for WNLI",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "hp:learning_rate_squad_1_1",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "learning_rate (SQuAD v1.1)",
+      "mls:hasValue": "5.00E-05",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "float",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Optimization",
+      "hpType": "LearningRate",
+      "uncertain": false,
+      "start_char_doc": 76213,
+      "end_char_doc": 76221,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "<td>512</td> </tr> <tr> <td>SQuAD v1.1</td> <td>",
+        "suffix": "</td> <td>48</td> <td>0</td> <td>0.1</td>"
+      }
+    },
+    {
+      "@id": "hp:batch_size_squad_1_1",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "batch_size (SQuAD v1.1)",
+      "mls:hasValue": "48",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "integer",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Training",
+      "hpType": "BatchSize",
+      "uncertain": false,
+      "start_char_doc": 76213,
+      "end_char_doc": 76221,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Table 14 row for SQuAD v1.1",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "hp:training_steps_squad_1_1",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "training_steps (SQuAD v1.1)",
+      "mls:hasValue": "3649",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "integer",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Training",
+      "hpType": "MaxSteps",
+      "uncertain": false,
+      "start_char_doc": 76213,
+      "end_char_doc": 76221,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Table 14 row for SQuAD v1.1",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "hp:warmup_steps_squad_1_1",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "warmup_steps (SQuAD v1.1)",
+      "mls:hasValue": "365",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "integer",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Optimization",
+      "hpType": "WarmupSteps",
+      "uncertain": false,
+      "start_char_doc": 76213,
+      "end_char_doc": 76221,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Table 14 row for SQuAD v1.1",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "hp:max_seq_length_squad_1_1",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "max_seq_length (SQuAD v1.1)",
+      "mls:hasValue": "384",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "integer",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Data",
+      "hpType": "MaxSequenceLength",
+      "uncertain": false,
+      "start_char_doc": 76213,
+      "end_char_doc": 76221,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Table 14 row for SQuAD v1.1",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "hp:dropout_squad_1_1",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "albert_dropout (SQuAD v1.1)",
+      "mls:hasValue": "0",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "float",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Architecture",
+      "hpType": "Dropout",
+      "uncertain": false,
+      "start_char_doc": 76213,
+      "end_char_doc": 76221,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Table 14 row for SQuAD v1.1",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "hp:classifier_dropout_squad_1_1",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "classifier_dropout (SQuAD v1.1)",
+      "mls:hasValue": "0.1",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "float",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Architecture",
+      "hpType": "Dropout",
+      "uncertain": false,
+      "start_char_doc": 76213,
+      "end_char_doc": 76221,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Table 14 row for SQuAD v1.1",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "hp:learning_rate_squad_2_0",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "learning_rate (SQuAD v2.0)",
+      "mls:hasValue": "3.00E-05",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "float",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Optimization",
+      "hpType": "LearningRate",
+      "uncertain": false,
+      "start_char_doc": 76394,
+      "end_char_doc": 76402,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "<td>384</td> </tr> <tr> <td>SQuAD v2.0</td> <td>",
+        "suffix": "</td> <td>48</td> <td>0</td> <td>0.1</td>"
+      }
+    },
+    {
+      "@id": "hp:batch_size_squad_2_0",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "batch_size (SQuAD v2.0)",
+      "mls:hasValue": "48",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "integer",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Training",
+      "hpType": "BatchSize",
+      "uncertain": false,
+      "start_char_doc": 76394,
+      "end_char_doc": 76402,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Table 14 row for SQuAD v2.0",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "hp:training_steps_squad_2_0",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "training_steps (SQuAD v2.0)",
+      "mls:hasValue": "8144",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "integer",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Training",
+      "hpType": "MaxSteps",
+      "uncertain": false,
+      "start_char_doc": 76394,
+      "end_char_doc": 76402,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Table 14 row for SQuAD v2.0",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "hp:warmup_steps_squad_2_0",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "warmup_steps (SQuAD v2.0)",
+      "mls:hasValue": "814",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "integer",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Optimization",
+      "hpType": "WarmupSteps",
+      "uncertain": false,
+      "start_char_doc": 76394,
+      "end_char_doc": 76402,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Table 14 row for SQuAD v2.0",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "hp:max_seq_length_squad_2_0",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "max_seq_length (SQuAD v2.0)",
+      "mls:hasValue": "512",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "integer",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Data",
+      "hpType": "MaxSequenceLength",
+      "uncertain": false,
+      "start_char_doc": 76394,
+      "end_char_doc": 76402,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Table 14 row for SQuAD v2.0",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "hp:dropout_squad_2_0",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "albert_dropout (SQuAD v2.0)",
+      "mls:hasValue": "0",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "float",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Architecture",
+      "hpType": "Dropout",
+      "uncertain": false,
+      "start_char_doc": 76394,
+      "end_char_doc": 76402,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Table 14 row for SQuAD v2.0",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "hp:classifier_dropout_squad_2_0",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "classifier_dropout (SQuAD v2.0)",
+      "mls:hasValue": "0.1",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "float",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Architecture",
+      "hpType": "Dropout",
+      "uncertain": false,
+      "start_char_doc": 76394,
+      "end_char_doc": 76402,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Table 14 row for SQuAD v2.0",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "hp:learning_rate_race",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "learning_rate (RACE)",
+      "mls:hasValue": "2.00E-05",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "float",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Optimization",
+      "hpType": "LearningRate",
+      "uncertain": false,
+      "start_char_doc": 76571,
+      "end_char_doc": 76579,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "<td>512</td> </tr> <tr> <td>RACE</td> <td>",
+        "suffix": "</td> <td>32</td> <td>0.1</td> <td>0.1</td>"
+      }
+    },
+    {
+      "@id": "hp:batch_size_race",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "batch_size (RACE)",
+      "mls:hasValue": "32",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "integer",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Training",
+      "hpType": "BatchSize",
+      "uncertain": false,
+      "start_char_doc": 76571,
+      "end_char_doc": 76579,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Table 14 row for RACE",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "hp:training_steps_race",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "training_steps (RACE)",
+      "mls:hasValue": "12000",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "integer",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Training",
+      "hpType": "MaxSteps",
+      "uncertain": false,
+      "start_char_doc": 76571,
+      "end_char_doc": 76579,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Table 14 row for RACE",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "hp:warmup_steps_race",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "warmup_steps (RACE)",
+      "mls:hasValue": "1000",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "integer",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Optimization",
+      "hpType": "WarmupSteps",
+      "uncertain": false,
+      "start_char_doc": 76571,
+      "end_char_doc": 76579,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Table 14 row for RACE",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "hp:max_seq_length_race",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "max_seq_length (RACE)",
+      "mls:hasValue": "512",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "integer",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Data",
+      "hpType": "MaxSequenceLength",
+      "uncertain": false,
+      "start_char_doc": 76571,
+      "end_char_doc": 76579,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Table 14 row for RACE",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "hp:dropout_race",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "albert_dropout (RACE)",
+      "mls:hasValue": "0.1",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "float",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Architecture",
+      "hpType": "Dropout",
+      "uncertain": false,
+      "start_char_doc": 76571,
+      "end_char_doc": 76579,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Table 14 row for RACE",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "hp:classifier_dropout_race",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "classifier_dropout (RACE)",
+      "mls:hasValue": "0.1",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "float",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Architecture",
+      "hpType": "Dropout",
+      "uncertain": false,
+      "start_char_doc": 76571,
+      "end_char_doc": 76579,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "Table 14 row for RACE",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "repo:google_research_albert",
+      "@type": "SoftwareRepository",
+      "schema:name": "google-research/ALBERT",
+      "schema:url": "https://github.com/google-research/ALBERT",
+      "schema:version": null,
+      "schema:programmingLanguage": "Python",
+      "schema:dateModified": null,
+      "schema:license": null,
+      "mls:documentationUrl": null,
+      "contains": [
+        {
+          "@id": "impl:albert_implementation"
+        }
+      ],
+      "supports": [
+        {
+          "@id": "env:cloud_tpu_v3"
+        }
+      ],
+      "start_char_doc": 1384,
+      "end_char_doc": 1425,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "pretrained models are available at",
+        "suffix": ". ## 1 INTRODUCTION Full"
+      }
+    },
+    {
+      "@id": "impl:albert_implementation",
+      "@type": "MLS_Implementation",
+      "schema:identifier": "ALBERT Implementation",
+      "mls:codeRepository": "https://github.com/google-research/ALBERT",
+      "mls:framework": "TensorFlow",
+      "mls:dependencies": null,
+      "mls:executionCommand": null,
+      "mls:entryPoint": null,
+      "mls:commitHash": null,
+      "mls:branch": null,
+      "mls:dependenciesHash": null,
+      "runsIn": {
+        "@id": "env:cloud_tpu_v3"
+      },
+      "requires": [],
+      "start_char_doc": 1384,
+      "end_char_doc": 1425,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "pretrained models are available at",
+        "suffix": ". ## 1 INTRODUCTION Full"
+      }
+    },
+    {
+      "@id": "env:cloud_tpu_v3",
+      "@type": "Environment",
+      "schema:name": "Cloud TPU V3",
+      "schema:description": "Google Cloud TPU V3 with 64 to 512 TPUs depending on model size",
+      "mls:hardwareSpecs": "Cloud TPU V3, 64 to 512 TPUs",
+      "mls:os": null,
+      "mls:pythonVersion": null,
+      "mls:requirementsFile": null,
+      "mls:isDockerized": null,
+      "start_char_doc": 21862,
+      "end_char_doc": 21874,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "specified. Training was done on",
+        "suffix": ". The number of TPUs"
+      }
+    },
+    {
+      "@id": "dep:sentencepiece",
+      "@type": "Dependency",
+      "mls:packageName": "SentencePiece",
+      "mls:version": null,
+      "mls:type": "tokenizer",
+      "mls:isOptional": false,
+      "start_char_doc": 20760,
+      "end_char_doc": 20773,
+      "wasDerivedFrom": "paper",
+      "context": {
+        "prefix": "size of 30,000, tokenized using",
+        "suffix": "(Kudo & Richardson, 2018) as"
+      }
+    }
+  ]
+}
