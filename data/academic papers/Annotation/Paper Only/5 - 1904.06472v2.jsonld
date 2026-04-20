@@ -1,0 +1,2375 @@
+{
+  "@context": {
+    "mls": "http://www.w3.org/ns/mls#",
+    "schema": "http://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "model": "https://w3id.org/mlskg/model/",
+    "algo": "https://w3id.org/mlskg/algorithm/",
+    "method": "https://w3id.org/mlskg/method/",
+    "dataset": "https://w3id.org/mlskg/dataset/",
+    "datasource": "https://w3id.org/mlskg/datasource/",
+    "task": "https://w3id.org/mlskg/task/",
+    "eval": "https://w3id.org/mlskg/eval/",
+    "hp": "https://w3id.org/mlskg/hp/",
+    "impl": "https://w3id.org/mlskg/implementation/",
+    "env": "https://w3id.org/mlskg/environment/",
+    "prompt": "https://w3id.org/mlskg/prompt/",
+    "person": "https://w3id.org/mlskg/person/",
+    "org": "https://w3id.org/mlskg/organization/",
+    "study": "https://w3id.org/mlskg/study/",
+    "exp": "https://w3id.org/mlskg/experiment/",
+    "expg": "https://w3id.org/mlskg/experimentgroup/",
+    "repo": "https://w3id.org/mlskg/repo/",
+    "valueSource": "https://w3id.org/mlskg/meta/valueSource",
+    "mention": "https://w3id.org/mlskg/meta/mention",
+    "Study": "mls:Study",
+    "Experiment": "mls:Experiment",
+    "Person": "mls:Person",
+    "Organization": "mls:Organization",
+    "MLS_Task": "mls:MLS_Task",
+    "MLS_Dataset": "mls:MLS_Dataset",
+    "DataSource": "mls:DataSource",
+    "Method": "Method",
+    "MLS_Model": "mls:MLS_Model",
+    "MLS_Algorithm": "mls:MLS_Algorithm",
+    "Prompt": "Prompt",
+    "MLS_Eval": "mls:MLS_Eval",
+    "SoftwareRepository": "SoftwareRepository",
+    "MLS_Implementation": "mls:MLS_Implementation",
+    "MLS_HyperParameter": "mls:MLS_HyperParameter",
+    "HP_Optimization": "HP_Optimization",
+    "HP_Training": "HP_Training",
+    "HP_Architecture": "HP_Architecture",
+    "HP_Data": "HP_Data",
+    "LearningRate": "LearningRate",
+    "Momentum": "Momentum",
+    "WeightDecay": "WeightDecay",
+    "WarmupSteps": "WarmupSteps",
+    "DecayRate": "DecayRate",
+    "BatchSize": "BatchSize",
+    "NumEpochs": "NumEpochs",
+    "MaxSteps": "MaxSteps",
+    "GradientAccumulationSteps": "GradientAccumulationSteps",
+    "NumWorkers": "NumWorkers",
+    "RandomSeed": "RandomSeed",
+    "NumLayers": "NumLayers",
+    "HiddenSize": "HiddenSize",
+    "EmbeddingDim": "EmbeddingDim",
+    "Dropout": "Dropout",
+    "AttentionHeads": "AttentionHeads",
+    "MaxSequenceLength": "MaxSequenceLength",
+    "TrainValTestSplit": "TrainValTestSplit",
+    "Dependency": "Dependency",
+    "Environment": "Environment",
+    "DataProcessingStep": "DataProcessingStep",
+    "TrainingRun": "TrainingRun",
+    "EvaluationRun": "EvaluationRun",
+    "PredictionSet": "PredictionSet",
+    "issued": {"@id": "xsd:issued", "@type": "xsd:datetime"},
+    "title": "schema:title",
+    "abstract": "schema:abstract",
+    "url": "schema:url",
+    "doi": "schema:doi",
+    "citation": "schema:citation",
+    "publicationVenue": "schema:publicationVenue",
+    "timestamp": {"@id": "schema:timestamp", "@type": "xsd:date"},
+    "identifier": "schema:identifier",
+    "description": "schema:description",
+    "objective": "schema:objective",
+    "hypothesis": "schema:hypothesis",
+    "methodology": "schema:methodology",
+    "name": "schema:name",
+    "affiliation": "schema:affiliation",
+    "email": "schema:email",
+    "orcid": "schema:orcid",
+    "type": "schema:type",
+    "category": "schema:category",
+    "metrics": "schema:metrics",
+    "numInstances": {"@id": "schema:numInstances", "@type": "xsd:integer"},
+    "language": "schema:language",
+    "license": "schema:license",
+    "modality": "schema:modality",
+    "numClasses": {"@id": "schema:numClasses", "@type": "xsd:integer"},
+    "version": "schema:version",
+    "architecture": "schema:architecture",
+    "parameters": "schema:parameters",
+    "complexity": "mls:complexity",
+    "pseudoCode": {"@id": "mls:pseudoCode", "@type": "xsd:anyURI"},
+    "text": "schema:text",
+    "role": "mls:role",
+    "templateId": "mls:templateId",
+    "usesContext": {"@id": "mls:usesContext", "@type": "xsd:boolean"},
+    "measure": "mls:measure",
+    "hasValue": {"@id": "mls:hasValue", "@type": "xsd:float"},
+    "stdDev": {"@id": "mls:stdDev", "@type": "xsd:float"},
+    "confidenceInterval": "mls:confidenceInterval",
+    "programmingLanguage": "schema:programmingLanguage",
+    "dateModified": {"@id": "schema:dateModified", "@type": "xsd:datetime"},
+    "documentationUrl": {"@id": "mls:documentationUrl", "@type": "xsd:anyURI"},
+    "codeRepository": {"@id": "mls:codeRepository", "@type": "xsd:anyURI"},
+    "framework": "mls:framework",
+    "dependencies": "mls:dependencies",
+    "executionCommand": "mls:executionCommand",
+    "entryPoint": "mls:entryPoint",
+    "commitHash": "mls:commitHash",
+    "branch": "mls:branch",
+    "dependenciesHash": "mls:dependenciesHash",
+    "packageName": "mls:packageName",
+    "isOptional": {"@id": "mls:isOptional", "@type": "xsd:boolean"},
+    "hardwareSpecs": "mls:hardwareSpecs",
+    "os": "mls:os",
+    "pythonVersion": "mls:pythonVersion",
+    "requirementsFile": "mls:requirementsFile",
+    "isDockerized": {"@id": "mls:isDockerized", "@type": "xsd:boolean"},
+    "startedAtTime": {"@id": "prov:startedAtTime", "@type": "xsd:datetime"},
+    "endedAtTime": {"@id": "prov:endedAtTime", "@type": "xsd:datetime"},
+    "transformationType": "mls:transformationType",
+    "codeReference": {"@id": "mls:codeReference", "@type": "xsd:anyURI"},
+    "runId": "mls:runId",
+    "logFile": {"@id": "mls:logFile", "@type": "xsd:anyURI"},
+    "split": "mls:split",
+    "onDatasetSplit": "mls:onDatasetSplit",
+    "format": "mls:format",
+    "artifactsLocation": {"@id": "mls:artifactsLocation", "@type": "xsd:anyURI"},
+    "hpCategory": "mls:hpCategory",
+    "hpType": "mls:hpType",
+    "searchSpace": "mls:searchSpace",
+    "uncertain": {"@id": "mls:uncertain", "@type": "xsd:boolean"},
+    "hasAuthor": {"@id": "mls:hasAuthor", "@type": "@id"},
+    "contains": {"@id": "mls:contains", "@type": "@id"},
+    "implements": {"@id": "mls:implements", "@type": "@id"},
+    "prov-affiliatedWith": {"@id": "mls:prov-affiliatedWith", "@type": "@id"},
+    "realizes": {"@id": "mls:realizes", "@type": "@id"},
+    "usesData": {"@id": "mls:usesData", "@type": "@id"},
+    "produces": {"@id": "mls:produces", "@type": "@id"},
+    "usesParameters": {"@id": "mls:usesParameters", "@type": "@id"},
+    "executes": {"@id": "mls:executes", "@type": "@id"},
+    "subDatasetOf": {"@id": "mls:subDatasetOf", "@type": "@id"},
+    "prov-derivedFrom": {"@id": "mls:prov-derivedFrom", "@type": "@id"},
+    "processedThrough": {"@id": "mls:processedThrough", "@type": "@id"},
+    "prov-uses": {"@id": "mls:prov-uses", "@type": "@id"},
+    "trainedOn": {"@id": "mls:trainedOn", "@type": "@id"},
+    "evaluatedOn": {"@id": "mls:evaluatedOn", "@type": "@id"},
+    "achieves": {"@id": "mls:achieves", "@type": "@id"},
+    "prov-producedBy": {"@id": "mls:prov-producedBy", "@type": "@id"},
+    "subMethod": {"@id": "mls:subMethod", "@type": "@id"},
+    "evaluates": {"@id": "mls:evaluates", "@type": "@id"},
+    "supports": {"@id": "mls:supports", "@type": "@id"},
+    "runsIn": {"@id": "mls:runsIn", "@type": "@id"},
+    "requires": {"@id": "mls:requires", "@type": "@id"},
+    "prov-executedBy": {"@id": "mls:prov-executedBy", "@type": "@id"},
+    "prov-generated": {"@id": "mls:prov-generated", "@type": "@id"},
+    "benchmarkedOn": {"@id": "mls:benchmarkedOn", "@type": "@id"},
+    "subTaskOf": {"@id": "mls:subTaskOf", "@type": "@id"},
+    "dependsOn": {"@id": "mls:dependsOn", "@type": "@id"},
+    "usedIn": {"@id": "mls:usedIn", "@type": "@id"},
+    "trains": {"@id": "mls:trains", "@type": "@id"},
+    "producedBy": {"@id": "mls:producedBy", "@type": "@id"},
+    "sourceFile": "mls:sourceFile",
+    "sourceLine": {"@id": "mls:sourceLine", "@type": "xsd:integer"},
+    "dependencyType": "mls:dependencyType",
+    "owner": "mls:owner",
+    "platform": "mls:platform",
+    "entryPointCommand": "mls:entryPointCommand",
+    "evaluationScript": "mls:evaluationScript",
+    "evaluationSplit": "mls:evaluationSplit",
+    "metricsFile": "mls:metricsFile",
+    "inputDataset": {"@id": "mls:inputDataset", "@type": "@id"},
+    "outputDataset": {"@id": "mls:outputDataset", "@type": "@id"},
+    "predictionFormat": "mls:predictionFormat",
+    "storageLocation": "mls:storageLocation",
+    "modelVersion": "mls:modelVersion",
+    "appliedTo": {"@id": "mls:appliedTo", "@type": "@id"},
+    "wasGeneratedBy": {"@id": "prov:wasGeneratedBy", "@type": "@id"},
+    "wasDerivedFrom": {"@id": "prov:wasDerivedFrom", "@type": "@id"},
+    "wasAssociatedWith": {"@id": "prov:wasAssociatedWith", "@type": "@id"},
+    "used": {"@id": "prov:used", "@type": "@id"}
+  },
+  "@graph": [
+    {
+      "@id": "study:repository_of_conversational_datasets_2019",
+      "@type": "Study",
+      "mention": {
+        "start_char_doc": 13,
+        "end_char_doc": 52,
+        "prefix": "## Page 1 #",
+        "suffix": "github.com/PolyAI-LDN/conversational-datasets Matthew Henderson, Paweł Budzianowski,",
+        "valueSource": "extracted"
+      },
+      "schema:title": {
+        "value": "A Repository of Conversational Datasets",
+        "start_char_doc": 13,
+        "end_char_doc": 52,
+        "prefix": "## Page 1 #",
+        "suffix": "github.com/PolyAI-LDN/conversational-datasets Matthew Henderson, Paweł Budzianowski,",
+        "valueSource": "extracted"
+      },
+      "schema:abstract": {
+        "value": "Progress in Machine Learning is often driven by the availability of large datasets, and consistent evaluation metrics for comparing modeling approaches. To this end, we present a repository of conversational datasets consisting of hundreds of millions of examples, and a standardised evaluation procedure for conversational response selection models using 1-of-100 accuracy. The repository contains scripts that allow researchers to reproduce the standard datasets, or to adapt the pre-processing and data filtering steps to their needs. We introduce and evaluate several competitive baselines for conversational response selection, whose implementations are shared in the repository, as well as a neural encoder model that is trained on the entire training set.",
+        "start_char_doc": 411,
+        "end_char_doc": 1173,
+        "prefix": "29 May 2019</watermark> ## Abstract",
+        "suffix": ". ## 1 Introduction Dialogue",
+        "valueSource": "extracted"
+      },
+      "schema:url": {
+        "value": "https://arxiv.org/abs/1904.06472v2",
+        "start_char_doc": 341,
+        "end_char_doc": 359,
+        "prefix": "PolyAI Limited, London, UK. <watermark>",
+        "suffix": "[cs.CL] 29 May 2019</watermark> ##",
+        "valueSource": "extracted"
+      },
+      "schema:doi": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:citation": {
+        "value": "Henderson et al., A Repository of Conversational Datasets, arXiv:1904.06472v2, 2019",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:publicationVenue": {
+        "value": "arXiv",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:timestamp": {
+        "value": "2019-05-29",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hasAuthor": [
+        {"@id": "person:henderson_matthew"},
+        {"@id": "person:budzianowski_pawel"},
+        {"@id": "person:casanueva_inigo"},
+        {"@id": "person:coope_sam"},
+        {"@id": "person:gerz_daniela"},
+        {"@id": "person:kumar_girish"},
+        {"@id": "person:mrksic_nikola"},
+        {"@id": "person:spithourakis_georgios"},
+        {"@id": "person:su_pei_hao"},
+        {"@id": "person:vulic_ivan"},
+        {"@id": "person:wen_tsung_hsien"}
+      ],
+      "contains": [
+        {"@id": "expg:group_conversational_response_selection_2019"}
+      ],
+      "implements": {"@id": "repo:polyai_ldn_conversational_datasets"}
+    },
+    {
+      "@id": "person:henderson_matthew",
+      "@type": "Person",
+      "mention": {
+        "start_char_doc": 100,
+        "end_char_doc": 117,
+        "prefix": "Repository of Conversational Datasets github.com/PolyAI-LDN/conversational-datasets",
+        "suffix": ", Paweł Budzianowski, Iñigo Casanueva,",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "Matthew Henderson",
+        "start_char_doc": 100,
+        "end_char_doc": 117,
+        "prefix": "Repository of Conversational Datasets github.com/PolyAI-LDN/conversational-datasets",
+        "suffix": ", Paweł Budzianowski, Iñigo Casanueva,",
+        "valueSource": "extracted"
+      },
+      "schema:affiliation": {
+        "value": "PolyAI Limited, London, UK",
+        "start_char_doc": 295,
+        "end_char_doc": 321,
+        "prefix": "Vulić, and Tsung-Hsien Wen matt@poly-ai.com",
+        "suffix": ". <watermark>arXiv:1904.06472v2 [cs.CL] 29 May",
+        "valueSource": "extracted"
+      },
+      "schema:email": {
+        "value": "matt@poly-ai.com",
+        "start_char_doc": 278,
+        "end_char_doc": 294,
+        "prefix": "Ivan Vulić, and Tsung-Hsien Wen",
+        "suffix": "PolyAI Limited, London, UK. <watermark>arXiv:1904.06472v2",
+        "valueSource": "extracted"
+      },
+      "schema:orcid": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "prov-affiliatedWith": [{"@id": "org:polyai_limited"}]
+    },
+    {
+      "@id": "person:budzianowski_pawel",
+      "@type": "Person",
+      "mention": {
+        "start_char_doc": 119,
+        "end_char_doc": 137,
+        "prefix": "Conversational Datasets github.com/PolyAI-LDN/conversational-datasets Matthew Henderson,",
+        "suffix": ", Iñigo Casanueva, Sam Coope,",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "Paweł Budzianowski",
+        "start_char_doc": 119,
+        "end_char_doc": 137,
+        "prefix": "Conversational Datasets github.com/PolyAI-LDN/conversational-datasets Matthew Henderson,",
+        "suffix": ", Iñigo Casanueva, Sam Coope,",
+        "valueSource": "extracted"
+      },
+      "schema:affiliation": {
+        "value": "PolyAI Limited, London, UK",
+        "start_char_doc": 295,
+        "end_char_doc": 321,
+        "prefix": "Vulić, and Tsung-Hsien Wen matt@poly-ai.com",
+        "suffix": ". <watermark>arXiv:1904.06472v2 [cs.CL] 29 May",
+        "valueSource": "extracted"
+      },
+      "schema:email": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:orcid": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "prov-affiliatedWith": [{"@id": "org:polyai_limited"}]
+    },
+    {
+      "@id": "person:casanueva_inigo",
+      "@type": "Person",
+      "mention": {
+        "start_char_doc": 139,
+        "end_char_doc": 154,
+        "prefix": "github.com/PolyAI-LDN/conversational-datasets Matthew Henderson, Paweł Budzianowski,",
+        "suffix": ", Sam Coope, Daniela Gerz,",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "Iñigo Casanueva",
+        "start_char_doc": 139,
+        "end_char_doc": 154,
+        "prefix": "github.com/PolyAI-LDN/conversational-datasets Matthew Henderson, Paweł Budzianowski,",
+        "suffix": ", Sam Coope, Daniela Gerz,",
+        "valueSource": "extracted"
+      },
+      "schema:affiliation": {
+        "value": "PolyAI Limited, London, UK",
+        "start_char_doc": 295,
+        "end_char_doc": 321,
+        "prefix": "Vulić, and Tsung-Hsien Wen matt@poly-ai.com",
+        "suffix": ". <watermark>arXiv:1904.06472v2 [cs.CL] 29 May",
+        "valueSource": "extracted"
+      },
+      "schema:email": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:orcid": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "prov-affiliatedWith": [{"@id": "org:polyai_limited"}]
+    },
+    {
+      "@id": "person:coope_sam",
+      "@type": "Person",
+      "mention": {
+        "start_char_doc": 156,
+        "end_char_doc": 165,
+        "prefix": "Henderson, Paweł Budzianowski, Iñigo Casanueva,",
+        "suffix": ", Daniela Gerz, Girish Kumar,",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "Sam Coope",
+        "start_char_doc": 156,
+        "end_char_doc": 165,
+        "prefix": "Henderson, Paweł Budzianowski, Iñigo Casanueva,",
+        "suffix": ", Daniela Gerz, Girish Kumar,",
+        "valueSource": "extracted"
+      },
+      "schema:affiliation": {
+        "value": "PolyAI Limited, London, UK",
+        "start_char_doc": 295,
+        "end_char_doc": 321,
+        "prefix": "Vulić, and Tsung-Hsien Wen matt@poly-ai.com",
+        "suffix": ". <watermark>arXiv:1904.06472v2 [cs.CL] 29 May",
+        "valueSource": "extracted"
+      },
+      "schema:email": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:orcid": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "prov-affiliatedWith": [{"@id": "org:polyai_limited"}]
+    },
+    {
+      "@id": "person:gerz_daniela",
+      "@type": "Person",
+      "mention": {
+        "start_char_doc": 167,
+        "end_char_doc": 179,
+        "prefix": "Budzianowski, Iñigo Casanueva, Sam Coope,",
+        "suffix": ", Girish Kumar, Nikola Mrkšić,",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "Daniela Gerz",
+        "start_char_doc": 167,
+        "end_char_doc": 179,
+        "prefix": "Budzianowski, Iñigo Casanueva, Sam Coope,",
+        "suffix": ", Girish Kumar, Nikola Mrkšić,",
+        "valueSource": "extracted"
+      },
+      "schema:affiliation": {
+        "value": "PolyAI Limited, London, UK",
+        "start_char_doc": 295,
+        "end_char_doc": 321,
+        "prefix": "Vulić, and Tsung-Hsien Wen matt@poly-ai.com",
+        "suffix": ". <watermark>arXiv:1904.06472v2 [cs.CL] 29 May",
+        "valueSource": "extracted"
+      },
+      "schema:email": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:orcid": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "prov-affiliatedWith": [{"@id": "org:polyai_limited"}]
+    },
+    {
+      "@id": "person:kumar_girish",
+      "@type": "Person",
+      "mention": {
+        "start_char_doc": 181,
+        "end_char_doc": 193,
+        "prefix": "Casanueva, Sam Coope, Daniela Gerz,",
+        "suffix": ", Nikola Mrkšić, Georgios Spithourakis,",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "Girish Kumar",
+        "start_char_doc": 181,
+        "end_char_doc": 193,
+        "prefix": "Casanueva, Sam Coope, Daniela Gerz,",
+        "suffix": ", Nikola Mrkšić, Georgios Spithourakis,",
+        "valueSource": "extracted"
+      },
+      "schema:affiliation": {
+        "value": "PolyAI Limited, London, UK",
+        "start_char_doc": 295,
+        "end_char_doc": 321,
+        "prefix": "Vulić, and Tsung-Hsien Wen matt@poly-ai.com",
+        "suffix": ". <watermark>arXiv:1904.06472v2 [cs.CL] 29 May",
+        "valueSource": "extracted"
+      },
+      "schema:email": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:orcid": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "prov-affiliatedWith": [{"@id": "org:polyai_limited"}]
+    },
+    {
+      "@id": "person:mrksic_nikola",
+      "@type": "Person",
+      "mention": {
+        "start_char_doc": 195,
+        "end_char_doc": 208,
+        "prefix": "Coope, Daniela Gerz, Girish Kumar,",
+        "suffix": ", Georgios Spithourakis, Pei-Hao Su,",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "Nikola Mrkšić",
+        "start_char_doc": 195,
+        "end_char_doc": 208,
+        "prefix": "Coope, Daniela Gerz, Girish Kumar,",
+        "suffix": ", Georgios Spithourakis, Pei-Hao Su,",
+        "valueSource": "extracted"
+      },
+      "schema:affiliation": {
+        "value": "PolyAI Limited, London, UK",
+        "start_char_doc": 295,
+        "end_char_doc": 321,
+        "prefix": "Vulić, and Tsung-Hsien Wen matt@poly-ai.com",
+        "suffix": ". <watermark>arXiv:1904.06472v2 [cs.CL] 29 May",
+        "valueSource": "extracted"
+      },
+      "schema:email": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:orcid": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "prov-affiliatedWith": [{"@id": "org:polyai_limited"}]
+    },
+    {
+      "@id": "person:spithourakis_georgios",
+      "@type": "Person",
+      "mention": {
+        "start_char_doc": 210,
+        "end_char_doc": 231,
+        "prefix": "Gerz, Girish Kumar, Nikola Mrkšić,",
+        "suffix": ", Pei-Hao Su, Ivan Vulić,",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "Georgios Spithourakis",
+        "start_char_doc": 210,
+        "end_char_doc": 231,
+        "prefix": "Gerz, Girish Kumar, Nikola Mrkšić,",
+        "suffix": ", Pei-Hao Su, Ivan Vulić,",
+        "valueSource": "extracted"
+      },
+      "schema:affiliation": {
+        "value": "PolyAI Limited, London, UK",
+        "start_char_doc": 295,
+        "end_char_doc": 321,
+        "prefix": "Vulić, and Tsung-Hsien Wen matt@poly-ai.com",
+        "suffix": ". <watermark>arXiv:1904.06472v2 [cs.CL] 29 May",
+        "valueSource": "extracted"
+      },
+      "schema:email": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:orcid": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "prov-affiliatedWith": [{"@id": "org:polyai_limited"}]
+    },
+    {
+      "@id": "person:su_pei_hao",
+      "@type": "Person",
+      "mention": {
+        "start_char_doc": 233,
+        "end_char_doc": 243,
+        "prefix": "Kumar, Nikola Mrkšić, Georgios Spithourakis,",
+        "suffix": ", Ivan Vulić, and Tsung-Hsien",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "Pei-Hao Su",
+        "start_char_doc": 233,
+        "end_char_doc": 243,
+        "prefix": "Kumar, Nikola Mrkšić, Georgios Spithourakis,",
+        "suffix": ", Ivan Vulić, and Tsung-Hsien",
+        "valueSource": "extracted"
+      },
+      "schema:affiliation": {
+        "value": "PolyAI Limited, London, UK",
+        "start_char_doc": 295,
+        "end_char_doc": 321,
+        "prefix": "Vulić, and Tsung-Hsien Wen matt@poly-ai.com",
+        "suffix": ". <watermark>arXiv:1904.06472v2 [cs.CL] 29 May",
+        "valueSource": "extracted"
+      },
+      "schema:email": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:orcid": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "prov-affiliatedWith": [{"@id": "org:polyai_limited"}]
+    },
+    {
+      "@id": "person:vulic_ivan",
+      "@type": "Person",
+      "mention": {
+        "start_char_doc": 245,
+        "end_char_doc": 255,
+        "prefix": "Mrkšić, Georgios Spithourakis, Pei-Hao Su,",
+        "suffix": ", and Tsung-Hsien Wen matt@poly-ai.com",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "Ivan Vulić",
+        "start_char_doc": 245,
+        "end_char_doc": 255,
+        "prefix": "Mrkšić, Georgios Spithourakis, Pei-Hao Su,",
+        "suffix": ", and Tsung-Hsien Wen matt@poly-ai.com",
+        "valueSource": "extracted"
+      },
+      "schema:affiliation": {
+        "value": "PolyAI Limited, London, UK",
+        "start_char_doc": 295,
+        "end_char_doc": 321,
+        "prefix": "Vulić, and Tsung-Hsien Wen matt@poly-ai.com",
+        "suffix": ". <watermark>arXiv:1904.06472v2 [cs.CL] 29 May",
+        "valueSource": "extracted"
+      },
+      "schema:email": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:orcid": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "prov-affiliatedWith": [{"@id": "org:polyai_limited"}]
+    },
+    {
+      "@id": "person:wen_tsung_hsien",
+      "@type": "Person",
+      "mention": {
+        "start_char_doc": 261,
+        "end_char_doc": 276,
+        "prefix": "Pei-Hao Su, Ivan Vulić, and",
+        "suffix": "matt@poly-ai.com PolyAI Limited, London, UK.",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "Tsung-Hsien Wen",
+        "start_char_doc": 261,
+        "end_char_doc": 276,
+        "prefix": "Pei-Hao Su, Ivan Vulić, and",
+        "suffix": "matt@poly-ai.com PolyAI Limited, London, UK.",
+        "valueSource": "extracted"
+      },
+      "schema:affiliation": {
+        "value": "PolyAI Limited, London, UK",
+        "start_char_doc": 295,
+        "end_char_doc": 321,
+        "prefix": "Vulić, and Tsung-Hsien Wen matt@poly-ai.com",
+        "suffix": ". <watermark>arXiv:1904.06472v2 [cs.CL] 29 May",
+        "valueSource": "extracted"
+      },
+      "schema:email": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:orcid": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "prov-affiliatedWith": [{"@id": "org:polyai_limited"}]
+    },
+    {
+      "@id": "org:polyai_limited",
+      "@type": "Organization",
+      "mention": {
+        "start_char_doc": 295,
+        "end_char_doc": 321,
+        "prefix": "Vulić, and Tsung-Hsien Wen matt@poly-ai.com",
+        "suffix": ". <watermark>arXiv:1904.06472v2 [cs.CL] 29 May",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "PolyAI Limited",
+        "start_char_doc": 295,
+        "end_char_doc": 309,
+        "prefix": "Vulić, and Tsung-Hsien Wen matt@poly-ai.com",
+        "suffix": ", London, UK. <watermark>arXiv:1904.06472v2 [cs.CL]",
+        "valueSource": "extracted"
+      },
+      "schema:url": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:type": {
+        "value": "Company",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "task:conversational_response_selection",
+      "@type": "MLS_Task",
+      "mention": {
+        "start_char_doc": 720,
+        "end_char_doc": 753,
+        "prefix": "a standardised evaluation procedure for",
+        "suffix": "models using 1-of-100 accuracy. The",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "conversational response selection",
+        "start_char_doc": 720,
+        "end_char_doc": 753,
+        "prefix": "a standardised evaluation procedure for",
+        "suffix": "models using 1-of-100 accuracy. The",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "The task of conversational response selection is to identify a correct response to a given conversational context from a pool of candidates.",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:category": {
+        "value": "Information Retrieval / Dialogue",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:metrics": {
+        "value": "1-of-100 accuracy (Recall@1 with 99 negatives)",
+        "start_char_doc": 767,
+        "end_char_doc": 784,
+        "prefix": "conversational response selection models using",
+        "suffix": ". The repository contains scripts",
+        "valueSource": "extracted"
+      },
+      "benchmarkedOn": [
+        {"@id": "dataset:reddit"},
+        {"@id": "dataset:opensubtitles"},
+        {"@id": "dataset:amazonqa"}
+      ],
+      "subTaskOf": []
+    },
+    {
+      "@id": "dataset:reddit",
+      "@type": "MLS_Dataset",
+      "mention": {
+        "start_char_doc": 10394,
+        "end_char_doc": 10400,
+        "prefix": "from each. ### 3.1",
+        "suffix": "is an American social news",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "Reddit",
+        "start_char_doc": 10394,
+        "end_char_doc": 10400,
+        "prefix": "from each. ### 3.1",
+        "suffix": "is an American social news",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "Conversational dataset built from 3.7 billion comments in threaded conversations on Reddit, spanning January 2015 to December 2018.",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:numInstances": {
+        "value": "727013715",
+        "start_char_doc": 12587,
+        "end_char_doc": 12618,
+        "prefix": "in 256,095,216 threads. In total,",
+        "suffix": "are created from this data.",
+        "valueSource": "extracted"
+      },
+      "schema:language": {
+        "value": "English",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:license": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:modality": {
+        "value": "text",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:numClasses": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "subDatasetOf": [],
+      "prov-derivedFrom": [{"@id": "datasource:reddit_bigquery"}],
+      "processedThrough": [{"@id": "step:reddit_preprocessing"}]
+    },
+    {
+      "@id": "dataset:opensubtitles",
+      "@type": "MLS_Dataset",
+      "mention": {
+        "start_char_doc": 12671,
+        "end_char_doc": 12684,
+        "prefix": "this data. ### 3.2",
+        "suffix": "is a growing online collection",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "OpenSubtitles",
+        "start_char_doc": 12671,
+        "end_char_doc": 12684,
+        "prefix": "this data. ### 3.2",
+        "suffix": "is a growing online collection",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "Conversational dataset built from over 400 million lines from movie and television subtitles, using the English 2018 data.",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:numInstances": {
+        "value": "316891717",
+        "start_char_doc": 14527,
+        "end_char_doc": 14547,
+        "prefix": "of 441,450,449 lines, and generates",
+        "suffix": ". The data is split",
+        "valueSource": "extracted"
+      },
+      "schema:language": {
+        "value": "English (also available in 62 different languages)",
+        "start_char_doc": 12761,
+        "end_char_doc": 12792,
+        "prefix": "for movies and television shows",
+        "suffix": ". As a starting point,",
+        "valueSource": "extracted"
+      },
+      "schema:license": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:modality": {
+        "value": "text",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:numClasses": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "subDatasetOf": [],
+      "prov-derivedFrom": [{"@id": "datasource:opensubtitles_2016"}],
+      "processedThrough": [{"@id": "step:opensubtitles_preprocessing"}]
+    },
+    {
+      "@id": "dataset:amazonqa",
+      "@type": "MLS_Dataset",
+      "mention": {
+        "start_char_doc": 14681,
+        "end_char_doc": 14689,
+        "prefix": "of 100,000 lines, and ### 3.3",
+        "suffix": "This dataset is based on",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "AmazonQA",
+        "start_char_doc": 14681,
+        "end_char_doc": 14689,
+        "prefix": "of 100,000 lines, and ### 3.3",
+        "suffix": "This dataset is based on",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "Conversational dataset built from over 3.6 million question-response pairs in the context of Amazon products.",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:numInstances": {
+        "value": "3689912",
+        "start_char_doc": 15117,
+        "end_char_doc": 15135,
+        "prefix": "resulting in a total of",
+        "suffix": ". The train/test split is",
+        "valueSource": "extracted"
+      },
+      "schema:language": {
+        "value": "English",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:license": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:modality": {
+        "value": "text",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:numClasses": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "subDatasetOf": [],
+      "prov-derivedFrom": [{"@id": "datasource:amazon_product_qa"}],
+      "processedThrough": [{"@id": "step:amazonqa_preprocessing"}]
+    },
+    {
+      "@id": "datasource:reddit_bigquery",
+      "@type": "DataSource",
+      "mention": {
+        "start_char_doc": 10738,
+        "end_char_doc": 10762,
+        "prefix": "threaded discussions, available in a",
+        "suffix": ", provide a large corpus",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "Reddit BigQuery",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:url": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:type": {
+        "value": "public BigQuery database",
+        "start_char_doc": 10738,
+        "end_char_doc": 10762,
+        "prefix": "threaded discussions, available in a",
+        "suffix": ", provide a large corpus",
+        "valueSource": "extracted"
+      },
+      "schema:license": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "datasource:opensubtitles_2016",
+      "@type": "DataSource",
+      "mention": {
+        "start_char_doc": 12826,
+        "end_char_doc": 12872,
+        "prefix": "starting point, we use the",
+        "suffix": ", originally intended for statistical",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "OpenSubtitles corpus (Lison and Tiedemann, 2016)",
+        "start_char_doc": 12826,
+        "end_char_doc": 12872,
+        "prefix": "starting point, we use the",
+        "suffix": ", originally intended for statistical",
+        "valueSource": "extracted"
+      },
+      "schema:url": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:type": {
+        "value": "subtitle corpus",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:license": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "datasource:amazon_product_qa",
+      "@type": "DataSource",
+      "mention": {
+        "start_char_doc": 14708,
+        "end_char_doc": 14750,
+        "prefix": "dataset is based on a",
+        "suffix": "; McAuley and Yang (2016),",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "Amazon product QA corpus (Wan and McAuley, 2016)",
+        "start_char_doc": 14708,
+        "end_char_doc": 14750,
+        "prefix": "dataset is based on a",
+        "suffix": "; McAuley and Yang (2016),",
+        "valueSource": "extracted"
+      },
+      "schema:url": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:type": {
+        "value": "e-commerce QA corpus",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:license": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "method:polyai_encoder",
+      "@type": ["MLS_Model", "Method"],
+      "mention": {
+        "start_char_doc": 21454,
+        "end_char_doc": 21468,
+        "prefix": "model is referred to as",
+        "suffix": "in the evaluation. Full details",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "POLYAI-ENCODER",
+        "start_char_doc": 21454,
+        "end_char_doc": 21468,
+        "prefix": "model is referred to as",
+        "suffix": "in the evaluation. Full details",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "A neural encoder model that maps the context and response through separate sub-networks to a shared vector space, where the final score is a dot-product between a vector representing the context and a vector representing the response.",
+        "start_char_doc": 21099,
+        "end_char_doc": 21211,
+        "prefix": "We also train and evaluate",
+        "suffix": ", where the final score",
+        "valueSource": "extracted"
+      },
+      "schema:version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:architecture": {
+        "value": "Dual encoder with unigram/bigram features, self-attention, dense hidden layers, and L2-normalized output vectors",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:parameters": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "trainedOn": [
+        {"@id": "dataset:reddit"},
+        {"@id": "dataset:opensubtitles"},
+        {"@id": "dataset:amazonqa"}
+      ],
+      "evaluatedOn": [
+        {"@id": "dataset:reddit"},
+        {"@id": "dataset:opensubtitles"},
+        {"@id": "dataset:amazonqa"}
+      ],
+      "achieves": [
+        {"@id": "eval:1_of_100_accuracy_polyai_encoder_reddit"},
+        {"@id": "eval:1_of_100_accuracy_polyai_encoder_opensubtitles"},
+        {"@id": "eval:1_of_100_accuracy_polyai_encoder_amazonqa"}
+      ],
+      "prov-producedBy": null,
+      "subMethod": []
+    },
+    {
+      "@id": "eval:1_of_100_accuracy_polyai_encoder_reddit",
+      "@type": "MLS_Eval",
+      "mention": {
+        "start_char_doc": 23974,
+        "end_char_doc": 23978,
+        "prefix": "<td>POLYAI-ENCODER</td> <td><b>",
+        "suffix": "</b></td> <td><b>30.6</b></td> <td><b>84.2</b></td>",
+        "valueSource": "extracted"
+      },
+      "mls:measure": {
+        "value": "1-of-100 accuracy",
+        "start_char_doc": 767,
+        "end_char_doc": 784,
+        "prefix": "conversational response selection models using",
+        "suffix": ". The repository contains scripts",
+        "valueSource": "extracted"
+      },
+      "mls:hasValue": {
+        "value": 61.3,
+        "start_char_doc": 23974,
+        "end_char_doc": 23978,
+        "prefix": "<td>POLYAI-ENCODER</td> <td><b>",
+        "suffix": "</b></td> <td><b>30.6</b></td> <td><b>84.2</b></td>",
+        "valueSource": "extracted"
+      },
+      "mls:stdDev": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:confidenceInterval": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:onDataset": {"@id": "dataset:reddit"}
+    },
+    {
+      "@id": "eval:1_of_100_accuracy_polyai_encoder_opensubtitles",
+      "@type": "MLS_Eval",
+      "mention": {
+        "start_char_doc": 24001,
+        "end_char_doc": 24005,
+        "prefix": "<td>POLYAI-ENCODER</td> <td><b>61.3</b></td> <td><b>",
+        "suffix": "</b></td> <td><b>84.2</b></td> </tr>",
+        "valueSource": "extracted"
+      },
+      "mls:measure": {
+        "value": "1-of-100 accuracy",
+        "start_char_doc": 767,
+        "end_char_doc": 784,
+        "prefix": "conversational response selection models using",
+        "suffix": ". The repository contains scripts",
+        "valueSource": "extracted"
+      },
+      "mls:hasValue": {
+        "value": 30.6,
+        "start_char_doc": 24001,
+        "end_char_doc": 24005,
+        "prefix": "<td>POLYAI-ENCODER</td> <td><b>61.3</b></td> <td><b>",
+        "suffix": "</b></td> <td><b>84.2</b></td> </tr>",
+        "valueSource": "extracted"
+      },
+      "mls:stdDev": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:confidenceInterval": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:onDataset": {"@id": "dataset:opensubtitles"}
+    },
+    {
+      "@id": "eval:1_of_100_accuracy_polyai_encoder_amazonqa",
+      "@type": "MLS_Eval",
+      "mention": {
+        "start_char_doc": 24028,
+        "end_char_doc": 24032,
+        "prefix": "<td><b>61.3</b></td> <td><b>30.6</b></td> <td><b>",
+        "suffix": "</b></td> </tr> </tbody> </table>",
+        "valueSource": "extracted"
+      },
+      "mls:measure": {
+        "value": "1-of-100 accuracy",
+        "start_char_doc": 767,
+        "end_char_doc": 784,
+        "prefix": "conversational response selection models using",
+        "suffix": ". The repository contains scripts",
+        "valueSource": "extracted"
+      },
+      "mls:hasValue": {
+        "value": 84.2,
+        "start_char_doc": 24028,
+        "end_char_doc": 24032,
+        "prefix": "<td><b>61.3</b></td> <td><b>30.6</b></td> <td><b>",
+        "suffix": "</b></td> </tr> </tbody> </table>",
+        "valueSource": "extracted"
+      },
+      "mls:stdDev": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:confidenceInterval": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:onDataset": {"@id": "dataset:amazonqa"}
+    },
+    {
+      "@id": "repo:polyai_ldn_conversational_datasets",
+      "@type": "SoftwareRepository",
+      "mention": {
+        "start_char_doc": 53,
+        "end_char_doc": 98,
+        "prefix": "A Repository of Conversational Datasets",
+        "suffix": "Matthew Henderson, Paweł Budzianowski, Iñigo",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "conversational-datasets",
+        "start_char_doc": 53,
+        "end_char_doc": 98,
+        "prefix": "A Repository of Conversational Datasets",
+        "suffix": "Matthew Henderson, Paweł Budzianowski, Iñigo",
+        "valueSource": "extracted"
+      },
+      "schema:url": {
+        "value": "https://github.com/PolyAI-LDN/conversational-datasets",
+        "start_char_doc": 53,
+        "end_char_doc": 98,
+        "prefix": "A Repository of Conversational Datasets",
+        "suffix": "Matthew Henderson, Paweł Budzianowski, Iñigo",
+        "valueSource": "extracted"
+      },
+      "schema:version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:programmingLanguage": {
+        "value": "Python",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:dateModified": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:license": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:documentationUrl": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "contains": [{"@id": "impl:conversational_datasets_tensorflow"}],
+      "supports": [{"@id": "env:google_cloud_dataflow_tensorflow"}]
+    },
+    {
+      "@id": "impl:conversational_datasets_tensorflow",
+      "@type": "MLS_Implementation",
+      "mention": {
+        "start_char_doc": 8817,
+        "end_char_doc": 8828,
+        "prefix": "creation scripts are written using",
+        "suffix": "and Google Cloud Dataflow (Akidau",
+        "valueSource": "extracted"
+      },
+      "schema:identifier": {
+        "value": "conversational-datasets",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:codeRepository": {
+        "value": "https://github.com/PolyAI-LDN/conversational-datasets",
+        "start_char_doc": 53,
+        "end_char_doc": 98,
+        "prefix": "A Repository of Conversational Datasets",
+        "suffix": "Matthew Henderson, Paweł Budzianowski, Iñigo",
+        "valueSource": "extracted"
+      },
+      "mls:framework": {
+        "value": "TensorFlow",
+        "start_char_doc": 6161,
+        "end_char_doc": 6184,
+        "prefix": "Format Datasets are stored as",
+        "suffix": "containing serialized Tensorflow example protocol",
+        "valueSource": "extracted"
+      },
+      "mls:dependencies": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:executionCommand": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:entryPoint": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:commitHash": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:branch": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:dependenciesHash": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "runsIn": {"@id": "env:google_cloud_dataflow_tensorflow"},
+      "requires": [
+        {"@id": "dep:tensorflow"},
+        {"@id": "dep:apache_beam"}
+      ]
+    },
+    {
+      "@id": "dep:tensorflow",
+      "@type": "Dependency",
+      "mention": {
+        "start_char_doc": 6161,
+        "end_char_doc": 6184,
+        "prefix": "Format Datasets are stored as",
+        "suffix": "containing serialized Tensorflow example protocol",
+        "valueSource": "extracted"
+      },
+      "mls:packageName": {
+        "value": "tensorflow",
+        "start_char_doc": 6161,
+        "end_char_doc": 6184,
+        "prefix": "Format Datasets are stored as",
+        "suffix": "containing serialized Tensorflow example protocol",
+        "valueSource": "extracted"
+      },
+      "mls:version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:type": {
+        "value": "framework",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:isOptional": {
+        "value": false,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "dep:apache_beam",
+      "@type": "Dependency",
+      "mention": {
+        "start_char_doc": 8817,
+        "end_char_doc": 8828,
+        "prefix": "creation scripts are written using",
+        "suffix": "and Google Cloud Dataflow (Akidau",
+        "valueSource": "extracted"
+      },
+      "mls:packageName": {
+        "value": "apache-beam",
+        "start_char_doc": 8817,
+        "end_char_doc": 8828,
+        "prefix": "creation scripts are written using",
+        "suffix": "and Google Cloud Dataflow (Akidau",
+        "valueSource": "extracted"
+      },
+      "mls:version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:type": {
+        "value": "data processing framework",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:isOptional": {
+        "value": false,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "env:google_cloud_dataflow_tensorflow",
+      "@type": "Environment",
+      "mention": {
+        "start_char_doc": 8833,
+        "end_char_doc": 8854,
+        "prefix": "written using Apache Beam and",
+        "suffix": "(Akidau et al., 2015), which",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "Google Cloud Dataflow with TensorFlow",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:description": {
+        "value": "Cloud-based data processing environment using Apache Beam on Google Cloud Dataflow with TensorFlow for dataset generation.",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hardwareSpecs": {
+        "value": "multiple GPUs for several hours",
+        "start_char_doc": 25401,
+        "end_char_doc": 25432,
+        "prefix": "the entire training set using",
+        "suffix": ". We welcome other research",
+        "valueSource": "extracted"
+      },
+      "mls:os": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:pythonVersion": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:requirementsFile": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:isDockerized": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "step:reddit_preprocessing",
+      "@type": "DataProcessingStep",
+      "mention": {
+        "start_char_doc": 10025,
+        "end_char_doc": 10059,
+        "prefix": "data from the BigQuery source,",
+        "suffix": ", producing examples from the",
+        "valueSource": "extracted"
+      },
+      "description": {
+        "value": "Reddit data preprocessing pipeline: reading comment data from BigQuery, grouping comments into threads, producing examples from threads, filtering by character length (9-128 chars) and content, splitting into train/test, shuffling, and writing to sharded TensorFlow record files.",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "codeReference": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "startedAtTime": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "endedAtTime": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "transformationType": {
+        "value": "filtering, threading, splitting, shuffling",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "parameters": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "prov-uses": {"@id": "datasource:reddit_bigquery"}
+    },
+    {
+      "@id": "step:opensubtitles_preprocessing",
+      "@type": "DataProcessingStep",
+      "mention": {
+        "start_char_doc": 12671,
+        "end_char_doc": 12760,
+        "prefix": "this data. ### 3.2",
+        "suffix": "available in multiple languages. As",
+        "valueSource": "extracted"
+      },
+      "description": {
+        "value": "OpenSubtitles data preprocessing: using consecutive subtitle lines to create conversational examples, filtering short and long lines, removing character names and auditory description text, splitting into train/test chunks of 100,000 lines.",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "codeReference": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "startedAtTime": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "endedAtTime": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "transformationType": {
+        "value": "filtering, line pairing, splitting",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "parameters": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "prov-uses": {"@id": "datasource:opensubtitles_2016"}
+    },
+    {
+      "@id": "step:amazonqa_preprocessing",
+      "@type": "DataProcessingStep",
+      "mention": {
+        "start_char_doc": 14708,
+        "end_char_doc": 14750,
+        "prefix": "dataset is based on a",
+        "suffix": "; McAuley and Yang (2016),",
+        "valueSource": "extracted"
+      },
+      "description": {
+        "value": "AmazonQA data preprocessing: extracting question-answer pairs from Amazon product pages, generating one example per answer for multi-answer questions, filtering very short or long questions and responses, deterministic train/test split by product ID.",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "codeReference": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "startedAtTime": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "endedAtTime": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "transformationType": {
+        "value": "filtering, pairing, splitting",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "parameters": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "prov-uses": {"@id": "datasource:amazon_product_qa"}
+    },
+    {
+      "@id": "expg:group_conversational_response_selection_2019",
+      "@type": "mls:ExperimentGroup",
+      "mention": {
+        "start_char_doc": 22377,
+        "end_char_doc": 22387,
+        "prefix": "and a learned scaling factor. ##",
+        "suffix": "Evaluation All the methods discussed",
+        "valueSource": "extracted"
+      },
+      "mls:hypothesis": {
+        "value": "Large-scale conversational datasets with a standardised evaluation framework (1-of-100 accuracy) enable effective training and benchmarking of conversational response selection models, and a neural encoder model trained on the full data significantly outperforms baseline methods.",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:methodology": {
+        "value": "Evaluate keyword-based baselines (TF-IDF, BM25), vector-based baselines (USE, ELMO, BERT with SIM and MAP methods), and a neural encoder model (POLYAI-ENCODER) on three standard conversational datasets using 1-of-100 accuracy computed on 50,000 test examples (500 batches of 100).",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:evaluationMeasure": {"@id": "eval:1_of_100_accuracy"},
+      "mls:task": {"@id": "task:conversational_response_selection"},
+      "mls:hasSubExperiment": [
+        {
+          "@id": "exp:polyai_encoder_reddit",
+          "@type": "mls:Experiment",
+          "mention": {
+            "start_char_doc": 23974,
+            "end_char_doc": 23978,
+            "prefix": "<td>POLYAI-ENCODER</td> <td><b>",
+            "suffix": "</b></td> <td><b>30.6</b></td> <td><b>84.2</b></td>",
+            "valueSource": "extracted"
+          },
+          "schema:description": {
+            "value": "Evaluation of POLYAI-ENCODER on the Reddit dataset using 1-of-100 accuracy.",
+            "start_char_doc": null,
+            "end_char_doc": null,
+            "prefix": null,
+            "suffix": null,
+            "valueSource": "inferred"
+          },
+          "usesData": [{"@id": "dataset:reddit"}],
+          "produces": [{"@id": "method:polyai_encoder"}],
+          "realizes": [{"@id": "task:conversational_response_selection"}],
+          "executes": [{"@id": "impl:conversational_datasets_tensorflow"}]
+        },
+        {
+          "@id": "exp:polyai_encoder_opensubtitles",
+          "@type": "mls:Experiment",
+          "mention": {
+            "start_char_doc": 24001,
+            "end_char_doc": 24005,
+            "prefix": "<td>POLYAI-ENCODER</td> <td><b>61.3</b></td> <td><b>",
+            "suffix": "</b></td> <td><b>84.2</b></td> </tr>",
+            "valueSource": "extracted"
+          },
+          "schema:description": {
+            "value": "Evaluation of POLYAI-ENCODER on the OpenSubtitles dataset using 1-of-100 accuracy.",
+            "start_char_doc": null,
+            "end_char_doc": null,
+            "prefix": null,
+            "suffix": null,
+            "valueSource": "inferred"
+          },
+          "usesData": [{"@id": "dataset:opensubtitles"}],
+          "produces": [{"@id": "method:polyai_encoder"}],
+          "realizes": [{"@id": "task:conversational_response_selection"}],
+          "executes": [{"@id": "impl:conversational_datasets_tensorflow"}]
+        },
+        {
+          "@id": "exp:polyai_encoder_amazonqa",
+          "@type": "mls:Experiment",
+          "mention": {
+            "start_char_doc": 24028,
+            "end_char_doc": 24032,
+            "prefix": "<td><b>61.3</b></td> <td><b>30.6</b></td> <td><b>",
+            "suffix": "</b></td> </tr> </tbody> </table>",
+            "valueSource": "extracted"
+          },
+          "schema:description": {
+            "value": "Evaluation of POLYAI-ENCODER on the AmazonQA dataset using 1-of-100 accuracy.",
+            "start_char_doc": null,
+            "end_char_doc": null,
+            "prefix": null,
+            "suffix": null,
+            "valueSource": "inferred"
+          },
+          "usesData": [{"@id": "dataset:amazonqa"}],
+          "produces": [{"@id": "method:polyai_encoder"}],
+          "realizes": [{"@id": "task:conversational_response_selection"}],
+          "executes": [{"@id": "impl:conversational_datasets_tensorflow"}]
+        }
+      ]
+    },
+    {
+      "@id": "hp:train_test_split_ratio",
+      "@type": "MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 6728,
+        "end_char_doc": 6731,
+        "prefix": "the train set consists of",
+        "suffix": "of the total data, and",
+        "valueSource": "extracted"
+      },
+      "mls:name": {
+        "value": "train/test split ratio",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "90/10",
+        "start_char_doc": 6728,
+        "end_char_doc": 6731,
+        "prefix": "the train set consists of",
+        "suffix": "of the total data, and",
+        "valueSource": "extracted"
+      },
+      "mls:wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:type": {
+        "value": "percentage",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:searchSpace": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hpCategory": "HP_Data",
+      "hpType": "TrainValTestSplit",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:max_context_length",
+      "@type": "MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 11830,
+        "end_char_doc": 11844,
+        "prefix": "either feature has more than",
+        "suffix": ", or fewer than 9",
+        "valueSource": "extracted"
+      },
+      "mls:name": {
+        "value": "maximum context/response character length",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "128",
+        "start_char_doc": 11830,
+        "end_char_doc": 11844,
+        "prefix": "either feature has more than",
+        "suffix": ", or fewer than 9",
+        "valueSource": "extracted"
+      },
+      "mls:wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:type": {
+        "value": "integer",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:searchSpace": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hpCategory": "HP_Data",
+      "hpType": "MaxSequenceLength",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:min_context_length",
+      "@type": "MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 11860,
+        "end_char_doc": 11872,
+        "prefix": "128 characters, or fewer than",
+        "suffix": ", or if its text",
+        "valueSource": "extracted"
+      },
+      "mls:name": {
+        "value": "minimum context/response character length",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "9",
+        "start_char_doc": 11860,
+        "end_char_doc": 11872,
+        "prefix": "128 characters, or fewer than",
+        "suffix": ", or if its text",
+        "valueSource": "extracted"
+      },
+      "mls:wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:type": {
+        "value": "integer",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:searchSpace": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hpCategory": "HP_Data",
+      "hpType": "MaxSequenceLength",
+      "uncertain": true
+    },
+    {
+      "@id": "hp:map_training_sample_size",
+      "@type": "MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 20589,
+        "end_char_doc": 20604,
+        "prefix": "on a random sample of",
+        "suffix": "from the training set, using",
+        "valueSource": "extracted"
+      },
+      "mls:name": {
+        "value": "MAP training sample size",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "10000",
+        "start_char_doc": 20589,
+        "end_char_doc": 20604,
+        "prefix": "on a random sample of",
+        "suffix": "from the training set, using",
+        "valueSource": "extracted"
+      },
+      "mls:wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:type": {
+        "value": "integer",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:searchSpace": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hpCategory": "HP_Training",
+      "hpType": "HP_Training",
+      "uncertain": true
+    },
+    {
+      "@id": "hp:eval_batch_size",
+      "@type": "MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 17899,
+        "end_char_doc": 17913,
+        "prefix": "efficient computation of this metric,",
+        "suffix": "(context, response) pairs can be",
+        "valueSource": "extracted"
+      },
+      "mls:name": {
+        "value": "evaluation batch size",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "100",
+        "start_char_doc": 17899,
+        "end_char_doc": 17913,
+        "prefix": "efficient computation of this metric,",
+        "suffix": "(context, response) pairs can be",
+        "valueSource": "extracted"
+      },
+      "mls:wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:type": {
+        "value": "integer",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:searchSpace": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hpCategory": "HP_Training",
+      "hpType": "BatchSize",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:eval_num_negatives",
+      "@type": "MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 767,
+        "end_char_doc": 784,
+        "prefix": "conversational response selection models using",
+        "suffix": ". The repository contains scripts",
+        "valueSource": "extracted"
+      },
+      "mls:name": {
+        "value": "number of negative candidates",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "99",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:type": {
+        "value": "integer",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:searchSpace": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hpCategory": "HP_Training",
+      "hpType": "HP_Training",
+      "uncertain": true
+    },
+    {
+      "@id": "hp:num_workers_reddit",
+      "@type": "MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 9891,
+        "end_char_doc": 9902,
+        "prefix": "OpenSubtitles data from 2018. starts",
+        "suffix": "to generate the dataset in",
+        "valueSource": "extracted"
+      },
+      "mls:name": {
+        "value": "number of workers (Reddit dataset generation)",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "409",
+        "start_char_doc": 9891,
+        "end_char_doc": 9902,
+        "prefix": "OpenSubtitles data from 2018. starts",
+        "suffix": "to generate the dataset in",
+        "valueSource": "extracted"
+      },
+      "mls:wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:type": {
+        "value": "integer",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:searchSpace": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hpCategory": "HP_Training",
+      "hpType": "NumWorkers",
+      "uncertain": false
+    }
+  ]
+}
