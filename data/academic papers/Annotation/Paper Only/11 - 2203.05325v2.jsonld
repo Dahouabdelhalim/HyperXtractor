@@ -1,0 +1,1340 @@
+{
+  "@context": {
+    "mls": "http://www.w3.org/ns/mls#",
+    "schema": "http://schema.org/",
+    "prov": "http://www.w3.org/ns/prov#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "model": "https://w3id.org/mlskg/model/",
+    "algo": "https://w3id.org/mlskg/algorithm/",
+    "method": "https://w3id.org/mlskg/method/",
+    "dataset": "https://w3id.org/mlskg/dataset/",
+    "datasource": "https://w3id.org/mlskg/datasource/",
+    "task": "https://w3id.org/mlskg/task/",
+    "eval": "https://w3id.org/mlskg/eval/",
+    "hp": "https://w3id.org/mlskg/hp/",
+    "impl": "https://w3id.org/mlskg/implementation/",
+    "env": "https://w3id.org/mlskg/environment/",
+    "prompt": "https://w3id.org/mlskg/prompt/",
+    "person": "https://w3id.org/mlskg/person/",
+    "org": "https://w3id.org/mlskg/organization/",
+    "study": "https://w3id.org/mlskg/study/",
+    "exp": "https://w3id.org/mlskg/experiment/",
+    "expg": "https://w3id.org/mlskg/experimentgroup/",
+    "repo": "https://w3id.org/mlskg/repository/",
+    "mention": "https://w3id.org/mlskg/meta/mention",
+    "valueSource": "https://w3id.org/mlskg/meta/valueSource",
+    "Study": "mls:Study",
+    "Experiment": "mls:Experiment",
+    "Person": "mls:Person",
+    "Organization": "mls:Organization",
+    "MLS_Task": "mls:MLS_Task",
+    "MLS_Dataset": "mls:MLS_Dataset",
+    "DataSource": "mls:DataSource",
+    "Method": "mls:Method",
+    "MLS_Model": "mls:MLS_Model",
+    "MLS_Algorithm": "mls:MLS_Algorithm",
+    "Prompt": "mls:Prompt",
+    "MLS_Eval": "mls:MLS_Eval",
+    "SoftwareRepository": "mls:SoftwareRepository",
+    "MLS_Implementation": "mls:MLS_Implementation",
+    "Environment": "mls:Environment",
+    "MLS_HyperParameter": "mls:MLS_HyperParameter"
+  },
+  "@graph": [
+    {
+      "@id": "study:aifb_webscience_at_semeval_2022_task_12_relation_extraction_first_using_relation_extraction_to_identify_entities",
+      "@type": "Study",
+      "mention": {
+        "start_char_doc": 13,
+        "end_char_doc": 128,
+        "prefix": "## Page 1 #",
+        "suffix": "**Nicholas Popovic** Karlsruhe Institute of",
+        "valueSource": "extracted"
+      },
+      "schema:title": {
+        "value": "AIFB-WebScience at SemEval-2022 Task 12: Relation Extraction First - Using Relation Extraction to Identify Entities",
+        "start_char_doc": 13,
+        "end_char_doc": 128,
+        "prefix": "## Page 1 #",
+        "suffix": "**Nicholas Popovic** Karlsruhe Institute of",
+        "valueSource": "extracted"
+      },
+      "schema:abstract": {
+        "value": "In this paper, we present an end-to-end joint entity and relation extraction approach based on transformer-based language models. We apply the model to the task of linking mathematical symbols to their descriptions in LaTeX documents. In contrast to existing approaches, which perform entity and relation extraction in sequence, our system incorporates information from relation extraction into entity extraction. This means that the system can be trained even on data sets where only a subset of all valid entity spans is annotated. We provide an extensive evaluation of the proposed system and its strengths and weaknesses. Our approach, which can be scaled dynamically in computational complexity at inference time, produces predictions with high precision and reaches 3rd place in the leaderboard of SemEval-2022 Task 12. For inputs in the domain of physics and math, it achieves high relation extraction macro $F_1$ scores of 95.43% and 79.17%, respectively. The code used for training and evaluating our models is available on GitHub¹.",
+        "start_char_doc": 500,
+        "end_char_doc": 1541,
+        "prefix": "4 May 2022&lt;/watermark&gt; ## Abstract",
+        "suffix": "## 1 Introduction Information extraction",
+        "valueSource": "extracted"
+      },
+      "schema:url": {
+        "value": "https://arxiv.org/abs/2203.05325",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:datePublished": {
+        "value": "2022-05-04",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:identifier": {
+        "value": "arXiv:2203.05325v2 [cs.CL] 4 May 2022",
+        "start_char_doc": 430,
+        "end_char_doc": 467,
+        "prefix": "Technology (KIT), Germany michael.faerber@kit.edu &lt;watermark&gt;",
+        "suffix": "&lt;/watermark&gt; ## Abstract In this",
+        "valueSource": "extracted"
+      },
+      "schema:publicationVenue": null,
+      "schema:doi": null,
+      "schema:citation": null,
+      "mls:hasAuthor": [
+        {
+          "@id": "person:popovic_nicholas"
+        },
+        {
+          "@id": "person:laurito_walter"
+        },
+        {
+          "@id": "person:faerber_michael"
+        }
+      ],
+      "mls:contains": [
+        {
+          "@id": "exp:main_experimental_setup"
+        }
+      ],
+      "mls:implements": {
+        "@id": "repo:relst"
+      }
+    },
+    {
+      "@id": "person:popovic_nicholas",
+      "@type": "Person",
+      "mention": {
+        "start_char_doc": 132,
+        "end_char_doc": 148,
+        "prefix": "Extraction to Identify Entities **",
+        "suffix": "** Karlsruhe Institute of Technology",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "Nicholas Popovic",
+        "start_char_doc": 132,
+        "end_char_doc": 148,
+        "prefix": "Extraction to Identify Entities **",
+        "suffix": "** Karlsruhe Institute of Technology",
+        "valueSource": "extracted"
+      },
+      "schema:affiliation": {
+        "value": "Karlsruhe Institute of Technology (KIT), Germany",
+        "start_char_doc": 153,
+        "end_char_doc": 201,
+        "prefix": "to Identify Entities **Nicholas Popovic**",
+        "suffix": "popovic@kit.edu **Walter Laurito** FZI Research",
+        "valueSource": "extracted"
+      },
+      "schema:email": {
+        "value": "popovic@kit.edu",
+        "start_char_doc": 204,
+        "end_char_doc": 219,
+        "prefix": "Institute of Technology (KIT), Germany",
+        "suffix": "**Walter Laurito** FZI Research Center",
+        "valueSource": "extracted"
+      },
+      "schema:orcid": null,
+      "prov:affiliatedWith": [
+        {
+          "@id": "org:karlsruhe_institute_of_technology_kit"
+        }
+      ]
+    },
+    {
+      "@id": "person:laurito_walter",
+      "@type": "Person",
+      "mention": {
+        "start_char_doc": 223,
+        "end_char_doc": 237,
+        "prefix": "Technology (KIT), Germany popovic@kit.edu **",
+        "suffix": "** FZI Research Center for",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "Walter Laurito",
+        "start_char_doc": 223,
+        "end_char_doc": 237,
+        "prefix": "Technology (KIT), Germany popovic@kit.edu **",
+        "suffix": "** FZI Research Center for",
+        "valueSource": "extracted"
+      },
+      "schema:affiliation": {
+        "value": "FZI Research Center for Information Technology, Germany",
+        "start_char_doc": 242,
+        "end_char_doc": 297,
+        "prefix": "(KIT), Germany popovic@kit.edu **Walter Laurito**",
+        "suffix": "laurito@fzi.de **Michael Färber** Karlsruhe Institute",
+        "valueSource": "extracted"
+      },
+      "schema:email": {
+        "value": "laurito@fzi.de",
+        "start_char_doc": 300,
+        "end_char_doc": 314,
+        "prefix": "Center for Information Technology, Germany",
+        "suffix": "**Michael Färber** Karlsruhe Institute of",
+        "valueSource": "extracted"
+      },
+      "schema:orcid": null,
+      "prov:affiliatedWith": [
+        {
+          "@id": "org:fzi_research_center_for_information_technology"
+        }
+      ]
+    },
+    {
+      "@id": "person:faerber_michael",
+      "@type": "Person",
+      "mention": {
+        "start_char_doc": 318,
+        "end_char_doc": 332,
+        "prefix": "Information Technology, Germany laurito@fzi.de **",
+        "suffix": "** Karlsruhe Institute of Technology",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "Michael Färber",
+        "start_char_doc": 318,
+        "end_char_doc": 332,
+        "prefix": "Information Technology, Germany laurito@fzi.de **",
+        "suffix": "** Karlsruhe Institute of Technology",
+        "valueSource": "extracted"
+      },
+      "schema:affiliation": {
+        "value": "Karlsruhe Institute of Technology (KIT), Germany",
+        "start_char_doc": 153,
+        "end_char_doc": 201,
+        "prefix": "to Identify Entities **Nicholas Popovic**",
+        "suffix": "popovic@kit.edu **Walter Laurito** FZI Research",
+        "valueSource": "extracted"
+      },
+      "schema:email": {
+        "value": "michael.faerber@kit.edu",
+        "start_char_doc": 388,
+        "end_char_doc": 411,
+        "prefix": "Institute of Technology (KIT), Germany",
+        "suffix": "&lt;watermark&gt;arXiv:2203.05325v2 [cs.CL] 4 May 2022&lt;/watermark&gt;",
+        "valueSource": "extracted"
+      },
+      "schema:orcid": null,
+      "prov:affiliatedWith": [
+        {
+          "@id": "org:karlsruhe_institute_of_technology_kit"
+        }
+      ]
+    },
+    {
+      "@id": "org:karlsruhe_institute_of_technology_kit",
+      "@type": "Organization",
+      "mention": {
+        "start_char_doc": 153,
+        "end_char_doc": 201,
+        "prefix": "to Identify Entities **Nicholas Popovic**",
+        "suffix": "popovic@kit.edu **Walter Laurito** FZI Research",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "Karlsruhe Institute of Technology (KIT), Germany",
+        "start_char_doc": 153,
+        "end_char_doc": 201,
+        "prefix": "to Identify Entities **Nicholas Popovic**",
+        "suffix": "popovic@kit.edu **Walter Laurito** FZI Research",
+        "valueSource": "extracted"
+      },
+      "schema:url": null,
+      "schema:type": {
+        "value": "university",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "org:fzi_research_center_for_information_technology",
+      "@type": "Organization",
+      "mention": {
+        "start_char_doc": 242,
+        "end_char_doc": 297,
+        "prefix": "(KIT), Germany popovic@kit.edu **Walter Laurito**",
+        "suffix": "laurito@fzi.de **Michael Färber** Karlsruhe Institute",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "FZI Research Center for Information Technology, Germany",
+        "start_char_doc": 242,
+        "end_char_doc": 297,
+        "prefix": "(KIT), Germany popovic@kit.edu **Walter Laurito**",
+        "suffix": "laurito@fzi.de **Michael Färber** Karlsruhe Institute",
+        "valueSource": "extracted"
+      },
+      "schema:url": null,
+      "schema:type": {
+        "value": "research center",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "task:linking_mathematical_symbols_to_their_descriptions_in_latex_documents",
+      "@type": "MLS_Task",
+      "mention": {
+        "start_char_doc": 664,
+        "end_char_doc": 733,
+        "prefix": "model to the task of",
+        "suffix": ". In contrast to existing",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "linking mathematical symbols to their descriptions in LaTeX documents",
+        "start_char_doc": 664,
+        "end_char_doc": 733,
+        "prefix": "model to the task of",
+        "suffix": ". In contrast to existing",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "A joint entity and relation extraction task that links mathematical symbols to their textual descriptions in LaTeX documents.",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:category": {
+        "value": "joint entity and relation extraction",
+        "start_char_doc": 540,
+        "end_char_doc": 576,
+        "prefix": "paper, we present an end-to-end",
+        "suffix": "approach based on transformer-based language",
+        "valueSource": "extracted"
+      },
+      "mls:benchmarkedOn": [
+        {
+          "@id": "dataset:semeval_2022_task_12_dataset"
+        }
+      ]
+    },
+    {
+      "@id": "dataset:semeval_2022_task_12_dataset",
+      "@type": "MLS_Dataset",
+      "mention": {
+        "start_char_doc": 32,
+        "end_char_doc": 52,
+        "prefix": "Page 1 # AIFB-WebScience at",
+        "suffix": ": Relation Extraction First -",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "SemEval-2022 Task 12 dataset",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:description": {
+        "value": "Benchmark dataset used for linking mathematical symbols to their descriptions in LaTeX documents.",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:numInstances": {
+        "value": "3119 training examples",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:language": null,
+      "schema:license": null,
+      "schema:modality": {
+        "value": "text",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:numClasses": null,
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "datasource:latex_documents"
+        }
+      ]
+    },
+    {
+      "@id": "datasource:latex_documents",
+      "@type": "DataSource",
+      "mention": {
+        "start_char_doc": 718,
+        "end_char_doc": 733,
+        "prefix": "symbols to their descriptions in",
+        "suffix": ". In contrast to existing",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "LaTeX documents",
+        "start_char_doc": 718,
+        "end_char_doc": 733,
+        "prefix": "symbols to their descriptions in",
+        "suffix": ". In contrast to existing",
+        "valueSource": "extracted"
+      },
+      "schema:url": null,
+      "schema:type": {
+        "value": "scientific text documents",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:license": null
+    },
+    {
+      "@id": "exp:main_experimental_setup",
+      "@type": "Experiment",
+      "mention": {
+        "start_char_doc": 12251,
+        "end_char_doc": 12274,
+        "prefix": "more than one \"Direct\" relation.",
+        "suffix": "For our language model we",
+        "valueSource": "extracted"
+      },
+      "schema:identifier": {
+        "value": "Experimental Setup",
+        "start_char_doc": 12251,
+        "end_char_doc": 12274,
+        "prefix": "more than one \"Direct\" relation.",
+        "suffix": "For our language model we",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "Main experimental setup for evaluating the proposed end-to-end joint entity and relation extraction approach across four configurations on development and test data.",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:objective": {
+        "value": "linking mathematical symbols to their descriptions in LaTeX documents",
+        "start_char_doc": 664,
+        "end_char_doc": 733,
+        "prefix": "model to the task of",
+        "suffix": ". In contrast to existing",
+        "valueSource": "extracted"
+      },
+      "mls:hypothesis": {
+        "value": "Incorporating relation extraction into entity extraction via prototype-based span scoring and triplet loss supports learning from partially annotated entity spans.",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:methodology": {
+        "value": "The experiment uses SciBERT encodings, soft mention detection, DL-MNAV-based relation extraction, and relation-informed entity type classification, with evaluation across preprocessing and pooling configurations.",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:realizes": [
+        {
+          "@id": "task:linking_mathematical_symbols_to_their_descriptions_in_latex_documents"
+        }
+      ],
+      "mls:usesData": [
+        {
+          "@id": "dataset:semeval_2022_task_12_dataset"
+        }
+      ],
+      "mls:produces": [
+        {
+          "@id": "method:end_to_end_joint_entity_and_relation_extraction_approach"
+        }
+      ],
+      "mls:usesParameters": [
+        {
+          "@id": "hp:optimizer_adamw"
+        },
+        {
+          "@id": "hp:learning_rate_scibert"
+        },
+        {
+          "@id": "hp:warmup_steps_scibert"
+        },
+        {
+          "@id": "hp:decay_schedule_scibert"
+        },
+        {
+          "@id": "hp:num_epochs_scibert"
+        },
+        {
+          "@id": "hp:batch_size_scibert"
+        },
+        {
+          "@id": "hp:gradient_clipping_max_norm"
+        },
+        {
+          "@id": "hp:candidate_span_downsampling"
+        },
+        {
+          "@id": "hp:k_train_dev_relation_classification"
+        },
+        {
+          "@id": "hp:k_test_relation_classification"
+        }
+      ],
+      "mls:executes": [
+        {
+          "@id": "impl:relst_huggingface_transformers"
+        }
+      ],
+      "prov:wasAssociatedWith": [
+        {
+          "@id": "person:popovic_nicholas"
+        },
+        {
+          "@id": "person:laurito_walter"
+        },
+        {
+          "@id": "person:faerber_michael"
+        }
+      ],
+      "prov:used": [
+        {
+          "@id": "dataset:semeval_2022_task_12_dataset"
+        },
+        {
+          "@id": "model:scibert"
+        },
+        {
+          "@id": "model:dl_mnav"
+        }
+      ]
+    },
+    {
+      "@id": "method:end_to_end_joint_entity_and_relation_extraction_approach",
+      "@type": "Method",
+      "mention": {
+        "start_char_doc": 529,
+        "end_char_doc": 585,
+        "prefix": "this paper, we present an",
+        "suffix": "based on transformer-based language models.",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "end-to-end joint entity and relation extraction approach",
+        "start_char_doc": 529,
+        "end_char_doc": 585,
+        "prefix": "this paper, we present an",
+        "suffix": "based on transformer-based language models.",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "A relation-extraction-first end-to-end system that integrates relation extraction information into entity extraction for partially annotated data.",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:version": null,
+      "mls:subMethod": [
+        {
+          "@id": "method:soft_mention_detection"
+        },
+        {
+          "@id": "model:scibert"
+        },
+        {
+          "@id": "model:dl_mnav"
+        }
+      ],
+      "mls:trainedOn": [
+        {
+          "@id": "dataset:semeval_2022_task_12_dataset"
+        }
+      ],
+      "mls:evaluatedOn": [
+        {
+          "@id": "dataset:semeval_2022_task_12_dataset"
+        }
+      ],
+      "mls:achieves": [
+        {
+          "@id": "eval:relation_extraction_f1_development_best"
+        },
+        {
+          "@id": "eval:relation_extraction_f1_test_best"
+        },
+        {
+          "@id": "eval:relation_extraction_macro_f1_physics"
+        },
+        {
+          "@id": "eval:relation_extraction_macro_f1_math"
+        }
+      ]
+    },
+    {
+      "@id": "method:soft_mention_detection",
+      "@type": "Method",
+      "mention": {
+        "start_char_doc": 8945,
+        "end_char_doc": 9063,
+        "prefix": "al., 2019), we propose a",
+        "suffix": "(one prototype per entity type).",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "soft mention detection",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:description": {
+        "value": "linear similarity based approach which ranks possible spans based on their similarity to multiple prototype embeddings",
+        "start_char_doc": 8945,
+        "end_char_doc": 9063,
+        "prefix": "al., 2019), we propose a",
+        "suffix": "(one prototype per entity type).",
+        "valueSource": "extracted"
+      },
+      "schema:version": null
+    },
+    {
+      "@id": "model:scibert",
+      "@type": "MLS_Model",
+      "mention": {
+        "start_char_doc": 12306,
+        "end_char_doc": 12313,
+        "prefix": "our language model we use",
+        "suffix": "(Beltagy et al., 2019), which",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "SciBERT",
+        "start_char_doc": 12306,
+        "end_char_doc": 12313,
+        "prefix": "our language model we use",
+        "suffix": "(Beltagy et al., 2019), which",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "Transformer-based language model used as the paper's input encoder.",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:architecture": {
+        "value": "transformer-based language model",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:parameters": null
+    },
+    {
+      "@id": "model:dl_mnav",
+      "@type": "MLS_Model",
+      "mention": {
+        "start_char_doc": 10000,
+        "end_char_doc": 10007,
+        "prefix": "the document-level relation extraction model",
+        "suffix": "(Popovic and Färber, 2022). We",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "DL-MNAV",
+        "start_char_doc": 10000,
+        "end_char_doc": 10007,
+        "prefix": "the document-level relation extraction model",
+        "suffix": "(Popovic and Färber, 2022). We",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "Document-level relation extraction model used in the relation extraction module.",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:architecture": {
+        "value": "prototype-based document-level relation extraction",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:parameters": null
+    },
+    {
+      "@id": "repo:relst",
+      "@type": "SoftwareRepository",
+      "mention": {
+        "start_char_doc": 4342,
+        "end_char_doc": 4377,
+        "prefix": "entity mention spans. --- ¹",
+        "suffix": "--- ## Page 2 &lt;img&gt;Figure",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "RElst",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:url": {
+        "value": "https://github.com/nicpopovic/RElst",
+        "start_char_doc": 4342,
+        "end_char_doc": 4377,
+        "prefix": "entity mention spans. --- ¹",
+        "suffix": "--- ## Page 2 &lt;img&gt;Figure",
+        "valueSource": "extracted"
+      },
+      "schema:version": null,
+      "schema:programmingLanguage": null,
+      "schema:dateModified": null,
+      "schema:license": null,
+      "mls:documentationUrl": null,
+      "mls:contains": [
+        {
+          "@id": "impl:relst_huggingface_transformers"
+        }
+      ],
+      "mls:supports": [
+        {
+          "@id": "env:nvidia_v100_mixed_precision"
+        }
+      ]
+    },
+    {
+      "@id": "impl:relst_huggingface_transformers",
+      "@type": "MLS_Implementation",
+      "mention": {
+        "start_char_doc": 15418,
+        "end_char_doc": 15452,
+        "prefix": "time of writing. text, via",
+        "suffix": "(Wolf et al., 2020). For",
+        "valueSource": "extracted"
+      },
+      "mls:codeRepository": {
+        "value": "https://github.com/nicpopovic/RElst",
+        "start_char_doc": 4342,
+        "end_char_doc": 4377,
+        "prefix": "entity mention spans. --- ¹",
+        "suffix": "--- ## Page 2 &lt;img&gt;Figure",
+        "valueSource": "extracted"
+      },
+      "mls:framework": {
+        "value": "Huggingface’s Transformers library",
+        "start_char_doc": 15418,
+        "end_char_doc": 15452,
+        "prefix": "time of writing. text, via",
+        "suffix": "(Wolf et al., 2020). For",
+        "valueSource": "extracted"
+      },
+      "mls:executionCommand": null,
+      "mls:entryPoint": null,
+      "mls:branch": null,
+      "mls:runsIn": {
+        "@id": "env:nvidia_v100_mixed_precision"
+      },
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "repo:relst"
+        }
+      ]
+    },
+    {
+      "@id": "env:nvidia_v100_mixed_precision",
+      "@type": "Environment",
+      "mention": {
+        "start_char_doc": 16285,
+        "end_char_doc": 16329,
+        "prefix": "approximately 10 hours on a",
+        "suffix": ". We perform early stopping",
+        "valueSource": "extracted"
+      },
+      "mls:hardwareSpecs": {
+        "value": "single NVIDIA V100 GPU using mixed precision",
+        "start_char_doc": 16285,
+        "end_char_doc": 16329,
+        "prefix": "approximately 10 hours on a",
+        "suffix": ". We perform early stopping",
+        "valueSource": "extracted"
+      },
+      "mls:os": null,
+      "mls:pythonVersion": null,
+      "mls:requirementsFile": null,
+      "mls:isDockerized": null
+    },
+    {
+      "@id": "hp:optimizer_adamw",
+      "@type": "MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 15561,
+        "end_char_doc": 15566,
+        "prefix": "As our optimizer, we use",
+        "suffix": "(Loshchilov and Hutter, 2019) with",
+        "valueSource": "extracted"
+      },
+      "mls:name": {
+        "value": "optimizer",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "AdamW",
+        "start_char_doc": 15561,
+        "end_char_doc": 15566,
+        "prefix": "As our optimizer, we use",
+        "suffix": "(Loshchilov and Hutter, 2019) with",
+        "valueSource": "extracted"
+      },
+      "mls:type": {
+        "value": "string",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Optimization",
+      "hpType": "HP_Optimization",
+      "uncertain": true
+    },
+    {
+      "@id": "hp:learning_rate_scibert",
+      "@type": "MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 15602,
+        "end_char_doc": 15637,
+        "prefix": "(Loshchilov and Hutter, 2019) with",
+        "suffix": ", a linear warmup of",
+        "valueSource": "extracted"
+      },
+      "mls:name": {
+        "value": "learning rate",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": null,
+      "mls:type": {
+        "value": "float",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:searchSpace": {
+        "value": "learning rates ∈ [3e-5, 5e-5, 7e-5]",
+        "start_char_doc": 15602,
+        "end_char_doc": 15637,
+        "prefix": "(Loshchilov and Hutter, 2019) with",
+        "suffix": ", a linear warmup of",
+        "valueSource": "extracted"
+      },
+      "hpCategory": "HP_Optimization",
+      "hpType": "LearningRate",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:warmup_steps_scibert",
+      "@type": "MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 15639,
+        "end_char_doc": 15665,
+        "prefix": "rates ∈ [3e-5, 5e-5, 7e-5],",
+        "suffix": "followed by a linear decay",
+        "valueSource": "extracted"
+      },
+      "mls:name": {
+        "value": "warmup",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "1 epoch",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:type": {
+        "value": "string",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Optimization",
+      "hpType": "WarmupSteps",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:decay_schedule_scibert",
+      "@type": "MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 15678,
+        "end_char_doc": 15700,
+        "prefix": "of 1 epoch followed by",
+        "suffix": ", for a total of",
+        "valueSource": "extracted"
+      },
+      "mls:name": {
+        "value": "decay schedule",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "a linear decay to zero",
+        "start_char_doc": 15678,
+        "end_char_doc": 15700,
+        "prefix": "of 1 epoch followed by",
+        "suffix": ", for a total of",
+        "valueSource": "extracted"
+      },
+      "mls:type": {
+        "value": "string",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Optimization",
+      "hpType": "DecayRate",
+      "uncertain": true
+    },
+    {
+      "@id": "hp:num_epochs_scibert",
+      "@type": "MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 15702,
+        "end_char_doc": 15726,
+        "prefix": "a linear decay to zero,",
+        "suffix": ", a batch size of",
+        "valueSource": "extracted"
+      },
+      "mls:name": {
+        "value": "num epochs",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "60",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:type": {
+        "value": "integer",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Training",
+      "hpType": "NumEpochs",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:batch_size_scibert",
+      "@type": "MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 15728,
+        "end_char_doc": 15745,
+        "prefix": "a total of 60 epochs,",
+        "suffix": ", and apply gradient clipping",
+        "valueSource": "extracted"
+      },
+      "mls:name": {
+        "value": "batch size",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "4",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:type": {
+        "value": "integer",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Training",
+      "hpType": "BatchSize",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:gradient_clipping_max_norm",
+      "@type": "MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 15782,
+        "end_char_doc": 15795,
+        "prefix": "apply gradient clipping with a",
+        "suffix": ". During training, we randomly",
+        "valueSource": "extracted"
+      },
+      "mls:name": {
+        "value": "gradient clipping max norm",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "1",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:type": {
+        "value": "float",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Training",
+      "hpType": "HP_Training",
+      "uncertain": true
+    },
+    {
+      "@id": "hp:candidate_span_downsampling",
+      "@type": "MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 15851,
+        "end_char_doc": 15901,
+        "prefix": "randomly downsample the amount of",
+        "suffix": ", while ensuring that all",
+        "valueSource": "extracted"
+      },
+      "mls:name": {
+        "value": "candidate span downsampling",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "1000",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:type": {
+        "value": "integer",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Training",
+      "hpType": "HP_Training",
+      "uncertain": true
+    },
+    {
+      "@id": "hp:k_train_dev_relation_classification",
+      "@type": "MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 16072,
+        "end_char_doc": 16194,
+        "prefix": "to perform relation classification on,",
+        "suffix": ". For test set evaluation",
+        "valueSource": "extracted"
+      },
+      "mls:name": {
+        "value": "k for relation classification during training and development evaluation",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "50",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:type": {
+        "value": "integer",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Training",
+      "hpType": "HP_Training",
+      "uncertain": true
+    },
+    {
+      "@id": "hp:k_test_relation_classification",
+      "@type": "MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 16196,
+        "end_char_doc": 16241,
+        "prefix": "model performance and training time.",
+        "suffix": "Training takes approximately 10 hours",
+        "valueSource": "extracted"
+      },
+      "mls:name": {
+        "value": "k for relation classification during test evaluation",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "400",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:type": {
+        "value": "integer",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Training",
+      "hpType": "HP_Training",
+      "uncertain": true
+    },
+    {
+      "@id": "eval:relation_extraction_f1_development_best",
+      "@type": "MLS_Eval",
+      "mention": {
+        "start_char_doc": 13244,
+        "end_char_doc": 13256,
+        "prefix": "1.34</b></td> <td>44.14 ± 0.97</td> <td><b>",
+        "suffix": "</b></td> </tr> <tr> <td>mean</td> <td>None</td>",
+        "valueSource": "extracted"
+      },
+      "mls:measure": {
+        "value": "relation extraction micro F1 (development set, best configuration)",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "52.86",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:stdDev": {
+        "value": "1.10",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:confidenceInterval": null,
+      "prov:wasGeneratedBy": {
+        "@id": "exp:main_experimental_setup"
+      }
+    },
+    {
+      "@id": "eval:relation_extraction_f1_test_best",
+      "@type": "MLS_Eval",
+      "mention": {
+        "start_char_doc": 14582,
+        "end_char_doc": 14594,
+        "prefix": "3.19</td> <td><b>26.55 ± 1.19</b></td> <td><b>",
+        "suffix": "</b></td> </tr> <tr> <td>max</td> <td>LaTeX2Text</td>",
+        "valueSource": "extracted"
+      },
+      "mls:measure": {
+        "value": "relation extraction micro F1 (test set, best configuration)",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "32.28",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:stdDev": {
+        "value": "0.20",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:confidenceInterval": null,
+      "prov:wasGeneratedBy": {
+        "@id": "exp:main_experimental_setup"
+      }
+    },
+    {
+      "@id": "eval:relation_extraction_macro_f1_physics",
+      "@type": "MLS_Eval",
+      "mention": {
+        "start_char_doc": 1431,
+        "end_char_doc": 1436,
+        "prefix": "extraction macro $F_1$ scores of",
+        "suffix": "% and 79.17%, respectively. The",
+        "valueSource": "extracted"
+      },
+      "mls:measure": {
+        "value": "relation extraction macro F1 (physics domain)",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "95.43",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:stdDev": null,
+      "mls:confidenceInterval": null,
+      "prov:wasGeneratedBy": {
+        "@id": "exp:main_experimental_setup"
+      }
+    },
+    {
+      "@id": "eval:relation_extraction_macro_f1_math",
+      "@type": "MLS_Eval",
+      "mention": {
+        "start_char_doc": 1442,
+        "end_char_doc": 1447,
+        "prefix": "$F_1$ scores of 95.43% and",
+        "suffix": "%, respectively. The code used",
+        "valueSource": "extracted"
+      },
+      "mls:measure": {
+        "value": "relation extraction macro F1 (math domain)",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "79.17",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:stdDev": null,
+      "mls:confidenceInterval": null,
+      "prov:wasGeneratedBy": {
+        "@id": "exp:main_experimental_setup"
+      }
+    }
+  ]
+}
