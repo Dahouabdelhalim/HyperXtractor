@@ -1,0 +1,2814 @@
+{
+  "@context": {
+    "mls": "http://www.w3.org/ns/mls#",
+    "schema": "http://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "model": "https://w3id.org/mlskg/model/",
+    "algo": "https://w3id.org/mlskg/algorithm/",
+    "method": "https://w3id.org/mlskg/method/",
+    "dataset": "https://w3id.org/mlskg/dataset/",
+    "datasource": "https://w3id.org/mlskg/datasource/",
+    "task": "https://w3id.org/mlskg/task/",
+    "eval": "https://w3id.org/mlskg/eval/",
+    "hp": "https://w3id.org/mlskg/hp/",
+    "impl": "https://w3id.org/mlskg/implementation/",
+    "env": "https://w3id.org/mlskg/environment/",
+    "prompt": "https://w3id.org/mlskg/prompt/",
+    "person": "https://w3id.org/mlskg/person/",
+    "org": "https://w3id.org/mlskg/organization/",
+    "study": "https://w3id.org/mlskg/study/",
+    "exp": "https://w3id.org/mlskg/experiment/",
+    "expg": "https://w3id.org/mlskg/experimentgroup/",
+    "repo": "https://w3id.org/mlskg/repo/",
+    "valueSource": "https://w3id.org/mlskg/meta/valueSource",
+    "mention": "https://w3id.org/mlskg/meta/mention",
+    "Study": "mls:Study",
+    "Experiment": "mls:Experiment",
+    "mls:ExperimentGroup": "mls:ExperimentGroup",
+    "Person": "mls:Person",
+    "Organization": "mls:Organization",
+    "MLS_Task": "mls:MLS_Task",
+    "MLS_Dataset": "mls:MLS_Dataset",
+    "DataSource": "mls:DataSource",
+    "Method": "Method",
+    "MLS_Model": "mls:MLS_Model",
+    "MLS_Algorithm": "mls:MLS_Algorithm",
+    "Prompt": "Prompt",
+    "MLS_Eval": "mls:MLS_Eval",
+    "SoftwareRepository": "SoftwareRepository",
+    "MLS_Implementation": "mls:MLS_Implementation",
+    "MLS_HyperParameter": "mls:MLS_HyperParameter",
+    "HP_Optimization": "HP_Optimization",
+    "HP_Training": "HP_Training",
+    "HP_Architecture": "HP_Architecture",
+    "HP_Data": "HP_Data",
+    "LearningRate": "LearningRate",
+    "Momentum": "Momentum",
+    "WeightDecay": "WeightDecay",
+    "WarmupSteps": "WarmupSteps",
+    "DecayRate": "DecayRate",
+    "BatchSize": "BatchSize",
+    "NumEpochs": "NumEpochs",
+    "MaxSteps": "MaxSteps",
+    "GradientAccumulationSteps": "GradientAccumulationSteps",
+    "NumWorkers": "NumWorkers",
+    "RandomSeed": "RandomSeed",
+    "NumLayers": "NumLayers",
+    "HiddenSize": "HiddenSize",
+    "EmbeddingDim": "EmbeddingDim",
+    "Dropout": "Dropout",
+    "AttentionHeads": "AttentionHeads",
+    "MaxSequenceLength": "MaxSequenceLength",
+    "TrainValTestSplit": "TrainValTestSplit",
+    "Dependency": "Dependency",
+    "Environment": "Environment",
+    "DataProcessingStep": "DataProcessingStep",
+    "TrainingRun": "TrainingRun",
+    "EvaluationRun": "EvaluationRun",
+    "PredictionSet": "PredictionSet",
+    "issued": {"@id": "xsd:issued", "@type": "xsd:datetime"},
+    "title": "schema:title",
+    "abstract": "schema:abstract",
+    "url": "schema:url",
+    "doi": "schema:doi",
+    "citation": "schema:citation",
+    "publicationVenue": "schema:publicationVenue",
+    "timestamp": {"@id": "schema:timestamp", "@type": "xsd:date"},
+    "identifier": "schema:identifier",
+    "description": "schema:description",
+    "objective": "schema:objective",
+    "hypothesis": "schema:hypothesis",
+    "methodology": "schema:methodology",
+    "name": "schema:name",
+    "affiliation": "schema:affiliation",
+    "email": "schema:email",
+    "orcid": "schema:orcid",
+    "type": "schema:type",
+    "category": "schema:category",
+    "metrics": "schema:metrics",
+    "numInstances": {"@id": "schema:numInstances", "@type": "xsd:integer"},
+    "language": "schema:language",
+    "license": "schema:license",
+    "modality": "schema:modality",
+    "numClasses": {"@id": "schema:numClasses", "@type": "xsd:integer"},
+    "version": "schema:version",
+    "architecture": "schema:architecture",
+    "parameters": "schema:parameters",
+    "complexity": "mls:complexity",
+    "pseudoCode": {"@id": "mls:pseudoCode", "@type": "xsd:anyURI"},
+    "text": "schema:text",
+    "role": "mls:role",
+    "templateId": "mls:templateId",
+    "usesContext": {"@id": "mls:usesContext", "@type": "xsd:boolean"},
+    "measure": "mls:measure",
+    "hasValue": {"@id": "mls:hasValue", "@type": "xsd:float"},
+    "stdDev": {"@id": "mls:stdDev", "@type": "xsd:float"},
+    "confidenceInterval": "mls:confidenceInterval",
+    "programmingLanguage": "schema:programmingLanguage",
+    "dateModified": {"@id": "schema:dateModified", "@type": "xsd:datetime"},
+    "documentationUrl": {"@id": "mls:documentationUrl", "@type": "xsd:anyURI"},
+    "codeRepository": {"@id": "mls:codeRepository", "@type": "xsd:anyURI"},
+    "framework": "mls:framework",
+    "dependencies": "mls:dependencies",
+    "executionCommand": "mls:executionCommand",
+    "entryPoint": "mls:entryPoint",
+    "commitHash": "mls:commitHash",
+    "branch": "mls:branch",
+    "dependenciesHash": "mls:dependenciesHash",
+    "packageName": "mls:packageName",
+    "isOptional": {"@id": "mls:isOptional", "@type": "xsd:boolean"},
+    "hardwareSpecs": "mls:hardwareSpecs",
+    "os": "mls:os",
+    "pythonVersion": "mls:pythonVersion",
+    "requirementsFile": "mls:requirementsFile",
+    "isDockerized": {"@id": "mls:isDockerized", "@type": "xsd:boolean"},
+    "startedAtTime": {"@id": "prov:startedAtTime", "@type": "xsd:datetime"},
+    "endedAtTime": {"@id": "prov:endedAtTime", "@type": "xsd:datetime"},
+    "transformationType": "mls:transformationType",
+    "codeReference": {"@id": "mls:codeReference", "@type": "xsd:anyURI"},
+    "runId": "mls:runId",
+    "logFile": {"@id": "mls:logFile", "@type": "xsd:anyURI"},
+    "split": "mls:split",
+    "onDatasetSplit": "mls:onDatasetSplit",
+    "format": "mls:format",
+    "artifactsLocation": {"@id": "mls:artifactsLocation", "@type": "xsd:anyURI"},
+    "hpCategory": "mls:hpCategory",
+    "hpType": "mls:hpType",
+    "searchSpace": "mls:searchSpace",
+    "uncertain": {"@id": "mls:uncertain", "@type": "xsd:boolean"},
+    "hasAuthor": {"@id": "mls:hasAuthor", "@type": "@id"},
+    "contains": {"@id": "mls:contains", "@type": "@id"},
+    "implements": {"@id": "mls:implements", "@type": "@id"},
+    "prov-affiliatedWith": {"@id": "mls:prov-affiliatedWith", "@type": "@id"},
+    "realizes": {"@id": "mls:realizes", "@type": "@id"},
+    "usesData": {"@id": "mls:usesData", "@type": "@id"},
+    "produces": {"@id": "mls:produces", "@type": "@id"},
+    "usesParameters": {"@id": "mls:usesParameters", "@type": "@id"},
+    "executes": {"@id": "mls:executes", "@type": "@id"},
+    "subDatasetOf": {"@id": "mls:subDatasetOf", "@type": "@id"},
+    "prov-derivedFrom": {"@id": "mls:prov-derivedFrom", "@type": "@id"},
+    "processedThrough": {"@id": "mls:processedThrough", "@type": "@id"},
+    "prov-uses": {"@id": "mls:prov-uses", "@type": "@id"},
+    "trainedOn": {"@id": "mls:trainedOn", "@type": "@id"},
+    "evaluatedOn": {"@id": "mls:evaluatedOn", "@type": "@id"},
+    "achieves": {"@id": "mls:achieves", "@type": "@id"},
+    "prov-producedBy": {"@id": "mls:prov-producedBy", "@type": "@id"},
+    "subMethod": {"@id": "mls:subMethod", "@type": "@id"},
+    "evaluates": {"@id": "mls:evaluates", "@type": "@id"},
+    "supports": {"@id": "mls:supports", "@type": "@id"},
+    "runsIn": {"@id": "mls:runsIn", "@type": "@id"},
+    "requires": {"@id": "mls:requires", "@type": "@id"},
+    "prov-executedBy": {"@id": "mls:prov-executedBy", "@type": "@id"},
+    "prov-generated": {"@id": "mls:prov-generated", "@type": "@id"},
+    "benchmarkedOn": {"@id": "mls:benchmarkedOn", "@type": "@id"},
+    "subTaskOf": {"@id": "mls:subTaskOf", "@type": "@id"},
+    "dependsOn": {"@id": "mls:dependsOn", "@type": "@id"},
+    "usedIn": {"@id": "mls:usedIn", "@type": "@id"},
+    "trains": {"@id": "mls:trains", "@type": "@id"},
+    "producedBy": {"@id": "mls:producedBy", "@type": "@id"},
+    "sourceFile": "mls:sourceFile",
+    "sourceLine": {"@id": "mls:sourceLine", "@type": "xsd:integer"},
+    "dependencyType": "mls:dependencyType",
+    "owner": "mls:owner",
+    "platform": "mls:platform",
+    "entryPointCommand": "mls:entryPointCommand",
+    "evaluationScript": "mls:evaluationScript",
+    "evaluationSplit": "mls:evaluationSplit",
+    "metricsFile": "mls:metricsFile",
+    "inputDataset": {"@id": "mls:inputDataset", "@type": "@id"},
+    "outputDataset": {"@id": "mls:outputDataset", "@type": "@id"},
+    "predictionFormat": "mls:predictionFormat",
+    "storageLocation": "mls:storageLocation",
+    "modelVersion": "mls:modelVersion",
+    "appliedTo": {"@id": "mls:appliedTo", "@type": "@id"},
+    "wasGeneratedBy": {"@id": "prov:wasGeneratedBy", "@type": "@id"},
+    "wasDerivedFrom": {"@id": "prov:wasDerivedFrom", "@type": "@id"},
+    "wasAssociatedWith": {"@id": "prov:wasAssociatedWith", "@type": "@id"},
+    "used": {"@id": "prov:used", "@type": "@id"}
+  },
+  "@graph": [
+    {
+      "@id": "study:tapex_table_pretraining_2022",
+      "@type": "Study",
+      "mention": {
+        "start_char_doc": 57,
+        "end_char_doc": 117,
+        "prefix": "conference paper at ICLR 2022",
+        "suffix": "Qian Liu†*, Bei Chen§, Jiaqi",
+        "valueSource": "extracted"
+      },
+      "schema:title": {
+        "value": "TAPEX: TABLE PRE-TRAINING VIA LEARNING A NEURAL SQL EXECUTOR",
+        "start_char_doc": 57,
+        "end_char_doc": 117,
+        "prefix": "conference paper at ICLR 2022",
+        "suffix": "Qian Liu†*, Bei Chen§, Jiaqi",
+        "valueSource": "extracted"
+      },
+      "schema:abstract": {
+        "value": "Recent progress in language model pre-training has achieved a great success via leveraging large-scale unstructured textual data. However, it is still a challenge to apply pre-training on structured tabular data due to the absence of large-scale high-quality tabular data. In this paper, we propose TAPEX to show that table pre-training can be achieved by learning a neural SQL executor over a synthetic corpus, which is obtained by automatically synthesizing executable SQL queries and their execution outputs. TAPEX addresses the data scarcity challenge via guiding the language model to mimic a SQL executor on the diverse, large-scale and high-quality synthetic corpus. We evaluate TAPEX on four benchmark datasets. Experimental results demonstrate that TAPEX outperforms previous table pre-training approaches by a large margin and achieves new state-of-the-art results on all of them. This includes improvements on the weakly-supervised WikiSQL denotation accuracy to 89.5% (+2.3%), the WikiTableQuestions denotation accuracy to 57.5% (+4.8%), the SQA denotation accuracy to 74.5% (+3.5%), and the TabFact accuracy to 84.2% (+3.2%). To our knowledge, this is the first work to exploit table pre-training via synthetic executable programs and to achieve new state-of-the-art results on various downstream tasks.",
+        "start_char_doc": 436,
+        "end_char_doc": 1752,
+        "prefix": "morteza.ziyadi, zeqi.lin, wzchen, jlou}@microsoft.com ABSTRACT",
+        "suffix": "Our code can be found",
+        "valueSource": "extracted"
+      },
+      "schema:url": {
+        "value": "https://github.com/microsoft/Table-Pretraining",
+        "start_char_doc": 1778,
+        "end_char_doc": 1824,
+        "prefix": "code can be found at",
+        "suffix": ". 1 INTRODUCTION Pre-trained language",
+        "valueSource": "extracted"
+      },
+      "schema:doi": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:citation": {
+        "value": "Liu et al., TAPEX: Table Pre-training via Learning a Neural SQL Executor, ICLR 2022",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:publicationVenue": {
+        "value": "ICLR 2022",
+        "start_char_doc": 46,
+        "end_char_doc": 55,
+        "prefix": "as a conference paper at",
+        "suffix": "TAPEX: TABLE PRE-TRAINING VIA LEARNING",
+        "valueSource": "extracted"
+      },
+      "schema:timestamp": {
+        "value": "2022",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hasAuthor": [
+        {"@id": "person:liu_qian"},
+        {"@id": "person:chen_bei"},
+        {"@id": "person:guo_jiaqi"},
+        {"@id": "person:ziyadi_morteza"},
+        {"@id": "person:lin_zeqi"},
+        {"@id": "person:chen_weizhu"},
+        {"@id": "person:lou_jian_guang"}
+      ],
+      "contains": [
+        {"@id": "expg:group_tapex_2022"}
+      ],
+      "implements": {"@id": "repo:table_pretraining"}
+    },
+
+    {
+      "@id": "person:liu_qian",
+      "@type": "Person",
+      "mention": {
+        "start_char_doc": 119,
+        "end_char_doc": 127,
+        "prefix": "LEARNING A NEURAL SQL EXECUTOR",
+        "suffix": "†*, Bei Chen§, Jiaqi Guo◇*,",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "Qian Liu",
+        "start_char_doc": 119,
+        "end_char_doc": 127,
+        "prefix": "LEARNING A NEURAL SQL EXECUTOR",
+        "suffix": "†*, Bei Chen§, Jiaqi Guo◇*,",
+        "valueSource": "extracted"
+      },
+      "schema:affiliation": {
+        "value": "Beihang University",
+        "start_char_doc": 214,
+        "end_char_doc": 232,
+        "prefix": "Weizhu Chen♥, Jian-Guang Lou§ †",
+        "suffix": ", ◇Xi'an Jiaotong University, §Microsoft",
+        "valueSource": "extracted"
+      },
+      "schema:email": {
+        "value": "qian.liu@buaa.edu.cn",
+        "start_char_doc": 308,
+        "end_char_doc": 328,
+        "prefix": "Research Asia, ♥Microsoft Azure AI",
+        "suffix": ", jasperguo2013@stu.xjtu.edu.cn {bei.chen, morteza.ziyadi, zeqi.lin,",
+        "valueSource": "extracted"
+      },
+      "schema:orcid": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "prov-affiliatedWith": [{"@id": "org:beihang_university"}]
+    },
+    {
+      "@id": "person:chen_bei",
+      "@type": "Person",
+      "mention": {
+        "start_char_doc": 131,
+        "end_char_doc": 139,
+        "prefix": "NEURAL SQL EXECUTOR Qian Liu†*,",
+        "suffix": "§, Jiaqi Guo◇*, Morteza Ziyadi♥,",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "Bei Chen",
+        "start_char_doc": 131,
+        "end_char_doc": 139,
+        "prefix": "NEURAL SQL EXECUTOR Qian Liu†*,",
+        "suffix": "§, Jiaqi Guo◇*, Morteza Ziyadi♥,",
+        "valueSource": "extracted"
+      },
+      "schema:affiliation": {
+        "value": "Microsoft Research Asia",
+        "start_char_doc": 263,
+        "end_char_doc": 286,
+        "prefix": "University, ◇Xi'an Jiaotong University, §",
+        "suffix": ", ♥Microsoft Azure AI qian.liu@buaa.edu.cn,",
+        "valueSource": "extracted"
+      },
+      "schema:email": {
+        "value": "bei.chen@microsoft.com",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:orcid": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "prov-affiliatedWith": [{"@id": "org:microsoft_research_asia"}]
+    },
+    {
+      "@id": "person:guo_jiaqi",
+      "@type": "Person",
+      "mention": {
+        "start_char_doc": 142,
+        "end_char_doc": 151,
+        "prefix": "EXECUTOR Qian Liu†*, Bei Chen§,",
+        "suffix": "◇*, Morteza Ziyadi♥, Zeqi Lin§,",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "Jiaqi Guo",
+        "start_char_doc": 142,
+        "end_char_doc": 151,
+        "prefix": "EXECUTOR Qian Liu†*, Bei Chen§,",
+        "suffix": "◇*, Morteza Ziyadi♥, Zeqi Lin§,",
+        "valueSource": "extracted"
+      },
+      "schema:affiliation": {
+        "value": "Xi'an Jiaotong University",
+        "start_char_doc": 235,
+        "end_char_doc": 260,
+        "prefix": "Jian-Guang Lou§ †Beihang University, ◇",
+        "suffix": ", §Microsoft Research Asia, ♥Microsoft",
+        "valueSource": "extracted"
+      },
+      "schema:email": {
+        "value": "jasperguo2013@stu.xjtu.edu.cn",
+        "start_char_doc": 330,
+        "end_char_doc": 359,
+        "prefix": "Asia, ♥Microsoft Azure AI qian.liu@buaa.edu.cn,",
+        "suffix": "{bei.chen, morteza.ziyadi, zeqi.lin, wzchen, jlou}@microsoft.com",
+        "valueSource": "extracted"
+      },
+      "schema:orcid": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "prov-affiliatedWith": [{"@id": "org:xian_jiaotong_university"}]
+    },
+    {
+      "@id": "person:ziyadi_morteza",
+      "@type": "Person",
+      "mention": {
+        "start_char_doc": 155,
+        "end_char_doc": 169,
+        "prefix": "Liu†*, Bei Chen§, Jiaqi Guo◇*,",
+        "suffix": "♥, Zeqi Lin§, Weizhu Chen♥,",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "Morteza Ziyadi",
+        "start_char_doc": 155,
+        "end_char_doc": 169,
+        "prefix": "Liu†*, Bei Chen§, Jiaqi Guo◇*,",
+        "suffix": "♥, Zeqi Lin§, Weizhu Chen♥,",
+        "valueSource": "extracted"
+      },
+      "schema:affiliation": {
+        "value": "Microsoft Azure AI",
+        "start_char_doc": 289,
+        "end_char_doc": 307,
+        "prefix": "University, §Microsoft Research Asia, ♥",
+        "suffix": "qian.liu@buaa.edu.cn, jasperguo2013@stu.xjtu.edu.cn {bei.chen, morteza.ziyadi, zeqi.lin,",
+        "valueSource": "extracted"
+      },
+      "schema:email": {
+        "value": "morteza.ziyadi@microsoft.com",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:orcid": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "prov-affiliatedWith": [{"@id": "org:microsoft_azure_ai"}]
+    },
+    {
+      "@id": "person:lin_zeqi",
+      "@type": "Person",
+      "mention": {
+        "start_char_doc": 172,
+        "end_char_doc": 180,
+        "prefix": "Chen§, Jiaqi Guo◇*, Morteza Ziyadi♥,",
+        "suffix": "§, Weizhu Chen♥, Jian-Guang Lou§",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "Zeqi Lin",
+        "start_char_doc": 172,
+        "end_char_doc": 180,
+        "prefix": "Chen§, Jiaqi Guo◇*, Morteza Ziyadi♥,",
+        "suffix": "§, Weizhu Chen♥, Jian-Guang Lou§",
+        "valueSource": "extracted"
+      },
+      "schema:affiliation": {
+        "value": "Microsoft Research Asia",
+        "start_char_doc": 263,
+        "end_char_doc": 286,
+        "prefix": "University, ◇Xi'an Jiaotong University, §",
+        "suffix": ", ♥Microsoft Azure AI qian.liu@buaa.edu.cn,",
+        "valueSource": "extracted"
+      },
+      "schema:email": {
+        "value": "zeqi.lin@microsoft.com",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:orcid": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "prov-affiliatedWith": [{"@id": "org:microsoft_research_asia"}]
+    },
+    {
+      "@id": "person:chen_weizhu",
+      "@type": "Person",
+      "mention": {
+        "start_char_doc": 183,
+        "end_char_doc": 194,
+        "prefix": "Guo◇*, Morteza Ziyadi♥, Zeqi Lin§,",
+        "suffix": "♥, Jian-Guang Lou§ †Beihang University,",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "Weizhu Chen",
+        "start_char_doc": 183,
+        "end_char_doc": 194,
+        "prefix": "Guo◇*, Morteza Ziyadi♥, Zeqi Lin§,",
+        "suffix": "♥, Jian-Guang Lou§ †Beihang University,",
+        "valueSource": "extracted"
+      },
+      "schema:affiliation": {
+        "value": "Microsoft Azure AI",
+        "start_char_doc": 289,
+        "end_char_doc": 307,
+        "prefix": "University, §Microsoft Research Asia, ♥",
+        "suffix": "qian.liu@buaa.edu.cn, jasperguo2013@stu.xjtu.edu.cn {bei.chen, morteza.ziyadi, zeqi.lin,",
+        "valueSource": "extracted"
+      },
+      "schema:email": {
+        "value": "wzchen@microsoft.com",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:orcid": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "prov-affiliatedWith": [{"@id": "org:microsoft_azure_ai"}]
+    },
+    {
+      "@id": "person:lou_jian_guang",
+      "@type": "Person",
+      "mention": {
+        "start_char_doc": 197,
+        "end_char_doc": 211,
+        "prefix": "Ziyadi♥, Zeqi Lin§, Weizhu Chen♥,",
+        "suffix": "§ †Beihang University, ◇Xi'an Jiaotong",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "Jian-Guang Lou",
+        "start_char_doc": 197,
+        "end_char_doc": 211,
+        "prefix": "Ziyadi♥, Zeqi Lin§, Weizhu Chen♥,",
+        "suffix": "§ †Beihang University, ◇Xi'an Jiaotong",
+        "valueSource": "extracted"
+      },
+      "schema:affiliation": {
+        "value": "Microsoft Research Asia",
+        "start_char_doc": 263,
+        "end_char_doc": 286,
+        "prefix": "University, ◇Xi'an Jiaotong University, §",
+        "suffix": ", ♥Microsoft Azure AI qian.liu@buaa.edu.cn,",
+        "valueSource": "extracted"
+      },
+      "schema:email": {
+        "value": "jlou@microsoft.com",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:orcid": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "prov-affiliatedWith": [{"@id": "org:microsoft_research_asia"}]
+    },
+
+    {
+      "@id": "org:beihang_university",
+      "@type": "Organization",
+      "mention": {
+        "start_char_doc": 214,
+        "end_char_doc": 232,
+        "prefix": "Weizhu Chen♥, Jian-Guang Lou§ †",
+        "suffix": ", ◇Xi'an Jiaotong University, §Microsoft",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "Beihang University",
+        "start_char_doc": 214,
+        "end_char_doc": 232,
+        "prefix": "Weizhu Chen♥, Jian-Guang Lou§ †",
+        "suffix": ", ◇Xi'an Jiaotong University, §Microsoft",
+        "valueSource": "extracted"
+      },
+      "schema:url": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:type": {
+        "value": "University",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "org:xian_jiaotong_university",
+      "@type": "Organization",
+      "mention": {
+        "start_char_doc": 235,
+        "end_char_doc": 260,
+        "prefix": "Jian-Guang Lou§ †Beihang University, ◇",
+        "suffix": ", §Microsoft Research Asia, ♥Microsoft",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "Xi'an Jiaotong University",
+        "start_char_doc": 235,
+        "end_char_doc": 260,
+        "prefix": "Jian-Guang Lou§ †Beihang University, ◇",
+        "suffix": ", §Microsoft Research Asia, ♥Microsoft",
+        "valueSource": "extracted"
+      },
+      "schema:url": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:type": {
+        "value": "University",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "org:microsoft_research_asia",
+      "@type": "Organization",
+      "mention": {
+        "start_char_doc": 263,
+        "end_char_doc": 286,
+        "prefix": "University, ◇Xi'an Jiaotong University, §",
+        "suffix": ", ♥Microsoft Azure AI qian.liu@buaa.edu.cn,",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "Microsoft Research Asia",
+        "start_char_doc": 263,
+        "end_char_doc": 286,
+        "prefix": "University, ◇Xi'an Jiaotong University, §",
+        "suffix": ", ♥Microsoft Azure AI qian.liu@buaa.edu.cn,",
+        "valueSource": "extracted"
+      },
+      "schema:url": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:type": {
+        "value": "Research Lab",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "org:microsoft_azure_ai",
+      "@type": "Organization",
+      "mention": {
+        "start_char_doc": 289,
+        "end_char_doc": 307,
+        "prefix": "University, §Microsoft Research Asia, ♥",
+        "suffix": "qian.liu@buaa.edu.cn, jasperguo2013@stu.xjtu.edu.cn {bei.chen, morteza.ziyadi, zeqi.lin,",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "Microsoft Azure AI",
+        "start_char_doc": 289,
+        "end_char_doc": 307,
+        "prefix": "University, §Microsoft Research Asia, ♥",
+        "suffix": "qian.liu@buaa.edu.cn, jasperguo2013@stu.xjtu.edu.cn {bei.chen, morteza.ziyadi, zeqi.lin,",
+        "valueSource": "extracted"
+      },
+      "schema:url": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:type": {
+        "value": "Industry",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+
+    {
+      "@id": "task:table_question_answering",
+      "@type": "MLS_Task",
+      "mention": {
+        "start_char_doc": 6467,
+        "end_char_doc": 6497,
+        "prefix": "via two fundamental downstream tasks:",
+        "suffix": "(TableQA) and table-based fact verification",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "table-based question answering",
+        "start_char_doc": 6467,
+        "end_char_doc": 6497,
+        "prefix": "via two fundamental downstream tasks:",
+        "suffix": "(TableQA) and table-based fact verification",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "TableQA aims to retrieve table content to answer the user's question, and thus its output is either a list of cell values or number(s) calculated over the selected table region by aggregation functions",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:category": {
+        "value": "Question Answering",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:metrics": {
+        "value": "denotation accuracy",
+        "start_char_doc": 1387,
+        "end_char_doc": 1406,
+        "prefix": "improvements on the weakly-supervised WikiSQL",
+        "suffix": "to 89.5% (+2.3%), the WikiTableQuestions",
+        "valueSource": "extracted"
+      },
+      "benchmarkedOn": [
+        {"@id": "dataset:wikisql_weak"},
+        {"@id": "dataset:wikitablequestions"},
+        {"@id": "dataset:sqa"}
+      ]
+    },
+    {
+      "@id": "task:table_fact_verification",
+      "@type": "MLS_Task",
+      "mention": {
+        "start_char_doc": 6512,
+        "end_char_doc": 6541,
+        "prefix": "table-based question answering (TableQA) and",
+        "suffix": "(TableFV). To enable fine-tuning of",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "table-based fact verification",
+        "start_char_doc": 6512,
+        "end_char_doc": 6541,
+        "prefix": "table-based question answering (TableQA) and",
+        "suffix": "(TableFV). To enable fine-tuning of",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "The output is a binary decision entailed or refused, indicating whether the NL sentence follows the fact indicated by the table",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:category": {
+        "value": "Fact Verification",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:metrics": {
+        "value": "accuracy",
+        "start_char_doc": 21674,
+        "end_char_doc": 21686,
+        "prefix": "TABFACT, the evaluation metric is",
+        "suffix": ", which is calculated using",
+        "valueSource": "extracted"
+      },
+      "benchmarkedOn": [
+        {"@id": "dataset:tabfact"}
+      ]
+    },
+
+    {
+      "@id": "dataset:wikisql_weak",
+      "@type": "MLS_Dataset",
+      "mention": {
+        "start_char_doc": 20804,
+        "end_char_doc": 20826,
+        "prefix": "of our approach on weakly-supervised",
+        "suffix": "(Zhong et al., 2017), WIKITABLEQUESTIONS",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "WikiSQL (WIKISQL-WEAK)",
+        "start_char_doc": 20804,
+        "end_char_doc": 20826,
+        "prefix": "of our approach on weakly-supervised",
+        "suffix": "(Zhong et al., 2017), WIKITABLEQUESTIONS",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "Weakly-supervised table question answering dataset requiring filtering and optionally aggregating on table cell values",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:numInstances": {
+        "value": "80654",
+        "start_char_doc": 61951,
+        "end_char_doc": 61957,
+        "prefix": "rowspan=\"3\">TableQA</td> <td>WIKISQL-WEAK</td> <td>Simple QA</td> <td>",
+        "suffix": "</td> <td>24,241</td> </tr> <tr> <td>WIKITABLEQUESTIONS",
+        "valueSource": "extracted"
+      },
+      "schema:language": {
+        "value": "English",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:license": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:modality": {
+        "value": "tabular",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:numClasses": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "prov-derivedFrom": [{"@id": "datasource:wikisql"}]
+    },
+    {
+      "@id": "dataset:wikitablequestions",
+      "@type": "MLS_Dataset",
+      "mention": {
+        "start_char_doc": 6969,
+        "end_char_doc": 6987,
+        "prefix": "19.5% over BART in the",
+        "suffix": "dataset. Furthermore, TAPEX yields strong",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "WIKITABLEQUESTIONS",
+        "start_char_doc": 6969,
+        "end_char_doc": 6987,
+        "prefix": "19.5% over BART in the",
+        "suffix": "dataset. Furthermore, TAPEX yields strong",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "Complex table question answering dataset requiring more complicated reasoning capabilities",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:numInstances": {
+        "value": "22033",
+        "start_char_doc": 62074,
+        "end_char_doc": 62080,
+        "prefix": "<tr> <td>WIKITABLEQUESTIONS</td> <td>Complex QA</td> <td>",
+        "suffix": "</td> <td>2,108</td> </tr> <tr> <td>SQA</td>",
+        "valueSource": "extracted"
+      },
+      "schema:language": {
+        "value": "English",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:license": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:modality": {
+        "value": "tabular",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:numClasses": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "prov-derivedFrom": [{"@id": "datasource:wikitablequestions"}]
+    },
+    {
+      "@id": "dataset:sqa",
+      "@type": "MLS_Dataset",
+      "mention": {
+        "start_char_doc": 20893,
+        "end_char_doc": 20917,
+        "prefix": "WIKITABLEQUESTIONS (Pasupat & Liang, 2015),",
+        "suffix": ", and TABFACT (Chen et",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "SQA",
+        "start_char_doc": 1490,
+        "end_char_doc": 1493,
+        "prefix": "accuracy to 57.5% (+4.8%), the",
+        "suffix": "denotation accuracy to 74.5% (+3.5%),",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "Conversational table question answering benchmark requiring the approach to model the conversational context",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:numInstances": {
+        "value": "17553",
+        "start_char_doc": 62186,
+        "end_char_doc": 62192,
+        "prefix": "<tr> <td>SQA</td> <td>Conversation QA</td> <td>",
+        "suffix": "</td> <td>982</td> </tr> <tr> <td>TableFV</td>",
+        "valueSource": "extracted"
+      },
+      "schema:language": {
+        "value": "English",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:license": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:modality": {
+        "value": "tabular",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:numClasses": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "prov-derivedFrom": [{"@id": "datasource:sqa"}]
+    },
+    {
+      "@id": "dataset:tabfact",
+      "@type": "MLS_Dataset",
+      "mention": {
+        "start_char_doc": 20923,
+        "end_char_doc": 20950,
+        "prefix": "(Iyyer et al., 2017), and",
+        "suffix": ". Compared to WIKISQL-WEAK, which",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "TABFACT",
+        "start_char_doc": 20923,
+        "end_char_doc": 20930,
+        "prefix": "(Iyyer et al., 2017), and",
+        "suffix": "(Chen et al., 2020). Compared",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "Large-scale dataset for table-based fact verification",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:numInstances": {
+        "value": "118275",
+        "start_char_doc": 62325,
+        "end_char_doc": 62332,
+        "prefix": "<td>TableFV</td> <td>TABFACT</td> <td>Fact Verification</td> <td>",
+        "suffix": "</td> <td>16,573</td> </tr> </tbody> </table>",
+        "valueSource": "extracted"
+      },
+      "schema:language": {
+        "value": "English",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:license": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:modality": {
+        "value": "tabular",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:numClasses": {
+        "value": "2",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "prov-derivedFrom": [{"@id": "datasource:tabfact"}]
+    },
+
+    {
+      "@id": "datasource:wikisql",
+      "@type": "DataSource",
+      "mention": {
+        "start_char_doc": 1379,
+        "end_char_doc": 1386,
+        "prefix": "includes improvements on the weakly-supervised",
+        "suffix": "denotation accuracy to 89.5% (+2.3%),",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "WikiSQL",
+        "start_char_doc": 1379,
+        "end_char_doc": 1386,
+        "prefix": "includes improvements on the weakly-supervised",
+        "suffix": "denotation accuracy to 89.5% (+2.3%),",
+        "valueSource": "extracted"
+      },
+      "schema:url": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:type": {
+        "value": "benchmark dataset",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:license": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "datasource:wikitablequestions",
+      "@type": "DataSource",
+      "mention": {
+        "start_char_doc": 6969,
+        "end_char_doc": 6987,
+        "prefix": "19.5% over BART in the",
+        "suffix": "dataset. Furthermore, TAPEX yields strong",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "WIKITABLEQUESTIONS",
+        "start_char_doc": 6969,
+        "end_char_doc": 6987,
+        "prefix": "19.5% over BART in the",
+        "suffix": "dataset. Furthermore, TAPEX yields strong",
+        "valueSource": "extracted"
+      },
+      "schema:url": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:type": {
+        "value": "benchmark dataset",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:license": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "datasource:sqa",
+      "@type": "DataSource",
+      "mention": {
+        "start_char_doc": 1490,
+        "end_char_doc": 1493,
+        "prefix": "accuracy to 57.5% (+4.8%), the",
+        "suffix": "denotation accuracy to 74.5% (+3.5%),",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "SQA",
+        "start_char_doc": 1490,
+        "end_char_doc": 1493,
+        "prefix": "accuracy to 57.5% (+4.8%), the",
+        "suffix": "denotation accuracy to 74.5% (+3.5%),",
+        "valueSource": "extracted"
+      },
+      "schema:url": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:type": {
+        "value": "benchmark dataset",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:license": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "datasource:tabfact",
+      "@type": "DataSource",
+      "mention": {
+        "start_char_doc": 20923,
+        "end_char_doc": 20930,
+        "prefix": "(Iyyer et al., 2017), and",
+        "suffix": "(Chen et al., 2020). Compared",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "TABFACT",
+        "start_char_doc": 20923,
+        "end_char_doc": 20930,
+        "prefix": "(Iyyer et al., 2017), and",
+        "suffix": "(Chen et al., 2020). Compared",
+        "valueSource": "extracted"
+      },
+      "schema:url": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:type": {
+        "value": "benchmark dataset",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:license": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+
+    {
+      "@id": "method:tapex",
+      "@type": "Method",
+      "mention": {
+        "start_char_doc": 724,
+        "end_char_doc": 740,
+        "prefix": "tabular data. In this paper,",
+        "suffix": "to show that table pre-training",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "TAPEX",
+        "start_char_doc": 57,
+        "end_char_doc": 62,
+        "prefix": "conference paper at ICLR 2022",
+        "suffix": ": TABLE PRE-TRAINING VIA LEARNING",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "An execution-centric table pre-training approach whose corpus is automatically synthesized via sampling SQL queries and their execution results. TAPEX addresses the data scarcity challenge in table pre-training by learning a neural SQL executor on a diverse, large-scale, and high-quality synthetic corpus.",
+        "start_char_doc": 4658,
+        "end_char_doc": 4703,
+        "prefix": "paper, we present a novel",
+        "suffix": "TAPEX (Table Pre-training via Execution).",
+        "valueSource": "extracted"
+      },
+      "schema:version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "trainedOn": [
+        {"@id": "dataset:wikisql_weak"},
+        {"@id": "dataset:wikitablequestions"},
+        {"@id": "dataset:sqa"},
+        {"@id": "dataset:tabfact"}
+      ],
+      "evaluatedOn": [
+        {"@id": "dataset:wikisql_weak"},
+        {"@id": "dataset:wikitablequestions"},
+        {"@id": "dataset:sqa"},
+        {"@id": "dataset:tabfact"}
+      ],
+      "achieves": [
+        {"@id": "eval:denotation_accuracy_wikisql_weak_test"},
+        {"@id": "eval:denotation_accuracy_wikitablequestions_test"},
+        {"@id": "eval:denotation_accuracy_sqa_all"},
+        {"@id": "eval:accuracy_tabfact_test"},
+        {"@id": "eval:denotation_accuracy_wikisql_weak_dev"},
+        {"@id": "eval:denotation_accuracy_wikitablequestions_dev"},
+        {"@id": "eval:denotation_accuracy_sqa_seq"},
+        {"@id": "eval:accuracy_tabfact_dev"}
+      ],
+      "subMethod": [
+        {"@id": "model:tapex_bart_large"}
+      ]
+    },
+
+    {
+      "@id": "model:tapex_bart_large",
+      "@type": ["MLS_Model", "Method"],
+      "mention": {
+        "start_char_doc": 6292,
+        "end_char_doc": 6339,
+        "prefix": "model. Specifically, we employ the",
+        "suffix": "(Lewis et al., 2020) as",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "TAPEX (BART-Large backbone)",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:description": {
+        "value": "TAPEX model based on BART-Large, a pre-trained encoder-decoder language model with 12 layers in both the encoder and the decoder, using GeLU activation and sequence-to-sequence Transformer architecture",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:architecture": {
+        "value": "sequence-to-sequence Transformer architecture",
+        "start_char_doc": 10247,
+        "end_char_doc": 10292,
+        "prefix": "model. BART follows a standard",
+        "suffix": "(Vaswani et al., 2017), with",
+        "valueSource": "extracted"
+      },
+      "schema:parameters": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "trainedOn": [
+        {"@id": "dataset:wikisql_weak"},
+        {"@id": "dataset:wikitablequestions"},
+        {"@id": "dataset:sqa"},
+        {"@id": "dataset:tabfact"}
+      ],
+      "evaluatedOn": [
+        {"@id": "dataset:wikisql_weak"},
+        {"@id": "dataset:wikitablequestions"},
+        {"@id": "dataset:sqa"},
+        {"@id": "dataset:tabfact"}
+      ],
+      "achieves": [
+        {"@id": "eval:denotation_accuracy_wikisql_weak_test"},
+        {"@id": "eval:denotation_accuracy_wikitablequestions_test"},
+        {"@id": "eval:denotation_accuracy_sqa_all"},
+        {"@id": "eval:accuracy_tabfact_test"}
+      ],
+      "subMethod": []
+    },
+
+    {
+      "@id": "eval:denotation_accuracy_wikisql_weak_dev",
+      "@type": "MLS_Eval",
+      "mention": {
+        "start_char_doc": 17067,
+        "end_char_doc": 17071,
+        "prefix": "<td>85.8</td> </tr> <tr> <td>TAPEX</td> <td><b>",
+        "suffix": "</b></td> <td><b>89.5</b></td> </tr> </tbody> </table>",
+        "valueSource": "extracted"
+      },
+      "mls:measure": {
+        "value": "denotation accuracy",
+        "start_char_doc": 1387,
+        "end_char_doc": 1406,
+        "prefix": "improvements on the weakly-supervised WikiSQL",
+        "suffix": "to 89.5% (+2.3%), the WikiTableQuestions",
+        "valueSource": "extracted"
+      },
+      "mls:hasValue": {
+        "value": "89.2",
+        "start_char_doc": 17067,
+        "end_char_doc": 17071,
+        "prefix": "<td>85.8</td> </tr> <tr> <td>TAPEX</td> <td><b>",
+        "suffix": "</b></td> <td><b>89.5</b></td> </tr> </tbody> </table>",
+        "valueSource": "extracted"
+      },
+      "mls:stdDev": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:confidenceInterval": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:onDataset": {"@id": "dataset:wikisql_weak"},
+      "mls:split": {
+        "value": "dev",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "eval:denotation_accuracy_wikisql_weak_test",
+      "@type": "MLS_Eval",
+      "mention": {
+        "start_char_doc": 1410,
+        "end_char_doc": 1415,
+        "prefix": "weakly-supervised WikiSQL denotation accuracy to",
+        "suffix": "(+2.3%), the WikiTableQuestions denotation accuracy",
+        "valueSource": "extracted"
+      },
+      "mls:measure": {
+        "value": "denotation accuracy",
+        "start_char_doc": 1387,
+        "end_char_doc": 1406,
+        "prefix": "improvements on the weakly-supervised WikiSQL",
+        "suffix": "to 89.5% (+2.3%), the WikiTableQuestions",
+        "valueSource": "extracted"
+      },
+      "mls:hasValue": {
+        "value": "89.5",
+        "start_char_doc": 1410,
+        "end_char_doc": 1414,
+        "prefix": "weakly-supervised WikiSQL denotation accuracy to",
+        "suffix": "% (+2.3%), the WikiTableQuestions denotation",
+        "valueSource": "extracted"
+      },
+      "mls:stdDev": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:confidenceInterval": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:onDataset": {"@id": "dataset:wikisql_weak"},
+      "mls:split": {
+        "value": "test",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "eval:denotation_accuracy_wikitablequestions_dev",
+      "@type": "MLS_Eval",
+      "mention": {
+        "start_char_doc": 18648,
+        "end_char_doc": 18652,
+        "prefix": "<td>38.0</td> </tr> <tr> <td>TAPEX</td> <td><b>",
+        "suffix": "</b></td> <td><b>57.5</b></td> </tr> </tbody> </table>",
+        "valueSource": "extracted"
+      },
+      "mls:measure": {
+        "value": "denotation accuracy",
+        "start_char_doc": 1387,
+        "end_char_doc": 1406,
+        "prefix": "improvements on the weakly-supervised WikiSQL",
+        "suffix": "to 89.5% (+2.3%), the WikiTableQuestions",
+        "valueSource": "extracted"
+      },
+      "mls:hasValue": {
+        "value": "57.0",
+        "start_char_doc": 18648,
+        "end_char_doc": 18652,
+        "prefix": "<td>38.0</td> </tr> <tr> <td>TAPEX</td> <td><b>",
+        "suffix": "</b></td> <td><b>57.5</b></td> </tr> </tbody> </table>",
+        "valueSource": "extracted"
+      },
+      "mls:stdDev": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:confidenceInterval": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:onDataset": {"@id": "dataset:wikitablequestions"},
+      "mls:split": {
+        "value": "dev",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "eval:denotation_accuracy_wikitablequestions_test",
+      "@type": "MLS_Eval",
+      "mention": {
+        "start_char_doc": 1471,
+        "end_char_doc": 1476,
+        "prefix": "the WikiTableQuestions denotation accuracy to",
+        "suffix": "(+4.8%), the SQA denotation accuracy",
+        "valueSource": "extracted"
+      },
+      "mls:measure": {
+        "value": "denotation accuracy",
+        "start_char_doc": 1387,
+        "end_char_doc": 1406,
+        "prefix": "improvements on the weakly-supervised WikiSQL",
+        "suffix": "to 89.5% (+2.3%), the WikiTableQuestions",
+        "valueSource": "extracted"
+      },
+      "mls:hasValue": {
+        "value": "57.5",
+        "start_char_doc": 1471,
+        "end_char_doc": 1475,
+        "prefix": "the WikiTableQuestions denotation accuracy to",
+        "suffix": "% (+4.8%), the SQA denotation",
+        "valueSource": "extracted"
+      },
+      "mls:stdDev": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:confidenceInterval": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:onDataset": {"@id": "dataset:wikitablequestions"},
+      "mls:split": {
+        "value": "test",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "eval:denotation_accuracy_sqa_all",
+      "@type": "MLS_Eval",
+      "mention": {
+        "start_char_doc": 1517,
+        "end_char_doc": 1522,
+        "prefix": "the SQA denotation accuracy to",
+        "suffix": "(+3.5%), and the TabFact accuracy",
+        "valueSource": "extracted"
+      },
+      "mls:measure": {
+        "value": "denotation accuracy",
+        "start_char_doc": 1387,
+        "end_char_doc": 1406,
+        "prefix": "improvements on the weakly-supervised WikiSQL",
+        "suffix": "to 89.5% (+2.3%), the WikiTableQuestions",
+        "valueSource": "extracted"
+      },
+      "mls:hasValue": {
+        "value": "74.5",
+        "start_char_doc": 1517,
+        "end_char_doc": 1521,
+        "prefix": "the SQA denotation accuracy to",
+        "suffix": "% (+3.5%), and the TabFact",
+        "valueSource": "extracted"
+      },
+      "mls:stdDev": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:confidenceInterval": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:onDataset": {"@id": "dataset:sqa"},
+      "mls:split": {
+        "value": "test (ALL)",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "eval:denotation_accuracy_sqa_seq",
+      "@type": "MLS_Eval",
+      "mention": {
+        "start_char_doc": 24038,
+        "end_char_doc": 24042,
+        "prefix": "</tr> <tr> <td><b>TAPEX</b></td> <td><b><u>74.5</u></b></td> <td><b><u>",
+        "suffix": "</u></b></td> <td><b>76.2</b></td> <td><b><u>71.9</u></b></td> <td><b><u>76.9</u></b></td> </tr>",
+        "valueSource": "extracted"
+      },
+      "mls:measure": {
+        "value": "denotation accuracy (SEQ)",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "48.4",
+        "start_char_doc": 24038,
+        "end_char_doc": 24042,
+        "prefix": "</tr> <tr> <td><b>TAPEX</b></td> <td><b><u>74.5</u></b></td> <td><b><u>",
+        "suffix": "</u></b></td> <td><b>76.2</b></td> <td><b><u>71.9</u></b></td> <td><b><u>76.9</u></b></td> </tr>",
+        "valueSource": "extracted"
+      },
+      "mls:stdDev": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:confidenceInterval": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:onDataset": {"@id": "dataset:sqa"},
+      "mls:split": {
+        "value": "test (SEQ)",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "eval:accuracy_tabfact_dev",
+      "@type": "MLS_Eval",
+      "mention": {
+        "start_char_doc": 25871,
+        "end_char_doc": 25875,
+        "prefix": "<td><b>82.5</b></td> </tr> <tr> <td><b>TAPEX</b></td> <td><b>",
+        "suffix": "</b></td> <td><b>84.2</b></td> <td><b>93.9</b></td> <td><b>79.6</b></td> <td><b>85.9</b></td>",
+        "valueSource": "extracted"
+      },
+      "mls:measure": {
+        "value": "accuracy",
+        "start_char_doc": 21674,
+        "end_char_doc": 21686,
+        "prefix": "TABFACT, the evaluation metric is",
+        "suffix": ", which is calculated using",
+        "valueSource": "extracted"
+      },
+      "mls:hasValue": {
+        "value": "84.6",
+        "start_char_doc": 25871,
+        "end_char_doc": 25875,
+        "prefix": "<td><b>82.5</b></td> </tr> <tr> <td><b>TAPEX</b></td> <td><b>",
+        "suffix": "</b></td> <td><b>84.2</b></td> <td><b>93.9</b></td> <td><b>79.6</b></td> <td><b>85.9</b></td>",
+        "valueSource": "extracted"
+      },
+      "mls:stdDev": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:confidenceInterval": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:onDataset": {"@id": "dataset:tabfact"},
+      "mls:split": {
+        "value": "dev",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "eval:accuracy_tabfact_test",
+      "@type": "MLS_Eval",
+      "mention": {
+        "start_char_doc": 1560,
+        "end_char_doc": 1565,
+        "prefix": "and the TabFact accuracy to",
+        "suffix": "(+3.2%). To our knowledge, this",
+        "valueSource": "extracted"
+      },
+      "mls:measure": {
+        "value": "accuracy",
+        "start_char_doc": 21674,
+        "end_char_doc": 21686,
+        "prefix": "TABFACT, the evaluation metric is",
+        "suffix": ", which is calculated using",
+        "valueSource": "extracted"
+      },
+      "mls:hasValue": {
+        "value": "84.2",
+        "start_char_doc": 1560,
+        "end_char_doc": 1564,
+        "prefix": "and the TabFact accuracy to",
+        "suffix": "% (+3.2%). To our knowledge,",
+        "valueSource": "extracted"
+      },
+      "mls:stdDev": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:confidenceInterval": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:onDataset": {"@id": "dataset:tabfact"},
+      "mls:split": {
+        "value": "test",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+
+    {
+      "@id": "expg:group_tapex_2022",
+      "@type": "mls:ExperimentGroup",
+      "mention": {
+        "start_char_doc": 20723,
+        "end_char_doc": 20734,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:hypothesis": {
+        "value": "Table pre-training can be achieved by learning a neural SQL executor over a synthetic corpus, which leads to significant improvements on downstream table understanding tasks including table-based question answering and table-based fact verification.",
+        "start_char_doc": 754,
+        "end_char_doc": 846,
+        "prefix": "propose TAPEX to show that",
+        "suffix": ", which is obtained by",
+        "valueSource": "extracted"
+      },
+      "schema:methodology": {
+        "value": "Pre-train BART-Large as a neural SQL executor on 5 million synthetic SQL query-execution result pairs, then fine-tune on downstream tasks using a generative sequence-to-sequence paradigm. Report median performance over five random runs.",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:evaluationMeasure": [
+        {"@id": "eval:denotation_accuracy_wikisql_weak_test"},
+        {"@id": "eval:denotation_accuracy_wikitablequestions_test"},
+        {"@id": "eval:denotation_accuracy_sqa_all"},
+        {"@id": "eval:accuracy_tabfact_test"}
+      ],
+      "mls:task": [
+        {"@id": "task:table_question_answering"},
+        {"@id": "task:table_fact_verification"}
+      ],
+      "mls:hasSubExperiment": [
+        {
+          "@id": "exp:tapex_wikisql_weak",
+          "@type": "mls:Experiment",
+          "mention": {
+            "start_char_doc": 17173,
+            "end_char_doc": 17185,
+            "prefix": "Table 1: Denotation accuracies on",
+            "suffix": ". *Execution-Guided Decoding* is proposed",
+            "valueSource": "extracted"
+          },
+          "schema:description": {
+            "value": "Evaluation of TAPEX on the weakly-supervised WikiSQL dataset for simple table question answering",
+            "start_char_doc": null,
+            "end_char_doc": null,
+            "prefix": null,
+            "suffix": null,
+            "valueSource": "inferred"
+          },
+          "realizes": [{"@id": "task:table_question_answering"}],
+          "usesData": [{"@id": "dataset:wikisql_weak"}],
+          "produces": [{"@id": "method:tapex"}],
+          "usesParameters": [
+            {"@id": "hp:learning_rate"},
+            {"@id": "hp:batch_size_pretraining"},
+            {"@id": "hp:batch_size_finetuning"},
+            {"@id": "hp:max_steps_pretraining"},
+            {"@id": "hp:max_steps_finetuning"},
+            {"@id": "hp:num_layers_encoder"},
+            {"@id": "hp:num_layers_decoder"}
+          ],
+          "executes": [{"@id": "impl:tapex_fairseq"}],
+          "mls:result": {
+            "value": "denotation accuracy: 89.2% (dev), 89.5% (test)",
+            "start_char_doc": 1410,
+            "end_char_doc": 1415,
+            "prefix": "weakly-supervised WikiSQL denotation accuracy to",
+            "suffix": "(+2.3%), the WikiTableQuestions denotation accuracy",
+            "valueSource": "extracted"
+          }
+        },
+        {
+          "@id": "exp:tapex_wikitablequestions",
+          "@type": "mls:Experiment",
+          "mention": {
+            "start_char_doc": 6969,
+            "end_char_doc": 6987,
+            "prefix": "19.5% over BART in the",
+            "suffix": "dataset. Furthermore, TAPEX yields strong",
+            "valueSource": "extracted"
+          },
+          "schema:description": {
+            "value": "Evaluation of TAPEX on the WIKITABLEQUESTIONS dataset for complex table question answering",
+            "start_char_doc": null,
+            "end_char_doc": null,
+            "prefix": null,
+            "suffix": null,
+            "valueSource": "inferred"
+          },
+          "realizes": [{"@id": "task:table_question_answering"}],
+          "usesData": [{"@id": "dataset:wikitablequestions"}],
+          "produces": [{"@id": "method:tapex"}],
+          "usesParameters": [
+            {"@id": "hp:learning_rate"},
+            {"@id": "hp:batch_size_pretraining"},
+            {"@id": "hp:batch_size_finetuning"},
+            {"@id": "hp:max_steps_pretraining"},
+            {"@id": "hp:max_steps_finetuning"},
+            {"@id": "hp:num_layers_encoder"},
+            {"@id": "hp:num_layers_decoder"}
+          ],
+          "executes": [{"@id": "impl:tapex_fairseq"}],
+          "mls:result": {
+            "value": "denotation accuracy: 57.0% (dev), 57.5% (test)",
+            "start_char_doc": 1471,
+            "end_char_doc": 1476,
+            "prefix": "the WikiTableQuestions denotation accuracy to",
+            "suffix": "(+4.8%), the SQA denotation accuracy",
+            "valueSource": "extracted"
+          }
+        },
+        {
+          "@id": "exp:tapex_sqa",
+          "@type": "mls:Experiment",
+          "mention": {
+            "start_char_doc": 20893,
+            "end_char_doc": 20917,
+            "prefix": "WIKITABLEQUESTIONS (Pasupat & Liang, 2015),",
+            "suffix": ", and TABFACT (Chen et",
+            "valueSource": "extracted"
+          },
+          "schema:description": {
+            "value": "Evaluation of TAPEX on the SQA conversational table question answering benchmark",
+            "start_char_doc": null,
+            "end_char_doc": null,
+            "prefix": null,
+            "suffix": null,
+            "valueSource": "inferred"
+          },
+          "realizes": [{"@id": "task:table_question_answering"}],
+          "usesData": [{"@id": "dataset:sqa"}],
+          "produces": [{"@id": "method:tapex"}],
+          "usesParameters": [
+            {"@id": "hp:learning_rate"},
+            {"@id": "hp:batch_size_pretraining"},
+            {"@id": "hp:batch_size_finetuning"},
+            {"@id": "hp:max_steps_pretraining"},
+            {"@id": "hp:max_steps_finetuning"},
+            {"@id": "hp:num_layers_encoder"},
+            {"@id": "hp:num_layers_decoder"}
+          ],
+          "executes": [{"@id": "impl:tapex_fairseq"}],
+          "mls:result": {
+            "value": "denotation accuracy: 74.5% (ALL), 48.4% (SEQ)",
+            "start_char_doc": 1517,
+            "end_char_doc": 1522,
+            "prefix": "the SQA denotation accuracy to",
+            "suffix": "(+3.5%), and the TabFact accuracy",
+            "valueSource": "extracted"
+          }
+        },
+        {
+          "@id": "exp:tapex_tabfact",
+          "@type": "mls:Experiment",
+          "mention": {
+            "start_char_doc": 20923,
+            "end_char_doc": 20950,
+            "prefix": "(Iyyer et al., 2017), and",
+            "suffix": ". Compared to WIKISQL-WEAK, which",
+            "valueSource": "extracted"
+          },
+          "schema:description": {
+            "value": "Evaluation of TAPEX on the TABFACT dataset for table-based fact verification",
+            "start_char_doc": null,
+            "end_char_doc": null,
+            "prefix": null,
+            "suffix": null,
+            "valueSource": "inferred"
+          },
+          "realizes": [{"@id": "task:table_fact_verification"}],
+          "usesData": [{"@id": "dataset:tabfact"}],
+          "produces": [{"@id": "method:tapex"}],
+          "usesParameters": [
+            {"@id": "hp:learning_rate"},
+            {"@id": "hp:batch_size_pretraining"},
+            {"@id": "hp:batch_size_finetuning"},
+            {"@id": "hp:max_steps_pretraining"},
+            {"@id": "hp:max_steps_finetuning"},
+            {"@id": "hp:num_layers_encoder"},
+            {"@id": "hp:num_layers_decoder"}
+          ],
+          "executes": [{"@id": "impl:tapex_fairseq"}],
+          "mls:result": {
+            "value": "accuracy: 84.6% (dev), 84.2% (test)",
+            "start_char_doc": 1560,
+            "end_char_doc": 1565,
+            "prefix": "and the TabFact accuracy to",
+            "suffix": "(+3.2%). To our knowledge, this",
+            "valueSource": "extracted"
+          }
+        }
+      ]
+    },
+
+    {
+      "@id": "hp:learning_rate",
+      "@type": "MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 26768,
+        "end_char_doc": 26774,
+        "prefix": "fine-tuning, the learning rate is",
+        "suffix": ". 4.1 MAIN RESULTS Table",
+        "valueSource": "extracted"
+      },
+      "mls:name": {
+        "value": "learning rate",
+        "start_char_doc": 26751,
+        "end_char_doc": 26774,
+        "prefix": "both pre-training and fine-tuning, the",
+        "suffix": ". 4.1 MAIN RESULTS Table",
+        "valueSource": "extracted"
+      },
+      "mls:hasValue": {
+        "value": "3e-5",
+        "start_char_doc": 26768,
+        "end_char_doc": 26774,
+        "prefix": "fine-tuning, the learning rate is",
+        "suffix": ". 4.1 MAIN RESULTS Table",
+        "valueSource": "extracted"
+      },
+      "mls:wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:type": {
+        "value": "float",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:searchSpace": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hpCategory": "HP_Optimization",
+      "hpType": "LearningRate",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:batch_size_pretraining",
+      "@type": "MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 26425,
+        "end_char_doc": 26442,
+        "prefix": "to 50,000 steps with a",
+        "suffix": ". It takes about 36",
+        "valueSource": "extracted"
+      },
+      "mls:name": {
+        "value": "batch size (pre-training)",
+        "start_char_doc": 26425,
+        "end_char_doc": 26442,
+        "prefix": "to 50,000 steps with a",
+        "suffix": ". It takes about 36",
+        "valueSource": "extracted"
+      },
+      "mls:hasValue": {
+        "value": "256",
+        "start_char_doc": 26439,
+        "end_char_doc": 26442,
+        "prefix": "steps with a batch size of",
+        "suffix": ". It takes about 36",
+        "valueSource": "extracted"
+      },
+      "mls:wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:type": {
+        "value": "integer",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:searchSpace": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hpCategory": "HP_Training",
+      "hpType": "BatchSize",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:batch_size_finetuning",
+      "@type": "MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 26689,
+        "end_char_doc": 26706,
+        "prefix": "to 20,000 steps with a",
+        "suffix": ". For both pre-training and",
+        "valueSource": "extracted"
+      },
+      "mls:name": {
+        "value": "batch size (fine-tuning)",
+        "start_char_doc": 26689,
+        "end_char_doc": 26706,
+        "prefix": "to 20,000 steps with a",
+        "suffix": ". For both pre-training and",
+        "valueSource": "extracted"
+      },
+      "mls:hasValue": {
+        "value": "128",
+        "start_char_doc": 26703,
+        "end_char_doc": 26706,
+        "prefix": "steps with a batch size of",
+        "suffix": ". For both pre-training and",
+        "valueSource": "extracted"
+      },
+      "mls:wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:type": {
+        "value": "integer",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:searchSpace": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hpCategory": "HP_Training",
+      "hpType": "BatchSize",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:max_steps_pretraining",
+      "@type": "MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 26405,
+        "end_char_doc": 26417,
+        "prefix": "pre-training procedure runs up to",
+        "suffix": "with a batch size of",
+        "valueSource": "extracted"
+      },
+      "mls:name": {
+        "value": "max steps (pre-training)",
+        "start_char_doc": 26405,
+        "end_char_doc": 26417,
+        "prefix": "pre-training procedure runs up to",
+        "suffix": "with a batch size of",
+        "valueSource": "extracted"
+      },
+      "mls:hasValue": {
+        "value": "50000",
+        "start_char_doc": 26405,
+        "end_char_doc": 26417,
+        "prefix": "pre-training procedure runs up to",
+        "suffix": "with a batch size of",
+        "valueSource": "extracted"
+      },
+      "mls:wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:type": {
+        "value": "integer",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:searchSpace": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hpCategory": "HP_Training",
+      "hpType": "MaxSteps",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:max_steps_finetuning",
+      "@type": "MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 26669,
+        "end_char_doc": 26681,
+        "prefix": "fine-tuning procedure runs up to",
+        "suffix": "with a batch size of",
+        "valueSource": "extracted"
+      },
+      "mls:name": {
+        "value": "max steps (fine-tuning)",
+        "start_char_doc": 26669,
+        "end_char_doc": 26681,
+        "prefix": "fine-tuning procedure runs up to",
+        "suffix": "with a batch size of",
+        "valueSource": "extracted"
+      },
+      "mls:hasValue": {
+        "value": "20000",
+        "start_char_doc": 26669,
+        "end_char_doc": 26681,
+        "prefix": "fine-tuning procedure runs up to",
+        "suffix": "with a batch size of",
+        "valueSource": "extracted"
+      },
+      "mls:wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:type": {
+        "value": "integer",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:searchSpace": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hpCategory": "HP_Training",
+      "hpType": "MaxSteps",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:num_layers_encoder",
+      "@type": "MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 10642,
+        "end_char_doc": 10696,
+        "prefix": "configuration in our experiments, i.e.,",
+        "suffix": ". **Model Input** As illustrated",
+        "valueSource": "extracted"
+      },
+      "mls:name": {
+        "value": "num layers (encoder)",
+        "start_char_doc": 10642,
+        "end_char_doc": 10696,
+        "prefix": "configuration in our experiments, i.e.,",
+        "suffix": ". **Model Input** As illustrated",
+        "valueSource": "extracted"
+      },
+      "mls:hasValue": {
+        "value": "12",
+        "start_char_doc": 10642,
+        "end_char_doc": 10644,
+        "prefix": "configuration in our experiments, i.e.,",
+        "suffix": "layers are used in both",
+        "valueSource": "extracted"
+      },
+      "mls:wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:type": {
+        "value": "integer",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:searchSpace": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hpCategory": "HP_Architecture",
+      "hpType": "NumLayers",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:num_layers_decoder",
+      "@type": "MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 10642,
+        "end_char_doc": 10696,
+        "prefix": "configuration in our experiments, i.e.,",
+        "suffix": ". **Model Input** As illustrated",
+        "valueSource": "extracted"
+      },
+      "mls:name": {
+        "value": "num layers (decoder)",
+        "start_char_doc": 10642,
+        "end_char_doc": 10696,
+        "prefix": "configuration in our experiments, i.e.,",
+        "suffix": ". **Model Input** As illustrated",
+        "valueSource": "extracted"
+      },
+      "mls:hasValue": {
+        "value": "12",
+        "start_char_doc": 10642,
+        "end_char_doc": 10644,
+        "prefix": "configuration in our experiments, i.e.,",
+        "suffix": "layers are used in both",
+        "valueSource": "extracted"
+      },
+      "mls:wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:type": {
+        "value": "integer",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:searchSpace": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hpCategory": "HP_Architecture",
+      "hpType": "NumLayers",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:pretraining_corpus_size",
+      "@type": "MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 21884,
+        "end_char_doc": 21893,
+        "prefix": "pre-training, we synthesize up to",
+        "suffix": "pairs of SQL queries and",
+        "valueSource": "extracted"
+      },
+      "mls:name": {
+        "value": "pre-training corpus size",
+        "start_char_doc": 21884,
+        "end_char_doc": 21942,
+        "prefix": "pre-training, we synthesize up to",
+        "suffix": "for",
+        "valueSource": "extracted"
+      },
+      "mls:hasValue": {
+        "value": "5000000",
+        "start_char_doc": 21884,
+        "end_char_doc": 21893,
+        "prefix": "pre-training, we synthesize up to",
+        "suffix": "pairs of SQL queries and",
+        "valueSource": "extracted"
+      },
+      "mls:wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:type": {
+        "value": "integer",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:searchSpace": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hpCategory": "HP_Data",
+      "hpType": "HP_Data",
+      "uncertain": true
+    },
+    {
+      "@id": "hp:num_tables_pretraining",
+      "@type": "MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 19242,
+        "end_char_doc": 19255,
+        "prefix": "Concretely, we randomly select nearly",
+        "suffix": "from the training set of",
+        "valueSource": "extracted"
+      },
+      "mls:name": {
+        "value": "number of tables (pre-training source)",
+        "start_char_doc": 19242,
+        "end_char_doc": 19255,
+        "prefix": "Concretely, we randomly select nearly",
+        "suffix": "from the training set of",
+        "valueSource": "extracted"
+      },
+      "mls:hasValue": {
+        "value": "1500",
+        "start_char_doc": 19242,
+        "end_char_doc": 19255,
+        "prefix": "Concretely, we randomly select nearly",
+        "suffix": "from the training set of",
+        "valueSource": "extracted"
+      },
+      "mls:wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:type": {
+        "value": "integer",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:searchSpace": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hpCategory": "HP_Data",
+      "hpType": "HP_Data",
+      "uncertain": true
+    },
+    {
+      "@id": "hp:random_seed",
+      "@type": "MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 27050,
+        "end_char_doc": 27066,
+        "prefix": "performance of our approach for",
+        "suffix": ". **WIKISQL-WEAK** As shown in",
+        "valueSource": "extracted"
+      },
+      "mls:name": {
+        "value": "random seed (five random runs)",
+        "start_char_doc": 27050,
+        "end_char_doc": 27066,
+        "prefix": "performance of our approach for",
+        "suffix": ". **WIKISQL-WEAK** As shown in",
+        "valueSource": "extracted"
+      },
+      "mls:hasValue": {
+        "value": "5 runs",
+        "start_char_doc": 27050,
+        "end_char_doc": 27066,
+        "prefix": "performance of our approach for",
+        "suffix": ". **WIKISQL-WEAK** As shown in",
+        "valueSource": "extracted"
+      },
+      "mls:wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:type": {
+        "value": "integer",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:searchSpace": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hpCategory": "HP_Training",
+      "hpType": "RandomSeed",
+      "uncertain": true
+    },
+
+    {
+      "@id": "repo:table_pretraining",
+      "@type": "SoftwareRepository",
+      "mention": {
+        "start_char_doc": 1778,
+        "end_char_doc": 1824,
+        "prefix": "code can be found at",
+        "suffix": ". 1 INTRODUCTION Pre-trained language",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "Table-Pretraining",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:url": {
+        "value": "https://github.com/microsoft/Table-Pretraining",
+        "start_char_doc": 1778,
+        "end_char_doc": 1824,
+        "prefix": "code can be found at",
+        "suffix": ". 1 INTRODUCTION Pre-trained language",
+        "valueSource": "extracted"
+      },
+      "schema:version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:programmingLanguage": {
+        "value": "Python",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:dateModified": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:license": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:documentationUrl": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "contains": [{"@id": "impl:tapex_fairseq"}],
+      "supports": [{"@id": "env:tesla_v100_fairseq"}]
+    },
+
+    {
+      "@id": "impl:tapex_fairseq",
+      "@type": "MLS_Implementation",
+      "mention": {
+        "start_char_doc": 21815,
+        "end_char_doc": 21822,
+        "prefix": "implement our approach based on",
+        "suffix": "(Ott et al., 2019). During",
+        "valueSource": "extracted"
+      },
+      "schema:identifier": {
+        "value": "TAPEX fairseq implementation",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:codeRepository": {
+        "value": "https://github.com/microsoft/Table-Pretraining",
+        "start_char_doc": 1778,
+        "end_char_doc": 1824,
+        "prefix": "code can be found at",
+        "suffix": ". 1 INTRODUCTION Pre-trained language",
+        "valueSource": "extracted"
+      },
+      "mls:framework": {
+        "value": "fairseq",
+        "start_char_doc": 21815,
+        "end_char_doc": 21822,
+        "prefix": "implement our approach based on",
+        "suffix": "(Ott et al., 2019). During",
+        "valueSource": "extracted"
+      },
+      "mls:dependencies": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:executionCommand": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:entryPoint": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:commitHash": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:branch": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "runsIn": {"@id": "env:tesla_v100_fairseq"},
+      "requires": [{"@id": "dep:fairseq"}]
+    },
+
+    {
+      "@id": "dep:fairseq",
+      "@type": "Dependency",
+      "mention": {
+        "start_char_doc": 21815,
+        "end_char_doc": 21822,
+        "prefix": "implement our approach based on",
+        "suffix": "(Ott et al., 2019). During",
+        "valueSource": "extracted"
+      },
+      "mls:packageName": {
+        "value": "fairseq",
+        "start_char_doc": 21815,
+        "end_char_doc": 21822,
+        "prefix": "implement our approach based on",
+        "suffix": "(Ott et al., 2019). During",
+        "valueSource": "extracted"
+      },
+      "mls:version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:type": {
+        "value": "Python library",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:isOptional": {
+        "value": false,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+
+    {
+      "@id": "env:tesla_v100_fairseq",
+      "@type": "Environment",
+      "mention": {
+        "start_char_doc": 26471,
+        "end_char_doc": 26488,
+        "prefix": "takes about 36 hours on",
+        "suffix": "to finish the pre-training. The",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "8x Tesla V100 GPU environment with fairseq",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:description": {
+        "value": "Pre-training takes about 36 hours on 8 Tesla V100 GPUs",
+        "start_char_doc": 26443,
+        "end_char_doc": 26488,
+        "prefix": "batch size of 256. It",
+        "suffix": "to finish the pre-training. The",
+        "valueSource": "extracted"
+      },
+      "mls:hardwareSpecs": {
+        "value": "8 Tesla V100 GPUs",
+        "start_char_doc": 26471,
+        "end_char_doc": 26488,
+        "prefix": "takes about 36 hours on",
+        "suffix": "to finish the pre-training. The",
+        "valueSource": "extracted"
+      },
+      "mls:os": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:pythonVersion": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:requirementsFile": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:isDockerized": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    }
+  ]
+}

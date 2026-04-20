@@ -1,0 +1,1899 @@
+{
+  "@context": {
+    "mls": "http://www.w3.org/ns/mls#",
+    "schema": "http://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "model": "https://w3id.org/mlskg/model/",
+    "algo": "https://w3id.org/mlskg/algorithm/",
+    "method": "https://w3id.org/mlskg/method/",
+    "dataset": "https://w3id.org/mlskg/dataset/",
+    "datasource": "https://w3id.org/mlskg/datasource/",
+    "task": "https://w3id.org/mlskg/task/",
+    "eval": "https://w3id.org/mlskg/eval/",
+    "hp": "https://w3id.org/mlskg/hp/",
+    "impl": "https://w3id.org/mlskg/implementation/",
+    "env": "https://w3id.org/mlskg/environment/",
+    "prompt": "https://w3id.org/mlskg/prompt/",
+    "person": "https://w3id.org/mlskg/person/",
+    "org": "https://w3id.org/mlskg/organization/",
+    "study": "https://w3id.org/mlskg/study/",
+    "exp": "https://w3id.org/mlskg/experiment/",
+    "expg": "https://w3id.org/mlskg/experimentgroup/",
+    "repo": "https://w3id.org/mlskg/repository/",
+    "valueSource": "https://w3id.org/mlskg/meta/valueSource",
+    "mention": "https://w3id.org/mlskg/meta/mention",
+    "Study": "mls:Study",
+    "Experiment": "mls:Experiment",
+    "mls:ExperimentGroup": "mls:ExperimentGroup",
+    "Person": "mls:Person",
+    "Organization": "mls:Organization",
+    "MLS_Task": "mls:MLS_Task",
+    "MLS_Dataset": "mls:MLS_Dataset",
+    "DataSource": "mls:DataSource",
+    "Method": "Method",
+    "MLS_Model": "mls:MLS_Model",
+    "MLS_Algorithm": "mls:MLS_Algorithm",
+    "Prompt": "Prompt",
+    "MLS_Eval": "mls:MLS_Eval",
+    "SoftwareRepository": "SoftwareRepository",
+    "MLS_Implementation": "mls:MLS_Implementation",
+    "MLS_HyperParameter": "mls:MLS_HyperParameter",
+    "HP_Optimization": "HP_Optimization",
+    "HP_Training": "HP_Training",
+    "HP_Architecture": "HP_Architecture",
+    "HP_Data": "HP_Data",
+    "LearningRate": "LearningRate",
+    "Momentum": "Momentum",
+    "WeightDecay": "WeightDecay",
+    "WarmupSteps": "WarmupSteps",
+    "DecayRate": "DecayRate",
+    "BatchSize": "BatchSize",
+    "NumEpochs": "NumEpochs",
+    "MaxSteps": "MaxSteps",
+    "GradientAccumulationSteps": "GradientAccumulationSteps",
+    "NumWorkers": "NumWorkers",
+    "RandomSeed": "RandomSeed",
+    "NumLayers": "NumLayers",
+    "HiddenSize": "HiddenSize",
+    "EmbeddingDim": "EmbeddingDim",
+    "Dropout": "Dropout",
+    "AttentionHeads": "AttentionHeads",
+    "MaxSequenceLength": "MaxSequenceLength",
+    "TrainValTestSplit": "TrainValTestSplit",
+    "Dependency": "Dependency",
+    "Environment": "Environment",
+    "DataProcessingStep": "DataProcessingStep",
+    "TrainingRun": "TrainingRun",
+    "EvaluationRun": "EvaluationRun",
+    "PredictionSet": "PredictionSet",
+    "issued": {"@id": "xsd:issued", "@type": "xsd:datetime"},
+    "title": "schema:title",
+    "abstract": "schema:abstract",
+    "url": "schema:url",
+    "doi": "schema:doi",
+    "citation": "schema:citation",
+    "publicationVenue": "schema:publicationVenue",
+    "timestamp": {"@id": "schema:timestamp", "@type": "xsd:date"},
+    "identifier": "schema:identifier",
+    "description": "schema:description",
+    "objective": "schema:objective",
+    "hypothesis": "schema:hypothesis",
+    "methodology": "schema:methodology",
+    "name": "schema:name",
+    "affiliation": "schema:affiliation",
+    "email": "schema:email",
+    "orcid": "schema:orcid",
+    "type": "schema:type",
+    "category": "schema:category",
+    "metrics": "schema:metrics",
+    "numInstances": {"@id": "schema:numInstances", "@type": "xsd:integer"},
+    "language": "schema:language",
+    "license": "schema:license",
+    "modality": "schema:modality",
+    "numClasses": {"@id": "schema:numClasses", "@type": "xsd:integer"},
+    "version": "schema:version",
+    "architecture": "schema:architecture",
+    "parameters": "schema:parameters",
+    "complexity": "mls:complexity",
+    "pseudoCode": {"@id": "mls:pseudoCode", "@type": "xsd:anyURI"},
+    "text": "schema:text",
+    "role": "mls:role",
+    "templateId": "mls:templateId",
+    "usesContext": {"@id": "mls:usesContext", "@type": "xsd:boolean"},
+    "measure": "mls:measure",
+    "hasValue": {"@id": "mls:hasValue", "@type": "xsd:float"},
+    "stdDev": {"@id": "mls:stdDev", "@type": "xsd:float"},
+    "confidenceInterval": "mls:confidenceInterval",
+    "programmingLanguage": "schema:programmingLanguage",
+    "dateModified": {"@id": "schema:dateModified", "@type": "xsd:datetime"},
+    "documentationUrl": {"@id": "mls:documentationUrl", "@type": "xsd:anyURI"},
+    "codeRepository": {"@id": "mls:codeRepository", "@type": "xsd:anyURI"},
+    "framework": "mls:framework",
+    "dependencies": "mls:dependencies",
+    "executionCommand": "mls:executionCommand",
+    "entryPoint": "mls:entryPoint",
+    "commitHash": "mls:commitHash",
+    "branch": "mls:branch",
+    "dependenciesHash": "mls:dependenciesHash",
+    "packageName": "mls:packageName",
+    "isOptional": {"@id": "mls:isOptional", "@type": "xsd:boolean"},
+    "hardwareSpecs": "mls:hardwareSpecs",
+    "os": "mls:os",
+    "pythonVersion": "mls:pythonVersion",
+    "requirementsFile": "mls:requirementsFile",
+    "isDockerized": {"@id": "mls:isDockerized", "@type": "xsd:boolean"},
+    "startedAtTime": {"@id": "prov:startedAtTime", "@type": "xsd:datetime"},
+    "endedAtTime": {"@id": "prov:endedAtTime", "@type": "xsd:datetime"},
+    "transformationType": "mls:transformationType",
+    "codeReference": {"@id": "mls:codeReference", "@type": "xsd:anyURI"},
+    "runId": "mls:runId",
+    "logFile": {"@id": "mls:logFile", "@type": "xsd:anyURI"},
+    "split": "mls:split",
+    "onDatasetSplit": "mls:onDatasetSplit",
+    "format": "mls:format",
+    "artifactsLocation": {"@id": "mls:artifactsLocation", "@type": "xsd:anyURI"},
+    "hpCategory": "mls:hpCategory",
+    "hpType": "mls:hpType",
+    "searchSpace": "mls:searchSpace",
+    "uncertain": {"@id": "mls:uncertain", "@type": "xsd:boolean"},
+    "hasAuthor": {"@id": "mls:hasAuthor", "@type": "@id"},
+    "contains": {"@id": "mls:contains", "@type": "@id"},
+    "implements": {"@id": "mls:implements", "@type": "@id"},
+    "prov-affiliatedWith": {"@id": "mls:prov-affiliatedWith", "@type": "@id"},
+    "realizes": {"@id": "mls:realizes", "@type": "@id"},
+    "usesData": {"@id": "mls:usesData", "@type": "@id"},
+    "produces": {"@id": "mls:produces", "@type": "@id"},
+    "usesParameters": {"@id": "mls:usesParameters", "@type": "@id"},
+    "executes": {"@id": "mls:executes", "@type": "@id"},
+    "subDatasetOf": {"@id": "mls:subDatasetOf", "@type": "@id"},
+    "prov-derivedFrom": {"@id": "mls:prov-derivedFrom", "@type": "@id"},
+    "processedThrough": {"@id": "mls:processedThrough", "@type": "@id"},
+    "prov-uses": {"@id": "mls:prov-uses", "@type": "@id"},
+    "trainedOn": {"@id": "mls:trainedOn", "@type": "@id"},
+    "evaluatedOn": {"@id": "mls:evaluatedOn", "@type": "@id"},
+    "achieves": {"@id": "mls:achieves", "@type": "@id"},
+    "prov-producedBy": {"@id": "mls:prov-producedBy", "@type": "@id"},
+    "subMethod": {"@id": "mls:subMethod", "@type": "@id"},
+    "evaluates": {"@id": "mls:evaluates", "@type": "@id"},
+    "supports": {"@id": "mls:supports", "@type": "@id"},
+    "runsIn": {"@id": "mls:runsIn", "@type": "@id"},
+    "requires": {"@id": "mls:requires", "@type": "@id"},
+    "prov-executedBy": {"@id": "mls:prov-executedBy", "@type": "@id"},
+    "prov-generated": {"@id": "mls:prov-generated", "@type": "@id"},
+    "benchmarkedOn": {"@id": "mls:benchmarkedOn", "@type": "@id"},
+    "subTaskOf": {"@id": "mls:subTaskOf", "@type": "@id"},
+    "dependsOn": {"@id": "mls:dependsOn", "@type": "@id"},
+    "usedIn": {"@id": "mls:usedIn", "@type": "@id"},
+    "trains": {"@id": "mls:trains", "@type": "@id"},
+    "producedBy": {"@id": "mls:producedBy", "@type": "@id"},
+    "sourceFile": "mls:sourceFile",
+    "sourceLine": {"@id": "mls:sourceLine", "@type": "xsd:integer"},
+    "dependencyType": "mls:dependencyType",
+    "owner": "mls:owner",
+    "platform": "mls:platform",
+    "entryPointCommand": "mls:entryPointCommand",
+    "evaluationScript": "mls:evaluationScript",
+    "evaluationSplit": "mls:evaluationSplit",
+    "metricsFile": "mls:metricsFile",
+    "inputDataset": {"@id": "mls:inputDataset", "@type": "@id"},
+    "outputDataset": {"@id": "mls:outputDataset", "@type": "@id"},
+    "predictionFormat": "mls:predictionFormat",
+    "storageLocation": "mls:storageLocation",
+    "modelVersion": "mls:modelVersion",
+    "appliedTo": {"@id": "mls:appliedTo", "@type": "@id"},
+    "wasGeneratedBy": {"@id": "prov:wasGeneratedBy", "@type": "@id"},
+    "wasDerivedFrom": {"@id": "prov:wasDerivedFrom", "@type": "@id"},
+    "wasAssociatedWith": {"@id": "prov:wasAssociatedWith", "@type": "@id"},
+    "used": {"@id": "prov:used", "@type": "@id"},
+    "mls:hasSubExperiment": {"@id": "mls:hasSubExperiment", "@type": "@id"}
+  },
+  "@graph": [
+    {
+      "@id": "study:gooaq_open_qa_2021",
+      "@type": "Study",
+      "mention": {
+        "start_char_doc": 49,
+        "end_char_doc": 107,
+        "prefix": "## Page 1 <header>EMNLP-Findings'21</header> #",
+        "suffix": "Daniel Khashabi¹ Amos Ng Tushar",
+        "valueSource": "extracted"
+      },
+      "schema:title": {
+        "value": "GOOAQ 🥑: Open Question Answering with Diverse Answer Types",
+        "start_char_doc": 49,
+        "end_char_doc": 107,
+        "prefix": "## Page 1 <header>EMNLP-Findings'21</header> #",
+        "suffix": "Daniel Khashabi¹ Amos Ng Tushar",
+        "valueSource": "extracted"
+      },
+      "schema:abstract": {
+        "value": "While day-to-day questions come with a variety of answer types, the current open question-answering (QA) literature represents isolated efforts on niche response types, with a heavy focus on specific kinds of short responses (people, places, etc.). To address this gap, we present GOOAQ, a large-scale dataset collected from Google questions and answers, containing 3 million questions with diverse answer types ranging from factual short answers to snippets to collections. Our human evaluation shows that 94% of the mined answers are accurate, enabling fine-tuning a pre-trained language model for answering GOOAQ questions. We use this dataset to study inherent differences between models producing different answer types, and observe interesting trends. For example, in line with recent work, LM's strong performance on GOOAQ's short-answer questions heavily benefits from annotated data. However, their surprisingly high quality in generating coherent and accurate answers for questions requiring long responses (such as 'how' and 'why' questions) is less reliant on observing annotated data and mainly supported by their pre-training. Moreover, we show that GOOAQ is a valuable training resource, resulting in strong performance on the recent ELI5 long-answers dataset. We release GOOAQ to facilitate further research on improving QA with diverse response types.",
+        "start_char_doc": 437,
+        "end_char_doc": 1745,
+        "prefix": "10 Sep 2021</watermark> ## Abstract",
+        "suffix": "## 1 Introduction Research in",
+        "valueSource": "extracted"
+      },
+      "schema:url": {
+        "value": "https://arxiv.org/abs/2104.08727v2",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:doi": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:citation": {
+        "value": "arXiv:2104.08727v2",
+        "start_char_doc": 366,
+        "end_char_doc": 384,
+        "prefix": "Pennsylvania, Philadelphia, PA, USA <watermark>",
+        "suffix": "[cs.CL] 10 Sep 2021</watermark> ##",
+        "valueSource": "extracted"
+      },
+      "schema:publicationVenue": {
+        "value": "EMNLP-Findings'21",
+        "start_char_doc": 19,
+        "end_char_doc": 36,
+        "prefix": "## Page 1 <header>",
+        "suffix": "</header> # GOOAQ 🥑: Open",
+        "valueSource": "extracted"
+      },
+      "schema:timestamp": {
+        "value": "2021-09-10",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hasAuthor": [
+        {"@id": "person:khashabi_daniel"},
+        {"@id": "person:ng_amos"},
+        {"@id": "person:khot_tushar"},
+        {"@id": "person:sabharwal_ashish"},
+        {"@id": "person:hajishirzi_hannaneh"},
+        {"@id": "person:callison_burch_chris"}
+      ],
+      "contains": [
+        {"@id": "expg:group_open_qa_2021"}
+      ],
+      "implements": {"@id": "repo:allenai_gooaq"}
+    },
+
+    {
+      "@id": "person:khashabi_daniel",
+      "@type": "Person",
+      "mention": {
+        "start_char_doc": 109,
+        "end_char_doc": 124,
+        "prefix": "Answering with Diverse Answer Types",
+        "suffix": "¹ Amos Ng Tushar Khot¹",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "Daniel Khashabi",
+        "start_char_doc": 109,
+        "end_char_doc": 124,
+        "prefix": "Answering with Diverse Answer Types",
+        "suffix": "¹ Amos Ng Tushar Khot¹",
+        "valueSource": "extracted"
+      },
+      "schema:affiliation": {
+        "value": "Allen Institute for AI",
+        "start_char_doc": 212,
+        "end_char_doc": 234,
+        "prefix": "Hannaneh Hajishirzi¹,² Chris Callison-Burch³ ¹",
+        "suffix": ", Seattle, WA, USA ²University",
+        "valueSource": "extracted"
+      },
+      "schema:email": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:orcid": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "prov-affiliatedWith": [{"@id": "org:allen_institute_for_ai"}]
+    },
+
+    {
+      "@id": "person:ng_amos",
+      "@type": "Person",
+      "mention": {
+        "start_char_doc": 126,
+        "end_char_doc": 133,
+        "prefix": "Diverse Answer Types Daniel Khashabi¹",
+        "suffix": "Tushar Khot¹ Ashish Sabharwal¹ Hannaneh",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "Amos Ng",
+        "start_char_doc": 126,
+        "end_char_doc": 133,
+        "prefix": "Diverse Answer Types Daniel Khashabi¹",
+        "suffix": "Tushar Khot¹ Ashish Sabharwal¹ Hannaneh",
+        "valueSource": "extracted"
+      },
+      "schema:affiliation": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:email": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:orcid": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "prov-affiliatedWith": []
+    },
+
+    {
+      "@id": "person:khot_tushar",
+      "@type": "Person",
+      "mention": {
+        "start_char_doc": 134,
+        "end_char_doc": 145,
+        "prefix": "Types Daniel Khashabi¹ Amos Ng",
+        "suffix": "¹ Ashish Sabharwal¹ Hannaneh Hajishirzi¹,²",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "Tushar Khot",
+        "start_char_doc": 134,
+        "end_char_doc": 145,
+        "prefix": "Types Daniel Khashabi¹ Amos Ng",
+        "suffix": "¹ Ashish Sabharwal¹ Hannaneh Hajishirzi¹,²",
+        "valueSource": "extracted"
+      },
+      "schema:affiliation": {
+        "value": "Allen Institute for AI",
+        "start_char_doc": 212,
+        "end_char_doc": 234,
+        "prefix": "Hannaneh Hajishirzi¹,² Chris Callison-Burch³ ¹",
+        "suffix": ", Seattle, WA, USA ²University",
+        "valueSource": "extracted"
+      },
+      "schema:email": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:orcid": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "prov-affiliatedWith": [{"@id": "org:allen_institute_for_ai"}]
+    },
+
+    {
+      "@id": "person:sabharwal_ashish",
+      "@type": "Person",
+      "mention": {
+        "start_char_doc": 147,
+        "end_char_doc": 163,
+        "prefix": "Khashabi¹ Amos Ng Tushar Khot¹",
+        "suffix": "¹ Hannaneh Hajishirzi¹,² Chris Callison-Burch³",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "Ashish Sabharwal",
+        "start_char_doc": 147,
+        "end_char_doc": 163,
+        "prefix": "Khashabi¹ Amos Ng Tushar Khot¹",
+        "suffix": "¹ Hannaneh Hajishirzi¹,² Chris Callison-Burch³",
+        "valueSource": "extracted"
+      },
+      "schema:affiliation": {
+        "value": "Allen Institute for AI",
+        "start_char_doc": 212,
+        "end_char_doc": 234,
+        "prefix": "Hannaneh Hajishirzi¹,² Chris Callison-Burch³ ¹",
+        "suffix": ", Seattle, WA, USA ²University",
+        "valueSource": "extracted"
+      },
+      "schema:email": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:orcid": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "prov-affiliatedWith": [{"@id": "org:allen_institute_for_ai"}]
+    },
+
+    {
+      "@id": "person:hajishirzi_hannaneh",
+      "@type": "Person",
+      "mention": {
+        "start_char_doc": 165,
+        "end_char_doc": 184,
+        "prefix": "Ng Tushar Khot¹ Ashish Sabharwal¹",
+        "suffix": "¹,² Chris Callison-Burch³ ¹Allen Institute",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "Hannaneh Hajishirzi",
+        "start_char_doc": 165,
+        "end_char_doc": 184,
+        "prefix": "Ng Tushar Khot¹ Ashish Sabharwal¹",
+        "suffix": "¹,² Chris Callison-Burch³ ¹Allen Institute",
+        "valueSource": "extracted"
+      },
+      "schema:affiliation": {
+        "value": "Allen Institute for AI; University of Washington",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:email": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:orcid": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "prov-affiliatedWith": [
+        {"@id": "org:allen_institute_for_ai"},
+        {"@id": "org:university_of_washington"}
+      ]
+    },
+
+    {
+      "@id": "person:callison_burch_chris",
+      "@type": "Person",
+      "mention": {
+        "start_char_doc": 188,
+        "end_char_doc": 208,
+        "prefix": "Khot¹ Ashish Sabharwal¹ Hannaneh Hajishirzi¹,²",
+        "suffix": "³ ¹Allen Institute for AI,",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "Chris Callison-Burch",
+        "start_char_doc": 188,
+        "end_char_doc": 208,
+        "prefix": "Khot¹ Ashish Sabharwal¹ Hannaneh Hajishirzi¹,²",
+        "suffix": "³ ¹Allen Institute for AI,",
+        "valueSource": "extracted"
+      },
+      "schema:affiliation": {
+        "value": "University of Pennsylvania",
+        "start_char_doc": 298,
+        "end_char_doc": 324,
+        "prefix": "Washington, Seattle, WA, USA ³",
+        "suffix": ", Philadelphia, PA, USA <watermark>arXiv:2104.08727v2",
+        "valueSource": "extracted"
+      },
+      "schema:email": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:orcid": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "prov-affiliatedWith": [{"@id": "org:university_of_pennsylvania"}]
+    },
+
+    {
+      "@id": "org:allen_institute_for_ai",
+      "@type": "Organization",
+      "mention": {
+        "start_char_doc": 212,
+        "end_char_doc": 234,
+        "prefix": "Hannaneh Hajishirzi¹,² Chris Callison-Burch³ ¹",
+        "suffix": ", Seattle, WA, USA ²University",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "Allen Institute for AI",
+        "start_char_doc": 212,
+        "end_char_doc": 234,
+        "prefix": "Hannaneh Hajishirzi¹,² Chris Callison-Burch³ ¹",
+        "suffix": ", Seattle, WA, USA ²University",
+        "valueSource": "extracted"
+      },
+      "schema:url": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:type": {
+        "value": "Research Institute",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+
+    {
+      "@id": "org:university_of_washington",
+      "@type": "Organization",
+      "mention": {
+        "start_char_doc": 254,
+        "end_char_doc": 278,
+        "prefix": "AI, Seattle, WA, USA ²",
+        "suffix": ", Seattle, WA, USA ³University",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "University of Washington",
+        "start_char_doc": 254,
+        "end_char_doc": 278,
+        "prefix": "AI, Seattle, WA, USA ²",
+        "suffix": ", Seattle, WA, USA ³University",
+        "valueSource": "extracted"
+      },
+      "schema:url": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:type": {
+        "value": "University",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+
+    {
+      "@id": "org:university_of_pennsylvania",
+      "@type": "Organization",
+      "mention": {
+        "start_char_doc": 298,
+        "end_char_doc": 324,
+        "prefix": "Washington, Seattle, WA, USA ³",
+        "suffix": ", Philadelphia, PA, USA <watermark>arXiv:2104.08727v2",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "University of Pennsylvania",
+        "start_char_doc": 298,
+        "end_char_doc": 324,
+        "prefix": "Washington, Seattle, WA, USA ³",
+        "suffix": ", Philadelphia, PA, USA <watermark>arXiv:2104.08727v2",
+        "valueSource": "extracted"
+      },
+      "schema:url": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:type": {
+        "value": "University",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+
+    {
+      "@id": "task:open_question_answering",
+      "@type": "MLS_Task",
+      "mention": {
+        "start_char_doc": 3155,
+        "end_char_doc": 3162,
+        "prefix": "guac like guacamole), the first",
+        "suffix": "benchmark containing questions with all",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "Open Question Answering",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:description": {
+        "value": "Open question answering (also referred to as open-response, open-domain, or direct answer QA) where the input is a question and the output is its answer, without a specified context",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:category": {
+        "value": "Question Answering",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:metrics": {
+        "value": "ROUGE-L; Human Evaluation (preference over Google answers)",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "benchmarkedOn": [
+        {"@id": "dataset:gooaq"},
+        {"@id": "dataset:eli5"}
+      ],
+      "subTaskOf": []
+    },
+
+    {
+      "@id": "dataset:gooaq",
+      "@type": "MLS_Dataset",
+      "mention": {
+        "start_char_doc": 49,
+        "end_char_doc": 54,
+        "prefix": "## Page 1 <header>EMNLP-Findings'21</header> #",
+        "suffix": "🥑: Open Question Answering with",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "GOOAQ",
+        "start_char_doc": 49,
+        "end_char_doc": 54,
+        "prefix": "## Page 1 <header>EMNLP-Findings'21</header> #",
+        "suffix": "🥑: Open Question Answering with",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "A large-scale dataset collected from Google questions and answers, containing 3 million questions with diverse answer types ranging from factual short answers to snippets to collections",
+        "start_char_doc": 747,
+        "end_char_doc": 910,
+        "prefix": "present GOOAQ, a large-scale dataset",
+        "suffix": ". Our human evaluation shows",
+        "valueSource": "extracted"
+      },
+      "schema:numInstances": {
+        "value": "3100000",
+        "start_char_doc": 16024,
+        "end_char_doc": 16028,
+        "prefix": "<td>Overall</td> <td>",
+        "suffix": "</td> <td>98.6</td> <td>94.5</td>",
+        "valueSource": "extracted"
+      },
+      "schema:language": {
+        "value": "English",
+        "start_char_doc": 16833,
+        "end_char_doc": 16840,
+        "prefix": "our task is focused on",
+        "suffix": ", we required workers to",
+        "valueSource": "extracted"
+      },
+      "schema:license": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:modality": {
+        "value": "text",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:numClasses": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "subDatasetOf": [],
+      "prov-derivedFrom": [
+        {"@id": "datasource:google_search_autocomplete"},
+        {"@id": "datasource:google_answer_boxes"}
+      ],
+      "processedThrough": []
+    },
+
+    {
+      "@id": "dataset:eli5",
+      "@type": "MLS_Dataset",
+      "mention": {
+        "start_char_doc": 1686,
+        "end_char_doc": 1690,
+        "prefix": "strong performance on the recent",
+        "suffix": "long-answers dataset. We release GOOAQ",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "ELI5",
+        "start_char_doc": 1686,
+        "end_char_doc": 1690,
+        "prefix": "strong performance on the recent",
+        "suffix": "long-answers dataset. We release GOOAQ",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "A long-answer questions dataset containing questions/answers mined from Reddit forums",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:numInstances": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:language": {
+        "value": "English",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:license": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:modality": {
+        "value": "text",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:numClasses": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "subDatasetOf": [],
+      "prov-derivedFrom": [
+        {"@id": "datasource:reddit"}
+      ],
+      "processedThrough": []
+    },
+
+    {
+      "@id": "datasource:google_search_autocomplete",
+      "@type": "DataSource",
+      "mention": {
+        "start_char_doc": 12634,
+        "end_char_doc": 12656,
+        "prefix": "set of questions we use",
+        "suffix": ".⁴ A similar strategy was",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "Google auto-completion",
+        "start_char_doc": 12634,
+        "end_char_doc": 12656,
+        "prefix": "set of questions we use",
+        "suffix": ".⁴ A similar strategy was",
+        "valueSource": "extracted"
+      },
+      "schema:url": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:type": {
+        "value": "Search Engine Autocomplete API",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:license": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+
+    {
+      "@id": "datasource:google_answer_boxes",
+      "@type": "DataSource",
+      "mention": {
+        "start_char_doc": 13465,
+        "end_char_doc": 13484,
+        "prefix": "collected questions, we extract the",
+        "suffix": "shown on top of the",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "Google answer boxes",
+        "start_char_doc": 13465,
+        "end_char_doc": 13484,
+        "prefix": "collected questions, we extract the",
+        "suffix": "shown on top of the",
+        "valueSource": "extracted"
+      },
+      "schema:url": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:type": {
+        "value": "Search Engine Answer Boxes",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:license": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+
+    {
+      "@id": "datasource:reddit",
+      "@type": "DataSource",
+      "mention": {
+        "start_char_doc": 11103,
+        "end_char_doc": 11145,
+        "prefix": "Krishna et al., 2021), containing",
+        "suffix": ". In contrast, GOOAQ is",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "Reddit forums",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:url": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:type": {
+        "value": "Online Forum",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:license": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+
+    {
+      "@id": "model:t5_small",
+      "@type": ["MLS_Model", "Method"],
+      "mention": {
+        "start_char_doc": 27424,
+        "end_char_doc": 27431,
+        "prefix": "extremes: the smallest model (",
+        "suffix": ") and the largest model",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "T5-small",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:description": {
+        "value": "The smallest variant of the T5 text-to-text transfer transformer model",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:architecture": {
+        "value": "text-to-text framework",
+        "start_char_doc": 27134,
+        "end_char_doc": 27156,
+        "prefix": "et al., 2020), a recent",
+        "suffix": "that has achieved state-of-the-art results",
+        "valueSource": "extracted"
+      },
+      "schema:parameters": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "trainedOn": [{"@id": "dataset:gooaq"}],
+      "evaluatedOn": [
+        {"@id": "dataset:gooaq"},
+        {"@id": "dataset:eli5"}
+      ],
+      "achieves": [
+        {"@id": "eval:rouge_l_t5_small_gooaq_eli5"},
+        {"@id": "eval:rouge_l_t5_small_eli5_eli5"}
+      ],
+      "subMethod": []
+    },
+
+    {
+      "@id": "model:t5_11b",
+      "@type": ["MLS_Model", "Method"],
+      "mention": {
+        "start_char_doc": 27456,
+        "end_char_doc": 27461,
+        "prefix": "and the largest model (",
+        "suffix": "). Both models were trained",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "T5-11B",
+        "start_char_doc": 28232,
+        "end_char_doc": 28238,
+        "prefix": "& right) demonstrate that the",
+        "suffix": "model is surprisingly effective at",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "The largest variant (11 billion parameters) of the T5 text-to-text transfer transformer model",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:architecture": {
+        "value": "text-to-text framework",
+        "start_char_doc": 27134,
+        "end_char_doc": 27156,
+        "prefix": "et al., 2020), a recent",
+        "suffix": "that has achieved state-of-the-art results",
+        "valueSource": "extracted"
+      },
+      "schema:parameters": {
+        "value": "11000000000",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "trainedOn": [{"@id": "dataset:gooaq"}],
+      "evaluatedOn": [
+        {"@id": "dataset:gooaq"},
+        {"@id": "dataset:eli5"}
+      ],
+      "achieves": [
+        {"@id": "eval:rouge_l_t5_11b_gooaq_eli5"},
+        {"@id": "eval:rouge_l_t5_11b_eli5_eli5"}
+      ],
+      "subMethod": []
+    },
+
+    {
+      "@id": "eval:rouge_l_t5_small_gooaq_eli5",
+      "@type": "MLS_Eval",
+      "mention": {
+        "start_char_doc": 33752,
+        "end_char_doc": 33756,
+        "prefix": "<td>GOOAQ (no ELI5)</td> <td>no</td> <td>",
+        "suffix": "</td> </tr> <tr> <td>T5-11B</td> <td>GOOAQ",
+        "valueSource": "extracted"
+      },
+      "mls:measure": {
+        "value": "ROUGE-L",
+        "start_char_doc": 22468,
+        "end_char_doc": 22475,
+        "prefix": "**Automatic evaluation.** We use the",
+        "suffix": "metric (Lin, 2004), which is",
+        "valueSource": "extracted"
+      },
+      "mls:hasValue": {
+        "value": 21.7,
+        "start_char_doc": 33752,
+        "end_char_doc": 33756,
+        "prefix": "<td>GOOAQ (no ELI5)</td> <td>no</td> <td>",
+        "suffix": "</td> </tr> <tr> <td>T5-11B</td> <td>GOOAQ",
+        "valueSource": "extracted"
+      },
+      "mls:stdDev": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:confidenceInterval": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+
+    {
+      "@id": "eval:rouge_l_t5_11b_gooaq_eli5",
+      "@type": "MLS_Eval",
+      "mention": {
+        "start_char_doc": 33862,
+        "end_char_doc": 33866,
+        "prefix": "<td>GOOAQ (no ELI5)</td> <td>no</td> <td>",
+        "suffix": "</td> </tr> <tr> <td>T5-small</td> <td>ELI5</td>",
+        "valueSource": "extracted"
+      },
+      "mls:measure": {
+        "value": "ROUGE-L",
+        "start_char_doc": 22468,
+        "end_char_doc": 22475,
+        "prefix": "**Automatic evaluation.** We use the",
+        "suffix": "metric (Lin, 2004), which is",
+        "valueSource": "extracted"
+      },
+      "mls:hasValue": {
+        "value": 22.9,
+        "start_char_doc": 33862,
+        "end_char_doc": 33866,
+        "prefix": "<td>GOOAQ (no ELI5)</td> <td>no</td> <td>",
+        "suffix": "</td> </tr> <tr> <td>T5-small</td> <td>ELI5</td>",
+        "valueSource": "extracted"
+      },
+      "mls:stdDev": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:confidenceInterval": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+
+    {
+      "@id": "eval:rouge_l_t5_small_eli5_eli5",
+      "@type": "MLS_Eval",
+      "mention": {
+        "start_char_doc": 33963,
+        "end_char_doc": 33967,
+        "prefix": "<td>T5-small</td> <td>ELI5</td> <td>no</td> <td>",
+        "suffix": "</td> </tr> <tr> <td>T5-11B</td> <td>ELI5</td>",
+        "valueSource": "extracted"
+      },
+      "mls:measure": {
+        "value": "ROUGE-L",
+        "start_char_doc": 22468,
+        "end_char_doc": 22475,
+        "prefix": "**Automatic evaluation.** We use the",
+        "suffix": "metric (Lin, 2004), which is",
+        "valueSource": "extracted"
+      },
+      "mls:hasValue": {
+        "value": 19.0,
+        "start_char_doc": 33963,
+        "end_char_doc": 33967,
+        "prefix": "<td>T5-small</td> <td>ELI5</td> <td>no</td> <td>",
+        "suffix": "</td> </tr> <tr> <td>T5-11B</td> <td>ELI5</td>",
+        "valueSource": "extracted"
+      },
+      "mls:stdDev": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:confidenceInterval": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+
+    {
+      "@id": "eval:rouge_l_t5_11b_eli5_eli5",
+      "@type": "MLS_Eval",
+      "mention": {
+        "start_char_doc": 34062,
+        "end_char_doc": 34066,
+        "prefix": "<td>T5-11B</td> <td>ELI5</td> <td>no</td> <td>",
+        "suffix": "</td> </tr> <tr> <td>RAG*</td> <td>ELI5</td>",
+        "valueSource": "extracted"
+      },
+      "mls:measure": {
+        "value": "ROUGE-L",
+        "start_char_doc": 22468,
+        "end_char_doc": 22475,
+        "prefix": "**Automatic evaluation.** We use the",
+        "suffix": "metric (Lin, 2004), which is",
+        "valueSource": "extracted"
+      },
+      "mls:hasValue": {
+        "value": 22.7,
+        "start_char_doc": 34062,
+        "end_char_doc": 34066,
+        "prefix": "<td>T5-11B</td> <td>ELI5</td> <td>no</td> <td>",
+        "suffix": "</td> </tr> <tr> <td>RAG*</td> <td>ELI5</td>",
+        "valueSource": "extracted"
+      },
+      "mls:stdDev": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:confidenceInterval": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+
+    {
+      "@id": "method:closed_book_qa",
+      "@type": "Method",
+      "mention": {
+        "start_char_doc": 20816,
+        "end_char_doc": 20827,
+        "prefix": "we consider the so-called '",
+        "suffix": "' setup (Roberts et al.,",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "Closed-book QA",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:description": {
+        "value": "The model is expected to use background knowledge stored within it, without access to any additional explicit information retrieval mechanism",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "trainedOn": [],
+      "evaluatedOn": [],
+      "achieves": [],
+      "subMethod": []
+    },
+
+    {
+      "@id": "hp:max_steps",
+      "@type": "MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 27493,
+        "end_char_doc": 27502,
+        "prefix": "Both models were trained for",
+        "suffix": "on the training splits, dumping",
+        "valueSource": "extracted"
+      },
+      "mls:name": {
+        "value": "max_steps",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "20000",
+        "start_char_doc": 27493,
+        "end_char_doc": 27502,
+        "prefix": "Both models were trained for",
+        "suffix": "on the training splits, dumping",
+        "valueSource": "extracted"
+      },
+      "mls:wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:type": {
+        "value": "integer",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:searchSpace": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hpCategory": "HP_Training",
+      "hpType": "MaxSteps",
+      "uncertain": false
+    },
+
+    {
+      "@id": "hp:batch_size_tokens",
+      "@type": "MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 27568,
+        "end_char_doc": 27592,
+        "prefix": "checkpoints every 2k steps (with",
+        "suffix": "on v3-128 TPUs) with the",
+        "valueSource": "extracted"
+      },
+      "mls:name": {
+        "value": "batch_size (tokens per batch)",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "196608",
+        "start_char_doc": 27568,
+        "end_char_doc": 27592,
+        "prefix": "checkpoints every 2k steps (with",
+        "suffix": "on v3-128 TPUs) with the",
+        "valueSource": "extracted"
+      },
+      "mls:wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:type": {
+        "value": "integer",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:searchSpace": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hpCategory": "HP_Training",
+      "hpType": "BatchSize",
+      "uncertain": false
+    },
+
+    {
+      "@id": "repo:allenai_gooaq",
+      "@type": "SoftwareRepository",
+      "mention": {
+        "start_char_doc": 4005,
+        "end_char_doc": 4037,
+        "prefix": "¹The dataset is available at",
+        "suffix": "under an appropriate license. ²In",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "allenai/gooaq",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:url": {
+        "value": "https://github.com/allenai/gooaq",
+        "start_char_doc": 4005,
+        "end_char_doc": 4037,
+        "prefix": "¹The dataset is available at",
+        "suffix": "under an appropriate license. ²In",
+        "valueSource": "extracted"
+      },
+      "schema:version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:programmingLanguage": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:dateModified": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:license": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:documentationUrl": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "contains": [{"@id": "impl:gooaq_t5"}],
+      "supports": [{"@id": "env:google_tpu_v3_128"}]
+    },
+
+    {
+      "@id": "impl:gooaq_t5",
+      "@type": "MLS_Implementation",
+      "mention": {
+        "start_char_doc": 27082,
+        "end_char_doc": 27101,
+        "prefix": "4.3 Models For our evaluation,",
+        "suffix": "(Raffel et al., 2020), a",
+        "valueSource": "extracted"
+      },
+      "schema:identifier": {
+        "value": "T5 fine-tuning on GOOAQ",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:codeRepository": {
+        "value": "https://github.com/allenai/gooaq",
+        "start_char_doc": 4005,
+        "end_char_doc": 4037,
+        "prefix": "¹The dataset is available at",
+        "suffix": "under an appropriate license. ²In",
+        "valueSource": "extracted"
+      },
+      "mls:framework": {
+        "value": "T5",
+        "start_char_doc": 7556,
+        "end_char_doc": 7558,
+        "prefix": "(Q1), we train the powerful",
+        "suffix": "language model (Raffel et al.,",
+        "valueSource": "extracted"
+      },
+      "mls:executionCommand": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:entryPoint": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:branch": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "runsIn": {"@id": "env:google_tpu_v3_128"},
+      "requires": []
+    },
+
+    {
+      "@id": "env:google_tpu_v3_128",
+      "@type": "Environment",
+      "mention": {
+        "start_char_doc": 27596,
+        "end_char_doc": 27607,
+        "prefix": "196,608 tokens per batch on",
+        "suffix": ") with the default hyperparameters.",
+        "valueSource": "extracted"
+      },
+      "schema:name": {
+        "value": "Google TPU v3-128",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:description": {
+        "value": "TPU machines for conducting experiments were provided by Google",
+        "start_char_doc": 39336,
+        "end_char_doc": 39399,
+        "prefix": "their help throughout this project.",
+        "suffix": ". Chris Callison-Burch was supported",
+        "valueSource": "extracted"
+      },
+      "mls:hardwareSpecs": {
+        "value": "v3-128 TPUs",
+        "start_char_doc": 27596,
+        "end_char_doc": 27607,
+        "prefix": "196,608 tokens per batch on",
+        "suffix": ") with the default hyperparameters.",
+        "valueSource": "extracted"
+      },
+      "mls:os": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:pythonVersion": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:requirementsFile": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:isDockerized": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+
+    {
+      "@id": "expg:group_open_qa_2021",
+      "@type": "mls:ExperimentGroup",
+      "mention": {
+        "start_char_doc": 7164,
+        "end_char_doc": 7212,
+        "prefix": "questions. To do so, we",
+        "suffix": "(LMs) (Lewis et al., 2020;",
+        "valueSource": "extracted"
+      },
+      "mls:hypothesis": {
+        "value": "Models producing different answer types (short, snippet, collection) benefit differently from pre-training, labeled data, and model size",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:methodology": {
+        "value": "Fine-tune generative pre-trained language models (T5-small and T5-11B) on different subsets of GOOAQ in a closed-book setup, evaluating with ROUGE-L and human preference judgments",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:evaluationMeasure": [
+        {"@id": "eval:rouge_l_t5_small_gooaq_eli5"},
+        {"@id": "eval:rouge_l_t5_11b_gooaq_eli5"}
+      ],
+      "mls:task": {"@id": "task:open_question_answering"},
+      "mls:hasSubExperiment": [
+        {
+          "@id": "exp:t5_small_gooaq_short",
+          "@type": "Experiment",
+          "mention": {
+            "start_char_doc": 21114,
+            "end_char_doc": 21139,
+            "prefix": "GOOAQ into three sub-tasks: (T<sub>short</sub>)",
+            "suffix": ", (T<sub>snippet</sub>) snippet responses questions,",
+            "valueSource": "extracted"
+          },
+          "schema:description": {
+            "value": "T5-small fine-tuned and evaluated on GOOAQ short response questions (T_short)",
+            "start_char_doc": null,
+            "end_char_doc": null,
+            "prefix": null,
+            "suffix": null,
+            "valueSource": "inferred"
+          },
+          "realizes": [{"@id": "task:open_question_answering"}],
+          "usesData": [{"@id": "dataset:gooaq"}],
+          "produces": [{"@id": "model:t5_small"}],
+          "usesParameters": [
+            {"@id": "hp:max_steps"},
+            {"@id": "hp:batch_size_tokens"}
+          ],
+          "executes": [{"@id": "impl:gooaq_t5"}]
+        },
+        {
+          "@id": "exp:t5_small_gooaq_snippet",
+          "@type": "Experiment",
+          "mention": {
+            "start_char_doc": 21163,
+            "end_char_doc": 21190,
+            "prefix": "(T<sub>short</sub>) short responses questions, (T<sub>snippet</sub>)",
+            "suffix": ", and (T<sub>collection</sub>) collection response",
+            "valueSource": "extracted"
+          },
+          "schema:description": {
+            "value": "T5-small fine-tuned and evaluated on GOOAQ snippet response questions (T_snippet)",
+            "start_char_doc": null,
+            "end_char_doc": null,
+            "prefix": null,
+            "suffix": null,
+            "valueSource": "inferred"
+          },
+          "realizes": [{"@id": "task:open_question_answering"}],
+          "usesData": [{"@id": "dataset:gooaq"}],
+          "produces": [{"@id": "model:t5_small"}],
+          "usesParameters": [
+            {"@id": "hp:max_steps"},
+            {"@id": "hp:batch_size_tokens"}
+          ],
+          "executes": [{"@id": "impl:gooaq_t5"}]
+        },
+        {
+          "@id": "exp:t5_small_gooaq_collection",
+          "@type": "Experiment",
+          "mention": {
+            "start_char_doc": 8179,
+            "end_char_doc": 8208,
+            "prefix": "data, whereas both snippet and",
+            "suffix": "show minimal gains (e.g., only",
+            "valueSource": "extracted"
+          },
+          "schema:description": {
+            "value": "T5-small fine-tuned and evaluated on GOOAQ collection response questions (T_collection)",
+            "start_char_doc": null,
+            "end_char_doc": null,
+            "prefix": null,
+            "suffix": null,
+            "valueSource": "inferred"
+          },
+          "realizes": [{"@id": "task:open_question_answering"}],
+          "usesData": [{"@id": "dataset:gooaq"}],
+          "produces": [{"@id": "model:t5_small"}],
+          "usesParameters": [
+            {"@id": "hp:max_steps"},
+            {"@id": "hp:batch_size_tokens"}
+          ],
+          "executes": [{"@id": "impl:gooaq_t5"}]
+        },
+        {
+          "@id": "exp:t5_11b_gooaq_short",
+          "@type": "Experiment",
+          "mention": {
+            "start_char_doc": 28232,
+            "end_char_doc": 28238,
+            "prefix": "& right) demonstrate that the",
+            "suffix": "model is surprisingly effective at",
+            "valueSource": "extracted"
+          },
+          "schema:description": {
+            "value": "T5-11B fine-tuned and evaluated on GOOAQ short response questions (T_short)",
+            "start_char_doc": null,
+            "end_char_doc": null,
+            "prefix": null,
+            "suffix": null,
+            "valueSource": "inferred"
+          },
+          "realizes": [{"@id": "task:open_question_answering"}],
+          "usesData": [{"@id": "dataset:gooaq"}],
+          "produces": [{"@id": "model:t5_11b"}],
+          "usesParameters": [
+            {"@id": "hp:max_steps"},
+            {"@id": "hp:batch_size_tokens"}
+          ],
+          "executes": [{"@id": "impl:gooaq_t5"}]
+        },
+        {
+          "@id": "exp:t5_11b_gooaq_snippet",
+          "@type": "Experiment",
+          "mention": {
+            "start_char_doc": 28232,
+            "end_char_doc": 28238,
+            "prefix": "& right) demonstrate that the",
+            "suffix": "model is surprisingly effective at",
+            "valueSource": "extracted"
+          },
+          "schema:description": {
+            "value": "T5-11B fine-tuned and evaluated on GOOAQ snippet response questions (T_snippet)",
+            "start_char_doc": null,
+            "end_char_doc": null,
+            "prefix": null,
+            "suffix": null,
+            "valueSource": "inferred"
+          },
+          "realizes": [{"@id": "task:open_question_answering"}],
+          "usesData": [{"@id": "dataset:gooaq"}],
+          "produces": [{"@id": "model:t5_11b"}],
+          "usesParameters": [
+            {"@id": "hp:max_steps"},
+            {"@id": "hp:batch_size_tokens"}
+          ],
+          "executes": [{"@id": "impl:gooaq_t5"}]
+        },
+        {
+          "@id": "exp:t5_11b_gooaq_collection",
+          "@type": "Experiment",
+          "mention": {
+            "start_char_doc": 28232,
+            "end_char_doc": 28238,
+            "prefix": "& right) demonstrate that the",
+            "suffix": "model is surprisingly effective at",
+            "valueSource": "extracted"
+          },
+          "schema:description": {
+            "value": "T5-11B fine-tuned and evaluated on GOOAQ collection response questions (T_collection)",
+            "start_char_doc": null,
+            "end_char_doc": null,
+            "prefix": null,
+            "suffix": null,
+            "valueSource": "inferred"
+          },
+          "realizes": [{"@id": "task:open_question_answering"}],
+          "usesData": [{"@id": "dataset:gooaq"}],
+          "produces": [{"@id": "model:t5_11b"}],
+          "usesParameters": [
+            {"@id": "hp:max_steps"},
+            {"@id": "hp:batch_size_tokens"}
+          ],
+          "executes": [{"@id": "impl:gooaq_t5"}]
+        },
+        {
+          "@id": "exp:t5_small_gooaq_eli5",
+          "@type": "Experiment",
+          "mention": {
+            "start_char_doc": 33752,
+            "end_char_doc": 33756,
+            "prefix": "<td>GOOAQ (no ELI5)</td> <td>no</td> <td>",
+            "suffix": "</td> </tr> <tr> <td>T5-11B</td> <td>GOOAQ",
+            "valueSource": "extracted"
+          },
+          "schema:description": {
+            "value": "T5-small trained on GOOAQ snippet questions, evaluated on ELI5 (extrinsic transfer evaluation)",
+            "start_char_doc": null,
+            "end_char_doc": null,
+            "prefix": null,
+            "suffix": null,
+            "valueSource": "inferred"
+          },
+          "mls:result": {
+            "value": "ROUGE-L = 21.7",
+            "start_char_doc": 33752,
+            "end_char_doc": 33756,
+            "prefix": "<td>GOOAQ (no ELI5)</td> <td>no</td> <td>",
+            "suffix": "</td> </tr> <tr> <td>T5-11B</td> <td>GOOAQ",
+            "valueSource": "extracted"
+          },
+          "realizes": [{"@id": "task:open_question_answering"}],
+          "usesData": [{"@id": "dataset:gooaq"}, {"@id": "dataset:eli5"}],
+          "produces": [{"@id": "model:t5_small"}],
+          "usesParameters": [
+            {"@id": "hp:max_steps"},
+            {"@id": "hp:batch_size_tokens"}
+          ],
+          "executes": [{"@id": "impl:gooaq_t5"}]
+        },
+        {
+          "@id": "exp:t5_11b_gooaq_eli5",
+          "@type": "Experiment",
+          "mention": {
+            "start_char_doc": 33862,
+            "end_char_doc": 33866,
+            "prefix": "<td>GOOAQ (no ELI5)</td> <td>no</td> <td>",
+            "suffix": "</td> </tr> <tr> <td>T5-small</td> <td>ELI5</td>",
+            "valueSource": "extracted"
+          },
+          "schema:description": {
+            "value": "T5-11B trained on GOOAQ snippet questions, evaluated on ELI5 (extrinsic transfer evaluation)",
+            "start_char_doc": null,
+            "end_char_doc": null,
+            "prefix": null,
+            "suffix": null,
+            "valueSource": "inferred"
+          },
+          "mls:result": {
+            "value": "ROUGE-L = 22.9",
+            "start_char_doc": 33862,
+            "end_char_doc": 33866,
+            "prefix": "<td>GOOAQ (no ELI5)</td> <td>no</td> <td>",
+            "suffix": "</td> </tr> <tr> <td>T5-small</td> <td>ELI5</td>",
+            "valueSource": "extracted"
+          },
+          "realizes": [{"@id": "task:open_question_answering"}],
+          "usesData": [{"@id": "dataset:gooaq"}, {"@id": "dataset:eli5"}],
+          "produces": [{"@id": "model:t5_11b"}],
+          "usesParameters": [
+            {"@id": "hp:max_steps"},
+            {"@id": "hp:batch_size_tokens"}
+          ],
+          "executes": [{"@id": "impl:gooaq_t5"}]
+        }
+      ]
+    }
+  ]
+}
