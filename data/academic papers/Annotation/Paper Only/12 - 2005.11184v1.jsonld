@@ -1,0 +1,1996 @@
+{
+  "@context": {
+    "mls": "http://www.w3.org/ns/mls#",
+    "schema": "http://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "model": "https://w3id.org/mlskg/model/",
+    "algo": "https://w3id.org/mlskg/algorithm/",
+    "method": "https://w3id.org/mlskg/method/",
+    "dataset": "https://w3id.org/mlskg/dataset/",
+    "datasource": "https://w3id.org/mlskg/datasource/",
+    "task": "https://w3id.org/mlskg/task/",
+    "eval": "https://w3id.org/mlskg/eval/",
+    "hp": "https://w3id.org/mlskg/hp/",
+    "impl": "https://w3id.org/mlskg/implementation/",
+    "env": "https://w3id.org/mlskg/environment/",
+    "prompt": "https://w3id.org/mlskg/prompt/",
+    "person": "https://w3id.org/mlskg/person/",
+    "org": "https://w3id.org/mlskg/organization/",
+    "study": "https://w3id.org/mlskg/study/",
+    "exp": "https://w3id.org/mlskg/experiment/",
+    "expg": "https://w3id.org/mlskg/experiment-group/",
+    "repo": "https://w3id.org/mlskg/repository/",
+    "mention": "https://w3id.org/mlskg/meta/mention",
+    "valueSource": "https://w3id.org/mlskg/meta/valueSource",
+    "Study": "mls:Study",
+    "Experiment": "mls:Experiment",
+    "ExperimentGroup": "mls:ExperimentGroup",
+    "Person": "mls:Person",
+    "Organization": "mls:Organization",
+    "MLS_Task": "mls:MLS_Task",
+    "MLS_Dataset": "mls:MLS_Dataset",
+    "DataSource": "mls:DataSource",
+    "Method": "mls:Method",
+    "MLS_Model": "mls:MLS_Model",
+    "MLS_Algorithm": "mls:MLS_Algorithm",
+    "Prompt": "mls:Prompt",
+    "MLS_Eval": "mls:MLS_Eval",
+    "SoftwareRepository": "mls:SoftwareRepository",
+    "MLS_Implementation": "mls:MLS_Implementation",
+    "MLS_HyperParameter": "mls:MLS_HyperParameter",
+    "Dependency": "mls:Dependency",
+    "title": "schema:title",
+    "abstract": "schema:abstract",
+    "url": "schema:url",
+    "doi": "schema:doi",
+    "citation": "schema:citation",
+    "publicationVenue": "schema:publicationVenue",
+    "timestamp": "schema:datePublished",
+    "identifier": "schema:identifier",
+    "description": "schema:description",
+    "objective": "schema:abstract",
+    "hypothesis": "mls:hypothesis",
+    "methodology": "mls:methodology",
+    "name": "schema:name",
+    "affiliation": "schema:affiliation",
+    "email": "schema:email",
+    "orcid": "schema:identifier",
+    "type": "schema:type",
+    "category": "schema:category",
+    "metrics": "mls:measure",
+    "numInstances": "schema:numInstances",
+    "language": "schema:inLanguage",
+    "license": "schema:license",
+    "modality": "mls:modality",
+    "numClasses": "mls:numClasses",
+    "version": "schema:version",
+    "architecture": "schema:description",
+    "parameters": "mls:parameters",
+    "measure": "mls:measure",
+    "hasValue": "mls:hasValue",
+    "stdDev": "mls:stdDev",
+    "confidenceInterval": "mls:confidenceInterval",
+    "programmingLanguage": "schema:programmingLanguage",
+    "dateModified": "schema:dateModified",
+    "documentationUrl": "schema:url",
+    "codeRepository": "schema:codeRepository",
+    "framework": "mls:framework",
+    "dependencies": "mls:dependencies",
+    "executionCommand": "mls:executionCommand",
+    "entryPoint": "mls:entryPoint",
+    "branch": "schema:branch",
+    "packageName": "schema:name",
+    "isOptional": "schema:Boolean",
+    "transformationType": "mls:transformationType",
+    "hpCategory": "mls:hpCategory",
+    "hpType": "mls:hpType",
+    "uncertain": "mls:uncertain",
+    "searchSpace": "mls:searchSpace",
+    "hasAuthor": {
+      "@id": "mls:hasAuthor",
+      "@type": "@id"
+    },
+    "contains": {
+      "@id": "mls:contains",
+      "@type": "@id"
+    },
+    "implements": {
+      "@id": "mls:implements",
+      "@type": "@id"
+    },
+    "prov-affiliatedWith": {
+      "@id": "mls:prov-affiliatedWith",
+      "@type": "@id"
+    },
+    "realizes": {
+      "@id": "mls:realizes",
+      "@type": "@id"
+    },
+    "usesData": {
+      "@id": "mls:usesData",
+      "@type": "@id"
+    },
+    "produces": {
+      "@id": "mls:produces",
+      "@type": "@id"
+    },
+    "usesParameters": {
+      "@id": "mls:usesParameters",
+      "@type": "@id"
+    },
+    "executes": {
+      "@id": "mls:executes",
+      "@type": "@id"
+    },
+    "subDatasetOf": {
+      "@id": "mls:subDatasetOf",
+      "@type": "@id"
+    },
+    "prov-derivedFrom": {
+      "@id": "mls:prov-derivedFrom",
+      "@type": "@id"
+    },
+    "processedThrough": {
+      "@id": "mls:processedThrough",
+      "@type": "@id"
+    },
+    "prov-uses": {
+      "@id": "mls:prov-uses",
+      "@type": "@id"
+    },
+    "trainedOn": {
+      "@id": "mls:trainedOn",
+      "@type": "@id"
+    },
+    "evaluatedOn": {
+      "@id": "mls:evaluatedOn",
+      "@type": "@id"
+    },
+    "achieves": {
+      "@id": "mls:achieves",
+      "@type": "@id"
+    },
+    "subMethod": {
+      "@id": "mls:subMethod",
+      "@type": "@id"
+    },
+    "supports": {
+      "@id": "mls:supports",
+      "@type": "@id"
+    },
+    "runsIn": {
+      "@id": "mls:runsIn",
+      "@type": "@id"
+    },
+    "requires": {
+      "@id": "mls:requires",
+      "@type": "@id"
+    },
+    "benchmarkedOn": {
+      "@id": "mls:benchmarkedOn",
+      "@type": "@id"
+    },
+    "subTaskOf": {
+      "@id": "mls:subTaskOf",
+      "@type": "@id"
+    },
+    "hasSubExperiment": {
+      "@id": "mls:hasSubExperiment",
+      "@type": "@id"
+    },
+    "wasGeneratedBy": {
+      "@id": "prov:wasGeneratedBy",
+      "@type": "@id"
+    },
+    "wasDerivedFrom": {
+      "@id": "prov:wasDerivedFrom",
+      "@type": "@id"
+    },
+    "wasAssociatedWith": {
+      "@id": "prov:wasAssociatedWith",
+      "@type": "@id"
+    },
+    "used": {
+      "@id": "prov:used",
+      "@type": "@id"
+    }
+  },
+  "@graph": [
+    {
+      "@id": "study:end_to_end_named_entity_recognition_from_english_speech_2020",
+      "@type": "Study",
+      "mention": {
+        "start_char_doc": 13,
+        "end_char_doc": 68,
+        "prefix": "## Page 1 #",
+        "suffix": "* *submitted to Interspeech-2020 Hemant",
+        "valueSource": "extracted"
+      },
+      "title": {
+        "value": "End-to-end Named Entity Recognition from English Speech",
+        "start_char_doc": 13,
+        "end_char_doc": 68,
+        "prefix": "## Page 1 #",
+        "suffix": "* *submitted to Interspeech-2020 Hemant",
+        "valueSource": "extracted"
+      },
+      "abstract": {
+        "value": "Named entity recognition (NER) from text has been a widely studied problem and usually extracts semantic information from text. Until now, NER from speech is mostly studied in a two-step pipeline process that includes first applying an automatic speech recognition (ASR) system on an audio sample and then passing the predicted transcript to a NER tagger. In such cases, the error does not propagate from one step to another as both the tasks are not optimized in an end-to-end (E2E) fashion. Recent studies confirm that integrated approaches (e.g., E2E ASR) outperform sequential ones (e.g., phoneme based ASR). In this paper, we introduce a first publicly available NER annotated dataset for English speech and present an E2E approach, which jointly optimizes the ASR and NER tagger components. Experimental results show that the proposed E2E approach outperforms the classical two-step approach. We also discuss how NER from speech can be used to handle out of vocabulary (OOV) words in an ASR system.",
+        "start_char_doc": 317,
+        "end_char_doc": 1321,
+        "prefix": "gsreyan@gmail.com, yiyu@nii.ac.jp, rajivratn@iiitd.ac.in ## Abstract",
+        "suffix": "**Index Terms:** End-to-end ASR, named",
+        "valueSource": "extracted"
+      },
+      "url": {
+        "value": "https://arxiv.org/abs/2005.11184",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "doi": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "citation": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "publicationVenue": {
+        "value": "Interspeech-2020",
+        "start_char_doc": 84,
+        "end_char_doc": 100,
+        "prefix": "from English Speech* *submitted to",
+        "suffix": "Hemant Yadav¹, Sreyan Ghosh¹, Yi",
+        "valueSource": "extracted"
+      },
+      "timestamp": {
+        "value": "2020-05-22",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hasAuthor": [
+        {
+          "@id": "person:yadav_hemant"
+        },
+        {
+          "@id": "person:ghosh_sreyan"
+        },
+        {
+          "@id": "person:yu_yi"
+        },
+        {
+          "@id": "person:shah_rajiv_ratn"
+        }
+      ],
+      "contains": [
+        {
+          "@id": "expg:group_e2e_ner_lm_effect_2020"
+        }
+      ],
+      "implements": {
+        "@id": "repo:github"
+      }
+    },
+    {
+      "@id": "person:yadav_hemant",
+      "@type": "Person",
+      "mention": {
+        "start_char_doc": 102,
+        "end_char_doc": 114,
+        "prefix": "English Speech* *submitted to Interspeech-2020",
+        "suffix": "¹, Sreyan Ghosh¹, Yi Yu²,",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "Hemant Yadav",
+        "start_char_doc": 102,
+        "end_char_doc": 114,
+        "prefix": "English Speech* *submitted to Interspeech-2020",
+        "suffix": "¹, Sreyan Ghosh¹, Yi Yu²,",
+        "valueSource": "extracted"
+      },
+      "affiliation": {
+        "value": "MIDAS, IIIT-Delhi, India",
+        "start_char_doc": 158,
+        "end_char_doc": 182,
+        "prefix": "Yu², Rajiv Ratn Shah¹ ¹",
+        "suffix": "²National Institute of Informatics, Tokyo",
+        "valueSource": "extracted"
+      },
+      "email": {
+        "value": "hemantya@iiitd.ac.in",
+        "start_char_doc": 225,
+        "end_char_doc": 245,
+        "prefix": "²National Institute of Informatics, Tokyo",
+        "suffix": ", gsreyan@gmail.com, yiyu@nii.ac.jp, rajivratn@iiitd.ac.in ##",
+        "valueSource": "extracted"
+      },
+      "orcid": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "prov-affiliatedWith": [
+        {
+          "@id": "org:midas"
+        },
+        {
+          "@id": "org:iiit_delhi"
+        }
+      ]
+    },
+    {
+      "@id": "person:ghosh_sreyan",
+      "@type": "Person",
+      "mention": {
+        "start_char_doc": 117,
+        "end_char_doc": 129,
+        "prefix": "*submitted to Interspeech-2020 Hemant Yadav¹,",
+        "suffix": "¹, Yi Yu², Rajiv Ratn",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "Sreyan Ghosh",
+        "start_char_doc": 117,
+        "end_char_doc": 129,
+        "prefix": "*submitted to Interspeech-2020 Hemant Yadav¹,",
+        "suffix": "¹, Yi Yu², Rajiv Ratn",
+        "valueSource": "extracted"
+      },
+      "affiliation": {
+        "value": "MIDAS, IIIT-Delhi, India",
+        "start_char_doc": 158,
+        "end_char_doc": 182,
+        "prefix": "Yu², Rajiv Ratn Shah¹ ¹",
+        "suffix": "²National Institute of Informatics, Tokyo",
+        "valueSource": "extracted"
+      },
+      "email": {
+        "value": "gsreyan@gmail.com",
+        "start_char_doc": 247,
+        "end_char_doc": 264,
+        "prefix": "Institute of Informatics, Tokyo hemantya@iiitd.ac.in,",
+        "suffix": ", yiyu@nii.ac.jp, rajivratn@iiitd.ac.in ## Abstract",
+        "valueSource": "extracted"
+      },
+      "orcid": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "prov-affiliatedWith": [
+        {
+          "@id": "org:midas"
+        },
+        {
+          "@id": "org:iiit_delhi"
+        }
+      ]
+    },
+    {
+      "@id": "person:yu_yi",
+      "@type": "Person",
+      "mention": {
+        "start_char_doc": 132,
+        "end_char_doc": 137,
+        "prefix": "Interspeech-2020 Hemant Yadav¹, Sreyan Ghosh¹,",
+        "suffix": "², Rajiv Ratn Shah¹ ¹MIDAS,",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "Yi Yu",
+        "start_char_doc": 132,
+        "end_char_doc": 137,
+        "prefix": "Interspeech-2020 Hemant Yadav¹, Sreyan Ghosh¹,",
+        "suffix": "², Rajiv Ratn Shah¹ ¹MIDAS,",
+        "valueSource": "extracted"
+      },
+      "affiliation": {
+        "value": "National Institute of Informatics, Tokyo",
+        "start_char_doc": 184,
+        "end_char_doc": 224,
+        "prefix": "Shah¹ ¹MIDAS, IIIT-Delhi, India ²",
+        "suffix": "hemantya@iiitd.ac.in, gsreyan@gmail.com, yiyu@nii.ac.jp, rajivratn@iiitd.ac.in ##",
+        "valueSource": "extracted"
+      },
+      "email": {
+        "value": "yiyu@nii.ac.jp",
+        "start_char_doc": 266,
+        "end_char_doc": 280,
+        "prefix": "of Informatics, Tokyo hemantya@iiitd.ac.in, gsreyan@gmail.com,",
+        "suffix": ", rajivratn@iiitd.ac.in ## Abstract Named",
+        "valueSource": "extracted"
+      },
+      "orcid": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "prov-affiliatedWith": [
+        {
+          "@id": "org:national_institute_of_informatics"
+        }
+      ]
+    },
+    {
+      "@id": "person:shah_rajiv_ratn",
+      "@type": "Person",
+      "mention": {
+        "start_char_doc": 140,
+        "end_char_doc": 155,
+        "prefix": "Yadav¹, Sreyan Ghosh¹, Yi Yu²,",
+        "suffix": "¹ ¹MIDAS, IIIT-Delhi, India ²National",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "Rajiv Ratn Shah",
+        "start_char_doc": 140,
+        "end_char_doc": 155,
+        "prefix": "Yadav¹, Sreyan Ghosh¹, Yi Yu²,",
+        "suffix": "¹ ¹MIDAS, IIIT-Delhi, India ²National",
+        "valueSource": "extracted"
+      },
+      "affiliation": {
+        "value": "MIDAS, IIIT-Delhi, India",
+        "start_char_doc": 158,
+        "end_char_doc": 182,
+        "prefix": "Yu², Rajiv Ratn Shah¹ ¹",
+        "suffix": "²National Institute of Informatics, Tokyo",
+        "valueSource": "extracted"
+      },
+      "email": {
+        "value": "rajivratn@iiitd.ac.in",
+        "start_char_doc": 282,
+        "end_char_doc": 303,
+        "prefix": "Informatics, Tokyo hemantya@iiitd.ac.in, gsreyan@gmail.com, yiyu@nii.ac.jp,",
+        "suffix": "## Abstract Named entity recognition",
+        "valueSource": "extracted"
+      },
+      "orcid": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "prov-affiliatedWith": [
+        {
+          "@id": "org:midas"
+        },
+        {
+          "@id": "org:iiit_delhi"
+        }
+      ]
+    },
+    {
+      "@id": "org:midas",
+      "@type": "Organization",
+      "mention": {
+        "start_char_doc": 158,
+        "end_char_doc": 163,
+        "prefix": "Yu², Rajiv Ratn Shah¹ ¹",
+        "suffix": ", IIIT-Delhi, India ²National Institute",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "MIDAS",
+        "start_char_doc": 158,
+        "end_char_doc": 163,
+        "prefix": "Yu², Rajiv Ratn Shah¹ ¹",
+        "suffix": ", IIIT-Delhi, India ²National Institute",
+        "valueSource": "extracted"
+      },
+      "url": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "type": {
+        "value": "research lab",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "org:iiit_delhi",
+      "@type": "Organization",
+      "mention": {
+        "start_char_doc": 165,
+        "end_char_doc": 175,
+        "prefix": "Yu², Rajiv Ratn Shah¹ ¹MIDAS,",
+        "suffix": ", India ²National Institute of",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "IIIT-Delhi",
+        "start_char_doc": 165,
+        "end_char_doc": 175,
+        "prefix": "Yu², Rajiv Ratn Shah¹ ¹MIDAS,",
+        "suffix": ", India ²National Institute of",
+        "valueSource": "extracted"
+      },
+      "url": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "type": {
+        "value": "university",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "org:national_institute_of_informatics",
+      "@type": "Organization",
+      "mention": {
+        "start_char_doc": 184,
+        "end_char_doc": 217,
+        "prefix": "Shah¹ ¹MIDAS, IIIT-Delhi, India ²",
+        "suffix": ", Tokyo hemantya@iiitd.ac.in, gsreyan@gmail.com, yiyu@nii.ac.jp,",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "National Institute of Informatics",
+        "start_char_doc": 184,
+        "end_char_doc": 217,
+        "prefix": "Shah¹ ¹MIDAS, IIIT-Delhi, India ²",
+        "suffix": ", Tokyo hemantya@iiitd.ac.in, gsreyan@gmail.com, yiyu@nii.ac.jp,",
+        "valueSource": "extracted"
+      },
+      "url": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "type": {
+        "value": "research institute",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "task:named_entity_recognition_from_english_speech",
+      "@type": "MLS_Task",
+      "mention": {
+        "start_char_doc": 24,
+        "end_char_doc": 68,
+        "prefix": "## Page 1 # End-to-end",
+        "suffix": "* *submitted to Interspeech-2020 Hemant",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "Named Entity Recognition from English Speech",
+        "start_char_doc": 24,
+        "end_char_doc": 68,
+        "prefix": "## Page 1 # End-to-end",
+        "suffix": "* *submitted to Interspeech-2020 Hemant",
+        "valueSource": "extracted"
+      },
+      "description": {
+        "value": "The problem of NER from speech is to assign a special symbol before and after a named entity to identify it.",
+        "start_char_doc": 10197,
+        "end_char_doc": 10305,
+        "prefix": "[25]. ### 4.2. E2E approach",
+        "suffix": "We approach this problem as",
+        "valueSource": "extracted"
+      },
+      "category": {
+        "value": "speech named entity recognition",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "metrics": {
+        "value": "precision, recall, and F1 score",
+        "start_char_doc": 16674,
+        "end_char_doc": 16705,
+        "prefix": "evaluation metrics we report are",
+        "suffix": "on the NER task. The",
+        "valueSource": "extracted"
+      },
+      "benchmarkedOn": [
+        {
+          "@id": "dataset:data2"
+        }
+      ]
+    },
+    {
+      "@id": "dataset:data1",
+      "@type": "MLS_Dataset",
+      "mention": {
+        "start_char_doc": 6174,
+        "end_char_doc": 6179,
+        "prefix": "to this combined data as",
+        "suffix": ", which has around 600,000",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "DATA1",
+        "start_char_doc": 6174,
+        "end_char_doc": 6179,
+        "prefix": "to this combined data as",
+        "suffix": ", which has around 600,000",
+        "valueSource": "extracted"
+      },
+      "description": {
+        "value": "The annotated English dataset we prepare for the NER from speech task is a subset of a combination of Librispeech [18], CommonVoice [19], Tedlium [20] and Voxforge [21].",
+        "start_char_doc": 5887,
+        "end_char_doc": 6056,
+        "prefix": "NER task. ## 3. Dataset",
+        "suffix": "The recordings are comprised mainly",
+        "valueSource": "extracted"
+      },
+      "numInstances": {
+        "value": 600000,
+        "start_char_doc": 6198,
+        "end_char_doc": 6205,
+        "prefix": "as DATA1, which has around",
+        "suffix": "files (approximately 1,000 hrs). After",
+        "valueSource": "extracted"
+      },
+      "language": {
+        "value": "English",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "license": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "modality": {
+        "value": "speech",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "numClasses": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "prov-derivedFrom": [
+        {
+          "@id": "datasource:librispeech"
+        },
+        {
+          "@id": "datasource:common_voice"
+        },
+        {
+          "@id": "datasource:tedlium"
+        },
+        {
+          "@id": "datasource:voxforge"
+        }
+      ]
+    },
+    {
+      "@id": "dataset:data2",
+      "@type": "MLS_Dataset",
+      "mention": {
+        "start_char_doc": 7754,
+        "end_char_doc": 7759,
+        "prefix": "to this reduced data as",
+        "suffix": ". Since DATA1 has audios",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "DATA2",
+        "start_char_doc": 7754,
+        "end_char_doc": 7759,
+        "prefix": "to this reduced data as",
+        "suffix": ". Since DATA1 has audios",
+        "valueSource": "extracted"
+      },
+      "description": {
+        "value": "After the Flair NER tagger operation on DATA1, the total number of files is reduced to 70,769 (approx. 150 hrs) from 600,000 (approx. 1,000 hrs). We refer to this reduced data as DATA2.",
+        "start_char_doc": 7575,
+        "end_char_doc": 7760,
+        "prefix": "entities from the tagger output.",
+        "suffix": "Since DATA1 has audios of",
+        "valueSource": "extracted"
+      },
+      "numInstances": {
+        "value": 70769,
+        "start_char_doc": 6510,
+        "end_char_doc": 6516,
+        "prefix": "of files having NER to",
+        "suffix": ", which are used for",
+        "valueSource": "extracted"
+      },
+      "language": {
+        "value": "English",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "license": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "modality": {
+        "value": "speech",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "numClasses": {
+        "value": 3,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "subDatasetOf": {
+        "@id": "dataset:data1"
+      },
+      "wasDerivedFrom": {
+        "@id": "dataset:data1"
+      }
+    },
+    {
+      "@id": "datasource:librispeech",
+      "@type": "DataSource",
+      "mention": {
+        "start_char_doc": 5989,
+        "end_char_doc": 6000,
+        "prefix": "subset of a combination of",
+        "suffix": "[18], CommonVoice [19], Tedlium [20]",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "Librispeech",
+        "start_char_doc": 5989,
+        "end_char_doc": 6000,
+        "prefix": "subset of a combination of",
+        "suffix": "[18], CommonVoice [19], Tedlium [20]",
+        "valueSource": "extracted"
+      },
+      "url": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "type": {
+        "value": "speech corpus",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "license": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "datasource:common_voice",
+      "@type": "DataSource",
+      "mention": {
+        "start_char_doc": 6007,
+        "end_char_doc": 6018,
+        "prefix": "a combination of Librispeech [18],",
+        "suffix": "[19], Tedlium [20] and Voxforge",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "CommonVoice",
+        "start_char_doc": 6007,
+        "end_char_doc": 6018,
+        "prefix": "a combination of Librispeech [18],",
+        "suffix": "[19], Tedlium [20] and Voxforge",
+        "valueSource": "extracted"
+      },
+      "url": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "type": {
+        "value": "speech corpus",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "license": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "datasource:tedlium",
+      "@type": "DataSource",
+      "mention": {
+        "start_char_doc": 6025,
+        "end_char_doc": 6032,
+        "prefix": "of Librispeech [18], CommonVoice [19],",
+        "suffix": "[20] and Voxforge [21]. The",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "Tedlium",
+        "start_char_doc": 6025,
+        "end_char_doc": 6032,
+        "prefix": "of Librispeech [18], CommonVoice [19],",
+        "suffix": "[20] and Voxforge [21]. The",
+        "valueSource": "extracted"
+      },
+      "url": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "type": {
+        "value": "speech corpus",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "license": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "datasource:voxforge",
+      "@type": "DataSource",
+      "mention": {
+        "start_char_doc": 6042,
+        "end_char_doc": 6050,
+        "prefix": "CommonVoice [19], Tedlium [20] and",
+        "suffix": "[21]. The recordings are comprised",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "Voxforge",
+        "start_char_doc": 6042,
+        "end_char_doc": 6050,
+        "prefix": "CommonVoice [19], Tedlium [20] and",
+        "suffix": "[21]. The recordings are comprised",
+        "valueSource": "extracted"
+      },
+      "url": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "type": {
+        "value": "speech corpus",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "license": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "method:end_to_end_ner_from_speech",
+      "@type": "Method",
+      "mention": {
+        "start_char_doc": 1041,
+        "end_char_doc": 1053,
+        "prefix": "English speech and present an",
+        "suffix": ", which jointly optimizes the",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "E2E approach",
+        "start_char_doc": 1041,
+        "end_char_doc": 1053,
+        "prefix": "English speech and present an",
+        "suffix": ", which jointly optimizes the",
+        "valueSource": "extracted"
+      },
+      "description": {
+        "value": "present an E2E approach, which jointly optimizes the ASR and NER tagger components.",
+        "start_char_doc": 1030,
+        "end_char_doc": 1113,
+        "prefix": "dataset for English speech and",
+        "suffix": "Experimental results show that the",
+        "valueSource": "extracted"
+      },
+      "version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "trainedOn": [
+        {
+          "@id": "dataset:data2"
+        }
+      ],
+      "evaluatedOn": [
+        {
+          "@id": "dataset:data2"
+        }
+      ],
+      "achieves": [
+        {
+          "@id": "eval:f1_score_e2e_with_lm_data2"
+        },
+        {
+          "@id": "eval:f1_score_e2e_without_lm_data2"
+        }
+      ],
+      "subMethod": [
+        {
+          "@id": "model:deepspeech2_ds2"
+        }
+      ]
+    },
+    {
+      "@id": "model:deepspeech2_ds2",
+      "@type": "MLS_Model",
+      "mention": {
+        "start_char_doc": 10380,
+        "end_char_doc": 10405,
+        "prefix": "and use an RNN based",
+        "suffix": "[26] neural architecture to study",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "Baidu's DeepSpeech2 (DS2)",
+        "start_char_doc": 10380,
+        "end_char_doc": 10405,
+        "prefix": "and use an RNN based",
+        "suffix": "[26] neural architecture to study",
+        "valueSource": "extracted"
+      },
+      "description": {
+        "value": "use an RNN based Baidu's DeepSpeech2 (DS2) [26] neural architecture to study NER from speech with modifications in the last layer.",
+        "start_char_doc": 10363,
+        "end_char_doc": 10493,
+        "prefix": "a sequence labeling task and",
+        "suffix": "DS2 is a combination of",
+        "valueSource": "extracted"
+      },
+      "architecture": {
+        "value": "DS2 is a combination of Convolution Neural Network (CNN) and Recurrent Neural Network (RNN) layers, with a fully connected followed by a softmax layer.",
+        "start_char_doc": 10494,
+        "end_char_doc": 10645,
+        "prefix": "modifications in the last layer.",
+        "suffix": "The softmax layer outputs the",
+        "valueSource": "extracted"
+      },
+      "parameters": {
+        "value": "To recognize named entities, we modify the DS2 architecture by increasing the shape of the fully connected layer by four to accommodate the extra symbols in the output layer (see Figure 3).",
+        "start_char_doc": 11535,
+        "end_char_doc": 11724,
+        "prefix": "shown in the Figure 2.",
+        "suffix": "We train the system using",
+        "valueSource": "extracted"
+      }
+    },
+    {
+      "@id": "repo:github",
+      "@type": "SoftwareRepository",
+      "mention": {
+        "start_char_doc": 16918,
+        "end_char_doc": 16924,
+        "prefix": "training configurations are available on",
+        "suffix": "³. **Table 3: Precision, Recall",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "GitHub",
+        "start_char_doc": 16918,
+        "end_char_doc": 16924,
+        "prefix": "training configurations are available on",
+        "suffix": "³. **Table 3: Precision, Recall",
+        "valueSource": "extracted"
+      },
+      "url": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "programmingLanguage": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "dateModified": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "license": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "documentationUrl": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "contains": [
+        {
+          "@id": "impl:deepspeech2_ner_system"
+        }
+      ]
+    },
+    {
+      "@id": "impl:deepspeech2_ner_system",
+      "@type": "MLS_Implementation",
+      "mention": {
+        "start_char_doc": 10380,
+        "end_char_doc": 10405,
+        "prefix": "and use an RNN based",
+        "suffix": "[26] neural architecture to study",
+        "valueSource": "extracted"
+      },
+      "codeRepository": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "framework": {
+        "value": "Baidu's DeepSpeech2 (DS2)",
+        "start_char_doc": 10380,
+        "end_char_doc": 10405,
+        "prefix": "and use an RNN based",
+        "suffix": "[26] neural architecture to study",
+        "valueSource": "extracted"
+      },
+      "executionCommand": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "entryPoint": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "branch": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "requires": [
+        {
+          "@id": "repo:kenlm_library"
+        }
+      ]
+    },
+    {
+      "@id": "repo:kenlm_library",
+      "@type": "Dependency",
+      "mention": {
+        "start_char_doc": 10153,
+        "end_char_doc": 10166,
+        "prefix": "dev, and test using the",
+        "suffix": "[25]. ### 4.2. E2E approach",
+        "valueSource": "extracted"
+      },
+      "packageName": {
+        "value": "KENLM library",
+        "start_char_doc": 10153,
+        "end_char_doc": 10166,
+        "prefix": "dev, and test using the",
+        "suffix": "[25]. ### 4.2. E2E approach",
+        "valueSource": "extracted"
+      },
+      "version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "dependencyType": {
+        "value": "language model library",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "isOptional": {
+        "value": false,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "hp:threshold_probability_flair",
+      "@type": "MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 7466,
+        "end_char_doc": 7495,
+        "prefix": "it was found that a",
+        "suffix": "rejects the majority of noisy/erroneous",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "threshold probability",
+        "start_char_doc": 7466,
+        "end_char_doc": 7487,
+        "prefix": "it was found that a",
+        "suffix": "of 0.95 rejects the majority",
+        "valueSource": "extracted"
+      },
+      "hasValue": {
+        "value": "0.95",
+        "start_char_doc": 7491,
+        "end_char_doc": 7495,
+        "prefix": "that a threshold probability of",
+        "suffix": "rejects the majority of noisy/erroneous",
+        "valueSource": "extracted"
+      },
+      "type": {
+        "value": "float",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "searchSpace": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hpCategory": "HP_Optimization",
+      "hpType": "HP_Optimization",
+      "uncertain": true
+    },
+    {
+      "@id": "hp:train_val_test_split_data2",
+      "@type": "MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 12236,
+        "end_char_doc": 12313,
+        "prefix": "31,000 unique files with a",
+        "suffix": "We experimented with two different",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "train/dev/test split",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hasValue": {
+        "value": "80/10/10",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "type": {
+        "value": "ratio",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "searchSpace": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hpCategory": "HP_Data",
+      "hpType": "TrainValTestSplit",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:beam_width_1024",
+      "@type": "MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 12573,
+        "end_char_doc": 12591,
+        "prefix": "beam search decoding with a",
+        "suffix": "and a 4-gram LM (trained",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "beam-width",
+        "start_char_doc": 12573,
+        "end_char_doc": 12583,
+        "prefix": "beam search decoding with a",
+        "suffix": "of 1024 and a 4-gram",
+        "valueSource": "extracted"
+      },
+      "hasValue": {
+        "value": "1024",
+        "start_char_doc": 12587,
+        "end_char_doc": 12591,
+        "prefix": "decoding with a beam-width of",
+        "suffix": "and a 4-gram LM (trained",
+        "valueSource": "extracted"
+      },
+      "type": {
+        "value": "integer",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "searchSpace": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hpCategory": "HP_Optimization",
+      "hpType": "HP_Optimization",
+      "uncertain": true
+    },
+    {
+      "@id": "hp:lm_order_4_gram",
+      "@type": "MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 10050,
+        "end_char_doc": 10059,
+        "prefix": "language model. In this study,",
+        "suffix": "is used and is trained",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "4-gram LM",
+        "start_char_doc": 10050,
+        "end_char_doc": 10059,
+        "prefix": "language model. In this study,",
+        "suffix": "is used and is trained",
+        "valueSource": "extracted"
+      },
+      "hasValue": {
+        "value": "4-gram",
+        "start_char_doc": 10050,
+        "end_char_doc": 10056,
+        "prefix": "language model. In this study,",
+        "suffix": "LM is used and is",
+        "valueSource": "extracted"
+      },
+      "type": {
+        "value": "string",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "searchSpace": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hpCategory": "HP_Architecture",
+      "hpType": "HP_Architecture",
+      "uncertain": true
+    },
+    {
+      "@id": "hp:alpha_prefix_beam_search",
+      "@type": "MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 15907,
+        "end_char_doc": 15911,
+        "prefix": "this study, we use values",
+        "suffix": "& 6.0 for $\\alpha$ and",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "alpha",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hasValue": {
+        "value": "1.96",
+        "start_char_doc": 15907,
+        "end_char_doc": 15911,
+        "prefix": "this study, we use values",
+        "suffix": "& 6.0 for $\\alpha$ and",
+        "valueSource": "extracted"
+      },
+      "type": {
+        "value": "float",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "searchSpace": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hpCategory": "HP_Optimization",
+      "hpType": "HP_Optimization",
+      "uncertain": true
+    },
+    {
+      "@id": "hp:beta_prefix_beam_search",
+      "@type": "MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 15914,
+        "end_char_doc": 15917,
+        "prefix": "we use values 1.96 &",
+        "suffix": "for $\\alpha$ and $\\beta$, respectively.",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "beta",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hasValue": {
+        "value": "6.0",
+        "start_char_doc": 15914,
+        "end_char_doc": 15917,
+        "prefix": "we use values 1.96 &",
+        "suffix": "for $\\alpha$ and $\\beta$, respectively.",
+        "valueSource": "extracted"
+      },
+      "type": {
+        "value": "float",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "searchSpace": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hpCategory": "HP_Optimization",
+      "hpType": "HP_Optimization",
+      "uncertain": true
+    },
+    {
+      "@id": "hp:weight_decay",
+      "@type": "MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 16605,
+        "end_char_doc": 16617,
+        "prefix": "we use batch normalization and",
+        "suffix": "as regularization. The evaluation metrics",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "weight decay",
+        "start_char_doc": 16605,
+        "end_char_doc": 16617,
+        "prefix": "we use batch normalization and",
+        "suffix": "as regularization. The evaluation metrics",
+        "valueSource": "extracted"
+      },
+      "hasValue": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "type": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "searchSpace": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hpCategory": "HP_Optimization",
+      "hpType": "WeightDecay",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:batch_normalization",
+      "@type": "MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 16581,
+        "end_char_doc": 16600,
+        "prefix": "all the experiments, we use",
+        "suffix": "and weight decay as regularization.",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "batch normalization",
+        "start_char_doc": 16581,
+        "end_char_doc": 16600,
+        "prefix": "all the experiments, we use",
+        "suffix": "and weight decay as regularization.",
+        "valueSource": "extracted"
+      },
+      "hasValue": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "type": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "searchSpace": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hpCategory": "HP_Training",
+      "hpType": "HP_Training",
+      "uncertain": true
+    },
+    {
+      "@id": "hp:window_20ms",
+      "@type": "MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 10964,
+        "end_char_doc": 10975,
+        "prefix": "audio clips, calculated on a",
+        "suffix": "\", and is then fed",
+        "valueSource": "extracted"
+      },
+      "name": {
+        "value": "20ms window",
+        "start_char_doc": 10964,
+        "end_char_doc": 10975,
+        "prefix": "audio clips, calculated on a",
+        "suffix": "\", and is then fed",
+        "valueSource": "extracted"
+      },
+      "hasValue": {
+        "value": "20ms",
+        "start_char_doc": 10964,
+        "end_char_doc": 10968,
+        "prefix": "audio clips, calculated on a",
+        "suffix": "window\", and is then fed",
+        "valueSource": "extracted"
+      },
+      "type": {
+        "value": "duration",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "searchSpace": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hpCategory": "HP_Data",
+      "hpType": "HP_Data",
+      "uncertain": true
+    },
+    {
+      "@id": "eval:f1_score_e2e_with_lm_data2",
+      "@type": "MLS_Eval",
+      "mention": {
+        "start_char_doc": 20348,
+        "end_char_doc": 20355,
+        "prefix": "<td>00.21</td> <td>0.27</td> </tr> <tr> <td>",
+        "suffix": "</td> <td>0.96</td> <td>0.85</td> <td>0.90</td> </tr>",
+        "valueSource": "extracted"
+      },
+      "measure": {
+        "value": "F1",
+        "start_char_doc": 16697,
+        "end_char_doc": 16699,
+        "prefix": "report are precision, recall, and",
+        "suffix": "score on the NER task.",
+        "valueSource": "extracted"
+      },
+      "hasValue": {
+        "value": "0.90",
+        "start_char_doc": 20411,
+        "end_char_doc": 20415,
+        "prefix": "<td>with LM</td> <td>0.96</td> <td>0.85</td> <td>",
+        "suffix": "</td> </tr> </tbody> </table> ³link",
+        "valueSource": "extracted"
+      },
+      "stdDev": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "confidenceInterval": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "wasGeneratedBy": {
+        "@id": "exp:e2e_ner_with_lm_data2"
+      },
+      "used": {
+        "@id": "dataset:data2"
+      }
+    },
+    {
+      "@id": "eval:f1_score_e2e_without_lm_data2",
+      "@type": "MLS_Eval",
+      "mention": {
+        "start_char_doc": 20242,
+        "end_char_doc": 20252,
+        "prefix": "</tr> </thead> <tbody> <tr> <td>",
+        "suffix": "</td> <td>0.38</td> <td>00.21</td> <td>0.27</td> </tr>",
+        "valueSource": "extracted"
+      },
+      "measure": {
+        "value": "F1",
+        "start_char_doc": 16961,
+        "end_char_doc": 16963,
+        "prefix": "**Table 3: Precision, Recall and",
+        "suffix": "score of the two-step and",
+        "valueSource": "extracted"
+      },
+      "hasValue": {
+        "value": "0.27",
+        "start_char_doc": 20309,
+        "end_char_doc": 20313,
+        "prefix": "<td>without LM</td> <td>0.38</td> <td>00.21</td> <td>",
+        "suffix": "</td> </tr> <tr> <td>with LM</td>",
+        "valueSource": "extracted"
+      },
+      "stdDev": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "confidenceInterval": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "wasGeneratedBy": {
+        "@id": "exp:e2e_ner_without_lm_data2"
+      },
+      "used": {
+        "@id": "dataset:data2"
+      }
+    },
+    {
+      "@id": "expg:group_e2e_ner_lm_effect_2020",
+      "@type": "ExperimentGroup",
+      "mention": {
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "identifier": {
+        "value": "E2E NER experiments with and without LM on DATA2",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "description": {
+        "value": "We also studied the effect of language model on the F1 scores.",
+        "start_char_doc": 18993,
+        "end_char_doc": 19055,
+        "prefix": "work on French datasets [11].",
+        "suffix": "LM improves the NER scores",
+        "valueSource": "extracted"
+      },
+      "objective": {
+        "value": "we study the effect of a LM on the E2E NER task.",
+        "start_char_doc": 3648,
+        "end_char_doc": 3696,
+        "prefix": "motivated by this work. Additionally,",
+        "suffix": "Our major contributions are as",
+        "valueSource": "extracted"
+      },
+      "hypothesis": {
+        "value": "LM improves the NER scores with a significant margin",
+        "start_char_doc": 19056,
+        "end_char_doc": 19108,
+        "prefix": "model on the F1 scores.",
+        "suffix": ", and the same can",
+        "valueSource": "extracted"
+      },
+      "methodology": {
+        "value": "For the E2E approach, experiments were carried out on the model explained in Section 4.2.",
+        "start_char_doc": 12430,
+        "end_char_doc": 12519,
+        "prefix": "and a classical two-step approach.",
+        "suffix": "At the test time, Prefix",
+        "valueSource": "extracted"
+      },
+      "realizes": [
+        {
+          "@id": "task:named_entity_recognition_from_english_speech"
+        }
+      ],
+      "usesData": [
+        {
+          "@id": "dataset:data2"
+        }
+      ],
+      "hasSubExperiment": [
+        {
+          "@id": "exp:e2e_ner_with_lm_data2"
+        },
+        {
+          "@id": "exp:e2e_ner_without_lm_data2"
+        }
+      ]
+    },
+    {
+      "@id": "exp:e2e_ner_with_lm_data2",
+      "@type": "Experiment",
+      "mention": {
+        "start_char_doc": 20348,
+        "end_char_doc": 20355,
+        "prefix": "<td>00.21</td> <td>0.27</td> </tr> <tr> <td>",
+        "suffix": "</td> <td>0.96</td> <td>0.85</td> <td>0.90</td> </tr>",
+        "valueSource": "extracted"
+      },
+      "identifier": {
+        "value": "with LM",
+        "start_char_doc": 20348,
+        "end_char_doc": 20355,
+        "prefix": "<td>00.21</td> <td>0.27</td> </tr> <tr> <td>",
+        "suffix": "</td> <td>0.96</td> <td>0.85</td> <td>0.90</td> </tr>",
+        "valueSource": "extracted"
+      },
+      "description": {
+        "value": "At the test time, Prefix beam search decoding with a beam-width of 1024 and a 4-gram LM (trained on DATA2) is used.",
+        "start_char_doc": 12520,
+        "end_char_doc": 12635,
+        "prefix": "model explained in Section 4.2.",
+        "suffix": "In the case of classical",
+        "valueSource": "extracted"
+      },
+      "realizes": [
+        {
+          "@id": "task:named_entity_recognition_from_english_speech"
+        }
+      ],
+      "usesData": [
+        {
+          "@id": "dataset:data2"
+        }
+      ],
+      "produces": [
+        {
+          "@id": "method:end_to_end_ner_from_speech"
+        }
+      ],
+      "usesParameters": [
+        {
+          "@id": "hp:train_val_test_split_data2"
+        },
+        {
+          "@id": "hp:beam_width_1024"
+        },
+        {
+          "@id": "hp:lm_order_4_gram"
+        },
+        {
+          "@id": "hp:alpha_prefix_beam_search"
+        },
+        {
+          "@id": "hp:beta_prefix_beam_search"
+        },
+        {
+          "@id": "hp:weight_decay"
+        },
+        {
+          "@id": "hp:batch_normalization"
+        },
+        {
+          "@id": "hp:window_20ms"
+        }
+      ],
+      "executes": [
+        {
+          "@id": "impl:deepspeech2_ner_system"
+        }
+      ],
+      "wasAssociatedWith": [
+        {
+          "@id": "hp:beam_width_1024"
+        },
+        {
+          "@id": "hp:lm_order_4_gram"
+        },
+        {
+          "@id": "hp:alpha_prefix_beam_search"
+        },
+        {
+          "@id": "hp:beta_prefix_beam_search"
+        }
+      ],
+      "used": [
+        {
+          "@id": "dataset:data2"
+        },
+        {
+          "@id": "model:deepspeech2_ds2"
+        }
+      ]
+    },
+    {
+      "@id": "exp:e2e_ner_without_lm_data2",
+      "@type": "Experiment",
+      "mention": {
+        "start_char_doc": 20242,
+        "end_char_doc": 20252,
+        "prefix": "</tr> </thead> <tbody> <tr> <td>",
+        "suffix": "</td> <td>0.38</td> <td>00.21</td> <td>0.27</td> </tr>",
+        "valueSource": "extracted"
+      },
+      "identifier": {
+        "value": "without LM",
+        "start_char_doc": 20242,
+        "end_char_doc": 20252,
+        "prefix": "</tr> </thead> <tbody> <tr> <td>",
+        "suffix": "</td> <td>0.38</td> <td>00.21</td> <td>0.27</td> </tr>",
+        "valueSource": "extracted"
+      },
+      "description": {
+        "value": "Table 4: E2E NER from speech: Micro-Average scores, with and without LM.",
+        "start_char_doc": 20001,
+        "end_char_doc": 20073,
+        "prefix": "make any concrete comments. **",
+        "suffix": "** <table> <thead> <tr> <th>E2E",
+        "valueSource": "extracted"
+      },
+      "realizes": [
+        {
+          "@id": "task:named_entity_recognition_from_english_speech"
+        }
+      ],
+      "usesData": [
+        {
+          "@id": "dataset:data2"
+        }
+      ],
+      "produces": [
+        {
+          "@id": "method:end_to_end_ner_from_speech"
+        }
+      ],
+      "usesParameters": [
+        {
+          "@id": "hp:train_val_test_split_data2"
+        },
+        {
+          "@id": "hp:weight_decay"
+        },
+        {
+          "@id": "hp:batch_normalization"
+        },
+        {
+          "@id": "hp:window_20ms"
+        }
+      ],
+      "executes": [
+        {
+          "@id": "impl:deepspeech2_ner_system"
+        }
+      ],
+      "wasAssociatedWith": [
+        {
+          "@id": "hp:weight_decay"
+        },
+        {
+          "@id": "hp:batch_normalization"
+        }
+      ],
+      "used": [
+        {
+          "@id": "dataset:data2"
+        },
+        {
+          "@id": "model:deepspeech2_ds2"
+        }
+      ]
+    }
+  ]
+}
