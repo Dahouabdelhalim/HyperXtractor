@@ -1,0 +1,1356 @@
+{
+  "@context": {
+    "mls": "http://example.org/ontology/mls#",
+    "schema": "http://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "SoftwareRepository": "mls:SoftwareRepository",
+    "MLS_Implementation": "mls:MLS_Implementation",
+    "MLS_HyperParameter": "mls:MLS_HyperParameter",
+    "Dependency": "mls:Dependency",
+    "Environment": "mls:Environment",
+    "DataProcessingStep": "mls:DataProcessingStep",
+    "TrainingRun": "mls:TrainingRun",
+    "EvaluationRun": "mls:EvaluationRun",
+    "PredictionSet": "mls:PredictionSet",
+    "name": "schema:name",
+    "identifier": "schema:identifier",
+    "description": "schema:description",
+    "url": "schema:url",
+    "version": "schema:version",
+    "license": "schema:license",
+    "programmingLanguage": "schema:programmingLanguage",
+    "dateModified": {
+      "@id": "schema:dateModified",
+      "@type": "xsd:dateTime"
+    },
+    "documentationUrl": {
+      "@id": "mls:documentationUrl",
+      "@type": "xsd:anyURI"
+    },
+    "owner": "mls:owner",
+    "platform": "mls:platform",
+    "codeRepository": {
+      "@id": "mls:codeRepository",
+      "@type": "xsd:anyURI"
+    },
+    "framework": "mls:framework",
+    "entryPoint": "mls:entryPoint",
+    "entryPointCommand": "mls:entryPointCommand",
+    "executionCommand": "mls:executionCommand",
+    "commitHash": "mls:commitHash",
+    "branch": "mls:branch",
+    "dependenciesHash": "mls:dependenciesHash",
+    "packageName": "mls:packageName",
+    "dependencyType": "mls:dependencyType",
+    "isOptional": {
+      "@id": "mls:isOptional",
+      "@type": "xsd:boolean"
+    },
+    "hardwareSpecs": "mls:hardwareSpecs",
+    "os": "mls:os",
+    "pythonVersion": "mls:pythonVersion",
+    "requirementsFile": "mls:requirementsFile",
+    "isDockerized": {
+      "@id": "mls:isDockerized",
+      "@type": "xsd:boolean"
+    },
+    "hasValue": {
+      "@id": "mls:hasValue",
+      "@type": "xsd:string"
+    },
+    "hpCategory": "mls:hpCategory",
+    "hpType": "mls:hpType",
+    "sourceFile": "mls:sourceFile",
+    "sourceLine": {
+      "@id": "mls:sourceLine",
+      "@type": "xsd:integer"
+    },
+    "uncertain": {
+      "@id": "mls:uncertain",
+      "@type": "xsd:boolean"
+    },
+    "transformationType": "mls:transformationType",
+    "codeReference": {
+      "@id": "mls:codeReference",
+      "@type": "xsd:anyURI"
+    },
+    "runId": "mls:runId",
+    "logFile": {
+      "@id": "mls:logFile",
+      "@type": "xsd:anyURI"
+    },
+    "artifactsLocation": {
+      "@id": "mls:artifactsLocation",
+      "@type": "xsd:anyURI"
+    },
+    "split": "mls:split",
+    "evaluationScript": "mls:evaluationScript",
+    "evaluationSplit": "mls:evaluationSplit",
+    "metricsFile": "mls:metricsFile",
+    "format": "mls:format",
+    "predictionFormat": "mls:predictionFormat",
+    "storageLocation": "mls:storageLocation",
+    "numInstances": {
+      "@id": "mls:numInstances",
+      "@type": "xsd:integer"
+    },
+    "onDatasetSplit": "mls:onDatasetSplit",
+    "startedAtTime": {
+      "@id": "prov:startedAtTime",
+      "@type": "xsd:dateTime"
+    },
+    "endedAtTime": {
+      "@id": "prov:endedAtTime",
+      "@type": "xsd:dateTime"
+    },
+    "contains": {
+      "@id": "mls:contains",
+      "@type": "@id"
+    },
+    "supports": {
+      "@id": "mls:supports",
+      "@type": "@id"
+    },
+    "runsIn": {
+      "@id": "mls:runsIn",
+      "@type": "@id"
+    },
+    "requires": {
+      "@id": "mls:requires",
+      "@type": "@id"
+    },
+    "inputDataset": {
+      "@id": "mls:inputDataset",
+      "@type": "@id"
+    },
+    "outputDataset": {
+      "@id": "mls:outputDataset",
+      "@type": "@id"
+    },
+    "trains": {
+      "@id": "mls:trains",
+      "@type": "@id"
+    },
+    "evaluates": {
+      "@id": "mls:evaluates",
+      "@type": "@id"
+    },
+    "appliedTo": {
+      "@id": "mls:appliedTo",
+      "@type": "@id"
+    },
+    "producedBy": {
+      "@id": "mls:producedBy",
+      "@type": "@id"
+    },
+    "prov-executedBy": {
+      "@id": "mls:prov-executedBy",
+      "@type": "@id"
+    },
+    "prov-generated": {
+      "@id": "mls:prov-generated",
+      "@type": "@id"
+    },
+    "used": {
+      "@id": "prov:used",
+      "@type": "@id"
+    },
+    "wasGeneratedBy": {
+      "@id": "prov:wasGeneratedBy",
+      "@type": "@id"
+    },
+    "wasDerivedFrom": {
+      "@id": "prov:wasDerivedFrom",
+      "@type": "@id"
+    },
+    "wasAssociatedWith": {
+      "@id": "prov:wasAssociatedWith",
+      "@type": "@id"
+    }
+  },
+  "@graph": [
+    {
+      "@id": "repo_microsoft_Table-Pretraining",
+      "@type": "SoftwareRepository",
+      "name": "Table-Pretraining",
+      "url": "https://github.com/microsoft/Table-Pretraining",
+      "owner": "microsoft",
+      "platform": "GitHub",
+      "programmingLanguage": "Python",
+      "version": "0.1",
+      "license": "MIT License",
+      "dateModified": null,
+      "documentationUrl": "https://table-pretraining.github.io/",
+      "contains": [
+        {
+          "@id": "impl_tapex"
+        }
+      ],
+      "supports": [
+        {
+          "@id": "env_tapex"
+        }
+      ],
+      "wasDerivedFrom": "code",
+      "codeReference": "README.md",
+      "path": "README.md",
+      "start_char_doc": 8716,
+      "end_char_doc": 8762,
+      "context": {
+        "prefix": "can be downloaded from [here](",
+        "suffix": "/releases/download/pretraining-corpus/tapex_pretrain.tar.gz). You can use it"
+      }
+    },
+    {
+      "@id": "impl_tapex",
+      "@type": "MLS_Implementation",
+      "identifier": "TAPEX Table Pre-training Implementation",
+      "codeRepository": "https://github.com/microsoft/Table-Pretraining",
+      "framework": "fairseq",
+      "entryPoint": "examples/tableqa/run_model.py",
+      "entryPointCommand": "python examples/tableqa/run_model.py train --dataset-dir <data_dir>",
+      "executionCommand": "pip install --editable ./",
+      "commitHash": null,
+      "branch": null,
+      "dependenciesHash": null,
+      "runsIn": {
+        "@id": "env_tapex"
+      },
+      "requires": [
+        {
+          "@id": "dep_transformers"
+        },
+        {
+          "@id": "dep_numpy"
+        },
+        {
+          "@id": "dep_fairseq"
+        },
+        {
+          "@id": "dep_records"
+        },
+        {
+          "@id": "dep_pandas"
+        }
+      ],
+      "wasDerivedFrom": "code",
+      "codeReference": "setup.py",
+      "path": "README.md",
+      "start_char_doc": 6434,
+      "end_char_doc": 6441,
+      "context": {
+        "prefix": "preprocess_binary.py # wrapper for the",
+        "suffix": "preprocess script |-- preprocess_bpe.py #"
+      }
+    },
+    {
+      "@id": "env_tapex",
+      "@type": "Environment",
+      "name": "TAPEX Python Environment",
+      "framework": "fairseq >= 0.12.0",
+      "pythonVersion": "3.8",
+      "os": null,
+      "hardwareSpecs": null,
+      "requirementsFile": "setup.py",
+      "isDockerized": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "README.md",
+      "path": "README.md",
+      "start_char_doc": 7343,
+      "end_char_doc": 7346,
+      "context": {
+        "prefix": "and we officially support python",
+        "suffix": ". After installing python 3.8,"
+      }
+    },
+    {
+      "@id": "dep_transformers",
+      "@type": "Dependency",
+      "packageName": "transformers",
+      "version": ">=4.6.0",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "setup.py:25",
+      "path": "README.md",
+      "start_char_doc": 202,
+      "end_char_doc": 214,
+      "context": {
+        "prefix": "Executor <p align=\"center\"> <a href=\"https://github.com/huggingface/",
+        "suffix": "/tree/main/examples/research_projects/tapex\"> <img alt=\"🤗 transformers support\""
+      }
+    },
+    {
+      "@id": "dep_numpy",
+      "@type": "Dependency",
+      "packageName": "numpy",
+      "version": "1.20.3",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "setup.py:26",
+      "path": "data_generator/main.py",
+      "start_char_doc": 94,
+      "end_char_doc": 99,
+      "context": {
+        "prefix": "from argparse import ArgumentParser import",
+        "suffix": "from tqdm import tqdm from"
+      }
+    },
+    {
+      "@id": "dep_fairseq",
+      "@type": "Dependency",
+      "packageName": "fairseq",
+      "version": ">=0.12.0",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "setup.py:27",
+      "path": "README.md",
+      "start_char_doc": 6434,
+      "end_char_doc": 6441,
+      "context": {
+        "prefix": "preprocess_binary.py # wrapper for the",
+        "suffix": "preprocess script |-- preprocess_bpe.py #"
+      }
+    },
+    {
+      "@id": "dep_records",
+      "@type": "Dependency",
+      "packageName": "records",
+      "version": null,
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "setup.py:28",
+      "path": "setup.py",
+      "start_char_doc": 813,
+      "end_char_doc": 820,
+      "context": {
+        "prefix": "install_requires=[ 'transformers>=4.6.0', 'numpy==1.20.3', \"fairseq>=0.12.0\", \"",
+        "suffix": "\", \"pandas\" ], )"
+      }
+    },
+    {
+      "@id": "dep_pandas",
+      "@type": "Dependency",
+      "packageName": "pandas",
+      "version": null,
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "setup.py:29",
+      "path": "setup.py",
+      "start_char_doc": 832,
+      "end_char_doc": 838,
+      "context": {
+        "prefix": "'transformers>=4.6.0', 'numpy==1.20.3', \"fairseq>=0.12.0\", \"records\", \"",
+        "suffix": "\" ], )"
+      }
+    },
+    {
+      "@id": "hp_learning_rate_tableqa",
+      "@type": "MLS_HyperParameter",
+      "name": "learning-rate",
+      "hasValue": "3e-5",
+      "hpCategory": "HP_Optimization",
+      "hpType": "LearningRate",
+      "uncertain": false,
+      "sourceFile": "examples/tableqa/run_model.py",
+      "sourceLine": 37,
+      "wasDerivedFrom": "code",
+      "codeReference": "examples/tableqa/run_model.py:37",
+      "path": "examples/tableqa/run_model.py",
+      "start_char_doc": 2089,
+      "end_char_doc": 2101,
+      "context": {
+        "prefix": "optimization training steps\") train_parser.add_argument(\"--learning-rate\", type=float,",
+        "suffix": ", help=\"the peak learning rate"
+      }
+    },
+    {
+      "@id": "hp_learning_rate_pretrain",
+      "@type": "MLS_HyperParameter",
+      "name": "learning-rate (pretrain)",
+      "hasValue": "3e-5",
+      "hpCategory": "HP_Optimization",
+      "hpType": "LearningRate",
+      "uncertain": false,
+      "sourceFile": "examples/pretrain/run_model.py",
+      "sourceLine": 37,
+      "wasDerivedFrom": "code",
+      "codeReference": "examples/pretrain/run_model.py:37",
+      "path": "examples/pretrain/run_model.py",
+      "start_char_doc": 2049,
+      "end_char_doc": 2061,
+      "context": {
+        "prefix": "optimization training steps\") train_parser.add_argument(\"--learning-rate\", type=float,",
+        "suffix": ", help=\"the peak learning rate"
+      }
+    },
+    {
+      "@id": "hp_learning_rate_tableft",
+      "@type": "MLS_HyperParameter",
+      "name": "learning-rate (tableft)",
+      "hasValue": "3e-5",
+      "hpCategory": "HP_Optimization",
+      "hpType": "LearningRate",
+      "uncertain": false,
+      "sourceFile": "examples/tableft/run_model.py",
+      "sourceLine": 41,
+      "wasDerivedFrom": "code",
+      "codeReference": "examples/tableft/run_model.py:41",
+      "path": "examples/tableft/run_model.py",
+      "start_char_doc": 2192,
+      "end_char_doc": 2204,
+      "context": {
+        "prefix": "optimization training steps\") train_parser.add_argument(\"--learning-rate\", type=float,",
+        "suffix": ", help=\"the peak learning rate"
+      }
+    },
+    {
+      "@id": "hp_weight_decay",
+      "@type": "MLS_HyperParameter",
+      "name": "weight-decay",
+      "hasValue": "0.01",
+      "hpCategory": "HP_Optimization",
+      "hpType": "WeightDecay",
+      "uncertain": false,
+      "sourceFile": "examples/tableqa/run_model.py",
+      "sourceLine": 85,
+      "wasDerivedFrom": "code",
+      "codeReference": "examples/tableqa/run_model.py:85",
+      "path": "examples/tableqa/run_model.py",
+      "start_char_doc": 4590,
+      "end_char_doc": 4604,
+      "context": {
+        "prefix": "0.1 \\ --relu-dropout 0.0 \\",
+        "suffix": "0.01 \\ --optimizer adam \\"
+      }
+    },
+    {
+      "@id": "hp_warmup_updates",
+      "@type": "MLS_HyperParameter",
+      "name": "warmup-updates",
+      "hasValue": "5000",
+      "hpCategory": "HP_Optimization",
+      "hpType": "WarmupSteps",
+      "uncertain": false,
+      "sourceFile": "examples/tableqa/run_model.py",
+      "sourceLine": 92,
+      "wasDerivedFrom": "code",
+      "codeReference": "examples/tableqa/run_model.py:92",
+      "path": "examples/tableqa/run_model.py",
+      "start_char_doc": 4838,
+      "end_char_doc": 4854,
+      "context": {
+        "prefix": "{args.learning_rate} \\ --total-num-update {args.total_num_update} \\",
+        "suffix": "5000 \\ --ddp-backend no_c10d \\"
+      }
+    },
+    {
+      "@id": "hp_adam_eps",
+      "@type": "MLS_HyperParameter",
+      "name": "adam-eps",
+      "hasValue": "1e-08",
+      "hpCategory": "HP_Optimization",
+      "hpType": "HP_Optimization",
+      "uncertain": true,
+      "sourceFile": "examples/tableqa/run_model.py",
+      "sourceLine": 87,
+      "wasDerivedFrom": "code",
+      "codeReference": "examples/tableqa/run_model.py:87",
+      "path": "examples/tableqa/run_model.py",
+      "start_char_doc": 4649,
+      "end_char_doc": 4659,
+      "context": {
+        "prefix": "0.01 \\ --optimizer adam \\",
+        "suffix": "1e-08 \\ --clip-norm 0.1 \\"
+      }
+    },
+    {
+      "@id": "hp_clip_norm",
+      "@type": "MLS_HyperParameter",
+      "name": "clip-norm",
+      "hasValue": "0.1",
+      "hpCategory": "HP_Optimization",
+      "hpType": "HP_Optimization",
+      "uncertain": true,
+      "sourceFile": "examples/tableqa/run_model.py",
+      "sourceLine": 88,
+      "wasDerivedFrom": "code",
+      "codeReference": "examples/tableqa/run_model.py:88",
+      "path": "examples/tableqa/run_model.py",
+      "start_char_doc": 4677,
+      "end_char_doc": 4688,
+      "context": {
+        "prefix": "adam \\ --adam-eps 1e-08 \\",
+        "suffix": "0.1 \\ --lr-scheduler polynomial_decay \\"
+      }
+    },
+    {
+      "@id": "hp_max_tokens_tableqa",
+      "@type": "MLS_HyperParameter",
+      "name": "max-tokens (tableqa)",
+      "hasValue": "1536",
+      "hpCategory": "HP_Training",
+      "hpType": "BatchSize",
+      "uncertain": true,
+      "sourceFile": "examples/tableqa/run_model.py",
+      "sourceLine": 28,
+      "wasDerivedFrom": "code",
+      "codeReference": "examples/tableqa/run_model.py:28",
+      "path": "examples/tableqa/run_model.py",
+      "start_char_doc": 1315,
+      "end_char_doc": 1327,
+      "context": {
+        "prefix": "should be bart_base\") train_parser.add_argument(\"--max-tokens\", type=int,",
+        "suffix": ", help=\"if you train a"
+      }
+    },
+    {
+      "@id": "hp_max_tokens_tableft",
+      "@type": "MLS_HyperParameter",
+      "name": "max-tokens (tableft)",
+      "hasValue": "1800",
+      "hpCategory": "HP_Training",
+      "hpType": "BatchSize",
+      "uncertain": true,
+      "sourceFile": "examples/tableft/run_model.py",
+      "sourceLine": 32,
+      "wasDerivedFrom": "code",
+      "codeReference": "examples/tableft/run_model.py:32",
+      "path": "examples/tableft/run_model.py",
+      "start_char_doc": 1418,
+      "end_char_doc": 1430,
+      "context": {
+        "prefix": "should be bart_base\") train_parser.add_argument(\"--max-tokens\", type=int,",
+        "suffix": ", help=\"if you train a"
+      }
+    },
+    {
+      "@id": "hp_gradient_accumulation_tableqa",
+      "@type": "MLS_HyperParameter",
+      "name": "gradient-accumulation (tableqa)",
+      "hasValue": "8",
+      "hpCategory": "HP_Training",
+      "hpType": "GradientAccumulationSteps",
+      "uncertain": false,
+      "sourceFile": "examples/tableqa/run_model.py",
+      "sourceLine": 31,
+      "wasDerivedFrom": "code",
+      "codeReference": "examples/tableqa/run_model.py:31",
+      "path": "examples/tableqa/run_model.py",
+      "start_char_doc": 1626,
+      "end_char_doc": 1635,
+      "context": {
+        "prefix": "your GPU memory.\") train_parser.add_argument(\"--gradient-accumulation\", type=int,",
+        "suffix": ", help=\"the accumulation steps to"
+      }
+    },
+    {
+      "@id": "hp_gradient_accumulation_pretrain",
+      "@type": "MLS_HyperParameter",
+      "name": "gradient-accumulation (pretrain)",
+      "hasValue": "64",
+      "hpCategory": "HP_Training",
+      "hpType": "GradientAccumulationSteps",
+      "uncertain": false,
+      "sourceFile": "examples/pretrain/run_model.py",
+      "sourceLine": 31,
+      "wasDerivedFrom": "code",
+      "codeReference": "examples/pretrain/run_model.py:31",
+      "path": "examples/pretrain/run_model.py",
+      "start_char_doc": 1589,
+      "end_char_doc": 1612,
+      "context": {
+        "prefix": "to your GPU memory.\") train_parser.add_argument(\"",
+        "suffix": "\", type=int, default=8 * 8,"
+      }
+    },
+    {
+      "@id": "hp_gradient_accumulation_tableft",
+      "@type": "MLS_HyperParameter",
+      "name": "gradient-accumulation (tableft)",
+      "hasValue": "8",
+      "hpCategory": "HP_Training",
+      "hpType": "GradientAccumulationSteps",
+      "uncertain": false,
+      "sourceFile": "examples/tableft/run_model.py",
+      "sourceLine": 35,
+      "wasDerivedFrom": "code",
+      "codeReference": "examples/tableft/run_model.py:35",
+      "path": "examples/tableft/run_model.py",
+      "start_char_doc": 1729,
+      "end_char_doc": 1738,
+      "context": {
+        "prefix": "your GPU memory.\") train_parser.add_argument(\"--gradient-accumulation\", type=int,",
+        "suffix": ", help=\"the accumulation steps to"
+      }
+    },
+    {
+      "@id": "hp_total_num_update_tableqa",
+      "@type": "MLS_HyperParameter",
+      "name": "total-num-update (tableqa)",
+      "hasValue": "20000",
+      "hpCategory": "HP_Training",
+      "hpType": "MaxSteps",
+      "uncertain": false,
+      "sourceFile": "examples/tableqa/run_model.py",
+      "sourceLine": 34,
+      "wasDerivedFrom": "code",
+      "codeReference": "examples/tableqa/run_model.py:34",
+      "path": "examples/tableqa/run_model.py",
+      "start_char_doc": 1937,
+      "end_char_doc": 1950,
+      "context": {
+        "prefix": "value for you.\") train_parser.add_argument(\"--total-num-update\", type=int,",
+        "suffix": ", help=\"the total optimization training"
+      }
+    },
+    {
+      "@id": "hp_total_num_update_pretrain",
+      "@type": "MLS_HyperParameter",
+      "name": "total-num-update (pretrain)",
+      "hasValue": "50000",
+      "hpCategory": "HP_Training",
+      "hpType": "MaxSteps",
+      "uncertain": false,
+      "sourceFile": "examples/pretrain/run_model.py",
+      "sourceLine": 34,
+      "wasDerivedFrom": "code",
+      "codeReference": "examples/pretrain/run_model.py:34",
+      "path": "examples/pretrain/run_model.py",
+      "start_char_doc": 1897,
+      "end_char_doc": 1910,
+      "context": {
+        "prefix": "value for you.\") train_parser.add_argument(\"--total-num-update\", type=int,",
+        "suffix": ", help=\"the total optimization training"
+      }
+    },
+    {
+      "@id": "hp_total_num_update_tableft",
+      "@type": "MLS_HyperParameter",
+      "name": "total-num-update (tableft)",
+      "hasValue": "20000",
+      "hpCategory": "HP_Training",
+      "hpType": "MaxSteps",
+      "uncertain": false,
+      "sourceFile": "examples/tableft/run_model.py",
+      "sourceLine": 38,
+      "wasDerivedFrom": "code",
+      "codeReference": "examples/tableft/run_model.py:38",
+      "path": "examples/tableft/run_model.py",
+      "start_char_doc": 2040,
+      "end_char_doc": 2053,
+      "context": {
+        "prefix": "value for you.\") train_parser.add_argument(\"--total-num-update\", type=int,",
+        "suffix": ", help=\"the total optimization training"
+      }
+    },
+    {
+      "@id": "hp_num_workers",
+      "@type": "MLS_HyperParameter",
+      "name": "num-workers",
+      "hasValue": "20",
+      "hpCategory": "HP_Training",
+      "hpType": "NumWorkers",
+      "uncertain": false,
+      "sourceFile": "examples/tableqa/run_model.py",
+      "sourceLine": 94,
+      "wasDerivedFrom": "code",
+      "codeReference": "examples/tableqa/run_model.py:94",
+      "path": "examples/tableqa/run_model.py",
+      "start_char_doc": 1937,
+      "end_char_doc": 1947,
+      "context": {
+        "prefix": "value for you.\") train_parser.add_argument(\"--total-num-update\", type=int,",
+        "suffix": "000, help=\"the total optimization training"
+      }
+    },
+    {
+      "@id": "hp_patience",
+      "@type": "MLS_HyperParameter",
+      "name": "patience",
+      "hasValue": "200",
+      "hpCategory": "HP_Training",
+      "hpType": "Patience",
+      "uncertain": false,
+      "sourceFile": "examples/tableqa/run_model.py",
+      "sourceLine": 107,
+      "wasDerivedFrom": "code",
+      "codeReference": "examples/tableqa/run_model.py:107",
+      "path": "README.md",
+      "start_char_doc": 3996,
+      "end_char_doc": 4004,
+      "context": {
+        "prefix": "model weights. Thanks for your",
+        "suffix": "! - [**2021-07-16**]: We released"
+      }
+    },
+    {
+      "@id": "hp_random_seed",
+      "@type": "MLS_HyperParameter",
+      "name": "random.seed",
+      "hasValue": "42",
+      "hpCategory": "HP_Training",
+      "hpType": "RandomSeed",
+      "uncertain": false,
+      "sourceFile": "data_generator/main.py",
+      "sourceLine": 155,
+      "wasDerivedFrom": "code",
+      "codeReference": "data_generator/main.py:155",
+      "path": "data_generator/main.py",
+      "start_char_doc": 6051,
+      "end_char_doc": 6055,
+      "context": {
+        "prefix": "if __name__ == '__main__': random.",
+        "suffix": "(42) numpy.random.seed(42) parser = ArgumentParser()"
+      }
+    },
+    {
+      "@id": "hp_dropout",
+      "@type": "MLS_HyperParameter",
+      "name": "dropout",
+      "hasValue": "0.1",
+      "hpCategory": "HP_Architecture",
+      "hpType": "Dropout",
+      "uncertain": false,
+      "sourceFile": "examples/tableqa/run_model.py",
+      "sourceLine": 82,
+      "wasDerivedFrom": "code",
+      "codeReference": "examples/tableqa/run_model.py:82",
+      "path": "examples/tableqa/run_model.py",
+      "start_char_doc": 4500,
+      "end_char_doc": 4509,
+      "context": {
+        "prefix": "{args.total_num_update} \\ --required-batch-size-multiple 1 \\",
+        "suffix": "0.1 \\ --attention-dropout 0.1 \\"
+      }
+    },
+    {
+      "@id": "hp_attention_dropout",
+      "@type": "MLS_HyperParameter",
+      "name": "attention-dropout",
+      "hasValue": "0.1",
+      "hpCategory": "HP_Architecture",
+      "hpType": "Dropout",
+      "uncertain": false,
+      "sourceFile": "examples/tableqa/run_model.py",
+      "sourceLine": 83,
+      "wasDerivedFrom": "code",
+      "codeReference": "examples/tableqa/run_model.py:83",
+      "path": "examples/tableqa/run_model.py",
+      "start_char_doc": 4525,
+      "end_char_doc": 4544,
+      "context": {
+        "prefix": "1 \\ --dropout 0.1 \\",
+        "suffix": "0.1 \\ --relu-dropout 0.0 \\"
+      }
+    },
+    {
+      "@id": "hp_relu_dropout",
+      "@type": "MLS_HyperParameter",
+      "name": "relu-dropout",
+      "hasValue": "0.0",
+      "hpCategory": "HP_Architecture",
+      "hpType": "Dropout",
+      "uncertain": false,
+      "sourceFile": "examples/tableqa/run_model.py",
+      "sourceLine": 84,
+      "wasDerivedFrom": "code",
+      "codeReference": "examples/tableqa/run_model.py:84",
+      "path": "examples/tableqa/run_model.py",
+      "start_char_doc": 4560,
+      "end_char_doc": 4574,
+      "context": {
+        "prefix": "0.1 \\ --attention-dropout 0.1 \\",
+        "suffix": "0.0 \\ --weight-decay 0.01 \\"
+      }
+    },
+    {
+      "@id": "hp_label_smoothing",
+      "@type": "MLS_HyperParameter",
+      "name": "label-smoothing",
+      "hasValue": "0.1",
+      "hpCategory": "HP_Training",
+      "hpType": "HP_Training",
+      "uncertain": true,
+      "sourceFile": "examples/tableqa/run_model.py",
+      "sourceLine": 76,
+      "wasDerivedFrom": "code",
+      "codeReference": "examples/tableqa/run_model.py:76",
+      "path": "examples/tableqa/run_model.py",
+      "start_char_doc": 4242,
+      "end_char_doc": 4259,
+      "context": {
+        "prefix": "--target-lang tgt \\ --truncate-source \\",
+        "suffix": "0.1 \\ --max-source-positions 1024 \\"
+      }
+    },
+    {
+      "@id": "hp_max_source_positions",
+      "@type": "MLS_HyperParameter",
+      "name": "max-source-positions",
+      "hasValue": "1024",
+      "hpCategory": "HP_Data",
+      "hpType": "MaxSequenceLength",
+      "uncertain": false,
+      "sourceFile": "examples/tableqa/run_model.py",
+      "sourceLine": 77,
+      "wasDerivedFrom": "code",
+      "codeReference": "examples/tableqa/run_model.py:77",
+      "path": "examples/tableqa/run_model.py",
+      "start_char_doc": 4275,
+      "end_char_doc": 4297,
+      "context": {
+        "prefix": "--truncate-source \\ --label-smoothing 0.1 \\",
+        "suffix": "1024 \\ --max-tokens {args.max_tokens} \\"
+      }
+    },
+    {
+      "@id": "hp_max_input_length",
+      "@type": "MLS_HyperParameter",
+      "name": "max_input_length",
+      "hasValue": "1024",
+      "hpCategory": "HP_Data",
+      "hpType": "MaxSequenceLength",
+      "uncertain": false,
+      "sourceFile": "tapex/processor/table_truncate.py",
+      "sourceLine": 20,
+      "wasDerivedFrom": "code",
+      "codeReference": "tapex/processor/table_truncate.py:20",
+      "path": "tapex/processor/table_truncate.py",
+      "start_char_doc": 462,
+      "end_char_doc": 478,
+      "context": {
+        "prefix": "__init__(self, tokenizer: BasicTokenizer = None,",
+        "suffix": ": int = 1024): \"\"\""
+      }
+    },
+    {
+      "@id": "hp_max_cell_length",
+      "@type": "MLS_HyperParameter",
+      "name": "max_cell_length",
+      "hasValue": "15",
+      "hpCategory": "HP_Data",
+      "hpType": "HP_Data",
+      "uncertain": true,
+      "sourceFile": "tapex/processor/table_truncate.py",
+      "sourceLine": 46,
+      "wasDerivedFrom": "code",
+      "codeReference": "tapex/processor/table_truncate.py:46",
+      "path": "tapex/processor/table_truncate.py",
+      "start_char_doc": 1584,
+      "end_char_doc": 1599,
+      "context": {
+        "prefix": "overall length \"\"\" def __init__(self,",
+        "suffix": ": int = 15, **kwargs):"
+      }
+    },
+    {
+      "@id": "hp_max_source_length_datagen",
+      "@type": "MLS_HyperParameter",
+      "name": "max_source_length",
+      "hasValue": "1024",
+      "hpCategory": "HP_Data",
+      "hpType": "MaxSequenceLength",
+      "uncertain": false,
+      "sourceFile": "data_generator/main.py",
+      "sourceLine": 171,
+      "wasDerivedFrom": "code",
+      "codeReference": "data_generator/main.py:171",
+      "path": "README.md",
+      "start_char_doc": 14980,
+      "end_char_doc": 14997,
+      "context": {
+        "prefix": "corresponding to each template --",
+        "suffix": "MAX_SOURCE_LENGTH the maximum length for"
+      }
+    },
+    {
+      "@id": "hp_instance_number",
+      "@type": "MLS_HyperParameter",
+      "name": "instance_number",
+      "hasValue": "500",
+      "hpCategory": "HP_Data",
+      "hpType": "HP_Data",
+      "uncertain": true,
+      "sourceFile": "data_generator/main.py",
+      "sourceLine": 169,
+      "wasDerivedFrom": "code",
+      "codeReference": "data_generator/main.py:169",
+      "path": "README.md",
+      "start_char_doc": 14929,
+      "end_char_doc": 14944,
+      "context": {
+        "prefix": "leakage --instance_number INSTANCE_NUMBER the expected",
+        "suffix": "corresponding to each template --max_source_length"
+      }
+    },
+    {
+      "@id": "hp_beam_size",
+      "@type": "MLS_HyperParameter",
+      "name": "beam",
+      "hasValue": "5",
+      "hpCategory": "HP_Architecture",
+      "hpType": "UnknownArchitectureHP",
+      "uncertain": true,
+      "sourceFile": "examples/tableqa/run_model.py",
+      "sourceLine": 129,
+      "wasDerivedFrom": "code",
+      "codeReference": "examples/tableqa/run_model.py:129",
+      "path": "examples/tableqa/run_model.py",
+      "start_char_doc": 5985,
+      "end_char_doc": 5991,
+      "context": {
+        "prefix": "tgt \\ --results-path {args.predict_dir} \\",
+        "suffix": "5 \\ --bpe gpt2 \\"
+      }
+    },
+    {
+      "@id": "hp_num_encoder_layers_base",
+      "@type": "MLS_HyperParameter",
+      "name": "encoder and decoder layers (tapex.base)",
+      "hasValue": "6",
+      "hpCategory": "HP_Architecture",
+      "hpType": "NumLayers",
+      "uncertain": false,
+      "sourceFile": "README.md",
+      "sourceLine": 143,
+      "wasDerivedFrom": "code",
+      "codeReference": "README.md:143",
+      "path": "README.md",
+      "start_char_doc": 11155,
+      "end_char_doc": 11181,
+      "context": {
+        "prefix": "Download ---|---|---|--- `tapex.base` | 6",
+        "suffix": "| 140M | [tapex.base.tar.gz](https://github.com/microsoft/Table-Pretraining/releases/download/pretrained-model/tapex.base.tar.gz) `tapex.large`"
+      }
+    },
+    {
+      "@id": "hp_num_encoder_layers_large",
+      "@type": "MLS_HyperParameter",
+      "name": "encoder and decoder layers (tapex.large)",
+      "hasValue": "12",
+      "hpCategory": "HP_Architecture",
+      "hpType": "NumLayers",
+      "uncertain": false,
+      "sourceFile": "README.md",
+      "sourceLine": 144,
+      "wasDerivedFrom": "code",
+      "codeReference": "README.md:144",
+      "path": "README.md",
+      "start_char_doc": 11155,
+      "end_char_doc": 11181,
+      "context": {
+        "prefix": "Download ---|---|---|--- `tapex.base` | 6",
+        "suffix": "| 140M | [tapex.base.tar.gz](https://github.com/microsoft/Table-Pretraining/releases/download/pretrained-model/tapex.base.tar.gz) `tapex.large`"
+      }
+    },
+    {
+      "@id": "hp_num_params_base",
+      "@type": "MLS_HyperParameter",
+      "name": "parameters (tapex.base)",
+      "hasValue": "140M",
+      "hpCategory": "HP_Architecture",
+      "hpType": "UnknownArchitectureHP",
+      "uncertain": true,
+      "sourceFile": "README.md",
+      "sourceLine": 143,
+      "wasDerivedFrom": "code",
+      "codeReference": "README.md:143",
+      "path": "examples/tableft/run_model.py",
+      "start_char_doc": 3660,
+      "end_char_doc": 3670,
+      "context": {
+        "prefix": "\\ --criterion sentence_prediction \\ --find-unused-",
+        "suffix": "\\ --init-token 0 \\ --best-checkpoint-metric"
+      }
+    },
+    {
+      "@id": "hp_num_params_large",
+      "@type": "MLS_HyperParameter",
+      "name": "parameters (tapex.large)",
+      "hasValue": "400M",
+      "hpCategory": "HP_Architecture",
+      "hpType": "UnknownArchitectureHP",
+      "uncertain": true,
+      "sourceFile": "README.md",
+      "sourceLine": 144,
+      "wasDerivedFrom": "code",
+      "codeReference": "README.md:144",
+      "path": "examples/tableft/run_model.py",
+      "start_char_doc": 3660,
+      "end_char_doc": 3670,
+      "context": {
+        "prefix": "\\ --criterion sentence_prediction \\ --find-unused-",
+        "suffix": "\\ --init-token 0 \\ --best-checkpoint-metric"
+      }
+    },
+    {
+      "@id": "preprocess_data_generator",
+      "@type": "DataProcessingStep",
+      "identifier": "SQL Execution Data Synthesis",
+      "description": "Synthesizes pre-training corpus of (SQL query, flattened table, SQL execution result) tuples from SQL templates and table databases. Generates ~5 million training examples.",
+      "transformationType": "feature_extraction",
+      "startedAtTime": null,
+      "endedAtTime": null,
+      "inputDataset": null,
+      "outputDataset": null,
+      "prov-executedBy": {
+        "@id": "impl_tapex"
+      },
+      "wasDerivedFrom": "code",
+      "codeReference": "data_generator/main.py",
+      "path": "README.md",
+      "start_char_doc": 2360,
+      "end_char_doc": 2388,
+      "context": {
+        "prefix": "the data generator code for",
+        "suffix": ". You can [check it"
+      }
+    },
+    {
+      "@id": "preprocess_wikisql",
+      "@type": "DataProcessingStep",
+      "identifier": "WikiSQL Data Processing",
+      "description": "Downloads WikiSQL dataset, converts table types, retrieves ground-truth answers via TaPaS-style SQL execution, applies table truncation and linearization, then performs BPE tokenization and fairseq binarization.",
+      "transformationType": "tokenization",
+      "startedAtTime": null,
+      "endedAtTime": null,
+      "inputDataset": null,
+      "outputDataset": null,
+      "prov-executedBy": {
+        "@id": "impl_tapex"
+      },
+      "wasDerivedFrom": "code",
+      "codeReference": "examples/tableqa/process_wikisql_data.py",
+      "path": "examples/README.md",
+      "start_char_doc": 1417,
+      "end_char_doc": 1440,
+      "context": {
+        "prefix": "[WikiSQL (Zhong et al., 2017)](tableqa/",
+        "suffix": ") - [SQA (Iyyer et"
+      }
+    },
+    {
+      "@id": "preprocess_wtq",
+      "@type": "DataProcessingStep",
+      "identifier": "WikiTableQuestions Data Processing",
+      "description": "Downloads WikiTableQuestions dataset, normalizes table filenames, applies answer-aware table truncation and linearization, then performs BPE tokenization and fairseq binarization.",
+      "transformationType": "tokenization",
+      "startedAtTime": null,
+      "endedAtTime": null,
+      "inputDataset": null,
+      "outputDataset": null,
+      "prov-executedBy": {
+        "@id": "impl_tapex"
+      },
+      "wasDerivedFrom": "code",
+      "codeReference": "examples/tableqa/process_wtq_data.py",
+      "path": "examples/README.md",
+      "start_char_doc": 1557,
+      "end_char_doc": 1576,
+      "context": {
+        "prefix": "[WikiTableQuestions (Pasupat and Liang, 2015)](tableqa/",
+        "suffix": ") Note that the one-stop"
+      }
+    },
+    {
+      "@id": "preprocess_sqa",
+      "@type": "DataProcessingStep",
+      "identifier": "SQA Data Processing",
+      "description": "Downloads Sequential Question Answering (SQA) dataset, handles conversational question history across turns, applies table truncation and linearization, then performs BPE tokenization and fairseq binarization.",
+      "transformationType": "tokenization",
+      "startedAtTime": null,
+      "endedAtTime": null,
+      "inputDataset": null,
+      "outputDataset": null,
+      "prov-executedBy": {
+        "@id": "impl_tapex"
+      },
+      "wasDerivedFrom": "code",
+      "codeReference": "examples/tableqa/process_sqa_data.py",
+      "path": "examples/README.md",
+      "start_char_doc": 1479,
+      "end_char_doc": 1498,
+      "context": {
+        "prefix": "[SQA (Iyyer et al., 2017)](tableqa/",
+        "suffix": ") - [WikiTableQuestions (Pasupat and"
+      }
+    },
+    {
+      "@id": "preprocess_tabfact",
+      "@type": "DataProcessingStep",
+      "identifier": "TabFact Data Processing",
+      "description": "Downloads TabFact dataset, converts table text into structured format, linearizes tables with statements for sentence classification, creates fine-grained test splits, then performs BPE tokenization and fairseq binarization.",
+      "transformationType": "tokenization",
+      "startedAtTime": null,
+      "endedAtTime": null,
+      "inputDataset": null,
+      "outputDataset": null,
+      "prov-executedBy": {
+        "@id": "impl_tapex"
+      },
+      "wasDerivedFrom": "code",
+      "codeReference": "examples/tableft/process_tabfact_data.py",
+      "path": "examples/README.md",
+      "start_char_doc": 7634,
+      "end_char_doc": 7657,
+      "context": {
+        "prefix": "[TabFact (Chen et al., 2020)](tableft/",
+        "suffix": ") Note that the one-stop"
+      }
+    },
+    {
+      "@id": "preprocess_pretrain",
+      "@type": "DataProcessingStep",
+      "identifier": "Pre-training Data Processing",
+      "description": "Downloads TAPEX pre-training corpus (~5M examples), splits into train/valid sets, then performs BPE tokenization and fairseq binarization for pre-training.",
+      "transformationType": "tokenization",
+      "startedAtTime": null,
+      "endedAtTime": null,
+      "inputDataset": null,
+      "outputDataset": null,
+      "prov-executedBy": {
+        "@id": "impl_tapex"
+      },
+      "wasDerivedFrom": "code",
+      "codeReference": "examples/pretrain/process_pretrain_data.py",
+      "path": "examples/pretrain/process_pretrain_data.py",
+      "start_char_doc": 3198,
+      "end_char_doc": 3225,
+      "context": {
+        "prefix": "train_src_out.close() train_tgt_out.close() valid_src_out.close() valid_tgt_out.close() def",
+        "suffix": "(processed_data_dir): fairseq_bpe_translation(processed_data_dir, resource_name=MODEL_NAME, with_test_set=False) fairseq_binary_translation(processed_data_dir,"
+      }
+    },
+    {
+      "@id": "preprocess_table_truncation",
+      "@type": "DataProcessingStep",
+      "identifier": "Table Truncation Pipeline",
+      "description": "Two-stage table truncation: CellLimitTruncate limits each cell to max_cell_length=15 BPE tokens, then RowDeleteTruncate randomly deletes unrelated rows to fit within max_input_length=1024 tokens while preserving answer-relevant rows.",
+      "transformationType": "cleaning",
+      "startedAtTime": null,
+      "endedAtTime": null,
+      "inputDataset": null,
+      "outputDataset": null,
+      "prov-executedBy": {
+        "@id": "impl_tapex"
+      },
+      "wasDerivedFrom": "code",
+      "codeReference": "tapex/processor/table_truncate.py",
+      "path": "README.md",
+      "start_char_doc": 620,
+      "end_char_doc": 623,
+      "context": {
+        "prefix": "src=\"https://img.shields.io/github/stars/microsoft/Table-Pretraining\" /> </a> <a href=\"https://github.com/MLNLP-World/Paper_Writing_Tips/ne",
+        "suffix": "rk/members\"> <img alt=\"FORK\" src=\"https://img.shields.io/github/forks/microsoft/Table-Pretraining?color=FF8000\" />"
+      }
+    },
+    {
+      "@id": "training_pretrain",
+      "@type": "TrainingRun",
+      "runId": "tapex_pretrain",
+      "description": "Pre-training TAPEX model (BART-based) on synthetic SQL execution corpus via fairseq translation task with label-smoothed cross entropy, polynomial decay LR schedule, and 50000 total updates.",
+      "logFile": null,
+      "artifactsLocation": null,
+      "startedAtTime": null,
+      "endedAtTime": null,
+      "prov-executedBy": {
+        "@id": "impl_tapex"
+      },
+      "used": null,
+      "trains": null,
+      "wasDerivedFrom": "code",
+      "codeReference": "examples/pretrain/run_model.py",
+      "path": "README.md",
+      "start_char_doc": 91,
+      "end_char_doc": 94,
+      "context": {
+        "prefix": "# T<span style=\"font-size:0.8em;\">A</span>PE<span style=\"font-size:0.8em;\">X</span>: Table",
+        "suffix": "-training via Learning a Neural"
+      }
+    },
+    {
+      "@id": "training_tableqa",
+      "@type": "TrainingRun",
+      "runId": "tapex_tableqa_finetune",
+      "description": "Fine-tuning TAPEX on table question answering datasets (WikiSQL, WTQ, SQA) via fairseq translation task with label-smoothed cross entropy, polynomial decay LR schedule, and 20000 total updates.",
+      "logFile": null,
+      "artifactsLocation": null,
+      "startedAtTime": null,
+      "endedAtTime": null,
+      "prov-executedBy": {
+        "@id": "impl_tapex"
+      },
+      "used": null,
+      "trains": null,
+      "wasDerivedFrom": "code",
+      "codeReference": "examples/tableqa/run_model.py",
+      "path": "README.md",
+      "start_char_doc": 11494,
+      "end_char_doc": 11498,
+      "context": {
+        "prefix": "| 400M | [tapex.large.tar.gz](https://github.com/microsoft/Table-Pretraining/releases/download/pretrained-model/tapex.large.tar.gz) ##",
+        "suffix": "-tuned Models We provide fine-tuned"
+      }
+    },
+    {
+      "@id": "training_tableft",
+      "@type": "TrainingRun",
+      "runId": "tapex_tableft_finetune",
+      "description": "Fine-tuning TAPEX on TabFact table-based fact verification via fairseq sentence prediction task with sentence classification head, polynomial decay LR schedule, and 20000 total updates.",
+      "logFile": null,
+      "artifactsLocation": null,
+      "startedAtTime": null,
+      "endedAtTime": null,
+      "prov-executedBy": {
+        "@id": "impl_tapex"
+      },
+      "used": null,
+      "trains": null,
+      "wasDerivedFrom": "code",
+      "codeReference": "examples/tableft/run_model.py",
+      "path": "README.md",
+      "start_char_doc": 11494,
+      "end_char_doc": 11498,
+      "context": {
+        "prefix": "| 400M | [tapex.large.tar.gz](https://github.com/microsoft/Table-Pretraining/releases/download/pretrained-model/tapex.large.tar.gz) ##",
+        "suffix": "-tuned Models We provide fine-tuned"
+      }
+    },
+    {
+      "@id": "evaluation_tableqa",
+      "@type": "EvaluationRun",
+      "runId": "tapex_tableqa_eval",
+      "description": "Evaluation of fine-tuned TAPEX on table QA datasets using fairseq-generate with beam search (beam=5), followed by denotation accuracy computation via model_eval.py.",
+      "split": "valid",
+      "evaluationScript": "examples/tableqa/run_model.py",
+      "metricsFile": null,
+      "startedAtTime": null,
+      "endedAtTime": null,
+      "prov-executedBy": {
+        "@id": "impl_tapex"
+      },
+      "evaluates": null,
+      "prov-generated": [
+        {
+          "@id": "prediction_tableqa"
+        }
+      ],
+      "wasDerivedFrom": "code",
+      "codeReference": "examples/tableqa/run_model.py",
+      "path": "README.md",
+      "start_char_doc": 13356,
+      "end_char_doc": 13385,
+      "context": {
+        "prefix": "the `predict` mode in `",
+        "suffix": "`. For example, you can"
+      }
+    },
+    {
+      "@id": "evaluation_tableft",
+      "@type": "EvaluationRun",
+      "runId": "tapex_tableft_eval",
+      "description": "Evaluation of fine-tuned TAPEX on TabFact using BARTModel sentence classification head, computing accuracy over valid/test/test_complex/test_simple/test_small splits.",
+      "split": "valid",
+      "evaluationScript": "examples/tableft/run_model.py",
+      "metricsFile": null,
+      "startedAtTime": null,
+      "endedAtTime": null,
+      "prov-executedBy": {
+        "@id": "impl_tapex"
+      },
+      "evaluates": null,
+      "prov-generated": null,
+      "wasDerivedFrom": "code",
+      "codeReference": "examples/tableft/run_model.py",
+      "path": "examples/tableft/run_model.py",
+      "start_char_doc": 413,
+      "end_char_doc": 421,
+      "context": {
+        "prefix": "import BARTModel from tapex.model_eval import",
+        "suffix": "_generate_file import os from tqdm"
+      }
+    },
+    {
+      "@id": "evaluation_pretrain",
+      "@type": "EvaluationRun",
+      "runId": "tapex_pretrain_eval",
+      "description": "Evaluation of pre-trained TAPEX model on pre-training validation set using fairseq-generate with beam search (beam=5), followed by denotation accuracy computation.",
+      "split": "valid",
+      "evaluationScript": "examples/pretrain/run_model.py",
+      "metricsFile": null,
+      "startedAtTime": null,
+      "endedAtTime": null,
+      "prov-executedBy": {
+        "@id": "impl_tapex"
+      },
+      "evaluates": null,
+      "prov-generated": null,
+      "wasDerivedFrom": "code",
+      "codeReference": "examples/pretrain/run_model.py",
+      "path": "examples/pretrain/run_model.py",
+      "start_char_doc": 360,
+      "end_char_doc": 368,
+      "context": {
+        "prefix": "import TAPEXModelInterface from tapex.model_eval import",
+        "suffix": "_generate_file import os logger ="
+      }
+    },
+    {
+      "@id": "prediction_tableqa",
+      "@type": "PredictionSet",
+      "identifier": "TAPEX Table QA Interactive Prediction",
+      "description": "Interactive prediction demo for table question answering using TAPEXModelInterface with beam search (beam=5). Loads fine-tuned model and processes natural language questions against table contexts.",
+      "predictionFormat": "text",
+      "storageLocation": null,
+      "numInstances": null,
+      "onDatasetSplit": null,
+      "appliedTo": null,
+      "wasGeneratedBy": {
+        "@id": "evaluation_tableqa"
+      },
+      "producedBy": {
+        "@id": "impl_tapex"
+      },
+      "wasDerivedFrom": "code",
+      "codeReference": "examples/tableqa/run_model.py",
+      "path": "README.md",
+      "start_char_doc": 13356,
+      "end_char_doc": 13385,
+      "context": {
+        "prefix": "the `predict` mode in `",
+        "suffix": "`. For example, you can"
+      }
+    },
+    {
+      "@id": "prediction_pretrain",
+      "@type": "PredictionSet",
+      "identifier": "TAPEX Pre-training Interactive Prediction",
+      "description": "Interactive prediction demo for neural SQL execution using TAPEXModelInterface. Accepts SQL-like queries and returns execution results over a sample table.",
+      "predictionFormat": "text",
+      "storageLocation": null,
+      "numInstances": null,
+      "onDatasetSplit": null,
+      "appliedTo": null,
+      "wasGeneratedBy": null,
+      "producedBy": {
+        "@id": "impl_tapex"
+      },
+      "wasDerivedFrom": "code",
+      "codeReference": "examples/pretrain/run_model.py",
+      "path": "examples/pretrain/run_model.py",
+      "start_char_doc": 3090,
+      "end_char_doc": 3097,
+      "context": {
+        "prefix": "training when in inference.\") eval_parser.add_argument(\"--",
+        "suffix": "-dir\", type=str, default=\"predict\", help=\"the predict"
+      }
+    }
+  ]
+}

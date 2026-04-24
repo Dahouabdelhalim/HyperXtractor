@@ -1,0 +1,1302 @@
+{
+  "@context": {
+    "mls": "http://example.org/ontology/mls#",
+    "schema": "http://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "SoftwareRepository": "mls:SoftwareRepository",
+    "MLS_Implementation": "mls:MLS_Implementation",
+    "MLS_HyperParameter": "mls:MLS_HyperParameter",
+    "Dependency": "mls:Dependency",
+    "Environment": "mls:Environment",
+    "DataProcessingStep": "mls:DataProcessingStep",
+    "TrainingRun": "mls:TrainingRun",
+    "EvaluationRun": "mls:EvaluationRun",
+    "PredictionSet": "mls:PredictionSet",
+    "name": "schema:name",
+    "identifier": "schema:identifier",
+    "description": "schema:description",
+    "url": "schema:url",
+    "version": "schema:version",
+    "license": "schema:license",
+    "programmingLanguage": "schema:programmingLanguage",
+    "dateModified": {
+      "@id": "schema:dateModified",
+      "@type": "xsd:dateTime"
+    },
+    "documentationUrl": {
+      "@id": "mls:documentationUrl",
+      "@type": "xsd:anyURI"
+    },
+    "owner": "mls:owner",
+    "platform": "mls:platform",
+    "codeRepository": {
+      "@id": "mls:codeRepository",
+      "@type": "xsd:anyURI"
+    },
+    "framework": "mls:framework",
+    "entryPoint": "mls:entryPoint",
+    "entryPointCommand": "mls:entryPointCommand",
+    "executionCommand": "mls:executionCommand",
+    "commitHash": "mls:commitHash",
+    "branch": "mls:branch",
+    "dependenciesHash": "mls:dependenciesHash",
+    "packageName": "mls:packageName",
+    "dependencyType": "mls:dependencyType",
+    "isOptional": {
+      "@id": "mls:isOptional",
+      "@type": "xsd:boolean"
+    },
+    "hardwareSpecs": "mls:hardwareSpecs",
+    "os": "mls:os",
+    "pythonVersion": "mls:pythonVersion",
+    "requirementsFile": "mls:requirementsFile",
+    "isDockerized": {
+      "@id": "mls:isDockerized",
+      "@type": "xsd:boolean"
+    },
+    "hasValue": {
+      "@id": "mls:hasValue",
+      "@type": "xsd:string"
+    },
+    "hpCategory": "mls:hpCategory",
+    "hpType": "mls:hpType",
+    "sourceFile": "mls:sourceFile",
+    "sourceLine": {
+      "@id": "mls:sourceLine",
+      "@type": "xsd:integer"
+    },
+    "uncertain": {
+      "@id": "mls:uncertain",
+      "@type": "xsd:boolean"
+    },
+    "transformationType": "mls:transformationType",
+    "codeReference": {
+      "@id": "mls:codeReference",
+      "@type": "xsd:anyURI"
+    },
+    "runId": "mls:runId",
+    "logFile": {
+      "@id": "mls:logFile",
+      "@type": "xsd:anyURI"
+    },
+    "artifactsLocation": {
+      "@id": "mls:artifactsLocation",
+      "@type": "xsd:anyURI"
+    },
+    "split": "mls:split",
+    "evaluationScript": "mls:evaluationScript",
+    "evaluationSplit": "mls:evaluationSplit",
+    "metricsFile": "mls:metricsFile",
+    "format": "mls:format",
+    "predictionFormat": "mls:predictionFormat",
+    "storageLocation": "mls:storageLocation",
+    "numInstances": {
+      "@id": "mls:numInstances",
+      "@type": "xsd:integer"
+    },
+    "onDatasetSplit": "mls:onDatasetSplit",
+    "startedAtTime": {
+      "@id": "prov:startedAtTime",
+      "@type": "xsd:dateTime"
+    },
+    "endedAtTime": {
+      "@id": "prov:endedAtTime",
+      "@type": "xsd:dateTime"
+    },
+    "contains": {
+      "@id": "mls:contains",
+      "@type": "@id"
+    },
+    "supports": {
+      "@id": "mls:supports",
+      "@type": "@id"
+    },
+    "runsIn": {
+      "@id": "mls:runsIn",
+      "@type": "@id"
+    },
+    "requires": {
+      "@id": "mls:requires",
+      "@type": "@id"
+    },
+    "inputDataset": {
+      "@id": "mls:inputDataset",
+      "@type": "@id"
+    },
+    "outputDataset": {
+      "@id": "mls:outputDataset",
+      "@type": "@id"
+    },
+    "trains": {
+      "@id": "mls:trains",
+      "@type": "@id"
+    },
+    "evaluates": {
+      "@id": "mls:evaluates",
+      "@type": "@id"
+    },
+    "appliedTo": {
+      "@id": "mls:appliedTo",
+      "@type": "@id"
+    },
+    "producedBy": {
+      "@id": "mls:producedBy",
+      "@type": "@id"
+    },
+    "prov-executedBy": {
+      "@id": "mls:prov-executedBy",
+      "@type": "@id"
+    },
+    "prov-generated": {
+      "@id": "mls:prov-generated",
+      "@type": "@id"
+    },
+    "used": {
+      "@id": "prov:used",
+      "@type": "@id"
+    },
+    "wasGeneratedBy": {
+      "@id": "prov:wasGeneratedBy",
+      "@type": "@id"
+    },
+    "wasDerivedFrom": {
+      "@id": "prov:wasDerivedFrom",
+      "@type": "@id"
+    },
+    "wasAssociatedWith": {
+      "@id": "prov:wasAssociatedWith",
+      "@type": "@id"
+    }
+  },
+  "@graph": [
+    {
+      "@id": "repo_PolyAI-LDN_conversational-datasets",
+      "@type": "SoftwareRepository",
+      "name": "conversational-datasets",
+      "url": "https://github.com/PolyAI-LDN/conversational-datasets",
+      "owner": "PolyAI-LDN",
+      "platform": "GitHub",
+      "programmingLanguage": "Python",
+      "version": null,
+      "license": "Apache-2.0",
+      "dateModified": null,
+      "documentationUrl": "https://github.com/PolyAI-LDN/conversational-datasets/blob/master/README.md",
+      "contains": [
+        {
+          "@id": "impl_conversational-datasets"
+        }
+      ],
+      "supports": [
+        {
+          "@id": "env_conversational-datasets"
+        }
+      ],
+      "wasDerivedFrom": "code",
+      "codeReference": "README.md",
+      "path": "README.md",
+      "start_char_doc": 48,
+      "end_char_doc": 71,
+      "context": {
+        "prefix": "[![CircleCI](https://circleci.com/gh/PolyAI-LDN/",
+        "suffix": ".svg?style=svg&circle-token=25d37b8026cb0c81306db68d098703f81dd74da9)](https://circleci.com/gh/PolyAI-LDN/conversational-datasets) [![PolyAI](polyai-logo.png)](https://poly-ai.com/) # conversational"
+      }
+    },
+    {
+      "@id": "impl_conversational-datasets",
+      "@type": "MLS_Implementation",
+      "identifier": "Conversational Datasets Data Pipeline",
+      "codeRepository": "https://github.com/PolyAI-LDN/conversational-datasets",
+      "framework": "Apache Beam",
+      "entryPoint": "reddit/create_data.py",
+      "entryPointCommand": "python reddit/create_data.py --output_dir ${DATADIR} --reddit_table ${PROJECT}:${DATASET}.${TABLE} --runner DataflowRunner --temp_location ${DATADIR}/temp --staging_location ${DATADIR}/staging --project ${PROJECT} --dataset_format TF",
+      "executionCommand": "python reddit/create_data.py --output_dir ${DATADIR} --reddit_table ${PROJECT}:${DATASET}.${TABLE} --runner DataflowRunner --dataset_format TF",
+      "commitHash": null,
+      "branch": "master",
+      "dependenciesHash": null,
+      "runsIn": {
+        "@id": "env_conversational-datasets"
+      },
+      "requires": [
+        {
+          "@id": "dep_apache-beam"
+        },
+        {
+          "@id": "dep_tensorflow"
+        },
+        {
+          "@id": "dep_tensorflow-hub"
+        },
+        {
+          "@id": "dep_tensorflow-text"
+        },
+        {
+          "@id": "dep_tf-sentencepiece"
+        },
+        {
+          "@id": "dep_bert-tensorflow"
+        },
+        {
+          "@id": "dep_scikit-learn"
+        },
+        {
+          "@id": "dep_scipy"
+        },
+        {
+          "@id": "dep_numpy"
+        },
+        {
+          "@id": "dep_glog"
+        },
+        {
+          "@id": "dep_tqdm"
+        },
+        {
+          "@id": "dep_click"
+        },
+        {
+          "@id": "dep_absl-py"
+        },
+        {
+          "@id": "dep_PyYAML"
+        }
+      ],
+      "wasDerivedFrom": "code",
+      "codeReference": "reddit/create_data.py",
+      "path": "README.md",
+      "start_char_doc": 7723,
+      "end_char_doc": 7734,
+      "context": {
+        "prefix": "datasets are created using [",
+        "suffix": "pipeline](https://beam.apache.org/) scripts, run on [Google"
+      }
+    },
+    {
+      "@id": "env_conversational-datasets",
+      "@type": "Environment",
+      "name": "Python 2.7 + Apache Beam + Google Dataflow",
+      "framework": "Apache Beam 2.5.0 / TensorFlow 1.14.0",
+      "pythonVersion": "2.7",
+      "os": null,
+      "hardwareSpecs": "Google Cloud Dataflow (n1-standard-1 workers)",
+      "requirementsFile": "requirements.txt",
+      "isDockerized": true,
+      "wasDerivedFrom": "code",
+      "codeReference": "requirements.txt",
+      "path": "README.md",
+      "start_char_doc": 7939,
+      "end_char_doc": 7949,
+      "context": {
+        "prefix": "worker machines. Apache Beam requires",
+        "suffix": ", so you will need"
+      }
+    },
+    {
+      "@id": "dep_absl-py",
+      "@type": "Dependency",
+      "packageName": "absl-py",
+      "version": "0.7.0",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "requirements.txt:1",
+      "path": "requirements.txt",
+      "start_char_doc": 0,
+      "end_char_doc": 14,
+      "context": {
+        "prefix": "",
+        "suffix": "apache-beam==2.5.0 astor==0.7.1 avro==1.8.2 backports.weakref==1.0.post1 bert-tensorflow==1.0.1"
+      }
+    },
+    {
+      "@id": "dep_apache-beam",
+      "@type": "Dependency",
+      "packageName": "apache-beam",
+      "version": "2.5.0",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "requirements.txt:2",
+      "path": "requirements.txt",
+      "start_char_doc": 15,
+      "end_char_doc": 33,
+      "context": {
+        "prefix": "absl-py==0.7.0",
+        "suffix": "astor==0.7.1 avro==1.8.2 backports.weakref==1.0.post1 bert-tensorflow==1.0.1 cachetools==3.1.0"
+      }
+    },
+    {
+      "@id": "dep_bert-tensorflow",
+      "@type": "Dependency",
+      "packageName": "bert-tensorflow",
+      "version": "1.0.1",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "requirements.txt:6",
+      "path": "requirements.txt",
+      "start_char_doc": 88,
+      "end_char_doc": 110,
+      "context": {
+        "prefix": "absl-py==0.7.0 apache-beam==2.5.0 astor==0.7.1 avro==1.8.2 backports.weakref==1.0.post1",
+        "suffix": "cachetools==3.1.0 certifi==2018.11.29 chardet==3.0.4 Click==7.0 configparser==3.7.3"
+      }
+    },
+    {
+      "@id": "dep_tensorflow",
+      "@type": "Dependency",
+      "packageName": "tensorflow",
+      "version": "1.14.0",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "requirements.txt:74",
+      "path": "requirements.txt",
+      "start_char_doc": 1348,
+      "end_char_doc": 1366,
+      "context": {
+        "prefix": "scikit-learn==0.20.3 scipy==1.2.1 six==1.12.0 sklearn==0.0 tensorboard==1.14.0",
+        "suffix": "tensorflow-estimator==1.14.0 tensorflow-hub==0.3.0 tensorflow-text==0.1.0 termcolor==1.1.0 tf-sentencepiece==0.1.83"
+      }
+    },
+    {
+      "@id": "dep_tensorflow-hub",
+      "@type": "Dependency",
+      "packageName": "tensorflow-hub",
+      "version": "0.3.0",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "requirements.txt:76",
+      "path": "requirements.txt",
+      "start_char_doc": 1396,
+      "end_char_doc": 1417,
+      "context": {
+        "prefix": "six==1.12.0 sklearn==0.0 tensorboard==1.14.0 tensorflow==1.14.0 tensorflow-estimator==1.14.0",
+        "suffix": "tensorflow-text==0.1.0 termcolor==1.1.0 tf-sentencepiece==0.1.83 tqdm==4.31.1 typing==3.6.6"
+      }
+    },
+    {
+      "@id": "dep_tensorflow-text",
+      "@type": "Dependency",
+      "packageName": "tensorflow-text",
+      "version": "0.1.0",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "requirements.txt:77",
+      "path": "requirements.txt",
+      "start_char_doc": 1418,
+      "end_char_doc": 1440,
+      "context": {
+        "prefix": "sklearn==0.0 tensorboard==1.14.0 tensorflow==1.14.0 tensorflow-estimator==1.14.0 tensorflow-hub==0.3.0",
+        "suffix": "termcolor==1.1.0 tf-sentencepiece==0.1.83 tqdm==4.31.1 typing==3.6.6 urllib3==1.24.1"
+      }
+    },
+    {
+      "@id": "dep_tf-sentencepiece",
+      "@type": "Dependency",
+      "packageName": "tf-sentencepiece",
+      "version": "0.1.83",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "requirements.txt:79",
+      "path": "requirements.txt",
+      "start_char_doc": 1458,
+      "end_char_doc": 1482,
+      "context": {
+        "prefix": "tensorflow==1.14.0 tensorflow-estimator==1.14.0 tensorflow-hub==0.3.0 tensorflow-text==0.1.0 termcolor==1.1.0",
+        "suffix": "tqdm==4.31.1 typing==3.6.6 urllib3==1.24.1 Werkzeug==0.14.1 wrapt==1.11.2"
+      }
+    },
+    {
+      "@id": "dep_scikit-learn",
+      "@type": "Dependency",
+      "packageName": "scikit-learn",
+      "version": "0.20.3",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "requirements.txt:69",
+      "path": "requirements.txt",
+      "start_char_doc": 1269,
+      "end_char_doc": 1289,
+      "context": {
+        "prefix": "pytz==2018.9 PyVCF==0.6.8 PyYAML==4.2b1 requests==2.21.0 rsa==4.0",
+        "suffix": "scipy==1.2.1 six==1.12.0 sklearn==0.0 tensorboard==1.14.0 tensorflow==1.14.0"
+      }
+    },
+    {
+      "@id": "dep_scipy",
+      "@type": "Dependency",
+      "packageName": "scipy",
+      "version": "1.2.1",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "requirements.txt:70",
+      "path": "requirements.txt",
+      "start_char_doc": 1290,
+      "end_char_doc": 1302,
+      "context": {
+        "prefix": "PyVCF==0.6.8 PyYAML==4.2b1 requests==2.21.0 rsa==4.0 scikit-learn==0.20.3",
+        "suffix": "six==1.12.0 sklearn==0.0 tensorboard==1.14.0 tensorflow==1.14.0 tensorflow-estimator==1.14.0"
+      }
+    },
+    {
+      "@id": "dep_numpy",
+      "@type": "Dependency",
+      "packageName": "numpy",
+      "version": "1.16.2",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "requirements.txt:51",
+      "path": "requirements.txt",
+      "start_char_doc": 945,
+      "end_char_doc": 958,
+      "context": {
+        "prefix": "Keras-Preprocessing==1.0.9 Markdown==3.0.1 mccabe==0.6.1 mock==2.0.0 monotonic==1.5",
+        "suffix": "oauth2client==4.1.3 pbr==5.1.3 pep8-naming==0.5.0 ply==3.8 proto-google-cloud-datastore-v1==0.90.4"
+      }
+    },
+    {
+      "@id": "dep_glog",
+      "@type": "Dependency",
+      "packageName": "glog",
+      "version": "0.3.1",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "requirements.txt:26",
+      "path": "requirements.txt",
+      "start_char_doc": 439,
+      "end_char_doc": 450,
+      "context": {
+        "prefix": "functools32==3.2.3.post2 future==0.17.1 futures==3.2.0 gapic-google-cloud-pubsub-v1==0.15.4 gast==0.2.2",
+        "suffix": "google-apitools==0.5.20 google-auth==1.6.3 google-auth-httplib2==0.0.3 google-cloud-bigquery==0.25.0 google-cloud-core==0.25.0"
+      }
+    },
+    {
+      "@id": "dep_tqdm",
+      "@type": "Dependency",
+      "packageName": "tqdm",
+      "version": "4.31.1",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "requirements.txt:80",
+      "path": "requirements.txt",
+      "start_char_doc": 1483,
+      "end_char_doc": 1495,
+      "context": {
+        "prefix": "tensorflow-estimator==1.14.0 tensorflow-hub==0.3.0 tensorflow-text==0.1.0 termcolor==1.1.0 tf-sentencepiece==0.1.83",
+        "suffix": "typing==3.6.6 urllib3==1.24.1 Werkzeug==0.14.1 wrapt==1.11.2"
+      }
+    },
+    {
+      "@id": "dep_click",
+      "@type": "Dependency",
+      "packageName": "Click",
+      "version": "7.0",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "requirements.txt:10",
+      "path": "requirements.txt",
+      "start_char_doc": 164,
+      "end_char_doc": 174,
+      "context": {
+        "prefix": "backports.weakref==1.0.post1 bert-tensorflow==1.0.1 cachetools==3.1.0 certifi==2018.11.29 chardet==3.0.4",
+        "suffix": "configparser==3.7.3 crcmod==1.7 dill==0.2.6 docopt==0.6.2 entrypoints==0.3"
+      }
+    },
+    {
+      "@id": "dep_PyYAML",
+      "@type": "Dependency",
+      "packageName": "PyYAML",
+      "version": "4.2b1",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "requirements.txt:66",
+      "path": "requirements.txt",
+      "start_char_doc": 1229,
+      "end_char_doc": 1242,
+      "context": {
+        "prefix": "pycodestyle==2.5.0 pyflakes==2.1.1 python-gflags==3.1.2 pytz==2018.9 PyVCF==0.6.8",
+        "suffix": "requests==2.21.0 rsa==4.0 scikit-learn==0.20.3 scipy==1.2.1 six==1.12.0"
+      }
+    },
+    {
+      "@id": "hp_parent_depth_reddit",
+      "@type": "MLS_HyperParameter",
+      "name": "parent_depth",
+      "hasValue": "10",
+      "hpCategory": "HP_Data",
+      "hpType": "MaxSequenceLength",
+      "uncertain": true,
+      "sourceFile": "reddit/create_data.py",
+      "sourceLine": 63,
+      "wasDerivedFrom": "code",
+      "codeReference": "reddit/create_data.py:63",
+      "path": "reddit/create_data.py",
+      "start_char_doc": 1726,
+      "end_char_doc": 1736,
+      "context": {
+        "prefix": "line.\" ) parser.add_argument( \"--parent_depth\", type=_positive_int,",
+        "suffix": ", help=\"How many parent comments"
+      }
+    },
+    {
+      "@id": "hp_max_length_reddit",
+      "@type": "MLS_HyperParameter",
+      "name": "max_length (reddit)",
+      "hasValue": "127",
+      "hpCategory": "HP_Data",
+      "hpType": "MaxSequenceLength",
+      "uncertain": false,
+      "sourceFile": "reddit/create_data.py",
+      "sourceLine": 68,
+      "wasDerivedFrom": "code",
+      "codeReference": "reddit/create_data.py:68",
+      "path": "reddit/create_data.py",
+      "start_char_doc": 1883,
+      "end_char_doc": 1894,
+      "context": {
+        "prefix": "consider.\", ) parser.add_argument( \"--max_length\", type=_positive_int,",
+        "suffix": ", help=\"Maximum length of comments"
+      }
+    },
+    {
+      "@id": "hp_min_length_reddit",
+      "@type": "MLS_HyperParameter",
+      "name": "min_length (reddit)",
+      "hasValue": "9",
+      "hpCategory": "HP_Data",
+      "hpType": "MaxSequenceLength",
+      "uncertain": true,
+      "sourceFile": "reddit/create_data.py",
+      "sourceLine": 73,
+      "wasDerivedFrom": "code",
+      "codeReference": "reddit/create_data.py:73",
+      "path": "reddit/create_data.py",
+      "start_char_doc": 2042,
+      "end_char_doc": 2051,
+      "context": {
+        "prefix": "include.\", ) parser.add_argument( \"--min_length\", type=_positive_int,",
+        "suffix": ", help=\"Minimum length of comments"
+      }
+    },
+    {
+      "@id": "hp_train_split_reddit",
+      "@type": "MLS_HyperParameter",
+      "name": "train_split (reddit)",
+      "hasValue": "0.9",
+      "hpCategory": "HP_Data",
+      "hpType": "TrainValTestSplit",
+      "uncertain": false,
+      "sourceFile": "reddit/create_data.py",
+      "sourceLine": 80,
+      "wasDerivedFrom": "code",
+      "codeReference": "reddit/create_data.py:80",
+      "path": "reddit/create_data.py",
+      "start_char_doc": 2172,
+      "end_char_doc": 2183,
+      "context": {
+        "prefix": "to include.\", ) parser.add_argument( \"--train_split\",",
+        "suffix": ", type=float, help=\"The proportion of"
+      }
+    },
+    {
+      "@id": "hp_num_shards_test_reddit",
+      "@type": "MLS_HyperParameter",
+      "name": "num_shards_test (reddit)",
+      "hasValue": "100",
+      "hpCategory": "HP_Data",
+      "hpType": "HP_Data",
+      "uncertain": true,
+      "sourceFile": "reddit/create_data.py",
+      "sourceLine": 85,
+      "wasDerivedFrom": "code",
+      "codeReference": "reddit/create_data.py:85",
+      "path": "reddit/create_data.py",
+      "start_char_doc": 2332,
+      "end_char_doc": 2343,
+      "context": {
+        "prefix": "training set.\", ) parser.add_argument( \"--num_shards_test\",",
+        "suffix": ", type=_positive_int, help=\"The number of"
+      }
+    },
+    {
+      "@id": "hp_num_shards_train_reddit",
+      "@type": "MLS_HyperParameter",
+      "name": "num_shards_train (reddit)",
+      "hasValue": "1000",
+      "hpCategory": "HP_Data",
+      "hpType": "HP_Data",
+      "uncertain": true,
+      "sourceFile": "reddit/create_data.py",
+      "sourceLine": 91,
+      "wasDerivedFrom": "code",
+      "codeReference": "reddit/create_data.py:91",
+      "path": "reddit/create_data.py",
+      "start_char_doc": 2497,
+      "end_char_doc": 2509,
+      "context": {
+        "prefix": "test set.\", ) parser.add_argument( \"--num_shards_train\",",
+        "suffix": ", type=_positive_int, help=\"The number of"
+      }
+    },
+    {
+      "@id": "hp_num_extra_contexts_opensubtitles",
+      "@type": "MLS_HyperParameter",
+      "name": "num_extra_contexts (opensubtitles)",
+      "hasValue": "10",
+      "hpCategory": "HP_Data",
+      "hpType": "MaxSequenceLength",
+      "uncertain": true,
+      "sourceFile": "opensubtitles/create_data.py",
+      "sourceLine": 48,
+      "wasDerivedFrom": "code",
+      "codeReference": "opensubtitles/create_data.py:48",
+      "path": "opensubtitles/create_data.py",
+      "start_char_doc": 1241,
+      "end_char_doc": 1251,
+      "context": {
+        "prefix": "sentence per line.\") parser.add_argument( \"--num_extra_contexts\",",
+        "suffix": ", help=\"The maximum number of"
+      }
+    },
+    {
+      "@id": "hp_min_length_opensubtitles",
+      "@type": "MLS_HyperParameter",
+      "name": "min_length (opensubtitles)",
+      "hasValue": "9",
+      "hpCategory": "HP_Data",
+      "hpType": "MaxSequenceLength",
+      "uncertain": true,
+      "sourceFile": "opensubtitles/create_data.py",
+      "sourceLine": 52,
+      "wasDerivedFrom": "code",
+      "codeReference": "opensubtitles/create_data.py:52",
+      "path": "opensubtitles/create_data.py",
+      "start_char_doc": 1378,
+      "end_char_doc": 1387,
+      "context": {
+        "prefix": "in an example.\") parser.add_argument( \"--min_length\",",
+        "suffix": ", type=_positive_int, help=\"The minimum length"
+      }
+    },
+    {
+      "@id": "hp_max_length_opensubtitles",
+      "@type": "MLS_HyperParameter",
+      "name": "max_length (opensubtitles)",
+      "hasValue": "127",
+      "hpCategory": "HP_Data",
+      "hpType": "MaxSequenceLength",
+      "uncertain": false,
+      "sourceFile": "opensubtitles/create_data.py",
+      "sourceLine": 55,
+      "wasDerivedFrom": "code",
+      "codeReference": "opensubtitles/create_data.py:55",
+      "path": "opensubtitles/create_data.py",
+      "start_char_doc": 1537,
+      "end_char_doc": 1548,
+      "context": {
+        "prefix": "response to include.\") parser.add_argument( \"--max_length\",",
+        "suffix": ", type=_positive_int, help=\"The maximum length"
+      }
+    },
+    {
+      "@id": "hp_train_split_opensubtitles",
+      "@type": "MLS_HyperParameter",
+      "name": "train_split (opensubtitles)",
+      "hasValue": "0.9",
+      "hpCategory": "HP_Data",
+      "hpType": "TrainValTestSplit",
+      "uncertain": false,
+      "sourceFile": "opensubtitles/create_data.py",
+      "sourceLine": 70,
+      "wasDerivedFrom": "code",
+      "codeReference": "opensubtitles/create_data.py:70",
+      "path": "opensubtitles/create_data.py",
+      "start_char_doc": 2118,
+      "end_char_doc": 2129,
+      "context": {
+        "prefix": "per line.\" ) parser.add_argument( \"--train_split\",",
+        "suffix": ", type=float, help=\"The proportion of"
+      }
+    },
+    {
+      "@id": "hp_num_shards_test_opensubtitles",
+      "@type": "MLS_HyperParameter",
+      "name": "num_shards_test (opensubtitles)",
+      "hasValue": "100",
+      "hpCategory": "HP_Data",
+      "hpType": "HP_Data",
+      "uncertain": true,
+      "sourceFile": "opensubtitles/create_data.py",
+      "sourceLine": 75,
+      "wasDerivedFrom": "code",
+      "codeReference": "opensubtitles/create_data.py:75",
+      "path": "opensubtitles/create_data.py",
+      "start_char_doc": 2272,
+      "end_char_doc": 2283,
+      "context": {
+        "prefix": "the training set.\") parser.add_argument( \"--num_shards_test\",",
+        "suffix": ", type=_positive_int, help=\"The number of"
+      }
+    },
+    {
+      "@id": "hp_num_shards_train_opensubtitles",
+      "@type": "MLS_HyperParameter",
+      "name": "num_shards_train (opensubtitles)",
+      "hasValue": "1000",
+      "hpCategory": "HP_Data",
+      "hpType": "HP_Data",
+      "uncertain": true,
+      "sourceFile": "opensubtitles/create_data.py",
+      "sourceLine": 79,
+      "wasDerivedFrom": "code",
+      "codeReference": "opensubtitles/create_data.py:79",
+      "path": "opensubtitles/create_data.py",
+      "start_char_doc": 2423,
+      "end_char_doc": 2435,
+      "context": {
+        "prefix": "the test set.\") parser.add_argument( \"--num_shards_train\",",
+        "suffix": ", type=_positive_int, help=\"The number of"
+      }
+    },
+    {
+      "@id": "hp_max_words_amazon",
+      "@type": "MLS_HyperParameter",
+      "name": "max_words (amazon_qa)",
+      "hasValue": "59",
+      "hpCategory": "HP_Data",
+      "hpType": "MaxSequenceLength",
+      "uncertain": true,
+      "sourceFile": "amazon_qa/create_data.py",
+      "sourceLine": 59,
+      "wasDerivedFrom": "code",
+      "codeReference": "amazon_qa/create_data.py:59",
+      "path": "amazon_qa/create_data.py",
+      "start_char_doc": 1622,
+      "end_char_doc": 1632,
+      "context": {
+        "prefix": "line.\" ) parser.add_argument( \"--max_words\", type=_positive_int,",
+        "suffix": ", help=\"Maximum number of words"
+      }
+    },
+    {
+      "@id": "hp_min_words_amazon",
+      "@type": "MLS_HyperParameter",
+      "name": "min_words (amazon_qa)",
+      "hasValue": "4",
+      "hpCategory": "HP_Data",
+      "hpType": "MaxSequenceLength",
+      "uncertain": true,
+      "sourceFile": "amazon_qa/create_data.py",
+      "sourceLine": 65,
+      "wasDerivedFrom": "code",
+      "codeReference": "amazon_qa/create_data.py:65",
+      "path": "amazon_qa/create_data.py",
+      "start_char_doc": 1798,
+      "end_char_doc": 1807,
+      "context": {
+        "prefix": "included.\", ) parser.add_argument( \"--min_words\", type=_positive_int,",
+        "suffix": ", help=\"Minimum number of words"
+      }
+    },
+    {
+      "@id": "hp_train_split_amazon",
+      "@type": "MLS_HyperParameter",
+      "name": "train_split (amazon_qa)",
+      "hasValue": "0.9",
+      "hpCategory": "HP_Data",
+      "hpType": "TrainValTestSplit",
+      "uncertain": false,
+      "sourceFile": "amazon_qa/create_data.py",
+      "sourceLine": 71,
+      "wasDerivedFrom": "code",
+      "codeReference": "amazon_qa/create_data.py:71",
+      "path": "amazon_qa/create_data.py",
+      "start_char_doc": 1948,
+      "end_char_doc": 1959,
+      "context": {
+        "prefix": "be included.\", ) parser.add_argument( \"--train_split\",",
+        "suffix": ", type=float, help=\"The proportion of"
+      }
+    },
+    {
+      "@id": "hp_num_shards_test_amazon",
+      "@type": "MLS_HyperParameter",
+      "name": "num_shards_test (amazon_qa)",
+      "hasValue": "10",
+      "hpCategory": "HP_Data",
+      "hpType": "HP_Data",
+      "uncertain": true,
+      "sourceFile": "amazon_qa/create_data.py",
+      "sourceLine": 75,
+      "wasDerivedFrom": "code",
+      "codeReference": "amazon_qa/create_data.py:75",
+      "path": "amazon_qa/create_data.py",
+      "start_char_doc": 2108,
+      "end_char_doc": 2118,
+      "context": {
+        "prefix": "training set.\", ) parser.add_argument( \"--num_shards_test\",",
+        "suffix": ", type=_positive_int, help=\"The number of"
+      }
+    },
+    {
+      "@id": "hp_num_shards_train_amazon",
+      "@type": "MLS_HyperParameter",
+      "name": "num_shards_train (amazon_qa)",
+      "hasValue": "100",
+      "hpCategory": "HP_Data",
+      "hpType": "HP_Data",
+      "uncertain": true,
+      "sourceFile": "amazon_qa/create_data.py",
+      "sourceLine": 81,
+      "wasDerivedFrom": "code",
+      "codeReference": "amazon_qa/create_data.py:81",
+      "path": "amazon_qa/create_data.py",
+      "start_char_doc": 2272,
+      "end_char_doc": 2283,
+      "context": {
+        "prefix": "test set.\", ) parser.add_argument( \"--num_shards_train\",",
+        "suffix": ", type=_positive_int, help=\"The number of"
+      }
+    },
+    {
+      "@id": "hp_recall_k",
+      "@type": "MLS_HyperParameter",
+      "name": "recall_k",
+      "hasValue": "100",
+      "hpCategory": "HP_Training",
+      "hpType": "HP_Training",
+      "uncertain": true,
+      "sourceFile": "baselines/run_baseline.py",
+      "sourceLine": 28,
+      "wasDerivedFrom": "code",
+      "codeReference": "baselines/run_baseline.py:28",
+      "path": "baselines/run_baseline.py",
+      "start_char_doc": 588,
+      "end_char_doc": 599,
+      "context": {
+        "prefix": "to use.\") parser.add_argument( \"--recall_k\", type=int,",
+        "suffix": ", help=\"The value of k"
+      }
+    },
+    {
+      "@id": "hp_train_size",
+      "@type": "MLS_HyperParameter",
+      "name": "train_size",
+      "hasValue": "10000",
+      "hpCategory": "HP_Training",
+      "hpType": "HP_Training",
+      "uncertain": true,
+      "sourceFile": "baselines/run_baseline.py",
+      "sourceLine": 33,
+      "wasDerivedFrom": "code",
+      "codeReference": "baselines/run_baseline.py:33",
+      "path": "baselines/run_baseline.py",
+      "start_char_doc": 825,
+      "end_char_doc": 838,
+      "context": {
+        "prefix": "train set.\") parser.add_argument( \"--train_size\", type=int,",
+        "suffix": ", help=\"Number of examples from"
+      }
+    },
+    {
+      "@id": "hp_eval_num_batches",
+      "@type": "MLS_HyperParameter",
+      "name": "eval_num_batches",
+      "hasValue": "500",
+      "hpCategory": "HP_Training",
+      "hpType": "HP_Training",
+      "uncertain": true,
+      "sourceFile": "baselines/run_baseline.py",
+      "sourceLine": 39,
+      "wasDerivedFrom": "code",
+      "codeReference": "baselines/run_baseline.py:39",
+      "path": "baselines/run_baseline.py",
+      "start_char_doc": 1100,
+      "end_char_doc": 1111,
+      "context": {
+        "prefix": "test set.\") parser.add_argument( \"--eval_num_batches\", type=int,",
+        "suffix": ", help=\"Number of batches to"
+      }
+    },
+    {
+      "@id": "hp_encoding_batch_size",
+      "@type": "MLS_HyperParameter",
+      "name": "_ENCODING_BATCH_SIZE",
+      "hasValue": "100",
+      "hpCategory": "HP_Training",
+      "hpType": "BatchSize",
+      "uncertain": false,
+      "sourceFile": "baselines/vector_based.py",
+      "sourceLine": 325,
+      "wasDerivedFrom": "code",
+      "codeReference": "baselines/vector_based.py:325",
+      "path": "baselines/vector_based.py",
+      "start_char_doc": 11858,
+      "end_char_doc": 11884,
+      "context": {
+        "prefix": "to use when encoding texts.",
+        "suffix": "_TRAIN_BATCH_SIZE = 256 _MAX_EPOCHS ="
+      }
+    },
+    {
+      "@id": "hp_train_batch_size",
+      "@type": "MLS_HyperParameter",
+      "name": "_TRAIN_BATCH_SIZE",
+      "hasValue": "256",
+      "hpCategory": "HP_Training",
+      "hpType": "BatchSize",
+      "uncertain": false,
+      "sourceFile": "baselines/vector_based.py",
+      "sourceLine": 326,
+      "wasDerivedFrom": "code",
+      "codeReference": "baselines/vector_based.py:326",
+      "path": "baselines/vector_based.py",
+      "start_char_doc": 11889,
+      "end_char_doc": 11912,
+      "context": {
+        "prefix": "encoding texts. _ENCODING_BATCH_SIZE = 100",
+        "suffix": "_MAX_EPOCHS = 100 def _create_train_and_dev(self,"
+      }
+    },
+    {
+      "@id": "hp_max_epochs",
+      "@type": "MLS_HyperParameter",
+      "name": "_MAX_EPOCHS",
+      "hasValue": "100",
+      "hpCategory": "HP_Training",
+      "hpType": "NumEpochs",
+      "uncertain": false,
+      "sourceFile": "baselines/vector_based.py",
+      "sourceLine": 327,
+      "wasDerivedFrom": "code",
+      "codeReference": "baselines/vector_based.py:327",
+      "path": "baselines/vector_based.py",
+      "start_char_doc": 11917,
+      "end_char_doc": 11934,
+      "context": {
+        "prefix": "= 100 _TRAIN_BATCH_SIZE = 256",
+        "suffix": "def _create_train_and_dev(self, contexts, responses): \"\"\"Create"
+      }
+    },
+    {
+      "@id": "hp_learning_rates",
+      "@type": "MLS_HyperParameter",
+      "name": "learning_rates",
+      "hasValue": "(10.0, 3.0, 1.0, 0.3, 0.01)",
+      "hpCategory": "HP_Optimization",
+      "hpType": "LearningRate",
+      "uncertain": false,
+      "sourceFile": "baselines/vector_based.py",
+      "sourceLine": 300,
+      "wasDerivedFrom": "code",
+      "codeReference": "baselines/vector_based.py:300",
+      "path": "baselines/vector_based.py",
+      "start_char_doc": 10901,
+      "end_char_doc": 10943,
+      "context": {
+        "prefix": "\"\"\" def __init__( self, encoder,",
+        "suffix": ", regularizers=(0, 0.1, 0.01, 0.001),"
+      }
+    },
+    {
+      "@id": "hp_regularizers",
+      "@type": "MLS_HyperParameter",
+      "name": "regularizers",
+      "hasValue": "(0, 0.1, 0.01, 0.001)",
+      "hpCategory": "HP_Optimization",
+      "hpType": "WeightDecay",
+      "uncertain": true,
+      "sourceFile": "baselines/vector_based.py",
+      "sourceLine": 301,
+      "wasDerivedFrom": "code",
+      "codeReference": "baselines/vector_based.py:301",
+      "path": "baselines/vector_based.py",
+      "start_char_doc": 10953,
+      "end_char_doc": 10987,
+      "context": {
+        "prefix": "learning_rates=(10.0, 3.0, 1.0, 0.3, 0.01),",
+        "suffix": ", ): \"\"\"Create a new"
+      }
+    },
+    {
+      "@id": "hp_test_size_dev_split",
+      "@type": "MLS_HyperParameter",
+      "name": "test_size (dev split)",
+      "hasValue": "0.2",
+      "hpCategory": "HP_Data",
+      "hpType": "TrainValTestSplit",
+      "uncertain": false,
+      "sourceFile": "baselines/vector_based.py",
+      "sourceLine": 350,
+      "wasDerivedFrom": "code",
+      "codeReference": "baselines/vector_based.py:350",
+      "path": "baselines/vector_based.py",
+      "start_char_doc": 12887,
+      "end_char_doc": 12900,
+      "context": {
+        "prefix": "response_encodings).astype(np.float32) return train_test_split( context_encodings, response_encodings,",
+        "suffix": ") def _build_mapping_graph(self, contexts_train, contexts_dev,"
+      }
+    },
+    {
+      "@id": "hp_label_smoothing",
+      "@type": "MLS_HyperParameter",
+      "name": "label_smoothing",
+      "hasValue": "0.2",
+      "hpCategory": "HP_Training",
+      "hpType": "HP_Training",
+      "uncertain": true,
+      "sourceFile": "baselines/vector_based.py",
+      "sourceLine": 453,
+      "wasDerivedFrom": "code",
+      "codeReference": "baselines/vector_based.py:453",
+      "path": "baselines/vector_based.py",
+      "start_char_doc": 17255,
+      "end_char_doc": 17274,
+      "context": {
+        "prefix": "tf.shape(similarities)[0] tf.losses.softmax_cross_entropy( onehot_labels=tf.one_hot( tf.range(train_batch_size), train_batch_size),",
+        "suffix": ", logits=similarities, reduction=tf.losses.Reduction.MEAN ) self._learning_rate"
+      }
+    },
+    {
+      "@id": "hp_max_seq_len_bert",
+      "@type": "MLS_HyperParameter",
+      "name": "max_seq_len (BERT)",
+      "hasValue": "128",
+      "hpCategory": "HP_Data",
+      "hpType": "MaxSequenceLength",
+      "uncertain": false,
+      "sourceFile": "baselines/vector_based.py",
+      "sourceLine": 222,
+      "wasDerivedFrom": "code",
+      "codeReference": "baselines/vector_based.py:222",
+      "path": "baselines/vector_based.py",
+      "start_char_doc": 8045,
+      "end_char_doc": 8060,
+      "context": {
+        "prefix": "vocab_file=vocab_file, do_lower_case=do_lower_case) def _feed_dict(self, texts,",
+        "suffix": "): \"\"\"Create a feed dict"
+      }
+    },
+    {
+      "@id": "hp_patience_early_stopping",
+      "@type": "MLS_HyperParameter",
+      "name": "epochs_since_improvement (patience)",
+      "hasValue": "10",
+      "hpCategory": "HP_Training",
+      "hpType": "Patience",
+      "uncertain": false,
+      "sourceFile": "baselines/vector_based.py",
+      "sourceLine": 527,
+      "wasDerivedFrom": "code",
+      "codeReference": "baselines/vector_based.py:527",
+      "path": "baselines/vector_based.py",
+      "start_char_doc": 18603,
+      "end_char_doc": 18627,
+      "context": {
+        "prefix": "regularizer. self._session.run(self._reset_op) best_accuracy_for_run = None",
+        "suffix": "= 0 epoch = 0"
+      }
+    },
+    {
+      "@id": "hp_bm25_k1",
+      "@type": "MLS_HyperParameter",
+      "name": "k1 (BM25)",
+      "hasValue": "2.0",
+      "hpCategory": "HP_Architecture",
+      "hpType": "UnknownArchitectureHP",
+      "uncertain": true,
+      "sourceFile": "baselines/keyword_based.py",
+      "sourceLine": 25,
+      "wasDerivedFrom": "code",
+      "codeReference": "baselines/keyword_based.py:25",
+      "path": "baselines/keyword_based.py",
+      "start_char_doc": 769,
+      "end_char_doc": 780,
+      "context": {
+        "prefix": "Args: k1: float, optional (",
+        "suffix": ") b: float, optional (default=0.75)"
+      }
+    },
+    {
+      "@id": "hp_bm25_b",
+      "@type": "MLS_HyperParameter",
+      "name": "b (BM25)",
+      "hasValue": "0.75",
+      "hpCategory": "HP_Architecture",
+      "hpType": "UnknownArchitectureHP",
+      "uncertain": true,
+      "sourceFile": "baselines/keyword_based.py",
+      "sourceLine": 25,
+      "wasDerivedFrom": "code",
+      "codeReference": "baselines/keyword_based.py:25",
+      "path": "baselines/keyword_based.py",
+      "start_char_doc": 810,
+      "end_char_doc": 822,
+      "context": {
+        "prefix": "(default=2.0) b: float, optional (",
+        "suffix": ") \"\"\" def __init__(self, k1=2.0,"
+      }
+    },
+    {
+      "@id": "preprocess_reddit",
+      "@type": "DataProcessingStep",
+      "identifier": "Reddit Data Processing Pipeline",
+      "description": "Apache Beam/Dataflow pipeline that reads Reddit comments from BigQuery, normalises and trims comment text, filters by length, groups by thread, creates conversational context-response examples with extra parent contexts, deterministically splits into train/test by thread ID, and writes sharded TFRecord or JSON output.",
+      "transformationType": "cleaning",
+      "startedAtTime": null,
+      "endedAtTime": null,
+      "inputDataset": null,
+      "outputDataset": null,
+      "prov-executedBy": {
+        "@id": "impl_conversational-datasets"
+      },
+      "wasDerivedFrom": "code",
+      "codeReference": "reddit/create_data.py",
+      "path": "reddit/create_data.py",
+      "start_char_doc": 5,
+      "end_char_doc": 13,
+      "context": {
+        "prefix": "\"\"\"A",
+        "suffix": "script for creating datasets from"
+      }
+    },
+    {
+      "@id": "preprocess_opensubtitles",
+      "@type": "DataProcessingStep",
+      "identifier": "OpenSubtitles Data Processing Pipeline",
+      "description": "Apache Beam/Dataflow pipeline that reads subtitle text files, strips speaker names and bracketed acoustic events, filters lines by length, constructs sliding-window conversational examples with extra contexts, deterministically splits by file ID, and writes sharded output.",
+      "transformationType": "cleaning",
+      "startedAtTime": null,
+      "endedAtTime": null,
+      "inputDataset": null,
+      "outputDataset": null,
+      "prov-executedBy": {
+        "@id": "impl_conversational-datasets"
+      },
+      "wasDerivedFrom": "code",
+      "codeReference": "opensubtitles/create_data.py",
+      "path": "opensubtitles/create_data.py",
+      "start_char_doc": 5,
+      "end_char_doc": 13,
+      "context": {
+        "prefix": "\"\"\"A",
+        "suffix": "script for creating sentence pair"
+      }
+    },
+    {
+      "@id": "preprocess_amazon_qa",
+      "@type": "DataProcessingStep",
+      "identifier": "Amazon QA Data Processing Pipeline",
+      "description": "Apache Beam/Dataflow pipeline that reads Amazon QA JSON files, parses Python-dict strings, creates question-answer tuples, filters by word count, deduplicates, deterministically splits by product ID, and writes sharded output.",
+      "transformationType": "cleaning",
+      "startedAtTime": null,
+      "endedAtTime": null,
+      "inputDataset": null,
+      "outputDataset": null,
+      "prov-executedBy": {
+        "@id": "impl_conversational-datasets"
+      },
+      "wasDerivedFrom": "code",
+      "codeReference": "amazon_qa/create_data.py",
+      "path": "amazon_qa/create_data.py",
+      "start_char_doc": 5,
+      "end_char_doc": 13,
+      "context": {
+        "prefix": "\"\"\"A",
+        "suffix": "script for creating Amazon question/answer"
+      }
+    },
+    {
+      "@id": "training_baselines",
+      "@type": "TrainingRun",
+      "runId": "baseline_training",
+      "description": "Training phase of baseline response selection methods (TF-IDF, BM25, vector mapping methods) on sampled conversational dataset examples. The VectorMappingMethod learns a linear mapping via grid search over learning rates and regularizers.",
+      "logFile": null,
+      "artifactsLocation": null,
+      "startedAtTime": null,
+      "endedAtTime": null,
+      "prov-executedBy": {
+        "@id": "impl_conversational-datasets"
+      },
+      "used": null,
+      "trains": null,
+      "wasDerivedFrom": "code",
+      "codeReference": "baselines/run_baseline.py",
+      "path": "baselines/run_baseline.py",
+      "start_char_doc": 8907,
+      "end_char_doc": 8915,
+      "context": {
+        "prefix": "= _load_data( args.train_dataset, args.train_size) glog.info(\"",
+        "suffix": "%s method\", args.method) method.train(contexts_train, responses_train)"
+      }
+    },
+    {
+      "@id": "evaluation_baselines",
+      "@type": "EvaluationRun",
+      "runId": "baseline_evaluation",
+      "description": "Evaluation of baseline response selection methods using 1-of-100 ranking accuracy (Recall@1 with N=100). Computes accuracy across shuffled batches of 100 context-response pairs from the test set.",
+      "split": "test",
+      "evaluationScript": "baselines/run_baseline.py",
+      "metricsFile": null,
+      "startedAtTime": null,
+      "endedAtTime": null,
+      "prov-executedBy": {
+        "@id": "impl_conversational-datasets"
+      },
+      "evaluates": null,
+      "prov-generated": [
+        {
+          "@id": "prediction_baselines"
+        }
+      ],
+      "wasDerivedFrom": "code",
+      "codeReference": "baselines/run_baseline.py",
+      "path": "baselines/run_baseline.py",
+      "start_char_doc": 1159,
+      "end_char_doc": 1169,
+      "context": {
+        "prefix": "batches to use in the",
+        "suffix": ".\") parser.add_argument( \"--output_file\", type=str, help=\"Optional"
+      }
+    },
+    {
+      "@id": "prediction_baselines",
+      "@type": "PredictionSet",
+      "identifier": "Baseline Evaluation Predictions",
+      "description": "Ranked response predictions generated by baseline methods during 1-of-100 evaluation. Results are optionally appended to a CSV output file.",
+      "predictionFormat": "CSV",
+      "storageLocation": null,
+      "numInstances": null,
+      "onDatasetSplit": "test",
+      "appliedTo": null,
+      "wasGeneratedBy": {
+        "@id": "evaluation_baselines"
+      },
+      "producedBy": {
+        "@id": "impl_conversational-datasets"
+      },
+      "wasDerivedFrom": "code",
+      "codeReference": "baselines/run_baseline.py:253-260",
+      "path": "README.md",
+      "start_char_doc": 5256,
+      "end_char_doc": 5281,
+      "context": {
+        "prefix": "format The [`tools/tfrutil.py`](tools/tfrutil.py) and [`",
+        "suffix": "`](baselines/run_baseline.py) scripts demonstrate how to"
+      }
+    }
+  ]
+}

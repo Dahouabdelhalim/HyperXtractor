@@ -1,0 +1,481 @@
+{
+  "@context": {
+    "mls":    "http://example.org/ontology/mls#",
+    "schema": "http://schema.org/",
+    "xsd":    "http://www.w3.org/2001/XMLSchema#",
+    "rdfs":   "http://www.w3.org/2000/01/rdf-schema#",
+    "prov":   "http://www.w3.org/ns/prov#",
+
+    "SoftwareRepository":  "mls:SoftwareRepository",
+    "MLS_Implementation":  "mls:MLS_Implementation",
+    "MLS_HyperParameter":  "mls:MLS_HyperParameter",
+    "Dependency":          "mls:Dependency",
+    "Environment":         "mls:Environment",
+    "DataProcessingStep":  "mls:DataProcessingStep",
+    "TrainingRun":         "mls:TrainingRun",
+    "EvaluationRun":       "mls:EvaluationRun",
+    "PredictionSet":       "mls:PredictionSet",
+
+    "name":                "schema:name",
+    "identifier":          "schema:identifier",
+    "description":         "schema:description",
+    "url":                 "schema:url",
+    "version":             "schema:version",
+    "license":             "schema:license",
+    "programmingLanguage": "schema:programmingLanguage",
+    "dateModified":        { "@id": "schema:dateModified",    "@type": "xsd:dateTime" },
+    "documentationUrl":    { "@id": "mls:documentationUrl",  "@type": "xsd:anyURI" },
+
+    "owner":               "mls:owner",
+    "platform":            "mls:platform",
+    "codeRepository":      { "@id": "mls:codeRepository",    "@type": "xsd:anyURI" },
+    "framework":           "mls:framework",
+    "entryPoint":          "mls:entryPoint",
+    "entryPointCommand":   "mls:entryPointCommand",
+    "executionCommand":    "mls:executionCommand",
+    "commitHash":          "mls:commitHash",
+    "branch":              "mls:branch",
+    "dependenciesHash":    "mls:dependenciesHash",
+
+    "packageName":         "mls:packageName",
+    "dependencyType":      "mls:dependencyType",
+    "isOptional":          { "@id": "mls:isOptional",        "@type": "xsd:boolean" },
+
+    "hardwareSpecs":       "mls:hardwareSpecs",
+    "os":                  "mls:os",
+    "pythonVersion":       "mls:pythonVersion",
+    "requirementsFile":    "mls:requirementsFile",
+    "isDockerized":        { "@id": "mls:isDockerized",      "@type": "xsd:boolean" },
+
+    "hasValue":            { "@id": "mls:hasValue",          "@type": "xsd:string" },
+    "hpCategory":          "mls:hpCategory",
+    "hpType":              "mls:hpType",
+    "sourceFile":          "mls:sourceFile",
+    "sourceLine":          { "@id": "mls:sourceLine",        "@type": "xsd:integer" },
+    "uncertain":           { "@id": "mls:uncertain",         "@type": "xsd:boolean" },
+
+    "transformationType":  "mls:transformationType",
+    "codeReference":       { "@id": "mls:codeReference",     "@type": "xsd:anyURI" },
+    "runId":               "mls:runId",
+    "logFile":             { "@id": "mls:logFile",           "@type": "xsd:anyURI" },
+    "artifactsLocation":   { "@id": "mls:artifactsLocation", "@type": "xsd:anyURI" },
+    "split":               "mls:split",
+    "evaluationScript":    "mls:evaluationScript",
+    "evaluationSplit":     "mls:evaluationSplit",
+    "metricsFile":         "mls:metricsFile",
+    "format":              "mls:format",
+    "predictionFormat":    "mls:predictionFormat",
+    "storageLocation":     "mls:storageLocation",
+    "numInstances":        { "@id": "mls:numInstances",      "@type": "xsd:integer" },
+    "onDatasetSplit":      "mls:onDatasetSplit",
+    "startedAtTime":       { "@id": "prov:startedAtTime",    "@type": "xsd:dateTime" },
+    "endedAtTime":         { "@id": "prov:endedAtTime",      "@type": "xsd:dateTime" },
+
+    "contains":            { "@id": "mls:contains",          "@type": "@id" },
+    "supports":            { "@id": "mls:supports",          "@type": "@id" },
+    "runsIn":              { "@id": "mls:runsIn",            "@type": "@id" },
+    "requires":            { "@id": "mls:requires",          "@type": "@id" },
+    "inputDataset":        { "@id": "mls:inputDataset",      "@type": "@id" },
+    "outputDataset":       { "@id": "mls:outputDataset",     "@type": "@id" },
+    "trains":              { "@id": "mls:trains",            "@type": "@id" },
+    "evaluates":           { "@id": "mls:evaluates",         "@type": "@id" },
+    "appliedTo":           { "@id": "mls:appliedTo",         "@type": "@id" },
+    "producedBy":          { "@id": "mls:producedBy",        "@type": "@id" },
+    "prov-executedBy":     { "@id": "mls:prov-executedBy",   "@type": "@id" },
+    "prov-generated":      { "@id": "mls:prov-generated",    "@type": "@id" },
+    "used":                { "@id": "prov:used",             "@type": "@id" },
+    "wasGeneratedBy":      { "@id": "prov:wasGeneratedBy",   "@type": "@id" },
+    "wasDerivedFrom":      { "@id": "prov:wasDerivedFrom",   "@type": "@id" },
+    "wasAssociatedWith":   { "@id": "prov:wasAssociatedWith","@type": "@id" }
+  },
+  "@graph": [
+    {
+      "@id": "repo_dchen236_fairface",
+      "@type": "SoftwareRepository",
+      "name": "FairFace",
+      "url": "https://github.com/dchen236/FairFace",
+      "owner": "dchen236",
+      "platform": "GitHub",
+      "programmingLanguage": "Python",
+      "version": null,
+      "license": "CC BY 4.0",
+      "dateModified": "2026-04-19T18:49:05Z",
+      "documentationUrl": "https://github.com/dchen236/FairFace/blob/master/README.md",
+      "contains": [
+        { "@id": "impl_fairface" }
+      ],
+      "supports": [
+        { "@id": "env_fairface" }
+      ],
+      "wasDerivedFrom": "code",
+      "codeReference": "README.md",
+      "path": "README.md",
+      "start_char_doc": 0,
+      "end_char_doc": 10,
+      "context": {
+        "prefix": "",
+        "suffix": ": Face Attribute Dataset for"
+      }
+    },
+    {
+      "@id": "impl_fairface",
+      "@type": "MLS_Implementation",
+      "identifier": "FairFace Prediction Implementation",
+      "codeRepository": "https://github.com/dchen236/FairFace",
+      "framework": "PyTorch",
+      "entryPoint": "predict.py",
+      "entryPointCommand": "python3 predict.py --csv test_imgs.csv",
+      "executionCommand": "python3 predict.py --csv \"NAME_OF_CSV\"",
+      "commitHash": "74b4f93",
+      "branch": "master",
+      "dependenciesHash": null,
+      "runsIn": { "@id": "env_fairface" },
+      "requires": [
+        { "@id": "dep_torch" },
+        { "@id": "dep_torchvision" },
+        { "@id": "dep_dlib" },
+        { "@id": "dep_pandas" },
+        { "@id": "dep_numpy" }
+      ],
+      "wasDerivedFrom": "code",
+      "codeReference": "predict.py",
+      "path": "predict.py",
+      "start_char_doc": 7968,
+      "end_char_doc": 7994,
+      "context": {
+        "prefix": "ensure_dir(directory): if not os.path.exists(directory): os.makedirs(directory)",
+        "suffix": "#Please create a csv with"
+      }
+    },
+    {
+      "@id": "env_fairface",
+      "@type": "Environment",
+      "name": "FairFace Execution Environment",
+      "framework": "PyTorch",
+      "pythonVersion": null,
+      "os": null,
+      "hardwareSpecs": "8Gb GPU",
+      "requirementsFile": null,
+      "isDockerized": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "README.md",
+      "path": "README.md",
+      "start_char_doc": 4048,
+      "end_char_doc": 4055,
+      "context": {
+        "prefix": "tested on a device with",
+        "suffix": ", it takes under 2"
+      }
+    },
+    {
+      "@id": "dep_torch",
+      "@type": "Dependency",
+      "packageName": "torch",
+      "version": null,
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "predict.py:6",
+      "path": "predict.py",
+      "start_char_doc": 133,
+      "end_char_doc": 145,
+      "context": {
+        "prefix": "os.path import pandas as pd",
+        "suffix": "import torch.nn as nn import"
+      }
+    },
+    {
+      "@id": "dep_torchvision",
+      "@type": "Dependency",
+      "packageName": "torchvision",
+      "version": null,
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "predict.py:9",
+      "path": "predict.py",
+      "start_char_doc": 194,
+      "end_char_doc": 205,
+      "context": {
+        "prefix": "import numpy as np import",
+        "suffix": "from torchvision import datasets, models,"
+      }
+    },
+    {
+      "@id": "dep_dlib",
+      "@type": "Dependency",
+      "packageName": "dlib",
+      "version": null,
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "predict.py:11",
+      "path": "predict.py",
+      "start_char_doc": 259,
+      "end_char_doc": 270,
+      "context": {
+        "prefix": "torchvision import datasets, models, transforms",
+        "suffix": "import os import argparse def"
+      }
+    },
+    {
+      "@id": "dep_pandas",
+      "@type": "Dependency",
+      "packageName": "pandas",
+      "version": null,
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "predict.py:5",
+      "path": "predict.py",
+      "start_char_doc": 113,
+      "end_char_doc": 126,
+      "context": {
+        "prefix": "import warnings warnings.filterwarnings(\"ignore\") import os.path",
+        "suffix": "as pd import torch import"
+      }
+    },
+    {
+      "@id": "dep_numpy",
+      "@type": "Dependency",
+      "packageName": "numpy",
+      "version": null,
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "predict.py:8",
+      "path": "predict.py",
+      "start_char_doc": 175,
+      "end_char_doc": 180,
+      "context": {
+        "prefix": "import torch.nn as nn import",
+        "suffix": "as np import torchvision from"
+      }
+    },
+    {
+      "@id": "hp_default_max_size",
+      "@type": "MLS_HyperParameter",
+      "name": "default_max_size",
+      "hasValue": "800",
+      "hpCategory": "HP_Data",
+      "hpType": "HP_Data",
+      "uncertain": true,
+      "sourceFile": "predict.py",
+      "sourceLine": 26,
+      "wasDerivedFrom": "code",
+      "codeReference": "predict.py:26",
+      "path": "predict.py",
+      "start_char_doc": 623,
+      "end_char_doc": 643,
+      "context": {
+        "prefix": "w, h) def detect_face(image_paths, SAVE_DETECTED_AT,",
+        "suffix": ",size = 300, padding ="
+      }
+    },
+    {
+      "@id": "hp_face_chip_size",
+      "@type": "MLS_HyperParameter",
+      "name": "size",
+      "hasValue": "300",
+      "hpCategory": "HP_Data",
+      "hpType": "HP_Data",
+      "uncertain": true,
+      "sourceFile": "predict.py",
+      "sourceLine": 26,
+      "wasDerivedFrom": "code",
+      "codeReference": "predict.py:26",
+      "path": "predict.py",
+      "start_char_doc": 644,
+      "end_char_doc": 654,
+      "context": {
+        "prefix": "h) def detect_face(image_paths, SAVE_DETECTED_AT, default_max_size=800,",
+        "suffix": ", padding = 0.25): cnn_face_detector"
+      }
+    },
+    {
+      "@id": "hp_padding",
+      "@type": "MLS_HyperParameter",
+      "name": "padding",
+      "hasValue": "0.25",
+      "hpCategory": "HP_Data",
+      "hpType": "HP_Data",
+      "uncertain": true,
+      "sourceFile": "predict.py",
+      "sourceLine": 26,
+      "wasDerivedFrom": "code",
+      "codeReference": "predict.py:26",
+      "path": "predict.py",
+      "start_char_doc": 656,
+      "end_char_doc": 670,
+      "context": {
+        "prefix": "detect_face(image_paths, SAVE_DETECTED_AT, default_max_size=800,size = 300,",
+        "suffix": "): cnn_face_detector = dlib.cnn_face_detection_model_v1('dlib_models/mmod_human_face_detector.dat') sp"
+      }
+    },
+    {
+      "@id": "hp_image_resize",
+      "@type": "MLS_HyperParameter",
+      "name": "Resize",
+      "hasValue": "(224, 224)",
+      "hpCategory": "HP_Data",
+      "hpType": "HP_Data",
+      "uncertain": true,
+      "sourceFile": "predict.py",
+      "sourceLine": 78,
+      "wasDerivedFrom": "code",
+      "codeReference": "predict.py:78",
+      "path": "predict.py",
+      "start_char_doc": 3157,
+      "end_char_doc": 3175,
+      "context": {
+        "prefix": "trans = transforms.Compose([ transforms.ToPILImage(), transforms.",
+        "suffix": ", transforms.ToTensor(), transforms.Normalize(mean=[0.485, 0.456, 0.406],"
+      }
+    },
+    {
+      "@id": "hp_normalize_mean",
+      "@type": "MLS_HyperParameter",
+      "name": "Normalize.mean",
+      "hasValue": "[0.485, 0.456, 0.406]",
+      "hpCategory": "HP_Data",
+      "hpType": "HP_Data",
+      "uncertain": true,
+      "sourceFile": "predict.py",
+      "sourceLine": 80,
+      "wasDerivedFrom": "code",
+      "codeReference": "predict.py:80",
+      "path": "predict.py",
+      "start_char_doc": 3237,
+      "end_char_doc": 3263,
+      "context": {
+        "prefix": "transforms.ToPILImage(), transforms.Resize((224, 224)), transforms.ToTensor(), transforms.Normalize(",
+        "suffix": ", std=[0.229, 0.224, 0.225]) ])"
+      }
+    },
+    {
+      "@id": "hp_normalize_std",
+      "@type": "MLS_HyperParameter",
+      "name": "Normalize.std",
+      "hasValue": "[0.229, 0.224, 0.225]",
+      "hpCategory": "HP_Data",
+      "hpType": "HP_Data",
+      "uncertain": true,
+      "sourceFile": "predict.py",
+      "sourceLine": 80,
+      "wasDerivedFrom": "code",
+      "codeReference": "predict.py:80",
+      "path": "predict.py",
+      "start_char_doc": 3265,
+      "end_char_doc": 3290,
+      "context": {
+        "prefix": "224)), transforms.ToTensor(), transforms.Normalize(mean=[0.485, 0.456, 0.406],",
+        "suffix": ") ]) # img pth"
+      }
+    },
+    {
+      "@id": "hp_fc_out_features_7",
+      "@type": "MLS_HyperParameter",
+      "name": "fc.out_features (race_7 model)",
+      "hasValue": "18",
+      "hpCategory": "HP_Architecture",
+      "hpType": "UnknownArchitectureHP",
+      "uncertain": false,
+      "sourceFile": "predict.py",
+      "sourceLine": 65,
+      "wasDerivedFrom": "code",
+      "codeReference": "predict.py:65",
+      "path": "predict.py",
+      "start_char_doc": 2570,
+      "end_char_doc": 2612,
+      "context": {
+        "prefix": "model_fair_7 = torchvision.models.resnet34(pretrained=True) model_fair_7.fc =",
+        "suffix": "model_fair_7.load_state_dict(torch.load('fair_face_models/fairface_alldata_20191111.pt')) model_fair_7 = model_fair_7.to(device) model_fair_7.eval()"
+      }
+    },
+    {
+      "@id": "hp_fc_out_features_4",
+      "@type": "MLS_HyperParameter",
+      "name": "fc.out_features (race_4 model)",
+      "hasValue": "18",
+      "hpCategory": "HP_Architecture",
+      "hpType": "UnknownArchitectureHP",
+      "uncertain": false,
+      "sourceFile": "predict.py",
+      "sourceLine": 71,
+      "wasDerivedFrom": "code",
+      "codeReference": "predict.py:71",
+      "path": "predict.py",
+      "start_char_doc": 2861,
+      "end_char_doc": 2903,
+      "context": {
+        "prefix": "model_fair_4 = torchvision.models.resnet34(pretrained=True) model_fair_4.fc =",
+        "suffix": "model_fair_4.load_state_dict(torch.load('fair_face_models/fairface_alldata_4race_20191111.pt')) model_fair_4 = model_fair_4.to(device) model_fair_4.eval()"
+      }
+    },
+    {
+      "@id": "preprocess_detect_face",
+      "@type": "DataProcessingStep",
+      "identifier": "FairFace Face Detection and Alignment",
+      "description": "Detects faces in input images using dlib CNN face detector, aligns them using 5-point landmarks, crops and resizes face chips, and saves aligned face images to detected_faces/ directory.",
+      "transformationType": "normalization",
+      "startedAtTime": null,
+      "endedAtTime": null,
+      "inputDataset": null,
+      "outputDataset": null,
+      "prov-executedBy": { "@id": "impl_fairface" },
+      "wasDerivedFrom": "code",
+      "codeReference": "predict.py:26-58",
+      "path": "predict.py",
+      "start_char_doc": 575,
+      "end_char_doc": 590,
+      "context": {
+        "prefix": "return (x, y, w, h)",
+        "suffix": "(image_paths, SAVE_DETECTED_AT, default_max_size=800,size = 300,"
+      }
+    },
+    {
+      "@id": "prediction_fairface",
+      "@type": "PredictionSet",
+      "identifier": "FairFace Age/Gender/Race Predictions",
+      "description": "Predicts race (7-class and 4-class), gender, and age for detected face images using pretrained ResNet34 models. Outputs confidence scores and categorical labels.",
+      "predictionFormat": "CSV",
+      "storageLocation": "test_outputs.csv",
+      "numInstances": null,
+      "onDatasetSplit": null,
+      "appliedTo": null,
+      "wasGeneratedBy": null,
+      "producedBy": { "@id": "impl_fairface" },
+      "wasDerivedFrom": "code",
+      "codeReference": "predict.py:60-194",
+      "path": "predict.py",
+      "start_char_doc": 2251,
+      "end_char_doc": 2279,
+      "context": {
+        "prefix": "\".\" + path_sp[-1]) dlib.save_image(image, face_name)",
+        "suffix": "(save_prediction_at, imgs_path = 'cropped_faces/'): img_names"
+      }
+    },
+    {
+      "@id": "prediction_fairface_bbox",
+      "@type": "PredictionSet",
+      "identifier": "FairFace Age/Gender/Race Predictions with Bounding Boxes",
+      "description": "Same prediction pipeline as predict.py but additionally outputs bounding box coordinates for each detected face.",
+      "predictionFormat": "CSV",
+      "storageLocation": "test_outputs.csv",
+      "numInstances": null,
+      "onDatasetSplit": null,
+      "appliedTo": null,
+      "wasGeneratedBy": null,
+      "producedBy": { "@id": "impl_fairface" },
+      "wasDerivedFrom": "code",
+      "codeReference": "predict_bbox.py",
+      "path": "predict_bbox.py",
+      "start_char_doc": 2768,
+      "end_char_doc": 2796,
+      "context": {
+        "prefix": "path_sp[-1]) dlib.save_image(image, face_name) return rects",
+        "suffix": "(save_prediction_at, bboxes, imgs_path = 'cropped_faces/'):"
+      }
+    }
+  ]
+}

@@ -1,0 +1,1795 @@
+{
+  "@context": {
+    "mls": "http://example.org/ontology/mls#",
+    "schema": "http://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "SoftwareRepository": "mls:SoftwareRepository",
+    "MLS_Implementation": "mls:MLS_Implementation",
+    "MLS_HyperParameter": "mls:MLS_HyperParameter",
+    "Dependency": "mls:Dependency",
+    "Environment": "mls:Environment",
+    "DataProcessingStep": "mls:DataProcessingStep",
+    "TrainingRun": "mls:TrainingRun",
+    "EvaluationRun": "mls:EvaluationRun",
+    "PredictionSet": "mls:PredictionSet",
+    "name": "schema:name",
+    "identifier": "schema:identifier",
+    "description": "schema:description",
+    "url": "schema:url",
+    "version": "schema:version",
+    "license": "schema:license",
+    "programmingLanguage": "schema:programmingLanguage",
+    "dateModified": {
+      "@id": "schema:dateModified",
+      "@type": "xsd:dateTime"
+    },
+    "documentationUrl": {
+      "@id": "mls:documentationUrl",
+      "@type": "xsd:anyURI"
+    },
+    "owner": "mls:owner",
+    "platform": "mls:platform",
+    "codeRepository": {
+      "@id": "mls:codeRepository",
+      "@type": "xsd:anyURI"
+    },
+    "framework": "mls:framework",
+    "entryPoint": "mls:entryPoint",
+    "entryPointCommand": "mls:entryPointCommand",
+    "executionCommand": "mls:executionCommand",
+    "commitHash": "mls:commitHash",
+    "branch": "mls:branch",
+    "dependenciesHash": "mls:dependenciesHash",
+    "packageName": "mls:packageName",
+    "dependencyType": "mls:dependencyType",
+    "isOptional": {
+      "@id": "mls:isOptional",
+      "@type": "xsd:boolean"
+    },
+    "hardwareSpecs": "mls:hardwareSpecs",
+    "os": "mls:os",
+    "pythonVersion": "mls:pythonVersion",
+    "requirementsFile": "mls:requirementsFile",
+    "isDockerized": {
+      "@id": "mls:isDockerized",
+      "@type": "xsd:boolean"
+    },
+    "hasValue": {
+      "@id": "mls:hasValue",
+      "@type": "xsd:string"
+    },
+    "hpCategory": "mls:hpCategory",
+    "hpType": "mls:hpType",
+    "sourceFile": "mls:sourceFile",
+    "sourceLine": {
+      "@id": "mls:sourceLine",
+      "@type": "xsd:integer"
+    },
+    "uncertain": {
+      "@id": "mls:uncertain",
+      "@type": "xsd:boolean"
+    },
+    "transformationType": "mls:transformationType",
+    "codeReference": {
+      "@id": "mls:codeReference",
+      "@type": "xsd:anyURI"
+    },
+    "runId": "mls:runId",
+    "logFile": {
+      "@id": "mls:logFile",
+      "@type": "xsd:anyURI"
+    },
+    "artifactsLocation": {
+      "@id": "mls:artifactsLocation",
+      "@type": "xsd:anyURI"
+    },
+    "split": "mls:split",
+    "evaluationScript": "mls:evaluationScript",
+    "evaluationSplit": "mls:evaluationSplit",
+    "metricsFile": "mls:metricsFile",
+    "format": "mls:format",
+    "predictionFormat": "mls:predictionFormat",
+    "storageLocation": "mls:storageLocation",
+    "numInstances": {
+      "@id": "mls:numInstances",
+      "@type": "xsd:integer"
+    },
+    "onDatasetSplit": "mls:onDatasetSplit",
+    "startedAtTime": {
+      "@id": "prov:startedAtTime",
+      "@type": "xsd:dateTime"
+    },
+    "endedAtTime": {
+      "@id": "prov:endedAtTime",
+      "@type": "xsd:dateTime"
+    },
+    "contains": {
+      "@id": "mls:contains",
+      "@type": "@id"
+    },
+    "supports": {
+      "@id": "mls:supports",
+      "@type": "@id"
+    },
+    "runsIn": {
+      "@id": "mls:runsIn",
+      "@type": "@id"
+    },
+    "requires": {
+      "@id": "mls:requires",
+      "@type": "@id"
+    },
+    "inputDataset": {
+      "@id": "mls:inputDataset",
+      "@type": "@id"
+    },
+    "outputDataset": {
+      "@id": "mls:outputDataset",
+      "@type": "@id"
+    },
+    "trains": {
+      "@id": "mls:trains",
+      "@type": "@id"
+    },
+    "evaluates": {
+      "@id": "mls:evaluates",
+      "@type": "@id"
+    },
+    "appliedTo": {
+      "@id": "mls:appliedTo",
+      "@type": "@id"
+    },
+    "producedBy": {
+      "@id": "mls:producedBy",
+      "@type": "@id"
+    },
+    "prov-executedBy": {
+      "@id": "mls:prov-executedBy",
+      "@type": "@id"
+    },
+    "prov-generated": {
+      "@id": "mls:prov-generated",
+      "@type": "@id"
+    },
+    "used": {
+      "@id": "prov:used",
+      "@type": "@id"
+    },
+    "wasGeneratedBy": {
+      "@id": "prov:wasGeneratedBy",
+      "@type": "@id"
+    },
+    "wasDerivedFrom": {
+      "@id": "prov:wasDerivedFrom",
+      "@type": "@id"
+    },
+    "wasAssociatedWith": {
+      "@id": "prov:wasAssociatedWith",
+      "@type": "@id"
+    }
+  },
+  "@graph": [
+    {
+      "@id": "repo_google-research_ALBERT",
+      "@type": "SoftwareRepository",
+      "name": "ALBERT",
+      "url": "https://github.com/google-research/ALBERT",
+      "owner": "google-research",
+      "platform": "GitHub",
+      "programmingLanguage": "Python",
+      "version": null,
+      "license": "Apache-2.0",
+      "dateModified": "2023-04-12T16:13:48-07:00",
+      "documentationUrl": "https://github.com/google-research/ALBERT/blob/master/README.md",
+      "contains": [
+        {
+          "@id": "impl_albert"
+        }
+      ],
+      "supports": [
+        {
+          "@id": "env_albert"
+        }
+      ],
+      "wasDerivedFrom": "code",
+      "codeReference": "README.md",
+      "path": "README.md",
+      "start_char_doc": 89,
+      "end_char_doc": 130,
+      "context": {
+        "prefix": "*************** Add a colab [tutorial](",
+        "suffix": "/blob/master/albert_glue_fine_tuning_tutorial.ipynb) to run fine-tuning for"
+      }
+    },
+    {
+      "@id": "impl_albert",
+      "@type": "MLS_Implementation",
+      "identifier": "ALBERT TensorFlow Implementation",
+      "codeRepository": "https://github.com/google-research/ALBERT",
+      "framework": "TensorFlow",
+      "entryPoint": "run_pretraining.py",
+      "entryPointCommand": "python -m albert.run_pretraining --input_file=... --output_dir=... --albert_config_file=... --do_train",
+      "executionCommand": "python -m albert.run_classifier --data_dir=... --output_dir=... --albert_config_file=... --task_name=MNLI --do_train",
+      "commitHash": "b772393",
+      "branch": "master",
+      "dependenciesHash": null,
+      "runsIn": {
+        "@id": "env_albert"
+      },
+      "requires": [
+        {
+          "@id": "dep_tensorflow"
+        },
+        {
+          "@id": "dep_tensorflow_hub"
+        },
+        {
+          "@id": "dep_sentencepiece"
+        }
+      ],
+      "wasDerivedFrom": "code",
+      "codeReference": "run_pretraining.py",
+      "path": "README.md",
+      "start_char_doc": 7565,
+      "end_char_doc": 7583,
+      "context": {
+        "prefix": "To pretrain ALBERT, use `",
+        "suffix": "`: ``` pip install -r"
+      }
+    },
+    {
+      "@id": "env_albert",
+      "@type": "Environment",
+      "name": "ALBERT TensorFlow 1.15 Environment",
+      "framework": "TensorFlow 1.15.2",
+      "pythonVersion": null,
+      "os": null,
+      "hardwareSpecs": "TPU/GPU/CPU",
+      "requirementsFile": "requirements.txt",
+      "isDockerized": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "requirements.txt",
+      "path": "requirements.txt",
+      "start_char_doc": 67,
+      "end_char_doc": 85,
+      "context": {
+        "prefix": "tensorflow 1.15 cannot be found",
+        "suffix": "# CPU Version of TensorFlow"
+      }
+    },
+    {
+      "@id": "dep_tensorflow",
+      "@type": "Dependency",
+      "packageName": "tensorflow",
+      "version": "1.15.2",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "requirements.txt:2",
+      "path": "classifier_utils.py",
+      "start_char_doc": 940,
+      "end_char_doc": 957,
+      "context": {
+        "prefix": "optimization from albert import tokenization",
+        "suffix": ".compat.v1 as tf from tensorflow.compat.v1"
+      }
+    },
+    {
+      "@id": "dep_tensorflow_hub",
+      "@type": "Dependency",
+      "packageName": "tensorflow_hub",
+      "version": "0.7",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "requirements.txt:3",
+      "path": "export_to_tfhub.py",
+      "start_char_doc": 897,
+      "end_char_doc": 911,
+      "context": {
+        "prefix": "import tensorflow.compat.v1 as tf import",
+        "suffix": "as hub flags.DEFINE_string( \"albert_directory\", None,"
+      }
+    },
+    {
+      "@id": "dep_sentencepiece",
+      "@type": "Dependency",
+      "packageName": "sentencepiece",
+      "version": null,
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "requirements.txt:5",
+      "path": "README.md",
+      "start_char_doc": 12228,
+      "end_char_doc": 12241,
+      "context": {
+        "prefix": "e.g. `--albert_hub_module_handle=https://tfhub.dev/google/albert_base/1` instead of `--init_checkpoint`.",
+        "suffix": "============= Command for generating the"
+      }
+    },
+    {
+      "@id": "hp_learning_rate_pretraining",
+      "@type": "MLS_HyperParameter",
+      "name": "learning_rate",
+      "hasValue": "0.00176",
+      "hpCategory": "HP_Optimization",
+      "hpType": "LearningRate",
+      "uncertain": false,
+      "sourceFile": "run_pretraining.py",
+      "sourceLine": 75,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_pretraining.py:75",
+      "path": "README.md",
+      "start_char_doc": 3309,
+      "end_char_doc": 3322,
+      "context": {
+        "prefix": "RACE, where we use a",
+        "suffix": "of 1e-5 and 0 [ALBERT"
+      }
+    },
+    {
+      "@id": "hp_train_batch_size_pretraining",
+      "@type": "MLS_HyperParameter",
+      "name": "train_batch_size",
+      "hasValue": "4096",
+      "hpCategory": "HP_Training",
+      "hpType": "BatchSize",
+      "uncertain": false,
+      "sourceFile": "run_pretraining.py",
+      "sourceLine": 68,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_pretraining.py:68",
+      "path": "README.md",
+      "start_char_doc": 7809,
+      "end_char_doc": 7825,
+      "context": {
+        "prefix": "--do_train \\ --do_eval \\ --",
+        "suffix": "=4096 \\ --eval_batch_size=64 \\ --max_seq_length=512"
+      }
+    },
+    {
+      "@id": "hp_eval_batch_size_pretraining",
+      "@type": "MLS_HyperParameter",
+      "name": "eval_batch_size",
+      "hasValue": "64",
+      "hpCategory": "HP_Training",
+      "hpType": "BatchSize",
+      "uncertain": false,
+      "sourceFile": "run_pretraining.py",
+      "sourceLine": 70,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_pretraining.py:70",
+      "path": "README.md",
+      "start_char_doc": 7839,
+      "end_char_doc": 7854,
+      "context": {
+        "prefix": "--do_eval \\ --train_batch_size=4096 \\ --",
+        "suffix": "=64 \\ --max_seq_length=512 \\ --max_predictions_per_seq=20"
+      }
+    },
+    {
+      "@id": "hp_num_train_steps_pretraining",
+      "@type": "MLS_HyperParameter",
+      "name": "num_train_steps",
+      "hasValue": "125000",
+      "hpCategory": "HP_Training",
+      "hpType": "MaxSteps",
+      "uncertain": false,
+      "sourceFile": "run_pretraining.py",
+      "sourceLine": 79,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_pretraining.py:79",
+      "path": "README.md",
+      "start_char_doc": 7982,
+      "end_char_doc": 7997,
+      "context": {
+        "prefix": "--optimizer='lamb' \\ --learning_rate=.00176 \\ --",
+        "suffix": "=125000 \\ --num_warmup_steps=3125 \\ --save_checkpoints_steps=5000"
+      }
+    },
+    {
+      "@id": "hp_num_warmup_steps_pretraining",
+      "@type": "MLS_HyperParameter",
+      "name": "num_warmup_steps",
+      "hasValue": "3125",
+      "hpCategory": "HP_Optimization",
+      "hpType": "WarmupSteps",
+      "uncertain": false,
+      "sourceFile": "run_pretraining.py",
+      "sourceLine": 81,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_pretraining.py:81",
+      "path": "README.md",
+      "start_char_doc": 8013,
+      "end_char_doc": 8029,
+      "context": {
+        "prefix": "--learning_rate=.00176 \\ --num_train_steps=125000 \\ --",
+        "suffix": "=3125 \\ --save_checkpoints_steps=5000 ``` Fine-tuning"
+      }
+    },
+    {
+      "@id": "hp_max_seq_length_pretraining",
+      "@type": "MLS_HyperParameter",
+      "name": "max_seq_length",
+      "hasValue": "512",
+      "hpCategory": "HP_Data",
+      "hpType": "MaxSequenceLength",
+      "uncertain": false,
+      "sourceFile": "run_pretraining.py",
+      "sourceLine": 54,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_pretraining.py:54",
+      "path": "README.md",
+      "start_char_doc": 7866,
+      "end_char_doc": 7880,
+      "context": {
+        "prefix": "--train_batch_size=4096 \\ --eval_batch_size=64 \\ --",
+        "suffix": "=512 \\ --max_predictions_per_seq=20 \\ --optimizer='lamb'"
+      }
+    },
+    {
+      "@id": "hp_max_predictions_per_seq_pretraining",
+      "@type": "MLS_HyperParameter",
+      "name": "max_predictions_per_seq",
+      "hasValue": "20",
+      "hpCategory": "HP_Data",
+      "hpType": "HP_Data",
+      "uncertain": true,
+      "sourceFile": "run_pretraining.py",
+      "sourceLine": 60,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_pretraining.py:60",
+      "path": "README.md",
+      "start_char_doc": 7893,
+      "end_char_doc": 7916,
+      "context": {
+        "prefix": "--eval_batch_size=64 \\ --max_seq_length=512 \\ --",
+        "suffix": "=20 \\ --optimizer='lamb' \\ --learning_rate=.00176"
+      }
+    },
+    {
+      "@id": "hp_poly_power_pretraining",
+      "@type": "MLS_HyperParameter",
+      "name": "poly_power",
+      "hasValue": "1.0",
+      "hpCategory": "HP_Optimization",
+      "hpType": "DecayRate",
+      "uncertain": true,
+      "sourceFile": "run_pretraining.py",
+      "sourceLine": 77,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_pretraining.py:77",
+      "path": "optimization.py",
+      "start_char_doc": 1073,
+      "end_char_doc": 1083,
+      "context": {
+        "prefix": "init_lr, num_train_steps, num_warmup_steps, use_tpu, optimizer=\"adamw\",",
+        "suffix": "=1.0, start_warmup_step=0, colocate_gradients_with_ops=False, excluded_tvars=None): \"\"\"Creates"
+      }
+    },
+    {
+      "@id": "hp_learning_rate_classifier",
+      "@type": "MLS_HyperParameter",
+      "name": "learning_rate",
+      "hasValue": "5e-5",
+      "hpCategory": "HP_Optimization",
+      "hpType": "LearningRate",
+      "uncertain": false,
+      "sourceFile": "run_classifier.py",
+      "sourceLine": 99,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_classifier.py:99",
+      "path": "README.md",
+      "start_char_doc": 3309,
+      "end_char_doc": 3322,
+      "context": {
+        "prefix": "RACE, where we use a",
+        "suffix": "of 1e-5 and 0 [ALBERT"
+      }
+    },
+    {
+      "@id": "hp_train_batch_size_classifier",
+      "@type": "MLS_HyperParameter",
+      "name": "train_batch_size",
+      "hasValue": "32",
+      "hpCategory": "HP_Training",
+      "hpType": "BatchSize",
+      "uncertain": false,
+      "sourceFile": "run_classifier.py",
+      "sourceLine": 93,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_classifier.py:93",
+      "path": "README.md",
+      "start_char_doc": 7809,
+      "end_char_doc": 7825,
+      "context": {
+        "prefix": "--do_train \\ --do_eval \\ --",
+        "suffix": "=4096 \\ --eval_batch_size=64 \\ --max_seq_length=512"
+      }
+    },
+    {
+      "@id": "hp_train_step_classifier",
+      "@type": "MLS_HyperParameter",
+      "name": "train_step",
+      "hasValue": "1000",
+      "hpCategory": "HP_Training",
+      "hpType": "MaxSteps",
+      "uncertain": false,
+      "sourceFile": "run_classifier.py",
+      "sourceLine": 101,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_classifier.py:101",
+      "path": "README.md",
+      "start_char_doc": 7986,
+      "end_char_doc": 7996,
+      "context": {
+        "prefix": "--optimizer='lamb' \\ --learning_rate=.00176 \\ --num_",
+        "suffix": "s=125000 \\ --num_warmup_steps=3125 \\ --save_checkpoints_steps=5000"
+      }
+    },
+    {
+      "@id": "hp_warmup_step_classifier",
+      "@type": "MLS_HyperParameter",
+      "name": "warmup_step",
+      "hasValue": "0",
+      "hpCategory": "HP_Optimization",
+      "hpType": "WarmupSteps",
+      "uncertain": false,
+      "sourceFile": "run_classifier.py",
+      "sourceLine": 105,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_classifier.py:105",
+      "path": "README.md",
+      "start_char_doc": 8017,
+      "end_char_doc": 8028,
+      "context": {
+        "prefix": "--learning_rate=.00176 \\ --num_train_steps=125000 \\ --num_",
+        "suffix": "s=3125 \\ --save_checkpoints_steps=5000 ``` Fine-tuning"
+      }
+    },
+    {
+      "@id": "hp_max_seq_length_classifier",
+      "@type": "MLS_HyperParameter",
+      "name": "max_seq_length",
+      "hasValue": "512",
+      "hpCategory": "HP_Data",
+      "hpType": "MaxSequenceLength",
+      "uncertain": false,
+      "sourceFile": "run_classifier.py",
+      "sourceLine": 80,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_classifier.py:80",
+      "path": "README.md",
+      "start_char_doc": 7866,
+      "end_char_doc": 7880,
+      "context": {
+        "prefix": "--train_batch_size=4096 \\ --eval_batch_size=64 \\ --",
+        "suffix": "=512 \\ --max_predictions_per_seq=20 \\ --optimizer='lamb'"
+      }
+    },
+    {
+      "@id": "hp_learning_rate_squad_v1",
+      "@type": "MLS_HyperParameter",
+      "name": "learning_rate",
+      "hasValue": "5e-5",
+      "hpCategory": "HP_Optimization",
+      "hpType": "LearningRate",
+      "uncertain": false,
+      "sourceFile": "run_squad_v1.py",
+      "sourceLine": 123,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_squad_v1.py:123",
+      "path": "README.md",
+      "start_char_doc": 3309,
+      "end_char_doc": 3322,
+      "context": {
+        "prefix": "RACE, where we use a",
+        "suffix": "of 1e-5 and 0 [ALBERT"
+      }
+    },
+    {
+      "@id": "hp_num_train_epochs_squad_v1",
+      "@type": "MLS_HyperParameter",
+      "name": "num_train_epochs",
+      "hasValue": "3.0",
+      "hpCategory": "HP_Training",
+      "hpType": "NumEpochs",
+      "uncertain": false,
+      "sourceFile": "run_squad_v1.py",
+      "sourceLine": 125,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_squad_v1.py:125",
+      "path": "README.md",
+      "start_char_doc": 10237,
+      "end_char_doc": 10253,
+      "context": {
+        "prefix": "--predict_batch_size=8 \\ --learning_rate=5e-5 \\ --",
+        "suffix": "=2.0 \\ --warmup_proportion=.1 \\ --save_checkpoints_steps=5000"
+      }
+    },
+    {
+      "@id": "hp_warmup_proportion_squad_v1",
+      "@type": "MLS_HyperParameter",
+      "name": "warmup_proportion",
+      "hasValue": "0.1",
+      "hpCategory": "HP_Optimization",
+      "hpType": "WarmupSteps",
+      "uncertain": true,
+      "sourceFile": "run_squad_v1.py",
+      "sourceLine": 129,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_squad_v1.py:129",
+      "path": "README.md",
+      "start_char_doc": 10264,
+      "end_char_doc": 10281,
+      "context": {
+        "prefix": "--learning_rate=5e-5 \\ --num_train_epochs=2.0 \\ --",
+        "suffix": "=.1 \\ --save_checkpoints_steps=5000 \\ --n_best_size=20"
+      }
+    },
+    {
+      "@id": "hp_train_batch_size_squad_v1",
+      "@type": "MLS_HyperParameter",
+      "name": "train_batch_size",
+      "hasValue": "32",
+      "hpCategory": "HP_Training",
+      "hpType": "BatchSize",
+      "uncertain": false,
+      "sourceFile": "run_squad_v1.py",
+      "sourceLine": 118,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_squad_v1.py:118",
+      "path": "README.md",
+      "start_char_doc": 7809,
+      "end_char_doc": 7825,
+      "context": {
+        "prefix": "--do_train \\ --do_eval \\ --",
+        "suffix": "=4096 \\ --eval_batch_size=64 \\ --max_seq_length=512"
+      }
+    },
+    {
+      "@id": "hp_max_seq_length_squad_v1",
+      "@type": "MLS_HyperParameter",
+      "name": "max_seq_length",
+      "hasValue": "384",
+      "hpCategory": "HP_Data",
+      "hpType": "MaxSequenceLength",
+      "uncertain": false,
+      "sourceFile": "run_squad_v1.py",
+      "sourceLine": 99,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_squad_v1.py:99",
+      "path": "README.md",
+      "start_char_doc": 7866,
+      "end_char_doc": 7880,
+      "context": {
+        "prefix": "--train_batch_size=4096 \\ --eval_batch_size=64 \\ --",
+        "suffix": "=512 \\ --max_predictions_per_seq=20 \\ --optimizer='lamb'"
+      }
+    },
+    {
+      "@id": "hp_doc_stride_squad_v1",
+      "@type": "MLS_HyperParameter",
+      "name": "doc_stride",
+      "hasValue": "128",
+      "hpCategory": "HP_Data",
+      "hpType": "HP_Data",
+      "uncertain": true,
+      "sourceFile": "run_squad_v1.py",
+      "sourceLine": 105,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_squad_v1.py:105",
+      "path": "README.md",
+      "start_char_doc": 10070,
+      "end_char_doc": 10080,
+      "context": {
+        "prefix": "--do_lower_case \\ --max_seq_length=384 \\ --",
+        "suffix": "=128 \\ --max_query_length=64 \\ --do_train=true"
+      }
+    },
+    {
+      "@id": "hp_max_query_length_squad_v1",
+      "@type": "MLS_HyperParameter",
+      "name": "max_query_length",
+      "hasValue": "64",
+      "hpCategory": "HP_Data",
+      "hpType": "MaxSequenceLength",
+      "uncertain": true,
+      "sourceFile": "run_squad_v1.py",
+      "sourceLine": 110,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_squad_v1.py:110",
+      "path": "README.md",
+      "start_char_doc": 10091,
+      "end_char_doc": 10107,
+      "context": {
+        "prefix": "--max_seq_length=384 \\ --doc_stride=128 \\ --",
+        "suffix": "=64 \\ --do_train=true \\ --do_predict=true"
+      }
+    },
+    {
+      "@id": "hp_n_best_size_squad_v1",
+      "@type": "MLS_HyperParameter",
+      "name": "n_best_size",
+      "hasValue": "20",
+      "hpCategory": "HP_Data",
+      "hpType": "HP_Data",
+      "uncertain": true,
+      "sourceFile": "run_squad_v1.py",
+      "sourceLine": 140,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_squad_v1.py:140",
+      "path": "README.md",
+      "start_char_doc": 10325,
+      "end_char_doc": 10336,
+      "context": {
+        "prefix": "--warmup_proportion=.1 \\ --save_checkpoints_steps=5000 \\ --",
+        "suffix": "=20 \\ --max_answer_length=30 ``` You"
+      }
+    },
+    {
+      "@id": "hp_max_answer_length_squad_v1",
+      "@type": "MLS_HyperParameter",
+      "name": "max_answer_length",
+      "hasValue": "30",
+      "hpCategory": "HP_Data",
+      "hpType": "MaxSequenceLength",
+      "uncertain": true,
+      "sourceFile": "run_squad_v1.py",
+      "sourceLine": 145,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_squad_v1.py:145",
+      "path": "README.md",
+      "start_char_doc": 10346,
+      "end_char_doc": 10363,
+      "context": {
+        "prefix": "--save_checkpoints_steps=5000 \\ --n_best_size=20 \\ --",
+        "suffix": "=30 ``` You can fine-tune"
+      }
+    },
+    {
+      "@id": "hp_learning_rate_squad_v2",
+      "@type": "MLS_HyperParameter",
+      "name": "learning_rate",
+      "hasValue": "5e-5",
+      "hpCategory": "HP_Optimization",
+      "hpType": "LearningRate",
+      "uncertain": false,
+      "sourceFile": "run_squad_v2.py",
+      "sourceLine": 123,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_squad_v2.py:123",
+      "path": "README.md",
+      "start_char_doc": 3309,
+      "end_char_doc": 3322,
+      "context": {
+        "prefix": "RACE, where we use a",
+        "suffix": "of 1e-5 and 0 [ALBERT"
+      }
+    },
+    {
+      "@id": "hp_num_train_epochs_squad_v2",
+      "@type": "MLS_HyperParameter",
+      "name": "num_train_epochs",
+      "hasValue": "3.0",
+      "hpCategory": "HP_Training",
+      "hpType": "NumEpochs",
+      "uncertain": false,
+      "sourceFile": "run_squad_v2.py",
+      "sourceLine": 125,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_squad_v2.py:125",
+      "path": "README.md",
+      "start_char_doc": 10237,
+      "end_char_doc": 10253,
+      "context": {
+        "prefix": "--predict_batch_size=8 \\ --learning_rate=5e-5 \\ --",
+        "suffix": "=2.0 \\ --warmup_proportion=.1 \\ --save_checkpoints_steps=5000"
+      }
+    },
+    {
+      "@id": "hp_warmup_proportion_squad_v2",
+      "@type": "MLS_HyperParameter",
+      "name": "warmup_proportion",
+      "hasValue": "0.1",
+      "hpCategory": "HP_Optimization",
+      "hpType": "WarmupSteps",
+      "uncertain": true,
+      "sourceFile": "run_squad_v2.py",
+      "sourceLine": 129,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_squad_v2.py:129",
+      "path": "README.md",
+      "start_char_doc": 10264,
+      "end_char_doc": 10281,
+      "context": {
+        "prefix": "--learning_rate=5e-5 \\ --num_train_epochs=2.0 \\ --",
+        "suffix": "=.1 \\ --save_checkpoints_steps=5000 \\ --n_best_size=20"
+      }
+    },
+    {
+      "@id": "hp_train_batch_size_squad_v2",
+      "@type": "MLS_HyperParameter",
+      "name": "train_batch_size",
+      "hasValue": "32",
+      "hpCategory": "HP_Training",
+      "hpType": "BatchSize",
+      "uncertain": false,
+      "sourceFile": "run_squad_v2.py",
+      "sourceLine": 118,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_squad_v2.py:118",
+      "path": "README.md",
+      "start_char_doc": 7809,
+      "end_char_doc": 7825,
+      "context": {
+        "prefix": "--do_train \\ --do_eval \\ --",
+        "suffix": "=4096 \\ --eval_batch_size=64 \\ --max_seq_length=512"
+      }
+    },
+    {
+      "@id": "hp_max_seq_length_squad_v2",
+      "@type": "MLS_HyperParameter",
+      "name": "max_seq_length",
+      "hasValue": "384",
+      "hpCategory": "HP_Data",
+      "hpType": "MaxSequenceLength",
+      "uncertain": false,
+      "sourceFile": "run_squad_v2.py",
+      "sourceLine": 99,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_squad_v2.py:99",
+      "path": "README.md",
+      "start_char_doc": 7866,
+      "end_char_doc": 7880,
+      "context": {
+        "prefix": "--train_batch_size=4096 \\ --eval_batch_size=64 \\ --",
+        "suffix": "=512 \\ --max_predictions_per_seq=20 \\ --optimizer='lamb'"
+      }
+    },
+    {
+      "@id": "hp_dropout_prob_squad_v2",
+      "@type": "MLS_HyperParameter",
+      "name": "dropout_prob",
+      "hasValue": "0.1",
+      "hpCategory": "HP_Architecture",
+      "hpType": "Dropout",
+      "uncertain": false,
+      "sourceFile": "run_squad_v2.py",
+      "sourceLine": 180,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_squad_v2.py:180",
+      "path": "modeling.py",
+      "start_char_doc": 2698,
+      "end_char_doc": 2710,
+      "context": {
+        "prefix": "encoder and pooler. hidden_dropout_prob: The",
+        "suffix": "ability for all fully connected"
+      }
+    },
+    {
+      "@id": "hp_start_n_top_squad_v2",
+      "@type": "MLS_HyperParameter",
+      "name": "start_n_top",
+      "hasValue": "5",
+      "hpCategory": "HP_Architecture",
+      "hpType": "UnknownArchitectureHP",
+      "uncertain": true,
+      "sourceFile": "run_squad_v2.py",
+      "sourceLine": 176,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_squad_v2.py:176",
+      "path": "run_squad_v2.py",
+      "start_char_doc": 5723,
+      "end_char_doc": 5734,
+      "context": {
+        "prefix": "TPU cores to use.\") flags.DEFINE_integer(\"",
+        "suffix": "\", 5, \"beam size for"
+      }
+    },
+    {
+      "@id": "hp_end_n_top_squad_v2",
+      "@type": "MLS_HyperParameter",
+      "name": "end_n_top",
+      "hasValue": "5",
+      "hpCategory": "HP_Architecture",
+      "hpType": "UnknownArchitectureHP",
+      "uncertain": true,
+      "sourceFile": "run_squad_v2.py",
+      "sourceLine": 178,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_squad_v2.py:178",
+      "path": "run_squad_v2.py",
+      "start_char_doc": 5801,
+      "end_char_doc": 5810,
+      "context": {
+        "prefix": "for the start positions.\") flags.DEFINE_integer(\"",
+        "suffix": "\", 5, \"beam size for"
+      }
+    },
+    {
+      "@id": "hp_learning_rate_race",
+      "@type": "MLS_HyperParameter",
+      "name": "learning_rate (RACE)",
+      "hasValue": "1e-5",
+      "hpCategory": "HP_Optimization",
+      "hpType": "LearningRate",
+      "uncertain": false,
+      "sourceFile": "run_race.py",
+      "sourceLine": null,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_race.py",
+      "path": "run_race.py",
+      "start_char_doc": 4157,
+      "end_char_doc": 4170,
+      "context": {
+        "prefix": "batch size for predict.\") flags.DEFINE_float(\"",
+        "suffix": "\", 1e-5, \"The initial learning"
+      }
+    },
+    {
+      "@id": "hp_train_batch_size_race",
+      "@type": "MLS_HyperParameter",
+      "name": "train_batch_size (RACE)",
+      "hasValue": "32",
+      "hpCategory": "HP_Training",
+      "hpType": "BatchSize",
+      "uncertain": false,
+      "sourceFile": "run_race.py",
+      "sourceLine": null,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_race.py",
+      "path": "run_race.py",
+      "start_char_doc": 3925,
+      "end_char_doc": 3941,
+      "context": {
+        "prefix": "on the test set.\") flags.DEFINE_integer(\"",
+        "suffix": "\", 32, \"Total batch size"
+      }
+    },
+    {
+      "@id": "hp_train_step_race",
+      "@type": "MLS_HyperParameter",
+      "name": "train_step (RACE)",
+      "hasValue": "12000",
+      "hpCategory": "HP_Training",
+      "hpType": "MaxSteps",
+      "uncertain": false,
+      "sourceFile": "run_race.py",
+      "sourceLine": null,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_race.py",
+      "path": "run_race.py",
+      "start_char_doc": 4241,
+      "end_char_doc": 4251,
+      "context": {
+        "prefix": "learning rate for Adam.\") flags.DEFINE_integer(\"",
+        "suffix": "\", 12000, \"Total number of"
+      }
+    },
+    {
+      "@id": "hp_warmup_step_race",
+      "@type": "MLS_HyperParameter",
+      "name": "warmup_step (RACE)",
+      "hasValue": "1000",
+      "hpCategory": "HP_Optimization",
+      "hpType": "WarmupSteps",
+      "uncertain": false,
+      "sourceFile": "run_race.py",
+      "sourceLine": null,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_race.py",
+      "path": "run_race.py",
+      "start_char_doc": 4357,
+      "end_char_doc": 4368,
+      "context": {
+        "prefix": "epochs to perform.\") flags.DEFINE_integer( \"",
+        "suffix": "\", 1000, \"number of steps"
+      }
+    },
+    {
+      "@id": "hp_max_seq_length_race",
+      "@type": "MLS_HyperParameter",
+      "name": "max_seq_length (RACE)",
+      "hasValue": "512",
+      "hpCategory": "HP_Data",
+      "hpType": "MaxSequenceLength",
+      "uncertain": false,
+      "sourceFile": "run_race.py",
+      "sourceLine": null,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_race.py",
+      "path": "run_race.py",
+      "start_char_doc": 2899,
+      "end_char_doc": 2913,
+      "context": {
+        "prefix": "0.1, \"dropout probability.\") flags.DEFINE_integer( \"",
+        "suffix": "\", 512, \"The maximum total"
+      }
+    },
+    {
+      "@id": "hp_max_qa_length_race",
+      "@type": "MLS_HyperParameter",
+      "name": "max_qa_length (RACE)",
+      "hasValue": "128",
+      "hpCategory": "HP_Data",
+      "hpType": "MaxSequenceLength",
+      "uncertain": true,
+      "sourceFile": "run_race.py",
+      "sourceLine": null,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_race.py",
+      "path": "run_race.py",
+      "start_char_doc": 3134,
+      "end_char_doc": 3147,
+      "context": {
+        "prefix": "will be padded.\") flags.DEFINE_integer( \"",
+        "suffix": "\", 128, \"The maximum total"
+      }
+    },
+    {
+      "@id": "hp_dropout_prob_race",
+      "@type": "MLS_HyperParameter",
+      "name": "dropout_prob (RACE)",
+      "hasValue": "0.1",
+      "hpCategory": "HP_Architecture",
+      "hpType": "Dropout",
+      "uncertain": false,
+      "sourceFile": "run_race.py",
+      "sourceLine": null,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_race.py",
+      "path": "run_race.py",
+      "start_char_doc": 2827,
+      "end_char_doc": 2839,
+      "context": {
+        "prefix": "False for cased models.\") flags.DEFINE_float(\"",
+        "suffix": "\", 0.1, \"dropout probability.\") flags.DEFINE_integer("
+      }
+    },
+    {
+      "@id": "hp_embedding_size",
+      "@type": "MLS_HyperParameter",
+      "name": "embedding_size",
+      "hasValue": "128",
+      "hpCategory": "HP_Architecture",
+      "hpType": "EmbeddingDim",
+      "uncertain": false,
+      "sourceFile": "modeling.py",
+      "sourceLine": 44,
+      "wasDerivedFrom": "code",
+      "codeReference": "modeling.py:44",
+      "path": "export_checkpoints.py",
+      "start_char_doc": 2588,
+      "end_char_doc": 2602,
+      "context": {
+        "prefix": "input_tensor = tf.layers.dense( input_tensor, units=albert_config.",
+        "suffix": ", activation=modeling.get_activation(albert_config.hidden_act), kernel_initializer=modeling.create_initializer( albert_config.initializer_range)) input_tensor"
+      }
+    },
+    {
+      "@id": "hp_hidden_size",
+      "@type": "MLS_HyperParameter",
+      "name": "hidden_size",
+      "hasValue": "4096",
+      "hpCategory": "HP_Architecture",
+      "hpType": "HiddenSize",
+      "uncertain": false,
+      "sourceFile": "modeling.py",
+      "sourceLine": 45,
+      "wasDerivedFrom": "code",
+      "codeReference": "modeling.py:45",
+      "path": "classifier_utils.py",
+      "start_char_doc": 25888,
+      "end_char_doc": 25899,
+      "context": {
+        "prefix": "input_mask=input_mask, segment_ids=segment_ids, use_one_hot_embeddings=use_one_hot_embeddings, use_einsum=True, hub_module=hub_module)",
+        "suffix": "= output_layer.shape[-1] output_weights = tf.get_variable("
+      }
+    },
+    {
+      "@id": "hp_num_hidden_layers",
+      "@type": "MLS_HyperParameter",
+      "name": "num_hidden_layers",
+      "hasValue": "12",
+      "hpCategory": "HP_Architecture",
+      "hpType": "NumLayers",
+      "uncertain": false,
+      "sourceFile": "modeling.py",
+      "sourceLine": 46,
+      "wasDerivedFrom": "code",
+      "codeReference": "modeling.py:46",
+      "path": "modeling.py",
+      "start_char_doc": 1338,
+      "end_char_doc": 1355,
+      "context": {
+        "prefix": "def __init__(self, vocab_size, embedding_size=128, hidden_size=4096,",
+        "suffix": "=12, num_hidden_groups=1, num_attention_heads=64, intermediate_size=16384, inner_group_num=1,"
+      }
+    },
+    {
+      "@id": "hp_num_attention_heads",
+      "@type": "MLS_HyperParameter",
+      "name": "num_attention_heads",
+      "hasValue": "64",
+      "hpCategory": "HP_Architecture",
+      "hpType": "AttentionHeads",
+      "uncertain": false,
+      "sourceFile": "modeling.py",
+      "sourceLine": 48,
+      "wasDerivedFrom": "code",
+      "codeReference": "modeling.py:48",
+      "path": "modeling.py",
+      "start_char_doc": 1411,
+      "end_char_doc": 1430,
+      "context": {
+        "prefix": "vocab_size, embedding_size=128, hidden_size=4096, num_hidden_layers=12, num_hidden_groups=1,",
+        "suffix": "=64, intermediate_size=16384, inner_group_num=1, down_scale_factor=1, hidden_act=\"gelu\","
+      }
+    },
+    {
+      "@id": "hp_intermediate_size",
+      "@type": "MLS_HyperParameter",
+      "name": "intermediate_size",
+      "hasValue": "16384",
+      "hpCategory": "HP_Architecture",
+      "hpType": "HiddenSize",
+      "uncertain": true,
+      "sourceFile": "modeling.py",
+      "sourceLine": 49,
+      "wasDerivedFrom": "code",
+      "codeReference": "modeling.py:49",
+      "path": "modeling.py",
+      "start_char_doc": 1450,
+      "end_char_doc": 1467,
+      "context": {
+        "prefix": "embedding_size=128, hidden_size=4096, num_hidden_layers=12, num_hidden_groups=1, num_attention_heads=64,",
+        "suffix": "=16384, inner_group_num=1, down_scale_factor=1, hidden_act=\"gelu\", hidden_dropout_prob=0,"
+      }
+    },
+    {
+      "@id": "hp_hidden_dropout_prob",
+      "@type": "MLS_HyperParameter",
+      "name": "hidden_dropout_prob",
+      "hasValue": "0",
+      "hpCategory": "HP_Architecture",
+      "hpType": "Dropout",
+      "uncertain": false,
+      "sourceFile": "modeling.py",
+      "sourceLine": 53,
+      "wasDerivedFrom": "code",
+      "codeReference": "modeling.py:53",
+      "path": "modeling.py",
+      "start_char_doc": 1594,
+      "end_char_doc": 1613,
+      "context": {
+        "prefix": "num_attention_heads=64, intermediate_size=16384, inner_group_num=1, down_scale_factor=1, hidden_act=\"gelu\",",
+        "suffix": "=0, attention_probs_dropout_prob=0, max_position_embeddings=512, type_vocab_size=2, initializer_range=0.02):"
+      }
+    },
+    {
+      "@id": "hp_attention_probs_dropout_prob",
+      "@type": "MLS_HyperParameter",
+      "name": "attention_probs_dropout_prob",
+      "hasValue": "0",
+      "hpCategory": "HP_Architecture",
+      "hpType": "Dropout",
+      "uncertain": false,
+      "sourceFile": "modeling.py",
+      "sourceLine": 54,
+      "wasDerivedFrom": "code",
+      "codeReference": "modeling.py:54",
+      "path": "modeling.py",
+      "start_char_doc": 1632,
+      "end_char_doc": 1660,
+      "context": {
+        "prefix": "intermediate_size=16384, inner_group_num=1, down_scale_factor=1, hidden_act=\"gelu\", hidden_dropout_prob=0,",
+        "suffix": "=0, max_position_embeddings=512, type_vocab_size=2, initializer_range=0.02): \"\"\"Constructs"
+      }
+    },
+    {
+      "@id": "hp_max_position_embeddings",
+      "@type": "MLS_HyperParameter",
+      "name": "max_position_embeddings",
+      "hasValue": "512",
+      "hpCategory": "HP_Data",
+      "hpType": "MaxSequenceLength",
+      "uncertain": false,
+      "sourceFile": "modeling.py",
+      "sourceLine": 55,
+      "wasDerivedFrom": "code",
+      "codeReference": "modeling.py:55",
+      "path": "modeling.py",
+      "start_char_doc": 1679,
+      "end_char_doc": 1702,
+      "context": {
+        "prefix": "inner_group_num=1, down_scale_factor=1, hidden_act=\"gelu\", hidden_dropout_prob=0, attention_probs_dropout_prob=0,",
+        "suffix": "=512, type_vocab_size=2, initializer_range=0.02): \"\"\"Constructs AlbertConfig."
+      }
+    },
+    {
+      "@id": "hp_initializer_range",
+      "@type": "MLS_HyperParameter",
+      "name": "initializer_range",
+      "hasValue": "0.02",
+      "hpCategory": "HP_Architecture",
+      "hpType": "UnknownArchitectureHP",
+      "uncertain": true,
+      "sourceFile": "modeling.py",
+      "sourceLine": 57,
+      "wasDerivedFrom": "code",
+      "codeReference": "modeling.py:57",
+      "path": "export_checkpoints.py",
+      "start_char_doc": 2762,
+      "end_char_doc": 2779,
+      "context": {
+        "prefix": "units=albert_config.embedding_size, activation=modeling.get_activation(albert_config.hidden_act), kernel_initializer=modeling.create_initializer( albert_config.",
+        "suffix": ")) input_tensor = modeling.layer_norm(input_tensor) #"
+      }
+    },
+    {
+      "@id": "hp_num_hidden_groups",
+      "@type": "MLS_HyperParameter",
+      "name": "num_hidden_groups",
+      "hasValue": "1",
+      "hpCategory": "HP_Architecture",
+      "hpType": "UnknownArchitectureHP",
+      "uncertain": true,
+      "sourceFile": "modeling.py",
+      "sourceLine": 47,
+      "wasDerivedFrom": "code",
+      "codeReference": "modeling.py:47",
+      "path": "modeling.py",
+      "start_char_doc": 1375,
+      "end_char_doc": 1392,
+      "context": {
+        "prefix": "__init__(self, vocab_size, embedding_size=128, hidden_size=4096, num_hidden_layers=12,",
+        "suffix": "=1, num_attention_heads=64, intermediate_size=16384, inner_group_num=1, down_scale_factor=1,"
+      }
+    },
+    {
+      "@id": "hp_inner_group_num",
+      "@type": "MLS_HyperParameter",
+      "name": "inner_group_num",
+      "hasValue": "1",
+      "hpCategory": "HP_Architecture",
+      "hpType": "UnknownArchitectureHP",
+      "uncertain": true,
+      "sourceFile": "modeling.py",
+      "sourceLine": 50,
+      "wasDerivedFrom": "code",
+      "codeReference": "modeling.py:50",
+      "path": "modeling.py",
+      "start_char_doc": 1490,
+      "end_char_doc": 1505,
+      "context": {
+        "prefix": "hidden_size=4096, num_hidden_layers=12, num_hidden_groups=1, num_attention_heads=64, intermediate_size=16384,",
+        "suffix": "=1, down_scale_factor=1, hidden_act=\"gelu\", hidden_dropout_prob=0, attention_probs_dropout_prob=0,"
+      }
+    },
+    {
+      "@id": "hp_random_seed_pretraining_data",
+      "@type": "MLS_HyperParameter",
+      "name": "random_seed",
+      "hasValue": "12345",
+      "hpCategory": "HP_Training",
+      "hpType": "RandomSeed",
+      "uncertain": false,
+      "sourceFile": "create_pretraining_data.py",
+      "sourceLine": 81,
+      "wasDerivedFrom": "code",
+      "codeReference": "create_pretraining_data.py:81",
+      "path": "create_pretraining_data.py",
+      "start_char_doc": 2670,
+      "end_char_doc": 2681,
+      "context": {
+        "prefix": "per sequence.\") flags.DEFINE_integer(\"random_seed\", 12345, \"",
+        "suffix": "for data generation.\") flags.DEFINE_integer( \"dupe_factor\","
+      }
+    },
+    {
+      "@id": "hp_dupe_factor",
+      "@type": "MLS_HyperParameter",
+      "name": "dupe_factor",
+      "hasValue": "40",
+      "hpCategory": "HP_Data",
+      "hpType": "HP_Data",
+      "uncertain": true,
+      "sourceFile": "create_pretraining_data.py",
+      "sourceLine": 84,
+      "wasDerivedFrom": "code",
+      "codeReference": "create_pretraining_data.py:84",
+      "path": "create_pretraining_data.py",
+      "start_char_doc": 2733,
+      "end_char_doc": 2744,
+      "context": {
+        "prefix": "for data generation.\") flags.DEFINE_integer( \"",
+        "suffix": "\", 40, \"Number of times"
+      }
+    },
+    {
+      "@id": "hp_masked_lm_prob",
+      "@type": "MLS_HyperParameter",
+      "name": "masked_lm_prob",
+      "hasValue": "0.15",
+      "hpCategory": "HP_Data",
+      "hpType": "HP_Data",
+      "uncertain": true,
+      "sourceFile": "create_pretraining_data.py",
+      "sourceLine": 87,
+      "wasDerivedFrom": "code",
+      "codeReference": "create_pretraining_data.py:87",
+      "path": "create_pretraining_data.py",
+      "start_char_doc": 2847,
+      "end_char_doc": 2861,
+      "context": {
+        "prefix": "data (with different masks).\") flags.DEFINE_float(\"",
+        "suffix": "\", 0.15, \"Masked LM probability.\")"
+      }
+    },
+    {
+      "@id": "hp_short_seq_prob",
+      "@type": "MLS_HyperParameter",
+      "name": "short_seq_prob",
+      "hasValue": "0.1",
+      "hpCategory": "HP_Data",
+      "hpType": "HP_Data",
+      "uncertain": true,
+      "sourceFile": "create_pretraining_data.py",
+      "sourceLine": 90,
+      "wasDerivedFrom": "code",
+      "codeReference": "create_pretraining_data.py:90",
+      "path": "create_pretraining_data.py",
+      "start_char_doc": 2922,
+      "end_char_doc": 2936,
+      "context": {
+        "prefix": "\"Masked LM probability.\") flags.DEFINE_float( \"",
+        "suffix": "\", 0.1, \"Probability of creating"
+      }
+    },
+    {
+      "@id": "hp_ngram",
+      "@type": "MLS_HyperParameter",
+      "name": "ngram",
+      "hasValue": "3",
+      "hpCategory": "HP_Data",
+      "hpType": "HP_Data",
+      "uncertain": true,
+      "sourceFile": "create_pretraining_data.py",
+      "sourceLine": 76,
+      "wasDerivedFrom": "code",
+      "codeReference": "create_pretraining_data.py:76",
+      "path": "create_pretraining_data.py",
+      "start_char_doc": 2011,
+      "end_char_doc": 2016,
+      "context": {
+        "prefix": "the permutation training.\") flags.DEFINE_bool( \"favor_shorter_",
+        "suffix": "\", True, \"Whether to set"
+      }
+    },
+    {
+      "@id": "hp_max_seq_length_pretraining_data",
+      "@type": "MLS_HyperParameter",
+      "name": "max_seq_length",
+      "hasValue": "512",
+      "hpCategory": "HP_Data",
+      "hpType": "MaxSequenceLength",
+      "uncertain": false,
+      "sourceFile": "create_pretraining_data.py",
+      "sourceLine": 74,
+      "wasDerivedFrom": "code",
+      "codeReference": "create_pretraining_data.py:74",
+      "path": "README.md",
+      "start_char_doc": 7866,
+      "end_char_doc": 7880,
+      "context": {
+        "prefix": "--train_batch_size=4096 \\ --eval_batch_size=64 \\ --",
+        "suffix": "=512 \\ --max_predictions_per_seq=20 \\ --optimizer='lamb'"
+      }
+    },
+    {
+      "@id": "hp_max_predictions_per_seq_pretraining_data",
+      "@type": "MLS_HyperParameter",
+      "name": "max_predictions_per_seq",
+      "hasValue": "20",
+      "hpCategory": "HP_Data",
+      "hpType": "HP_Data",
+      "uncertain": true,
+      "sourceFile": "create_pretraining_data.py",
+      "sourceLine": 78,
+      "wasDerivedFrom": "code",
+      "codeReference": "create_pretraining_data.py:78",
+      "path": "README.md",
+      "start_char_doc": 7893,
+      "end_char_doc": 7916,
+      "context": {
+        "prefix": "--eval_batch_size=64 \\ --max_seq_length=512 \\ --",
+        "suffix": "=20 \\ --optimizer='lamb' \\ --learning_rate=.00176"
+      }
+    },
+    {
+      "@id": "preprocess_create_pretraining_data",
+      "@type": "DataProcessingStep",
+      "identifier": "ALBERT Pretraining Data Creation",
+      "description": "Creates masked LM/sentence order prediction TF examples from raw text for ALBERT pretraining. Applies SentencePiece tokenization, whole-word masking, n-gram masking, and sentence-order label generation.",
+      "transformationType": "tokenization",
+      "startedAtTime": null,
+      "endedAtTime": null,
+      "inputDataset": null,
+      "outputDataset": null,
+      "prov-executedBy": {
+        "@id": "impl_albert"
+      },
+      "wasDerivedFrom": "code",
+      "codeReference": "create_pretraining_data.py",
+      "path": "classifier_utils.py",
+      "start_char_doc": 5070,
+      "end_char_doc": 5077,
+      "context": {
+        "prefix": "def _create_examples(self, lines, set_type): \"\"\"",
+        "suffix": "examples for the training and"
+      }
+    },
+    {
+      "@id": "preprocess_tokenization",
+      "@type": "DataProcessingStep",
+      "identifier": "ALBERT SentencePiece Tokenization",
+      "description": "SentencePiece and BERT-compatible tokenization for ALBERT. Supports both SentencePiece model files and WordPiece vocabulary files with full/basic tokenization.",
+      "transformationType": "tokenization",
+      "startedAtTime": null,
+      "endedAtTime": null,
+      "inputDataset": null,
+      "outputDataset": null,
+      "prov-executedBy": {
+        "@id": "impl_albert"
+      },
+      "wasDerivedFrom": "code",
+      "codeReference": "tokenization.py",
+      "path": "classifier_utils.py",
+      "start_char_doc": 23797,
+      "end_char_doc": 23805,
+      "context": {
+        "prefix": "tf.parse_single_example(record, name_to_features) # tf.Example only",
+        "suffix": "tf.int64, but the TPU only"
+      }
+    },
+    {
+      "@id": "training_pretraining",
+      "@type": "TrainingRun",
+      "runId": "albert_pretraining",
+      "description": "ALBERT masked LM and sentence order prediction pretraining using LAMB or AdamW optimizer with polynomial learning rate decay and linear warmup on TPU/GPU.",
+      "logFile": null,
+      "artifactsLocation": null,
+      "startedAtTime": null,
+      "endedAtTime": null,
+      "prov-executedBy": {
+        "@id": "impl_albert"
+      },
+      "used": null,
+      "trains": null,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_pretraining.py",
+      "path": "README.md",
+      "start_char_doc": 7565,
+      "end_char_doc": 7583,
+      "context": {
+        "prefix": "To pretrain ALBERT, use `",
+        "suffix": "`: ``` pip install -r"
+      }
+    },
+    {
+      "@id": "training_classifier",
+      "@type": "TrainingRun",
+      "runId": "albert_glue_finetuning",
+      "description": "Fine-tuning ALBERT on GLUE benchmark classification tasks (MNLI, SST-2, CoLA, QNLI, QQP, RTE, STS-B, MRPC) using AdamW optimizer.",
+      "logFile": null,
+      "artifactsLocation": null,
+      "startedAtTime": null,
+      "endedAtTime": null,
+      "prov-executedBy": {
+        "@id": "impl_albert"
+      },
+      "used": null,
+      "trains": null,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_classifier.py",
+      "path": "README.md",
+      "start_char_doc": 8076,
+      "end_char_doc": 8080,
+      "context": {
+        "prefix": "\\ --num_warmup_steps=3125 \\ --save_checkpoints_steps=5000 ```",
+        "suffix": "-tuning on GLUE =================== To"
+      }
+    },
+    {
+      "@id": "training_squad_v1",
+      "@type": "TrainingRun",
+      "runId": "albert_squad_v1_finetuning",
+      "description": "Fine-tuning ALBERT on SQuAD v1.1 extractive question answering using sentence piece tokenization.",
+      "logFile": null,
+      "artifactsLocation": null,
+      "startedAtTime": null,
+      "endedAtTime": null,
+      "prov-executedBy": {
+        "@id": "impl_albert"
+      },
+      "used": null,
+      "trains": null,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_squad_v1.py",
+      "path": "README.md",
+      "start_char_doc": 9679,
+      "end_char_doc": 9694,
+      "context": {
+        "prefix": "SQuAD v1, use the `",
+        "suffix": "` script: ``` pip install"
+      }
+    },
+    {
+      "@id": "training_squad_v2",
+      "@type": "TrainingRun",
+      "runId": "albert_squad_v2_finetuning",
+      "description": "Fine-tuning ALBERT on SQuAD v2.0 extractive question answering with unanswerable question support.",
+      "logFile": null,
+      "artifactsLocation": null,
+      "startedAtTime": null,
+      "endedAtTime": null,
+      "prov-executedBy": {
+        "@id": "impl_albert"
+      },
+      "used": null,
+      "trains": null,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_squad_v2.py",
+      "path": "README.md",
+      "start_char_doc": 10596,
+      "end_char_doc": 10611,
+      "context": {
+        "prefix": "SQuAD v2, use the `",
+        "suffix": "` script: ``` pip install"
+      }
+    },
+    {
+      "@id": "training_race",
+      "@type": "TrainingRun",
+      "runId": "albert_race_finetuning",
+      "description": "Fine-tuning ALBERT on RACE multiple-choice reading comprehension benchmark.",
+      "logFile": null,
+      "artifactsLocation": null,
+      "startedAtTime": null,
+      "endedAtTime": null,
+      "prov-executedBy": {
+        "@id": "impl_albert"
+      },
+      "used": null,
+      "trains": null,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_race.py",
+      "path": "README.md",
+      "start_char_doc": 8076,
+      "end_char_doc": 8080,
+      "context": {
+        "prefix": "\\ --num_warmup_steps=3125 \\ --save_checkpoints_steps=5000 ```",
+        "suffix": "-tuning on GLUE =================== To"
+      }
+    },
+    {
+      "@id": "evaluation_pretraining",
+      "@type": "EvaluationRun",
+      "runId": "albert_pretraining_eval",
+      "description": "Evaluation of ALBERT pretraining measuring masked LM accuracy/loss and sentence order accuracy/loss.",
+      "split": "eval",
+      "evaluationScript": "run_pretraining.py",
+      "metricsFile": "eval_results.txt",
+      "startedAtTime": null,
+      "endedAtTime": null,
+      "prov-executedBy": {
+        "@id": "impl_albert"
+      },
+      "evaluates": null,
+      "prov-generated": null,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_pretraining.py",
+      "path": "README.md",
+      "start_char_doc": 8364,
+      "end_char_doc": 8374,
+      "context": {
+        "prefix": "used both for fine-tuning and",
+        "suffix": "of ALBERT on individual GLUE"
+      }
+    },
+    {
+      "@id": "evaluation_classifier",
+      "@type": "EvaluationRun",
+      "runId": "albert_glue_eval",
+      "description": "Evaluation of fine-tuned ALBERT on GLUE benchmark dev set, tracking best checkpoint by task metric.",
+      "split": "dev",
+      "evaluationScript": "run_classifier.py",
+      "metricsFile": "eval_results.txt",
+      "startedAtTime": null,
+      "endedAtTime": null,
+      "prov-executedBy": {
+        "@id": "impl_albert"
+      },
+      "evaluates": null,
+      "prov-generated": [
+        {
+          "@id": "prediction_classifier"
+        }
+      ],
+      "wasDerivedFrom": "code",
+      "codeReference": "run_classifier.py",
+      "path": "README.md",
+      "start_char_doc": 8364,
+      "end_char_doc": 8374,
+      "context": {
+        "prefix": "used both for fine-tuning and",
+        "suffix": "of ALBERT on individual GLUE"
+      }
+    },
+    {
+      "@id": "evaluation_squad_v1",
+      "@type": "EvaluationRun",
+      "runId": "albert_squad_v1_eval",
+      "description": "Evaluation of fine-tuned ALBERT on SQuAD v1.1 dev set, generating predictions and n-best predictions.",
+      "split": "dev",
+      "evaluationScript": "run_squad_v1.py",
+      "metricsFile": null,
+      "startedAtTime": null,
+      "endedAtTime": null,
+      "prov-executedBy": {
+        "@id": "impl_albert"
+      },
+      "evaluates": null,
+      "prov-generated": [
+        {
+          "@id": "prediction_squad_v1"
+        }
+      ],
+      "wasDerivedFrom": "code",
+      "codeReference": "run_squad_v1.py",
+      "path": "README.md",
+      "start_char_doc": 8364,
+      "end_char_doc": 8374,
+      "context": {
+        "prefix": "used both for fine-tuning and",
+        "suffix": "of ALBERT on individual GLUE"
+      }
+    },
+    {
+      "@id": "evaluation_squad_v2",
+      "@type": "EvaluationRun",
+      "runId": "albert_squad_v2_eval",
+      "description": "Evaluation of fine-tuned ALBERT on SQuAD v2.0 dev set, generating predictions, n-best predictions, and null odds.",
+      "split": "dev",
+      "evaluationScript": "run_squad_v2.py",
+      "metricsFile": "eval_results.txt",
+      "startedAtTime": null,
+      "endedAtTime": null,
+      "prov-executedBy": {
+        "@id": "impl_albert"
+      },
+      "evaluates": null,
+      "prov-generated": [
+        {
+          "@id": "prediction_squad_v2"
+        }
+      ],
+      "wasDerivedFrom": "code",
+      "codeReference": "run_squad_v2.py",
+      "path": "README.md",
+      "start_char_doc": 8364,
+      "end_char_doc": 8374,
+      "context": {
+        "prefix": "used both for fine-tuning and",
+        "suffix": "of ALBERT on individual GLUE"
+      }
+    },
+    {
+      "@id": "evaluation_race",
+      "@type": "EvaluationRun",
+      "runId": "albert_race_eval",
+      "description": "Evaluation of fine-tuned ALBERT on RACE benchmark, tracking best checkpoint by accuracy.",
+      "split": "dev",
+      "evaluationScript": "run_race.py",
+      "metricsFile": "eval_results.txt",
+      "startedAtTime": null,
+      "endedAtTime": null,
+      "prov-executedBy": {
+        "@id": "impl_albert"
+      },
+      "evaluates": null,
+      "prov-generated": null,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_race.py",
+      "path": "README.md",
+      "start_char_doc": 8364,
+      "end_char_doc": 8374,
+      "context": {
+        "prefix": "used both for fine-tuning and",
+        "suffix": "of ALBERT on individual GLUE"
+      }
+    },
+    {
+      "@id": "prediction_classifier",
+      "@type": "PredictionSet",
+      "identifier": "GLUE Test Predictions",
+      "description": "Predictions generated by fine-tuned ALBERT on GLUE test sets, producing test_results.tsv and submit_results.tsv.",
+      "predictionFormat": "TSV",
+      "storageLocation": null,
+      "numInstances": null,
+      "onDatasetSplit": "test",
+      "appliedTo": null,
+      "wasGeneratedBy": {
+        "@id": "evaluation_classifier"
+      },
+      "producedBy": {
+        "@id": "impl_albert"
+      },
+      "wasDerivedFrom": "code",
+      "codeReference": "run_classifier.py",
+      "path": "README.md",
+      "start_char_doc": 7897,
+      "end_char_doc": 7908,
+      "context": {
+        "prefix": "--eval_batch_size=64 \\ --max_seq_length=512 \\ --max_",
+        "suffix": "_per_seq=20 \\ --optimizer='lamb' \\ --learning_rate=.00176"
+      }
+    },
+    {
+      "@id": "prediction_squad_v1",
+      "@type": "PredictionSet",
+      "identifier": "SQuAD v1.1 Predictions",
+      "description": "Predictions generated by fine-tuned ALBERT on SQuAD v1.1, producing predictions.json and nbest_predictions.json.",
+      "predictionFormat": "JSON",
+      "storageLocation": null,
+      "numInstances": null,
+      "onDatasetSplit": "dev",
+      "appliedTo": null,
+      "wasGeneratedBy": {
+        "@id": "evaluation_squad_v1"
+      },
+      "producedBy": {
+        "@id": "impl_albert"
+      },
+      "wasDerivedFrom": "code",
+      "codeReference": "run_squad_v1.py",
+      "path": "README.md",
+      "start_char_doc": 9679,
+      "end_char_doc": 9694,
+      "context": {
+        "prefix": "SQuAD v1, use the `",
+        "suffix": "` script: ``` pip install"
+      }
+    },
+    {
+      "@id": "prediction_squad_v2",
+      "@type": "PredictionSet",
+      "identifier": "SQuAD v2.0 Predictions",
+      "description": "Predictions generated by fine-tuned ALBERT on SQuAD v2.0, producing predictions.json, nbest_predictions.json, and null_odds.json.",
+      "predictionFormat": "JSON",
+      "storageLocation": null,
+      "numInstances": null,
+      "onDatasetSplit": "dev",
+      "appliedTo": null,
+      "wasGeneratedBy": {
+        "@id": "evaluation_squad_v2"
+      },
+      "producedBy": {
+        "@id": "impl_albert"
+      },
+      "wasDerivedFrom": "code",
+      "codeReference": "run_squad_v2.py",
+      "path": "README.md",
+      "start_char_doc": 10596,
+      "end_char_doc": 10611,
+      "context": {
+        "prefix": "SQuAD v2, use the `",
+        "suffix": "` script: ``` pip install"
+      }
+    }
+  ]
+}

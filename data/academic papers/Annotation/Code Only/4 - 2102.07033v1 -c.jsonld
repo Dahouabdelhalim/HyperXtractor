@@ -1,0 +1,1266 @@
+{
+  "@context": {
+    "mls": "http://example.org/ontology/mls#",
+    "schema": "http://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "SoftwareRepository": "mls:SoftwareRepository",
+    "MLS_Implementation": "mls:MLS_Implementation",
+    "MLS_HyperParameter": "mls:MLS_HyperParameter",
+    "Dependency": "mls:Dependency",
+    "Environment": "mls:Environment",
+    "DataProcessingStep": "mls:DataProcessingStep",
+    "TrainingRun": "mls:TrainingRun",
+    "EvaluationRun": "mls:EvaluationRun",
+    "PredictionSet": "mls:PredictionSet",
+    "name": "schema:name",
+    "identifier": "schema:identifier",
+    "description": "schema:description",
+    "url": "schema:url",
+    "version": "schema:version",
+    "license": "schema:license",
+    "programmingLanguage": "schema:programmingLanguage",
+    "dateModified": {
+      "@id": "schema:dateModified",
+      "@type": "xsd:dateTime"
+    },
+    "documentationUrl": {
+      "@id": "mls:documentationUrl",
+      "@type": "xsd:anyURI"
+    },
+    "owner": "mls:owner",
+    "platform": "mls:platform",
+    "codeRepository": {
+      "@id": "mls:codeRepository",
+      "@type": "xsd:anyURI"
+    },
+    "framework": "mls:framework",
+    "entryPoint": "mls:entryPoint",
+    "entryPointCommand": "mls:entryPointCommand",
+    "executionCommand": "mls:executionCommand",
+    "commitHash": "mls:commitHash",
+    "branch": "mls:branch",
+    "dependenciesHash": "mls:dependenciesHash",
+    "packageName": "mls:packageName",
+    "dependencyType": "mls:dependencyType",
+    "isOptional": {
+      "@id": "mls:isOptional",
+      "@type": "xsd:boolean"
+    },
+    "hardwareSpecs": "mls:hardwareSpecs",
+    "os": "mls:os",
+    "pythonVersion": "mls:pythonVersion",
+    "requirementsFile": "mls:requirementsFile",
+    "isDockerized": {
+      "@id": "mls:isDockerized",
+      "@type": "xsd:boolean"
+    },
+    "hasValue": {
+      "@id": "mls:hasValue",
+      "@type": "xsd:string"
+    },
+    "hpCategory": "mls:hpCategory",
+    "hpType": "mls:hpType",
+    "sourceFile": "mls:sourceFile",
+    "sourceLine": {
+      "@id": "mls:sourceLine",
+      "@type": "xsd:integer"
+    },
+    "uncertain": {
+      "@id": "mls:uncertain",
+      "@type": "xsd:boolean"
+    },
+    "transformationType": "mls:transformationType",
+    "codeReference": {
+      "@id": "mls:codeReference",
+      "@type": "xsd:anyURI"
+    },
+    "runId": "mls:runId",
+    "logFile": {
+      "@id": "mls:logFile",
+      "@type": "xsd:anyURI"
+    },
+    "artifactsLocation": {
+      "@id": "mls:artifactsLocation",
+      "@type": "xsd:anyURI"
+    },
+    "split": "mls:split",
+    "evaluationScript": "mls:evaluationScript",
+    "evaluationSplit": "mls:evaluationSplit",
+    "metricsFile": "mls:metricsFile",
+    "format": "mls:format",
+    "predictionFormat": "mls:predictionFormat",
+    "storageLocation": "mls:storageLocation",
+    "numInstances": {
+      "@id": "mls:numInstances",
+      "@type": "xsd:integer"
+    },
+    "onDatasetSplit": "mls:onDatasetSplit",
+    "startedAtTime": {
+      "@id": "prov:startedAtTime",
+      "@type": "xsd:dateTime"
+    },
+    "endedAtTime": {
+      "@id": "prov:endedAtTime",
+      "@type": "xsd:dateTime"
+    },
+    "contains": {
+      "@id": "mls:contains",
+      "@type": "@id"
+    },
+    "supports": {
+      "@id": "mls:supports",
+      "@type": "@id"
+    },
+    "runsIn": {
+      "@id": "mls:runsIn",
+      "@type": "@id"
+    },
+    "requires": {
+      "@id": "mls:requires",
+      "@type": "@id"
+    },
+    "inputDataset": {
+      "@id": "mls:inputDataset",
+      "@type": "@id"
+    },
+    "outputDataset": {
+      "@id": "mls:outputDataset",
+      "@type": "@id"
+    },
+    "trains": {
+      "@id": "mls:trains",
+      "@type": "@id"
+    },
+    "evaluates": {
+      "@id": "mls:evaluates",
+      "@type": "@id"
+    },
+    "appliedTo": {
+      "@id": "mls:appliedTo",
+      "@type": "@id"
+    },
+    "producedBy": {
+      "@id": "mls:producedBy",
+      "@type": "@id"
+    },
+    "prov-executedBy": {
+      "@id": "mls:prov-executedBy",
+      "@type": "@id"
+    },
+    "prov-generated": {
+      "@id": "mls:prov-generated",
+      "@type": "@id"
+    },
+    "used": {
+      "@id": "prov:used",
+      "@type": "@id"
+    },
+    "wasGeneratedBy": {
+      "@id": "prov:wasGeneratedBy",
+      "@type": "@id"
+    },
+    "wasDerivedFrom": {
+      "@id": "prov:wasDerivedFrom",
+      "@type": "@id"
+    },
+    "wasAssociatedWith": {
+      "@id": "prov:wasAssociatedWith",
+      "@type": "@id"
+    }
+  },
+  "@graph": [
+    {
+      "@id": "repo_facebookresearch_PAQ",
+      "@type": "SoftwareRepository",
+      "name": "PAQ",
+      "url": "https://github.com/facebookresearch/PAQ",
+      "owner": "facebookresearch",
+      "platform": "GitHub",
+      "programmingLanguage": "Python",
+      "version": null,
+      "license": "CC-BY-NC-4.0",
+      "dateModified": null,
+      "documentationUrl": "https://github.com/facebookresearch/PAQ/blob/main/README.md",
+      "contains": [
+        {
+          "@id": "impl_paq"
+        }
+      ],
+      "supports": [
+        {
+          "@id": "env_paq"
+        }
+      ],
+      "wasDerivedFrom": "code",
+      "codeReference": "README.md",
+      "path": "README.md",
+      "start_char_doc": 2,
+      "end_char_doc": 5,
+      "context": {
+        "prefix": "#",
+        "suffix": ": 65 Million Probably-Asked Questions"
+      }
+    },
+    {
+      "@id": "impl_paq",
+      "@type": "MLS_Implementation",
+      "identifier": "PAQ QA-Pair Generation and RePAQ Retrieval Implementation",
+      "codeRepository": "https://github.com/facebookresearch/PAQ",
+      "framework": "PyTorch",
+      "entryPoint": "paq/generation/generate_qa_pairs.py",
+      "entryPointCommand": "python -m paq.generation.generate_qa_pairs --path_to_config generator_configs/paq_L1_config.json --passage_files_to_generate <passages> --output_dirs <output> --n_jobs -1 --verbose",
+      "executionCommand": "python -m paq.retrievers.retrieve --model_name_or_path ./data/models/retrievers/retriever_multi_base_256 --qas_to_answer <test_file> --qas_to_retrieve_from <kb_file> --top_k 50 --output_file <output> --faiss_index_path <index> --fp16 --memory_friendly_parsing --verbose",
+      "commitHash": null,
+      "branch": "main",
+      "dependenciesHash": null,
+      "runsIn": {
+        "@id": "env_paq"
+      },
+      "requires": [
+        {
+          "@id": "dep_wget"
+        },
+        {
+          "@id": "dep_transformers"
+        },
+        {
+          "@id": "dep_sentencepiece"
+        },
+        {
+          "@id": "dep_protobuf"
+        },
+        {
+          "@id": "dep_submitit"
+        },
+        {
+          "@id": "dep_spacy"
+        },
+        {
+          "@id": "dep_pytorch"
+        },
+        {
+          "@id": "dep_faiss_gpu"
+        },
+        {
+          "@id": "dep_fid"
+        }
+      ],
+      "wasDerivedFrom": "code",
+      "codeReference": "paq/generation/generate_qa_pairs.py",
+      "path": "README.md",
+      "start_char_doc": 10571,
+      "end_char_doc": 10578,
+      "context": {
+        "prefix": "conda environments. The requirements are",
+        "suffix": ", spacy, Transformers 4.1.0 (other"
+      }
+    },
+    {
+      "@id": "env_paq",
+      "@type": "Environment",
+      "name": "PAQ Conda Environment",
+      "framework": "PyTorch 1.7.1",
+      "pythonVersion": "3.7",
+      "os": null,
+      "hardwareSpecs": "GPU with CUDA 10.1; 64GB+ CPU RAM recommended",
+      "requirementsFile": "requirements.txt",
+      "isDockerized": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "requirements.txt",
+      "path": "README.md",
+      "start_char_doc": 10800,
+      "end_char_doc": 10803,
+      "context": {
+        "prefix": "conda create -n paq python=",
+        "suffix": "conda activate paq # install"
+      }
+    },
+    {
+      "@id": "dep_wget",
+      "@type": "Dependency",
+      "packageName": "wget",
+      "version": ">=3.2",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "requirements.txt:1",
+      "path": "requirements.txt",
+      "start_char_doc": 0,
+      "end_char_doc": 9,
+      "context": {
+        "prefix": "",
+        "suffix": "transformers==4.1.0 sentencepiece protobuf submitit spacy"
+      }
+    },
+    {
+      "@id": "dep_transformers",
+      "@type": "Dependency",
+      "packageName": "transformers",
+      "version": "4.1.0",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "requirements.txt:2",
+      "path": "requirements.txt",
+      "start_char_doc": 10,
+      "end_char_doc": 29,
+      "context": {
+        "prefix": "wget>=3.2",
+        "suffix": "sentencepiece protobuf submitit spacy"
+      }
+    },
+    {
+      "@id": "dep_sentencepiece",
+      "@type": "Dependency",
+      "packageName": "sentencepiece",
+      "version": null,
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "requirements.txt:3",
+      "path": "requirements.txt",
+      "start_char_doc": 30,
+      "end_char_doc": 43,
+      "context": {
+        "prefix": "wget>=3.2 transformers==4.1.0",
+        "suffix": "protobuf submitit spacy"
+      }
+    },
+    {
+      "@id": "dep_protobuf",
+      "@type": "Dependency",
+      "packageName": "protobuf",
+      "version": null,
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "requirements.txt:4",
+      "path": "requirements.txt",
+      "start_char_doc": 44,
+      "end_char_doc": 52,
+      "context": {
+        "prefix": "wget>=3.2 transformers==4.1.0 sentencepiece",
+        "suffix": "submitit spacy"
+      }
+    },
+    {
+      "@id": "dep_submitit",
+      "@type": "Dependency",
+      "packageName": "submitit",
+      "version": null,
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "requirements.txt:5",
+      "path": "requirements.txt",
+      "start_char_doc": 53,
+      "end_char_doc": 61,
+      "context": {
+        "prefix": "wget>=3.2 transformers==4.1.0 sentencepiece protobuf",
+        "suffix": "spacy"
+      }
+    },
+    {
+      "@id": "dep_spacy",
+      "@type": "Dependency",
+      "packageName": "spacy",
+      "version": null,
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "requirements.txt:6",
+      "path": "requirements.txt",
+      "start_char_doc": 62,
+      "end_char_doc": 67,
+      "context": {
+        "prefix": "wget>=3.2 transformers==4.1.0 sentencepiece protobuf submitit",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "dep_pytorch",
+      "@type": "Dependency",
+      "packageName": "pytorch",
+      "version": "1.7.1",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "README.md:178",
+      "path": "README.md",
+      "start_char_doc": 10571,
+      "end_char_doc": 10578,
+      "context": {
+        "prefix": "conda environments. The requirements are",
+        "suffix": ", spacy, Transformers 4.1.0 (other"
+      }
+    },
+    {
+      "@id": "dep_faiss_gpu",
+      "@type": "Dependency",
+      "packageName": "faiss-gpu",
+      "version": null,
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "README.md:179",
+      "path": "README.md",
+      "start_char_doc": 10961,
+      "end_char_doc": 10970,
+      "context": {
+        "prefix": "pytorch conda install -c pytorch",
+        "suffix": "cudatoolkit=10.1 # For Spacy: conda"
+      }
+    },
+    {
+      "@id": "dep_fid",
+      "@type": "Dependency",
+      "packageName": "FiD",
+      "version": null,
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "README.md:188",
+      "path": "README.md",
+      "start_char_doc": 11235,
+      "end_char_doc": 11238,
+      "context": {
+        "prefix": "consistency filtering: git clone git@github.com:facebookresearch/",
+        "suffix": ".git cd FiD; git checkout"
+      }
+    },
+    {
+      "@id": "hp_batch_size_passage_scorer",
+      "@type": "MLS_HyperParameter",
+      "name": "batch_size (passage_scorer)",
+      "hasValue": "64",
+      "hpCategory": "HP_Training",
+      "hpType": "BatchSize",
+      "uncertain": false,
+      "sourceFile": "generator_configs/paq_L1_config.json",
+      "sourceLine": 9,
+      "wasDerivedFrom": "code",
+      "codeReference": "generator_configs/paq_L1_config.json:9",
+      "path": "generator_configs/paq_L1_config.json",
+      "start_char_doc": 317,
+      "end_char_doc": 333,
+      "context": {
+        "prefix": "rankers/passage_ranker_base\", \"config_path\":\"data/models/passage_rankers/passage_ranker_base\", \"tokenizer_path\":\"data/models/passage_rankers/passage_ranker_base\", \"device\": 0,",
+        "suffix": ", \"max_seq_len\": 256 } },"
+      }
+    },
+    {
+      "@id": "hp_max_seq_len_passage_scorer",
+      "@type": "MLS_HyperParameter",
+      "name": "max_seq_len (passage_scorer)",
+      "hasValue": "256",
+      "hpCategory": "HP_Data",
+      "hpType": "MaxSequenceLength",
+      "uncertain": false,
+      "sourceFile": "generator_configs/paq_L1_config.json",
+      "sourceLine": 10,
+      "wasDerivedFrom": "code",
+      "codeReference": "generator_configs/paq_L1_config.json:10",
+      "path": "generator_configs/paq_L1_config.json",
+      "start_char_doc": 341,
+      "end_char_doc": 359,
+      "context": {
+        "prefix": "\"tokenizer_path\":\"data/models/passage_rankers/passage_ranker_base\", \"device\": 0, \"batch_size\": 64,",
+        "suffix": "} }, \"answer_extractor\": { \"name\":"
+      }
+    },
+    {
+      "@id": "hp_topk_answer_extractor",
+      "@type": "MLS_HyperParameter",
+      "name": "topk (answer_extractor)",
+      "hasValue": "8",
+      "hpCategory": "HP_Architecture",
+      "hpType": "UnknownArchitectureHP",
+      "uncertain": true,
+      "sourceFile": "generator_configs/paq_L1_config.json",
+      "sourceLine": 19,
+      "wasDerivedFrom": "code",
+      "codeReference": "generator_configs/paq_L1_config.json:19",
+      "path": "generator_configs/paq_L1_config.json",
+      "start_char_doc": 695,
+      "end_char_doc": 704,
+      "context": {
+        "prefix": "ctors/answer_extractor_nq_base\", \"config_path\": \"data/models/answer_extractors/answer_extractor_nq_base\", \"tokenizer_path\": \"data/models/answer_extractors/answer_extractor_nq_base\",",
+        "suffix": ", \"max_answer_len\": 30, \"max_seq_len\": 256,"
+      }
+    },
+    {
+      "@id": "hp_max_answer_len",
+      "@type": "MLS_HyperParameter",
+      "name": "max_answer_len",
+      "hasValue": "30",
+      "hpCategory": "HP_Data",
+      "hpType": "MaxSequenceLength",
+      "uncertain": true,
+      "sourceFile": "generator_configs/paq_L1_config.json",
+      "sourceLine": 20,
+      "wasDerivedFrom": "code",
+      "codeReference": "generator_configs/paq_L1_config.json:20",
+      "path": "generator_configs/paq_L1_config.json",
+      "start_char_doc": 712,
+      "end_char_doc": 732,
+      "context": {
+        "prefix": "\"data/models/answer_extractors/answer_extractor_nq_base\", \"tokenizer_path\": \"data/models/answer_extractors/answer_extractor_nq_base\", \"topk\": 8,",
+        "suffix": ", \"max_seq_len\": 256, \"doc_stride\": 128,"
+      }
+    },
+    {
+      "@id": "hp_max_seq_len_answer_extractor",
+      "@type": "MLS_HyperParameter",
+      "name": "max_seq_len (answer_extractor)",
+      "hasValue": "256",
+      "hpCategory": "HP_Data",
+      "hpType": "MaxSequenceLength",
+      "uncertain": false,
+      "sourceFile": "generator_configs/paq_L1_config.json",
+      "sourceLine": 21,
+      "wasDerivedFrom": "code",
+      "codeReference": "generator_configs/paq_L1_config.json:21",
+      "path": "generator_configs/paq_L1_config.json",
+      "start_char_doc": 341,
+      "end_char_doc": 359,
+      "context": {
+        "prefix": "\"tokenizer_path\":\"data/models/passage_rankers/passage_ranker_base\", \"device\": 0, \"batch_size\": 64,",
+        "suffix": "} }, \"answer_extractor\": { \"name\":"
+      }
+    },
+    {
+      "@id": "hp_doc_stride",
+      "@type": "MLS_HyperParameter",
+      "name": "doc_stride",
+      "hasValue": "128",
+      "hpCategory": "HP_Data",
+      "hpType": "HP_Data",
+      "uncertain": true,
+      "sourceFile": "generator_configs/paq_L1_config.json",
+      "sourceLine": 22,
+      "wasDerivedFrom": "code",
+      "codeReference": "generator_configs/paq_L1_config.json:22",
+      "path": "generator_configs/paq_L1_config.json",
+      "start_char_doc": 766,
+      "end_char_doc": 783,
+      "context": {
+        "prefix": "8, \"max_answer_len\": 30, \"max_seq_len\": 256,",
+        "suffix": ", \"batch_size\": 128, \"device\": 0"
+      }
+    },
+    {
+      "@id": "hp_batch_size_answer_extractor",
+      "@type": "MLS_HyperParameter",
+      "name": "batch_size (answer_extractor)",
+      "hasValue": "128",
+      "hpCategory": "HP_Training",
+      "hpType": "BatchSize",
+      "uncertain": false,
+      "sourceFile": "generator_configs/paq_L1_config.json",
+      "sourceLine": 23,
+      "wasDerivedFrom": "code",
+      "codeReference": "generator_configs/paq_L1_config.json:23",
+      "path": "generator_configs/paq_L1_config.json",
+      "start_char_doc": 791,
+      "end_char_doc": 808,
+      "context": {
+        "prefix": "30, \"max_seq_len\": 256, \"doc_stride\": 128,",
+        "suffix": ", \"device\": 0 } },"
+      }
+    },
+    {
+      "@id": "hp_num_beams",
+      "@type": "MLS_HyperParameter",
+      "name": "num_beams",
+      "hasValue": "4",
+      "hpCategory": "HP_Architecture",
+      "hpType": "UnknownArchitectureHP",
+      "uncertain": true,
+      "sourceFile": "generator_configs/paq_L1_config.json",
+      "sourceLine": 34,
+      "wasDerivedFrom": "code",
+      "codeReference": "generator_configs/paq_L1_config.json:34",
+      "path": "generator_configs/paq_L1_config.json",
+      "start_char_doc": 1102,
+      "end_char_doc": 1116,
+      "context": {
+        "prefix": "null, \"tokenizer_path\": \"data/models/qgen/qgen_multi_base\", \"include_title\": true,",
+        "suffix": ", \"num_return_sequences\": 1, \"max_question_len\": 20,"
+      }
+    },
+    {
+      "@id": "hp_num_return_sequences_L1",
+      "@type": "MLS_HyperParameter",
+      "name": "num_return_sequences (PAQ-L1)",
+      "hasValue": "1",
+      "hpCategory": "HP_Architecture",
+      "hpType": "UnknownArchitectureHP",
+      "uncertain": true,
+      "sourceFile": "generator_configs/paq_L1_config.json",
+      "sourceLine": 35,
+      "wasDerivedFrom": "code",
+      "codeReference": "generator_configs/paq_L1_config.json:35",
+      "path": "generator_configs/paq_L1_config.json",
+      "start_char_doc": 1124,
+      "end_char_doc": 1149,
+      "context": {
+        "prefix": "\"data/models/qgen/qgen_multi_base\", \"include_title\": true, \"num_beams\": 4,",
+        "suffix": ", \"max_question_len\": 20, \"batch_size\": 64,"
+      }
+    },
+    {
+      "@id": "hp_num_return_sequences_L4",
+      "@type": "MLS_HyperParameter",
+      "name": "num_return_sequences (PAQ-L4)",
+      "hasValue": "4",
+      "hpCategory": "HP_Architecture",
+      "hpType": "UnknownArchitectureHP",
+      "uncertain": true,
+      "sourceFile": "generator_configs/paq_L4_config.json",
+      "sourceLine": 35,
+      "wasDerivedFrom": "code",
+      "codeReference": "generator_configs/paq_L4_config.json:35",
+      "path": "generator_configs/paq_L4_config.json",
+      "start_char_doc": 1124,
+      "end_char_doc": 1149,
+      "context": {
+        "prefix": "\"data/models/qgen/qgen_multi_base\", \"include_title\": true, \"num_beams\": 4,",
+        "suffix": ", \"max_question_len\": 20, \"batch_size\": 64,"
+      }
+    },
+    {
+      "@id": "hp_max_question_len",
+      "@type": "MLS_HyperParameter",
+      "name": "max_question_len",
+      "hasValue": "20",
+      "hpCategory": "HP_Data",
+      "hpType": "MaxSequenceLength",
+      "uncertain": true,
+      "sourceFile": "generator_configs/paq_L1_config.json",
+      "sourceLine": 36,
+      "wasDerivedFrom": "code",
+      "codeReference": "generator_configs/paq_L1_config.json:36",
+      "path": "generator_configs/paq_L1_config.json",
+      "start_char_doc": 1157,
+      "end_char_doc": 1179,
+      "context": {
+        "prefix": "true, \"num_beams\": 4, \"num_return_sequences\": 1,",
+        "suffix": ", \"batch_size\": 64, \"device\": 0"
+      }
+    },
+    {
+      "@id": "hp_batch_size_qgen",
+      "@type": "MLS_HyperParameter",
+      "name": "batch_size (question_generator)",
+      "hasValue": "64",
+      "hpCategory": "HP_Training",
+      "hpType": "BatchSize",
+      "uncertain": false,
+      "sourceFile": "generator_configs/paq_L1_config.json",
+      "sourceLine": 37,
+      "wasDerivedFrom": "code",
+      "codeReference": "generator_configs/paq_L1_config.json:37",
+      "path": "generator_configs/paq_L1_config.json",
+      "start_char_doc": 317,
+      "end_char_doc": 333,
+      "context": {
+        "prefix": "rankers/passage_ranker_base\", \"config_path\":\"data/models/passage_rankers/passage_ranker_base\", \"tokenizer_path\":\"data/models/passage_rankers/passage_ranker_base\", \"device\": 0,",
+        "suffix": ", \"max_seq_len\": 256 } },"
+      }
+    },
+    {
+      "@id": "hp_batch_size_filterer_retriever",
+      "@type": "MLS_HyperParameter",
+      "name": "batch_size (filterer.retriever)",
+      "hasValue": "128",
+      "hpCategory": "HP_Training",
+      "hpType": "BatchSize",
+      "uncertain": false,
+      "sourceFile": "generator_configs/paq_L1_config.json",
+      "sourceLine": 49,
+      "wasDerivedFrom": "code",
+      "codeReference": "generator_configs/paq_L1_config.json:49",
+      "path": "generator_configs/paq_L1_config.json",
+      "start_char_doc": 791,
+      "end_char_doc": 808,
+      "context": {
+        "prefix": "30, \"max_seq_len\": 256, \"doc_stride\": 128,",
+        "suffix": ", \"device\": 0 } },"
+      }
+    },
+    {
+      "@id": "hp_n_queries_to_parallelize",
+      "@type": "MLS_HyperParameter",
+      "name": "n_queries_to_parallelize",
+      "hasValue": "2048",
+      "hpCategory": "HP_Training",
+      "hpType": "HP_Training",
+      "uncertain": true,
+      "sourceFile": "generator_configs/paq_L1_config.json",
+      "sourceLine": 50,
+      "wasDerivedFrom": "code",
+      "codeReference": "generator_configs/paq_L1_config.json:50",
+      "path": "generator_configs/paq_L1_config.json",
+      "start_char_doc": 1716,
+      "end_char_doc": 1748,
+      "context": {
+        "prefix": "\"data/models/filtering/dpr_nq_passage_retriever/dpr_index.hnsw.SQ8.index_meta.dpr\", \"model_path\": \"data/models/filtering/dpr_nq_passage_retriever\", \"batch_size\": 128,",
+        "suffix": ", \"max_seq_len\":256, \"n_docs\": 50, \"device\":"
+      }
+    },
+    {
+      "@id": "hp_max_seq_len_filterer_retriever",
+      "@type": "MLS_HyperParameter",
+      "name": "max_seq_len (filterer.retriever)",
+      "hasValue": "256",
+      "hpCategory": "HP_Data",
+      "hpType": "MaxSequenceLength",
+      "uncertain": false,
+      "sourceFile": "generator_configs/paq_L1_config.json",
+      "sourceLine": 51,
+      "wasDerivedFrom": "code",
+      "codeReference": "generator_configs/paq_L1_config.json:51",
+      "path": "generator_configs/paq_L1_config.json",
+      "start_char_doc": 341,
+      "end_char_doc": 359,
+      "context": {
+        "prefix": "\"tokenizer_path\":\"data/models/passage_rankers/passage_ranker_base\", \"device\": 0, \"batch_size\": 64,",
+        "suffix": "} }, \"answer_extractor\": { \"name\":"
+      }
+    },
+    {
+      "@id": "hp_n_docs_filterer_retriever",
+      "@type": "MLS_HyperParameter",
+      "name": "n_docs (filterer.retriever)",
+      "hasValue": "50",
+      "hpCategory": "HP_Data",
+      "hpType": "HP_Data",
+      "uncertain": true,
+      "sourceFile": "generator_configs/paq_L1_config.json",
+      "sourceLine": 52,
+      "wasDerivedFrom": "code",
+      "codeReference": "generator_configs/paq_L1_config.json:52",
+      "path": "generator_configs/paq_L1_config.json",
+      "start_char_doc": 1785,
+      "end_char_doc": 1797,
+      "context": {
+        "prefix": "\"batch_size\": 128, \"n_queries_to_parallelize\": 2048, \"max_seq_len\":256,",
+        "suffix": ", \"device\": 0 } },"
+      }
+    },
+    {
+      "@id": "hp_batch_size_filterer_reader",
+      "@type": "MLS_HyperParameter",
+      "name": "batch_size (filterer.reader)",
+      "hasValue": "4",
+      "hpCategory": "HP_Training",
+      "hpType": "BatchSize",
+      "uncertain": false,
+      "sourceFile": "generator_configs/paq_L1_config.json",
+      "sourceLine": 59,
+      "wasDerivedFrom": "code",
+      "codeReference": "generator_configs/paq_L1_config.json:59",
+      "path": "generator_configs/paq_L1_config.json",
+      "start_char_doc": 1980,
+      "end_char_doc": 1995,
+      "context": {
+        "prefix": "\"filtering/fid_reader\", \"config\": { \"model_path\": \"data/models/filtering/fid_reader_nq_base\",",
+        "suffix": ", \"device\": 0, \"max_seq_len\": 200,"
+      }
+    },
+    {
+      "@id": "hp_max_seq_len_filterer_reader",
+      "@type": "MLS_HyperParameter",
+      "name": "max_seq_len (filterer.reader)",
+      "hasValue": "200",
+      "hpCategory": "HP_Data",
+      "hpType": "MaxSequenceLength",
+      "uncertain": false,
+      "sourceFile": "generator_configs/paq_L1_config.json",
+      "sourceLine": 61,
+      "wasDerivedFrom": "code",
+      "codeReference": "generator_configs/paq_L1_config.json:61",
+      "path": "generator_configs/paq_L1_config.json",
+      "start_char_doc": 2026,
+      "end_char_doc": 2044,
+      "context": {
+        "prefix": "\"data/models/filtering/fid_reader_nq_base\", \"batch_size\": 4, \"device\": 0,",
+        "suffix": ", \"n_docs\": 50 } }"
+      }
+    },
+    {
+      "@id": "hp_n_docs_filterer_reader",
+      "@type": "MLS_HyperParameter",
+      "name": "n_docs (filterer.reader)",
+      "hasValue": "50",
+      "hpCategory": "HP_Data",
+      "hpType": "HP_Data",
+      "uncertain": true,
+      "sourceFile": "generator_configs/paq_L1_config.json",
+      "sourceLine": 62,
+      "wasDerivedFrom": "code",
+      "codeReference": "generator_configs/paq_L1_config.json:62",
+      "path": "generator_configs/paq_L1_config.json",
+      "start_char_doc": 1785,
+      "end_char_doc": 1797,
+      "context": {
+        "prefix": "\"batch_size\": 128, \"n_queries_to_parallelize\": 2048, \"max_seq_len\":256,",
+        "suffix": ", \"device\": 0 } },"
+      }
+    },
+    {
+      "@id": "hp_top_k_retriever",
+      "@type": "MLS_HyperParameter",
+      "name": "top_k (retriever)",
+      "hasValue": "50",
+      "hpCategory": "HP_Data",
+      "hpType": "HP_Data",
+      "uncertain": true,
+      "sourceFile": "paq/retrievers/retrieve.py",
+      "sourceLine": 136,
+      "wasDerivedFrom": "code",
+      "codeReference": "paq/retrievers/retrieve.py:136",
+      "path": "paq/retrievers/retrieve.py",
+      "start_char_doc": 5511,
+      "end_char_doc": 5518,
+      "context": {
+        "prefix": "from in jsonl format\") parser.add_argument('",
+        "suffix": "', type=int, default=50, help=\"top K"
+      }
+    },
+    {
+      "@id": "hp_batch_size_retriever",
+      "@type": "MLS_HyperParameter",
+      "name": "batch_size (retriever)",
+      "hasValue": "128",
+      "hpCategory": "HP_Training",
+      "hpType": "BatchSize",
+      "uncertain": false,
+      "sourceFile": "paq/retrievers/retrieve.py",
+      "sourceLine": 141,
+      "wasDerivedFrom": "code",
+      "codeReference": "paq/retrievers/retrieve.py:141",
+      "path": "paq/retrievers/retrieve.py",
+      "start_char_doc": 6089,
+      "end_char_doc": 6101,
+      "context": {
+        "prefix": "embeddign vectors\") parser.add_argument('--fp16', action='store_true') parser.add_argument('",
+        "suffix": "', type=int, default=128, help='Batch size"
+      }
+    },
+    {
+      "@id": "hp_batch_size_embed",
+      "@type": "MLS_HyperParameter",
+      "name": "batch_size (embed)",
+      "hasValue": "128",
+      "hpCategory": "HP_Training",
+      "hpType": "BatchSize",
+      "uncertain": false,
+      "sourceFile": "paq/retrievers/embed.py",
+      "sourceLine": 81,
+      "wasDerivedFrom": "code",
+      "codeReference": "paq/retrievers/embed.py:81",
+      "path": "paq/retrievers/embed.py",
+      "start_char_doc": 3188,
+      "end_char_doc": 3200,
+      "context": {
+        "prefix": "vectors to') parser.add_argument('--fp16', action='store_true') parser.add_argument('",
+        "suffix": "', type=int, default=128) parser.add_argument('--memory_friendly_parsing', action='store_true',"
+      }
+    },
+    {
+      "@id": "hp_batch_size_reranker",
+      "@type": "MLS_HyperParameter",
+      "name": "batch_size (reranker)",
+      "hasValue": "8",
+      "hpCategory": "HP_Training",
+      "hpType": "BatchSize",
+      "uncertain": false,
+      "sourceFile": "paq/rerankers/rerank.py",
+      "sourceLine": 144,
+      "wasDerivedFrom": "code",
+      "codeReference": "paq/rerankers/rerank.py:144",
+      "path": "paq/rerankers/rerank.py",
+      "start_char_doc": 5170,
+      "end_char_doc": 5182,
+      "context": {
+        "prefix": "to rerank') parser.add_argument('--fp16', action='store_true') parser.add_argument('",
+        "suffix": "', type=int, default=8) parser.add_argument('--n_jobs', type=int,"
+      }
+    },
+    {
+      "@id": "hp_top_k_reranker",
+      "@type": "MLS_HyperParameter",
+      "name": "top_k (reranker)",
+      "hasValue": "50",
+      "hpCategory": "HP_Data",
+      "hpType": "HP_Data",
+      "uncertain": true,
+      "sourceFile": "paq/rerankers/rerank.py",
+      "sourceLine": 142,
+      "wasDerivedFrom": "code",
+      "codeReference": "paq/rerankers/rerank.py:142",
+      "path": "paq/rerankers/rerank.py",
+      "start_char_doc": 5034,
+      "end_char_doc": 5041,
+      "context": {
+        "prefix": "each filenmae in --qas_to_rerank') parser.add_argument('",
+        "suffix": "', type=int, default=50, help='top k"
+      }
+    },
+    {
+      "@id": "hp_embedding_dim",
+      "@type": "MLS_HyperParameter",
+      "name": "Embedding Dim (retriever_multi_base_256)",
+      "hasValue": "256",
+      "hpCategory": "HP_Architecture",
+      "hpType": "EmbeddingDim",
+      "uncertain": false,
+      "sourceFile": "README.md",
+      "sourceLine": 280,
+      "wasDerivedFrom": "code",
+      "codeReference": "README.md:280",
+      "path": "README.md",
+      "start_char_doc": 14788,
+      "end_char_doc": 14801,
+      "context": {
+        "prefix": "Training data | Architecture |",
+        "suffix": "| NQ EM | +"
+      }
+    },
+    {
+      "@id": "hp_store_n",
+      "@type": "MLS_HyperParameter",
+      "name": "store_n",
+      "hasValue": "32",
+      "hpCategory": "HP_Architecture",
+      "hpType": "UnknownArchitectureHP",
+      "uncertain": true,
+      "sourceFile": "paq/retrievers/build_index.py",
+      "sourceLine": 134,
+      "wasDerivedFrom": "code",
+      "codeReference": "paq/retrievers/build_index.py:134",
+      "path": "paq/retrievers/build_index.py",
+      "start_char_doc": 5327,
+      "end_char_doc": 5336,
+      "context": {
+        "prefix": "index to save memory') parser.add_argument('",
+        "suffix": "', type=int, default=32, help='hnsw store_n"
+      }
+    },
+    {
+      "@id": "hp_ef_construction",
+      "@type": "MLS_HyperParameter",
+      "name": "ef_construction",
+      "hasValue": "128",
+      "hpCategory": "HP_Architecture",
+      "hpType": "UnknownArchitectureHP",
+      "uncertain": true,
+      "sourceFile": "paq/retrievers/build_index.py",
+      "sourceLine": 135,
+      "wasDerivedFrom": "code",
+      "codeReference": "paq/retrievers/build_index.py:135",
+      "path": "paq/retrievers/build_index.py",
+      "start_char_doc": 5417,
+      "end_char_doc": 5434,
+      "context": {
+        "prefix": "default=32, help='hnsw store_n parameter') parser.add_argument('",
+        "suffix": "', type=int, default=128, help='hnsw ef_construction"
+      }
+    },
+    {
+      "@id": "hp_ef_search",
+      "@type": "MLS_HyperParameter",
+      "name": "ef_search",
+      "hasValue": "128",
+      "hpCategory": "HP_Architecture",
+      "hpType": "UnknownArchitectureHP",
+      "uncertain": true,
+      "sourceFile": "paq/retrievers/build_index.py",
+      "sourceLine": 136,
+      "wasDerivedFrom": "code",
+      "codeReference": "paq/retrievers/build_index.py:136",
+      "path": "paq/retrievers/build_index.py",
+      "start_char_doc": 5524,
+      "end_char_doc": 5535,
+      "context": {
+        "prefix": "default=128, help='hnsw ef_construction parameter') parser.add_argument('",
+        "suffix": "', type=int, default=128, help='hnsw ef_search"
+      }
+    },
+    {
+      "@id": "hp_hits_at_k",
+      "@type": "MLS_HyperParameter",
+      "name": "hits_at_k",
+      "hasValue": "1,10,50",
+      "hpCategory": "HP_Data",
+      "hpType": "HP_Data",
+      "uncertain": true,
+      "sourceFile": "paq/evaluation/eval_retriever.py",
+      "sourceLine": null,
+      "wasDerivedFrom": "code",
+      "codeReference": "paq/evaluation/eval_retriever.py",
+      "path": "paq/evaluation/eval_retriever.py",
+      "start_char_doc": 1423,
+      "end_char_doc": 1434,
+      "context": {
+        "prefix": "answers, in jsonl format\") parser.add_argument('",
+        "suffix": "', type=str, help='comma separated list"
+      }
+    },
+    {
+      "@id": "preprocess_passage_scoring",
+      "@type": "DataProcessingStep",
+      "identifier": "Passage Scoring/Ranking",
+      "description": "Scores and ranks Wikipedia passages using a learnt passage scorer (BERT-base) to select high-quality passages for QA-pair generation.",
+      "transformationType": "feature_extraction",
+      "startedAtTime": null,
+      "endedAtTime": null,
+      "inputDataset": null,
+      "outputDataset": null,
+      "prov-executedBy": {
+        "@id": "impl_paq"
+      },
+      "wasDerivedFrom": "code",
+      "codeReference": "paq/generation/passage_scorer/score_passages.py",
+      "path": "README.md",
+      "start_char_doc": 595,
+      "end_char_doc": 604,
+      "context": {
+        "prefix": "* [PAQ Metadata](#paq-metadata) * [Preprocessed",
+        "suffix": "Dump](#preprocessed-wikipedia-dump) * [Passage Selector Scores](#passage-selector-scores)"
+      }
+    },
+    {
+      "@id": "preprocess_answer_extraction",
+      "@type": "DataProcessingStep",
+      "identifier": "Answer Extraction",
+      "description": "Extracts candidate answer spans from scored passages using either a learnt Span2D extractor (BERT-base) or a SpaCy NER extractor.",
+      "transformationType": "feature_extraction",
+      "startedAtTime": null,
+      "endedAtTime": null,
+      "inputDataset": null,
+      "outputDataset": null,
+      "prov-executedBy": {
+        "@id": "impl_paq"
+      },
+      "wasDerivedFrom": "code",
+      "codeReference": "paq/generation/answer_extractor/extract_answers.py",
+      "path": "README.md",
+      "start_char_doc": 1986,
+      "end_char_doc": 2003,
+      "context": {
+        "prefix": "* [Passage Scoring/Ranking](#passage-scoringranking) * [",
+        "suffix": "](#answer-extraction) * [Question Generation](#question-generation) *"
+      }
+    },
+    {
+      "@id": "preprocess_question_generation",
+      "@type": "DataProcessingStep",
+      "identifier": "Question Generation",
+      "description": "Generates questions from passage-answer pairs using a seq2seq model (BART-base) with beam search decoding.",
+      "transformationType": "feature_extraction",
+      "startedAtTime": null,
+      "endedAtTime": null,
+      "inputDataset": null,
+      "outputDataset": null,
+      "prov-executedBy": {
+        "@id": "impl_paq"
+      },
+      "wasDerivedFrom": "code",
+      "codeReference": "paq/generation/question_generator/generate_questions.py",
+      "path": "README.md",
+      "start_char_doc": 34475,
+      "end_char_doc": 34484,
+      "context": {
+        "prefix": "generated from. The reader (`FiDReader`)",
+        "suffix": "an answer using only this"
+      }
+    },
+    {
+      "@id": "preprocess_filtering",
+      "@type": "DataProcessingStep",
+      "identifier": "QA-Pair Consistency Filtering",
+      "description": "Filters generated QA-pairs for answer consistency using a DPR retriever and FiD reader (T5-base). Supports global and local filtering modes.",
+      "transformationType": "cleaning",
+      "startedAtTime": null,
+      "endedAtTime": null,
+      "inputDataset": null,
+      "outputDataset": null,
+      "prov-executedBy": {
+        "@id": "impl_paq"
+      },
+      "wasDerivedFrom": "code",
+      "codeReference": "paq/generation/filtering/filter_questions.py",
+      "path": "README.md",
+      "start_char_doc": 7521,
+      "end_char_doc": 7528,
+      "context": {
+        "prefix": "in, which pass the consistnency",
+        "suffix": "(\"L1\", \"L4\" or \"NE\") \"canonical_answer\":"
+      }
+    },
+    {
+      "@id": "training_paq_generation",
+      "@type": "TrainingRun",
+      "runId": "paq_generation_pipeline",
+      "description": "End-to-end PAQ QA-pair generation pipeline: passage scoring, answer extraction, question generation, and consistency filtering. Orchestrated by generate_qa_pairs.py with JSON config files.",
+      "logFile": null,
+      "artifactsLocation": null,
+      "startedAtTime": null,
+      "endedAtTime": null,
+      "prov-executedBy": {
+        "@id": "impl_paq"
+      },
+      "used": null,
+      "trains": null,
+      "wasDerivedFrom": "code",
+      "codeReference": "paq/generation/generate_qa_pairs.py",
+      "path": "README.md",
+      "start_char_doc": 2153,
+      "end_char_doc": 2156,
+      "context": {
+        "prefix": "[Filtering Generated QA-pairs](#filtering-generated-qa-pairs) * [",
+        "suffix": "2End Generation Tool](#end2end-generation-tool) * [Citing](#citing)"
+      }
+    },
+    {
+      "@id": "evaluation_retriever",
+      "@type": "EvaluationRun",
+      "runId": "eval_retriever",
+      "description": "Evaluates RePAQ retriever performance using hits@k metric (hits@1 = Exact Match) on NQ-open and TriviaQA test sets.",
+      "split": "test",
+      "evaluationScript": "paq/evaluation/eval_retriever.py",
+      "metricsFile": null,
+      "startedAtTime": null,
+      "endedAtTime": null,
+      "prov-executedBy": {
+        "@id": "impl_paq"
+      },
+      "evaluates": null,
+      "prov-generated": [
+        {
+          "@id": "prediction_retriever"
+        }
+      ],
+      "wasDerivedFrom": "code",
+      "codeReference": "paq/evaluation/eval_retriever.py",
+      "path": "README.md",
+      "start_char_doc": 22020,
+      "end_char_doc": 22031,
+      "context": {
+        "prefix": "answers). Hits@1 is equivalent to",
+        "suffix": "score ```bash $ python -m"
+      }
+    },
+    {
+      "@id": "evaluation_reranker",
+      "@type": "EvaluationRun",
+      "runId": "eval_reranker",
+      "description": "Evaluates RePAQ reranker performance using Exact Match score on NQ-open and TriviaQA test sets.",
+      "split": "test",
+      "evaluationScript": "paq/evaluation/eval_reranker.py",
+      "metricsFile": null,
+      "startedAtTime": null,
+      "endedAtTime": null,
+      "prov-executedBy": {
+        "@id": "impl_paq"
+      },
+      "evaluates": null,
+      "prov-generated": [
+        {
+          "@id": "prediction_reranker"
+        }
+      ],
+      "wasDerivedFrom": "code",
+      "codeReference": "paq/evaluation/eval_reranker.py",
+      "path": "README.md",
+      "start_char_doc": 22020,
+      "end_char_doc": 22031,
+      "context": {
+        "prefix": "answers). Hits@1 is equivalent to",
+        "suffix": "score ```bash $ python -m"
+      }
+    },
+    {
+      "@id": "prediction_retriever",
+      "@type": "PredictionSet",
+      "identifier": "RePAQ Retriever Predictions",
+      "description": "Retrieved top-K QA-pairs from the PAQ knowledge base for input questions using dense retrieval with FAISS indexing.",
+      "predictionFormat": "jsonl",
+      "storageLocation": null,
+      "numInstances": null,
+      "onDatasetSplit": "test",
+      "appliedTo": null,
+      "wasGeneratedBy": {
+        "@id": "evaluation_retriever"
+      },
+      "producedBy": {
+        "@id": "impl_paq"
+      },
+      "wasDerivedFrom": "code",
+      "codeReference": "paq/retrievers/retrieve.py",
+      "path": "README.md",
+      "start_char_doc": 20204,
+      "end_char_doc": 20230,
+      "context": {
+        "prefix": "Run QA-pair Retrieval using `",
+        "suffix": "`. You can see argument"
+      }
+    },
+    {
+      "@id": "prediction_reranker",
+      "@type": "PredictionSet",
+      "identifier": "RePAQ Reranker Predictions",
+      "description": "Reranked retrieval results using an ALBERT-based multiple-choice reranker to select the best QA-pair answer.",
+      "predictionFormat": "jsonl",
+      "storageLocation": null,
+      "numInstances": null,
+      "onDatasetSplit": "test",
+      "appliedTo": null,
+      "wasGeneratedBy": {
+        "@id": "evaluation_reranker"
+      },
+      "producedBy": {
+        "@id": "impl_paq"
+      },
+      "wasDerivedFrom": "code",
+      "codeReference": "paq/rerankers/rerank.py",
+      "path": "README.md",
+      "start_char_doc": 24202,
+      "end_char_doc": 24225,
+      "context": {
+        "prefix": "Run QA-pair Retrieval using `",
+        "suffix": "`. You can see argument"
+      }
+    },
+    {
+      "@id": "prediction_generated_qas",
+      "@type": "PredictionSet",
+      "identifier": "Generated QA-Pairs (final_qas.jsonl)",
+      "description": "Final generated and filtered QA-pairs produced by the end-to-end PAQ generation pipeline, written to final_qas.jsonl.",
+      "predictionFormat": "jsonl",
+      "storageLocation": null,
+      "numInstances": null,
+      "onDatasetSplit": null,
+      "appliedTo": null,
+      "wasGeneratedBy": {
+        "@id": "training_paq_generation"
+      },
+      "producedBy": {
+        "@id": "impl_paq"
+      },
+      "wasDerivedFrom": "code",
+      "codeReference": "paq/generation/generate_qa_pairs.py",
+      "path": "README.md",
+      "start_char_doc": 13775,
+      "end_char_doc": 13780,
+      "context": {
+        "prefix": "\\ --memory_friendly_parsing \\ --verbose ```",
+        "suffix": "ly, either use a reranker"
+      }
+    }
+  ]
+}
