@@ -1,0 +1,1579 @@
+{
+  "@context": {
+    "mls": "http://example.org/ontology/mls#",
+    "schema": "http://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "SoftwareRepository": "mls:SoftwareRepository",
+    "MLS_Implementation": "mls:MLS_Implementation",
+    "MLS_HyperParameter": "mls:MLS_HyperParameter",
+    "Dependency": "mls:Dependency",
+    "Environment": "mls:Environment",
+    "DataProcessingStep": "mls:DataProcessingStep",
+    "TrainingRun": "mls:TrainingRun",
+    "EvaluationRun": "mls:EvaluationRun",
+    "PredictionSet": "mls:PredictionSet",
+    "name": "schema:name",
+    "identifier": "schema:identifier",
+    "description": "schema:description",
+    "url": "schema:url",
+    "version": "schema:version",
+    "license": "schema:license",
+    "programmingLanguage": "schema:programmingLanguage",
+    "dateModified": {
+      "@id": "schema:dateModified",
+      "@type": "xsd:dateTime"
+    },
+    "documentationUrl": {
+      "@id": "mls:documentationUrl",
+      "@type": "xsd:anyURI"
+    },
+    "owner": "mls:owner",
+    "platform": "mls:platform",
+    "codeRepository": {
+      "@id": "mls:codeRepository",
+      "@type": "xsd:anyURI"
+    },
+    "framework": "mls:framework",
+    "entryPoint": "mls:entryPoint",
+    "entryPointCommand": "mls:entryPointCommand",
+    "executionCommand": "mls:executionCommand",
+    "commitHash": "mls:commitHash",
+    "branch": "mls:branch",
+    "dependenciesHash": "mls:dependenciesHash",
+    "packageName": "mls:packageName",
+    "dependencyType": "mls:dependencyType",
+    "isOptional": {
+      "@id": "mls:isOptional",
+      "@type": "xsd:boolean"
+    },
+    "hardwareSpecs": "mls:hardwareSpecs",
+    "os": "mls:os",
+    "pythonVersion": "mls:pythonVersion",
+    "requirementsFile": "mls:requirementsFile",
+    "isDockerized": {
+      "@id": "mls:isDockerized",
+      "@type": "xsd:boolean"
+    },
+    "hasValue": {
+      "@id": "mls:hasValue",
+      "@type": "xsd:string"
+    },
+    "hpCategory": "mls:hpCategory",
+    "hpType": "mls:hpType",
+    "sourceFile": "mls:sourceFile",
+    "sourceLine": {
+      "@id": "mls:sourceLine",
+      "@type": "xsd:integer"
+    },
+    "uncertain": {
+      "@id": "mls:uncertain",
+      "@type": "xsd:boolean"
+    },
+    "transformationType": "mls:transformationType",
+    "codeReference": {
+      "@id": "mls:codeReference",
+      "@type": "xsd:anyURI"
+    },
+    "runId": "mls:runId",
+    "logFile": {
+      "@id": "mls:logFile",
+      "@type": "xsd:anyURI"
+    },
+    "artifactsLocation": {
+      "@id": "mls:artifactsLocation",
+      "@type": "xsd:anyURI"
+    },
+    "split": "mls:split",
+    "evaluationScript": "mls:evaluationScript",
+    "evaluationSplit": "mls:evaluationSplit",
+    "metricsFile": "mls:metricsFile",
+    "format": "mls:format",
+    "predictionFormat": "mls:predictionFormat",
+    "storageLocation": "mls:storageLocation",
+    "numInstances": {
+      "@id": "mls:numInstances",
+      "@type": "xsd:integer"
+    },
+    "onDatasetSplit": "mls:onDatasetSplit",
+    "startedAtTime": {
+      "@id": "prov:startedAtTime",
+      "@type": "xsd:dateTime"
+    },
+    "endedAtTime": {
+      "@id": "prov:endedAtTime",
+      "@type": "xsd:dateTime"
+    },
+    "contains": {
+      "@id": "mls:contains",
+      "@type": "@id"
+    },
+    "supports": {
+      "@id": "mls:supports",
+      "@type": "@id"
+    },
+    "runsIn": {
+      "@id": "mls:runsIn",
+      "@type": "@id"
+    },
+    "requires": {
+      "@id": "mls:requires",
+      "@type": "@id"
+    },
+    "inputDataset": {
+      "@id": "mls:inputDataset",
+      "@type": "@id"
+    },
+    "outputDataset": {
+      "@id": "mls:outputDataset",
+      "@type": "@id"
+    },
+    "trains": {
+      "@id": "mls:trains",
+      "@type": "@id"
+    },
+    "evaluates": {
+      "@id": "mls:evaluates",
+      "@type": "@id"
+    },
+    "appliedTo": {
+      "@id": "mls:appliedTo",
+      "@type": "@id"
+    },
+    "producedBy": {
+      "@id": "mls:producedBy",
+      "@type": "@id"
+    },
+    "prov-executedBy": {
+      "@id": "mls:prov-executedBy",
+      "@type": "@id"
+    },
+    "prov-generated": {
+      "@id": "mls:prov-generated",
+      "@type": "@id"
+    },
+    "used": {
+      "@id": "prov:used",
+      "@type": "@id"
+    },
+    "wasGeneratedBy": {
+      "@id": "prov:wasGeneratedBy",
+      "@type": "@id"
+    },
+    "wasDerivedFrom": {
+      "@id": "prov:wasDerivedFrom",
+      "@type": "@id"
+    },
+    "wasAssociatedWith": {
+      "@id": "prov:wasAssociatedWith",
+      "@type": "@id"
+    }
+  },
+  "@graph": [
+    {
+      "@id": "repo_zenhjunpro_ATSEN",
+      "@type": "SoftwareRepository",
+      "name": "ATSEN",
+      "url": "https://github.com/zenhjunpro/ATSEN",
+      "owner": "zenhjunpro",
+      "platform": "GitHub",
+      "programmingLanguage": "Python",
+      "version": null,
+      "license": null,
+      "dateModified": null,
+      "documentationUrl": "https://github.com/zenhjunpro/ATSEN/blob/main/README.md",
+      "contains": [
+        {
+          "@id": "impl_ATSEN"
+        }
+      ],
+      "supports": [
+        {
+          "@id": "env_ATSEN"
+        }
+      ],
+      "wasDerivedFrom": "code",
+      "codeReference": "README.md:1",
+      "path": "README.md",
+      "start_char_doc": 3,
+      "end_char_doc": 8,
+      "context": {
+        "prefix": "##",
+        "suffix": "The source code used for"
+      }
+    },
+    {
+      "@id": "impl_ATSEN",
+      "@type": "MLS_Implementation",
+      "identifier": "ATSEN - Adaptive Teacher Learning and Fine-grained Student Ensemble for DS-NER",
+      "codeRepository": "https://github.com/zenhjunpro/ATSEN",
+      "framework": "PyTorch",
+      "entryPoint": "main.py",
+      "entryPointCommand": "python3 -u main.py --data_dir $DATA_ROOT --student1_model_name_or_path roberta-base --student2_model_name_or_path distilroberta-base --output_dir $OUTPUT --do_train --dataset conll03",
+      "executionCommand": "sh run_conll03.sh 0,1 conll03",
+      "commitHash": null,
+      "branch": "main",
+      "dependenciesHash": null,
+      "runsIn": {
+        "@id": "env_ATSEN"
+      },
+      "requires": [
+        {
+          "@id": "dep_apex"
+        },
+        {
+          "@id": "dep_torch"
+        },
+        {
+          "@id": "dep_transformers"
+        },
+        {
+          "@id": "dep_numpy"
+        },
+        {
+          "@id": "dep_tqdm"
+        },
+        {
+          "@id": "dep_scikit-learn"
+        },
+        {
+          "@id": "dep_scipy"
+        },
+        {
+          "@id": "dep_tensorboardX"
+        },
+        {
+          "@id": "dep_tokenizers"
+        },
+        {
+          "@id": "dep_PyYAML"
+        },
+        {
+          "@id": "dep_requests"
+        },
+        {
+          "@id": "dep_matplotlib"
+        },
+        {
+          "@id": "dep_Pillow"
+        },
+        {
+          "@id": "dep_huggingface-hub"
+        },
+        {
+          "@id": "dep_flashtool"
+        },
+        {
+          "@id": "dep_psutil"
+        },
+        {
+          "@id": "dep_protobuf"
+        },
+        {
+          "@id": "dep_joblib"
+        }
+      ],
+      "wasDerivedFrom": "code",
+      "codeReference": "main.py:678",
+      "path": "main.py",
+      "start_char_doc": 30856,
+      "end_char_doc": 30882,
+      "context": {
+        "prefix": "# # example_id += 1",
+        "suffix": "main()"
+      }
+    },
+    {
+      "@id": "env_ATSEN",
+      "@type": "Environment",
+      "name": "ATSEN Python 3.7.4 + PyTorch 1.6.0 + CUDA Environment",
+      "framework": "PyTorch 1.6.0",
+      "pythonVersion": "3.7.4",
+      "os": null,
+      "hardwareSpecs": "At least one GPU required",
+      "requirementsFile": "requirements.txt",
+      "isDockerized": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "requirements.txt:32",
+      "path": "requirements.txt",
+      "start_char_doc": 528,
+      "end_char_doc": 540,
+      "context": {
+        "prefix": "six==1.16.0 sklearn==0.0 tensorboardX==2.5.1 threadpoolctl==3.1.0 tokenizers==0.12.1",
+        "suffix": "tqdm==4.64.0 transformers==4.19.3 typing_extensions==4.2.0 urllib3==1.26.9 zipp==3.8.0"
+      }
+    },
+    {
+      "@id": "dep_apex",
+      "@type": "Dependency",
+      "packageName": "apex",
+      "version": "0.1",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "requirements.txt:1",
+      "path": "requirements.txt",
+      "start_char_doc": 0,
+      "end_char_doc": 9,
+      "context": {
+        "prefix": "",
+        "suffix": "certifi==2022.5.18.1 charset-normalizer==2.0.12 cycler==0.11.0 filelock==3.7.1 flashtool==0.0.10"
+      }
+    },
+    {
+      "@id": "dep_torch",
+      "@type": "Dependency",
+      "packageName": "torch",
+      "version": "1.6.0",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "requirements.txt:32",
+      "path": "requirements.txt",
+      "start_char_doc": 528,
+      "end_char_doc": 540,
+      "context": {
+        "prefix": "six==1.16.0 sklearn==0.0 tensorboardX==2.5.1 threadpoolctl==3.1.0 tokenizers==0.12.1",
+        "suffix": "tqdm==4.64.0 transformers==4.19.3 typing_extensions==4.2.0 urllib3==1.26.9 zipp==3.8.0"
+      }
+    },
+    {
+      "@id": "dep_transformers",
+      "@type": "Dependency",
+      "packageName": "transformers",
+      "version": "4.19.3",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "requirements.txt:34",
+      "path": "requirements.txt",
+      "start_char_doc": 554,
+      "end_char_doc": 574,
+      "context": {
+        "prefix": "tensorboardX==2.5.1 threadpoolctl==3.1.0 tokenizers==0.12.1 torch==1.6.0 tqdm==4.64.0",
+        "suffix": "typing_extensions==4.2.0 urllib3==1.26.9 zipp==3.8.0"
+      }
+    },
+    {
+      "@id": "dep_numpy",
+      "@type": "Dependency",
+      "packageName": "numpy",
+      "version": "1.21.6",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "requirements.txt:15",
+      "path": "requirements.txt",
+      "start_char_doc": 250,
+      "end_char_doc": 263,
+      "context": {
+        "prefix": "idna==3.3 importlib-metadata==4.11.4 joblib==1.1.0 kiwisolver==1.4.4 matplotlib==3.5.3",
+        "suffix": "packaging==21.3 Pillow==9.2.0 protobuf==3.20.1 psutil==5.9.1 pyparsing==3.0.9"
+      }
+    },
+    {
+      "@id": "dep_tqdm",
+      "@type": "Dependency",
+      "packageName": "tqdm",
+      "version": "4.64.0",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "requirements.txt:33",
+      "path": "requirements.txt",
+      "start_char_doc": 541,
+      "end_char_doc": 553,
+      "context": {
+        "prefix": "sklearn==0.0 tensorboardX==2.5.1 threadpoolctl==3.1.0 tokenizers==0.12.1 torch==1.6.0",
+        "suffix": "transformers==4.19.3 typing_extensions==4.2.0 urllib3==1.26.9 zipp==3.8.0"
+      }
+    },
+    {
+      "@id": "dep_scikit-learn",
+      "@type": "Dependency",
+      "packageName": "scikit-learn",
+      "version": "1.0.2",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "requirements.txt:25",
+      "path": "requirements.txt",
+      "start_char_doc": 410,
+      "end_char_doc": 429,
+      "context": {
+        "prefix": "pyparsing==3.0.9 python-dateutil==2.8.2 PyYAML==6.0 regex==2022.6.2 requests==2.28.0",
+        "suffix": "scipy==1.7.3 six==1.16.0 sklearn==0.0 tensorboardX==2.5.1 threadpoolctl==3.1.0"
+      }
+    },
+    {
+      "@id": "dep_scipy",
+      "@type": "Dependency",
+      "packageName": "scipy",
+      "version": "1.7.3",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "requirements.txt:26",
+      "path": "requirements.txt",
+      "start_char_doc": 430,
+      "end_char_doc": 442,
+      "context": {
+        "prefix": "python-dateutil==2.8.2 PyYAML==6.0 regex==2022.6.2 requests==2.28.0 scikit-learn==1.0.2",
+        "suffix": "six==1.16.0 sklearn==0.0 tensorboardX==2.5.1 threadpoolctl==3.1.0 tokenizers==0.12.1"
+      }
+    },
+    {
+      "@id": "dep_tensorboardX",
+      "@type": "Dependency",
+      "packageName": "tensorboardX",
+      "version": "2.5.1",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "requirements.txt:29",
+      "path": "requirements.txt",
+      "start_char_doc": 468,
+      "end_char_doc": 487,
+      "context": {
+        "prefix": "requests==2.28.0 scikit-learn==1.0.2 scipy==1.7.3 six==1.16.0 sklearn==0.0",
+        "suffix": "threadpoolctl==3.1.0 tokenizers==0.12.1 torch==1.6.0 tqdm==4.64.0 transformers==4.19.3"
+      }
+    },
+    {
+      "@id": "dep_tokenizers",
+      "@type": "Dependency",
+      "packageName": "tokenizers",
+      "version": "0.12.1",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "requirements.txt:31",
+      "path": "requirements.txt",
+      "start_char_doc": 509,
+      "end_char_doc": 527,
+      "context": {
+        "prefix": "scipy==1.7.3 six==1.16.0 sklearn==0.0 tensorboardX==2.5.1 threadpoolctl==3.1.0",
+        "suffix": "torch==1.6.0 tqdm==4.64.0 transformers==4.19.3 typing_extensions==4.2.0 urllib3==1.26.9"
+      }
+    },
+    {
+      "@id": "dep_PyYAML",
+      "@type": "Dependency",
+      "packageName": "PyYAML",
+      "version": "6.0",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "requirements.txt:22",
+      "path": "requirements.txt",
+      "start_char_doc": 365,
+      "end_char_doc": 376,
+      "context": {
+        "prefix": "Pillow==9.2.0 protobuf==3.20.1 psutil==5.9.1 pyparsing==3.0.9 python-dateutil==2.8.2",
+        "suffix": "regex==2022.6.2 requests==2.28.0 scikit-learn==1.0.2 scipy==1.7.3 six==1.16.0"
+      }
+    },
+    {
+      "@id": "dep_requests",
+      "@type": "Dependency",
+      "packageName": "requests",
+      "version": "2.28.0",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "requirements.txt:24",
+      "path": "requirements.txt",
+      "start_char_doc": 393,
+      "end_char_doc": 409,
+      "context": {
+        "prefix": "psutil==5.9.1 pyparsing==3.0.9 python-dateutil==2.8.2 PyYAML==6.0 regex==2022.6.2",
+        "suffix": "scikit-learn==1.0.2 scipy==1.7.3 six==1.16.0 sklearn==0.0 tensorboardX==2.5.1"
+      }
+    },
+    {
+      "@id": "dep_matplotlib",
+      "@type": "Dependency",
+      "packageName": "matplotlib",
+      "version": "3.5.3",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "requirements.txt:14",
+      "path": "requirements.txt",
+      "start_char_doc": 232,
+      "end_char_doc": 249,
+      "context": {
+        "prefix": "huggingface-hub==0.7.0 idna==3.3 importlib-metadata==4.11.4 joblib==1.1.0 kiwisolver==1.4.4",
+        "suffix": "numpy==1.21.6 packaging==21.3 Pillow==9.2.0 protobuf==3.20.1 psutil==5.9.1"
+      }
+    },
+    {
+      "@id": "dep_Pillow",
+      "@type": "Dependency",
+      "packageName": "Pillow",
+      "version": "9.2.0",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "requirements.txt:17",
+      "path": "requirements.txt",
+      "start_char_doc": 280,
+      "end_char_doc": 293,
+      "context": {
+        "prefix": "joblib==1.1.0 kiwisolver==1.4.4 matplotlib==3.5.3 numpy==1.21.6 packaging==21.3",
+        "suffix": "protobuf==3.20.1 psutil==5.9.1 pyparsing==3.0.9 python-dateutil==2.8.2 PyYAML==6.0"
+      }
+    },
+    {
+      "@id": "dep_huggingface-hub",
+      "@type": "Dependency",
+      "packageName": "huggingface-hub",
+      "version": "0.7.0",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "requirements.txt:9",
+      "path": "requirements.txt",
+      "start_char_doc": 140,
+      "end_char_doc": 162,
+      "context": {
+        "prefix": "cycler==0.11.0 filelock==3.7.1 flashtool==0.0.10 fonttools==4.37.4 future==0.18.2",
+        "suffix": "idna==3.3 importlib-metadata==4.11.4 joblib==1.1.0 kiwisolver==1.4.4 matplotlib==3.5.3"
+      }
+    },
+    {
+      "@id": "dep_flashtool",
+      "@type": "Dependency",
+      "packageName": "flashtool",
+      "version": "0.0.10",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "requirements.txt:6",
+      "path": "requirements.txt",
+      "start_char_doc": 89,
+      "end_char_doc": 106,
+      "context": {
+        "prefix": "apex==0.1 certifi==2022.5.18.1 charset-normalizer==2.0.12 cycler==0.11.0 filelock==3.7.1",
+        "suffix": "fonttools==4.37.4 future==0.18.2 huggingface-hub==0.7.0 idna==3.3 importlib-metadata==4.11.4"
+      }
+    },
+    {
+      "@id": "dep_psutil",
+      "@type": "Dependency",
+      "packageName": "psutil",
+      "version": "5.9.1",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "requirements.txt:19",
+      "path": "requirements.txt",
+      "start_char_doc": 311,
+      "end_char_doc": 324,
+      "context": {
+        "prefix": "matplotlib==3.5.3 numpy==1.21.6 packaging==21.3 Pillow==9.2.0 protobuf==3.20.1",
+        "suffix": "pyparsing==3.0.9 python-dateutil==2.8.2 PyYAML==6.0 regex==2022.6.2 requests==2.28.0"
+      }
+    },
+    {
+      "@id": "dep_protobuf",
+      "@type": "Dependency",
+      "packageName": "protobuf",
+      "version": "3.20.1",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "requirements.txt:18",
+      "path": "requirements.txt",
+      "start_char_doc": 294,
+      "end_char_doc": 310,
+      "context": {
+        "prefix": "kiwisolver==1.4.4 matplotlib==3.5.3 numpy==1.21.6 packaging==21.3 Pillow==9.2.0",
+        "suffix": "psutil==5.9.1 pyparsing==3.0.9 python-dateutil==2.8.2 PyYAML==6.0 regex==2022.6.2"
+      }
+    },
+    {
+      "@id": "dep_joblib",
+      "@type": "Dependency",
+      "packageName": "joblib",
+      "version": "1.1.0",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "requirements.txt:12",
+      "path": "requirements.txt",
+      "start_char_doc": 200,
+      "end_char_doc": 213,
+      "context": {
+        "prefix": "fonttools==4.37.4 future==0.18.2 huggingface-hub==0.7.0 idna==3.3 importlib-metadata==4.11.4",
+        "suffix": "kiwisolver==1.4.4 matplotlib==3.5.3 numpy==1.21.6 packaging==21.3 Pillow==9.2.0"
+      }
+    },
+    {
+      "@id": "hp_learning_rate_conll03",
+      "@type": "MLS_HyperParameter",
+      "name": "learning_rate (CoNLL03)",
+      "hasValue": "1e-5",
+      "hpCategory": "HP_Optimization",
+      "hpType": "LearningRate",
+      "uncertain": false,
+      "sourceFile": "run_conll03.sh",
+      "sourceLine": 19,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_conll03.sh:19",
+      "path": "run_conll03.sh",
+      "start_char_doc": 368,
+      "end_char_doc": 375,
+      "context": {
+        "prefix": "STUDENT2_MODEL_NAME=distilroberta-base # self-collaborative learning parameters",
+        "suffix": "WARMUP=200 # Sche. Warmup BEGIN_EPOCH=1"
+      }
+    },
+    {
+      "@id": "hp_learning_rate_ontonotes5",
+      "@type": "MLS_HyperParameter",
+      "name": "learning_rate (OntoNotes5)",
+      "hasValue": "2e-5",
+      "hpCategory": "HP_Optimization",
+      "hpType": "LearningRate",
+      "uncertain": false,
+      "sourceFile": "run_ontonotes5.sh",
+      "sourceLine": 19,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_ontonotes5.sh:19",
+      "path": "run_ontonotes5.sh",
+      "start_char_doc": 368,
+      "end_char_doc": 375,
+      "context": {
+        "prefix": "STUDENT2_MODEL_NAME=distilroberta-base # self-collaborative learning parameters",
+        "suffix": "WARMUP=500 # Sche. Warmup BEGIN_EPOCH=2"
+      }
+    },
+    {
+      "@id": "hp_learning_rate_twitter",
+      "@type": "MLS_HyperParameter",
+      "name": "learning_rate (Twitter)",
+      "hasValue": "2e-5",
+      "hpCategory": "HP_Optimization",
+      "hpType": "LearningRate",
+      "uncertain": false,
+      "sourceFile": "run_twitter.sh",
+      "sourceLine": 19,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_twitter.sh:19",
+      "path": "run_twitter.sh",
+      "start_char_doc": 368,
+      "end_char_doc": 375,
+      "context": {
+        "prefix": "STUDENT2_MODEL_NAME=distilroberta-base # self-collaborative learning parameters",
+        "suffix": "WARMUP=200 # Sche. Warmup BEGIN_EPOCH=6"
+      }
+    },
+    {
+      "@id": "hp_weight_decay",
+      "@type": "MLS_HyperParameter",
+      "name": "weight_decay",
+      "hasValue": "1e-4",
+      "hpCategory": "HP_Optimization",
+      "hpType": "WeightDecay",
+      "uncertain": false,
+      "sourceFile": "run_conll03.sh",
+      "sourceLine": 30,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_conll03.sh:30",
+      "path": "run_conll03.sh",
+      "start_char_doc": 589,
+      "end_char_doc": 606,
+      "context": {
+        "prefix": "EPOCH=50 LABEL_MODE=soft # Twitter hard",
+        "suffix": "SEED=0 ADAM_EPS=1e-8 ADAM_BETA1=0.9 ADAM_BETA2=0.98 EVAL_BATCH=32"
+      }
+    },
+    {
+      "@id": "hp_adam_epsilon",
+      "@type": "MLS_HyperParameter",
+      "name": "adam_epsilon",
+      "hasValue": "1e-8",
+      "hpCategory": "HP_Optimization",
+      "hpType": "HP_Optimization",
+      "uncertain": true,
+      "sourceFile": "run_conll03.sh",
+      "sourceLine": 32,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_conll03.sh:32",
+      "path": "run_conll03.sh",
+      "start_char_doc": 614,
+      "end_char_doc": 627,
+      "context": {
+        "prefix": "# Twitter hard WEIGHT_DECAY=1e-4 SEED=0",
+        "suffix": "ADAM_BETA1=0.9 ADAM_BETA2=0.98 EVAL_BATCH=32 # output"
+      }
+    },
+    {
+      "@id": "hp_adam_beta1",
+      "@type": "MLS_HyperParameter",
+      "name": "adam_beta1",
+      "hasValue": "0.9",
+      "hpCategory": "HP_Optimization",
+      "hpType": "Momentum",
+      "uncertain": false,
+      "sourceFile": "run_conll03.sh",
+      "sourceLine": 33,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_conll03.sh:33",
+      "path": "run_conll03.sh",
+      "start_char_doc": 628,
+      "end_char_doc": 642,
+      "context": {
+        "prefix": "Twitter hard WEIGHT_DECAY=1e-4 SEED=0 ADAM_EPS=1e-8",
+        "suffix": "ADAM_BETA2=0.98 EVAL_BATCH=32 # output OUTPUT=$PROJECT_ROOT/ptms/$DATASET/"
+      }
+    },
+    {
+      "@id": "hp_adam_beta2",
+      "@type": "MLS_HyperParameter",
+      "name": "adam_beta2",
+      "hasValue": "0.98",
+      "hpCategory": "HP_Optimization",
+      "hpType": "Momentum",
+      "uncertain": false,
+      "sourceFile": "run_conll03.sh",
+      "sourceLine": 34,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_conll03.sh:34",
+      "path": "run_conll03.sh",
+      "start_char_doc": 643,
+      "end_char_doc": 658,
+      "context": {
+        "prefix": "hard WEIGHT_DECAY=1e-4 SEED=0 ADAM_EPS=1e-8 ADAM_BETA1=0.9",
+        "suffix": "EVAL_BATCH=32 # output OUTPUT=$PROJECT_ROOT/ptms/$DATASET/ CUDA_DEVICE_ORDER=PCI_BUS_ID"
+      }
+    },
+    {
+      "@id": "hp_warmup_steps_conll03",
+      "@type": "MLS_HyperParameter",
+      "name": "warmup_steps (CoNLL03)",
+      "hasValue": "200",
+      "hpCategory": "HP_Optimization",
+      "hpType": "WarmupSteps",
+      "uncertain": false,
+      "sourceFile": "run_conll03.sh",
+      "sourceLine": 20,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_conll03.sh:20",
+      "path": "run_conll03.sh",
+      "start_char_doc": 376,
+      "end_char_doc": 386,
+      "context": {
+        "prefix": "# self-collaborative learning parameters LR=1e-5",
+        "suffix": "# Sche. Warmup BEGIN_EPOCH=1 #"
+      }
+    },
+    {
+      "@id": "hp_warmup_steps_ontonotes5",
+      "@type": "MLS_HyperParameter",
+      "name": "warmup_steps (OntoNotes5)",
+      "hasValue": "500",
+      "hpCategory": "HP_Optimization",
+      "hpType": "WarmupSteps",
+      "uncertain": false,
+      "sourceFile": "run_ontonotes5.sh",
+      "sourceLine": 20,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_ontonotes5.sh:20",
+      "path": "run_ontonotes5.sh",
+      "start_char_doc": 376,
+      "end_char_doc": 386,
+      "context": {
+        "prefix": "# self-collaborative learning parameters LR=2e-5",
+        "suffix": "# Sche. Warmup BEGIN_EPOCH=2 #"
+      }
+    },
+    {
+      "@id": "hp_warmup_steps_twitter",
+      "@type": "MLS_HyperParameter",
+      "name": "warmup_steps (Twitter)",
+      "hasValue": "200",
+      "hpCategory": "HP_Optimization",
+      "hpType": "WarmupSteps",
+      "uncertain": false,
+      "sourceFile": "run_twitter.sh",
+      "sourceLine": 20,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_twitter.sh:20",
+      "path": "run_twitter.sh",
+      "start_char_doc": 376,
+      "end_char_doc": 386,
+      "context": {
+        "prefix": "# self-collaborative learning parameters LR=2e-5",
+        "suffix": "# Sche. Warmup BEGIN_EPOCH=6 #"
+      }
+    },
+    {
+      "@id": "hp_max_grad_norm",
+      "@type": "MLS_HyperParameter",
+      "name": "max_grad_norm",
+      "hasValue": "1.0",
+      "hpCategory": "HP_Optimization",
+      "hpType": "HP_Optimization",
+      "uncertain": true,
+      "sourceFile": "utils/config.py",
+      "sourceLine": 102,
+      "wasDerivedFrom": "code",
+      "codeReference": "utils/config.py:102",
+      "path": "utils/config.py",
+      "start_char_doc": 3881,
+      "end_char_doc": 3894,
+      "context": {
+        "prefix": "help=\"BETA2 for Adam optimizer.\") parser.add_argument(\"--",
+        "suffix": "\", default=1.0, type=float, help=\"Max gradient"
+      }
+    },
+    {
+      "@id": "hp_per_gpu_train_batch_size_conll03",
+      "@type": "MLS_HyperParameter",
+      "name": "per_gpu_train_batch_size (CoNLL03)",
+      "hasValue": "8",
+      "hpCategory": "HP_Training",
+      "hpType": "BatchSize",
+      "uncertain": false,
+      "sourceFile": "run_conll03.sh",
+      "sourceLine": 25,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_conll03.sh:25",
+      "path": "run_conll03.sh",
+      "start_char_doc": 533,
+      "end_char_doc": 546,
+      "context": {
+        "prefix": "THRESHOLD=0.9 # Confidence Threshold δ",
+        "suffix": "EPOCH=50 LABEL_MODE=soft # Twitter hard"
+      }
+    },
+    {
+      "@id": "hp_per_gpu_train_batch_size_ontonotes5",
+      "@type": "MLS_HyperParameter",
+      "name": "per_gpu_train_batch_size (OntoNotes5)",
+      "hasValue": "16",
+      "hpCategory": "HP_Training",
+      "hpType": "BatchSize",
+      "uncertain": false,
+      "sourceFile": "run_ontonotes5.sh",
+      "sourceLine": 25,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_ontonotes5.sh:25",
+      "path": "run_ontonotes5.sh",
+      "start_char_doc": 533,
+      "end_char_doc": 547,
+      "context": {
+        "prefix": "THRESHOLD=0.9 # Confidence Threshold δ",
+        "suffix": "EPOCH=50 LABEL_MODE=soft # Twitter hard"
+      }
+    },
+    {
+      "@id": "hp_per_gpu_train_batch_size_twitter",
+      "@type": "MLS_HyperParameter",
+      "name": "per_gpu_train_batch_size (Twitter)",
+      "hasValue": "8",
+      "hpCategory": "HP_Training",
+      "hpType": "BatchSize",
+      "uncertain": false,
+      "sourceFile": "run_twitter.sh",
+      "sourceLine": 25,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_twitter.sh:25",
+      "path": "run_twitter.sh",
+      "start_char_doc": 533,
+      "end_char_doc": 546,
+      "context": {
+        "prefix": "THRESHOLD=0.9 # Confidence Threshold δ",
+        "suffix": "EPOCH=50 LABEL_MODE=hard # Twitter hard"
+      }
+    },
+    {
+      "@id": "hp_per_gpu_eval_batch_size",
+      "@type": "MLS_HyperParameter",
+      "name": "per_gpu_eval_batch_size",
+      "hasValue": "32",
+      "hpCategory": "HP_Training",
+      "hpType": "BatchSize",
+      "uncertain": false,
+      "sourceFile": "run_conll03.sh",
+      "sourceLine": 36,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_conll03.sh:36",
+      "path": "run_conll03.sh",
+      "start_char_doc": 660,
+      "end_char_doc": 673,
+      "context": {
+        "prefix": "WEIGHT_DECAY=1e-4 SEED=0 ADAM_EPS=1e-8 ADAM_BETA1=0.9 ADAM_BETA2=0.98",
+        "suffix": "# output OUTPUT=$PROJECT_ROOT/ptms/$DATASET/ CUDA_DEVICE_ORDER=PCI_BUS_ID CUDA_VISIBLE_DEVICES=$GPUID"
+      }
+    },
+    {
+      "@id": "hp_num_train_epochs",
+      "@type": "MLS_HyperParameter",
+      "name": "num_train_epochs",
+      "hasValue": "50",
+      "hpCategory": "HP_Training",
+      "hpType": "NumEpochs",
+      "uncertain": false,
+      "sourceFile": "run_conll03.sh",
+      "sourceLine": 26,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_conll03.sh:26",
+      "path": "run_conll03.sh",
+      "start_char_doc": 547,
+      "end_char_doc": 555,
+      "context": {
+        "prefix": "# Confidence Threshold δ TRAIN_BATCH=8",
+        "suffix": "LABEL_MODE=soft # Twitter hard WEIGHT_DECAY=1e-4"
+      }
+    },
+    {
+      "@id": "hp_gradient_accumulation_steps",
+      "@type": "MLS_HyperParameter",
+      "name": "gradient_accumulation_steps",
+      "hasValue": "1",
+      "hpCategory": "HP_Training",
+      "hpType": "GradientAccumulationSteps",
+      "uncertain": false,
+      "sourceFile": "utils/config.py",
+      "sourceLine": 92,
+      "wasDerivedFrom": "code",
+      "codeReference": "utils/config.py:92",
+      "path": "utils/config.py",
+      "start_char_doc": 3162,
+      "end_char_doc": 3189,
+      "context": {
+        "prefix": "for evaluation.\" ) parser.add_argument( \"--",
+        "suffix": "\", type=int, default=1, help=\"Number of"
+      }
+    },
+    {
+      "@id": "hp_seed",
+      "@type": "MLS_HyperParameter",
+      "name": "seed",
+      "hasValue": "0",
+      "hpCategory": "HP_Training",
+      "hpType": "RandomSeed",
+      "uncertain": false,
+      "sourceFile": "run_conll03.sh",
+      "sourceLine": 31,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_conll03.sh:31",
+      "path": "run_conll03.sh",
+      "start_char_doc": 607,
+      "end_char_doc": 613,
+      "context": {
+        "prefix": "LABEL_MODE=soft # Twitter hard WEIGHT_DECAY=1e-4",
+        "suffix": "ADAM_EPS=1e-8 ADAM_BETA1=0.9 ADAM_BETA2=0.98 EVAL_BATCH=32 #"
+      }
+    },
+    {
+      "@id": "hp_max_seq_length",
+      "@type": "MLS_HyperParameter",
+      "name": "max_seq_length",
+      "hasValue": "128",
+      "hpCategory": "HP_Data",
+      "hpType": "MaxSequenceLength",
+      "uncertain": false,
+      "sourceFile": "utils/config.py",
+      "sourceLine": 69,
+      "wasDerivedFrom": "code",
+      "codeReference": "utils/config.py:69",
+      "path": "utils/config.py",
+      "start_char_doc": 2012,
+      "end_char_doc": 2026,
+      "context": {
+        "prefix": "from s3\", ) parser.add_argument( \"--",
+        "suffix": "\", default=128, type=int, help=\"The maximum"
+      }
+    },
+    {
+      "@id": "hp_mean_alpha",
+      "@type": "MLS_HyperParameter",
+      "name": "mean_alpha",
+      "hasValue": "0.995",
+      "hpCategory": "HP_Optimization",
+      "hpType": "HP_Optimization",
+      "uncertain": true,
+      "sourceFile": "run_conll03.sh",
+      "sourceLine": 23,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_conll03.sh:23",
+      "path": "run_conll03.sh",
+      "start_char_doc": 469,
+      "end_char_doc": 485,
+      "context": {
+        "prefix": "PERIOD=6000 # Update Cycle (iterations)",
+        "suffix": "# EMA α THRESHOLD=0.9 #"
+      }
+    },
+    {
+      "@id": "hp_threshold",
+      "@type": "MLS_HyperParameter",
+      "name": "threshold",
+      "hasValue": "0.9",
+      "hpCategory": "HP_Training",
+      "hpType": "HP_Training",
+      "uncertain": true,
+      "sourceFile": "run_conll03.sh",
+      "sourceLine": 24,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_conll03.sh:24",
+      "path": "run_conll03.sh",
+      "start_char_doc": 494,
+      "end_char_doc": 507,
+      "context": {
+        "prefix": "(iterations) MEAN_ALPHA=0.995 # EMA α",
+        "suffix": "# Confidence Threshold δ TRAIN_BATCH=8"
+      }
+    },
+    {
+      "@id": "hp_begin_epoch_conll03",
+      "@type": "MLS_HyperParameter",
+      "name": "begin_epoch (CoNLL03)",
+      "hasValue": "1",
+      "hpCategory": "HP_Training",
+      "hpType": "HP_Training",
+      "uncertain": true,
+      "sourceFile": "run_conll03.sh",
+      "sourceLine": 21,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_conll03.sh:21",
+      "path": "run_conll03.sh",
+      "start_char_doc": 402,
+      "end_char_doc": 415,
+      "context": {
+        "prefix": "LR=1e-5 WARMUP=200 # Sche. Warmup",
+        "suffix": "# Pre. Epoch PERIOD=6000 #"
+      }
+    },
+    {
+      "@id": "hp_begin_epoch_ontonotes5",
+      "@type": "MLS_HyperParameter",
+      "name": "begin_epoch (OntoNotes5)",
+      "hasValue": "2",
+      "hpCategory": "HP_Training",
+      "hpType": "HP_Training",
+      "uncertain": true,
+      "sourceFile": "run_ontonotes5.sh",
+      "sourceLine": 21,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_ontonotes5.sh:21",
+      "path": "run_ontonotes5.sh",
+      "start_char_doc": 402,
+      "end_char_doc": 415,
+      "context": {
+        "prefix": "LR=2e-5 WARMUP=500 # Sche. Warmup",
+        "suffix": "# Pre. Epoch PERIOD=7240 #"
+      }
+    },
+    {
+      "@id": "hp_begin_epoch_twitter",
+      "@type": "MLS_HyperParameter",
+      "name": "begin_epoch (Twitter)",
+      "hasValue": "6",
+      "hpCategory": "HP_Training",
+      "hpType": "HP_Training",
+      "uncertain": true,
+      "sourceFile": "run_twitter.sh",
+      "sourceLine": 21,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_twitter.sh:21",
+      "path": "run_twitter.sh",
+      "start_char_doc": 402,
+      "end_char_doc": 415,
+      "context": {
+        "prefix": "LR=2e-5 WARMUP=200 # Sche. Warmup",
+        "suffix": "# Pre. Epoch PERIOD=3200 #"
+      }
+    },
+    {
+      "@id": "hp_self_learning_period_conll03",
+      "@type": "MLS_HyperParameter",
+      "name": "self_learning_period (CoNLL03)",
+      "hasValue": "6000",
+      "hpCategory": "HP_Training",
+      "hpType": "HP_Training",
+      "uncertain": true,
+      "sourceFile": "run_conll03.sh",
+      "sourceLine": 22,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_conll03.sh:22",
+      "path": "run_conll03.sh",
+      "start_char_doc": 429,
+      "end_char_doc": 440,
+      "context": {
+        "prefix": "Warmup BEGIN_EPOCH=1 # Pre. Epoch",
+        "suffix": "# Update Cycle (iterations) MEAN_ALPHA=0.995"
+      }
+    },
+    {
+      "@id": "hp_self_learning_period_ontonotes5",
+      "@type": "MLS_HyperParameter",
+      "name": "self_learning_period (OntoNotes5)",
+      "hasValue": "7240",
+      "hpCategory": "HP_Training",
+      "hpType": "HP_Training",
+      "uncertain": true,
+      "sourceFile": "run_ontonotes5.sh",
+      "sourceLine": 22,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_ontonotes5.sh:22",
+      "path": "run_ontonotes5.sh",
+      "start_char_doc": 429,
+      "end_char_doc": 440,
+      "context": {
+        "prefix": "Warmup BEGIN_EPOCH=2 # Pre. Epoch",
+        "suffix": "# Update Cycle (iterations) MEAN_ALPHA=0.995"
+      }
+    },
+    {
+      "@id": "hp_self_learning_period_twitter",
+      "@type": "MLS_HyperParameter",
+      "name": "self_learning_period (Twitter)",
+      "hasValue": "3200",
+      "hpCategory": "HP_Training",
+      "hpType": "HP_Training",
+      "uncertain": true,
+      "sourceFile": "run_twitter.sh",
+      "sourceLine": 22,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_twitter.sh:22",
+      "path": "run_twitter.sh",
+      "start_char_doc": 429,
+      "end_char_doc": 440,
+      "context": {
+        "prefix": "Warmup BEGIN_EPOCH=6 # Pre. Epoch",
+        "suffix": "# Update Cycle (iterations) MEAN_ALPHA=0.995"
+      }
+    },
+    {
+      "@id": "hp_self_learning_label_mode_conll03",
+      "@type": "MLS_HyperParameter",
+      "name": "self_learning_label_mode (CoNLL03)",
+      "hasValue": "soft",
+      "hpCategory": "HP_Training",
+      "hpType": "HP_Training",
+      "uncertain": true,
+      "sourceFile": "run_conll03.sh",
+      "sourceLine": 27,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_conll03.sh:27",
+      "path": "run_conll03.sh",
+      "start_char_doc": 556,
+      "end_char_doc": 571,
+      "context": {
+        "prefix": "Confidence Threshold δ TRAIN_BATCH=8 EPOCH=50",
+        "suffix": "# Twitter hard WEIGHT_DECAY=1e-4 SEED=0"
+      }
+    },
+    {
+      "@id": "hp_self_learning_label_mode_twitter",
+      "@type": "MLS_HyperParameter",
+      "name": "self_learning_label_mode (Twitter)",
+      "hasValue": "hard",
+      "hpCategory": "HP_Training",
+      "hpType": "HP_Training",
+      "uncertain": true,
+      "sourceFile": "run_twitter.sh",
+      "sourceLine": 27,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_twitter.sh:27",
+      "path": "run_twitter.sh",
+      "start_char_doc": 556,
+      "end_char_doc": 571,
+      "context": {
+        "prefix": "Confidence Threshold δ TRAIN_BATCH=8 EPOCH=50",
+        "suffix": "# Twitter hard WEIGHT_DECAY=1e-4 SEED=0"
+      }
+    },
+    {
+      "@id": "hp_al_conll03",
+      "@type": "MLS_HyperParameter",
+      "name": "al (CoNLL03)",
+      "hasValue": "0.8",
+      "hpCategory": "HP_Optimization",
+      "hpType": "HP_Optimization",
+      "uncertain": true,
+      "sourceFile": "run_conll03.sh",
+      "sourceLine": 73,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_conll03.sh:73",
+      "path": "run_conll03.sh",
+      "start_char_doc": 1771,
+      "end_char_doc": 1779,
+      "context": {
+        "prefix": "$DATASET \\ --threshold $THRESHOLD \\",
+        "suffix": "\\ --bate 1.0"
+      }
+    },
+    {
+      "@id": "hp_al_ontonotes5",
+      "@type": "MLS_HyperParameter",
+      "name": "al (OntoNotes5)",
+      "hasValue": "0.995",
+      "hpCategory": "HP_Optimization",
+      "hpType": "HP_Optimization",
+      "uncertain": true,
+      "sourceFile": "run_ontonotes5.sh",
+      "sourceLine": 73,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_ontonotes5.sh:73",
+      "path": "run_ontonotes5.sh",
+      "start_char_doc": 1772,
+      "end_char_doc": 1782,
+      "context": {
+        "prefix": "$DATASET \\ --threshold $THRESHOLD \\",
+        "suffix": "\\ --bate 1.0"
+      }
+    },
+    {
+      "@id": "hp_al_twitter",
+      "@type": "MLS_HyperParameter",
+      "name": "al (Twitter)",
+      "hasValue": "0.75",
+      "hpCategory": "HP_Optimization",
+      "hpType": "HP_Optimization",
+      "uncertain": true,
+      "sourceFile": "run_twitter.sh",
+      "sourceLine": 73,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_twitter.sh:73",
+      "path": "run_twitter.sh",
+      "start_char_doc": 1771,
+      "end_char_doc": 1780,
+      "context": {
+        "prefix": "$DATASET \\ --threshold $THRESHOLD \\",
+        "suffix": "\\ --bate 1.0"
+      }
+    },
+    {
+      "@id": "hp_bate",
+      "@type": "MLS_HyperParameter",
+      "name": "bate",
+      "hasValue": "1.0",
+      "hpCategory": "HP_Training",
+      "hpType": "HP_Training",
+      "uncertain": true,
+      "sourceFile": "run_conll03.sh",
+      "sourceLine": 74,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_conll03.sh:74",
+      "path": "run_conll03.sh",
+      "start_char_doc": 1784,
+      "end_char_doc": 1794,
+      "context": {
+        "prefix": "$THRESHOLD \\ --al 0.8 \\",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "preprocess_data_utils",
+      "@type": "DataProcessingStep",
+      "identifier": "Data Loading and Tokenization Pipeline",
+      "description": "Reads JSON dataset files, tokenizes words using RobertaTokenizer, aligns BIO labels to subword tokens, truncates/pads to max_seq_length, and caches processed TensorDataset features.",
+      "transformationType": "tokenization",
+      "startedAtTime": null,
+      "endedAtTime": null,
+      "inputDataset": null,
+      "outputDataset": null,
+      "prov-executedBy": {
+        "@id": "impl_ATSEN"
+      },
+      "wasDerivedFrom": "code",
+      "codeReference": "utils/data_utils.py:64",
+      "path": "utils/data_utils.py",
+      "start_char_doc": 2004,
+      "end_char_doc": 2032,
+      "context": {
+        "prefix": "+= 1 return examples def",
+        "suffix": "( examples, label_list, max_seq_length, tokenizer,"
+      }
+    },
+    {
+      "@id": "training_ATSEN_conll03",
+      "@type": "TrainingRun",
+      "runId": "training_conll03",
+      "description": "Training ATSEN (Adaptive Teacher with Student Ensemble) on CoNLL03 dataset with roberta-base and distilroberta-base student models, EMA teacher updates, and self-learning with soft pseudo-labels.",
+      "logFile": "log.txt",
+      "artifactsLocation": "ptms/conll03/",
+      "startedAtTime": null,
+      "endedAtTime": null,
+      "prov-executedBy": {
+        "@id": "impl_ATSEN"
+      },
+      "used": null,
+      "trains": null,
+      "wasAssociatedWith": [
+        {
+          "@id": "hp_learning_rate_conll03"
+        },
+        {
+          "@id": "hp_warmup_steps_conll03"
+        },
+        {
+          "@id": "hp_per_gpu_train_batch_size_conll03"
+        },
+        {
+          "@id": "hp_num_train_epochs"
+        },
+        {
+          "@id": "hp_seed"
+        },
+        {
+          "@id": "hp_weight_decay"
+        },
+        {
+          "@id": "hp_adam_beta1"
+        },
+        {
+          "@id": "hp_adam_beta2"
+        },
+        {
+          "@id": "hp_adam_epsilon"
+        },
+        {
+          "@id": "hp_gradient_accumulation_steps"
+        },
+        {
+          "@id": "hp_max_seq_length"
+        },
+        {
+          "@id": "hp_begin_epoch_conll03"
+        },
+        {
+          "@id": "hp_self_learning_period_conll03"
+        },
+        {
+          "@id": "hp_self_learning_label_mode_conll03"
+        },
+        {
+          "@id": "hp_mean_alpha"
+        },
+        {
+          "@id": "hp_threshold"
+        },
+        {
+          "@id": "hp_al_conll03"
+        },
+        {
+          "@id": "hp_bate"
+        }
+      ],
+      "wasDerivedFrom": "code",
+      "codeReference": "run_conll03.sh:42",
+      "path": "run_conll03.sh",
+      "start_char_doc": 779,
+      "end_char_doc": 797,
+      "context": {
+        "prefix": "# output OUTPUT=$PROJECT_ROOT/ptms/$DATASET/ CUDA_DEVICE_ORDER=PCI_BUS_ID CUDA_VISIBLE_DEVICES=$GPUID",
+        "suffix": "--data_dir $DATA_ROOT \\ --student1_model_name_or_path $STUDENT1_MODEL_NAME"
+      }
+    },
+    {
+      "@id": "training_ATSEN_ontonotes5",
+      "@type": "TrainingRun",
+      "runId": "training_ontonotes5",
+      "description": "Training ATSEN on OntoNotes5.0 dataset with roberta-base and distilroberta-base student models, EMA teacher updates, and self-learning with soft pseudo-labels.",
+      "logFile": null,
+      "artifactsLocation": "ptms/ontonotes5/",
+      "startedAtTime": null,
+      "endedAtTime": null,
+      "prov-executedBy": {
+        "@id": "impl_ATSEN"
+      },
+      "used": null,
+      "trains": null,
+      "wasAssociatedWith": [
+        {
+          "@id": "hp_learning_rate_ontonotes5"
+        },
+        {
+          "@id": "hp_warmup_steps_ontonotes5"
+        },
+        {
+          "@id": "hp_per_gpu_train_batch_size_ontonotes5"
+        },
+        {
+          "@id": "hp_num_train_epochs"
+        },
+        {
+          "@id": "hp_seed"
+        },
+        {
+          "@id": "hp_weight_decay"
+        },
+        {
+          "@id": "hp_adam_beta1"
+        },
+        {
+          "@id": "hp_adam_beta2"
+        },
+        {
+          "@id": "hp_adam_epsilon"
+        },
+        {
+          "@id": "hp_gradient_accumulation_steps"
+        },
+        {
+          "@id": "hp_max_seq_length"
+        },
+        {
+          "@id": "hp_begin_epoch_ontonotes5"
+        },
+        {
+          "@id": "hp_self_learning_period_ontonotes5"
+        },
+        {
+          "@id": "hp_mean_alpha"
+        },
+        {
+          "@id": "hp_threshold"
+        },
+        {
+          "@id": "hp_al_ontonotes5"
+        },
+        {
+          "@id": "hp_bate"
+        }
+      ],
+      "wasDerivedFrom": "code",
+      "codeReference": "run_ontonotes5.sh:42",
+      "path": "run_ontonotes5.sh",
+      "start_char_doc": 780,
+      "end_char_doc": 798,
+      "context": {
+        "prefix": "# output OUTPUT=$PROJECT_ROOT/ptms/$DATASET/ CUDA_DEVICE_ORDER=PCI_BUS_ID CUDA_VISIBLE_DEVICES=$GPUID",
+        "suffix": "--data_dir $DATA_ROOT \\ --student1_model_name_or_path $STUDENT1_MODEL_NAME"
+      }
+    },
+    {
+      "@id": "training_ATSEN_twitter",
+      "@type": "TrainingRun",
+      "runId": "training_twitter",
+      "description": "Training ATSEN on Twitter dataset with roberta-base and distilroberta-base student models, EMA teacher updates, and self-learning with hard pseudo-labels.",
+      "logFile": null,
+      "artifactsLocation": "ptms/twitter/",
+      "startedAtTime": null,
+      "endedAtTime": null,
+      "prov-executedBy": {
+        "@id": "impl_ATSEN"
+      },
+      "used": null,
+      "trains": null,
+      "wasAssociatedWith": [
+        {
+          "@id": "hp_learning_rate_twitter"
+        },
+        {
+          "@id": "hp_warmup_steps_twitter"
+        },
+        {
+          "@id": "hp_per_gpu_train_batch_size_twitter"
+        },
+        {
+          "@id": "hp_num_train_epochs"
+        },
+        {
+          "@id": "hp_seed"
+        },
+        {
+          "@id": "hp_weight_decay"
+        },
+        {
+          "@id": "hp_adam_beta1"
+        },
+        {
+          "@id": "hp_adam_beta2"
+        },
+        {
+          "@id": "hp_adam_epsilon"
+        },
+        {
+          "@id": "hp_gradient_accumulation_steps"
+        },
+        {
+          "@id": "hp_max_seq_length"
+        },
+        {
+          "@id": "hp_begin_epoch_twitter"
+        },
+        {
+          "@id": "hp_self_learning_period_twitter"
+        },
+        {
+          "@id": "hp_self_learning_label_mode_twitter"
+        },
+        {
+          "@id": "hp_mean_alpha"
+        },
+        {
+          "@id": "hp_threshold"
+        },
+        {
+          "@id": "hp_al_twitter"
+        },
+        {
+          "@id": "hp_bate"
+        }
+      ],
+      "wasDerivedFrom": "code",
+      "codeReference": "run_twitter.sh:42",
+      "path": "run_twitter.sh",
+      "start_char_doc": 779,
+      "end_char_doc": 797,
+      "context": {
+        "prefix": "# output OUTPUT=$PROJECT_ROOT/ptms/$DATASET/ CUDA_DEVICE_ORDER=PCI_BUS_ID CUDA_VISIBLE_DEVICES=$GPUID",
+        "suffix": "--data_dir $DATA_ROOT \\ --student1_model_name_or_path $STUDENT1_MODEL_NAME"
+      }
+    },
+    {
+      "@id": "evaluation_ATSEN",
+      "@type": "EvaluationRun",
+      "runId": "evaluation_ATSEN",
+      "description": "Evaluation of ATSEN student and teacher models on dev and test splits during training, computing entity-level precision, recall, and F1 using BIO chunk matching.",
+      "split": "dev,test",
+      "evaluationScript": "utils/eval.py",
+      "metricsFile": "log.txt",
+      "startedAtTime": null,
+      "endedAtTime": null,
+      "prov-executedBy": {
+        "@id": "impl_ATSEN"
+      },
+      "evaluates": null,
+      "prov-generated": null,
+      "wasDerivedFrom": "code",
+      "codeReference": "utils/eval.py:28",
+      "path": "utils/eval.py",
+      "start_char_doc": 935,
+      "end_char_doc": 947,
+      "context": {
+        "prefix": "-1), # args.fp16, # )",
+        "suffix": "(args, model, tokenizer, labels, pad_token_label_id,"
+      }
+    },
+    {
+      "@id": "hp_dropout",
+      "@type": "MLS_HyperParameter",
+      "name": "dropout",
+      "hasValue": "0.1",
+      "hpCategory": "HP_Architecture",
+      "hpType": "Dropout",
+      "uncertain": true,
+      "sourceFile": "ATSEN.py",
+      "sourceLine": 67,
+      "wasDerivedFrom": "code",
+      "codeReference": "ATSEN.py:67",
+      "path": "ATSEN.py",
+      "start_char_doc": 3486,
+      "end_char_doc": 3493,
+      "context": {
+        "prefix": "config.num_labels self.roberta = RobertaModel(config) self.",
+        "suffix": "= nn.Dropout(config.hidden_dropout_prob) self.classifier = nn.Linear(config.hidden_size,"
+      }
+    }
+  ]
+}

@@ -1,0 +1,827 @@
+{
+  "@context": {
+    "mls":    "http://example.org/ontology/mls#",
+    "schema": "http://schema.org/",
+    "xsd":    "http://www.w3.org/2001/XMLSchema#",
+    "rdfs":   "http://www.w3.org/2000/01/rdf-schema#",
+    "prov":   "http://www.w3.org/ns/prov#",
+
+    "SoftwareRepository":  "mls:SoftwareRepository",
+    "MLS_Implementation":  "mls:MLS_Implementation",
+    "MLS_HyperParameter":  "mls:MLS_HyperParameter",
+    "Dependency":          "mls:Dependency",
+    "Environment":         "mls:Environment",
+    "DataProcessingStep":  "mls:DataProcessingStep",
+    "TrainingRun":         "mls:TrainingRun",
+    "EvaluationRun":       "mls:EvaluationRun",
+    "PredictionSet":       "mls:PredictionSet",
+
+    "name":                "schema:name",
+    "identifier":          "schema:identifier",
+    "description":         "schema:description",
+    "url":                 "schema:url",
+    "version":             "schema:version",
+    "license":             "schema:license",
+    "programmingLanguage": "schema:programmingLanguage",
+    "dateModified":        { "@id": "schema:dateModified",    "@type": "xsd:dateTime" },
+    "documentationUrl":    { "@id": "mls:documentationUrl",  "@type": "xsd:anyURI" },
+
+    "owner":               "mls:owner",
+    "platform":            "mls:platform",
+    "codeRepository":      { "@id": "mls:codeRepository",    "@type": "xsd:anyURI" },
+    "framework":           "mls:framework",
+    "entryPoint":          "mls:entryPoint",
+    "entryPointCommand":   "mls:entryPointCommand",
+    "executionCommand":    "mls:executionCommand",
+    "commitHash":          "mls:commitHash",
+    "branch":              "mls:branch",
+    "dependenciesHash":    "mls:dependenciesHash",
+
+    "packageName":         "mls:packageName",
+    "dependencyType":      "mls:dependencyType",
+    "isOptional":          { "@id": "mls:isOptional",        "@type": "xsd:boolean" },
+
+    "hardwareSpecs":       "mls:hardwareSpecs",
+    "os":                  "mls:os",
+    "pythonVersion":       "mls:pythonVersion",
+    "requirementsFile":    "mls:requirementsFile",
+    "isDockerized":        { "@id": "mls:isDockerized",      "@type": "xsd:boolean" },
+
+    "hasValue":            { "@id": "mls:hasValue",          "@type": "xsd:string" },
+    "hpCategory":          "mls:hpCategory",
+    "hpType":              "mls:hpType",
+    "sourceFile":          "mls:sourceFile",
+    "sourceLine":          { "@id": "mls:sourceLine",        "@type": "xsd:integer" },
+    "uncertain":           { "@id": "mls:uncertain",         "@type": "xsd:boolean" },
+
+    "transformationType":  "mls:transformationType",
+    "codeReference":       { "@id": "mls:codeReference",     "@type": "xsd:anyURI" },
+    "runId":               "mls:runId",
+    "logFile":             { "@id": "mls:logFile",           "@type": "xsd:anyURI" },
+    "artifactsLocation":   { "@id": "mls:artifactsLocation", "@type": "xsd:anyURI" },
+    "split":               "mls:split",
+    "evaluationScript":    "mls:evaluationScript",
+    "evaluationSplit":     "mls:evaluationSplit",
+    "metricsFile":         "mls:metricsFile",
+    "format":              "mls:format",
+    "predictionFormat":    "mls:predictionFormat",
+    "storageLocation":     "mls:storageLocation",
+    "numInstances":        { "@id": "mls:numInstances",      "@type": "xsd:integer" },
+    "onDatasetSplit":      "mls:onDatasetSplit",
+    "startedAtTime":       { "@id": "prov:startedAtTime",    "@type": "xsd:dateTime" },
+    "endedAtTime":         { "@id": "prov:endedAtTime",      "@type": "xsd:dateTime" },
+
+    "contains":            { "@id": "mls:contains",          "@type": "@id" },
+    "supports":            { "@id": "mls:supports",          "@type": "@id" },
+    "runsIn":              { "@id": "mls:runsIn",            "@type": "@id" },
+    "requires":            { "@id": "mls:requires",          "@type": "@id" },
+    "inputDataset":        { "@id": "mls:inputDataset",      "@type": "@id" },
+    "outputDataset":       { "@id": "mls:outputDataset",     "@type": "@id" },
+    "trains":              { "@id": "mls:trains",            "@type": "@id" },
+    "evaluates":           { "@id": "mls:evaluates",         "@type": "@id" },
+    "appliedTo":           { "@id": "mls:appliedTo",         "@type": "@id" },
+    "producedBy":          { "@id": "mls:producedBy",        "@type": "@id" },
+    "prov-executedBy":     { "@id": "mls:prov-executedBy",   "@type": "@id" },
+    "prov-generated":      { "@id": "mls:prov-generated",    "@type": "@id" },
+    "used":                { "@id": "prov:used",             "@type": "@id" },
+    "wasGeneratedBy":      { "@id": "prov:wasGeneratedBy",   "@type": "@id" },
+    "wasDerivedFrom":      { "@id": "prov:wasDerivedFrom",   "@type": "@id" },
+    "wasAssociatedWith":   { "@id": "prov:wasAssociatedWith","@type": "@id" }
+  },
+  "@graph": [
+    {
+      "@id": "repo_nicpopovic_RE1st",
+      "@type": "SoftwareRepository",
+      "name": "RE1st",
+      "url": "https://github.com/nicpopovic/RE1st",
+      "owner": "nicpopovic",
+      "platform": "GitHub",
+      "programmingLanguage": "Python",
+      "version": null,
+      "license": null,
+      "dateModified": "2022-05-17T12:59:14+02:00",
+      "documentationUrl": null,
+      "contains": [
+        { "@id": "impl_RE1st" }
+      ],
+      "supports": [
+        { "@id": "env_RE1st" }
+      ],
+      "wasDerivedFrom": "code",
+      "codeReference": "README.md",
+      "path": "README.md",
+      "start_char_doc": 2,
+      "end_char_doc": 27,
+      "context": {
+        "prefix": "#",
+        "suffix": "- Using Relation Extraction to"
+      }
+    },
+    {
+      "@id": "impl_RE1st",
+      "@type": "MLS_Implementation",
+      "identifier": "RE1st Relation Extraction First Implementation",
+      "codeRepository": "https://github.com/nicpopovic/RE1st",
+      "framework": "PyTorch",
+      "entryPoint": "train.py",
+      "entryPointCommand": "python train.py --learning_rate 7e-5 --seed_model 3 --num_epochs 60 --k_mentions 50 --pooling max --candidate_downsampling 1000",
+      "executionCommand": "python eval.py --checkpoint checkpoints/max_no_preprocessing.pt --pooling max --k_mentions 400",
+      "commitHash": "7483b8fe34540b50670cf71e2c85d50b5af7260f",
+      "branch": "main",
+      "dependenciesHash": null,
+      "runsIn": { "@id": "env_RE1st" },
+      "requires": [
+        { "@id": "dep_torch" },
+        { "@id": "dep_transformers" },
+        { "@id": "dep_tqdm" },
+        { "@id": "dep_wandb" },
+        { "@id": "dep_pylatexenc" },
+        { "@id": "dep_numpy" }
+      ],
+      "wasDerivedFrom": "code",
+      "codeReference": "train.py",
+      "path": "README.md",
+      "start_char_doc": 1937,
+      "end_char_doc": 1945,
+      "context": {
+        "prefix": "and no preprocessing: ``` python",
+        "suffix": "--learning_rate 7e-5 --seed_model 3 --num_epochs"
+      }
+    },
+    {
+      "@id": "env_RE1st",
+      "@type": "Environment",
+      "name": "RE1st Execution Environment",
+      "framework": "PyTorch 1.8.0+cu111",
+      "pythonVersion": null,
+      "os": null,
+      "hardwareSpecs": "CUDA GPU required",
+      "requirementsFile": null,
+      "isDockerized": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "README.md",
+      "path": "README.md",
+      "start_char_doc": 1074,
+      "end_char_doc": 1092,
+      "context": {
+        "prefix": "setuptools python -m pip install",
+        "suffix": "-f https://download.pytorch.org/whl/torch_stable.html python -m pip"
+      }
+    },
+    {
+      "@id": "dep_torch",
+      "@type": "Dependency",
+      "packageName": "torch",
+      "version": "1.8.0",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "README.md",
+      "path": "README.md",
+      "start_char_doc": 809,
+      "end_char_doc": 822,
+      "context": {
+        "prefix": "directory. # Dependencies Dependencies: -",
+        "suffix": "- transformers (4.18.0) - tqdm"
+      }
+    },
+    {
+      "@id": "dep_transformers",
+      "@type": "Dependency",
+      "packageName": "transformers",
+      "version": "4.18.0",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "README.md",
+      "path": "README.md",
+      "start_char_doc": 825,
+      "end_char_doc": 849,
+      "context": {
+        "prefix": "Dependencies: - torch (1.8.0) -",
+        "suffix": "- tqdm (4.64.0) - wandb"
+      }
+    },
+    {
+      "@id": "dep_tqdm",
+      "@type": "Dependency",
+      "packageName": "tqdm",
+      "version": "4.64.0",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "README.md",
+      "path": "README.md",
+      "start_char_doc": 849,
+      "end_char_doc": 865,
+      "context": {
+        "prefix": "(1.8.0) - transformers (4.18.0) -",
+        "suffix": "- wandb (0.12.16) - pylatexenc"
+      }
+    },
+    {
+      "@id": "dep_wandb",
+      "@type": "Dependency",
+      "packageName": "wandb",
+      "version": "0.12.16",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "README.md",
+      "path": "README.md",
+      "start_char_doc": 865,
+      "end_char_doc": 883,
+      "context": {
+        "prefix": "(4.18.0) - tqdm (4.64.0) -",
+        "suffix": "- pylatexenc (2.10) ``` python3"
+      }
+    },
+    {
+      "@id": "dep_pylatexenc",
+      "@type": "Dependency",
+      "packageName": "pylatexenc",
+      "version": "2.10",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "README.md",
+      "path": "README.md",
+      "start_char_doc": 883,
+      "end_char_doc": 901,
+      "context": {
+        "prefix": "(4.64.0) - wandb (0.12.16) -",
+        "suffix": "``` python3 -m venv venv source"
+      }
+    },
+    {
+      "@id": "dep_numpy",
+      "@type": "Dependency",
+      "packageName": "numpy",
+      "version": null,
+      "dependencyType": "inferred",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "models/util.py:2",
+      "path": "models/util.py",
+      "start_char_doc": 20,
+      "end_char_doc": 25,
+      "context": {
+        "prefix": "import torch import",
+        "suffix": "as np import torch.nn.functional as"
+      }
+    },
+    {
+      "@id": "hp_seed_model",
+      "@type": "MLS_HyperParameter",
+      "name": "seed_model",
+      "hasValue": "123",
+      "hpCategory": "HP_Training",
+      "hpType": "RandomSeed",
+      "uncertain": false,
+      "sourceFile": "train.py",
+      "sourceLine": 24,
+      "wasDerivedFrom": "code",
+      "codeReference": "train.py:24",
+      "path": "train.py",
+      "start_char_doc": 686,
+      "end_char_doc": 689,
+      "context": {
+        "prefix": "parser.add_argument(\"--seed_model\", type=int,",
+        "suffix": ", help=\"random seed for model\")"
+      }
+    },
+    {
+      "@id": "hp_seed_data",
+      "@type": "MLS_HyperParameter",
+      "name": "seed_data",
+      "hasValue": "123",
+      "hpCategory": "HP_Training",
+      "hpType": "RandomSeed",
+      "uncertain": false,
+      "sourceFile": "train.py",
+      "sourceLine": 25,
+      "wasDerivedFrom": "code",
+      "codeReference": "train.py:25",
+      "path": "train.py",
+      "start_char_doc": 774,
+      "end_char_doc": 777,
+      "context": {
+        "prefix": "parser.add_argument(\"--seed_data\", type=int,",
+        "suffix": ", help=\"random seed for data\")"
+      }
+    },
+    {
+      "@id": "hp_num_epochs",
+      "@type": "MLS_HyperParameter",
+      "name": "num_epochs",
+      "hasValue": "20",
+      "hpCategory": "HP_Training",
+      "hpType": "NumEpochs",
+      "uncertain": false,
+      "sourceFile": "train.py",
+      "sourceLine": 26,
+      "wasDerivedFrom": "code",
+      "codeReference": "train.py:26",
+      "path": "train.py",
+      "start_char_doc": 862,
+      "end_char_doc": 864,
+      "context": {
+        "prefix": "parser.add_argument(\"--num_epochs\", type=int,",
+        "suffix": ", help=\"number of epochs to train\")"
+      }
+    },
+    {
+      "@id": "hp_batch_size_eval",
+      "@type": "MLS_HyperParameter",
+      "name": "batch_size_eval",
+      "hasValue": "4",
+      "hpCategory": "HP_Training",
+      "hpType": "BatchSize",
+      "uncertain": false,
+      "sourceFile": "train.py",
+      "sourceLine": 28,
+      "wasDerivedFrom": "code",
+      "codeReference": "train.py:28",
+      "path": "train.py",
+      "start_char_doc": 960,
+      "end_char_doc": 961,
+      "context": {
+        "prefix": "parser.add_argument(\"--batch_size_eval\", type=int,",
+        "suffix": ", help=\"eval batch size\")"
+      }
+    },
+    {
+      "@id": "hp_batch_size_training",
+      "@type": "MLS_HyperParameter",
+      "name": "batch_size_training",
+      "hasValue": "4",
+      "hpCategory": "HP_Training",
+      "hpType": "BatchSize",
+      "uncertain": false,
+      "sourceFile": "train.py",
+      "sourceLine": 29,
+      "wasDerivedFrom": "code",
+      "codeReference": "train.py:29",
+      "path": "train.py",
+      "start_char_doc": 1050,
+      "end_char_doc": 1051,
+      "context": {
+        "prefix": "parser.add_argument(\"--batch_size_training\", type=int,",
+        "suffix": ", help=\"training batch size\")"
+      }
+    },
+    {
+      "@id": "hp_warmup_epochs",
+      "@type": "MLS_HyperParameter",
+      "name": "warmup_epochs",
+      "hasValue": "1",
+      "hpCategory": "HP_Optimization",
+      "hpType": "WarmupSteps",
+      "uncertain": true,
+      "sourceFile": "train.py",
+      "sourceLine": 30,
+      "wasDerivedFrom": "code",
+      "codeReference": "train.py:30",
+      "path": "train.py",
+      "start_char_doc": 1138,
+      "end_char_doc": 1139,
+      "context": {
+        "prefix": "parser.add_argument(\"--warmup_epochs\", type=int,",
+        "suffix": ", help=\"warmup epochs\")"
+      }
+    },
+    {
+      "@id": "hp_learning_rate",
+      "@type": "MLS_HyperParameter",
+      "name": "learning_rate",
+      "hasValue": "1e-5",
+      "hpCategory": "HP_Optimization",
+      "hpType": "LearningRate",
+      "uncertain": false,
+      "sourceFile": "train.py",
+      "sourceLine": 31,
+      "wasDerivedFrom": "code",
+      "codeReference": "train.py:31",
+      "path": "train.py",
+      "start_char_doc": 1222,
+      "end_char_doc": 1226,
+      "context": {
+        "prefix": "parser.add_argument(\"--learning_rate\", type=float,",
+        "suffix": ", help=\"learning rate\")"
+      }
+    },
+    {
+      "@id": "hp_negative_prob",
+      "@type": "MLS_HyperParameter",
+      "name": "negative_prob",
+      "hasValue": "1.0",
+      "hpCategory": "HP_Training",
+      "hpType": "HP_Training",
+      "uncertain": true,
+      "sourceFile": "train.py",
+      "sourceLine": 38,
+      "wasDerivedFrom": "code",
+      "codeReference": "train.py:38",
+      "path": "train.py",
+      "start_char_doc": 1835,
+      "end_char_doc": 1838,
+      "context": {
+        "prefix": "parser.add_argument(\"--negative_prob\", type=float,",
+        "suffix": ", help=\"probability of showing negative relation examples\")"
+      }
+    },
+    {
+      "@id": "hp_k_mentions",
+      "@type": "MLS_HyperParameter",
+      "name": "k_mentions",
+      "hasValue": "50",
+      "hpCategory": "HP_Architecture",
+      "hpType": "UnknownArchitectureHP",
+      "uncertain": true,
+      "sourceFile": "train.py",
+      "sourceLine": 39,
+      "wasDerivedFrom": "code",
+      "codeReference": "train.py:39",
+      "path": "train.py",
+      "start_char_doc": 1952,
+      "end_char_doc": 1954,
+      "context": {
+        "prefix": "parser.add_argument(\"--k_mentions\", type=int,",
+        "suffix": ", help=\"number of mention spans to perform"
+      }
+    },
+    {
+      "@id": "hp_k_mentions_test",
+      "@type": "MLS_HyperParameter",
+      "name": "k_mentions_test",
+      "hasValue": "400",
+      "hpCategory": "HP_Architecture",
+      "hpType": "UnknownArchitectureHP",
+      "uncertain": true,
+      "sourceFile": "train.py",
+      "sourceLine": 40,
+      "wasDerivedFrom": "code",
+      "codeReference": "train.py:40",
+      "path": "train.py",
+      "start_char_doc": 2081,
+      "end_char_doc": 2084,
+      "context": {
+        "prefix": "parser.add_argument(\"--k_mentions_test\", type=int,",
+        "suffix": ", help=\"number of mention spans to perform"
+      }
+    },
+    {
+      "@id": "hp_candidate_downsampling",
+      "@type": "MLS_HyperParameter",
+      "name": "candidate_downsampling",
+      "hasValue": "1000",
+      "hpCategory": "HP_Training",
+      "hpType": "HP_Training",
+      "uncertain": true,
+      "sourceFile": "train.py",
+      "sourceLine": 37,
+      "wasDerivedFrom": "code",
+      "codeReference": "train.py:37",
+      "path": "train.py",
+      "start_char_doc": 1688,
+      "end_char_doc": 1692,
+      "context": {
+        "prefix": "parser.add_argument(\"--candidate_downsampling\", type=int,",
+        "suffix": ", help=\"number of candidate spans to use"
+      }
+    },
+    {
+      "@id": "hp_pooling",
+      "@type": "MLS_HyperParameter",
+      "name": "pooling",
+      "hasValue": "mean",
+      "hpCategory": "HP_Architecture",
+      "hpType": "UnknownArchitectureHP",
+      "uncertain": true,
+      "sourceFile": "train.py",
+      "sourceLine": 41,
+      "wasDerivedFrom": "code",
+      "codeReference": "train.py:41",
+      "path": "train.py",
+      "start_char_doc": 2216,
+      "end_char_doc": 2222,
+      "context": {
+        "prefix": "parser.add_argument(\"--pooling\", type=str, default=",
+        "suffix": ", help=\"mention pooling method\")"
+      }
+    },
+    {
+      "@id": "hp_eps",
+      "@type": "MLS_HyperParameter",
+      "name": "eps",
+      "hasValue": "1e-6",
+      "hpCategory": "HP_Optimization",
+      "hpType": "HP_Optimization",
+      "uncertain": true,
+      "sourceFile": "train.py",
+      "sourceLine": 130,
+      "wasDerivedFrom": "code",
+      "codeReference": "train.py:130",
+      "path": "train.py",
+      "start_char_doc": 4705,
+      "end_char_doc": 4709,
+      "context": {
+        "prefix": "optimizer = AdamW(model.parameters(), lr=args.learning_rate, eps=",
+        "suffix": ") scaler = GradScaler() lr_scheduler"
+      }
+    },
+    {
+      "@id": "hp_max_grad_norm",
+      "@type": "MLS_HyperParameter",
+      "name": "max_grad_norm",
+      "hasValue": "1.0",
+      "hpCategory": "HP_Optimization",
+      "hpType": "HP_Optimization",
+      "uncertain": true,
+      "sourceFile": "train.py",
+      "sourceLine": 186,
+      "wasDerivedFrom": "code",
+      "codeReference": "train.py:186",
+      "path": "train.py",
+      "start_char_doc": 6904,
+      "end_char_doc": 6907,
+      "context": {
+        "prefix": "# clip gradients nn.utils.clip_grad_norm_(model.parameters(),",
+        "suffix": ") scaler.step(optimizer) # optimizer.step()"
+      }
+    },
+    {
+      "@id": "hp_max_span_len",
+      "@type": "MLS_HyperParameter",
+      "name": "max_span_len",
+      "hasValue": "15",
+      "hpCategory": "HP_Architecture",
+      "hpType": "UnknownArchitectureHP",
+      "uncertain": true,
+      "sourceFile": "models/data.py",
+      "sourceLine": 227,
+      "wasDerivedFrom": "code",
+      "codeReference": "models/data.py:227",
+      "path": "models/data.py",
+      "start_char_doc": 9415,
+      "end_char_doc": 9425,
+      "context": {
+        "prefix": "return output def generate_candidate_spans(num_tokens,",
+        "suffix": "): output = [] for"
+      }
+    },
+    {
+      "@id": "hp_num_labels",
+      "@type": "MLS_HyperParameter",
+      "name": "num_labels",
+      "hasValue": "10",
+      "hpCategory": "HP_Architecture",
+      "hpType": "UnknownArchitectureHP",
+      "uncertain": true,
+      "sourceFile": "train.py",
+      "sourceLine": 106,
+      "wasDerivedFrom": "code",
+      "codeReference": "train.py:106",
+      "path": "train.py",
+      "start_char_doc": 4075,
+      "end_char_doc": 4088,
+      "context": {
+        "prefix": "lm_config = AutoConfig.from_pretrained( args.language_model,",
+        "suffix": ", ) lm_model = AutoModel.from_pretrained("
+      }
+    },
+    {
+      "@id": "hp_emb_size",
+      "@type": "MLS_HyperParameter",
+      "name": "emb_size",
+      "hasValue": "768",
+      "hpCategory": "HP_Architecture",
+      "hpType": "EmbeddingDim",
+      "uncertain": false,
+      "sourceFile": "models/base_model.py",
+      "sourceLine": 23,
+      "wasDerivedFrom": "code",
+      "codeReference": "models/base_model.py:23",
+      "path": "models/base_model.py",
+      "start_char_doc": 939,
+      "end_char_doc": 942,
+      "context": {
+        "prefix": "self.block_size = None self.emb_size =",
+        "suffix": "self.entity_anchor = nn.Parameter(torch.zeros((3, 768)))"
+      }
+    },
+    {
+      "@id": "hp_triplet_margin",
+      "@type": "MLS_HyperParameter",
+      "name": "triplet_margin",
+      "hasValue": "1.0",
+      "hpCategory": "HP_Training",
+      "hpType": "HP_Training",
+      "uncertain": true,
+      "sourceFile": "models/base_model.py",
+      "sourceLine": 36,
+      "wasDerivedFrom": "code",
+      "codeReference": "models/base_model.py:36",
+      "path": "models/base_model.py",
+      "start_char_doc": 1346,
+      "end_char_doc": 1349,
+      "context": {
+        "prefix": "self.triplet_loss = nn.TripletMarginLoss(margin=",
+        "suffix": ", p=2) self.negative_prob = negative_prob"
+      }
+    },
+    {
+      "@id": "hp_relation_emb_dim",
+      "@type": "MLS_HyperParameter",
+      "name": "relation_embeddings_dim",
+      "hasValue": "1536",
+      "hpCategory": "HP_Architecture",
+      "hpType": "HiddenSize",
+      "uncertain": true,
+      "sourceFile": "models/base_model.py",
+      "sourceLine": 14,
+      "wasDerivedFrom": "code",
+      "codeReference": "models/base_model.py:14",
+      "path": "models/base_model.py",
+      "start_char_doc": 539,
+      "end_char_doc": 543,
+      "context": {
+        "prefix": "self.relation_embeddings = nn.Parameter(torch.zeros((4,",
+        "suffix": "))) torch.nn.init.uniform_(self.relation_embeddings, a=-1.0, b=1.0)"
+      }
+    },
+    {
+      "@id": "hp_nota_emb_count",
+      "@type": "MLS_HyperParameter",
+      "name": "nota_embeddings_count",
+      "hasValue": "20",
+      "hpCategory": "HP_Architecture",
+      "hpType": "UnknownArchitectureHP",
+      "uncertain": true,
+      "sourceFile": "models/base_model.py",
+      "sourceLine": 16,
+      "wasDerivedFrom": "code",
+      "codeReference": "models/base_model.py:16",
+      "path": "models/base_model.py",
+      "start_char_doc": 688,
+      "end_char_doc": 690,
+      "context": {
+        "prefix": "self.nota_embeddings = nn.Parameter(torch.zeros((",
+        "suffix": ",1536))) torch.nn.init.uniform_(self.nota_embeddings, a=-1.0, b=1.0)"
+      }
+    },
+    {
+      "@id": "hp_num_relation_classes",
+      "@type": "MLS_HyperParameter",
+      "name": "num_relation_classes",
+      "hasValue": "4",
+      "hpCategory": "HP_Architecture",
+      "hpType": "UnknownArchitectureHP",
+      "uncertain": true,
+      "sourceFile": "models/base_model.py",
+      "sourceLine": 14,
+      "wasDerivedFrom": "code",
+      "codeReference": "models/base_model.py:14",
+      "path": "models/base_model.py",
+      "start_char_doc": 537,
+      "end_char_doc": 538,
+      "context": {
+        "prefix": "self.relation_embeddings = nn.Parameter(torch.zeros((",
+        "suffix": ",1536))) torch.nn.init.uniform_(self.relation_embeddings, a=-1.0,"
+      }
+    },
+    {
+      "@id": "hp_num_entity_types",
+      "@type": "MLS_HyperParameter",
+      "name": "num_entity_types",
+      "hasValue": "3",
+      "hpCategory": "HP_Architecture",
+      "hpType": "UnknownArchitectureHP",
+      "uncertain": true,
+      "sourceFile": "models/base_model.py",
+      "sourceLine": 25,
+      "wasDerivedFrom": "code",
+      "codeReference": "models/base_model.py:25",
+      "path": "models/base_model.py",
+      "start_char_doc": 999,
+      "end_char_doc": 1000,
+      "context": {
+        "prefix": "self.entity_anchor = nn.Parameter(torch.zeros((",
+        "suffix": ", 768))) torch.nn.init.uniform_(self.entity_anchor, a=-1.0,"
+      }
+    },
+    {
+      "@id": "preprocess_data",
+      "@type": "DataProcessingStep",
+      "identifier": "Data Parsing and Tokenization",
+      "description": "Parses SemEval-2022 Task 12 JSON data files, tokenizes text using SciBERT (allenai/scibert_scivocab_cased), optionally applies LaTeX-to-text preprocessing via pylatexenc, maps character-level entity/relation annotations to token-level spans, and generates candidate spans for mention detection.",
+      "transformationType": "tokenization",
+      "startedAtTime": null,
+      "endedAtTime": null,
+      "inputDataset": null,
+      "outputDataset": null,
+      "prov-executedBy": { "@id": "impl_RE1st" },
+      "wasDerivedFrom": "code",
+      "codeReference": "models/data.py",
+      "path": "models/data.py",
+      "start_char_doc": 3938,
+      "end_char_doc": 3952,
+      "context": {
+        "prefix": "if x is not None]",
+        "suffix": "(input_file, tokenizer=None, cache_location=\"cache/\", verbose=False, preprocessing=None):"
+      }
+    },
+    {
+      "@id": "training_RE1st",
+      "@type": "TrainingRun",
+      "runId": "RE1st_training",
+      "description": "Trains the RE1st Encoder model for joint relation extraction and entity identification on SemEval-2022 Task 12 data. Uses AdamW optimizer with linear warmup schedule, mixed-precision training (GradScaler), gradient clipping (max_norm=1.0), and logs metrics to Weights & Biases. Saves best checkpoint based on dev F1.",
+      "logFile": null,
+      "artifactsLocation": "checkpoints/",
+      "startedAtTime": null,
+      "endedAtTime": null,
+      "prov-executedBy": { "@id": "impl_RE1st" },
+      "used": null,
+      "trains": null,
+      "wasDerivedFrom": "code",
+      "codeReference": "train.py",
+      "path": "train.py",
+      "start_char_doc": 4898,
+      "end_char_doc": 4908,
+      "context": {
+        "prefix": "lr_scheduler # %% ---------------",
+        "suffix": "------------------ best_dev_f1 = 0 step_global"
+      }
+    },
+    {
+      "@id": "evaluation_RE1st_dev",
+      "@type": "EvaluationRun",
+      "runId": "RE1st_eval_dev",
+      "description": "Evaluates the RE1st model on the development split during training, computing precision, recall, F1, and accuracy for relation extraction. Also used standalone via eval.py for checkpoint evaluation.",
+      "split": "dev",
+      "evaluationScript": "eval.py",
+      "metricsFile": null,
+      "startedAtTime": null,
+      "endedAtTime": null,
+      "prov-executedBy": { "@id": "impl_RE1st" },
+      "evaluates": null,
+      "prov-generated": null,
+      "wasDerivedFrom": "code",
+      "codeReference": "eval.py",
+      "path": "eval.py",
+      "start_char_doc": 3454,
+      "end_char_doc": 3462,
+      "context": {
+        "prefix": "model.eval() print(\"----",
+        "suffix": "-----\") with tqdm(dev_loader) as progress_bar:"
+      }
+    },
+    {
+      "@id": "evaluation_RE1st_test",
+      "@type": "EvaluationRun",
+      "runId": "RE1st_eval_test",
+      "description": "Evaluates the RE1st model on the test split, generating entity and relation predictions with overlap resolution, entity type assignment based on relation type, and coreference-based ORDERED type detection.",
+      "split": "test",
+      "evaluationScript": "eval.py",
+      "metricsFile": null,
+      "startedAtTime": null,
+      "endedAtTime": null,
+      "prov-executedBy": { "@id": "impl_RE1st" },
+      "evaluates": null,
+      "prov-generated": [
+        { "@id": "prediction_RE1st_test" }
+      ],
+      "wasDerivedFrom": "code",
+      "codeReference": "eval.py",
+      "path": "eval.py",
+      "start_char_doc": 4680,
+      "end_char_doc": 4692,
+      "context": {
+        "prefix": "TEST EVAL -----\") # ---------------",
+        "suffix": "------------------ model.eval() outputs = {}"
+      }
+    },
+    {
+      "@id": "prediction_RE1st_test",
+      "@type": "PredictionSet",
+      "identifier": "RE1st Test Predictions",
+      "description": "Predicted entities and relations on the SemEval-2022 Task 12 test set, output as JSON files per input document, packaged into a zip archive and logged as a W&B artifact.",
+      "predictionFormat": "JSON",
+      "storageLocation": "outputs/",
+      "numInstances": null,
+      "onDatasetSplit": "test",
+      "appliedTo": null,
+      "wasGeneratedBy": { "@id": "evaluation_RE1st_test" },
+      "producedBy": { "@id": "impl_RE1st" },
+      "wasDerivedFrom": "code",
+      "codeReference": "eval.py",
+      "path": "eval.py",
+      "start_char_doc": 4727,
+      "end_char_doc": 4739,
+      "context": {
+        "prefix": "EVAL ON TEST ------------------ model.eval()",
+        "suffix": "with tqdm(test_loader) as progress_bar: for"
+      }
+    }
+  ]
+}
