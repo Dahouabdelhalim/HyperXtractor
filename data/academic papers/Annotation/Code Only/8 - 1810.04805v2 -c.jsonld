@@ -1,0 +1,1471 @@
+{
+  "@context": {
+    "mls": "http://example.org/ontology/mls#",
+    "schema": "http://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "SoftwareRepository": "mls:SoftwareRepository",
+    "MLS_Implementation": "mls:MLS_Implementation",
+    "MLS_HyperParameter": "mls:MLS_HyperParameter",
+    "Dependency": "mls:Dependency",
+    "Environment": "mls:Environment",
+    "DataProcessingStep": "mls:DataProcessingStep",
+    "TrainingRun": "mls:TrainingRun",
+    "EvaluationRun": "mls:EvaluationRun",
+    "PredictionSet": "mls:PredictionSet",
+    "name": "schema:name",
+    "identifier": "schema:identifier",
+    "description": "schema:description",
+    "url": "schema:url",
+    "version": "schema:version",
+    "license": "schema:license",
+    "programmingLanguage": "schema:programmingLanguage",
+    "dateModified": {
+      "@id": "schema:dateModified",
+      "@type": "xsd:dateTime"
+    },
+    "documentationUrl": {
+      "@id": "mls:documentationUrl",
+      "@type": "xsd:anyURI"
+    },
+    "owner": "mls:owner",
+    "platform": "mls:platform",
+    "codeRepository": {
+      "@id": "mls:codeRepository",
+      "@type": "xsd:anyURI"
+    },
+    "framework": "mls:framework",
+    "entryPoint": "mls:entryPoint",
+    "entryPointCommand": "mls:entryPointCommand",
+    "executionCommand": "mls:executionCommand",
+    "commitHash": "mls:commitHash",
+    "branch": "mls:branch",
+    "dependenciesHash": "mls:dependenciesHash",
+    "packageName": "mls:packageName",
+    "dependencyType": "mls:dependencyType",
+    "isOptional": {
+      "@id": "mls:isOptional",
+      "@type": "xsd:boolean"
+    },
+    "hardwareSpecs": "mls:hardwareSpecs",
+    "os": "mls:os",
+    "pythonVersion": "mls:pythonVersion",
+    "requirementsFile": "mls:requirementsFile",
+    "isDockerized": {
+      "@id": "mls:isDockerized",
+      "@type": "xsd:boolean"
+    },
+    "hasValue": {
+      "@id": "mls:hasValue",
+      "@type": "xsd:string"
+    },
+    "hpCategory": "mls:hpCategory",
+    "hpType": "mls:hpType",
+    "sourceFile": "mls:sourceFile",
+    "sourceLine": {
+      "@id": "mls:sourceLine",
+      "@type": "xsd:integer"
+    },
+    "uncertain": {
+      "@id": "mls:uncertain",
+      "@type": "xsd:boolean"
+    },
+    "transformationType": "mls:transformationType",
+    "codeReference": {
+      "@id": "mls:codeReference",
+      "@type": "xsd:anyURI"
+    },
+    "runId": "mls:runId",
+    "logFile": {
+      "@id": "mls:logFile",
+      "@type": "xsd:anyURI"
+    },
+    "artifactsLocation": {
+      "@id": "mls:artifactsLocation",
+      "@type": "xsd:anyURI"
+    },
+    "split": "mls:split",
+    "evaluationScript": "mls:evaluationScript",
+    "evaluationSplit": "mls:evaluationSplit",
+    "metricsFile": "mls:metricsFile",
+    "format": "mls:format",
+    "predictionFormat": "mls:predictionFormat",
+    "storageLocation": "mls:storageLocation",
+    "numInstances": {
+      "@id": "mls:numInstances",
+      "@type": "xsd:integer"
+    },
+    "onDatasetSplit": "mls:onDatasetSplit",
+    "startedAtTime": {
+      "@id": "prov:startedAtTime",
+      "@type": "xsd:dateTime"
+    },
+    "endedAtTime": {
+      "@id": "prov:endedAtTime",
+      "@type": "xsd:dateTime"
+    },
+    "contains": {
+      "@id": "mls:contains",
+      "@type": "@id"
+    },
+    "supports": {
+      "@id": "mls:supports",
+      "@type": "@id"
+    },
+    "runsIn": {
+      "@id": "mls:runsIn",
+      "@type": "@id"
+    },
+    "requires": {
+      "@id": "mls:requires",
+      "@type": "@id"
+    },
+    "inputDataset": {
+      "@id": "mls:inputDataset",
+      "@type": "@id"
+    },
+    "outputDataset": {
+      "@id": "mls:outputDataset",
+      "@type": "@id"
+    },
+    "trains": {
+      "@id": "mls:trains",
+      "@type": "@id"
+    },
+    "evaluates": {
+      "@id": "mls:evaluates",
+      "@type": "@id"
+    },
+    "appliedTo": {
+      "@id": "mls:appliedTo",
+      "@type": "@id"
+    },
+    "producedBy": {
+      "@id": "mls:producedBy",
+      "@type": "@id"
+    },
+    "prov-executedBy": {
+      "@id": "mls:prov-executedBy",
+      "@type": "@id"
+    },
+    "prov-generated": {
+      "@id": "mls:prov-generated",
+      "@type": "@id"
+    },
+    "used": {
+      "@id": "prov:used",
+      "@type": "@id"
+    },
+    "wasGeneratedBy": {
+      "@id": "prov:wasGeneratedBy",
+      "@type": "@id"
+    },
+    "wasDerivedFrom": {
+      "@id": "prov:wasDerivedFrom",
+      "@type": "@id"
+    },
+    "wasAssociatedWith": {
+      "@id": "prov:wasAssociatedWith",
+      "@type": "@id"
+    }
+  },
+  "@graph": [
+    {
+      "@id": "repo_google_research_bert",
+      "@type": "SoftwareRepository",
+      "name": "bert",
+      "url": "https://github.com/google-research/bert",
+      "owner": "google-research",
+      "platform": "GitHub",
+      "programmingLanguage": "Python",
+      "version": null,
+      "license": "Apache-2.0",
+      "dateModified": null,
+      "documentationUrl": "https://github.com/google-research/bert/blob/master/README.md",
+      "contains": [
+        {
+          "@id": "impl_bert"
+        }
+      ],
+      "supports": [
+        {
+          "@id": "env_bert"
+        }
+      ],
+      "wasDerivedFrom": "code",
+      "codeReference": "README.md",
+      "path": "README.md",
+      "start_char_doc": 2937,
+      "end_char_doc": 2941,
+      "context": {
+        "prefix": "year={2019} } ``` [2_128]: https://storage.googleapis.com/",
+        "suffix": "_models/2020_02_20/uncased_L-2_H-128_A-2.zip [2_256]: https://storage.googleapis.com/bert_models/2020_02_20/uncased_L-2_H-256_A-4.zip [2_512]: https://storage.googleapis.com/bert_models/2020_02_20/unc"
+      }
+    },
+    {
+      "@id": "impl_bert",
+      "@type": "MLS_Implementation",
+      "identifier": "BERT TensorFlow Implementation",
+      "codeRepository": "https://github.com/google-research/bert",
+      "framework": "TensorFlow",
+      "entryPoint": "run_classifier.py",
+      "entryPointCommand": "python run_classifier.py --task_name=MRPC --do_train=true --do_eval=true --data_dir=$GLUE_DIR/MRPC --vocab_file=$BERT_BASE_DIR/vocab.txt --bert_config_file=$BERT_BASE_DIR/bert_config.json --init_checkpoint=$BERT_BASE_DIR/bert_model.ckpt --max_seq_length=128 --train_batch_size=32 --learning_rate=2e-5 --num_train_epochs=3.0 --output_dir=/tmp/mrpc_output/",
+      "executionCommand": null,
+      "commitHash": "eedf571",
+      "branch": "master",
+      "dependenciesHash": null,
+      "runsIn": {
+        "@id": "env_bert"
+      },
+      "requires": [
+        {
+          "@id": "dep_tensorflow"
+        }
+      ],
+      "wasDerivedFrom": "code",
+      "codeReference": "run_classifier.py",
+      "path": "README.md",
+      "start_char_doc": 21144,
+      "end_char_doc": 21161,
+      "context": {
+        "prefix": "the following flags to `",
+        "suffix": "` or `run_squad.py`: ``` --use_tpu=True"
+      }
+    },
+    {
+      "@id": "env_bert",
+      "@type": "Environment",
+      "name": "BERT Runtime Environment",
+      "framework": "TensorFlow >= 1.11.0",
+      "pythonVersion": null,
+      "os": null,
+      "hardwareSpecs": "Cloud TPU (64GB RAM) or GPU (12GB-16GB RAM)",
+      "requirementsFile": "requirements.txt",
+      "isDockerized": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "requirements.txt",
+      "path": "requirements.txt",
+      "start_char_doc": 0,
+      "end_char_doc": 10,
+      "context": {
+        "prefix": "",
+        "suffix": ">= 1.11.0 # CPU Version"
+      }
+    },
+    {
+      "@id": "dep_tensorflow",
+      "@type": "Dependency",
+      "packageName": "tensorflow",
+      "version": ">= 1.11.0",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "requirements.txt:1",
+      "path": "README.md",
+      "start_char_doc": 12814,
+      "end_char_doc": 12824,
+      "context": {
+        "prefix": "Context-free models such as [word2vec](https://www.",
+        "suffix": ".org/tutorials/representation/word2vec) or [GloVe](https://nlp.stanford.edu/projects/glove/) generate a"
+      }
+    },
+    {
+      "@id": "hp_learning_rate_run_classifier",
+      "@type": "MLS_HyperParameter",
+      "name": "learning_rate",
+      "hasValue": "5e-5",
+      "hpCategory": "HP_Optimization",
+      "hpType": "LearningRate",
+      "uncertain": false,
+      "sourceFile": "run_classifier.py",
+      "sourceLine": 82,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_classifier.py:82",
+      "path": "README.md",
+      "start_char_doc": 23025,
+      "end_char_doc": 23038,
+      "context": {
+        "prefix": "--max_seq_length=128 \\ --train_batch_size=32 \\ --",
+        "suffix": "=2e-5 \\ --num_train_epochs=3.0 \\ --output_dir=/tmp/mrpc_output/"
+      }
+    },
+    {
+      "@id": "hp_num_train_epochs_run_classifier",
+      "@type": "MLS_HyperParameter",
+      "name": "num_train_epochs",
+      "hasValue": "3.0",
+      "hpCategory": "HP_Training",
+      "hpType": "NumEpochs",
+      "uncertain": false,
+      "sourceFile": "run_classifier.py",
+      "sourceLine": 83,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_classifier.py:83",
+      "path": "README.md",
+      "start_char_doc": 23050,
+      "end_char_doc": 23066,
+      "context": {
+        "prefix": "--train_batch_size=32 \\ --learning_rate=2e-5 \\ --",
+        "suffix": "=3.0 \\ --output_dir=/tmp/mrpc_output/ ``` You"
+      }
+    },
+    {
+      "@id": "hp_warmup_proportion_run_classifier",
+      "@type": "MLS_HyperParameter",
+      "name": "warmup_proportion",
+      "hasValue": "0.1",
+      "hpCategory": "HP_Optimization",
+      "hpType": "WarmupSteps",
+      "uncertain": true,
+      "sourceFile": "run_classifier.py",
+      "sourceLine": 86,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_classifier.py:86",
+      "path": "run_classifier.py",
+      "start_char_doc": 2808,
+      "end_char_doc": 2825,
+      "context": {
+        "prefix": "epochs to perform.\") flags.DEFINE_float( \"",
+        "suffix": "\", 0.1, \"Proportion of training"
+      }
+    },
+    {
+      "@id": "hp_train_batch_size_run_classifier",
+      "@type": "MLS_HyperParameter",
+      "name": "train_batch_size",
+      "hasValue": "32",
+      "hpCategory": "HP_Training",
+      "hpType": "BatchSize",
+      "uncertain": false,
+      "sourceFile": "run_classifier.py",
+      "sourceLine": 78,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_classifier.py:78",
+      "path": "README.md",
+      "start_char_doc": 22999,
+      "end_char_doc": 23015,
+      "context": {
+        "prefix": "--init_checkpoint=$BERT_BASE_DIR/bert_model.ckpt \\ --max_seq_length=128 \\ --",
+        "suffix": "=32 \\ --learning_rate=2e-5 \\ --num_train_epochs=3.0"
+      }
+    },
+    {
+      "@id": "hp_max_seq_length_run_classifier",
+      "@type": "MLS_HyperParameter",
+      "name": "max_seq_length",
+      "hasValue": "128",
+      "hpCategory": "HP_Data",
+      "hpType": "MaxSequenceLength",
+      "uncertain": false,
+      "sourceFile": "run_classifier.py",
+      "sourceLine": 62,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_classifier.py:62",
+      "path": "README.md",
+      "start_char_doc": 22974,
+      "end_char_doc": 22988,
+      "context": {
+        "prefix": "--bert_config_file=$BERT_BASE_DIR/bert_config.json \\ --init_checkpoint=$BERT_BASE_DIR/bert_model.ckpt \\ --",
+        "suffix": "=128 \\ --train_batch_size=32 \\ --learning_rate=2e-5"
+      }
+    },
+    {
+      "@id": "hp_eval_batch_size_run_classifier",
+      "@type": "MLS_HyperParameter",
+      "name": "eval_batch_size",
+      "hasValue": "8",
+      "hpCategory": "HP_Training",
+      "hpType": "BatchSize",
+      "uncertain": false,
+      "sourceFile": "run_classifier.py",
+      "sourceLine": 80,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_classifier.py:80",
+      "path": "run_classifier.py",
+      "start_char_doc": 2458,
+      "end_char_doc": 2473,
+      "context": {
+        "prefix": "batch size for training.\") flags.DEFINE_integer(\"",
+        "suffix": "\", 8, \"Total batch size"
+      }
+    },
+    {
+      "@id": "hp_learning_rate_run_squad",
+      "@type": "MLS_HyperParameter",
+      "name": "learning_rate",
+      "hasValue": "5e-5",
+      "hpCategory": "HP_Optimization",
+      "hpType": "LearningRate",
+      "uncertain": false,
+      "sourceFile": "run_squad.py",
+      "sourceLine": 91,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_squad.py:91",
+      "path": "README.md",
+      "start_char_doc": 23025,
+      "end_char_doc": 23038,
+      "context": {
+        "prefix": "--max_seq_length=128 \\ --train_batch_size=32 \\ --",
+        "suffix": "=2e-5 \\ --num_train_epochs=3.0 \\ --output_dir=/tmp/mrpc_output/"
+      }
+    },
+    {
+      "@id": "hp_num_train_epochs_run_squad",
+      "@type": "MLS_HyperParameter",
+      "name": "num_train_epochs",
+      "hasValue": "3.0",
+      "hpCategory": "HP_Training",
+      "hpType": "NumEpochs",
+      "uncertain": false,
+      "sourceFile": "run_squad.py",
+      "sourceLine": 93,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_squad.py:93",
+      "path": "README.md",
+      "start_char_doc": 23050,
+      "end_char_doc": 23066,
+      "context": {
+        "prefix": "--train_batch_size=32 \\ --learning_rate=2e-5 \\ --",
+        "suffix": "=3.0 \\ --output_dir=/tmp/mrpc_output/ ``` You"
+      }
+    },
+    {
+      "@id": "hp_warmup_proportion_run_squad",
+      "@type": "MLS_HyperParameter",
+      "name": "warmup_proportion",
+      "hasValue": "0.1",
+      "hpCategory": "HP_Optimization",
+      "hpType": "WarmupSteps",
+      "uncertain": true,
+      "sourceFile": "run_squad.py",
+      "sourceLine": 96,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_squad.py:96",
+      "path": "run_classifier.py",
+      "start_char_doc": 2808,
+      "end_char_doc": 2825,
+      "context": {
+        "prefix": "epochs to perform.\") flags.DEFINE_float( \"",
+        "suffix": "\", 0.1, \"Proportion of training"
+      }
+    },
+    {
+      "@id": "hp_train_batch_size_run_squad",
+      "@type": "MLS_HyperParameter",
+      "name": "train_batch_size",
+      "hasValue": "32",
+      "hpCategory": "HP_Training",
+      "hpType": "BatchSize",
+      "uncertain": false,
+      "sourceFile": "run_squad.py",
+      "sourceLine": 86,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_squad.py:86",
+      "path": "README.md",
+      "start_char_doc": 22999,
+      "end_char_doc": 23015,
+      "context": {
+        "prefix": "--init_checkpoint=$BERT_BASE_DIR/bert_model.ckpt \\ --max_seq_length=128 \\ --",
+        "suffix": "=32 \\ --learning_rate=2e-5 \\ --num_train_epochs=3.0"
+      }
+    },
+    {
+      "@id": "hp_max_seq_length_run_squad",
+      "@type": "MLS_HyperParameter",
+      "name": "max_seq_length",
+      "hasValue": "384",
+      "hpCategory": "HP_Data",
+      "hpType": "MaxSequenceLength",
+      "uncertain": false,
+      "sourceFile": "run_squad.py",
+      "sourceLine": 66,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_squad.py:66",
+      "path": "README.md",
+      "start_char_doc": 22974,
+      "end_char_doc": 22988,
+      "context": {
+        "prefix": "--bert_config_file=$BERT_BASE_DIR/bert_config.json \\ --init_checkpoint=$BERT_BASE_DIR/bert_model.ckpt \\ --",
+        "suffix": "=128 \\ --train_batch_size=32 \\ --learning_rate=2e-5"
+      }
+    },
+    {
+      "@id": "hp_doc_stride_run_squad",
+      "@type": "MLS_HyperParameter",
+      "name": "doc_stride",
+      "hasValue": "128",
+      "hpCategory": "HP_Data",
+      "hpType": "HP_Data",
+      "uncertain": true,
+      "sourceFile": "run_squad.py",
+      "sourceLine": 72,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_squad.py:72",
+      "path": "README.md",
+      "start_char_doc": 26615,
+      "end_char_doc": 26625,
+      "context": {
+        "prefix": "--num_train_epochs=2.0 \\ --max_seq_length=384 \\ --",
+        "suffix": "=128 \\ --output_dir=/tmp/squad_base/ ``` The"
+      }
+    },
+    {
+      "@id": "hp_max_query_length_run_squad",
+      "@type": "MLS_HyperParameter",
+      "name": "max_query_length",
+      "hasValue": "64",
+      "hpCategory": "HP_Data",
+      "hpType": "MaxSequenceLength",
+      "uncertain": true,
+      "sourceFile": "run_squad.py",
+      "sourceLine": 77,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_squad.py:77",
+      "path": "run_squad.py",
+      "start_char_doc": 2340,
+      "end_char_doc": 2356,
+      "context": {
+        "prefix": "\"take between chunks.\") flags.DEFINE_integer( \"",
+        "suffix": "\", 64, \"The maximum number"
+      }
+    },
+    {
+      "@id": "hp_predict_batch_size_run_squad",
+      "@type": "MLS_HyperParameter",
+      "name": "predict_batch_size",
+      "hasValue": "8",
+      "hpCategory": "HP_Training",
+      "hpType": "BatchSize",
+      "uncertain": false,
+      "sourceFile": "run_squad.py",
+      "sourceLine": 88,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_squad.py:88",
+      "path": "extract_features.py",
+      "start_char_doc": 12407,
+      "end_char_doc": 12425,
+      "context": {
+        "prefix": "= tf.contrib.tpu.TPUEstimator( use_tpu=FLAGS.use_tpu, model_fn=model_fn, config=run_config,",
+        "suffix": "=FLAGS.batch_size) input_fn = input_fn_builder( features=features,"
+      }
+    },
+    {
+      "@id": "hp_n_best_size_run_squad",
+      "@type": "MLS_HyperParameter",
+      "name": "n_best_size",
+      "hasValue": "20",
+      "hpCategory": "HP_Data",
+      "hpType": "HP_Data",
+      "uncertain": true,
+      "sourceFile": "run_squad.py",
+      "sourceLine": 107,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_squad.py:107",
+      "path": "run_squad.py",
+      "start_char_doc": 3437,
+      "end_char_doc": 3448,
+      "context": {
+        "prefix": "each estimator call.\") flags.DEFINE_integer( \"",
+        "suffix": "\", 20, \"The total number"
+      }
+    },
+    {
+      "@id": "hp_max_answer_length_run_squad",
+      "@type": "MLS_HyperParameter",
+      "name": "max_answer_length",
+      "hasValue": "30",
+      "hpCategory": "HP_Data",
+      "hpType": "MaxSequenceLength",
+      "uncertain": true,
+      "sourceFile": "run_squad.py",
+      "sourceLine": 112,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_squad.py:112",
+      "path": "run_squad.py",
+      "start_char_doc": 3591,
+      "end_char_doc": 3608,
+      "context": {
+        "prefix": "\"nbest_predictions.json output file.\") flags.DEFINE_integer( \"",
+        "suffix": "\", 30, \"The maximum length"
+      }
+    },
+    {
+      "@id": "hp_null_score_diff_threshold_run_squad",
+      "@type": "MLS_HyperParameter",
+      "name": "null_score_diff_threshold",
+      "hasValue": "0.0",
+      "hpCategory": "HP_Training",
+      "hpType": "HP_Training",
+      "uncertain": true,
+      "sourceFile": "run_squad.py",
+      "sourceLine": 152,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_squad.py:152",
+      "path": "README.md",
+      "start_char_doc": 30691,
+      "end_char_doc": 30716,
+      "context": {
+        "prefix": "--tpu_name=$TPU_NAME \\ --version_2_with_negative=True \\ --",
+        "suffix": "=$THRESH ``` ### Out-of-memory issues"
+      }
+    },
+    {
+      "@id": "hp_learning_rate_run_pretraining",
+      "@type": "MLS_HyperParameter",
+      "name": "learning_rate",
+      "hasValue": "5e-5",
+      "hpCategory": "HP_Optimization",
+      "hpType": "LearningRate",
+      "uncertain": false,
+      "sourceFile": "run_pretraining.py",
+      "sourceLine": 68,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_pretraining.py:68",
+      "path": "README.md",
+      "start_char_doc": 23025,
+      "end_char_doc": 23038,
+      "context": {
+        "prefix": "--max_seq_length=128 \\ --train_batch_size=32 \\ --",
+        "suffix": "=2e-5 \\ --num_train_epochs=3.0 \\ --output_dir=/tmp/mrpc_output/"
+      }
+    },
+    {
+      "@id": "hp_num_train_steps_run_pretraining",
+      "@type": "MLS_HyperParameter",
+      "name": "num_train_steps",
+      "hasValue": "100000",
+      "hpCategory": "HP_Training",
+      "hpType": "MaxSteps",
+      "uncertain": false,
+      "sourceFile": "run_pretraining.py",
+      "sourceLine": 70,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_pretraining.py:70",
+      "path": "README.md",
+      "start_char_doc": 41887,
+      "end_char_doc": 41902,
+      "context": {
+        "prefix": "probably want to set `",
+        "suffix": "` to 10000 steps or"
+      }
+    },
+    {
+      "@id": "hp_num_warmup_steps_run_pretraining",
+      "@type": "MLS_HyperParameter",
+      "name": "num_warmup_steps",
+      "hasValue": "10000",
+      "hpCategory": "HP_Optimization",
+      "hpType": "WarmupSteps",
+      "uncertain": false,
+      "sourceFile": "run_pretraining.py",
+      "sourceLine": 72,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_pretraining.py:72",
+      "path": "README.md",
+      "start_char_doc": 42453,
+      "end_char_doc": 42469,
+      "context": {
+        "prefix": "--max_predictions_per_seq=20 \\ --num_train_steps=20 \\ --",
+        "suffix": "=10 \\ --learning_rate=2e-5 ``` This"
+      }
+    },
+    {
+      "@id": "hp_train_batch_size_run_pretraining",
+      "@type": "MLS_HyperParameter",
+      "name": "train_batch_size",
+      "hasValue": "32",
+      "hpCategory": "HP_Training",
+      "hpType": "BatchSize",
+      "uncertain": false,
+      "sourceFile": "run_pretraining.py",
+      "sourceLine": 64,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_pretraining.py:64",
+      "path": "README.md",
+      "start_char_doc": 22999,
+      "end_char_doc": 23015,
+      "context": {
+        "prefix": "--init_checkpoint=$BERT_BASE_DIR/bert_model.ckpt \\ --max_seq_length=128 \\ --",
+        "suffix": "=32 \\ --learning_rate=2e-5 \\ --num_train_epochs=3.0"
+      }
+    },
+    {
+      "@id": "hp_eval_batch_size_run_pretraining",
+      "@type": "MLS_HyperParameter",
+      "name": "eval_batch_size",
+      "hasValue": "8",
+      "hpCategory": "HP_Training",
+      "hpType": "BatchSize",
+      "uncertain": false,
+      "sourceFile": "run_pretraining.py",
+      "sourceLine": 66,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_pretraining.py:66",
+      "path": "run_classifier.py",
+      "start_char_doc": 2458,
+      "end_char_doc": 2473,
+      "context": {
+        "prefix": "batch size for training.\") flags.DEFINE_integer(\"",
+        "suffix": "\", 8, \"Total batch size"
+      }
+    },
+    {
+      "@id": "hp_max_seq_length_run_pretraining",
+      "@type": "MLS_HyperParameter",
+      "name": "max_seq_length",
+      "hasValue": "128",
+      "hpCategory": "HP_Data",
+      "hpType": "MaxSequenceLength",
+      "uncertain": false,
+      "sourceFile": "run_pretraining.py",
+      "sourceLine": 49,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_pretraining.py:49",
+      "path": "README.md",
+      "start_char_doc": 22974,
+      "end_char_doc": 22988,
+      "context": {
+        "prefix": "--bert_config_file=$BERT_BASE_DIR/bert_config.json \\ --init_checkpoint=$BERT_BASE_DIR/bert_model.ckpt \\ --",
+        "suffix": "=128 \\ --train_batch_size=32 \\ --learning_rate=2e-5"
+      }
+    },
+    {
+      "@id": "hp_max_predictions_per_seq_run_pretraining",
+      "@type": "MLS_HyperParameter",
+      "name": "max_predictions_per_seq",
+      "hasValue": "20",
+      "hpCategory": "HP_Data",
+      "hpType": "HP_Data",
+      "uncertain": true,
+      "sourceFile": "run_pretraining.py",
+      "sourceLine": 55,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_pretraining.py:55",
+      "path": "README.md",
+      "start_char_doc": 41007,
+      "end_char_doc": 41030,
+      "context": {
+        "prefix": "`run_pretraining.py`, e.g., `tf_examples.tf_record*`.) The `",
+        "suffix": "` is the maximum number"
+      }
+    },
+    {
+      "@id": "hp_max_seq_length_create_pretraining_data",
+      "@type": "MLS_HyperParameter",
+      "name": "max_seq_length",
+      "hasValue": "128",
+      "hpCategory": "HP_Data",
+      "hpType": "MaxSequenceLength",
+      "uncertain": false,
+      "sourceFile": "create_pretraining_data.py",
+      "sourceLine": 49,
+      "wasDerivedFrom": "code",
+      "codeReference": "create_pretraining_data.py:49",
+      "path": "README.md",
+      "start_char_doc": 22974,
+      "end_char_doc": 22988,
+      "context": {
+        "prefix": "--bert_config_file=$BERT_BASE_DIR/bert_config.json \\ --init_checkpoint=$BERT_BASE_DIR/bert_model.ckpt \\ --",
+        "suffix": "=128 \\ --train_batch_size=32 \\ --learning_rate=2e-5"
+      }
+    },
+    {
+      "@id": "hp_max_predictions_per_seq_create_pretraining_data",
+      "@type": "MLS_HyperParameter",
+      "name": "max_predictions_per_seq",
+      "hasValue": "20",
+      "hpCategory": "HP_Data",
+      "hpType": "HP_Data",
+      "uncertain": true,
+      "sourceFile": "create_pretraining_data.py",
+      "sourceLine": 51,
+      "wasDerivedFrom": "code",
+      "codeReference": "create_pretraining_data.py:51",
+      "path": "README.md",
+      "start_char_doc": 41007,
+      "end_char_doc": 41030,
+      "context": {
+        "prefix": "`run_pretraining.py`, e.g., `tf_examples.tf_record*`.) The `",
+        "suffix": "` is the maximum number"
+      }
+    },
+    {
+      "@id": "hp_random_seed_create_pretraining_data",
+      "@type": "MLS_HyperParameter",
+      "name": "random_seed",
+      "hasValue": "12345",
+      "hpCategory": "HP_Training",
+      "hpType": "RandomSeed",
+      "uncertain": false,
+      "sourceFile": "create_pretraining_data.py",
+      "sourceLine": 54,
+      "wasDerivedFrom": "code",
+      "codeReference": "create_pretraining_data.py:54",
+      "path": "README.md",
+      "start_char_doc": 41542,
+      "end_char_doc": 41553,
+      "context": {
+        "prefix": "--max_predictions_per_seq=20 \\ --masked_lm_prob=0.15 \\ --",
+        "suffix": "=12345 \\ --dupe_factor=5 ``` Here's"
+      }
+    },
+    {
+      "@id": "hp_dupe_factor_create_pretraining_data",
+      "@type": "MLS_HyperParameter",
+      "name": "dupe_factor",
+      "hasValue": "10",
+      "hpCategory": "HP_Data",
+      "hpType": "HP_Data",
+      "uncertain": true,
+      "sourceFile": "create_pretraining_data.py",
+      "sourceLine": 56,
+      "wasDerivedFrom": "code",
+      "codeReference": "create_pretraining_data.py:56",
+      "path": "README.md",
+      "start_char_doc": 41566,
+      "end_char_doc": 41577,
+      "context": {
+        "prefix": "--masked_lm_prob=0.15 \\ --random_seed=12345 \\ --",
+        "suffix": "=5 ``` Here's how to"
+      }
+    },
+    {
+      "@id": "hp_masked_lm_prob_create_pretraining_data",
+      "@type": "MLS_HyperParameter",
+      "name": "masked_lm_prob",
+      "hasValue": "0.15",
+      "hpCategory": "HP_Data",
+      "hpType": "HP_Data",
+      "uncertain": true,
+      "sourceFile": "create_pretraining_data.py",
+      "sourceLine": 60,
+      "wasDerivedFrom": "code",
+      "codeReference": "create_pretraining_data.py:60",
+      "path": "README.md",
+      "start_char_doc": 41143,
+      "end_char_doc": 41157,
+      "context": {
+        "prefix": "to around `max_seq_length` * `",
+        "suffix": "` (the script doesn't do"
+      }
+    },
+    {
+      "@id": "hp_short_seq_prob_create_pretraining_data",
+      "@type": "MLS_HyperParameter",
+      "name": "short_seq_prob",
+      "hasValue": "0.1",
+      "hpCategory": "HP_Data",
+      "hpType": "HP_Data",
+      "uncertain": true,
+      "sourceFile": "create_pretraining_data.py",
+      "sourceLine": 62,
+      "wasDerivedFrom": "code",
+      "codeReference": "create_pretraining_data.py:62",
+      "path": "create_pretraining_data.py",
+      "start_char_doc": 2055,
+      "end_char_doc": 2069,
+      "context": {
+        "prefix": "\"Masked LM probability.\") flags.DEFINE_float( \"",
+        "suffix": "\", 0.1, \"Probability of creating"
+      }
+    },
+    {
+      "@id": "hp_hidden_size_modeling",
+      "@type": "MLS_HyperParameter",
+      "name": "hidden_size",
+      "hasValue": "768",
+      "hpCategory": "HP_Architecture",
+      "hpType": "HiddenSize",
+      "uncertain": false,
+      "sourceFile": "modeling.py",
+      "sourceLine": 33,
+      "wasDerivedFrom": "code",
+      "codeReference": "modeling.py:33",
+      "path": "modeling.py",
+      "start_char_doc": 1025,
+      "end_char_doc": 1036,
+      "context": {
+        "prefix": "for `BertModel`.\"\"\" def __init__(self, vocab_size,",
+        "suffix": "=768, num_hidden_layers=12, num_attention_heads=12, intermediate_size=3072, hidden_act=\"gelu\","
+      }
+    },
+    {
+      "@id": "hp_num_hidden_layers_modeling",
+      "@type": "MLS_HyperParameter",
+      "name": "num_hidden_layers",
+      "hasValue": "12",
+      "hpCategory": "HP_Architecture",
+      "hpType": "NumLayers",
+      "uncertain": false,
+      "sourceFile": "modeling.py",
+      "sourceLine": 34,
+      "wasDerivedFrom": "code",
+      "codeReference": "modeling.py:34",
+      "path": "modeling.py",
+      "start_char_doc": 1057,
+      "end_char_doc": 1074,
+      "context": {
+        "prefix": "`BertModel`.\"\"\" def __init__(self, vocab_size, hidden_size=768,",
+        "suffix": "=12, num_attention_heads=12, intermediate_size=3072, hidden_act=\"gelu\", hidden_dropout_prob=0.1,"
+      }
+    },
+    {
+      "@id": "hp_num_attention_heads_modeling",
+      "@type": "MLS_HyperParameter",
+      "name": "num_attention_heads",
+      "hasValue": "12",
+      "hpCategory": "HP_Architecture",
+      "hpType": "AttentionHeads",
+      "uncertain": false,
+      "sourceFile": "modeling.py",
+      "sourceLine": 35,
+      "wasDerivedFrom": "code",
+      "codeReference": "modeling.py:35",
+      "path": "modeling.py",
+      "start_char_doc": 1094,
+      "end_char_doc": 1113,
+      "context": {
+        "prefix": "def __init__(self, vocab_size, hidden_size=768, num_hidden_layers=12,",
+        "suffix": "=12, intermediate_size=3072, hidden_act=\"gelu\", hidden_dropout_prob=0.1, attention_probs_dropout_prob=0.1,"
+      }
+    },
+    {
+      "@id": "hp_intermediate_size_modeling",
+      "@type": "MLS_HyperParameter",
+      "name": "intermediate_size",
+      "hasValue": "3072",
+      "hpCategory": "HP_Architecture",
+      "hpType": "HiddenSize",
+      "uncertain": true,
+      "sourceFile": "modeling.py",
+      "sourceLine": 36,
+      "wasDerivedFrom": "code",
+      "codeReference": "modeling.py:36",
+      "path": "modeling.py",
+      "start_char_doc": 1133,
+      "end_char_doc": 1150,
+      "context": {
+        "prefix": "__init__(self, vocab_size, hidden_size=768, num_hidden_layers=12, num_attention_heads=12,",
+        "suffix": "=3072, hidden_act=\"gelu\", hidden_dropout_prob=0.1, attention_probs_dropout_prob=0.1, max_position_embeddings=512,"
+      }
+    },
+    {
+      "@id": "hp_hidden_dropout_prob_modeling",
+      "@type": "MLS_HyperParameter",
+      "name": "hidden_dropout_prob",
+      "hasValue": "0.1",
+      "hpCategory": "HP_Architecture",
+      "hpType": "Dropout",
+      "uncertain": false,
+      "sourceFile": "modeling.py",
+      "sourceLine": 38,
+      "wasDerivedFrom": "code",
+      "codeReference": "modeling.py:38",
+      "path": "modeling.py",
+      "start_char_doc": 1206,
+      "end_char_doc": 1225,
+      "context": {
+        "prefix": "hidden_size=768, num_hidden_layers=12, num_attention_heads=12, intermediate_size=3072, hidden_act=\"gelu\",",
+        "suffix": "=0.1, attention_probs_dropout_prob=0.1, max_position_embeddings=512, type_vocab_size=16, initializer_range=0.02):"
+      }
+    },
+    {
+      "@id": "hp_attention_probs_dropout_prob_modeling",
+      "@type": "MLS_HyperParameter",
+      "name": "attention_probs_dropout_prob",
+      "hasValue": "0.1",
+      "hpCategory": "HP_Architecture",
+      "hpType": "Dropout",
+      "uncertain": false,
+      "sourceFile": "modeling.py",
+      "sourceLine": 39,
+      "wasDerivedFrom": "code",
+      "codeReference": "modeling.py:39",
+      "path": "modeling.py",
+      "start_char_doc": 1246,
+      "end_char_doc": 1274,
+      "context": {
+        "prefix": "num_hidden_layers=12, num_attention_heads=12, intermediate_size=3072, hidden_act=\"gelu\", hidden_dropout_prob=0.1,",
+        "suffix": "=0.1, max_position_embeddings=512, type_vocab_size=16, initializer_range=0.02): \"\"\"Constructs"
+      }
+    },
+    {
+      "@id": "hp_max_position_embeddings_modeling",
+      "@type": "MLS_HyperParameter",
+      "name": "max_position_embeddings",
+      "hasValue": "512",
+      "hpCategory": "HP_Data",
+      "hpType": "MaxSequenceLength",
+      "uncertain": false,
+      "sourceFile": "modeling.py",
+      "sourceLine": 40,
+      "wasDerivedFrom": "code",
+      "codeReference": "modeling.py:40",
+      "path": "modeling.py",
+      "start_char_doc": 1295,
+      "end_char_doc": 1318,
+      "context": {
+        "prefix": "um_attention_heads=12, intermediate_size=3072, hidden_act=\"gelu\", hidden_dropout_prob=0.1, attention_probs_dropout_prob=0.1,",
+        "suffix": "=512, type_vocab_size=16, initializer_range=0.02): \"\"\"Constructs BertConfig."
+      }
+    },
+    {
+      "@id": "hp_initializer_range_modeling",
+      "@type": "MLS_HyperParameter",
+      "name": "initializer_range",
+      "hasValue": "0.02",
+      "hpCategory": "HP_Architecture",
+      "hpType": "UnknownArchitectureHP",
+      "uncertain": true,
+      "sourceFile": "modeling.py",
+      "sourceLine": 42,
+      "wasDerivedFrom": "code",
+      "codeReference": "modeling.py:42",
+      "path": "modeling.py",
+      "start_char_doc": 1374,
+      "end_char_doc": 1391,
+      "context": {
+        "prefix": "dden_act=\"gelu\", hidden_dropout_prob=0.1, attention_probs_dropout_prob=0.1, max_position_embeddings=512, type_vocab_size=16,",
+        "suffix": "=0.02): \"\"\"Constructs BertConfig. Args: vocab_size:"
+      }
+    },
+    {
+      "@id": "hp_type_vocab_size_modeling",
+      "@type": "MLS_HyperParameter",
+      "name": "type_vocab_size",
+      "hasValue": "16",
+      "hpCategory": "HP_Architecture",
+      "hpType": "UnknownArchitectureHP",
+      "uncertain": true,
+      "sourceFile": "modeling.py",
+      "sourceLine": 41,
+      "wasDerivedFrom": "code",
+      "codeReference": "modeling.py:41",
+      "path": "modeling.py",
+      "start_char_doc": 1339,
+      "end_char_doc": 1354,
+      "context": {
+        "prefix": "ediate_size=3072, hidden_act=\"gelu\", hidden_dropout_prob=0.1, attention_probs_dropout_prob=0.1, max_position_embeddings=512,",
+        "suffix": "=16, initializer_range=0.02): \"\"\"Constructs BertConfig. Args:"
+      }
+    },
+    {
+      "@id": "hp_weight_decay_rate_optimization",
+      "@type": "MLS_HyperParameter",
+      "name": "weight_decay_rate",
+      "hasValue": "0.01",
+      "hpCategory": "HP_Optimization",
+      "hpType": "WeightDecay",
+      "uncertain": false,
+      "sourceFile": "optimization.py",
+      "sourceLine": 65,
+      "wasDerivedFrom": "code",
+      "codeReference": "optimization.py:65",
+      "path": "optimization.py",
+      "start_char_doc": 2290,
+      "end_char_doc": 2307,
+      "context": {
+        "prefix": "init_checkpoint.) optimizer = AdamWeightDecayOptimizer( learning_rate=learning_rate,",
+        "suffix": "=0.01, beta_1=0.9, beta_2=0.999, epsilon=1e-6, exclude_from_weight_decay=[\"LayerNorm\","
+      }
+    },
+    {
+      "@id": "hp_beta_1_optimization",
+      "@type": "MLS_HyperParameter",
+      "name": "beta_1",
+      "hasValue": "0.9",
+      "hpCategory": "HP_Optimization",
+      "hpType": "Momentum",
+      "uncertain": false,
+      "sourceFile": "optimization.py",
+      "sourceLine": 66,
+      "wasDerivedFrom": "code",
+      "codeReference": "optimization.py:66",
+      "path": "optimization.py",
+      "start_char_doc": 2320,
+      "end_char_doc": 2326,
+      "context": {
+        "prefix": "optimizer = AdamWeightDecayOptimizer( learning_rate=learning_rate, weight_decay_rate=0.01,",
+        "suffix": "=0.9, beta_2=0.999, epsilon=1e-6, exclude_from_weight_decay=[\"LayerNorm\", \"layer_norm\","
+      }
+    },
+    {
+      "@id": "hp_beta_2_optimization",
+      "@type": "MLS_HyperParameter",
+      "name": "beta_2",
+      "hasValue": "0.999",
+      "hpCategory": "HP_Optimization",
+      "hpType": "Momentum",
+      "uncertain": false,
+      "sourceFile": "optimization.py",
+      "sourceLine": 67,
+      "wasDerivedFrom": "code",
+      "codeReference": "optimization.py:67",
+      "path": "optimization.py",
+      "start_char_doc": 2338,
+      "end_char_doc": 2344,
+      "context": {
+        "prefix": "= AdamWeightDecayOptimizer( learning_rate=learning_rate, weight_decay_rate=0.01, beta_1=0.9,",
+        "suffix": "=0.999, epsilon=1e-6, exclude_from_weight_decay=[\"LayerNorm\", \"layer_norm\", \"bias\"])"
+      }
+    },
+    {
+      "@id": "hp_epsilon_optimization",
+      "@type": "MLS_HyperParameter",
+      "name": "epsilon",
+      "hasValue": "1e-6",
+      "hpCategory": "HP_Optimization",
+      "hpType": "HP_Optimization",
+      "uncertain": true,
+      "sourceFile": "optimization.py",
+      "sourceLine": 68,
+      "wasDerivedFrom": "code",
+      "codeReference": "optimization.py:68",
+      "path": "optimization.py",
+      "start_char_doc": 2358,
+      "end_char_doc": 2365,
+      "context": {
+        "prefix": "AdamWeightDecayOptimizer( learning_rate=learning_rate, weight_decay_rate=0.01, beta_1=0.9, beta_2=0.999,",
+        "suffix": "=1e-6, exclude_from_weight_decay=[\"LayerNorm\", \"layer_norm\", \"bias\"]) if"
+      }
+    },
+    {
+      "@id": "hp_clip_norm_optimization",
+      "@type": "MLS_HyperParameter",
+      "name": "clip_norm",
+      "hasValue": "1.0",
+      "hpCategory": "HP_Optimization",
+      "hpType": "HP_Optimization",
+      "uncertain": true,
+      "sourceFile": "optimization.py",
+      "sourceLine": 75,
+      "wasDerivedFrom": "code",
+      "codeReference": "optimization.py:75",
+      "path": "optimization.py",
+      "start_char_doc": 2679,
+      "end_char_doc": 2688,
+      "context": {
+        "prefix": "pre-trained. (grads, _) = tf.clip_by_global_norm(grads,",
+        "suffix": "=1.0) train_op = optimizer.apply_gradients( zip(grads,"
+      }
+    },
+    {
+      "@id": "hp_batch_size_extract_features",
+      "@type": "MLS_HyperParameter",
+      "name": "batch_size",
+      "hasValue": "32",
+      "hpCategory": "HP_Training",
+      "hpType": "BatchSize",
+      "uncertain": false,
+      "sourceFile": "extract_features.py",
+      "sourceLine": 63,
+      "wasDerivedFrom": "code",
+      "codeReference": "extract_features.py:63",
+      "path": "README.md",
+      "start_char_doc": 2495,
+      "end_char_doc": 2505,
+      "context": {
+        "prefix": "trained for 4 epochs: -",
+        "suffix": "s: 8, 16, 32, 64,"
+      }
+    },
+    {
+      "@id": "hp_max_seq_length_extract_features",
+      "@type": "MLS_HyperParameter",
+      "name": "max_seq_length",
+      "hasValue": "128",
+      "hpCategory": "HP_Data",
+      "hpType": "MaxSequenceLength",
+      "uncertain": false,
+      "sourceFile": "extract_features.py",
+      "sourceLine": 45,
+      "wasDerivedFrom": "code",
+      "codeReference": "extract_features.py:45",
+      "path": "README.md",
+      "start_char_doc": 22974,
+      "end_char_doc": 22988,
+      "context": {
+        "prefix": "--bert_config_file=$BERT_BASE_DIR/bert_config.json \\ --init_checkpoint=$BERT_BASE_DIR/bert_model.ckpt \\ --",
+        "suffix": "=128 \\ --train_batch_size=32 \\ --learning_rate=2e-5"
+      }
+    },
+    {
+      "@id": "preprocess_create_pretraining_data",
+      "@type": "DataProcessingStep",
+      "identifier": "BERT Pretraining Data Generation",
+      "description": "Generates TFRecord pretraining data from raw text with masked LM and next sentence prediction instances using WordPiece tokenization, whole word masking, and configurable sequence lengths",
+      "transformationType": "tokenization",
+      "startedAtTime": null,
+      "endedAtTime": null,
+      "inputDataset": null,
+      "outputDataset": null,
+      "prov-executedBy": {
+        "@id": "impl_bert"
+      },
+      "wasDerivedFrom": "code",
+      "codeReference": "create_pretraining_data.py",
+      "path": "README.md",
+      "start_char_doc": 6183,
+      "end_char_doc": 6209,
+      "context": {
+        "prefix": "the flag `--do_whole_word_mask=True` to `",
+        "suffix": "`. Pre-trained models with Whole"
+      }
+    },
+    {
+      "@id": "preprocess_tokenization",
+      "@type": "DataProcessingStep",
+      "identifier": "BERT Tokenization Library",
+      "description": "Core tokenization module implementing FullTokenizer, BasicTokenizer, and WordpieceTokenizer for text normalization, punctuation splitting, Chinese character handling, and WordPiece subword tokenization",
+      "transformationType": "tokenization",
+      "startedAtTime": null,
+      "endedAtTime": null,
+      "inputDataset": null,
+      "outputDataset": null,
+      "prov-executedBy": {
+        "@id": "impl_bert"
+      },
+      "wasDerivedFrom": "code",
+      "codeReference": "tokenization.py",
+      "path": "README.md",
+      "start_char_doc": 10125,
+      "end_char_doc": 10140,
+      "context": {
+        "prefix": "implementation of `BasicTokenizer` in `",
+        "suffix": "` to support Chinese character"
+      }
+    },
+    {
+      "@id": "training_run_pretraining",
+      "@type": "TrainingRun",
+      "runId": "bert_pretraining",
+      "description": "Pre-training BERT with masked LM and next sentence prediction on TFRecord data using TPUEstimator",
+      "logFile": null,
+      "artifactsLocation": null,
+      "startedAtTime": null,
+      "endedAtTime": null,
+      "prov-executedBy": {
+        "@id": "impl_bert"
+      },
+      "used": null,
+      "trains": null,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_pretraining.py",
+      "path": "README.md",
+      "start_char_doc": 40947,
+      "end_char_doc": 40965,
+      "context": {
+        "prefix": "a file glob to `",
+        "suffix": "`, e.g., `tf_examples.tf_record*`.) The `max_predictions_per_seq`"
+      }
+    },
+    {
+      "@id": "training_run_classifier",
+      "@type": "TrainingRun",
+      "runId": "bert_classifier_finetuning",
+      "description": "Fine-tuning BERT on sentence classification tasks (MRPC, CoLA, MNLI, etc.) using run_classifier.py with TPUEstimator",
+      "logFile": null,
+      "artifactsLocation": null,
+      "startedAtTime": null,
+      "endedAtTime": null,
+      "prov-executedBy": {
+        "@id": "impl_bert"
+      },
+      "used": null,
+      "trains": null,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_classifier.py",
+      "path": "README.md",
+      "start_char_doc": 15680,
+      "end_char_doc": 15684,
+      "context": {
+        "prefix": "own model from scratch. **",
+        "suffix": "-tuning** is inexpensive. All of"
+      }
+    },
+    {
+      "@id": "training_run_squad",
+      "@type": "TrainingRun",
+      "runId": "bert_squad_finetuning",
+      "description": "Fine-tuning BERT on SQuAD question answering tasks (v1.1 and v2.0) using run_squad.py with TPUEstimator",
+      "logFile": null,
+      "artifactsLocation": null,
+      "startedAtTime": null,
+      "endedAtTime": null,
+      "prov-executedBy": {
+        "@id": "impl_bert"
+      },
+      "used": null,
+      "trains": null,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_squad.py",
+      "path": "README.md",
+      "start_char_doc": 21167,
+      "end_char_doc": 21179,
+      "context": {
+        "prefix": "flags to `run_classifier.py` or `",
+        "suffix": "`: ``` --use_tpu=True \\ --tpu_name=$TPU_NAME"
+      }
+    },
+    {
+      "@id": "evaluation_run_pretraining",
+      "@type": "EvaluationRun",
+      "runId": "bert_pretraining_eval",
+      "description": "Evaluation of pre-trained BERT model on masked LM accuracy and next sentence prediction accuracy, writing results to eval_results.txt",
+      "split": "eval",
+      "evaluationScript": "run_pretraining.py",
+      "metricsFile": "eval_results.txt",
+      "startedAtTime": null,
+      "endedAtTime": null,
+      "prov-executedBy": {
+        "@id": "impl_bert"
+      },
+      "evaluates": null,
+      "prov-generated": null,
+      "wasDerivedFrom": "code",
+      "codeReference": "run_pretraining.py",
+      "path": "README.md",
+      "start_char_doc": 40947,
+      "end_char_doc": 40965,
+      "context": {
+        "prefix": "a file glob to `",
+        "suffix": "`, e.g., `tf_examples.tf_record*`.) The `max_predictions_per_seq`"
+      }
+    },
+    {
+      "@id": "evaluation_run_classifier",
+      "@type": "EvaluationRun",
+      "runId": "bert_classifier_eval",
+      "description": "Evaluation of fine-tuned BERT classifier on dev set, reporting eval_accuracy and eval_loss",
+      "split": "dev",
+      "evaluationScript": "run_classifier.py",
+      "metricsFile": null,
+      "startedAtTime": null,
+      "endedAtTime": null,
+      "prov-executedBy": {
+        "@id": "impl_bert"
+      },
+      "evaluates": null,
+      "prov-generated": [
+        {
+          "@id": "prediction_classifier"
+        }
+      ],
+      "wasDerivedFrom": "code",
+      "codeReference": "run_classifier.py",
+      "path": "README.md",
+      "start_char_doc": 21144,
+      "end_char_doc": 21161,
+      "context": {
+        "prefix": "the following flags to `",
+        "suffix": "` or `run_squad.py`: ``` --use_tpu=True"
+      }
+    },
+    {
+      "@id": "evaluation_run_squad",
+      "@type": "EvaluationRun",
+      "runId": "bert_squad_eval",
+      "description": "Evaluation of fine-tuned BERT on SQuAD dev set, producing predictions.json and nbest_predictions.json",
+      "split": "dev",
+      "evaluationScript": "run_squad.py",
+      "metricsFile": null,
+      "startedAtTime": null,
+      "endedAtTime": null,
+      "prov-executedBy": {
+        "@id": "impl_bert"
+      },
+      "evaluates": null,
+      "prov-generated": [
+        {
+          "@id": "prediction_squad"
+        }
+      ],
+      "wasDerivedFrom": "code",
+      "codeReference": "run_squad.py",
+      "path": "README.md",
+      "start_char_doc": 21167,
+      "end_char_doc": 21179,
+      "context": {
+        "prefix": "flags to `run_classifier.py` or `",
+        "suffix": "`: ``` --use_tpu=True \\ --tpu_name=$TPU_NAME"
+      }
+    },
+    {
+      "@id": "prediction_classifier",
+      "@type": "PredictionSet",
+      "identifier": "BERT Classifier Predictions",
+      "description": "Test set class probability predictions from fine-tuned BERT classifier, output as test_results.tsv",
+      "predictionFormat": "TSV",
+      "storageLocation": null,
+      "numInstances": null,
+      "onDatasetSplit": "test",
+      "appliedTo": null,
+      "wasGeneratedBy": {
+        "@id": "evaluation_run_classifier"
+      },
+      "producedBy": {
+        "@id": "impl_bert"
+      },
+      "wasDerivedFrom": "code",
+      "codeReference": "run_classifier.py",
+      "path": "README.md",
+      "start_char_doc": 21144,
+      "end_char_doc": 21161,
+      "context": {
+        "prefix": "the following flags to `",
+        "suffix": "` or `run_squad.py`: ``` --use_tpu=True"
+      }
+    },
+    {
+      "@id": "prediction_squad",
+      "@type": "PredictionSet",
+      "identifier": "BERT SQuAD Predictions",
+      "description": "SQuAD dev set answer predictions from fine-tuned BERT, output as predictions.json and nbest_predictions.json",
+      "predictionFormat": "JSON",
+      "storageLocation": null,
+      "numInstances": null,
+      "onDatasetSplit": "dev",
+      "appliedTo": null,
+      "wasGeneratedBy": {
+        "@id": "evaluation_run_squad"
+      },
+      "producedBy": {
+        "@id": "impl_bert"
+      },
+      "wasDerivedFrom": "code",
+      "codeReference": "run_squad.py",
+      "path": "README.md",
+      "start_char_doc": 21167,
+      "end_char_doc": 21179,
+      "context": {
+        "prefix": "flags to `run_classifier.py` or `",
+        "suffix": "`: ``` --use_tpu=True \\ --tpu_name=$TPU_NAME"
+      }
+    },
+    {
+      "@id": "prediction_extract_features",
+      "@type": "PredictionSet",
+      "identifier": "BERT Feature Extraction",
+      "description": "Extraction of fixed contextual embeddings (hidden layer activations) from pre-trained BERT, output as JSONL file with per-token feature vectors",
+      "predictionFormat": "JSONL",
+      "storageLocation": null,
+      "numInstances": null,
+      "onDatasetSplit": null,
+      "appliedTo": null,
+      "wasGeneratedBy": null,
+      "producedBy": {
+        "@id": "impl_bert"
+      },
+      "wasDerivedFrom": "code",
+      "codeReference": "extract_features.py",
+      "path": "README.md",
+      "start_char_doc": 34094,
+      "end_char_doc": 34113,
+      "context": {
+        "prefix": "we include the script `",
+        "suffix": "` which can be used"
+      }
+    }
+  ]
+}

@@ -1,0 +1,901 @@
+{
+  "@context": {
+    "mls":    "http://example.org/ontology/mls#",
+    "schema": "http://schema.org/",
+    "xsd":    "http://www.w3.org/2001/XMLSchema#",
+    "rdfs":   "http://www.w3.org/2000/01/rdf-schema#",
+    "prov":   "http://www.w3.org/ns/prov#",
+
+    "SoftwareRepository":  "mls:SoftwareRepository",
+    "MLS_Implementation":  "mls:MLS_Implementation",
+    "MLS_HyperParameter":  "mls:MLS_HyperParameter",
+    "Dependency":          "mls:Dependency",
+    "Environment":         "mls:Environment",
+    "DataProcessingStep":  "mls:DataProcessingStep",
+    "TrainingRun":         "mls:TrainingRun",
+    "EvaluationRun":       "mls:EvaluationRun",
+    "PredictionSet":       "mls:PredictionSet",
+
+    "name":                "schema:name",
+    "identifier":          "schema:identifier",
+    "description":         "schema:description",
+    "url":                 "schema:url",
+    "version":             "schema:version",
+    "license":             "schema:license",
+    "programmingLanguage": "schema:programmingLanguage",
+    "dateModified":        { "@id": "schema:dateModified",    "@type": "xsd:dateTime" },
+    "documentationUrl":    { "@id": "mls:documentationUrl",  "@type": "xsd:anyURI" },
+
+    "owner":               "mls:owner",
+    "platform":            "mls:platform",
+    "codeRepository":      { "@id": "mls:codeRepository",    "@type": "xsd:anyURI" },
+    "framework":           "mls:framework",
+    "entryPoint":          "mls:entryPoint",
+    "entryPointCommand":   "mls:entryPointCommand",
+    "executionCommand":    "mls:executionCommand",
+    "commitHash":          "mls:commitHash",
+    "branch":              "mls:branch",
+    "dependenciesHash":    "mls:dependenciesHash",
+
+    "packageName":         "mls:packageName",
+    "dependencyType":      "mls:dependencyType",
+    "isOptional":          { "@id": "mls:isOptional",        "@type": "xsd:boolean" },
+
+    "hardwareSpecs":       "mls:hardwareSpecs",
+    "os":                  "mls:os",
+    "pythonVersion":       "mls:pythonVersion",
+    "requirementsFile":    "mls:requirementsFile",
+    "isDockerized":        { "@id": "mls:isDockerized",      "@type": "xsd:boolean" },
+
+    "hasValue":            { "@id": "mls:hasValue",          "@type": "xsd:string" },
+    "hpCategory":          "mls:hpCategory",
+    "hpType":              "mls:hpType",
+    "sourceFile":          "mls:sourceFile",
+    "sourceLine":          { "@id": "mls:sourceLine",        "@type": "xsd:integer" },
+    "uncertain":           { "@id": "mls:uncertain",         "@type": "xsd:boolean" },
+
+    "transformationType":  "mls:transformationType",
+    "codeReference":       { "@id": "mls:codeReference",     "@type": "xsd:anyURI" },
+    "runId":               "mls:runId",
+    "logFile":             { "@id": "mls:logFile",           "@type": "xsd:anyURI" },
+    "artifactsLocation":   { "@id": "mls:artifactsLocation", "@type": "xsd:anyURI" },
+    "split":               "mls:split",
+    "evaluationScript":    "mls:evaluationScript",
+    "evaluationSplit":     "mls:evaluationSplit",
+    "metricsFile":         "mls:metricsFile",
+    "format":              "mls:format",
+    "predictionFormat":    "mls:predictionFormat",
+    "storageLocation":     "mls:storageLocation",
+    "numInstances":        { "@id": "mls:numInstances",      "@type": "xsd:integer" },
+    "onDatasetSplit":      "mls:onDatasetSplit",
+    "startedAtTime":       { "@id": "prov:startedAtTime",    "@type": "xsd:dateTime" },
+    "endedAtTime":         { "@id": "prov:endedAtTime",      "@type": "xsd:dateTime" },
+
+    "contains":            { "@id": "mls:contains",          "@type": "@id" },
+    "supports":            { "@id": "mls:supports",          "@type": "@id" },
+    "runsIn":              { "@id": "mls:runsIn",            "@type": "@id" },
+    "requires":            { "@id": "mls:requires",          "@type": "@id" },
+    "inputDataset":        { "@id": "mls:inputDataset",      "@type": "@id" },
+    "outputDataset":       { "@id": "mls:outputDataset",     "@type": "@id" },
+    "trains":              { "@id": "mls:trains",            "@type": "@id" },
+    "evaluates":           { "@id": "mls:evaluates",         "@type": "@id" },
+    "appliedTo":           { "@id": "mls:appliedTo",         "@type": "@id" },
+    "producedBy":          { "@id": "mls:producedBy",        "@type": "@id" },
+    "prov-executedBy":     { "@id": "mls:prov-executedBy",   "@type": "@id" },
+    "prov-generated":      { "@id": "mls:prov-generated",    "@type": "@id" },
+    "used":                { "@id": "prov:used",             "@type": "@id" },
+    "wasGeneratedBy":      { "@id": "prov:wasGeneratedBy",   "@type": "@id" },
+    "wasDerivedFrom":      { "@id": "prov:wasDerivedFrom",   "@type": "@id" },
+    "wasAssociatedWith":   { "@id": "prov:wasAssociatedWith","@type": "@id" }
+  },
+  "@graph": [
+    {
+      "@id": "repo_openai_clip",
+      "@type": "SoftwareRepository",
+      "name": "CLIP",
+      "description": "CLIP (Contrastive Language-Image Pre-Training) is a neural network trained on a variety of (image, text) pairs. It can be instructed in natural language to predict the most relevant text snippet, given an image, without directly optimizing for the task, similarly to the zero-shot capabilities of GPT-2 and 3.",
+      "url": "https://github.com/OpenAI/CLIP",
+      "owner": "OpenAI",
+      "platform": "GitHub",
+      "programmingLanguage": "Python",
+      "version": "1.0",
+      "license": "MIT",
+      "dateModified": null,
+      "documentationUrl": "https://github.com/OpenAI/CLIP/blob/main/README.md",
+      "contains": [
+        { "@id": "impl_clip" }
+      ],
+      "supports": [
+        { "@id": "env_clip" }
+      ],
+      "wasDerivedFrom": "code",
+      "codeReference": "README.md",
+      "path": "README.md",
+      "start_char_doc": 2,
+      "end_char_doc": 6,
+      "context": {
+        "prefix": "#",
+        "suffix": "[[Blog]](https://openai.com/blog/clip/) [[Paper]](https://arxiv.org/abs/2103.00020)"
+      }
+    },
+    {
+      "@id": "impl_clip",
+      "@type": "MLS_Implementation",
+      "identifier": "CLIP Implementation",
+      "description": "Official PyTorch implementation of CLIP providing model loading, image preprocessing, text tokenization, and zero-shot inference via a Python package API.",
+      "codeRepository": "https://github.com/OpenAI/CLIP",
+      "framework": "PyTorch",
+      "entryPoint": "clip/clip.py",
+      "entryPointCommand": "pip install git+https://github.com/openai/CLIP.git",
+      "executionCommand": "import clip; model, preprocess = clip.load('ViT-B/32')",
+      "commitHash": "d05afc4",
+      "branch": "main",
+      "dependenciesHash": null,
+      "runsIn": { "@id": "env_clip" },
+      "requires": [
+        { "@id": "dep_ftfy" },
+        { "@id": "dep_packaging" },
+        { "@id": "dep_regex" },
+        { "@id": "dep_tqdm" },
+        { "@id": "dep_torch" },
+        { "@id": "dep_torchvision" }
+      ],
+      "wasDerivedFrom": "code",
+      "codeReference": "clip/clip.py",
+      "path": "clip/clip.py",
+      "start_char_doc": 3779,
+      "end_char_doc": 3792,
+      "context": {
+        "prefix": "return list(_MODELS.keys())",
+        "suffix": ": str, device: Union[str,"
+      }
+    },
+    {
+      "@id": "env_clip",
+      "@type": "Environment",
+      "name": "CLIP Environment",
+      "description": "Python environment with PyTorch >= 1.7.1 and optional CUDA GPU support. Tested with Python 3.8 and PyTorch versions 1.7.1, 1.9.1, and 1.10.1 on Ubuntu.",
+      "framework": "PyTorch >= 1.7.1",
+      "pythonVersion": "3.8",
+      "os": "Ubuntu",
+      "hardwareSpecs": "CUDA GPU recommended; CPU supported",
+      "requirementsFile": "requirements.txt",
+      "isDockerized": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "requirements.txt",
+      "path": "requirements.txt",
+      "start_char_doc": 0,
+      "end_char_doc": 43,
+      "context": {
+        "prefix": "",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "dep_ftfy",
+      "@type": "Dependency",
+      "packageName": "ftfy",
+      "version": null,
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "requirements.txt:1",
+      "path": "requirements.txt",
+      "start_char_doc": 0,
+      "end_char_doc": 4,
+      "context": {
+        "prefix": "",
+        "suffix": "packaging regex tqdm torch torchvision"
+      }
+    },
+    {
+      "@id": "dep_packaging",
+      "@type": "Dependency",
+      "packageName": "packaging",
+      "version": null,
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "requirements.txt:2",
+      "path": "requirements.txt",
+      "start_char_doc": 5,
+      "end_char_doc": 14,
+      "context": {
+        "prefix": "ftfy",
+        "suffix": "regex tqdm torch torchvision"
+      }
+    },
+    {
+      "@id": "dep_regex",
+      "@type": "Dependency",
+      "packageName": "regex",
+      "version": null,
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "requirements.txt:3",
+      "path": "requirements.txt",
+      "start_char_doc": 15,
+      "end_char_doc": 20,
+      "context": {
+        "prefix": "ftfy packaging",
+        "suffix": "tqdm torch torchvision"
+      }
+    },
+    {
+      "@id": "dep_tqdm",
+      "@type": "Dependency",
+      "packageName": "tqdm",
+      "version": null,
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "requirements.txt:4",
+      "path": "requirements.txt",
+      "start_char_doc": 21,
+      "end_char_doc": 25,
+      "context": {
+        "prefix": "ftfy packaging regex",
+        "suffix": "torch torchvision"
+      }
+    },
+    {
+      "@id": "dep_torch",
+      "@type": "Dependency",
+      "packageName": "torch",
+      "version": ">=1.7.1",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "requirements.txt:5",
+      "path": "requirements.txt",
+      "start_char_doc": 26,
+      "end_char_doc": 31,
+      "context": {
+        "prefix": "ftfy packaging regex tqdm",
+        "suffix": "torchvision"
+      }
+    },
+    {
+      "@id": "dep_torchvision",
+      "@type": "Dependency",
+      "packageName": "torchvision",
+      "version": null,
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "requirements.txt:6",
+      "path": "requirements.txt",
+      "start_char_doc": 32,
+      "end_char_doc": 43,
+      "context": {
+        "prefix": "ftfy packaging regex tqdm torch",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "dep_pytest",
+      "@type": "Dependency",
+      "packageName": "pytest",
+      "version": null,
+      "dependencyType": "development",
+      "isOptional": true,
+      "wasDerivedFrom": "code",
+      "codeReference": "setup.py:19",
+      "path": "setup.py",
+      "start_char_doc": 464,
+      "end_char_doc": 470,
+      "context": {
+        "prefix": "include_package_data=True, extras_require={'dev': ['",
+        "suffix": "']}, )"
+      }
+    },
+    {
+      "@id": "hp_context_length",
+      "@type": "MLS_HyperParameter",
+      "name": "context_length",
+      "hasValue": "77",
+      "hpCategory": "HP_Data",
+      "hpType": "MaxSequenceLength",
+      "uncertain": false,
+      "sourceFile": "clip/clip.py",
+      "sourceLine": 205,
+      "wasDerivedFrom": "code",
+      "codeReference": "clip/clip.py:205",
+      "path": "clip/clip.py",
+      "start_char_doc": 7993,
+      "end_char_doc": 8017,
+      "context": {
+        "prefix": "def tokenize(texts: Union[str, List[str]],",
+        "suffix": ") -> LongTensor:"
+      }
+    },
+    {
+      "@id": "hp_embed_dim",
+      "@type": "MLS_HyperParameter",
+      "name": "embed_dim",
+      "hasValue": null,
+      "hpCategory": "HP_Architecture",
+      "hpType": "EmbeddingDim",
+      "uncertain": false,
+      "sourceFile": "clip/model.py",
+      "sourceLine": 245,
+      "wasDerivedFrom": "code",
+      "codeReference": "clip/model.py:245",
+      "path": "clip/model.py",
+      "start_char_doc": 9349,
+      "end_char_doc": 9364,
+      "context": {
+        "prefix": "def __init__(self,",
+        "suffix": ": int, # vision image_resolution:"
+      }
+    },
+    {
+      "@id": "hp_image_resolution",
+      "@type": "MLS_HyperParameter",
+      "name": "image_resolution",
+      "hasValue": null,
+      "hpCategory": "HP_Data",
+      "hpType": "HP_Data",
+      "uncertain": true,
+      "sourceFile": "clip/model.py",
+      "sourceLine": 247,
+      "wasDerivedFrom": "code",
+      "codeReference": "clip/model.py:247",
+      "path": "clip/model.py",
+      "start_char_doc": 9372,
+      "end_char_doc": 9392,
+      "context": {
+        "prefix": "__init__(self, embed_dim: int, # vision",
+        "suffix": ": int, vision_layers: Union[Tuple[int, int,"
+      }
+    },
+    {
+      "@id": "hp_vision_layers",
+      "@type": "MLS_HyperParameter",
+      "name": "vision_layers",
+      "hasValue": null,
+      "hpCategory": "HP_Architecture",
+      "hpType": "NumLayers",
+      "uncertain": false,
+      "sourceFile": "clip/model.py",
+      "sourceLine": 248,
+      "wasDerivedFrom": "code",
+      "codeReference": "clip/model.py:248",
+      "path": "clip/model.py",
+      "start_char_doc": 9412,
+      "end_char_doc": 9425,
+      "context": {
+        "prefix": "int, # vision image_resolution: int,",
+        "suffix": ": Union[Tuple[int, int, int, int],"
+      }
+    },
+    {
+      "@id": "hp_vision_width",
+      "@type": "MLS_HyperParameter",
+      "name": "vision_width",
+      "hasValue": null,
+      "hpCategory": "HP_Architecture",
+      "hpType": "HiddenSize",
+      "uncertain": false,
+      "sourceFile": "clip/model.py",
+      "sourceLine": 249,
+      "wasDerivedFrom": "code",
+      "codeReference": "clip/model.py:249",
+      "path": "clip/model.py",
+      "start_char_doc": 9483,
+      "end_char_doc": 9501,
+      "context": {
+        "prefix": "Union[Tuple[int, int, int, int], int],",
+        "suffix": ": int, vision_patch_size: int,"
+      }
+    },
+    {
+      "@id": "hp_vision_patch_size",
+      "@type": "MLS_HyperParameter",
+      "name": "vision_patch_size",
+      "hasValue": null,
+      "hpCategory": "HP_Architecture",
+      "hpType": "HP_Architecture",
+      "uncertain": true,
+      "sourceFile": "clip/model.py",
+      "sourceLine": 250,
+      "wasDerivedFrom": "code",
+      "codeReference": "clip/model.py:250",
+      "path": "clip/model.py",
+      "start_char_doc": 9519,
+      "end_char_doc": 9542,
+      "context": {
+        "prefix": "int, int], int], vision_width: int,",
+        "suffix": ": int, # text context_length:"
+      }
+    },
+    {
+      "@id": "hp_context_length_model",
+      "@type": "MLS_HyperParameter",
+      "name": "context_length (CLIP model)",
+      "hasValue": null,
+      "hpCategory": "HP_Data",
+      "hpType": "MaxSequenceLength",
+      "uncertain": false,
+      "sourceFile": "clip/model.py",
+      "sourceLine": 252,
+      "wasDerivedFrom": "code",
+      "codeReference": "clip/model.py:252",
+      "path": "clip/model.py",
+      "start_char_doc": 9584,
+      "end_char_doc": 9604,
+      "context": {
+        "prefix": "int, vision_patch_size: int, # text",
+        "suffix": "vocab_size: int, transformer_width: int,"
+      }
+    },
+    {
+      "@id": "hp_vocab_size",
+      "@type": "MLS_HyperParameter",
+      "name": "vocab_size",
+      "hasValue": null,
+      "hpCategory": "HP_Data",
+      "hpType": "HP_Data",
+      "uncertain": true,
+      "sourceFile": "clip/model.py",
+      "sourceLine": 253,
+      "wasDerivedFrom": "code",
+      "codeReference": "clip/model.py:253",
+      "path": "clip/model.py",
+      "start_char_doc": 9622,
+      "end_char_doc": 9638,
+      "context": {
+        "prefix": "int, # text context_length: int,",
+        "suffix": "transformer_width: int, transformer_heads: int,"
+      }
+    },
+    {
+      "@id": "hp_transformer_width",
+      "@type": "MLS_HyperParameter",
+      "name": "transformer_width",
+      "hasValue": null,
+      "hpCategory": "HP_Architecture",
+      "hpType": "HiddenSize",
+      "uncertain": false,
+      "sourceFile": "clip/model.py",
+      "sourceLine": 254,
+      "wasDerivedFrom": "code",
+      "codeReference": "clip/model.py:254",
+      "path": "clip/model.py",
+      "start_char_doc": 9656,
+      "end_char_doc": 9679,
+      "context": {
+        "prefix": "text context_length: int, vocab_size: int,",
+        "suffix": "transformer_heads: int, transformer_layers: int"
+      }
+    },
+    {
+      "@id": "hp_transformer_heads",
+      "@type": "MLS_HyperParameter",
+      "name": "transformer_heads",
+      "hasValue": null,
+      "hpCategory": "HP_Architecture",
+      "hpType": "AttentionHeads",
+      "uncertain": false,
+      "sourceFile": "clip/model.py",
+      "sourceLine": 255,
+      "wasDerivedFrom": "code",
+      "codeReference": "clip/model.py:255",
+      "path": "clip/model.py",
+      "start_char_doc": 9697,
+      "end_char_doc": 9720,
+      "context": {
+        "prefix": "int, vocab_size: int, transformer_width: int,",
+        "suffix": "transformer_layers: int ): super().__init__()"
+      }
+    },
+    {
+      "@id": "hp_transformer_layers",
+      "@type": "MLS_HyperParameter",
+      "name": "transformer_layers",
+      "hasValue": null,
+      "hpCategory": "HP_Architecture",
+      "hpType": "NumLayers",
+      "uncertain": false,
+      "sourceFile": "clip/model.py",
+      "sourceLine": 256,
+      "wasDerivedFrom": "code",
+      "codeReference": "clip/model.py:256",
+      "path": "clip/model.py",
+      "start_char_doc": 9738,
+      "end_char_doc": 9761,
+      "context": {
+        "prefix": "transformer_width: int, transformer_heads: int,",
+        "suffix": ": int ): super().__init__()"
+      }
+    },
+    {
+      "@id": "hp_logit_scale",
+      "@type": "MLS_HyperParameter",
+      "name": "logit_scale",
+      "hasValue": "np.log(1 / 0.07)",
+      "hpCategory": "HP_Training",
+      "hpType": "HP_Training",
+      "uncertain": true,
+      "sourceFile": "clip/model.py",
+      "sourceLine": 295,
+      "wasDerivedFrom": "code",
+      "codeReference": "clip/model.py:295",
+      "path": "clip/model.py",
+      "start_char_doc": 11160,
+      "end_char_doc": 11186,
+      "context": {
+        "prefix": "nn.Parameter(torch.empty(transformer_width, embed_dim)) self.",
+        "suffix": "(torch.ones([]) * np.log(1 / 0.07))"
+      }
+    },
+    {
+      "@id": "hp_expansion",
+      "@type": "MLS_HyperParameter",
+      "name": "expansion",
+      "hasValue": "4",
+      "hpCategory": "HP_Architecture",
+      "hpType": "HP_Architecture",
+      "uncertain": true,
+      "sourceFile": "clip/model.py",
+      "sourceLine": 11,
+      "wasDerivedFrom": "code",
+      "codeReference": "clip/model.py:11",
+      "path": "clip/model.py",
+      "start_char_doc": 189,
+      "end_char_doc": 202,
+      "context": {
+        "prefix": "torch import nn class Bottleneck(nn.Module):",
+        "suffix": "def __init__(self, inplanes, planes, stride=1):"
+      }
+    },
+    {
+      "@id": "hp_resnet_input_resolution",
+      "@type": "MLS_HyperParameter",
+      "name": "input_resolution (ModifiedResNet)",
+      "hasValue": "224",
+      "hpCategory": "HP_Data",
+      "hpType": "HP_Data",
+      "uncertain": true,
+      "sourceFile": "clip/model.py",
+      "sourceLine": 102,
+      "wasDerivedFrom": "code",
+      "codeReference": "clip/model.py:102",
+      "path": "clip/model.py",
+      "start_char_doc": 3923,
+      "end_char_doc": 3943,
+      "context": {
+        "prefix": "def __init__(self, layers, output_dim, heads,",
+        "suffix": ", width=64): super().__init__()"
+      }
+    },
+    {
+      "@id": "hp_resnet_width",
+      "@type": "MLS_HyperParameter",
+      "name": "width (ModifiedResNet)",
+      "hasValue": "64",
+      "hpCategory": "HP_Architecture",
+      "hpType": "HiddenSize",
+      "uncertain": false,
+      "sourceFile": "clip/model.py",
+      "sourceLine": 102,
+      "wasDerivedFrom": "code",
+      "codeReference": "clip/model.py:102",
+      "path": "clip/model.py",
+      "start_char_doc": 3945,
+      "end_char_doc": 3953,
+      "context": {
+        "prefix": "output_dim, heads, input_resolution=224,",
+        "suffix": "): super().__init__() self.output_dim ="
+      }
+    },
+    {
+      "@id": "hp_dropout_p",
+      "@type": "MLS_HyperParameter",
+      "name": "dropout_p",
+      "hasValue": "0",
+      "hpCategory": "HP_Architecture",
+      "hpType": "Dropout",
+      "uncertain": false,
+      "sourceFile": "clip/model.py",
+      "sourceLine": 84,
+      "wasDerivedFrom": "code",
+      "codeReference": "clip/model.py:84",
+      "path": "clip/model.py",
+      "start_char_doc": 3188,
+      "end_char_doc": 3199,
+      "context": {
+        "prefix": "bias_k=None, bias_v=None, add_zero_attn=False,",
+        "suffix": ", out_proj_weight=self.c_proj.weight, out_proj_bias=self.c_proj.bias,"
+      }
+    },
+    {
+      "@id": "hp_d_model",
+      "@type": "MLS_HyperParameter",
+      "name": "d_model",
+      "hasValue": null,
+      "hpCategory": "HP_Architecture",
+      "hpType": "HiddenSize",
+      "uncertain": false,
+      "sourceFile": "clip/model.py",
+      "sourceLine": 172,
+      "wasDerivedFrom": "code",
+      "codeReference": "clip/model.py:172",
+      "path": "clip/model.py",
+      "start_char_doc": 6424,
+      "end_char_doc": 6431,
+      "context": {
+        "prefix": "class ResidualAttentionBlock(nn.Module): def __init__(self,",
+        "suffix": ": int, n_head: int, attn_mask:"
+      }
+    },
+    {
+      "@id": "hp_n_head",
+      "@type": "MLS_HyperParameter",
+      "name": "n_head",
+      "hasValue": null,
+      "hpCategory": "HP_Architecture",
+      "hpType": "AttentionHeads",
+      "uncertain": false,
+      "sourceFile": "clip/model.py",
+      "sourceLine": 172,
+      "wasDerivedFrom": "code",
+      "codeReference": "clip/model.py:172",
+      "path": "clip/model.py",
+      "start_char_doc": 6438,
+      "end_char_doc": 6444,
+      "context": {
+        "prefix": "def __init__(self, d_model: int,",
+        "suffix": ": int, attn_mask: torch.Tensor ="
+      }
+    },
+    {
+      "@id": "hp_normalize_mean",
+      "@type": "MLS_HyperParameter",
+      "name": "normalize_mean",
+      "hasValue": "(0.48145466, 0.4578275, 0.40821073)",
+      "hpCategory": "HP_Data",
+      "hpType": "HP_Data",
+      "uncertain": true,
+      "sourceFile": "clip/clip.py",
+      "sourceLine": 85,
+      "wasDerivedFrom": "code",
+      "codeReference": "clip/clip.py:85",
+      "path": "clip/clip.py",
+      "start_char_doc": 3560,
+      "end_char_doc": 3644,
+      "context": {
+        "prefix": "CenterCrop(n_px), _convert_image_to_rgb, ToTensor(),",
+        "suffix": ", ])"
+      }
+    },
+    {
+      "@id": "hp_normalize_std",
+      "@type": "MLS_HyperParameter",
+      "name": "normalize_std",
+      "hasValue": "(0.26862954, 0.26130258, 0.27577711)",
+      "hpCategory": "HP_Data",
+      "hpType": "HP_Data",
+      "uncertain": true,
+      "sourceFile": "clip/clip.py",
+      "sourceLine": 85,
+      "wasDerivedFrom": "code",
+      "codeReference": "clip/clip.py:85",
+      "path": "clip/clip.py",
+      "start_char_doc": 3560,
+      "end_char_doc": 3644,
+      "context": {
+        "prefix": "CenterCrop(n_px), _convert_image_to_rgb, ToTensor(),",
+        "suffix": ", ])"
+      }
+    },
+    {
+      "@id": "hp_batch_size_linear_probe",
+      "@type": "MLS_HyperParameter",
+      "name": "batch_size (linear probe)",
+      "hasValue": "100",
+      "hpCategory": "HP_Training",
+      "hpType": "BatchSize",
+      "uncertain": false,
+      "sourceFile": "README.md",
+      "sourceLine": 171,
+      "wasDerivedFrom": "code",
+      "codeReference": "README.md:171",
+      "path": "README.md",
+      "start_char_doc": 6170,
+      "end_char_doc": 6184,
+      "context": {
+        "prefix": "for images, labels in tqdm(DataLoader(dataset,",
+        "suffix": ")): features = model.encode_image(images.to(device))"
+      }
+    },
+    {
+      "@id": "hp_random_state_linear_probe",
+      "@type": "MLS_HyperParameter",
+      "name": "random_state (linear probe)",
+      "hasValue": "0",
+      "hpCategory": "HP_Training",
+      "hpType": "RandomSeed",
+      "uncertain": false,
+      "sourceFile": "README.md",
+      "sourceLine": 184,
+      "wasDerivedFrom": "code",
+      "codeReference": "README.md:184",
+      "path": "README.md",
+      "start_char_doc": 6611,
+      "end_char_doc": 6625,
+      "context": {
+        "prefix": "logistic regression classifier = LogisticRegression(",
+        "suffix": ", C=0.316, max_iter=1000, verbose=1)"
+      }
+    },
+    {
+      "@id": "hp_C_linear_probe",
+      "@type": "MLS_HyperParameter",
+      "name": "C (linear probe regularization)",
+      "hasValue": "0.316",
+      "hpCategory": "HP_Optimization",
+      "hpType": "WeightDecay",
+      "uncertain": true,
+      "sourceFile": "README.md",
+      "sourceLine": 184,
+      "wasDerivedFrom": "code",
+      "codeReference": "README.md:184",
+      "path": "README.md",
+      "start_char_doc": 6627,
+      "end_char_doc": 6634,
+      "context": {
+        "prefix": "classifier = LogisticRegression(random_state=0,",
+        "suffix": ", max_iter=1000, verbose=1) classifier.fit(train_features,"
+      }
+    },
+    {
+      "@id": "hp_max_iter_linear_probe",
+      "@type": "MLS_HyperParameter",
+      "name": "max_iter (linear probe)",
+      "hasValue": "1000",
+      "hpCategory": "HP_Training",
+      "hpType": "MaxSteps",
+      "uncertain": true,
+      "sourceFile": "README.md",
+      "sourceLine": 184,
+      "wasDerivedFrom": "code",
+      "codeReference": "README.md:184",
+      "path": "README.md",
+      "start_char_doc": 6636,
+      "end_char_doc": 6649,
+      "context": {
+        "prefix": "classifier = LogisticRegression(random_state=0, C=0.316,",
+        "suffix": ", verbose=1) classifier.fit(train_features, train_labels)"
+      }
+    },
+    {
+      "@id": "hp_token_embedding_std",
+      "@type": "MLS_HyperParameter",
+      "name": "token_embedding_init_std",
+      "hasValue": "0.02",
+      "hpCategory": "HP_Architecture",
+      "hpType": "HP_Architecture",
+      "uncertain": true,
+      "sourceFile": "clip/model.py",
+      "sourceLine": 300,
+      "wasDerivedFrom": "code",
+      "codeReference": "clip/model.py:300",
+      "path": "clip/model.py",
+      "start_char_doc": 11351,
+      "end_char_doc": 11359,
+      "context": {
+        "prefix": "nn.init.normal_(self.token_embedding.weight,",
+        "suffix": ") nn.init.normal_(self.positional_embedding, std=0.01)"
+      }
+    },
+    {
+      "@id": "hp_positional_embedding_std",
+      "@type": "MLS_HyperParameter",
+      "name": "positional_embedding_init_std",
+      "hasValue": "0.01",
+      "hpCategory": "HP_Architecture",
+      "hpType": "HP_Architecture",
+      "uncertain": true,
+      "sourceFile": "clip/model.py",
+      "sourceLine": 301,
+      "wasDerivedFrom": "code",
+      "codeReference": "clip/model.py:301",
+      "path": "clip/model.py",
+      "start_char_doc": 11412,
+      "end_char_doc": 11420,
+      "context": {
+        "prefix": "nn.init.normal_(self.positional_embedding,",
+        "suffix": ") if isinstance(self.visual, ModifiedResNet):"
+      }
+    },
+    {
+      "@id": "preprocess_simple_tokenizer",
+      "@type": "DataProcessingStep",
+      "identifier": "CLIP BPE Tokenizer",
+      "description": "Byte-pair encoding tokenizer for text preprocessing. Performs basic text cleaning (ftfy), HTML unescaping, whitespace normalization, and BPE tokenization using a 49152-merge vocabulary derived from a pre-trained BPE codebook.",
+      "transformationType": "tokenization",
+      "startedAtTime": null,
+      "endedAtTime": null,
+      "inputDataset": null,
+      "outputDataset": null,
+      "prov-executedBy": { "@id": "impl_clip" },
+      "wasDerivedFrom": "code",
+      "codeReference": "clip/simple_tokenizer.py",
+      "path": "clip/simple_tokenizer.py",
+      "start_char_doc": 1713,
+      "end_char_doc": 1734,
+      "context": {
+        "prefix": "text = text.strip() return text",
+        "suffix": "(object): def __init__(self, bpe_path:"
+      }
+    },
+    {
+      "@id": "preprocess_image_transform",
+      "@type": "DataProcessingStep",
+      "identifier": "CLIP Image Transform",
+      "description": "Image preprocessing pipeline: Resize to model input resolution with BICUBIC interpolation, CenterCrop, convert to RGB, ToTensor, and Normalize with CLIP-specific mean (0.48145466, 0.4578275, 0.40821073) and std (0.26862954, 0.26130258, 0.27577711) values.",
+      "transformationType": "normalization",
+      "startedAtTime": null,
+      "endedAtTime": null,
+      "inputDataset": null,
+      "outputDataset": null,
+      "prov-executedBy": { "@id": "impl_clip" },
+      "wasDerivedFrom": "code",
+      "codeReference": "clip/clip.py:79-86",
+      "path": "clip/clip.py",
+      "start_char_doc": 3387,
+      "end_char_doc": 3407,
+      "context": {
+        "prefix": "return image.convert(\"RGB\")",
+        "suffix": ": return Compose([ Resize(n_px, interpolation=BICUBIC),"
+      }
+    },
+    {
+      "@id": "evaluation_clip",
+      "@type": "EvaluationRun",
+      "runId": "clip_consistency_test",
+      "description": "Consistency test comparing JIT-compiled and pure Python CLIP model outputs. Verifies that both model versions produce matching softmax probabilities (atol=0.01, rtol=0.1) for all available CLIP models using a fixed image and text input set.",
+      "split": "test",
+      "evaluationScript": "tests/test_consistency.py",
+      "metricsFile": null,
+      "startedAtTime": null,
+      "endedAtTime": null,
+      "prov-executedBy": { "@id": "impl_clip" },
+      "evaluates": null,
+      "prov-generated": null,
+      "wasDerivedFrom": "code",
+      "codeReference": "tests/test_consistency.py",
+      "path": "tests/test_consistency.py",
+      "start_char_doc": 147,
+      "end_char_doc": 167,
+      "context": {
+        "prefix": "@pytest.mark.parametrize('model_name', clip.available_models())",
+        "suffix": "(model_name): device = \"cpu\" jit_model,"
+      }
+    },
+    {
+      "@id": "prediction_clip",
+      "@type": "PredictionSet",
+      "identifier": "CLIP Zero-Shot Prediction",
+      "description": "Zero-shot image classification using CLIP. Computes cosine similarity between image features and text features (scaled by 100) to predict the most relevant text label for a given image without task-specific fine-tuning. Returns logit scores per image-text pair.",
+      "predictionFormat": "Tensor",
+      "storageLocation": null,
+      "numInstances": null,
+      "onDatasetSplit": null,
+      "appliedTo": null,
+      "wasGeneratedBy": null,
+      "producedBy": { "@id": "impl_clip" },
+      "wasDerivedFrom": "code",
+      "codeReference": "clip/clip.py:94",
+      "path": "clip/clip.py",
+      "start_char_doc": 3779,
+      "end_char_doc": 3792,
+      "context": {
+        "prefix": "return list(_MODELS.keys())",
+        "suffix": ": str, device: Union[str,"
+      }
+    }
+  ]
+}
