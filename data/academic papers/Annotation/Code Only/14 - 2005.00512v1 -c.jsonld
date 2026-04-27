@@ -1,0 +1,1789 @@
+{
+  "@context": {
+    "mls": "http://example.org/ontology/mls#",
+    "schema": "http://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "SoftwareRepository": "mls:SoftwareRepository",
+    "MLS_Implementation": "mls:MLS_Implementation",
+    "MLS_HyperParameter": "mls:MLS_HyperParameter",
+    "Dependency": "mls:Dependency",
+    "Environment": "mls:Environment",
+    "DataProcessingStep": "mls:DataProcessingStep",
+    "TrainingRun": "mls:TrainingRun",
+    "EvaluationRun": "mls:EvaluationRun",
+    "PredictionSet": "mls:PredictionSet",
+    "name": "schema:name",
+    "identifier": "schema:identifier",
+    "description": "schema:description",
+    "url": "schema:url",
+    "version": "schema:version",
+    "license": "schema:license",
+    "programmingLanguage": "schema:programmingLanguage",
+    "dateModified": {
+      "@id": "schema:dateModified",
+      "@type": "xsd:dateTime"
+    },
+    "documentationUrl": {
+      "@id": "mls:documentationUrl",
+      "@type": "xsd:anyURI"
+    },
+    "owner": "mls:owner",
+    "platform": "mls:platform",
+    "codeRepository": {
+      "@id": "mls:codeRepository",
+      "@type": "xsd:anyURI"
+    },
+    "framework": "mls:framework",
+    "entryPoint": "mls:entryPoint",
+    "entryPointCommand": "mls:entryPointCommand",
+    "executionCommand": "mls:executionCommand",
+    "commitHash": "mls:commitHash",
+    "branch": "mls:branch",
+    "dependenciesHash": "mls:dependenciesHash",
+    "packageName": "mls:packageName",
+    "dependencyType": "mls:dependencyType",
+    "isOptional": {
+      "@id": "mls:isOptional",
+      "@type": "xsd:boolean"
+    },
+    "hardwareSpecs": "mls:hardwareSpecs",
+    "os": "mls:os",
+    "pythonVersion": "mls:pythonVersion",
+    "requirementsFile": "mls:requirementsFile",
+    "isDockerized": {
+      "@id": "mls:isDockerized",
+      "@type": "xsd:boolean"
+    },
+    "hasValue": {
+      "@id": "mls:hasValue",
+      "@type": "xsd:string"
+    },
+    "hpCategory": "mls:hpCategory",
+    "hpType": "mls:hpType",
+    "sourceFile": "mls:sourceFile",
+    "sourceLine": {
+      "@id": "mls:sourceLine",
+      "@type": "xsd:integer"
+    },
+    "uncertain": {
+      "@id": "mls:uncertain",
+      "@type": "xsd:boolean"
+    },
+    "transformationType": "mls:transformationType",
+    "codeReference": {
+      "@id": "mls:codeReference",
+      "@type": "xsd:anyURI"
+    },
+    "runId": "mls:runId",
+    "logFile": {
+      "@id": "mls:logFile",
+      "@type": "xsd:anyURI"
+    },
+    "artifactsLocation": {
+      "@id": "mls:artifactsLocation",
+      "@type": "xsd:anyURI"
+    },
+    "split": "mls:split",
+    "evaluationScript": "mls:evaluationScript",
+    "evaluationSplit": "mls:evaluationSplit",
+    "metricsFile": "mls:metricsFile",
+    "format": "mls:format",
+    "predictionFormat": "mls:predictionFormat",
+    "storageLocation": "mls:storageLocation",
+    "numInstances": {
+      "@id": "mls:numInstances",
+      "@type": "xsd:integer"
+    },
+    "onDatasetSplit": "mls:onDatasetSplit",
+    "startedAtTime": {
+      "@id": "prov:startedAtTime",
+      "@type": "xsd:dateTime"
+    },
+    "endedAtTime": {
+      "@id": "prov:endedAtTime",
+      "@type": "xsd:dateTime"
+    },
+    "contains": {
+      "@id": "mls:contains",
+      "@type": "@id"
+    },
+    "supports": {
+      "@id": "mls:supports",
+      "@type": "@id"
+    },
+    "runsIn": {
+      "@id": "mls:runsIn",
+      "@type": "@id"
+    },
+    "requires": {
+      "@id": "mls:requires",
+      "@type": "@id"
+    },
+    "inputDataset": {
+      "@id": "mls:inputDataset",
+      "@type": "@id"
+    },
+    "outputDataset": {
+      "@id": "mls:outputDataset",
+      "@type": "@id"
+    },
+    "trains": {
+      "@id": "mls:trains",
+      "@type": "@id"
+    },
+    "evaluates": {
+      "@id": "mls:evaluates",
+      "@type": "@id"
+    },
+    "appliedTo": {
+      "@id": "mls:appliedTo",
+      "@type": "@id"
+    },
+    "producedBy": {
+      "@id": "mls:producedBy",
+      "@type": "@id"
+    },
+    "prov-executedBy": {
+      "@id": "mls:prov-executedBy",
+      "@type": "@id"
+    },
+    "prov-generated": {
+      "@id": "mls:prov-generated",
+      "@type": "@id"
+    },
+    "used": {
+      "@id": "prov:used",
+      "@type": "@id"
+    },
+    "wasGeneratedBy": {
+      "@id": "prov:wasGeneratedBy",
+      "@type": "@id"
+    },
+    "wasDerivedFrom": {
+      "@id": "prov:wasDerivedFrom",
+      "@type": "@id"
+    },
+    "wasAssociatedWith": {
+      "@id": "prov:wasAssociatedWith",
+      "@type": "@id"
+    }
+  },
+  "@graph": [
+    {
+      "@id": "repo_allenai_SciREX",
+      "@type": "SoftwareRepository",
+      "name": "SciREX",
+      "url": "https://github.com/allenai/SciREX",
+      "owner": "allenai",
+      "platform": "GitHub",
+      "programmingLanguage": "Python",
+      "version": null,
+      "license": "Apache-2.0",
+      "dateModified": null,
+      "documentationUrl": "https://github.com/allenai/SciREX/blob/master/README.md",
+      "contains": [
+        {
+          "@id": "impl_scirex_full"
+        },
+        {
+          "@id": "impl_pairwise_coreference"
+        },
+        {
+          "@id": "impl_doctaet"
+        }
+      ],
+      "supports": [
+        {
+          "@id": "env_scirex"
+        }
+      ],
+      "wasDerivedFrom": "code",
+      "codeReference": "README.md",
+      "path": "README.md",
+      "start_char_doc": 2,
+      "end_char_doc": 8,
+      "context": {
+        "prefix": "#",
+        "suffix": ": A Challenge Dataset for"
+      }
+    },
+    {
+      "@id": "impl_scirex_full",
+      "@type": "MLS_Implementation",
+      "identifier": "SciREX Full Model Implementation",
+      "codeRepository": "https://github.com/allenai/SciREX",
+      "framework": "AllenNLP",
+      "entryPoint": "scirex/commands/train_scirex_model.sh",
+      "entryPointCommand": "CUDA_DEVICE=<cuda-device-num> bash scirex/commands/train_scirex_model.sh main",
+      "executionCommand": "allennlp train -s $OUTPUT_BASE_PATH --include-package scirex $CONFIG_FILE",
+      "commitHash": null,
+      "branch": "master",
+      "dependenciesHash": null,
+      "runsIn": {
+        "@id": "env_scirex"
+      },
+      "requires": [
+        {
+          "@id": "dep_allennlp"
+        },
+        {
+          "@id": "dep_overrides"
+        },
+        {
+          "@id": "dep_numpy"
+        },
+        {
+          "@id": "dep_pandas"
+        },
+        {
+          "@id": "dep_scikit_learn"
+        },
+        {
+          "@id": "dep_tqdm"
+        },
+        {
+          "@id": "dep_spacy"
+        },
+        {
+          "@id": "dep_fuzzywuzzy"
+        },
+        {
+          "@id": "dep_click"
+        },
+        {
+          "@id": "dep_p_tqdm"
+        },
+        {
+          "@id": "dep_beautifulsoup4"
+        },
+        {
+          "@id": "dep_elasticsearch"
+        },
+        {
+          "@id": "dep_ipdb"
+        },
+        {
+          "@id": "dep_python_intervals"
+        },
+        {
+          "@id": "dep_torch"
+        }
+      ],
+      "wasDerivedFrom": "code",
+      "codeReference": "scirex/commands/train_scirex_model.sh",
+      "path": "scirex/commands/train_scirex_model.sh",
+      "start_char_doc": 2726,
+      "end_char_doc": 2763,
+      "context": {
+        "prefix": "it. 2. Run `CUDA_DEVICE=<cuda-device-num> bash",
+        "suffix": "main` to train main scirex"
+      }
+    },
+    {
+      "@id": "impl_pairwise_coreference",
+      "@type": "MLS_Implementation",
+      "identifier": "Pairwise Coreference Model Implementation",
+      "codeRepository": "https://github.com/allenai/SciREX",
+      "framework": "AllenNLP",
+      "entryPoint": "scirex/commands/train_pairwise_coreference.sh",
+      "entryPointCommand": "CUDA_DEVICE=<cuda-device-num> bash scirex/commands/train_pairwise_coreference.sh main",
+      "executionCommand": "python -m allennlp.run train -s $OUTPUT_BASE_PATH --include-package scirex --force $CONFIG_FILE",
+      "commitHash": null,
+      "branch": "master",
+      "dependenciesHash": null,
+      "runsIn": {
+        "@id": "env_scirex"
+      },
+      "requires": [
+        {
+          "@id": "dep_allennlp"
+        },
+        {
+          "@id": "dep_torch"
+        }
+      ],
+      "wasDerivedFrom": "code",
+      "codeReference": "scirex/commands/train_pairwise_coreference.sh",
+      "path": "scirex/commands/train_pairwise_coreference.sh",
+      "start_char_doc": 2840,
+      "end_char_doc": 2885,
+      "context": {
+        "prefix": "model 3. Run `CUDA_DEVICE=<cuda-device-num> bash",
+        "suffix": "main` to train secondary coreference"
+      }
+    },
+    {
+      "@id": "impl_doctaet",
+      "@type": "MLS_Implementation",
+      "identifier": "DocTAET Model Implementation",
+      "codeRepository": "https://github.com/allenai/SciREX",
+      "framework": "AllenNLP",
+      "entryPoint": "scirex/commands/train_doctaet.sh",
+      "entryPointCommand": "CUDA_DEVICE=<cuda-device-num> bash scirex/commands/train_doctaet.sh main",
+      "executionCommand": "allennlp train -s $OUTPUT_BASE_PATH --include-package scirex $RECOVER $CONFIG_FILE",
+      "commitHash": null,
+      "branch": "master",
+      "dependenciesHash": null,
+      "runsIn": {
+        "@id": "env_scirex"
+      },
+      "requires": [
+        {
+          "@id": "dep_allennlp"
+        },
+        {
+          "@id": "dep_torch"
+        }
+      ],
+      "wasDerivedFrom": "code",
+      "codeReference": "scirex/commands/train_doctaet.sh",
+      "path": "scirex/commands/train_doctaet.sh",
+      "start_char_doc": 575,
+      "end_char_doc": 583,
+      "context": {
+        "prefix": "DEV_PATH=$DATA_BASE_PATH/dev.jsonl export TEST_PATH=$DATA_BASE_PATH/test.jsonl export OUTPUT_BASE_PATH=${OUTPUT_DIR:-outputs/pwc_outputs/experiment_doctaet/$1}",
+        "suffix": "train -s $OUTPUT_BASE_PATH --include-package scirex"
+      }
+    },
+    {
+      "@id": "env_scirex",
+      "@type": "Environment",
+      "name": "SciREX Conda Environment",
+      "framework": "AllenNLP 0.9.0",
+      "pythonVersion": "3.7",
+      "os": null,
+      "hardwareSpecs": "CUDA GPU required",
+      "requirementsFile": "requirements.txt",
+      "isDockerized": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "requirements.txt",
+      "path": "requirements.txt",
+      "start_char_doc": 2078,
+      "end_char_doc": 2088,
+      "context": {
+        "prefix": "1. `conda create -n scirex",
+        "suffix": "` 2. `pip install -r"
+      }
+    },
+    {
+      "@id": "dep_allennlp",
+      "@type": "Dependency",
+      "packageName": "allennlp",
+      "version": "0.9.0",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "requirements.txt:1",
+      "path": "requirements.txt",
+      "start_char_doc": 70,
+      "end_char_doc": 85,
+      "context": {
+        "prefix": "-r requirements.txt`` # Modeling torch==1.2.0",
+        "suffix": "# Data munging pandas==0.25.2 beautifulsoup4==4.8.1"
+      }
+    },
+    {
+      "@id": "dep_overrides",
+      "@type": "Dependency",
+      "packageName": "overrides",
+      "version": "1.9",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "requirements.txt:2",
+      "path": "requirements.txt",
+      "start_char_doc": 16,
+      "end_char_doc": 30,
+      "context": {
+        "prefix": "allennlp==0.9.0",
+        "suffix": "numpy==1.16.4 pandas==0.24.2 scripts==2.0 scikit_learn==0.21.3 typing==3.7.4"
+      }
+    },
+    {
+      "@id": "dep_numpy",
+      "@type": "Dependency",
+      "packageName": "numpy",
+      "version": "1.16.4",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "requirements.txt:3",
+      "path": "requirements.txt",
+      "start_char_doc": 31,
+      "end_char_doc": 44,
+      "context": {
+        "prefix": "allennlp==0.9.0 overrides==1.9",
+        "suffix": "pandas==0.24.2 scripts==2.0 scikit_learn==0.21.3 typing==3.7.4 pandas==0.24.2"
+      }
+    },
+    {
+      "@id": "dep_pandas",
+      "@type": "Dependency",
+      "packageName": "pandas",
+      "version": "0.24.2",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "requirements.txt:4",
+      "path": "requirements.txt",
+      "start_char_doc": 45,
+      "end_char_doc": 59,
+      "context": {
+        "prefix": "allennlp==0.9.0 overrides==1.9 numpy==1.16.4",
+        "suffix": "scripts==2.0 scikit_learn==0.21.3 typing==3.7.4 pandas==0.24.2 Click==7.0"
+      }
+    },
+    {
+      "@id": "dep_scikit_learn",
+      "@type": "Dependency",
+      "packageName": "scikit_learn",
+      "version": "0.21.3",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "requirements.txt:6",
+      "path": "requirements.txt",
+      "start_char_doc": 73,
+      "end_char_doc": 93,
+      "context": {
+        "prefix": "allennlp==0.9.0 overrides==1.9 numpy==1.16.4 pandas==0.24.2 scripts==2.0",
+        "suffix": "typing==3.7.4 pandas==0.24.2 Click==7.0 tqdm==4.32.1 fuzzywuzzy==0.17.0"
+      }
+    },
+    {
+      "@id": "dep_tqdm",
+      "@type": "Dependency",
+      "packageName": "tqdm",
+      "version": "4.32.1",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "requirements.txt:10",
+      "path": "requirements.txt",
+      "start_char_doc": 134,
+      "end_char_doc": 146,
+      "context": {
+        "prefix": "scripts==2.0 scikit_learn==0.21.3 typing==3.7.4 pandas==0.24.2 Click==7.0",
+        "suffix": "fuzzywuzzy==0.17.0 spacy==2.1.6 p_tqdm==1.2 beautifulsoup4==4.8.0 elasticsearch==7.0.2"
+      }
+    },
+    {
+      "@id": "dep_fuzzywuzzy",
+      "@type": "Dependency",
+      "packageName": "fuzzywuzzy",
+      "version": "0.17.0",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "requirements.txt:11",
+      "path": "requirements.txt",
+      "start_char_doc": 147,
+      "end_char_doc": 165,
+      "context": {
+        "prefix": "scikit_learn==0.21.3 typing==3.7.4 pandas==0.24.2 Click==7.0 tqdm==4.32.1",
+        "suffix": "spacy==2.1.6 p_tqdm==1.2 beautifulsoup4==4.8.0 elasticsearch==7.0.2 ipdb"
+      }
+    },
+    {
+      "@id": "dep_spacy",
+      "@type": "Dependency",
+      "packageName": "spacy",
+      "version": "2.1.6",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "requirements.txt:12",
+      "path": "requirements.txt",
+      "start_char_doc": 166,
+      "end_char_doc": 178,
+      "context": {
+        "prefix": "typing==3.7.4 pandas==0.24.2 Click==7.0 tqdm==4.32.1 fuzzywuzzy==0.17.0",
+        "suffix": "p_tqdm==1.2 beautifulsoup4==4.8.0 elasticsearch==7.0.2 ipdb python-intervals"
+      }
+    },
+    {
+      "@id": "dep_click",
+      "@type": "Dependency",
+      "packageName": "Click",
+      "version": "7.0",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "requirements.txt:9",
+      "path": "requirements.txt",
+      "start_char_doc": 123,
+      "end_char_doc": 133,
+      "context": {
+        "prefix": "pandas==0.24.2 scripts==2.0 scikit_learn==0.21.3 typing==3.7.4 pandas==0.24.2",
+        "suffix": "tqdm==4.32.1 fuzzywuzzy==0.17.0 spacy==2.1.6 p_tqdm==1.2 beautifulsoup4==4.8.0"
+      }
+    },
+    {
+      "@id": "dep_p_tqdm",
+      "@type": "Dependency",
+      "packageName": "p_tqdm",
+      "version": "1.2",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "requirements.txt:13",
+      "path": "requirements.txt",
+      "start_char_doc": 179,
+      "end_char_doc": 190,
+      "context": {
+        "prefix": "pandas==0.24.2 Click==7.0 tqdm==4.32.1 fuzzywuzzy==0.17.0 spacy==2.1.6",
+        "suffix": "beautifulsoup4==4.8.0 elasticsearch==7.0.2 ipdb python-intervals"
+      }
+    },
+    {
+      "@id": "dep_beautifulsoup4",
+      "@type": "Dependency",
+      "packageName": "beautifulsoup4",
+      "version": "4.8.0",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "requirements.txt:14",
+      "path": "requirements.txt",
+      "start_char_doc": 191,
+      "end_char_doc": 212,
+      "context": {
+        "prefix": "Click==7.0 tqdm==4.32.1 fuzzywuzzy==0.17.0 spacy==2.1.6 p_tqdm==1.2",
+        "suffix": "elasticsearch==7.0.2 ipdb python-intervals"
+      }
+    },
+    {
+      "@id": "dep_elasticsearch",
+      "@type": "Dependency",
+      "packageName": "elasticsearch",
+      "version": "7.0.2",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "requirements.txt:15",
+      "path": "requirements.txt",
+      "start_char_doc": 213,
+      "end_char_doc": 233,
+      "context": {
+        "prefix": "tqdm==4.32.1 fuzzywuzzy==0.17.0 spacy==2.1.6 p_tqdm==1.2 beautifulsoup4==4.8.0",
+        "suffix": "ipdb python-intervals"
+      }
+    },
+    {
+      "@id": "dep_ipdb",
+      "@type": "Dependency",
+      "packageName": "ipdb",
+      "version": null,
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "requirements.txt:16",
+      "path": "requirements.txt",
+      "start_char_doc": 234,
+      "end_char_doc": 238,
+      "context": {
+        "prefix": "fuzzywuzzy==0.17.0 spacy==2.1.6 p_tqdm==1.2 beautifulsoup4==4.8.0 elasticsearch==7.0.2",
+        "suffix": "python-intervals"
+      }
+    },
+    {
+      "@id": "dep_python_intervals",
+      "@type": "Dependency",
+      "packageName": "python-intervals",
+      "version": null,
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "requirements.txt:17",
+      "path": "requirements.txt",
+      "start_char_doc": 239,
+      "end_char_doc": 255,
+      "context": {
+        "prefix": "spacy==2.1.6 p_tqdm==1.2 beautifulsoup4==4.8.0 elasticsearch==7.0.2 ipdb",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "dep_torch",
+      "@type": "Dependency",
+      "packageName": "torch",
+      "version": "1.2.0",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "dygiepp/requirements.txt:5",
+      "path": "dygiepp/requirements.txt",
+      "start_char_doc": 57,
+      "end_char_doc": 69,
+      "context": {
+        "prefix": "install -r requirements.txt`` # Modeling",
+        "suffix": "allennlp==0.9.0 # Data munging pandas==0.25.2"
+      }
+    },
+    {
+      "@id": "hp_lr_scirex_full",
+      "@type": "MLS_HyperParameter",
+      "name": "lr",
+      "hasValue": "1e-3",
+      "hpCategory": "HP_Optimization",
+      "hpType": "LearningRate",
+      "uncertain": false,
+      "sourceFile": "scirex/training_config/template_full.libsonnet",
+      "sourceLine": 118,
+      "wasDerivedFrom": "code",
+      "codeReference": "scirex/training_config/template_full.libsonnet:118",
+      "path": "scirex/training_config/template_full.libsonnet",
+      "start_char_doc": 3261,
+      "end_char_doc": 3269,
+      "context": {
+        "prefix": "}, optimizer: { type: \"adam\",",
+        "suffix": ", parameter_groups :[ [[\".*bert_model.*\"], {\"lr\":"
+      }
+    },
+    {
+      "@id": "hp_bert_lr_scirex_full",
+      "@type": "MLS_HyperParameter",
+      "name": "lr (BERT parameters)",
+      "hasValue": "2e-5",
+      "hpCategory": "HP_Optimization",
+      "hpType": "LearningRate",
+      "uncertain": false,
+      "sourceFile": "scirex/training_config/template_full.libsonnet",
+      "sourceLine": 120,
+      "wasDerivedFrom": "code",
+      "codeReference": "scirex/training_config/template_full.libsonnet:120",
+      "path": "scirex/training_config/template_full.libsonnet",
+      "start_char_doc": 1161,
+      "end_char_doc": 1169,
+      "context": {
+        "prefix": "\"+f1\", optimizer: { type: \"adam\",",
+        "suffix": "} }, evaluate_on_test: true }"
+      }
+    },
+    {
+      "@id": "hp_num_epochs_scirex_full",
+      "@type": "MLS_HyperParameter",
+      "name": "num_epochs",
+      "hasValue": "20",
+      "hpCategory": "HP_Training",
+      "hpType": "NumEpochs",
+      "uncertain": false,
+      "sourceFile": "scirex/training_config/template_full.libsonnet",
+      "sourceLine": 105,
+      "wasDerivedFrom": "code",
+      "codeReference": "scirex/training_config/template_full.libsonnet:105",
+      "path": "scirex/training_config/template_full.libsonnet",
+      "start_char_doc": 2946,
+      "end_char_doc": 2960,
+      "context": {
+        "prefix": "batch_size: 50, }, trainer: {",
+        "suffix": ", grad_norm: 5.0, patience :"
+      }
+    },
+    {
+      "@id": "hp_batch_size_scirex_full",
+      "@type": "MLS_HyperParameter",
+      "name": "batch_size",
+      "hasValue": "50",
+      "hpCategory": "HP_Training",
+      "hpType": "BatchSize",
+      "uncertain": false,
+      "sourceFile": "scirex/training_config/template_full.libsonnet",
+      "sourceLine": 98,
+      "wasDerivedFrom": "code",
+      "codeReference": "scirex/training_config/template_full.libsonnet:98",
+      "path": "scirex/training_config/template_full.libsonnet",
+      "start_char_doc": 2836,
+      "end_char_doc": 2850,
+      "context": {
+        "prefix": "}, iterator: { type: \"ie_batch\",",
+        "suffix": ", }, validation_iterator: { type:"
+      }
+    },
+    {
+      "@id": "hp_patience_scirex_full",
+      "@type": "MLS_HyperParameter",
+      "name": "patience",
+      "hasValue": "10",
+      "hpCategory": "HP_Training",
+      "hpType": "Patience",
+      "uncertain": false,
+      "sourceFile": "scirex/training_config/template_full.libsonnet",
+      "sourceLine": 107,
+      "wasDerivedFrom": "code",
+      "codeReference": "scirex/training_config/template_full.libsonnet:107",
+      "path": "scirex/training_config/template_full.libsonnet",
+      "start_char_doc": 996,
+      "end_char_doc": 1008,
+      "context": {
+        "prefix": "{ num_epochs: 20, num_serialized_models_to_keep: 1,",
+        "suffix": ", cuda_device: std.parseInt(std.extVar(\"CUDA_DEVICE\")), grad_norm: 5.0,"
+      }
+    },
+    {
+      "@id": "hp_grad_norm_scirex_full",
+      "@type": "MLS_HyperParameter",
+      "name": "grad_norm",
+      "hasValue": "5.0",
+      "hpCategory": "HP_Training",
+      "hpType": "HP_Training",
+      "uncertain": true,
+      "sourceFile": "scirex/training_config/template_full.libsonnet",
+      "sourceLine": 106,
+      "wasDerivedFrom": "code",
+      "codeReference": "scirex/training_config/template_full.libsonnet:106",
+      "path": "scirex/training_config/template_full.libsonnet",
+      "start_char_doc": 2966,
+      "end_char_doc": 2980,
+      "context": {
+        "prefix": "}, trainer: { num_epochs: 20,",
+        "suffix": ", patience : 10, cuda_device"
+      }
+    },
+    {
+      "@id": "hp_lr_scheduler_factor_scirex_full",
+      "@type": "MLS_HyperParameter",
+      "name": "factor (reduce_on_plateau)",
+      "hasValue": "0.5",
+      "hpCategory": "HP_Optimization",
+      "hpType": "DecayRate",
+      "uncertain": false,
+      "sourceFile": "scirex/training_config/template_full.libsonnet",
+      "sourceLine": 112,
+      "wasDerivedFrom": "code",
+      "codeReference": "scirex/training_config/template_full.libsonnet:112",
+      "path": "scirex/training_config/template_full.libsonnet",
+      "start_char_doc": 3161,
+      "end_char_doc": 3172,
+      "context": {
+        "prefix": "'+validation_metric', learning_rate_scheduler: { type: \"reduce_on_plateau\",",
+        "suffix": ", mode: \"max\", patience: 5"
+      }
+    },
+    {
+      "@id": "hp_lr_scheduler_patience_scirex_full",
+      "@type": "MLS_HyperParameter",
+      "name": "patience (lr_scheduler)",
+      "hasValue": "5",
+      "hpCategory": "HP_Optimization",
+      "hpType": "HP_Optimization",
+      "uncertain": true,
+      "sourceFile": "scirex/training_config/template_full.libsonnet",
+      "sourceLine": 114,
+      "wasDerivedFrom": "code",
+      "codeReference": "scirex/training_config/template_full.libsonnet:114",
+      "path": "scirex/training_config/template_full.libsonnet",
+      "start_char_doc": 3199,
+      "end_char_doc": 3210,
+      "context": {
+        "prefix": "\"reduce_on_plateau\", factor: 0.5, mode: \"max\",",
+        "suffix": "}, optimizer: { type: \"adam\","
+      }
+    },
+    {
+      "@id": "hp_lstm_hidden_size_scirex_full",
+      "@type": "MLS_HyperParameter",
+      "name": "lstm_hidden_size",
+      "hasValue": "200",
+      "hpCategory": "HP_Architecture",
+      "hpType": "HiddenSize",
+      "uncertain": false,
+      "sourceFile": "scirex/training_config/template_full.libsonnet",
+      "sourceLine": 7,
+      "wasDerivedFrom": "code",
+      "codeReference": "scirex/training_config/template_full.libsonnet:7",
+      "path": "scirex/training_config/template_full.libsonnet",
+      "start_char_doc": 817,
+      "end_char_doc": 838,
+      "context": {
+        "prefix": "// Specifies the model parameters.",
+        "suffix": ", lstm_n_layers: 1, feature_size: 20,"
+      }
+    },
+    {
+      "@id": "hp_bert_base_dim_scirex_full",
+      "@type": "MLS_HyperParameter",
+      "name": "bert_base_dim",
+      "hasValue": "768",
+      "hpCategory": "HP_Architecture",
+      "hpType": "EmbeddingDim",
+      "uncertain": false,
+      "sourceFile": "scirex/training_config/template_full.libsonnet",
+      "sourceLine": 6,
+      "wasDerivedFrom": "code",
+      "codeReference": "scirex/training_config/template_full.libsonnet:6",
+      "path": "scirex/training_config/template_full.libsonnet",
+      "start_char_doc": 116,
+      "end_char_doc": 129,
+      "context": {
+        "prefix": "{ // Storing constants. local",
+        "suffix": "= 768, local lstm_hidden_size ="
+      }
+    },
+    {
+      "@id": "hp_feedforward_hidden_dims_scirex_full",
+      "@type": "MLS_HyperParameter",
+      "name": "hidden_dims (feedforward)",
+      "hasValue": "150",
+      "hpCategory": "HP_Architecture",
+      "hpType": "HiddenSize",
+      "uncertain": false,
+      "sourceFile": "scirex/training_config/template_full.libsonnet",
+      "sourceLine": 29,
+      "wasDerivedFrom": "code",
+      "codeReference": "scirex/training_config/template_full.libsonnet:29",
+      "path": "scirex/training_config/template_full.libsonnet",
+      "start_char_doc": 927,
+      "end_char_doc": 943,
+      "context": {
+        "prefix": "{ input_dim: input_dim, num_layers: 2,",
+        "suffix": ", activations: \"gelu\", dropout: 0.2"
+      }
+    },
+    {
+      "@id": "hp_feedforward_num_layers_scirex_full",
+      "@type": "MLS_HyperParameter",
+      "name": "num_layers (feedforward)",
+      "hasValue": "2",
+      "hpCategory": "HP_Architecture",
+      "hpType": "NumLayers",
+      "uncertain": false,
+      "sourceFile": "scirex/training_config/template_full.libsonnet",
+      "sourceLine": 28,
+      "wasDerivedFrom": "code",
+      "codeReference": "scirex/training_config/template_full.libsonnet:28",
+      "path": "scirex/training_config/template_full.libsonnet",
+      "start_char_doc": 908,
+      "end_char_doc": 921,
+      "context": {
+        "prefix": "make_feedforward(input_dim) = { input_dim: input_dim,",
+        "suffix": ", hidden_dims: 150, activations: \"gelu\","
+      }
+    },
+    {
+      "@id": "hp_dropout_scirex_full",
+      "@type": "MLS_HyperParameter",
+      "name": "dropout",
+      "hasValue": "0.2",
+      "hpCategory": "HP_Architecture",
+      "hpType": "Dropout",
+      "uncertain": false,
+      "sourceFile": "scirex/training_config/template_full.libsonnet",
+      "sourceLine": 31,
+      "wasDerivedFrom": "code",
+      "codeReference": "scirex/training_config/template_full.libsonnet:31",
+      "path": "scirex/training_config/template_full.libsonnet",
+      "start_char_doc": 974,
+      "end_char_doc": 986,
+      "context": {
+        "prefix": "2, hidden_dims: 150, activations: \"gelu\",",
+        "suffix": "}, local token_indexers = {"
+      }
+    },
+    {
+      "@id": "hp_lexical_dropout_scirex_full",
+      "@type": "MLS_HyperParameter",
+      "name": "lexical_dropout",
+      "hasValue": "0.2",
+      "hpCategory": "HP_Architecture",
+      "hpType": "Dropout",
+      "uncertain": false,
+      "sourceFile": "scirex/training_config/template_full.libsonnet",
+      "sourceLine": 73,
+      "wasDerivedFrom": "code",
+      "codeReference": "scirex/training_config/template_full.libsonnet:73",
+      "path": "scirex/training_config/template_full.libsonnet",
+      "start_char_doc": 2057,
+      "end_char_doc": 2077,
+      "context": {
+        "prefix": "\"scirex_model\", text_field_embedder: text_field_embedder, loss_weights: p.loss_weights,",
+        "suffix": ", display_metrics: [\"validation_metric\"], context_layer: lstm_context_encoder,"
+      }
+    },
+    {
+      "@id": "hp_relation_cardinality_scirex_full",
+      "@type": "MLS_HyperParameter",
+      "name": "relation_cardinality",
+      "hasValue": "4",
+      "hpCategory": "HP_Architecture",
+      "hpType": "UnknownArchitectureHP",
+      "uncertain": true,
+      "sourceFile": "scirex/commands/train_scirex_model.sh",
+      "sourceLine": 27,
+      "wasDerivedFrom": "code",
+      "codeReference": "scirex/commands/train_scirex_model.sh:27",
+      "path": "scirex/commands/train_scirex_model.sh",
+      "start_char_doc": 645,
+      "end_char_doc": 665,
+      "context": {
+        "prefix": "nw=1 lw=1 rw=1 em=false \\",
+        "suffix": "=4 \\ allennlp train -s"
+      }
+    },
+    {
+      "@id": "hp_lr_pairwise_coref",
+      "@type": "MLS_HyperParameter",
+      "name": "lr (pairwise_coreference)",
+      "hasValue": "2e-5",
+      "hpCategory": "HP_Optimization",
+      "hpType": "LearningRate",
+      "uncertain": false,
+      "sourceFile": "scirex/training_config/pairwise_coreference.jsonnet",
+      "sourceLine": 48,
+      "wasDerivedFrom": "code",
+      "codeReference": "scirex/training_config/pairwise_coreference.jsonnet:48",
+      "path": "scirex/training_config/pairwise_coreference.jsonnet",
+      "start_char_doc": 1161,
+      "end_char_doc": 1169,
+      "context": {
+        "prefix": "\"+f1\", optimizer: { type: \"adam\",",
+        "suffix": "} }, evaluate_on_test: true }"
+      }
+    },
+    {
+      "@id": "hp_num_epochs_pairwise_coref",
+      "@type": "MLS_HyperParameter",
+      "name": "num_epochs (pairwise_coreference)",
+      "hasValue": "20",
+      "hpCategory": "HP_Training",
+      "hpType": "NumEpochs",
+      "uncertain": false,
+      "sourceFile": "scirex/training_config/pairwise_coreference.jsonnet",
+      "sourceLine": 40,
+      "wasDerivedFrom": "code",
+      "codeReference": "scirex/training_config/pairwise_coreference.jsonnet:40",
+      "path": "scirex/training_config/pairwise_coreference.jsonnet",
+      "start_char_doc": 938,
+      "end_char_doc": 952,
+      "context": {
+        "prefix": "batch_size: 100 }, trainer: {",
+        "suffix": ", num_serialized_models_to_keep: 1, patience: 10,"
+      }
+    },
+    {
+      "@id": "hp_batch_size_pairwise_coref",
+      "@type": "MLS_HyperParameter",
+      "name": "batch_size (pairwise_coreference)",
+      "hasValue": "100",
+      "hpCategory": "HP_Training",
+      "hpType": "BatchSize",
+      "uncertain": false,
+      "sourceFile": "scirex/training_config/pairwise_coreference.jsonnet",
+      "sourceLine": 36,
+      "wasDerivedFrom": "code",
+      "codeReference": "scirex/training_config/pairwise_coreference.jsonnet:36",
+      "path": "scirex/training_config/pairwise_coreference.jsonnet",
+      "start_char_doc": 899,
+      "end_char_doc": 914,
+      "context": {
+        "prefix": "{ type: \"bucket_sample\", sorting_keys: [],",
+        "suffix": "}, trainer: { num_epochs: 20,"
+      }
+    },
+    {
+      "@id": "hp_patience_pairwise_coref",
+      "@type": "MLS_HyperParameter",
+      "name": "patience (pairwise_coreference)",
+      "hasValue": "10",
+      "hpCategory": "HP_Training",
+      "hpType": "Patience",
+      "uncertain": false,
+      "sourceFile": "scirex/training_config/pairwise_coreference.jsonnet",
+      "sourceLine": 42,
+      "wasDerivedFrom": "code",
+      "codeReference": "scirex/training_config/pairwise_coreference.jsonnet:42",
+      "path": "scirex/training_config/pairwise_coreference.jsonnet",
+      "start_char_doc": 996,
+      "end_char_doc": 1008,
+      "context": {
+        "prefix": "{ num_epochs: 20, num_serialized_models_to_keep: 1,",
+        "suffix": ", cuda_device: std.parseInt(std.extVar(\"CUDA_DEVICE\")), grad_norm: 5.0,"
+      }
+    },
+    {
+      "@id": "hp_grad_norm_pairwise_coref",
+      "@type": "MLS_HyperParameter",
+      "name": "grad_norm (pairwise_coreference)",
+      "hasValue": "5.0",
+      "hpCategory": "HP_Training",
+      "hpType": "HP_Training",
+      "uncertain": true,
+      "sourceFile": "scirex/training_config/pairwise_coreference.jsonnet",
+      "sourceLine": 44,
+      "wasDerivedFrom": "code",
+      "codeReference": "scirex/training_config/pairwise_coreference.jsonnet:44",
+      "path": "scirex/training_config/pairwise_coreference.jsonnet",
+      "start_char_doc": 1072,
+      "end_char_doc": 1086,
+      "context": {
+        "prefix": "1, patience: 10, cuda_device: std.parseInt(std.extVar(\"CUDA_DEVICE\")),",
+        "suffix": ", validation_metric: \"+f1\", optimizer: {"
+      }
+    },
+    {
+      "@id": "hp_input_dim_pairwise_coref",
+      "@type": "MLS_HyperParameter",
+      "name": "input_dim (pairwise_coreference feedforward)",
+      "hasValue": "768",
+      "hpCategory": "HP_Architecture",
+      "hpType": "HiddenSize",
+      "uncertain": false,
+      "sourceFile": "scirex/training_config/pairwise_coreference.jsonnet",
+      "sourceLine": 26,
+      "wasDerivedFrom": "code",
+      "codeReference": "scirex/training_config/pairwise_coreference.jsonnet:26",
+      "path": "scirex/training_config/pairwise_coreference.jsonnet",
+      "start_char_doc": 688,
+      "end_char_doc": 702,
+      "context": {
+        "prefix": ": \"pooler,10,11\" }, aggregate_feedforward: {",
+        "suffix": ", num_layers: 2, hidden_dims: [200,"
+      }
+    },
+    {
+      "@id": "hp_num_layers_pairwise_coref",
+      "@type": "MLS_HyperParameter",
+      "name": "num_layers (pairwise_coreference feedforward)",
+      "hasValue": "2",
+      "hpCategory": "HP_Architecture",
+      "hpType": "NumLayers",
+      "uncertain": false,
+      "sourceFile": "scirex/training_config/pairwise_coreference.jsonnet",
+      "sourceLine": 27,
+      "wasDerivedFrom": "code",
+      "codeReference": "scirex/training_config/pairwise_coreference.jsonnet:27",
+      "path": "scirex/training_config/pairwise_coreference.jsonnet",
+      "start_char_doc": 710,
+      "end_char_doc": 723,
+      "context": {
+        "prefix": "}, aggregate_feedforward: { input_dim: 768,",
+        "suffix": ", hidden_dims: [200, 2], activations:"
+      }
+    },
+    {
+      "@id": "hp_dropout_pairwise_coref",
+      "@type": "MLS_HyperParameter",
+      "name": "dropout (pairwise_coreference feedforward)",
+      "hasValue": "[0.2, 0.0]",
+      "hpCategory": "HP_Architecture",
+      "hpType": "Dropout",
+      "uncertain": false,
+      "sourceFile": "scirex/training_config/pairwise_coreference.jsonnet",
+      "sourceLine": 30,
+      "wasDerivedFrom": "code",
+      "codeReference": "scirex/training_config/pairwise_coreference.jsonnet:30",
+      "path": "scirex/training_config/pairwise_coreference.jsonnet",
+      "start_char_doc": 799,
+      "end_char_doc": 818,
+      "context": {
+        "prefix": "[200, 2], activations: [\"relu\", \"linear\"],",
+        "suffix": "}, }, iterator: { type:"
+      }
+    },
+    {
+      "@id": "hp_lr_doctaet",
+      "@type": "MLS_HyperParameter",
+      "name": "lr (doctaet)",
+      "hasValue": "1e-3",
+      "hpCategory": "HP_Optimization",
+      "hpType": "LearningRate",
+      "uncertain": false,
+      "sourceFile": "scirex/training_config/doctaet.jsonnet",
+      "sourceLine": 52,
+      "wasDerivedFrom": "code",
+      "codeReference": "scirex/training_config/doctaet.jsonnet:52",
+      "path": "scirex/training_config/doctaet.jsonnet",
+      "start_char_doc": 1220,
+      "end_char_doc": 1228,
+      "context": {
+        "prefix": "}, optimizer: { type: \"adam\",",
+        "suffix": ", parameter_groups :[ [[\".*bert_model.*\"], {\"lr\":"
+      }
+    },
+    {
+      "@id": "hp_bert_lr_doctaet",
+      "@type": "MLS_HyperParameter",
+      "name": "lr (doctaet BERT parameters)",
+      "hasValue": "2e-5",
+      "hpCategory": "HP_Optimization",
+      "hpType": "LearningRate",
+      "uncertain": false,
+      "sourceFile": "scirex/training_config/doctaet.jsonnet",
+      "sourceLine": 54,
+      "wasDerivedFrom": "code",
+      "codeReference": "scirex/training_config/doctaet.jsonnet:54",
+      "path": "scirex/training_config/doctaet.jsonnet",
+      "start_char_doc": 1161,
+      "end_char_doc": 1169,
+      "context": {
+        "prefix": "\"+f1\", optimizer: { type: \"adam\",",
+        "suffix": "} }, evaluate_on_test: true }"
+      }
+    },
+    {
+      "@id": "hp_decay_rate_doctaet",
+      "@type": "MLS_HyperParameter",
+      "name": "factor (doctaet reduce_on_plateau)",
+      "hasValue": "0.5",
+      "hpCategory": "HP_Optimization",
+      "hpType": "DecayRate",
+      "uncertain": false,
+      "sourceFile": "scirex/training_config/doctaet.jsonnet",
+      "sourceLine": 46,
+      "wasDerivedFrom": "code",
+      "codeReference": "scirex/training_config/doctaet.jsonnet:46",
+      "path": "scirex/training_config/doctaet.jsonnet",
+      "start_char_doc": 1119,
+      "end_char_doc": 1130,
+      "context": {
+        "prefix": "'+f1', learning_rate_scheduler: { type: \"reduce_on_plateau\",",
+        "suffix": ", mode: \"max\", patience: 20"
+      }
+    },
+    {
+      "@id": "hp_num_epochs_doctaet",
+      "@type": "MLS_HyperParameter",
+      "name": "num_epochs (doctaet)",
+      "hasValue": "30",
+      "hpCategory": "HP_Training",
+      "hpType": "NumEpochs",
+      "uncertain": false,
+      "sourceFile": "scirex/training_config/doctaet.jsonnet",
+      "sourceLine": 39,
+      "wasDerivedFrom": "code",
+      "codeReference": "scirex/training_config/doctaet.jsonnet:39",
+      "path": "scirex/training_config/doctaet.jsonnet",
+      "start_char_doc": 920,
+      "end_char_doc": 934,
+      "context": {
+        "prefix": "batch_size: 10, }, trainer: {",
+        "suffix": ", grad_norm: 5.0, patience :"
+      }
+    },
+    {
+      "@id": "hp_batch_size_doctaet",
+      "@type": "MLS_HyperParameter",
+      "name": "batch_size (doctaet)",
+      "hasValue": "10",
+      "hpCategory": "HP_Training",
+      "hpType": "BatchSize",
+      "uncertain": false,
+      "sourceFile": "scirex/training_config/doctaet.jsonnet",
+      "sourceLine": 32,
+      "wasDerivedFrom": "code",
+      "codeReference": "scirex/training_config/doctaet.jsonnet:32",
+      "path": "scirex/training_config/doctaet.jsonnet",
+      "start_char_doc": 813,
+      "end_char_doc": 827,
+      "context": {
+        "prefix": "}, iterator: { type: \"basic\",",
+        "suffix": ", }, validation_iterator: { type:"
+      }
+    },
+    {
+      "@id": "hp_patience_doctaet",
+      "@type": "MLS_HyperParameter",
+      "name": "patience (doctaet)",
+      "hasValue": "7",
+      "hpCategory": "HP_Training",
+      "hpType": "Patience",
+      "uncertain": false,
+      "sourceFile": "scirex/training_config/doctaet.jsonnet",
+      "sourceLine": 41,
+      "wasDerivedFrom": "code",
+      "codeReference": "scirex/training_config/doctaet.jsonnet:41",
+      "path": "scirex/training_config/doctaet.jsonnet",
+      "start_char_doc": 960,
+      "end_char_doc": 968,
+      "context": {
+        "prefix": "{ num_epochs: 30, grad_norm: 5.0,",
+        "suffix": ": 7, cuda_device : std.extVar(\"CUDA_DEVICE\"),"
+      }
+    },
+    {
+      "@id": "hp_grad_norm_doctaet",
+      "@type": "MLS_HyperParameter",
+      "name": "grad_norm (doctaet)",
+      "hasValue": "5.0",
+      "hpCategory": "HP_Training",
+      "hpType": "HP_Training",
+      "uncertain": true,
+      "sourceFile": "scirex/training_config/doctaet.jsonnet",
+      "sourceLine": 40,
+      "wasDerivedFrom": "code",
+      "codeReference": "scirex/training_config/doctaet.jsonnet:40",
+      "path": "scirex/training_config/doctaet.jsonnet",
+      "start_char_doc": 940,
+      "end_char_doc": 954,
+      "context": {
+        "prefix": "}, trainer: { num_epochs: 30,",
+        "suffix": ", patience : 7, cuda_device"
+      }
+    },
+    {
+      "@id": "hp_input_dim_doctaet",
+      "@type": "MLS_HyperParameter",
+      "name": "input_dim (doctaet feedforward)",
+      "hasValue": "768",
+      "hpCategory": "HP_Architecture",
+      "hpType": "HiddenSize",
+      "uncertain": false,
+      "sourceFile": "scirex/training_config/doctaet.jsonnet",
+      "sourceLine": 23,
+      "wasDerivedFrom": "code",
+      "codeReference": "scirex/training_config/doctaet.jsonnet:23",
+      "path": "scirex/training_config/doctaet.jsonnet",
+      "start_char_doc": 624,
+      "end_char_doc": 638,
+      "context": {
+        "prefix": ": \"pooler,11\" }, aggregate_feedforward: {",
+        "suffix": ", num_layers: 2, hidden_dims: [200,"
+      }
+    },
+    {
+      "@id": "hp_num_layers_doctaet",
+      "@type": "MLS_HyperParameter",
+      "name": "num_layers (doctaet feedforward)",
+      "hasValue": "2",
+      "hpCategory": "HP_Architecture",
+      "hpType": "NumLayers",
+      "uncertain": false,
+      "sourceFile": "scirex/training_config/doctaet.jsonnet",
+      "sourceLine": 24,
+      "wasDerivedFrom": "code",
+      "codeReference": "scirex/training_config/doctaet.jsonnet:24",
+      "path": "scirex/training_config/doctaet.jsonnet",
+      "start_char_doc": 648,
+      "end_char_doc": 661,
+      "context": {
+        "prefix": "}, aggregate_feedforward: { input_dim: 768,",
+        "suffix": ", hidden_dims: [200, 2], activations:"
+      }
+    },
+    {
+      "@id": "hp_dropout_doctaet",
+      "@type": "MLS_HyperParameter",
+      "name": "dropout (doctaet feedforward)",
+      "hasValue": "[0.2, 0.0]",
+      "hpCategory": "HP_Architecture",
+      "hpType": "Dropout",
+      "uncertain": false,
+      "sourceFile": "scirex/training_config/doctaet.jsonnet",
+      "sourceLine": 27,
+      "wasDerivedFrom": "code",
+      "codeReference": "scirex/training_config/doctaet.jsonnet:27",
+      "path": "scirex/training_config/doctaet.jsonnet",
+      "start_char_doc": 743,
+      "end_char_doc": 762,
+      "context": {
+        "prefix": "[200, 2], activations: [\"relu\", \"linear\"],",
+        "suffix": "} }, iterator: { type:"
+      }
+    },
+    {
+      "@id": "hp_train_val_test_split",
+      "@type": "MLS_HyperParameter",
+      "name": "train_val_test_split",
+      "hasValue": "0.8/0.1/0.1",
+      "hpCategory": "HP_Data",
+      "hpType": "TrainValTestSplit",
+      "uncertain": false,
+      "sourceFile": "scirex_utilities/preprocessing/split_dataset_train_test.py",
+      "sourceLine": 14,
+      "wasDerivedFrom": "code",
+      "codeReference": "scirex_utilities/preprocessing/split_dataset_train_test.py:14-15",
+      "path": "scirex_utilities/preprocessing/split_dataset_train_test.py",
+      "start_char_doc": 410,
+      "end_char_doc": 423,
+      "context": {
+        "prefix": "list(df.s2_paper_id.unique()) train_ids, test_ids = train_test_split(ids,",
+        "suffix": ", random_state=1) train_ids, dev_ids ="
+      }
+    },
+    {
+      "@id": "hp_random_seed_split",
+      "@type": "MLS_HyperParameter",
+      "name": "random_state",
+      "hasValue": "1",
+      "hpCategory": "HP_Training",
+      "hpType": "RandomSeed",
+      "uncertain": false,
+      "sourceFile": "scirex_utilities/preprocessing/split_dataset_train_test.py",
+      "sourceLine": 14,
+      "wasDerivedFrom": "code",
+      "codeReference": "scirex_utilities/preprocessing/split_dataset_train_test.py:14",
+      "path": "scirex_utilities/preprocessing/split_dataset_train_test.py",
+      "start_char_doc": 425,
+      "end_char_doc": 437,
+      "context": {
+        "prefix": "train_ids, test_ids = train_test_split(ids, test_size=0.2,",
+        "suffix": "=1) train_ids, dev_ids = train_test_split(train_ids,"
+      }
+    },
+    {
+      "@id": "hp_cluster_threshold",
+      "@type": "MLS_HyperParameter",
+      "name": "coreference_threshold",
+      "hasValue": "0.95",
+      "hpCategory": "HP_Architecture",
+      "hpType": "UnknownArchitectureHP",
+      "uncertain": true,
+      "sourceFile": "scirex/commands/predict_scirex_model.sh",
+      "sourceLine": 29,
+      "wasDerivedFrom": "code",
+      "codeReference": "scirex/commands/predict_scirex_model.sh:29",
+      "path": "scirex/commands/predict_scirex_model.sh",
+      "start_char_doc": 149,
+      "end_char_doc": 170,
+      "context": {
+        "prefix": "import sys def predict(coreference_scores_file, output_file,",
+        "suffix": "): ''' coreference_scores_file (jsonl) -"
+      }
+    },
+    {
+      "@id": "preprocess_add_cleaned_text",
+      "@type": "DataProcessingStep",
+      "identifier": "Add Cleaned Text to PWC",
+      "description": "Reads raw paper data from Grobid TEI XML and LaTeX-derived XML, extracts titles/sections/paragraphs, and produces cleaned text for each paper in JSONL format.",
+      "transformationType": "cleaning",
+      "startedAtTime": null,
+      "endedAtTime": null,
+      "inputDataset": null,
+      "outputDataset": null,
+      "prov-executedBy": {
+        "@id": "impl_scirex_full"
+      },
+      "wasDerivedFrom": "code",
+      "codeReference": "scirex_utilities/preprocessing/add_cleaned_text_to_pwc.py",
+      "path": "scirex_utilities/preprocessing/add_cleaned_text_to_pwc.py",
+      "start_char_doc": 3223,
+      "end_char_doc": 3234,
+      "context": {
+        "prefix": "row['clean_type'] = 'normal' return row",
+        "suffix": "== '__main__' : grobid_outputs ="
+      }
+    },
+    {
+      "@id": "preprocess_process_pwc_to_sentences",
+      "@type": "DataProcessingStep",
+      "identifier": "Process PWC to Sentences",
+      "description": "Converts cleaned paper text into sentence-level JSONL records using spaCy tokenization, splitting by sections and paragraphs.",
+      "transformationType": "tokenization",
+      "startedAtTime": null,
+      "endedAtTime": null,
+      "inputDataset": null,
+      "outputDataset": null,
+      "prov-executedBy": {
+        "@id": "impl_scirex_full"
+      },
+      "wasDerivedFrom": "code",
+      "codeReference": "scirex_utilities/preprocessing/process_pwc_to_sentences.py",
+      "path": "scirex_utilities/preprocessing/process_pwc_to_sentences.py",
+      "start_char_doc": 2244,
+      "end_char_doc": 2255,
+      "context": {
+        "prefix": "json_sents : f.write(json.dumps(s) + '\\n')",
+        "suffix": "== \"__main__\": get_json_sentences()"
+      }
+    },
+    {
+      "@id": "preprocess_split_dataset",
+      "@type": "DataProcessingStep",
+      "identifier": "Split Dataset Train/Dev/Test",
+      "description": "Partitions document IDs into train/dev/test splits (80/10/10) using sklearn train_test_split with random_state=1.",
+      "transformationType": "splitting",
+      "startedAtTime": null,
+      "endedAtTime": null,
+      "inputDataset": null,
+      "outputDataset": null,
+      "prov-executedBy": {
+        "@id": "impl_scirex_full"
+      },
+      "wasDerivedFrom": "code",
+      "codeReference": "scirex_utilities/preprocessing/split_dataset_train_test.py",
+      "path": "scirex_utilities/preprocessing/split_dataset_train_test.py",
+      "start_char_doc": 967,
+      "end_char_doc": 978,
+      "context": {
+        "prefix": "f.close() return len(train_ids)/len(ids), len(dev_ids)/len(ids), len(test_ids)/len(ids)",
+        "suffix": "== '__main__' : split_dataset()"
+      }
+    },
+    {
+      "@id": "training_scirex_full",
+      "@type": "TrainingRun",
+      "runId": "experiment_scirex_full",
+      "description": "Training the main SciREX model for document-level information extraction using SciBERT + BiLSTM + feedforward modules for NER, saliency, coreference, and n-ary relation extraction.",
+      "logFile": null,
+      "artifactsLocation": "outputs/pwc_outputs/experiment_scirex_full/",
+      "startedAtTime": null,
+      "endedAtTime": null,
+      "prov-executedBy": {
+        "@id": "impl_scirex_full"
+      },
+      "used": null,
+      "trains": null,
+      "wasAssociatedWith": [
+        {
+          "@id": "hp_lr_scirex_full"
+        },
+        {
+          "@id": "hp_bert_lr_scirex_full"
+        },
+        {
+          "@id": "hp_num_epochs_scirex_full"
+        },
+        {
+          "@id": "hp_batch_size_scirex_full"
+        },
+        {
+          "@id": "hp_patience_scirex_full"
+        },
+        {
+          "@id": "hp_grad_norm_scirex_full"
+        },
+        {
+          "@id": "hp_lr_scheduler_factor_scirex_full"
+        },
+        {
+          "@id": "hp_lstm_hidden_size_scirex_full"
+        },
+        {
+          "@id": "hp_bert_base_dim_scirex_full"
+        },
+        {
+          "@id": "hp_feedforward_hidden_dims_scirex_full"
+        },
+        {
+          "@id": "hp_feedforward_num_layers_scirex_full"
+        },
+        {
+          "@id": "hp_dropout_scirex_full"
+        },
+        {
+          "@id": "hp_lexical_dropout_scirex_full"
+        },
+        {
+          "@id": "hp_relation_cardinality_scirex_full"
+        }
+      ],
+      "wasDerivedFrom": "code",
+      "codeReference": "scirex/commands/train_scirex_model.sh",
+      "path": "scirex/commands/train_scirex_model.sh",
+      "start_char_doc": 2742,
+      "end_char_doc": 2763,
+      "context": {
+        "prefix": "2. Run `CUDA_DEVICE=<cuda-device-num> bash scirex/commands/",
+        "suffix": "main` to train main scirex"
+      }
+    },
+    {
+      "@id": "training_pairwise_coreference",
+      "@type": "TrainingRun",
+      "runId": "experiment_coreference",
+      "description": "Training the secondary pairwise coreference model using BERT with a feedforward classifier for mention-pair scoring.",
+      "logFile": null,
+      "artifactsLocation": "outputs/pwc_outputs/experiment_coreference/",
+      "startedAtTime": null,
+      "endedAtTime": null,
+      "prov-executedBy": {
+        "@id": "impl_pairwise_coreference"
+      },
+      "used": null,
+      "trains": null,
+      "wasAssociatedWith": [
+        {
+          "@id": "hp_lr_pairwise_coref"
+        },
+        {
+          "@id": "hp_num_epochs_pairwise_coref"
+        },
+        {
+          "@id": "hp_batch_size_pairwise_coref"
+        },
+        {
+          "@id": "hp_patience_pairwise_coref"
+        },
+        {
+          "@id": "hp_grad_norm_pairwise_coref"
+        },
+        {
+          "@id": "hp_input_dim_pairwise_coref"
+        },
+        {
+          "@id": "hp_num_layers_pairwise_coref"
+        },
+        {
+          "@id": "hp_dropout_pairwise_coref"
+        }
+      ],
+      "wasDerivedFrom": "code",
+      "codeReference": "scirex/commands/train_pairwise_coreference.sh",
+      "path": "scirex/commands/train_pairwise_coreference.sh",
+      "start_char_doc": 2856,
+      "end_char_doc": 2885,
+      "context": {
+        "prefix": "3. Run `CUDA_DEVICE=<cuda-device-num> bash scirex/commands/",
+        "suffix": "main` to train secondary coreference"
+      }
+    },
+    {
+      "@id": "training_doctaet",
+      "@type": "TrainingRun",
+      "runId": "experiment_doctaet",
+      "description": "Training the DocTAET model for document-level entity type classification using BERT with a feedforward classifier.",
+      "logFile": null,
+      "artifactsLocation": "outputs/pwc_outputs/experiment_doctaet/",
+      "startedAtTime": null,
+      "endedAtTime": null,
+      "prov-executedBy": {
+        "@id": "impl_doctaet"
+      },
+      "used": null,
+      "trains": null,
+      "wasAssociatedWith": [
+        {
+          "@id": "hp_lr_doctaet"
+        },
+        {
+          "@id": "hp_bert_lr_doctaet"
+        },
+        {
+          "@id": "hp_decay_rate_doctaet"
+        },
+        {
+          "@id": "hp_num_epochs_doctaet"
+        },
+        {
+          "@id": "hp_batch_size_doctaet"
+        },
+        {
+          "@id": "hp_patience_doctaet"
+        },
+        {
+          "@id": "hp_grad_norm_doctaet"
+        },
+        {
+          "@id": "hp_input_dim_doctaet"
+        },
+        {
+          "@id": "hp_num_layers_doctaet"
+        },
+        {
+          "@id": "hp_dropout_doctaet"
+        }
+      ],
+      "wasDerivedFrom": "code",
+      "codeReference": "scirex/commands/train_doctaet.sh",
+      "path": "scirex/commands/train_doctaet.sh",
+      "start_char_doc": 551,
+      "end_char_doc": 569,
+      "context": {
+        "prefix": "DEV_PATH=$DATA_BASE_PATH/dev.jsonl export TEST_PATH=$DATA_BASE_PATH/test.jsonl export OUTPUT_BASE_PATH=${OUTPUT_DIR:-outputs/pwc_outputs/",
+        "suffix": "/$1} allennlp train -s $OUTPUT_BASE_PATH"
+      }
+    },
+    {
+      "@id": "evaluation_scirex",
+      "@type": "EvaluationRun",
+      "runId": "evaluation_scirex_full",
+      "description": "End-to-end evaluation of the SciREX pipeline on the test set: NER, saliency, coreference clustering, salient cluster identification, and n-ary relation extraction, followed by relation evaluation.",
+      "split": "test",
+      "evaluationScript": "scirex/evaluation_scripts/scirex_relation_evaluate.py",
+      "metricsFile": null,
+      "startedAtTime": null,
+      "endedAtTime": null,
+      "prov-executedBy": {
+        "@id": "impl_scirex_full"
+      },
+      "evaluates": null,
+      "prov-generated": [
+        {
+          "@id": "prediction_ner"
+        },
+        {
+          "@id": "prediction_salient_mentions"
+        },
+        {
+          "@id": "prediction_coreference"
+        },
+        {
+          "@id": "prediction_clusters"
+        },
+        {
+          "@id": "prediction_salient_clusters"
+        },
+        {
+          "@id": "prediction_relations"
+        }
+      ],
+      "wasDerivedFrom": "code",
+      "codeReference": "scirex/commands/predict_scirex_model.sh",
+      "path": "scirex/commands/predict_scirex_model.sh",
+      "start_char_doc": 1919,
+      "end_char_doc": 1946,
+      "context": {
+        "prefix": "end to end task (https://github.com/allenai/SciREX/blob/master/scirex/evaluation_scripts/",
+        "suffix": "#L110). Note that this artifically"
+      }
+    },
+    {
+      "@id": "prediction_ner",
+      "@type": "PredictionSet",
+      "identifier": "NER Predictions",
+      "description": "Named entity recognition predictions on the test set produced by predict_ner.py.",
+      "predictionFormat": "JSONL",
+      "storageLocation": "test_outputs/ner_predictions.jsonl",
+      "numInstances": null,
+      "onDatasetSplit": "test",
+      "appliedTo": null,
+      "wasGeneratedBy": {
+        "@id": "evaluation_scirex"
+      },
+      "producedBy": {
+        "@id": "impl_scirex_full"
+      },
+      "wasDerivedFrom": "code",
+      "codeReference": "scirex/predictors/predict_ner.py",
+      "path": "scirex/predictors/predict_ner.py",
+      "start_char_doc": 212,
+      "end_char_doc": 233,
+      "context": {
+        "prefix": "$scirex_archive \\ $test_file \\ $test_output_folder/",
+        "suffix": "\\ $cuda_device echo \"Predicting Salient"
+      }
+    },
+    {
+      "@id": "prediction_salient_mentions",
+      "@type": "PredictionSet",
+      "identifier": "Salient Mention Predictions",
+      "description": "Salient mention predictions on the test set produced by predict_salient_mentions.py.",
+      "predictionFormat": "JSONL",
+      "storageLocation": "test_outputs/salient_mentions_predictions.jsonl",
+      "numInstances": null,
+      "onDatasetSplit": "test",
+      "appliedTo": null,
+      "wasGeneratedBy": {
+        "@id": "evaluation_scirex"
+      },
+      "producedBy": {
+        "@id": "impl_scirex_full"
+      },
+      "wasDerivedFrom": "code",
+      "codeReference": "scirex/predictors/predict_salient_mentions.py",
+      "path": "scirex/predictors/predict_salient_mentions.py",
+      "start_char_doc": 422,
+      "end_char_doc": 456,
+      "context": {
+        "prefix": "$scirex_archive \\ $test_output_folder/ner_predictions.jsonl \\ $test_output_folder/",
+        "suffix": "\\ $cuda_device echo \"Predicting Coreference"
+      }
+    },
+    {
+      "@id": "prediction_coreference",
+      "@type": "PredictionSet",
+      "identifier": "Pairwise Coreference Predictions",
+      "description": "Pairwise coreference score predictions on the test set produced by predict_pairwise_coreference.py.",
+      "predictionFormat": "JSONL",
+      "storageLocation": "test_outputs/coreference_predictions.jsonl",
+      "numInstances": null,
+      "onDatasetSplit": "test",
+      "appliedTo": null,
+      "wasGeneratedBy": {
+        "@id": "evaluation_scirex"
+      },
+      "producedBy": {
+        "@id": "impl_pairwise_coreference"
+      },
+      "wasDerivedFrom": "code",
+      "codeReference": "scirex/predictors/predict_pairwise_coreference.py",
+      "path": "scirex/predictors/predict_pairwise_coreference.py",
+      "start_char_doc": 673,
+      "end_char_doc": 702,
+      "context": {
+        "prefix": "$scirex_coreference_archive \\ $test_output_folder/ner_predictions.jsonl \\ $test_output_folder/",
+        "suffix": "\\ $cuda_device echo \"Predicting clusters\""
+      }
+    },
+    {
+      "@id": "prediction_clusters",
+      "@type": "PredictionSet",
+      "identifier": "Cluster Predictions",
+      "description": "Cluster predictions derived from pairwise coreference scores using threshold 0.95, produced by predict_clusters.py.",
+      "predictionFormat": "JSONL",
+      "storageLocation": "test_outputs/cluster_predictions.jsonl",
+      "numInstances": null,
+      "onDatasetSplit": "test",
+      "appliedTo": null,
+      "wasGeneratedBy": {
+        "@id": "evaluation_scirex"
+      },
+      "producedBy": {
+        "@id": "impl_scirex_full"
+      },
+      "wasDerivedFrom": "code",
+      "codeReference": "scirex/predictors/predict_clusters.py",
+      "path": "scirex/predictors/predict_clusters.py",
+      "start_char_doc": 865,
+      "end_char_doc": 890,
+      "context": {
+        "prefix": "scirex/predictors/predict_clusters.py \\ $test_output_folder/coreference_predictions.jsonl \\ $test_output_folder/",
+        "suffix": "\\ 0.95 echo \"Predicting Salient"
+      }
+    },
+    {
+      "@id": "prediction_salient_clusters",
+      "@type": "PredictionSet",
+      "identifier": "Salient Cluster Predictions",
+      "description": "Salient cluster predictions combining cluster and saliency information, produced by predict_salient_clusters.py.",
+      "predictionFormat": "JSONL",
+      "storageLocation": "test_outputs/salient_clusters_predictions.jsonl",
+      "numInstances": null,
+      "onDatasetSplit": "test",
+      "appliedTo": null,
+      "wasGeneratedBy": {
+        "@id": "evaluation_scirex"
+      },
+      "producedBy": {
+        "@id": "impl_scirex_full"
+      },
+      "wasDerivedFrom": "code",
+      "codeReference": "scirex/predictors/predict_salient_clusters.py",
+      "path": "scirex/predictors/predict_salient_clusters.py",
+      "start_char_doc": 1117,
+      "end_char_doc": 1151,
+      "context": {
+        "prefix": "$test_output_folder/cluster_predictions.jsonl \\ $test_output_folder/salient_mentions_predictions.jsonl \\ $test_output_folder/",
+        "suffix": "echo \"Predicitng Salient Clusters using"
+      }
+    },
+    {
+      "@id": "prediction_relations",
+      "@type": "PredictionSet",
+      "identifier": "N-ary Relation Predictions",
+      "description": "N-ary relation predictions on the test set produced by predict_n_ary_relations.py.",
+      "predictionFormat": "JSONL",
+      "storageLocation": "test_outputs/relations_predictions.jsonl",
+      "numInstances": null,
+      "onDatasetSplit": "test",
+      "appliedTo": null,
+      "wasGeneratedBy": {
+        "@id": "evaluation_scirex"
+      },
+      "producedBy": {
+        "@id": "impl_scirex_full"
+      },
+      "wasDerivedFrom": "code",
+      "codeReference": "scirex/predictors/predict_n_ary_relations.py",
+      "path": "scirex/predictors/predict_n_ary_relations.py",
+      "start_char_doc": 1644,
+      "end_char_doc": 1671,
+      "context": {
+        "prefix": "$test_output_folder/ner_predictions.jsonl \\ $test_output_folder/salient_clusters_predictions.jsonl \\ $test_output_folder/",
+        "suffix": "\\ $cuda_device echo \"Predicting relations"
+      }
+    }
+  ]
+}

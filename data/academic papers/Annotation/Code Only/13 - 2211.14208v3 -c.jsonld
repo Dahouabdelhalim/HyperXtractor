@@ -1,0 +1,2016 @@
+{
+  "@context": {
+    "mls": "http://example.org/ontology/mls#",
+    "schema": "http://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "SoftwareRepository": "mls:SoftwareRepository",
+    "MLS_Implementation": "mls:MLS_Implementation",
+    "MLS_HyperParameter": "mls:MLS_HyperParameter",
+    "Dependency": "mls:Dependency",
+    "Environment": "mls:Environment",
+    "DataProcessingStep": "mls:DataProcessingStep",
+    "TrainingRun": "mls:TrainingRun",
+    "EvaluationRun": "mls:EvaluationRun",
+    "PredictionSet": "mls:PredictionSet",
+    "name": "schema:name",
+    "identifier": "schema:identifier",
+    "description": "schema:description",
+    "url": "schema:url",
+    "version": "schema:version",
+    "license": "schema:license",
+    "programmingLanguage": "schema:programmingLanguage",
+    "dateModified": {
+      "@id": "schema:dateModified",
+      "@type": "xsd:dateTime"
+    },
+    "documentationUrl": {
+      "@id": "mls:documentationUrl",
+      "@type": "xsd:anyURI"
+    },
+    "owner": "mls:owner",
+    "platform": "mls:platform",
+    "codeRepository": {
+      "@id": "mls:codeRepository",
+      "@type": "xsd:anyURI"
+    },
+    "framework": "mls:framework",
+    "entryPoint": "mls:entryPoint",
+    "entryPointCommand": "mls:entryPointCommand",
+    "executionCommand": "mls:executionCommand",
+    "commitHash": "mls:commitHash",
+    "branch": "mls:branch",
+    "dependenciesHash": "mls:dependenciesHash",
+    "packageName": "mls:packageName",
+    "dependencyType": "mls:dependencyType",
+    "isOptional": {
+      "@id": "mls:isOptional",
+      "@type": "xsd:boolean"
+    },
+    "hardwareSpecs": "mls:hardwareSpecs",
+    "os": "mls:os",
+    "pythonVersion": "mls:pythonVersion",
+    "requirementsFile": "mls:requirementsFile",
+    "isDockerized": {
+      "@id": "mls:isDockerized",
+      "@type": "xsd:boolean"
+    },
+    "hasValue": {
+      "@id": "mls:hasValue",
+      "@type": "xsd:string"
+    },
+    "hpCategory": "mls:hpCategory",
+    "hpType": "mls:hpType",
+    "sourceFile": "mls:sourceFile",
+    "sourceLine": {
+      "@id": "mls:sourceLine",
+      "@type": "xsd:integer"
+    },
+    "uncertain": {
+      "@id": "mls:uncertain",
+      "@type": "xsd:boolean"
+    },
+    "transformationType": "mls:transformationType",
+    "codeReference": {
+      "@id": "mls:codeReference",
+      "@type": "xsd:anyURI"
+    },
+    "runId": "mls:runId",
+    "logFile": {
+      "@id": "mls:logFile",
+      "@type": "xsd:anyURI"
+    },
+    "artifactsLocation": {
+      "@id": "mls:artifactsLocation",
+      "@type": "xsd:anyURI"
+    },
+    "split": "mls:split",
+    "evaluationScript": "mls:evaluationScript",
+    "evaluationSplit": "mls:evaluationSplit",
+    "metricsFile": "mls:metricsFile",
+    "format": "mls:format",
+    "predictionFormat": "mls:predictionFormat",
+    "storageLocation": "mls:storageLocation",
+    "numInstances": {
+      "@id": "mls:numInstances",
+      "@type": "xsd:integer"
+    },
+    "onDatasetSplit": "mls:onDatasetSplit",
+    "startedAtTime": {
+      "@id": "prov:startedAtTime",
+      "@type": "xsd:dateTime"
+    },
+    "endedAtTime": {
+      "@id": "prov:endedAtTime",
+      "@type": "xsd:dateTime"
+    },
+    "contains": {
+      "@id": "mls:contains",
+      "@type": "@id"
+    },
+    "supports": {
+      "@id": "mls:supports",
+      "@type": "@id"
+    },
+    "runsIn": {
+      "@id": "mls:runsIn",
+      "@type": "@id"
+    },
+    "requires": {
+      "@id": "mls:requires",
+      "@type": "@id"
+    },
+    "inputDataset": {
+      "@id": "mls:inputDataset",
+      "@type": "@id"
+    },
+    "outputDataset": {
+      "@id": "mls:outputDataset",
+      "@type": "@id"
+    },
+    "trains": {
+      "@id": "mls:trains",
+      "@type": "@id"
+    },
+    "evaluates": {
+      "@id": "mls:evaluates",
+      "@type": "@id"
+    },
+    "appliedTo": {
+      "@id": "mls:appliedTo",
+      "@type": "@id"
+    },
+    "producedBy": {
+      "@id": "mls:producedBy",
+      "@type": "@id"
+    },
+    "prov-executedBy": {
+      "@id": "mls:prov-executedBy",
+      "@type": "@id"
+    },
+    "prov-generated": {
+      "@id": "mls:prov-generated",
+      "@type": "@id"
+    },
+    "used": {
+      "@id": "prov:used",
+      "@type": "@id"
+    },
+    "wasGeneratedBy": {
+      "@id": "prov:wasGeneratedBy",
+      "@type": "@id"
+    },
+    "wasDerivedFrom": {
+      "@id": "prov:wasDerivedFrom",
+      "@type": "@id"
+    },
+    "wasAssociatedWith": {
+      "@id": "prov:wasAssociatedWith",
+      "@type": "@id"
+    }
+  },
+  "@graph": [
+    {
+      "@id": "repo_jeongwhanchoi_GREAD",
+      "@type": "SoftwareRepository",
+      "name": "GREAD",
+      "url": "https://github.com/jeongwhanchoi/GREAD",
+      "owner": "jeongwhanchoi",
+      "platform": "GitHub",
+      "programmingLanguage": "Python",
+      "version": null,
+      "license": "Apache-2.0",
+      "dateModified": "2024-05-03T20:18:30+09:00",
+      "documentationUrl": "https://arxiv.org/abs/2211.14208",
+      "contains": [
+        {
+          "@id": "impl_GREAD"
+        }
+      ],
+      "supports": [
+        {
+          "@id": "env_GREAD"
+        }
+      ],
+      "wasDerivedFrom": "code",
+      "codeReference": "README.md",
+      "path": "README.md",
+      "start_char_doc": 2,
+      "end_char_doc": 7,
+      "context": {
+        "prefix": "#",
+        "suffix": ": Graph Neural Reaction-Diffusion Networks"
+      }
+    },
+    {
+      "@id": "impl_GREAD",
+      "@type": "MLS_Implementation",
+      "identifier": "GREAD Graph Neural Reaction-Diffusion Networks Implementation",
+      "codeRepository": "https://github.com/jeongwhanchoi/GREAD",
+      "framework": "PyTorch",
+      "entryPoint": "src/run_GNN.py",
+      "entryPointCommand": "python run_GNN.py --kwargs",
+      "executionCommand": "python run_GNN.py --dataset=Squirrel --use_best_params",
+      "commitHash": "f97ec01a17bb9cba1da2b89192b83cd7a25a250b",
+      "branch": "main",
+      "dependenciesHash": null,
+      "runsIn": {
+        "@id": "env_GREAD"
+      },
+      "requires": [
+        {
+          "@id": "dep_torch"
+        },
+        {
+          "@id": "dep_torch_geometric"
+        },
+        {
+          "@id": "dep_torch_scatter"
+        },
+        {
+          "@id": "dep_torch_sparse"
+        },
+        {
+          "@id": "dep_torchdiffeq"
+        },
+        {
+          "@id": "dep_ogb"
+        },
+        {
+          "@id": "dep_wandb"
+        },
+        {
+          "@id": "dep_deeprobust"
+        }
+      ],
+      "wasDerivedFrom": "code",
+      "codeReference": "src/run_GNN.py",
+      "path": "src/run_GNN.py",
+      "start_char_doc": 0,
+      "end_char_doc": 0,
+      "context": {
+        "prefix": "",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "env_GREAD",
+      "@type": "Environment",
+      "name": "gread",
+      "description": "Conda environment for GREAD with CUDA 11.3 support",
+      "framework": "PyTorch 1.11.0+cu113",
+      "pythonVersion": "3.9",
+      "os": null,
+      "hardwareSpecs": "CUDA 11.3",
+      "requirementsFile": "environment.yml",
+      "isDockerized": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "environment.yml",
+      "path": "environment.yml",
+      "start_char_doc": 0,
+      "end_char_doc": 11,
+      "context": {
+        "prefix": "",
+        "suffix": "channels: - defaults dependencies: -"
+      }
+    },
+    {
+      "@id": "dep_torch",
+      "@type": "Dependency",
+      "packageName": "torch",
+      "version": "1.11.0+cu113",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "environment.yml:10",
+      "path": "environment.yml",
+      "start_char_doc": 126,
+      "end_char_doc": 147,
+      "context": {
+        "prefix": "pip: - deeprobust==0.2.4 - ogb==1.3.3",
+        "suffix": "- torch-geometric==2.0.4 - torch-scatter==2.0.9 -"
+      }
+    },
+    {
+      "@id": "dep_torch_geometric",
+      "@type": "Dependency",
+      "packageName": "torch-geometric",
+      "version": "2.0.4",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "environment.yml:11",
+      "path": "environment.yml",
+      "start_char_doc": 152,
+      "end_char_doc": 176,
+      "context": {
+        "prefix": "deeprobust==0.2.4 - ogb==1.3.3 - torch==1.11.0+cu113",
+        "suffix": "- torch-scatter==2.0.9 - torch-sparse==0.6.14 -"
+      }
+    },
+    {
+      "@id": "dep_torch_scatter",
+      "@type": "Dependency",
+      "packageName": "torch-scatter",
+      "version": "2.0.9",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "environment.yml:12",
+      "path": "environment.yml",
+      "start_char_doc": 181,
+      "end_char_doc": 203,
+      "context": {
+        "prefix": "ogb==1.3.3 - torch==1.11.0+cu113 - torch-geometric==2.0.4",
+        "suffix": "- torch-sparse==0.6.14 - torchdiffeq==0.2.3 -"
+      }
+    },
+    {
+      "@id": "dep_torch_sparse",
+      "@type": "Dependency",
+      "packageName": "torch-sparse",
+      "version": "0.6.14",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "environment.yml:13",
+      "path": "environment.yml",
+      "start_char_doc": 208,
+      "end_char_doc": 230,
+      "context": {
+        "prefix": "torch==1.11.0+cu113 - torch-geometric==2.0.4 - torch-scatter==2.0.9",
+        "suffix": "- torchdiffeq==0.2.3 - wandb==0.12.21"
+      }
+    },
+    {
+      "@id": "dep_torchdiffeq",
+      "@type": "Dependency",
+      "packageName": "torchdiffeq",
+      "version": "0.2.3",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "environment.yml:14",
+      "path": "environment.yml",
+      "start_char_doc": 235,
+      "end_char_doc": 255,
+      "context": {
+        "prefix": "torch-geometric==2.0.4 - torch-scatter==2.0.9 - torch-sparse==0.6.14",
+        "suffix": "- wandb==0.12.21"
+      }
+    },
+    {
+      "@id": "dep_ogb",
+      "@type": "Dependency",
+      "packageName": "ogb",
+      "version": "1.3.3",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "environment.yml:9",
+      "path": "environment.yml",
+      "start_char_doc": 109,
+      "end_char_doc": 121,
+      "context": {
+        "prefix": "python=3.9 - pip: - deeprobust==0.2.4",
+        "suffix": "- torch==1.11.0+cu113 - torch-geometric==2.0.4 -"
+      }
+    },
+    {
+      "@id": "dep_wandb",
+      "@type": "Dependency",
+      "packageName": "wandb",
+      "version": "0.12.21",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "environment.yml:15",
+      "path": "environment.yml",
+      "start_char_doc": 260,
+      "end_char_doc": 276,
+      "context": {
+        "prefix": "torch-scatter==2.0.9 - torch-sparse==0.6.14 - torchdiffeq==0.2.3",
+        "suffix": ""
+      }
+    },
+    {
+      "@id": "dep_deeprobust",
+      "@type": "Dependency",
+      "packageName": "deeprobust",
+      "version": "0.2.4",
+      "dependencyType": "runtime",
+      "isOptional": false,
+      "wasDerivedFrom": "code",
+      "codeReference": "environment.yml:8",
+      "path": "environment.yml",
+      "start_char_doc": 85,
+      "end_char_doc": 104,
+      "context": {
+        "prefix": "pip - python=3.9 - pip:",
+        "suffix": "- ogb==1.3.3 - torch==1.11.0+cu113 -"
+      }
+    },
+    {
+      "@id": "hp_lr",
+      "@type": "MLS_HyperParameter",
+      "name": "lr",
+      "hasValue": "0.01",
+      "hpCategory": "HP_Optimization",
+      "hpType": "LearningRate",
+      "uncertain": false,
+      "sourceFile": "src/run_GNN.py",
+      "sourceLine": 340,
+      "wasDerivedFrom": "code",
+      "codeReference": "src/run_GNN.py:340",
+      "path": "src/run_GNN.py",
+      "start_char_doc": 13825,
+      "end_char_doc": 13831,
+      "context": {
+        "prefix": "rmsprop, adam, adagrad, adamax.') parser.add_argument(",
+        "suffix": ", type=float, default=0.01, help='Learning rate.')"
+      }
+    },
+    {
+      "@id": "hp_decay",
+      "@type": "MLS_HyperParameter",
+      "name": "decay",
+      "hasValue": "5e-4",
+      "hpCategory": "HP_Optimization",
+      "hpType": "WeightDecay",
+      "uncertain": false,
+      "sourceFile": "src/run_GNN.py",
+      "sourceLine": 341,
+      "wasDerivedFrom": "code",
+      "codeReference": "src/run_GNN.py:341",
+      "path": "src/run_GNN.py",
+      "start_char_doc": 13906,
+      "end_char_doc": 13915,
+      "context": {
+        "prefix": "type=float, default=0.01, help='Learning rate.') parser.add_argument(",
+        "suffix": ", type=float, default=5e-4, help='Weight decay"
+      }
+    },
+    {
+      "@id": "hp_epoch",
+      "@type": "MLS_HyperParameter",
+      "name": "epoch",
+      "hasValue": "100",
+      "hpCategory": "HP_Training",
+      "hpType": "NumEpochs",
+      "uncertain": false,
+      "sourceFile": "src/run_GNN.py",
+      "sourceLine": 337,
+      "wasDerivedFrom": "code",
+      "codeReference": "src/run_GNN.py:337",
+      "path": "src/run_GNN.py",
+      "start_char_doc": 13482,
+      "end_char_doc": 13491,
+      "context": {
+        "prefix": "run on (default 0)\") parser.add_argument(",
+        "suffix": ", type=int, default=100, help='Number of"
+      }
+    },
+    {
+      "@id": "hp_patience",
+      "@type": "MLS_HyperParameter",
+      "name": "patience",
+      "hasValue": "None",
+      "hpCategory": "HP_Training",
+      "hpType": "Patience",
+      "uncertain": false,
+      "sourceFile": "src/run_GNN.py",
+      "sourceLine": 338,
+      "wasDerivedFrom": "code",
+      "codeReference": "src/run_GNN.py:338",
+      "path": "src/run_GNN.py",
+      "start_char_doc": 13589,
+      "end_char_doc": 13601,
+      "context": {
+        "prefix": "training epochs per iteration.') parser.add_argument(",
+        "suffix": ", type=int, default=None, help='set if"
+      }
+    },
+    {
+      "@id": "hp_hidden_dim",
+      "@type": "MLS_HyperParameter",
+      "name": "hidden_dim",
+      "hasValue": "64",
+      "hpCategory": "HP_Architecture",
+      "hpType": "HiddenSize",
+      "uncertain": false,
+      "sourceFile": "src/run_GNN.py",
+      "sourceLine": 359,
+      "wasDerivedFrom": "code",
+      "codeReference": "src/run_GNN.py:359",
+      "path": "src/run_GNN.py",
+      "start_char_doc": 15597,
+      "end_char_doc": 15611,
+      "context": {
+        "prefix": "help='laplacian, transformer, greed, GAT') parser.add_argument(",
+        "suffix": ", type=int, default=64, help='Hidden dimension.')"
+      }
+    },
+    {
+      "@id": "hp_input_dropout",
+      "@type": "MLS_HyperParameter",
+      "name": "input_dropout",
+      "hasValue": "0.5",
+      "hpCategory": "HP_Architecture",
+      "hpType": "Dropout",
+      "uncertain": false,
+      "sourceFile": "src/run_GNN.py",
+      "sourceLine": 361,
+      "wasDerivedFrom": "code",
+      "codeReference": "src/run_GNN.py:361",
+      "path": "src/run_GNN.py",
+      "start_char_doc": 15799,
+      "end_char_doc": 15816,
+      "context": {
+        "prefix": "layer to the decoder.') parser.add_argument(",
+        "suffix": ", type=float, default=0.5, help='Input dropout"
+      }
+    },
+    {
+      "@id": "hp_dropout",
+      "@type": "MLS_HyperParameter",
+      "name": "dropout",
+      "hasValue": "0.0",
+      "hpCategory": "HP_Architecture",
+      "hpType": "Dropout",
+      "uncertain": false,
+      "sourceFile": "src/run_GNN.py",
+      "sourceLine": 362,
+      "wasDerivedFrom": "code",
+      "codeReference": "src/run_GNN.py:362",
+      "path": "src/run_GNN.py",
+      "start_char_doc": 15895,
+      "end_char_doc": 15906,
+      "context": {
+        "prefix": "default=0.5, help='Input dropout rate.') parser.add_argument(",
+        "suffix": ", type=float, default=0.0, help='Dropout rate.')"
+      }
+    },
+    {
+      "@id": "hp_heads",
+      "@type": "MLS_HyperParameter",
+      "name": "heads",
+      "hasValue": "4",
+      "hpCategory": "HP_Architecture",
+      "hpType": "AttentionHeads",
+      "uncertain": false,
+      "sourceFile": "src/run_GNN.py",
+      "sourceLine": 399,
+      "wasDerivedFrom": "code",
+      "codeReference": "src/run_GNN.py:399",
+      "path": "src/run_GNN.py",
+      "start_char_doc": 19673,
+      "end_char_doc": 19682,
+      "context": {
+        "prefix": "help='dropout of attention weights') parser.add_argument(",
+        "suffix": ", type=int, default=4, help='number of"
+      }
+    },
+    {
+      "@id": "hp_attention_dim",
+      "@type": "MLS_HyperParameter",
+      "name": "attention_dim",
+      "hasValue": "64",
+      "hpCategory": "HP_Architecture",
+      "hpType": "HiddenSize",
+      "uncertain": true,
+      "sourceFile": "src/run_GNN.py",
+      "sourceLine": 401,
+      "wasDerivedFrom": "code",
+      "codeReference": "src/run_GNN.py:401",
+      "path": "src/run_GNN.py",
+      "start_char_doc": 19879,
+      "end_char_doc": 19896,
+      "context": {
+        "prefix": "1 = normalise cols') parser.add_argument(",
+        "suffix": ", type=int, default=64, help='the size"
+      }
+    },
+    {
+      "@id": "hp_attention_dropout",
+      "@type": "MLS_HyperParameter",
+      "name": "attention_dropout",
+      "hasValue": "0.0",
+      "hpCategory": "HP_Architecture",
+      "hpType": "Dropout",
+      "uncertain": false,
+      "sourceFile": "src/run_GNN.py",
+      "sourceLine": 398,
+      "wasDerivedFrom": "code",
+      "codeReference": "src/run_GNN.py:398",
+      "path": "src/run_GNN.py",
+      "start_char_doc": 19565,
+      "end_char_doc": 19586,
+      "context": {
+        "prefix": "relu used in attention') parser.add_argument(",
+        "suffix": ", type=float, default=0., help='dropout of"
+      }
+    },
+    {
+      "@id": "hp_leaky_relu_slope",
+      "@type": "MLS_HyperParameter",
+      "name": "leaky_relu_slope",
+      "hasValue": "0.2",
+      "hpCategory": "HP_Architecture",
+      "hpType": "UnknownArchitectureHP",
+      "uncertain": true,
+      "sourceFile": "src/run_GNN.py",
+      "sourceLine": 396,
+      "wasDerivedFrom": "code",
+      "codeReference": "src/run_GNN.py:396",
+      "path": "src/run_GNN.py",
+      "start_char_doc": 19399,
+      "end_char_doc": 19419,
+      "context": {
+        "prefix": "f||^2\") # Attention args parser.add_argument(",
+        "suffix": ", type=float, default=0.2, help='slope of"
+      }
+    },
+    {
+      "@id": "hp_alpha",
+      "@type": "MLS_HyperParameter",
+      "name": "alpha",
+      "hasValue": "1.0",
+      "hpCategory": "HP_Architecture",
+      "hpType": "UnknownArchitectureHP",
+      "uncertain": true,
+      "sourceFile": "src/run_GNN.py",
+      "sourceLine": 364,
+      "wasDerivedFrom": "code",
+      "codeReference": "src/run_GNN.py:364",
+      "path": "src/run_GNN.py",
+      "start_char_doc": 16090,
+      "end_char_doc": 16099,
+      "context": {
+        "prefix": "help='search over reg params') parser.add_argument(",
+        "suffix": ", type=float, default=1.0, help='Factor in"
+      }
+    },
+    {
+      "@id": "hp_time",
+      "@type": "MLS_HyperParameter",
+      "name": "time",
+      "hasValue": "1.0",
+      "hpCategory": "HP_Architecture",
+      "hpType": "UnknownArchitectureHP",
+      "uncertain": true,
+      "sourceFile": "src/run_GNN.py",
+      "sourceLine": 375,
+      "wasDerivedFrom": "code",
+      "codeReference": "src/run_GNN.py:375",
+      "path": "src/run_GNN.py",
+      "start_char_doc": 17163,
+      "end_char_doc": 17171,
+      "context": {
+        "prefix": "mlp') # ODE args parser.add_argument(",
+        "suffix": ", type=float, default=1.0, help='End time"
+      }
+    },
+    {
+      "@id": "hp_step_size",
+      "@type": "MLS_HyperParameter",
+      "name": "step_size",
+      "hasValue": "0.1",
+      "hpCategory": "HP_Architecture",
+      "hpType": "UnknownArchitectureHP",
+      "uncertain": true,
+      "sourceFile": "src/run_GNN.py",
+      "sourceLine": 378,
+      "wasDerivedFrom": "code",
+      "codeReference": "src/run_GNN.py:378",
+      "path": "src/run_GNN.py",
+      "start_char_doc": 17551,
+      "end_char_doc": 17564,
+      "context": {
+        "prefix": "rk4, midpoint, symplectic_euler, leapfrog\") parser.add_argument(",
+        "suffix": ", type=float, default=0.1, help='fixed step"
+      }
+    },
+    {
+      "@id": "hp_max_iters",
+      "@type": "MLS_HyperParameter",
+      "name": "max_iters",
+      "hasValue": "100",
+      "hpCategory": "HP_Training",
+      "hpType": "MaxSteps",
+      "uncertain": true,
+      "sourceFile": "src/run_GNN.py",
+      "sourceLine": 379,
+      "wasDerivedFrom": "code",
+      "codeReference": "src/run_GNN.py:379",
+      "path": "src/run_GNN.py",
+      "start_char_doc": 17678,
+      "end_char_doc": 17691,
+      "context": {
+        "prefix": "step solvers e.g. rk4') parser.add_argument(",
+        "suffix": ", type=float, default=100, help='maximum number"
+      }
+    },
+    {
+      "@id": "hp_max_nfe",
+      "@type": "MLS_HyperParameter",
+      "name": "max_nfe",
+      "hasValue": "1000",
+      "hpCategory": "HP_Training",
+      "hpType": "MaxSteps",
+      "uncertain": true,
+      "sourceFile": "src/run_GNN.py",
+      "sourceLine": 385,
+      "wasDerivedFrom": "code",
+      "codeReference": "src/run_GNN.py:385",
+      "path": "src/run_GNN.py",
+      "start_char_doc": 18475,
+      "end_char_doc": 18487,
+      "context": {
+        "prefix": "adjoint_atol and adjoint_rtol\") parser.add_argument(\"--max_nfe\", type=int,",
+        "suffix": ", help=\"Maximum number of function"
+      }
+    },
+    {
+      "@id": "hp_max_test_steps",
+      "@type": "MLS_HyperParameter",
+      "name": "max_test_steps",
+      "hasValue": "100",
+      "hpCategory": "HP_Training",
+      "hpType": "MaxSteps",
+      "uncertain": true,
+      "sourceFile": "src/run_GNN.py",
+      "sourceLine": 388,
+      "wasDerivedFrom": "code",
+      "codeReference": "src/run_GNN.py:388",
+      "path": "src/run_GNN.py",
+      "start_char_doc": 13503,
+      "end_char_doc": 13514,
+      "context": {
+        "prefix": "on (default 0)\") parser.add_argument('--epoch', type=int,",
+        "suffix": ", help='Number of training epochs"
+      }
+    },
+    {
+      "@id": "hp_self_loop_weight",
+      "@type": "MLS_HyperParameter",
+      "name": "self_loop_weight",
+      "hasValue": "0.0",
+      "hpCategory": "HP_Architecture",
+      "hpType": "UnknownArchitectureHP",
+      "uncertain": true,
+      "sourceFile": "src/run_GNN.py",
+      "sourceLine": 346,
+      "wasDerivedFrom": "code",
+      "codeReference": "src/run_GNN.py:346",
+      "path": "src/run_GNN.py",
+      "start_char_doc": 14276,
+      "end_char_doc": 14296,
+      "context": {
+        "prefix": "for symmetric gcn norm') parser.add_argument(",
+        "suffix": ", type=float, default=0.0,help='Weight of self-loops.')"
+      }
+    },
+    {
+      "@id": "hp_label_rate",
+      "@type": "MLS_HyperParameter",
+      "name": "label_rate",
+      "hasValue": "0.5",
+      "hpCategory": "HP_Data",
+      "hpType": "TrainValTestSplit",
+      "uncertain": true,
+      "sourceFile": "src/run_GNN.py",
+      "sourceLine": 348,
+      "wasDerivedFrom": "code",
+      "codeReference": "src/run_GNN.py:348",
+      "path": "src/run_GNN.py",
+      "start_char_doc": 14484,
+      "end_char_doc": 14498,
+      "context": {
+        "prefix": "action='store_true', help='Also diffuse labels') parser.add_argument(",
+        "suffix": ", type=float, default=0.5, help='% of"
+      }
+    },
+    {
+      "@id": "hp_num_splits",
+      "@type": "MLS_HyperParameter",
+      "name": "num_splits",
+      "hasValue": "1",
+      "hpCategory": "HP_Data",
+      "hpType": "TrainValTestSplit",
+      "uncertain": true,
+      "sourceFile": "src/run_GNN.py",
+      "sourceLine": 351,
+      "wasDerivedFrom": "code",
+      "codeReference": "src/run_GNN.py:351",
+      "path": "src/run_GNN.py",
+      "start_char_doc": 14891,
+      "end_char_doc": 14905,
+      "context": {
+        "prefix": "fixed splits from https://arxiv.org/abs/2002.05287') parser.add_argument(",
+        "suffix": ", type=int, dest='num_splits', default=1, help='the"
+      }
+    },
+    {
+      "@id": "hp_num_train_per_class",
+      "@type": "MLS_HyperParameter",
+      "name": "num_train_per_class",
+      "hasValue": "20",
+      "hpCategory": "HP_Data",
+      "hpType": "TrainValTestSplit",
+      "uncertain": true,
+      "sourceFile": "src/run_GNN.py",
+      "sourceLine": 490,
+      "wasDerivedFrom": "code",
+      "codeReference": "src/run_GNN.py:490",
+      "path": "src/run_GNN.py",
+      "start_char_doc": 27180,
+      "end_char_doc": 27190,
+      "context": {
+        "prefix": "action='store_true') parser.add_argument('--allnumtrain', action='store_true') parser.add_argument(\"--num_train_per_class\", type=int,",
+        "suffix": ") # visualize-related args parser.add_argument('--save_result',"
+      }
+    },
+    {
+      "@id": "hp_tol_scale",
+      "@type": "MLS_HyperParameter",
+      "name": "tol_scale",
+      "hasValue": "1.0",
+      "hpCategory": "HP_Training",
+      "hpType": "HP_Training",
+      "uncertain": true,
+      "sourceFile": "src/run_GNN.py",
+      "sourceLine": 383,
+      "wasDerivedFrom": "code",
+      "codeReference": "src/run_GNN.py:383",
+      "path": "src/run_GNN.py",
+      "start_char_doc": 18227,
+      "end_char_doc": 18240,
+      "context": {
+        "prefix": "adjoint solvers e.g. rk4') parser.add_argument(",
+        "suffix": ", type=float, default=1., help='multiplier for"
+      }
+    },
+    {
+      "@id": "hp_tol_scale_adjoint",
+      "@type": "MLS_HyperParameter",
+      "name": "tol_scale_adjoint",
+      "hasValue": "1.0",
+      "hpCategory": "HP_Training",
+      "hpType": "HP_Training",
+      "uncertain": true,
+      "sourceFile": "src/run_GNN.py",
+      "sourceLine": 384,
+      "wasDerivedFrom": "code",
+      "codeReference": "src/run_GNN.py:384",
+      "path": "src/run_GNN.py",
+      "start_char_doc": 16113,
+      "end_char_doc": 16124,
+      "context": {
+        "prefix": "over reg params') parser.add_argument('--alpha', type=float,",
+        "suffix": ", help='Factor in front matrix"
+      }
+    },
+    {
+      "@id": "hp_feat_hidden_dim",
+      "@type": "MLS_HyperParameter",
+      "name": "feat_hidden_dim",
+      "hasValue": "64",
+      "hpCategory": "HP_Architecture",
+      "hpType": "HiddenSize",
+      "uncertain": false,
+      "sourceFile": "src/run_GNN.py",
+      "sourceLine": 460,
+      "wasDerivedFrom": "code",
+      "codeReference": "src/run_GNN.py:460",
+      "path": "src/run_GNN.py",
+      "start_char_doc": 24917,
+      "end_char_doc": 24936,
+      "context": {
+        "prefix": "type=str, default=\"row\", help=\"row, col\") parser.add_argument(",
+        "suffix": ", type=int, default=64, help=\"dimension of"
+      }
+    },
+    {
+      "@id": "hp_pos_enc_hidden_dim",
+      "@type": "MLS_HyperParameter",
+      "name": "pos_enc_hidden_dim",
+      "hasValue": "32",
+      "hpCategory": "HP_Architecture",
+      "hpType": "EmbeddingDim",
+      "uncertain": true,
+      "sourceFile": "src/run_GNN.py",
+      "sourceLine": 461,
+      "wasDerivedFrom": "code",
+      "codeReference": "src/run_GNN.py:461",
+      "path": "src/run_GNN.py",
+      "start_char_doc": 25026,
+      "end_char_doc": 25048,
+      "context": {
+        "prefix": "of features in beltrami\") parser.add_argument(",
+        "suffix": ", type=int, default=32, help=\"dimension of"
+      }
+    },
+    {
+      "@id": "hp_earlystopxT",
+      "@type": "MLS_HyperParameter",
+      "name": "earlystopxT",
+      "hasValue": "3",
+      "hpCategory": "HP_Training",
+      "hpType": "HP_Training",
+      "uncertain": true,
+      "sourceFile": "src/run_GNN.py",
+      "sourceLine": 387,
+      "wasDerivedFrom": "code",
+      "codeReference": "src/run_GNN.py:387",
+      "path": "src/run_GNN.py",
+      "start_char_doc": 18669,
+      "end_char_doc": 18684,
+      "context": {
+        "prefix": "set.\") parser.add_argument('--no_early', type=eval, default=True) parser.add_argument(",
+        "suffix": ", type=float, default=3, help='multiplier for"
+      }
+    },
+    {
+      "@id": "hp_lr_texas",
+      "@type": "MLS_HyperParameter",
+      "name": "lr (texas)",
+      "hasValue": "0.01882477235894058",
+      "hpCategory": "HP_Optimization",
+      "hpType": "LearningRate",
+      "uncertain": false,
+      "sourceFile": "src/gread_params.py",
+      "sourceLine": 8,
+      "wasDerivedFrom": "code",
+      "codeReference": "src/gread_params.py:8",
+      "path": "src/gread_params.py",
+      "start_char_doc": 228,
+      "end_char_doc": 253,
+      "context": {
+        "prefix": "'method':'euler', 'time': 1.4607185193289032,'step_size': 1, 'epoch':200,",
+        "suffix": ",'decay': 0.02466898106256942, 'block':'constant', 'hidden_dim': 128"
+      }
+    },
+    {
+      "@id": "hp_decay_texas",
+      "@type": "MLS_HyperParameter",
+      "name": "decay (texas)",
+      "hasValue": "0.02466898106256942",
+      "hpCategory": "HP_Optimization",
+      "hpType": "WeightDecay",
+      "uncertain": false,
+      "sourceFile": "src/gread_params.py",
+      "sourceLine": 8,
+      "wasDerivedFrom": "code",
+      "codeReference": "src/gread_params.py:8",
+      "path": "src/gread_params.py",
+      "start_char_doc": 255,
+      "end_char_doc": 283,
+      "context": {
+        "prefix": "1, 'epoch':200, 'lr': 0.01882477235894058 ,",
+        "suffix": ", 'block':'constant', 'hidden_dim': 128 ,"
+      }
+    },
+    {
+      "@id": "hp_epoch_texas",
+      "@type": "MLS_HyperParameter",
+      "name": "epoch (texas)",
+      "hasValue": "200",
+      "hpCategory": "HP_Training",
+      "hpType": "NumEpochs",
+      "uncertain": false,
+      "sourceFile": "src/gread_params.py",
+      "sourceLine": 8,
+      "wasDerivedFrom": "code",
+      "codeReference": "src/gread_params.py:8",
+      "path": "src/gread_params.py",
+      "start_char_doc": 215,
+      "end_char_doc": 223,
+      "context": {
+        "prefix": "'beta_diag':True, 'method':'euler', 'time': 1.4607185193289032,'step_size': 1,",
+        "suffix": "200, 'lr': 0.01882477235894058 ,'decay': 0.02466898106256942,"
+      }
+    },
+    {
+      "@id": "hp_hidden_dim_texas",
+      "@type": "MLS_HyperParameter",
+      "name": "hidden_dim (texas)",
+      "hasValue": "128",
+      "hpCategory": "HP_Architecture",
+      "hpType": "HiddenSize",
+      "uncertain": false,
+      "sourceFile": "src/gread_params.py",
+      "sourceLine": 9,
+      "wasDerivedFrom": "code",
+      "codeReference": "src/gread_params.py:9",
+      "path": "src/gread_params.py",
+      "start_char_doc": 315,
+      "end_char_doc": 332,
+      "context": {
+        "prefix": "'lr': 0.01882477235894058 ,'decay': 0.02466898106256942, 'block':'constant',",
+        "suffix": ", 'data_norm':'gcn', 'self_loop_weight':0, 'input_dropout': 0.4662723384814147,"
+      }
+    },
+    {
+      "@id": "hp_input_dropout_texas",
+      "@type": "MLS_HyperParameter",
+      "name": "input_dropout (texas)",
+      "hasValue": "0.4662723384814147",
+      "hpCategory": "HP_Architecture",
+      "hpType": "Dropout",
+      "uncertain": false,
+      "sourceFile": "src/gread_params.py",
+      "sourceLine": 10,
+      "wasDerivedFrom": "code",
+      "codeReference": "src/gread_params.py:10",
+      "path": "src/gread_params.py",
+      "start_char_doc": 386,
+      "end_char_doc": 421,
+      "context": {
+        "prefix": "'hidden_dim': 128 , 'data_norm':'gcn', 'self_loop_weight':0,",
+        "suffix": ", 'dropout': 0.4772766211800558 }, 'wisconsin':"
+      }
+    },
+    {
+      "@id": "hp_dropout_texas",
+      "@type": "MLS_HyperParameter",
+      "name": "dropout (texas)",
+      "hasValue": "0.4772766211800558",
+      "hpCategory": "HP_Architecture",
+      "hpType": "Dropout",
+      "uncertain": false,
+      "sourceFile": "src/gread_params.py",
+      "sourceLine": 10,
+      "wasDerivedFrom": "code",
+      "codeReference": "src/gread_params.py:10",
+      "path": "src/gread_params.py",
+      "start_char_doc": 423,
+      "end_char_doc": 452,
+      "context": {
+        "prefix": ", 'data_norm':'gcn', 'self_loop_weight':0, 'input_dropout': 0.4662723384814147,",
+        "suffix": "}, 'wisconsin': {'reaction_term':'bspm', 'alpha_dim':'sc', 'beta_dim':'vc',"
+      }
+    },
+    {
+      "@id": "hp_lr_wisconsin",
+      "@type": "MLS_HyperParameter",
+      "name": "lr (wisconsin)",
+      "hasValue": "0.01449628926673464",
+      "hpCategory": "HP_Optimization",
+      "hpType": "LearningRate",
+      "uncertain": false,
+      "sourceFile": "src/gread_params.py",
+      "sourceLine": 14,
+      "wasDerivedFrom": "code",
+      "codeReference": "src/gread_params.py:14",
+      "path": "src/gread_params.py",
+      "start_char_doc": 656,
+      "end_char_doc": 681,
+      "context": {
+        "prefix": "'method':'rk4', 'time': 1.7459655142602897,'step_size': 0.25, 'epoch':200,",
+        "suffix": ",'decay': 0.00901220554965404, 'block':'attention', 'hidden_dim': 256"
+      }
+    },
+    {
+      "@id": "hp_decay_wisconsin",
+      "@type": "MLS_HyperParameter",
+      "name": "decay (wisconsin)",
+      "hasValue": "0.00901220554965404",
+      "hpCategory": "HP_Optimization",
+      "hpType": "WeightDecay",
+      "uncertain": false,
+      "sourceFile": "src/gread_params.py",
+      "sourceLine": 14,
+      "wasDerivedFrom": "code",
+      "codeReference": "src/gread_params.py:14",
+      "path": "src/gread_params.py",
+      "start_char_doc": 683,
+      "end_char_doc": 711,
+      "context": {
+        "prefix": "0.25, 'epoch':200, 'lr': 0.01449628926673464 ,",
+        "suffix": ", 'block':'attention', 'hidden_dim': 256 ,"
+      }
+    },
+    {
+      "@id": "hp_hidden_dim_wisconsin",
+      "@type": "MLS_HyperParameter",
+      "name": "hidden_dim (wisconsin)",
+      "hasValue": "256",
+      "hpCategory": "HP_Architecture",
+      "hpType": "HiddenSize",
+      "uncertain": false,
+      "sourceFile": "src/gread_params.py",
+      "sourceLine": 15,
+      "wasDerivedFrom": "code",
+      "codeReference": "src/gread_params.py:15",
+      "path": "src/gread_params.py",
+      "start_char_doc": 744,
+      "end_char_doc": 761,
+      "context": {
+        "prefix": "'lr': 0.01449628926673464 ,'decay': 0.00901220554965404, 'block':'attention',",
+        "suffix": ", 'data_norm':'rw', 'self_loop_weight':0, 'input_dropout': 0.5394876953124689,"
+      }
+    },
+    {
+      "@id": "hp_input_dropout_wisconsin",
+      "@type": "MLS_HyperParameter",
+      "name": "input_dropout (wisconsin)",
+      "hasValue": "0.5394876953124689",
+      "hpCategory": "HP_Architecture",
+      "hpType": "Dropout",
+      "uncertain": false,
+      "sourceFile": "src/gread_params.py",
+      "sourceLine": 16,
+      "wasDerivedFrom": "code",
+      "codeReference": "src/gread_params.py:16",
+      "path": "src/gread_params.py",
+      "start_char_doc": 814,
+      "end_char_doc": 849,
+      "context": {
+        "prefix": "'hidden_dim': 256 , 'data_norm':'rw', 'self_loop_weight':0,",
+        "suffix": ", 'dropout': 0.4849875143400876, 'XN_activation': True"
+      }
+    },
+    {
+      "@id": "hp_dropout_wisconsin",
+      "@type": "MLS_HyperParameter",
+      "name": "dropout (wisconsin)",
+      "hasValue": "0.4849875143400876",
+      "hpCategory": "HP_Architecture",
+      "hpType": "Dropout",
+      "uncertain": false,
+      "sourceFile": "src/gread_params.py",
+      "sourceLine": 16,
+      "wasDerivedFrom": "code",
+      "codeReference": "src/gread_params.py:16",
+      "path": "src/gread_params.py",
+      "start_char_doc": 851,
+      "end_char_doc": 880,
+      "context": {
+        "prefix": ", 'data_norm':'rw', 'self_loop_weight':0, 'input_dropout': 0.5394876953124689,",
+        "suffix": ", 'XN_activation': True }, 'cornell':"
+      }
+    },
+    {
+      "@id": "hp_lr_cornell",
+      "@type": "MLS_HyperParameter",
+      "name": "lr (cornell)",
+      "hasValue": "0.008225031932075681",
+      "hpCategory": "HP_Optimization",
+      "hpType": "LearningRate",
+      "uncertain": false,
+      "sourceFile": "src/gread_params.py",
+      "sourceLine": 21,
+      "wasDerivedFrom": "code",
+      "codeReference": "src/gread_params.py:21",
+      "path": "src/gread_params.py",
+      "start_char_doc": 1113,
+      "end_char_doc": 1139,
+      "context": {
+        "prefix": "'method':'rk4', 'time': 0.11564783557675194,'step_size': 0.2, 'epoch':200,",
+        "suffix": ",'decay': 0.028046982280138487, 'block':'attention', 'hidden_dim': 128"
+      }
+    },
+    {
+      "@id": "hp_decay_cornell",
+      "@type": "MLS_HyperParameter",
+      "name": "decay (cornell)",
+      "hasValue": "0.028046982280138487",
+      "hpCategory": "HP_Optimization",
+      "hpType": "WeightDecay",
+      "uncertain": false,
+      "sourceFile": "src/gread_params.py",
+      "sourceLine": 21,
+      "wasDerivedFrom": "code",
+      "codeReference": "src/gread_params.py:21",
+      "path": "src/gread_params.py",
+      "start_char_doc": 1141,
+      "end_char_doc": 1170,
+      "context": {
+        "prefix": "0.2, 'epoch':200, 'lr': 0.008225031932075681 ,",
+        "suffix": ", 'block':'attention', 'hidden_dim': 128 ,"
+      }
+    },
+    {
+      "@id": "hp_hidden_dim_cornell",
+      "@type": "MLS_HyperParameter",
+      "name": "hidden_dim (cornell)",
+      "hasValue": "128",
+      "hpCategory": "HP_Architecture",
+      "hpType": "HiddenSize",
+      "uncertain": false,
+      "sourceFile": "src/gread_params.py",
+      "sourceLine": 22,
+      "wasDerivedFrom": "code",
+      "codeReference": "src/gread_params.py:22",
+      "path": "src/gread_params.py",
+      "start_char_doc": 315,
+      "end_char_doc": 332,
+      "context": {
+        "prefix": "'lr': 0.01882477235894058 ,'decay': 0.02466898106256942, 'block':'constant',",
+        "suffix": ", 'data_norm':'gcn', 'self_loop_weight':0, 'input_dropout': 0.4662723384814147,"
+      }
+    },
+    {
+      "@id": "hp_input_dropout_cornell",
+      "@type": "MLS_HyperParameter",
+      "name": "input_dropout (cornell)",
+      "hasValue": "0.48912249722614337",
+      "hpCategory": "HP_Architecture",
+      "hpType": "Dropout",
+      "uncertain": false,
+      "sourceFile": "src/gread_params.py",
+      "sourceLine": 23,
+      "wasDerivedFrom": "code",
+      "codeReference": "src/gread_params.py:23",
+      "path": "src/gread_params.py",
+      "start_char_doc": 1273,
+      "end_char_doc": 1309,
+      "context": {
+        "prefix": "'hidden_dim': 128 , 'data_norm':'rw', 'self_loop_weight':1,",
+        "suffix": ", 'dropout': 0.3159670329306962, 'use_mlp': True,"
+      }
+    },
+    {
+      "@id": "hp_dropout_cornell",
+      "@type": "MLS_HyperParameter",
+      "name": "dropout (cornell)",
+      "hasValue": "0.3159670329306962",
+      "hpCategory": "HP_Architecture",
+      "hpType": "Dropout",
+      "uncertain": false,
+      "sourceFile": "src/gread_params.py",
+      "sourceLine": 23,
+      "wasDerivedFrom": "code",
+      "codeReference": "src/gread_params.py:23",
+      "path": "src/gread_params.py",
+      "start_char_doc": 1311,
+      "end_char_doc": 1340,
+      "context": {
+        "prefix": ", 'data_norm':'rw', 'self_loop_weight':1, 'input_dropout': 0.48912249722614337,",
+        "suffix": ", 'use_mlp': True, 'XN_activation': False"
+      }
+    },
+    {
+      "@id": "hp_lr_film",
+      "@type": "MLS_HyperParameter",
+      "name": "lr (film)",
+      "hasValue": "0.007850471605952366",
+      "hpCategory": "HP_Optimization",
+      "hpType": "LearningRate",
+      "uncertain": false,
+      "sourceFile": "src/gread_params.py",
+      "sourceLine": 28,
+      "wasDerivedFrom": "code",
+      "codeReference": "src/gread_params.py:28",
+      "path": "src/gread_params.py",
+      "start_char_doc": 1588,
+      "end_char_doc": 1614,
+      "context": {
+        "prefix": "'method':'rk4', 'time': 0.30678550581567293,'step_size': 0.1, 'epoch':200,",
+        "suffix": ",'decay': 0.0014341594128526826, 'block':'attention', 'hidden_dim': 64"
+      }
+    },
+    {
+      "@id": "hp_decay_film",
+      "@type": "MLS_HyperParameter",
+      "name": "decay (film)",
+      "hasValue": "0.0014341594128526826",
+      "hpCategory": "HP_Optimization",
+      "hpType": "WeightDecay",
+      "uncertain": false,
+      "sourceFile": "src/gread_params.py",
+      "sourceLine": 28,
+      "wasDerivedFrom": "code",
+      "codeReference": "src/gread_params.py:28",
+      "path": "src/gread_params.py",
+      "start_char_doc": 1616,
+      "end_char_doc": 1646,
+      "context": {
+        "prefix": "0.1, 'epoch':200, 'lr': 0.007850471605952366 ,",
+        "suffix": ", 'block':'attention', 'hidden_dim': 64 ,"
+      }
+    },
+    {
+      "@id": "hp_hidden_dim_film",
+      "@type": "MLS_HyperParameter",
+      "name": "hidden_dim (film)",
+      "hasValue": "64",
+      "hpCategory": "HP_Architecture",
+      "hpType": "HiddenSize",
+      "uncertain": false,
+      "sourceFile": "src/gread_params.py",
+      "sourceLine": 29,
+      "wasDerivedFrom": "code",
+      "codeReference": "src/gread_params.py:29",
+      "path": "src/gread_params.py",
+      "start_char_doc": 1679,
+      "end_char_doc": 1695,
+      "context": {
+        "prefix": "'lr': 0.007850471605952366 ,'decay': 0.0014341594128526826, 'block':'attention',",
+        "suffix": ", 'data_norm':'rw', 'self_loop_weight':0, 'input_dropout': 0.416670279482016,"
+      }
+    },
+    {
+      "@id": "hp_input_dropout_film",
+      "@type": "MLS_HyperParameter",
+      "name": "input_dropout (film)",
+      "hasValue": "0.416670279482016",
+      "hpCategory": "HP_Architecture",
+      "hpType": "Dropout",
+      "uncertain": false,
+      "sourceFile": "src/gread_params.py",
+      "sourceLine": 30,
+      "wasDerivedFrom": "code",
+      "codeReference": "src/gread_params.py:30",
+      "path": "src/gread_params.py",
+      "start_char_doc": 1748,
+      "end_char_doc": 1782,
+      "context": {
+        "prefix": "'hidden_dim': 64 , 'data_norm':'rw', 'self_loop_weight':0,",
+        "suffix": ", 'dropout': 0.6450760407185196, 'use_mlp': True,"
+      }
+    },
+    {
+      "@id": "hp_dropout_film",
+      "@type": "MLS_HyperParameter",
+      "name": "dropout (film)",
+      "hasValue": "0.6450760407185196",
+      "hpCategory": "HP_Architecture",
+      "hpType": "Dropout",
+      "uncertain": false,
+      "sourceFile": "src/gread_params.py",
+      "sourceLine": 30,
+      "wasDerivedFrom": "code",
+      "codeReference": "src/gread_params.py:30",
+      "path": "src/gread_params.py",
+      "start_char_doc": 1784,
+      "end_char_doc": 1813,
+      "context": {
+        "prefix": ", 'data_norm':'rw', 'self_loop_weight':0, 'input_dropout': 0.416670279482016,",
+        "suffix": ", 'use_mlp': True, 'XN_activation': False"
+      }
+    },
+    {
+      "@id": "hp_lr_squirrel",
+      "@type": "MLS_HyperParameter",
+      "name": "lr (squirrel)",
+      "hasValue": "0.01713941076746923",
+      "hpCategory": "HP_Optimization",
+      "hpType": "LearningRate",
+      "uncertain": false,
+      "sourceFile": "src/gread_params.py",
+      "sourceLine": 35,
+      "wasDerivedFrom": "code",
+      "codeReference": "src/gread_params.py:35",
+      "path": "src/gread_params.py",
+      "start_char_doc": 2065,
+      "end_char_doc": 2090,
+      "context": {
+        "prefix": "'beta_diag':True, 'method':'euler', 'time': 5.696542814611847,'step_size':0.75, 'epoch':200,",
+        "suffix": ",'decay': 2.8396246589758592e-06, 'block':'constant', 'hidden_dim': 256,"
+      }
+    },
+    {
+      "@id": "hp_decay_squirrel",
+      "@type": "MLS_HyperParameter",
+      "name": "decay (squirrel)",
+      "hasValue": "2.8396246589758592e-06",
+      "hpCategory": "HP_Optimization",
+      "hpType": "WeightDecay",
+      "uncertain": false,
+      "sourceFile": "src/gread_params.py",
+      "sourceLine": 35,
+      "wasDerivedFrom": "code",
+      "codeReference": "src/gread_params.py:35",
+      "path": "src/gread_params.py",
+      "start_char_doc": 2092,
+      "end_char_doc": 2123,
+      "context": {
+        "prefix": "5.696542814611847,'step_size':0.75, 'epoch':200, 'lr': 0.01713941076746923 ,",
+        "suffix": ", 'block':'constant', 'hidden_dim': 256, 'data_norm':'rw',"
+      }
+    },
+    {
+      "@id": "hp_hidden_dim_squirrel",
+      "@type": "MLS_HyperParameter",
+      "name": "hidden_dim (squirrel)",
+      "hasValue": "256",
+      "hpCategory": "HP_Architecture",
+      "hpType": "HiddenSize",
+      "uncertain": false,
+      "sourceFile": "src/gread_params.py",
+      "sourceLine": 36,
+      "wasDerivedFrom": "code",
+      "codeReference": "src/gread_params.py:36",
+      "path": "src/gread_params.py",
+      "start_char_doc": 744,
+      "end_char_doc": 761,
+      "context": {
+        "prefix": "'lr': 0.01449628926673464 ,'decay': 0.00901220554965404, 'block':'attention',",
+        "suffix": ", 'data_norm':'rw', 'self_loop_weight':0, 'input_dropout': 0.5394876953124689,"
+      }
+    },
+    {
+      "@id": "hp_input_dropout_squirrel",
+      "@type": "MLS_HyperParameter",
+      "name": "input_dropout (squirrel)",
+      "hasValue": "0.5156955697758989",
+      "hpCategory": "HP_Architecture",
+      "hpType": "Dropout",
+      "uncertain": false,
+      "sourceFile": "src/gread_params.py",
+      "sourceLine": 37,
+      "wasDerivedFrom": "code",
+      "codeReference": "src/gread_params.py:37",
+      "path": "src/gread_params.py",
+      "start_char_doc": 2224,
+      "end_char_doc": 2259,
+      "context": {
+        "prefix": "'block':'constant', 'hidden_dim': 256, 'data_norm':'rw', 'self_loop_weight':1,",
+        "suffix": ", 'dropout': 0.09328362336851624, 'use_mlp': False,"
+      }
+    },
+    {
+      "@id": "hp_dropout_squirrel",
+      "@type": "MLS_HyperParameter",
+      "name": "dropout (squirrel)",
+      "hasValue": "0.09328362336851624",
+      "hpCategory": "HP_Architecture",
+      "hpType": "Dropout",
+      "uncertain": false,
+      "sourceFile": "src/gread_params.py",
+      "sourceLine": 37,
+      "wasDerivedFrom": "code",
+      "codeReference": "src/gread_params.py:37",
+      "path": "src/gread_params.py",
+      "start_char_doc": 2261,
+      "end_char_doc": 2291,
+      "context": {
+        "prefix": "256, 'data_norm':'rw', 'self_loop_weight':1, 'input_dropout': 0.5156955697758989,",
+        "suffix": ", 'use_mlp': False, 'm2_mlp': True,"
+      }
+    },
+    {
+      "@id": "hp_lr_chameleon",
+      "@type": "MLS_HyperParameter",
+      "name": "lr (chameleon)",
+      "hasValue": "0.0067371581757143285",
+      "hpCategory": "HP_Optimization",
+      "hpType": "LearningRate",
+      "uncertain": false,
+      "sourceFile": "src/gread_params.py",
+      "sourceLine": 42,
+      "wasDerivedFrom": "code",
+      "codeReference": "src/gread_params.py:42",
+      "path": "src/gread_params.py",
+      "start_char_doc": 2558,
+      "end_char_doc": 2585,
+      "context": {
+        "prefix": "'beta_diag':True, 'method':'euler', 'time': 1.9439996002927,'step_size':1.5, 'epoch':200,",
+        "suffix": ",'decay': 7.736946152049231e-05, 'block':'attention', 'hidden_dim': 256,"
+      }
+    },
+    {
+      "@id": "hp_decay_chameleon",
+      "@type": "MLS_HyperParameter",
+      "name": "decay (chameleon)",
+      "hasValue": "7.736946152049231e-05",
+      "hpCategory": "HP_Optimization",
+      "hpType": "WeightDecay",
+      "uncertain": false,
+      "sourceFile": "src/gread_params.py",
+      "sourceLine": 42,
+      "wasDerivedFrom": "code",
+      "codeReference": "src/gread_params.py:42",
+      "path": "src/gread_params.py",
+      "start_char_doc": 2587,
+      "end_char_doc": 2617,
+      "context": {
+        "prefix": "1.9439996002927,'step_size':1.5, 'epoch':200, 'lr': 0.0067371581757143285 ,",
+        "suffix": ", 'block':'attention', 'hidden_dim': 256, 'data_norm':'rw',"
+      }
+    },
+    {
+      "@id": "hp_hidden_dim_chameleon",
+      "@type": "MLS_HyperParameter",
+      "name": "hidden_dim (chameleon)",
+      "hasValue": "256",
+      "hpCategory": "HP_Architecture",
+      "hpType": "HiddenSize",
+      "uncertain": false,
+      "sourceFile": "src/gread_params.py",
+      "sourceLine": 43,
+      "wasDerivedFrom": "code",
+      "codeReference": "src/gread_params.py:43",
+      "path": "src/gread_params.py",
+      "start_char_doc": 744,
+      "end_char_doc": 761,
+      "context": {
+        "prefix": "'lr': 0.01449628926673464 ,'decay': 0.00901220554965404, 'block':'attention',",
+        "suffix": ", 'data_norm':'rw', 'self_loop_weight':0, 'input_dropout': 0.5394876953124689,"
+      }
+    },
+    {
+      "@id": "hp_input_dropout_chameleon",
+      "@type": "MLS_HyperParameter",
+      "name": "input_dropout (chameleon)",
+      "hasValue": "0.6759632513264229",
+      "hpCategory": "HP_Architecture",
+      "hpType": "Dropout",
+      "uncertain": false,
+      "sourceFile": "src/gread_params.py",
+      "sourceLine": 44,
+      "wasDerivedFrom": "code",
+      "codeReference": "src/gread_params.py:44",
+      "path": "src/gread_params.py",
+      "start_char_doc": 2719,
+      "end_char_doc": 2754,
+      "context": {
+        "prefix": "'block':'attention', 'hidden_dim': 256, 'data_norm':'rw', 'self_loop_weight':1,",
+        "suffix": ", 'dropout': 0.09328362336851624, 'use_mlp': False,"
+      }
+    },
+    {
+      "@id": "hp_dropout_chameleon",
+      "@type": "MLS_HyperParameter",
+      "name": "dropout (chameleon)",
+      "hasValue": "0.09328362336851624",
+      "hpCategory": "HP_Architecture",
+      "hpType": "Dropout",
+      "uncertain": false,
+      "sourceFile": "src/gread_params.py",
+      "sourceLine": 44,
+      "wasDerivedFrom": "code",
+      "codeReference": "src/gread_params.py:44",
+      "path": "src/gread_params.py",
+      "start_char_doc": 2261,
+      "end_char_doc": 2291,
+      "context": {
+        "prefix": "256, 'data_norm':'rw', 'self_loop_weight':1, 'input_dropout': 0.5156955697758989,",
+        "suffix": ", 'use_mlp': False, 'm2_mlp': True,"
+      }
+    },
+    {
+      "@id": "hp_lr_Cora",
+      "@type": "MLS_HyperParameter",
+      "name": "lr (Cora)",
+      "hasValue": "0.011402915506754104",
+      "hpCategory": "HP_Optimization",
+      "hpType": "LearningRate",
+      "uncertain": false,
+      "sourceFile": "src/gread_params.py",
+      "sourceLine": 49,
+      "wasDerivedFrom": "code",
+      "codeReference": "src/gread_params.py:49",
+      "path": "src/gread_params.py",
+      "start_char_doc": 3047,
+      "end_char_doc": 3073,
+      "context": {
+        "prefix": "'beta_diag':True, 'method':'rk4', 'time': 3.790184078169178,'step_size':0.5, 'epoch':200,",
+        "suffix": ",'decay': 0.008014968630105014, 'block':'attention', 'hidden_dim': 64,"
+      }
+    },
+    {
+      "@id": "hp_decay_Cora",
+      "@type": "MLS_HyperParameter",
+      "name": "decay (Cora)",
+      "hasValue": "0.008014968630105014",
+      "hpCategory": "HP_Optimization",
+      "hpType": "WeightDecay",
+      "uncertain": false,
+      "sourceFile": "src/gread_params.py",
+      "sourceLine": 49,
+      "wasDerivedFrom": "code",
+      "codeReference": "src/gread_params.py:49",
+      "path": "src/gread_params.py",
+      "start_char_doc": 3075,
+      "end_char_doc": 3104,
+      "context": {
+        "prefix": "3.790184078169178,'step_size':0.5, 'epoch':200, 'lr': 0.011402915506754104 ,",
+        "suffix": ", 'block':'attention', 'hidden_dim': 64, 'data_norm':'rw',"
+      }
+    },
+    {
+      "@id": "hp_hidden_dim_Cora",
+      "@type": "MLS_HyperParameter",
+      "name": "hidden_dim (Cora)",
+      "hasValue": "64",
+      "hpCategory": "HP_Architecture",
+      "hpType": "HiddenSize",
+      "uncertain": false,
+      "sourceFile": "src/gread_params.py",
+      "sourceLine": 50,
+      "wasDerivedFrom": "code",
+      "codeReference": "src/gread_params.py:50",
+      "path": "src/gread_params.py",
+      "start_char_doc": 1679,
+      "end_char_doc": 1695,
+      "context": {
+        "prefix": "'lr': 0.007850471605952366 ,'decay': 0.0014341594128526826, 'block':'attention',",
+        "suffix": ", 'data_norm':'rw', 'self_loop_weight':0, 'input_dropout': 0.416670279482016,"
+      }
+    },
+    {
+      "@id": "hp_input_dropout_Cora",
+      "@type": "MLS_HyperParameter",
+      "name": "input_dropout (Cora)",
+      "hasValue": "0.5043839651430236",
+      "hpCategory": "HP_Architecture",
+      "hpType": "Dropout",
+      "uncertain": false,
+      "sourceFile": "src/gread_params.py",
+      "sourceLine": 51,
+      "wasDerivedFrom": "code",
+      "codeReference": "src/gread_params.py:51",
+      "path": "src/gread_params.py",
+      "start_char_doc": 3205,
+      "end_char_doc": 3240,
+      "context": {
+        "prefix": "'block':'attention', 'hidden_dim': 64, 'data_norm':'rw', 'self_loop_weight':1,",
+        "suffix": ", 'dropout': 0.4145754297432822, 'use_mlp': False,"
+      }
+    },
+    {
+      "@id": "hp_dropout_Cora",
+      "@type": "MLS_HyperParameter",
+      "name": "dropout (Cora)",
+      "hasValue": "0.4145754297432822",
+      "hpCategory": "HP_Architecture",
+      "hpType": "Dropout",
+      "uncertain": false,
+      "sourceFile": "src/gread_params.py",
+      "sourceLine": 51,
+      "wasDerivedFrom": "code",
+      "codeReference": "src/gread_params.py:51",
+      "path": "src/gread_params.py",
+      "start_char_doc": 3242,
+      "end_char_doc": 3271,
+      "context": {
+        "prefix": "64, 'data_norm':'rw', 'self_loop_weight':1, 'input_dropout': 0.5043839651430236,",
+        "suffix": ", 'use_mlp': False, 'm2_mlp': True,"
+      }
+    },
+    {
+      "@id": "hp_lr_Citeseer",
+      "@type": "MLS_HyperParameter",
+      "name": "lr (Citeseer)",
+      "hasValue": "0.0029496654117168557",
+      "hpCategory": "HP_Optimization",
+      "hpType": "LearningRate",
+      "uncertain": false,
+      "sourceFile": "src/gread_params.py",
+      "sourceLine": 56,
+      "wasDerivedFrom": "code",
+      "codeReference": "src/gread_params.py:56",
+      "path": "src/gread_params.py",
+      "start_char_doc": 3537,
+      "end_char_doc": 3564,
+      "context": {
+        "prefix": "'beta_diag':True, 'method':'rk4', 'time': 2.0365995371213703,'step_size':0.2, 'epoch':200,",
+        "suffix": ",'decay': 0.013789766632941278, 'block':'attention', 'hidden_dim': 128,"
+      }
+    },
+    {
+      "@id": "hp_decay_Citeseer",
+      "@type": "MLS_HyperParameter",
+      "name": "decay (Citeseer)",
+      "hasValue": "0.013789766632941278",
+      "hpCategory": "HP_Optimization",
+      "hpType": "WeightDecay",
+      "uncertain": false,
+      "sourceFile": "src/gread_params.py",
+      "sourceLine": 56,
+      "wasDerivedFrom": "code",
+      "codeReference": "src/gread_params.py:56",
+      "path": "src/gread_params.py",
+      "start_char_doc": 3566,
+      "end_char_doc": 3595,
+      "context": {
+        "prefix": "2.0365995371213703,'step_size':0.2, 'epoch':200, 'lr': 0.0029496654117168557 ,",
+        "suffix": ", 'block':'attention', 'hidden_dim': 128, 'data_norm':'rw',"
+      }
+    },
+    {
+      "@id": "hp_hidden_dim_Citeseer",
+      "@type": "MLS_HyperParameter",
+      "name": "hidden_dim (Citeseer)",
+      "hasValue": "128",
+      "hpCategory": "HP_Architecture",
+      "hpType": "HiddenSize",
+      "uncertain": false,
+      "sourceFile": "src/gread_params.py",
+      "sourceLine": 57,
+      "wasDerivedFrom": "code",
+      "codeReference": "src/gread_params.py:57",
+      "path": "src/gread_params.py",
+      "start_char_doc": 315,
+      "end_char_doc": 332,
+      "context": {
+        "prefix": "'lr': 0.01882477235894058 ,'decay': 0.02466898106256942, 'block':'constant',",
+        "suffix": ", 'data_norm':'gcn', 'self_loop_weight':0, 'input_dropout': 0.4662723384814147,"
+      }
+    },
+    {
+      "@id": "hp_input_dropout_Citeseer",
+      "@type": "MLS_HyperParameter",
+      "name": "input_dropout (Citeseer)",
+      "hasValue": "0.5224892802449188",
+      "hpCategory": "HP_Architecture",
+      "hpType": "Dropout",
+      "uncertain": false,
+      "sourceFile": "src/gread_params.py",
+      "sourceLine": 58,
+      "wasDerivedFrom": "code",
+      "codeReference": "src/gread_params.py:58",
+      "path": "src/gread_params.py",
+      "start_char_doc": 3697,
+      "end_char_doc": 3732,
+      "context": {
+        "prefix": "'block':'attention', 'hidden_dim': 128, 'data_norm':'rw', 'self_loop_weight':1,",
+        "suffix": ", 'dropout': 0.46161962752030056, 'use_mlp': False,"
+      }
+    },
+    {
+      "@id": "hp_dropout_Citeseer",
+      "@type": "MLS_HyperParameter",
+      "name": "dropout (Citeseer)",
+      "hasValue": "0.46161962752030056",
+      "hpCategory": "HP_Architecture",
+      "hpType": "Dropout",
+      "uncertain": false,
+      "sourceFile": "src/gread_params.py",
+      "sourceLine": 58,
+      "wasDerivedFrom": "code",
+      "codeReference": "src/gread_params.py:58",
+      "path": "src/gread_params.py",
+      "start_char_doc": 3734,
+      "end_char_doc": 3764,
+      "context": {
+        "prefix": "128, 'data_norm':'rw', 'self_loop_weight':1, 'input_dropout': 0.5224892802449188,",
+        "suffix": ", 'use_mlp': False, 'm2_mlp': False,"
+      }
+    },
+    {
+      "@id": "hp_lr_Pubmed",
+      "@type": "MLS_HyperParameter",
+      "name": "lr (Pubmed)",
+      "hasValue": "0.010838870718586332",
+      "hpCategory": "HP_Optimization",
+      "hpType": "LearningRate",
+      "uncertain": false,
+      "sourceFile": "src/gread_params.py",
+      "sourceLine": 63,
+      "wasDerivedFrom": "code",
+      "codeReference": "src/gread_params.py:63",
+      "path": "src/gread_params.py",
+      "start_char_doc": 4028,
+      "end_char_doc": 4054,
+      "context": {
+        "prefix": "'beta_diag':True, 'method':'rk4', 'time': 1.736571888322607,'step_size':0.8, 'epoch':200,",
+        "suffix": ",'decay': 0.0005182464582183332, 'block':'attention', 'hidden_dim': 64,"
+      }
+    },
+    {
+      "@id": "hp_decay_Pubmed",
+      "@type": "MLS_HyperParameter",
+      "name": "decay (Pubmed)",
+      "hasValue": "0.0005182464582183332",
+      "hpCategory": "HP_Optimization",
+      "hpType": "WeightDecay",
+      "uncertain": false,
+      "sourceFile": "src/gread_params.py",
+      "sourceLine": 63,
+      "wasDerivedFrom": "code",
+      "codeReference": "src/gread_params.py:63",
+      "path": "src/gread_params.py",
+      "start_char_doc": 4056,
+      "end_char_doc": 4086,
+      "context": {
+        "prefix": "1.736571888322607,'step_size':0.8, 'epoch':200, 'lr': 0.010838870718586332 ,",
+        "suffix": ", 'block':'attention', 'hidden_dim': 64, 'data_norm':'rw',"
+      }
+    },
+    {
+      "@id": "hp_hidden_dim_Pubmed",
+      "@type": "MLS_HyperParameter",
+      "name": "hidden_dim (Pubmed)",
+      "hasValue": "64",
+      "hpCategory": "HP_Architecture",
+      "hpType": "HiddenSize",
+      "uncertain": false,
+      "sourceFile": "src/gread_params.py",
+      "sourceLine": 64,
+      "wasDerivedFrom": "code",
+      "codeReference": "src/gread_params.py:64",
+      "path": "src/gread_params.py",
+      "start_char_doc": 1679,
+      "end_char_doc": 1695,
+      "context": {
+        "prefix": "'lr': 0.007850471605952366 ,'decay': 0.0014341594128526826, 'block':'attention',",
+        "suffix": ", 'data_norm':'rw', 'self_loop_weight':0, 'input_dropout': 0.416670279482016,"
+      }
+    },
+    {
+      "@id": "hp_input_dropout_Pubmed",
+      "@type": "MLS_HyperParameter",
+      "name": "input_dropout (Pubmed)",
+      "hasValue": "0.3648432339951884",
+      "hpCategory": "HP_Architecture",
+      "hpType": "Dropout",
+      "uncertain": false,
+      "sourceFile": "src/gread_params.py",
+      "sourceLine": 65,
+      "wasDerivedFrom": "code",
+      "codeReference": "src/gread_params.py:65",
+      "path": "src/gread_params.py",
+      "start_char_doc": 4187,
+      "end_char_doc": 4222,
+      "context": {
+        "prefix": "'block':'attention', 'hidden_dim': 64, 'data_norm':'rw', 'self_loop_weight':1,",
+        "suffix": ", 'dropout': 0.25687002898139405, 'use_mlp': True,"
+      }
+    },
+    {
+      "@id": "hp_dropout_Pubmed",
+      "@type": "MLS_HyperParameter",
+      "name": "dropout (Pubmed)",
+      "hasValue": "0.25687002898139405",
+      "hpCategory": "HP_Architecture",
+      "hpType": "Dropout",
+      "uncertain": false,
+      "sourceFile": "src/gread_params.py",
+      "sourceLine": 65,
+      "wasDerivedFrom": "code",
+      "codeReference": "src/gread_params.py:65",
+      "path": "src/gread_params.py",
+      "start_char_doc": 4224,
+      "end_char_doc": 4254,
+      "context": {
+        "prefix": "64, 'data_norm':'rw', 'self_loop_weight':1, 'input_dropout': 0.3648432339951884,",
+        "suffix": ", 'use_mlp': True, 'm2_mlp': False,"
+      }
+    },
+    {
+      "@id": "hp_lr_grand",
+      "@type": "MLS_HyperParameter",
+      "name": "lr (shared_grand_params)",
+      "hasValue": "0.001",
+      "hpCategory": "HP_Optimization",
+      "hpType": "LearningRate",
+      "uncertain": false,
+      "sourceFile": "src/gread_params.py",
+      "sourceLine": 75,
+      "wasDerivedFrom": "code",
+      "codeReference": "src/gread_params.py:75",
+      "path": "src/gread_params.py",
+      "start_char_doc": 228,
+      "end_char_doc": 233,
+      "context": {
+        "prefix": "'method':'euler', 'time': 1.4607185193289032,'step_size': 1, 'epoch':200,",
+        "suffix": "0.01882477235894058 ,'decay': 0.02466898106256942, 'block':'constant', 'hidden_dim':"
+      }
+    },
+    {
+      "@id": "hp_epoch_grand",
+      "@type": "MLS_HyperParameter",
+      "name": "epoch (shared_grand_params)",
+      "hasValue": "200",
+      "hpCategory": "HP_Training",
+      "hpType": "NumEpochs",
+      "uncertain": false,
+      "sourceFile": "src/gread_params.py",
+      "sourceLine": 74,
+      "wasDerivedFrom": "code",
+      "codeReference": "src/gread_params.py:74",
+      "path": "src/gread_params.py",
+      "start_char_doc": 215,
+      "end_char_doc": 223,
+      "context": {
+        "prefix": "'beta_diag':True, 'method':'euler', 'time': 1.4607185193289032,'step_size': 1,",
+        "suffix": "200, 'lr': 0.01882477235894058 ,'decay': 0.02466898106256942,"
+      }
+    },
+    {
+      "@id": "preprocess_data",
+      "@type": "DataProcessingStep",
+      "identifier": "Dataset Loading and Preprocessing",
+      "description": "Loads graph datasets (Planetoid, Amazon, Coauthor, WebKB, WikipediaNetwork, Actor, OGB), optionally extracts the largest connected component, applies graph rewiring (two_hop, gdc, pos_enc_knn), normalizes features, and generates train/val/test splits.",
+      "transformationType": "splitting",
+      "startedAtTime": null,
+      "endedAtTime": null,
+      "inputDataset": null,
+      "outputDataset": null,
+      "prov-executedBy": {
+        "@id": "impl_GREAD"
+      },
+      "wasDerivedFrom": "code",
+      "codeReference": "src/data.py",
+      "path": "src/data.py",
+      "start_char_doc": 712,
+      "end_char_doc": 727,
+      "context": {
+        "prefix": "apply_pos_dist_rewire(data, opt, data_dir) return data",
+        "suffix": "(opt: dict, data_dir, use_lcc: bool"
+      }
+    },
+    {
+      "@id": "preprocess_graph_rewiring",
+      "@type": "DataProcessingStep",
+      "identifier": "Graph Rewiring Preprocessing",
+      "description": "Applies graph rewiring transformations including two-hop edge augmentation, graph diffusion convolution (GDC with PPR or heat kernel), KNN-based rewiring, attention-based edge sampling, and Beltrami positional encoding generation.",
+      "transformationType": "feature_extraction",
+      "startedAtTime": null,
+      "endedAtTime": null,
+      "inputDataset": null,
+      "outputDataset": null,
+      "prov-executedBy": {
+        "@id": "impl_GREAD"
+      },
+      "wasDerivedFrom": "code",
+      "codeReference": "src/graph_rewiring.py",
+      "path": "src/graph_rewiring.py",
+      "start_char_doc": 1437,
+      "end_char_doc": 1450,
+      "context": {
+        "prefix": "{} nodes'.format(data.num_edges, data.num_nodes)) return data",
+        "suffix": "(data, opt, type=\"combined\"): print('raw data"
+      }
+    },
+    {
+      "@id": "training_GREAD",
+      "@type": "TrainingRun",
+      "runId": "training_run_GREAD",
+      "description": "Training loop for GREAD Graph Neural Reaction-Diffusion Networks. Trains GNN or GNNEarly models using ODE-based forward passes with reaction-diffusion dynamics, CrossEntropyLoss, and optional regularization. Supports multiple dataset splits and early stopping.",
+      "logFile": null,
+      "artifactsLocation": null,
+      "startedAtTime": null,
+      "endedAtTime": null,
+      "prov-executedBy": {
+        "@id": "impl_GREAD"
+      },
+      "used": null,
+      "trains": null,
+      "wasDerivedFrom": "code",
+      "codeReference": "src/run_GNN.py",
+      "path": "src/run_GNN.py",
+      "start_char_doc": 1892,
+      "end_char_doc": 1902,
+      "context": {
+        "prefix": "= idx[~mask] return train_label_idx, train_pred_idx",
+        "suffix": "model, optimizer, data, pos_encoding=None): lf"
+      }
+    },
+    {
+      "@id": "evaluation_GREAD",
+      "@type": "EvaluationRun",
+      "runId": "evaluation_run_GREAD",
+      "description": "Evaluation of trained GREAD model on train/val/test splits. Computes accuracy for each split under torch.no_grad() context. Reports best validation accuracy and corresponding test accuracy.",
+      "split": "test",
+      "evaluationScript": "src/run_GNN.py",
+      "metricsFile": null,
+      "startedAtTime": null,
+      "endedAtTime": null,
+      "prov-executedBy": {
+        "@id": "impl_GREAD"
+      },
+      "evaluates": null,
+      "prov-generated": null,
+      "wasDerivedFrom": "code",
+      "codeReference": "src/run_GNN.py",
+      "path": "src/run_GNN.py",
+      "start_char_doc": 4480,
+      "end_char_doc": 4489,
+      "context": {
+        "prefix": "loss.backward() optimizer.step() return loss.item() @torch.no_grad()",
+        "suffix": "model, data, pos_encoding=None, opt=None): #"
+      }
+    },
+    {
+      "@id": "prediction_GREAD",
+      "@type": "PredictionSet",
+      "identifier": "GREAD Node Classification Predictions",
+      "description": "Node classification predictions generated by the GREAD model during evaluation. Predictions are logits from the model's forward pass, with class labels obtained via argmax.",
+      "predictionFormat": null,
+      "storageLocation": null,
+      "numInstances": null,
+      "onDatasetSplit": "test",
+      "appliedTo": null,
+      "wasGeneratedBy": {
+        "@id": "evaluation_GREAD"
+      },
+      "producedBy": {
+        "@id": "impl_GREAD"
+      },
+      "wasDerivedFrom": "code",
+      "codeReference": "src/run_GNN.py",
+      "path": "src/run_GNN.py",
+      "start_char_doc": 4858,
+      "end_char_doc": 4880,
+      "context": {
+        "prefix": "data('train_mask', 'val_mask', 'test_mask'): pred =",
+        "suffix": "acc = pred.eq(data.y[mask]).sum().item() / mask.sum().item()"
+      }
+    }
+  ]
+}
