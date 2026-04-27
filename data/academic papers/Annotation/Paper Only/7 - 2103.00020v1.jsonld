@@ -2,8 +2,11 @@
   "@context": {
     "mls": "http://www.w3.org/ns/mls#",
     "schema": "http://schema.org/",
-    "prov": "http://www.w3.org/ns/prov#",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+
     "model": "https://w3id.org/mlskg/model/",
     "algo": "https://w3id.org/mlskg/algorithm/",
     "method": "https://w3id.org/mlskg/method/",
@@ -19,167 +22,196 @@
     "org": "https://w3id.org/mlskg/organization/",
     "study": "https://w3id.org/mlskg/study/",
     "exp": "https://w3id.org/mlskg/experiment/",
-    "repo": "https://w3id.org/mlskg/repository/",
-    "mention": "https://w3id.org/mlskg/meta/mention",
-    "valueSource": "https://w3id.org/mlskg/meta/valueSource",
+    "expg": "https://w3id.org/mlskg/experimentgroup/",
+    "repo": "https://w3id.org/mlskg/repo/",
+    "dep": "https://w3id.org/mlskg/dependency/",
+
     "Study": "mls:Study",
     "Experiment": "mls:Experiment",
+    "ExperimentGroup": "mls:ExperimentGroup",
     "Person": "mls:Person",
     "Organization": "mls:Organization",
-    "MLS_Task": "mls:MLS_Task",
-    "MLS_Dataset": "mls:MLS_Dataset",
+    "MLS_Task": "mls:Task",
+    "MLS_Dataset": "mls:Dataset",
     "DataSource": "mls:DataSource",
     "Method": "mls:Method",
-    "MLS_Model": "mls:MLS_Model",
-    "MLS_Eval": "mls:MLS_Eval",
+    "MLS_Model": "mls:Model",
+    "MLS_Algorithm": "mls:Algorithm",
+    "Prompt": "mls:Prompt",
+    "MLS_Eval": "mls:EvaluationMeasure",
     "SoftwareRepository": "mls:SoftwareRepository",
-    "MLS_Implementation": "mls:MLS_Implementation",
+    "MLS_Implementation": "mls:Implementation",
+    "MLS_HyperParameter": "mls:HyperParameter",
+    "Dependency": "mls:Dependency",
     "Environment": "mls:Environment",
-    "MLS_HyperParameter": "mls:MLS_HyperParameter",
+    "DataProcessingStep": "mls:DataProcessingStep",
+    "TrainingRun": "mls:TrainingRun",
+    "EvaluationRun": "mls:EvaluationRun",
+    "PredictionSet": "mls:PredictionSet",
+
+    "HP_Optimization": "mls:HP_Optimization",
+    "HP_Training": "mls:HP_Training",
+    "HP_Architecture": "mls:HP_Architecture",
+    "HP_Data": "mls:HP_Data",
+    "LearningRate": "mls:LearningRate",
+    "Momentum": "mls:Momentum",
+    "WeightDecay": "mls:WeightDecay",
+    "WarmupSteps": "mls:WarmupSteps",
+    "DecayRate": "mls:DecayRate",
+    "BatchSize": "mls:BatchSize",
+    "NumEpochs": "mls:NumEpochs",
+    "MaxSteps": "mls:MaxSteps",
+    "GradientAccumulationSteps": "mls:GradientAccumulationSteps",
+    "NumWorkers": "mls:NumWorkers",
+    "RandomSeed": "mls:RandomSeed",
+    "NumLayers": "mls:NumLayers",
+    "HiddenSize": "mls:HiddenSize",
+    "EmbeddingDim": "mls:EmbeddingDim",
+    "Dropout": "mls:Dropout",
+    "AttentionHeads": "mls:AttentionHeads",
+    "MaxSequenceLength": "mls:MaxSequenceLength",
+    "TrainValTestSplit": "mls:TrainValTestSplit",
+
+    "mention": { "@id": "https://w3id.org/mlskg/meta/mention" },
+    "value": { "@id": "rdf:value" },
+    "valueSource": { "@id": "https://w3id.org/mlskg/meta/valueSource" },
+    "start_char_doc": {
+      "@id": "https://w3id.org/mlskg/meta/start_char_doc",
+      "@type": "xsd:integer"
+    },
+    "end_char_doc": {
+      "@id": "https://w3id.org/mlskg/meta/end_char_doc",
+      "@type": "xsd:integer"
+    },
+    "prefix": { "@id": "https://w3id.org/mlskg/meta/prefix" },
+    "suffix": { "@id": "https://w3id.org/mlskg/meta/suffix" },
+    "uncertain": { "@id": "mls:uncertain", "@type": "xsd:boolean" },
+
+    "issued": { "@id": "schema:datePublished", "@type": "xsd:dateTime" },
     "title": "schema:title",
     "abstract": "schema:abstract",
-    "url": {
-      "@id": "schema:url",
-      "@type": "xsd:anyURI"
-    },
+    "url": { "@id": "schema:url", "@type": "xsd:anyURI" },
     "doi": "schema:doi",
     "citation": "schema:citation",
     "publicationVenue": "schema:publicationVenue",
-    "issued": {
-      "@id": "schema:datePublished",
-      "@type": "xsd:date"
-    },
-    "name": "schema:name",
+    "timestamp": { "@id": "schema:datePublished", "@type": "xsd:date" },
+    "identifier": "schema:identifier",
     "description": "schema:description",
-    "objective": "schema:abstract",
-    "hypothesis": "schema:abstract",
-    "methodology": "schema:description",
+    "objective": "schema:objective",
+    "hypothesis": "schema:hypothesis",
+    "methodology": "schema:methodology",
+    "name": "schema:name",
     "affiliation": "schema:affiliation",
     "email": "schema:email",
-    "orcid": "schema:identifier",
+    "orcid": "schema:orcid",
+    "type": "schema:type",
     "category": "schema:category",
-    "metrics": "schema:measurementTechnique",
-    "numInstances": "schema:numberOfItems",
-    "language": "schema:inLanguage",
+    "metrics": "schema:metrics",
+    "numInstances": { "@id": "schema:numInstances", "@type": "xsd:integer" },
+    "language": "schema:language",
     "license": "schema:license",
-    "modality": "schema:encodingFormat",
-    "numClasses": "schema:numberOfItems",
-    "architecture": "schema:architecture",
-    "parameters": "schema:size",
+    "modality": "schema:modality",
+    "numClasses": { "@id": "schema:numClasses", "@type": "xsd:integer" },
     "version": "schema:version",
+    "architecture": "schema:architecture",
+    "parameters": "schema:parameters",
+
+    "complexity": "mls:complexity",
+    "pseudoCode": { "@id": "mls:pseudoCode", "@type": "xsd:anyURI" },
+    "text": "schema:text",
+    "role": "mls:role",
+    "templateId": "mls:templateId",
+    "usesContext": { "@id": "mls:usesContext", "@type": "xsd:boolean" },
     "measure": "mls:measure",
-    "hasValue": "mls:hasValue",
-    "stdDev": "mls:stdDev",
+    "hasValue": { "@id": "mls:hasValue", "@type": "xsd:float" },
+    "stdDev": { "@id": "mls:stdDev", "@type": "xsd:float" },
     "confidenceInterval": "mls:confidenceInterval",
-    "codeRepository": {
-      "@id": "mls:codeRepository",
-      "@type": "xsd:anyURI"
-    },
+
+    "programmingLanguage": "schema:programmingLanguage",
+    "dateModified": { "@id": "schema:dateModified", "@type": "xsd:dateTime" },
+    "documentationUrl": { "@id": "mls:documentationUrl", "@type": "xsd:anyURI" },
+    "codeRepository": { "@id": "mls:codeRepository", "@type": "xsd:anyURI" },
     "framework": "mls:framework",
+    "dependencies": "mls:dependencies",
     "executionCommand": "mls:executionCommand",
     "entryPoint": "mls:entryPoint",
+    "commitHash": "mls:commitHash",
     "branch": "mls:branch",
-    "programmingLanguage": "schema:programmingLanguage",
-    "dateModified": {
-      "@id": "schema:dateModified",
-      "@type": "xsd:dateTime"
-    },
-    "documentationUrl": {
-      "@id": "mls:documentationUrl",
-      "@type": "xsd:anyURI"
-    },
+    "dependenciesHash": "mls:dependenciesHash",
+    "packageName": "mls:packageName",
+    "isOptional": { "@id": "mls:isOptional", "@type": "xsd:boolean" },
+
     "hardwareSpecs": "mls:hardwareSpecs",
-    "os": "mls:operatingSystem",
+    "os": "mls:os",
     "pythonVersion": "mls:pythonVersion",
-    "type": "mls:type",
+    "requirementsFile": "mls:requirementsFile",
+    "isDockerized": { "@id": "mls:isDockerized", "@type": "xsd:boolean" },
+
+    "startedAtTime": { "@id": "prov:startedAtTime", "@type": "xsd:dateTime" },
+    "endedAtTime": { "@id": "prov:endedAtTime", "@type": "xsd:dateTime" },
+    "transformationType": "mls:transformationType",
+    "codeReference": { "@id": "mls:codeReference", "@type": "xsd:anyURI" },
+    "runId": "mls:runId",
+    "logFile": { "@id": "mls:logFile", "@type": "xsd:anyURI" },
+    "split": "mls:split",
+    "onDatasetSplit": "mls:onDatasetSplit",
+    "format": "mls:format",
+    "artifactsLocation": { "@id": "mls:artifactsLocation", "@type": "xsd:anyURI" },
+
+    "hpCategory": { "@id": "mls:hpCategory", "@type": "@id" },
+    "hpType": { "@id": "mls:hpType", "@type": "@id" },
     "searchSpace": "mls:searchSpace",
-    "hpCategory": "mls:hpCategory",
-    "hpType": "mls:hpType",
-    "uncertain": "mls:uncertain",
-    "hasAuthor": {
-      "@id": "mls:hasAuthor",
-      "@type": "@id"
-    },
-    "contains": {
-      "@id": "mls:contains",
-      "@type": "@id"
-    },
-    "implements": {
-      "@id": "mls:implements",
-      "@type": "@id"
-    },
-    "prov-affiliatedWith": {
-      "@id": "mls:prov-affiliatedWith",
-      "@type": "@id"
-    },
-    "realizes": {
-      "@id": "mls:realizes",
-      "@type": "@id"
-    },
-    "usesData": {
-      "@id": "mls:usesData",
-      "@type": "@id"
-    },
-    "produces": {
-      "@id": "mls:produces",
-      "@type": "@id"
-    },
-    "usesParameters": {
-      "@id": "mls:usesParameters",
-      "@type": "@id"
-    },
-    "executes": {
-      "@id": "mls:executes",
-      "@type": "@id"
-    },
-    "prov-derivedFrom": {
-      "@id": "mls:prov-derivedFrom",
-      "@type": "@id"
-    },
-    "trainedOn": {
-      "@id": "mls:trainedOn",
-      "@type": "@id"
-    },
-    "evaluatedOn": {
-      "@id": "mls:evaluatedOn",
-      "@type": "@id"
-    },
-    "achieves": {
-      "@id": "mls:achieves",
-      "@type": "@id"
-    },
-    "subMethod": {
-      "@id": "mls:subMethod",
-      "@type": "@id"
-    },
-    "supports": {
-      "@id": "mls:supports",
-      "@type": "@id"
-    },
-    "runsIn": {
-      "@id": "mls:runsIn",
-      "@type": "@id"
-    },
-    "benchmarkedOn": {
-      "@id": "mls:benchmarkedOn",
-      "@type": "@id"
-    },
-    "wasGeneratedBy": {
-      "@id": "prov:wasGeneratedBy",
-      "@type": "@id"
-    },
-    "wasDerivedFrom": {
-      "@id": "prov:wasDerivedFrom",
-      "@type": "@id"
-    },
-    "wasAssociatedWith": {
-      "@id": "prov:wasAssociatedWith",
-      "@type": "@id"
-    },
-    "used": {
-      "@id": "prov:used",
-      "@type": "@id"
-    }
+
+    "hasAuthor": { "@id": "mls:hasAuthor", "@type": "@id" },
+    "contains": { "@id": "mls:contains", "@type": "@id" },
+    "implements": { "@id": "mls:implements", "@type": "@id" },
+    "prov-affiliatedWith": { "@id": "prov:wasAssociatedWith", "@type": "@id" },
+    "realizes": { "@id": "mls:realizes", "@type": "@id" },
+    "usesData": { "@id": "mls:usesData", "@type": "@id" },
+    "produces": { "@id": "mls:produces", "@type": "@id" },
+    "usesParameters": { "@id": "mls:usesParameters", "@type": "@id" },
+    "executes": { "@id": "mls:executes", "@type": "@id" },
+    "subDatasetOf": { "@id": "mls:subDatasetOf", "@type": "@id" },
+    "prov-derivedFrom": { "@id": "prov:wasDerivedFrom", "@type": "@id" },
+    "processedThrough": { "@id": "mls:processedThrough", "@type": "@id" },
+    "prov-uses": { "@id": "prov:used", "@type": "@id" },
+    "trainedOn": { "@id": "mls:trainedOn", "@type": "@id" },
+    "evaluatedOn": { "@id": "mls:evaluatedOn", "@type": "@id" },
+    "achieves": { "@id": "mls:achieves", "@type": "@id" },
+    "prov-producedBy": { "@id": "prov:wasGeneratedBy", "@type": "@id" },
+    "subMethod": { "@id": "mls:subMethod", "@type": "@id" },
+    "evaluates": { "@id": "mls:evaluates", "@type": "@id" },
+    "supports": { "@id": "mls:supports", "@type": "@id" },
+    "runsIn": { "@id": "mls:runsIn", "@type": "@id" },
+    "requires": { "@id": "mls:requires", "@type": "@id" },
+    "prov-executedBy": { "@id": "prov:wasAssociatedWith", "@type": "@id" },
+    "prov-generated": { "@id": "prov:generated", "@type": "@id" },
+    "benchmarkedOn": { "@id": "mls:benchmarkedOn", "@type": "@id" },
+    "subTaskOf": { "@id": "mls:subTaskOf", "@type": "@id" },
+    "dependsOn": { "@id": "mls:dependsOn", "@type": "@id" },
+    "usedIn": { "@id": "mls:usedIn", "@type": "@id" },
+    "trains": { "@id": "mls:trains", "@type": "@id" },
+    "producedBy": { "@id": "mls:producedBy", "@type": "@id" },
+
+    "sourceFile": "mls:sourceFile",
+    "sourceLine": { "@id": "mls:sourceLine", "@type": "xsd:integer" },
+    "dependencyType": "mls:dependencyType",
+    "owner": "mls:owner",
+    "platform": "mls:platform",
+    "entryPointCommand": "mls:entryPointCommand",
+    "evaluationScript": "mls:evaluationScript",
+    "evaluationSplit": "mls:evaluationSplit",
+    "metricsFile": "mls:metricsFile",
+    "inputDataset": { "@id": "mls:inputDataset", "@type": "@id" },
+    "outputDataset": { "@id": "mls:outputDataset", "@type": "@id" },
+    "predictionFormat": "mls:predictionFormat",
+    "storageLocation": "mls:storageLocation",
+    "modelVersion": "mls:modelVersion",
+    "appliedTo": { "@id": "mls:appliedTo", "@type": "@id" },
+    "wasGeneratedBy": { "@id": "prov:wasGeneratedBy", "@type": "@id" },
+    "wasDerivedFrom": { "@id": "prov:wasDerivedFrom", "@type": "@id" },
+    "wasAssociatedWith": { "@id": "prov:wasAssociatedWith", "@type": "@id" },
+    "used": { "@id": "prov:used", "@type": "@id" }
   },
   "@graph": [
     {
