@@ -1,0 +1,5055 @@
+{
+  "@context": {
+    "mls": "http://www.w3.org/ns/mls#",
+    "schema": "http://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "Study": "mls:Study",
+    "Experiment": "mls:Experiment",
+    "Person": "mls:Person",
+    "Organization": "mls:Organization",
+    "MLS_Task": "mls:MLS_Task",
+    "MLS_Dataset": "mls:MLS_Dataset",
+    "DataSource": "mls:DataSource",
+    "Method": "Method",
+    "MLS_Model": "mls:MLS_Model",
+    "MLS_Algorithm": "mls:MLS_Algorithm",
+    "Prompt": "Prompt",
+    "MLS_Eval": "mls:MLS_Eval",
+    "SoftwareRepository": "SoftwareRepository",
+    "MLS_Implementation": "mls:MLS_Implementation",
+    "MLS_HyperParameter": "msl:MLS_HyperParameter",
+    "HP_Optimization": "HP_Optimization",
+    "HP_Training": "HP_Training",
+    "HP_Architecture": "HP_Architecture",
+    "HP_Data": "HP_Data",
+    "LearningRate": "LearningRate",
+    "Momentum": "Momentum",
+    "WeightDecay": "WeightDecay",
+    "WarmupSteps": "WarmupSteps",
+    "DecayRate": "DecayRate",
+    "BatchSize": "BatchSize",
+    "NumEpochs": "NumEpochs",
+    "MaxSteps": "MaxSteps",
+    "GradientAccumulationSteps": "GradientAccumulationSteps",
+    "NumWorkers": "NumWorkers",
+    "RandomSeed": "RandomSeed",
+    "NumLayers": "NumLayers",
+    "HiddenSize": "HiddenSize",
+    "EmbeddingDim": "EmbeddingDim",
+    "Dropout": "Dropout",
+    "AttentionHeads": "AttentionHeads",
+    "MaxSequenceLength": "MaxSequenceLength",
+    "TrainValTestSplit": "TrainValTestSplit",
+    "Dependency": "Dependency",
+    "Environment": "Environment",
+    "DataProcessingStep": "DataProcessingStep",
+    "TrainingRun": "TrainingRun",
+    "EvaluationRun": "EvaluationRun",
+    "PredictionSet": "PredictionSet",
+    "salient": {
+      "@id": "mls:salient",
+      "@type": "xsd:boolean"
+    },
+    "issued": {
+      "@id": "xsd:issued",
+      "@type": "xsd:datetime"
+    },
+    "title": "schema:title",
+    "abstract": "schema:abstract",
+    "url": "schema:url",
+    "doi": "schema:doi",
+    "citation": "schema:citation",
+    "publicationVenue": "schema:publicationVenue",
+    "timestamp": {
+      "@id": "schema:timestamp",
+      "@type": "xsd:date"
+    },
+    "identifier": "schema:identifier",
+    "description": "schema:description",
+    "objective": "schema:objective",
+    "hypothesis": "schema:hypothesis",
+    "methodology": "schema:methodology",
+    "name": "schema:name",
+    "affiliation": "schema:affiliation",
+    "email": "schema:email",
+    "orcid": "schema:orcid",
+    "type": "schema:type",
+    "category": "schema:category",
+    "metrics": "schema:metrics",
+    "numInstances": {
+      "@id": "schema:numInstances",
+      "@type": "xsd:integer"
+    },
+    "language": "schema:language",
+    "license": "schema:license",
+    "modality": "schema:modality",
+    "numClasses": {
+      "@id": "schema:numClasses",
+      "@type": "xsd:integer"
+    },
+    "version": "schema:version",
+    "architecture": "schema:architecture",
+    "parameters": "schema:parameters",
+    "complexity": "mls:complexity",
+    "pseudoCode": {
+      "@id": "mls:pseudoCode",
+      "@type": "xsd:anyURI"
+    },
+    "text": "schema:text",
+    "role": "mls:role",
+    "templateId": "mls:templateId",
+    "usesContext": {
+      "@id": "mls:usesContext",
+      "@type": "xsd:boolean"
+    },
+    "measure": "mls:measure",
+    "hasValue": {
+      "@id": "mls:hasValue",
+      "@type": "xsd:float"
+    },
+    "stdDev": {
+      "@id": "mls:stdDev",
+      "@type": "xsd:float"
+    },
+    "confidenceInterval": "mls:confidenceInterval",
+    "programmingLanguage": "schema:programmingLanguage",
+    "dateModified": {
+      "@id": "schema:dateModified",
+      "@type": "xsd:datetime"
+    },
+    "documentationUrl": {
+      "@id": "mls:documentationUrl",
+      "@type": "xsd:anyURI"
+    },
+    "codeRepository": {
+      "@id": "mls:codeRepository",
+      "@type": "xsd:anyURI"
+    },
+    "framework": "mls:framework",
+    "dependencies": "mls:dependencies",
+    "executionCommand": "mls:executionCommand",
+    "entryPoint": "mls:entryPoint",
+    "commitHash": "mls:commitHash",
+    "branch": "mls:branch",
+    "dependenciesHash": "mls:dependenciesHash",
+    "packageName": "mls:packageName",
+    "isOptional": {
+      "@id": "mls:isOptional",
+      "@type": "xsd:boolean"
+    },
+    "hardwareSpecs": "mls:hardwareSpecs",
+    "os": "mls:os",
+    "pythonVersion": "mls:pythonVersion",
+    "requirementsFile": "mls:requirementsFile",
+    "isDockerized": {
+      "@id": "mls:isDockerized",
+      "@type": "xsd:boolean"
+    },
+    "startedAtTime": {
+      "@id": "prov:startedAtTime",
+      "@type": "xsd:datetime"
+    },
+    "endedAtTime": {
+      "@id": "prov:endedAtTime",
+      "@type": "xsd:datetime"
+    },
+    "transformationType": "mls:transformationType",
+    "codeReference": {
+      "@id": "mls:codeReference",
+      "@type": "xsd:anyURI"
+    },
+    "runId": "mls:runId",
+    "logFile": {
+      "@id": "mls:logFile",
+      "@type": "xsd:anyURI"
+    },
+    "split": "mls:split",
+    "onDatasetSplit": "mls:onDatasetSplit",
+    "format": "mls:format",
+    "artifactsLocation": {
+      "@id": "mls:artifactsLocation",
+      "@type": "xsd:anyURI"
+    },
+    "hpCategory": "mls:hpCategory",
+    "hpType": "mls:hpType",
+    "searchSpace": "mls:searchSpace",
+    "uncertain": {
+      "@id": "mls:uncertain",
+      "@type": "xsd:boolean"
+    },
+    "hasAuthor": {
+      "@id": "mls:hasAuthor",
+      "@type": "@id"
+    },
+    "contains": {
+      "@id": "mls:contains",
+      "@type": "@id"
+    },
+    "implements": {
+      "@id": "mls:implements",
+      "@type": "@id"
+    },
+    "prov-affiliatedWith": {
+      "@id": "mls:prov-affiliatedWith",
+      "@type": "@id"
+    },
+    "realizes": {
+      "@id": "mls:realizes",
+      "@type": "@id"
+    },
+    "usesData": {
+      "@id": "mls:usesData",
+      "@type": "@id"
+    },
+    "produces": {
+      "@id": "mls:produces",
+      "@type": "@id"
+    },
+    "usesParameters": {
+      "@id": "mls:usesParameters",
+      "@type": "@id"
+    },
+    "executes": {
+      "@id": "mls:executes",
+      "@type": "@id"
+    },
+    "subDatasetOf": {
+      "@id": "mls:subDatasetOf",
+      "@type": "@id"
+    },
+    "prov-derivedFrom": {
+      "@id": "mls:prov-derivedFrom",
+      "@type": "@id"
+    },
+    "processedThrough": {
+      "@id": "mls:processedThrough",
+      "@type": "@id"
+    },
+    "prov-uses": {
+      "@id": "mls:prov-uses",
+      "@type": "@id"
+    },
+    "trainedOn": {
+      "@id": "mls:trainedOn",
+      "@type": "@id"
+    },
+    "evaluatedOn": {
+      "@id": "mls:evaluatedOn",
+      "@type": "@id"
+    },
+    "achieves": {
+      "@id": "mls:achieves",
+      "@type": "@id"
+    },
+    "prov-producedBy": {
+      "@id": "mls:prov-producedBy",
+      "@type": "@id"
+    },
+    "subMethod": {
+      "@id": "mls:subMethod",
+      "@type": "@id"
+    },
+    "evaluates": {
+      "@id": "mls:evaluates",
+      "@type": "@id"
+    },
+    "supports": {
+      "@id": "mls:supports",
+      "@type": "@id"
+    },
+    "runsIn": {
+      "@id": "mls:runsIn",
+      "@type": "@id"
+    },
+    "requires": {
+      "@id": "mls:requires",
+      "@type": "@id"
+    },
+    "prov-executedBy": {
+      "@id": "mls:prov-executedBy",
+      "@type": "@id"
+    },
+    "prov-generated": {
+      "@id": "mls:prov-generated",
+      "@type": "@id"
+    },
+    "benchmarkedOn": {
+      "@id": "mls:benchmarkedOn",
+      "@type": "@id"
+    },
+    "subTaskOf": {
+      "@id": "mls:subTaskOf",
+      "@type": "@id"
+    },
+    "dependsOn": {
+      "@id": "mls:dependsOn",
+      "@type": "@id"
+    },
+    "usedIn": {
+      "@id": "mls:usedIn",
+      "@type": "@id"
+    },
+    "trains": {
+      "@id": "mls:trains",
+      "@type": "@id"
+    },
+    "producedBy": {
+      "@id": "mls:producedBy",
+      "@type": "@id"
+    },
+    "sourceFile": "mls:sourceFile",
+    "sourceLine": {
+      "@id": "mls:sourceLine",
+      "@type": "xsd:integer"
+    },
+    "dependencyType": "mls:dependencyType",
+    "owner": "mls:owner",
+    "platform": "mls:platform",
+    "entryPointCommand": "mls:entryPointCommand",
+    "evaluationScript": "mls:evaluationScript",
+    "evaluationSplit": "mls:evaluationSplit",
+    "metricsFile": "mls:metricsFile",
+    "inputDataset": {
+      "@id": "mls:inputDataset",
+      "@type": "@id"
+    },
+    "outputDataset": {
+      "@id": "mls:outputDataset",
+      "@type": "@id"
+    },
+    "predictionFormat": "mls:predictionFormat",
+    "storageLocation": "mls:storageLocation",
+    "modelVersion": "mls:modelVersion",
+    "appliedTo": {
+      "@id": "mls:appliedTo",
+      "@type": "@id"
+    },
+    "wasGeneratedBy": {
+      "@id": "prov:wasGeneratedBy",
+      "@type": "@id"
+    },
+    "wasDerivedFrom": {
+      "@id": "prov:wasDerivedFrom",
+      "@type": "@id"
+    },
+    "wasAssociatedWith": {
+      "@id": "prov:wasAssociatedWith",
+      "@type": "@id"
+    },
+    "used": {
+      "@id": "prov:used",
+      "@type": "@id"
+    }
+  },
+  "@graph": [
+    {
+      "@id": "study:radar_htc",
+      "@type": "Study",
+      "salient": true,
+      "schema:title": "RADAr: A Transformer-based Autoregressive Decoder Architecture for Hierarchical Text Classification",
+      "schema:abstract": "Recent approaches in hierarchical text classification (HTC) rely on the capabilities of a pre-trained transformer model and exploit the label semantics and a graph encoder for the label hierarchy. In this paper, we introduce an effective hierarchical text classifier RADAr (Transformer-based Autoregressive Decoder Architecture) that is based only on an off-the-shelf RoBERTa transformer to process the input and a custom autoregressive decoder with two decoder layers for generating the classification output. Thus, unlike existing approaches for HTC, the encoder of RADAr has no explicit encoding of the label hierarchy and the decoder solely relies on the samples' label sequences observed during training. We demonstrate on three benchmark datasets that RADAr achieves results competitive to the state of the art with less training and inference time. Our model consistently performs better when organizing the label sequences from children to parents versus the inverse, as done in existing HTC approaches. Our experiments show that neither the label semantics nor an explicit graph encoder for the hierarchy is needed. This has strong practical implications for HTC as the architecture has fewer requirements and provides a speed-up by a factor of 2 at inference time. Moreover, training a separate decoder from scratch in conjunction with fine-tuning the encoder allows future researchers and practitioners to exchange the encoder part as new models arise. The source code is available at https://github.com/yousef-younes/RADAr",
+      "schema:url": "https://arxiv.org/abs/2501.13598v1",
+      "schema:doi": null,
+      "schema:citation": null,
+      "schema:publicationVenue": "arXiv",
+      "schema:timestamp": "2025-01-23",
+      "hasAuthor": [
+        {
+          "@id": "person:yousef_younes"
+        },
+        {
+          "@id": "person:lukas_galke"
+        },
+        {
+          "@id": "person:ansgar_scherp"
+        }
+      ],
+      "contains": [
+        {
+          "@id": "experiment:htc_benchmarks"
+        }
+      ],
+      "implements": {
+        "@id": "repo:radar_github"
+      },
+      "mention": {
+        "start_char_doc": 13,
+        "end_char_doc": 112,
+        "prefix": "## Page 1 #",
+        "suffix": "Yousef Younes<sup>a,d,*</sup>, Lukas Galke<sup>b,c</sup> and",
+        "section": "method",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          13,
+          112,
+          "method"
+        ]
+      ]
+    },
+    {
+      "@id": "person:yousef_younes",
+      "@type": "Person",
+      "salient": true,
+      "schema:name": "Yousef Younes",
+      "schema:affiliation": null,
+      "schema:email": "yousef.younes@gesis.org",
+      "schema:orcid": "https://orcid.org/0000-0003-1271-3633",
+      "prov-affiliatedWith": [
+        {
+          "@id": "org:gesis"
+        },
+        {
+          "@id": "org:ulm"
+        }
+      ],
+      "mention": {
+        "start_char_doc": 114,
+        "end_char_doc": 127,
+        "prefix": "Architecture for Hierarchical Text Classification",
+        "suffix": "<sup>a,d,*</sup>, Lukas Galke<sup>b,c</sup> and Ansgar",
+        "section": "method",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          114,
+          127,
+          "method"
+        ],
+        [
+          400,
+          413,
+          "method"
+        ]
+      ]
+    },
+    {
+      "@id": "person:lukas_galke",
+      "@type": "Person",
+      "salient": true,
+      "schema:name": "Lukas Galke",
+      "schema:affiliation": null,
+      "schema:email": null,
+      "schema:orcid": "https://orcid.org/0000-0001-6124-1092",
+      "prov-affiliatedWith": [
+        {
+          "@id": "org:mpi_psycholinguistics"
+        },
+        {
+          "@id": "org:usd"
+        }
+      ],
+      "mention": {
+        "start_char_doc": 145,
+        "end_char_doc": 156,
+        "prefix": "Hierarchical Text Classification Yousef Younes<sup>a,d,*</sup>,",
+        "suffix": "<sup>b,c</sup> and Ansgar Scherp<sup>d</sup> <sup>a</sup>GESIS",
+        "section": "method",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          145,
+          156,
+          "method"
+        ],
+        [
+          462,
+          473,
+          "method"
+        ]
+      ]
+    },
+    {
+      "@id": "person:ansgar_scherp",
+      "@type": "Person",
+      "salient": true,
+      "schema:name": "Ansgar Scherp",
+      "schema:affiliation": null,
+      "schema:email": null,
+      "schema:orcid": "https://orcid.org/0000-0002-2653-9245",
+      "prov-affiliatedWith": [
+        {
+          "@id": "org:ulm"
+        }
+      ],
+      "mention": {
+        "start_char_doc": 175,
+        "end_char_doc": 188,
+        "prefix": "Yousef Younes<sup>a,d,*</sup>, Lukas Galke<sup>b,c</sup> and",
+        "suffix": "<sup>d</sup> <sup>a</sup>GESIS – Leibniz-Institute for",
+        "section": "method",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          175,
+          188,
+          "method"
+        ],
+        [
+          522,
+          535,
+          "method"
+        ]
+      ]
+    },
+    {
+      "@id": "org:gesis",
+      "@type": "Organization",
+      "salient": true,
+      "schema:name": "GESIS – Leibniz-Institute for the Social Sciences",
+      "schema:url": null,
+      "schema:type": "academic",
+      "mention": {
+        "start_char_doc": 214,
+        "end_char_doc": 219,
+        "prefix": "Galke<sup>b,c</sup> and Ansgar Scherp<sup>d</sup> <sup>a</sup>",
+        "suffix": "– Leibniz-Institute for the Social",
+        "section": "method",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          214,
+          219,
+          "method"
+        ],
+        [
+          222,
+          263,
+          "method"
+        ]
+      ]
+    },
+    {
+      "@id": "org:mpi_psycholinguistics",
+      "@type": "Organization",
+      "salient": true,
+      "schema:name": "Max Planck Institute for Psycholinguistics",
+      "schema:url": null,
+      "schema:type": "academic",
+      "mention": {
+        "start_char_doc": 276,
+        "end_char_doc": 318,
+        "prefix": "for the Social Sciences <sup>b</sup>",
+        "suffix": "<sup>c</sup>University of Southern Denmark <sup>d</sup>University",
+        "section": "method",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          276,
+          318,
+          "method"
+        ]
+      ]
+    },
+    {
+      "@id": "org:usd",
+      "@type": "Organization",
+      "salient": true,
+      "schema:name": "University of Southern Denmark",
+      "schema:url": null,
+      "schema:type": "academic",
+      "mention": {
+        "start_char_doc": 331,
+        "end_char_doc": 361,
+        "prefix": "Planck Institute for Psycholinguistics <sup>c</sup>",
+        "suffix": "<sup>d</sup>University of Ulm ORCID (Yousef",
+        "section": "method",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          331,
+          361,
+          "method"
+        ]
+      ]
+    },
+    {
+      "@id": "org:ulm",
+      "@type": "Organization",
+      "salient": true,
+      "schema:name": "University of Ulm",
+      "schema:url": null,
+      "schema:type": "academic",
+      "mention": {
+        "start_char_doc": 374,
+        "end_char_doc": 391,
+        "prefix": "<sup>c</sup>University of Southern Denmark <sup>d</sup>",
+        "suffix": "ORCID (Yousef Younes): https://orcid.org/0000-0003-1271-3633, ORCID",
+        "section": "method",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          374,
+          391,
+          "method"
+        ]
+      ]
+    },
+    {
+      "@id": "experiment:htc_benchmarks",
+      "@type": "Experiment",
+      "salient": true,
+      "schema:identifier": "HTC Benchmark Evaluation",
+      "schema:description": "Evaluation of RADAr on three HTC benchmark datasets (WOS, NYT, RCV1-V2) comparing against state-of-the-art methods including HBGL, HGCLR, HiAGM, HTCInfoMax, HiMatch, SGM, Seq2Tree, and encoder-only/encoder-decoder baselines.",
+      "schema:objective": "Demonstrate that RADAr achieves competitive results without graph encoder or label semantics",
+      "schema:hypothesis": "An autoregressive decoder with child-to-parent label ordering can achieve competitive HTC performance without explicit label hierarchy encoding or label semantics",
+      "schema:methodology": "Fine-tune RoBERTa encoder with custom autoregressive decoder on three benchmark datasets, compare Micro-F1 and Macro-F1 against baselines and state-of-the-art",
+      "realizes": [
+        {
+          "@id": "task:htc"
+        }
+      ],
+      "usesData": [
+        {
+          "@id": "dataset:wos"
+        },
+        {
+          "@id": "dataset:nyt"
+        },
+        {
+          "@id": "dataset:rcv1v2"
+        }
+      ],
+      "produces": [
+        {
+          "@id": "method:radar"
+        }
+      ],
+      "usesParameters": [
+        {
+          "@id": "hp:lr_encoder"
+        },
+        {
+          "@id": "hp:lr_decoder"
+        },
+        {
+          "@id": "hp:patience_scheduler"
+        },
+        {
+          "@id": "hp:patience_training"
+        },
+        {
+          "@id": "hp:gamma_focal"
+        },
+        {
+          "@id": "hp:label_smoothing"
+        },
+        {
+          "@id": "hp:grad_accum"
+        },
+        {
+          "@id": "hp:batch_size"
+        },
+        {
+          "@id": "hp:decoder_layers"
+        },
+        {
+          "@id": "hp:attention_heads"
+        },
+        {
+          "@id": "hp:dropout"
+        },
+        {
+          "@id": "hp:hidden_state_size"
+        },
+        {
+          "@id": "hp:lr_min_encoder"
+        },
+        {
+          "@id": "hp:random_seed"
+        },
+        {
+          "@id": "hp:decay_factor"
+        }
+      ],
+      "executes": [
+        {
+          "@id": "impl:radar_pytorch"
+        }
+      ],
+      "mention": {
+        "start_char_doc": 18128,
+        "end_char_doc": 18133,
+        "prefix": "score than for Micro-F1. For",
+        "suffix": "experiments, we report the mean",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          18128,
+          18133,
+          "experiments"
+        ],
+        [
+          25352,
+          25357,
+          "experiments"
+        ],
+        [
+          25531,
+          25536,
+          "experiments"
+        ],
+        [
+          25749,
+          25754,
+          "experiments"
+        ],
+        [
+          26008,
+          26013,
+          "experiments"
+        ],
+        [
+          26040,
+          26045,
+          "experiments"
+        ],
+        [
+          26197,
+          26202,
+          "experiments"
+        ],
+        [
+          26471,
+          26476,
+          "experiments"
+        ],
+        [
+          26663,
+          26668,
+          "experiments"
+        ],
+        [
+          26907,
+          26912,
+          "experiments"
+        ],
+        [
+          27102,
+          27107,
+          "experiments"
+        ],
+        [
+          27204,
+          27209,
+          "experiments"
+        ],
+        [
+          27376,
+          27381,
+          "experiments"
+        ],
+        [
+          27527,
+          27532,
+          "ablation"
+        ],
+        [
+          27839,
+          27844,
+          "ablation"
+        ],
+        [
+          40988,
+          40993,
+          "experiments"
+        ],
+        [
+          41238,
+          41243,
+          "experiments"
+        ]
+      ]
+    },
+    {
+      "@id": "task:htc",
+      "@type": "MLS_Task",
+      "salient": true,
+      "schema:name": "Hierarchical Text Classification",
+      "schema:description": "Labeling text samples based on a semantic hierarchy where labels exhibit a generalization-specialization relationship",
+      "schema:category": "NLP",
+      "schema:metrics": "Micro-F1, Macro-F1",
+      "benchmarkedOn": [
+        {
+          "@id": "dataset:wos"
+        },
+        {
+          "@id": "dataset:nyt"
+        },
+        {
+          "@id": "dataset:rcv1v2"
+        }
+      ],
+      "subTaskOf": [
+        {
+          "@id": "task:text_classification"
+        }
+      ],
+      "mention": {
+        "start_char_doc": 17520,
+        "end_char_doc": 17523,
+        "prefix": "Metrics** We use three common",
+        "suffix": "datasets. Those are Web-of-Science (WOS)",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          612,
+          644,
+          "method"
+        ],
+        [
+          646,
+          649,
+          "method"
+        ],
+        [
+          1139,
+          1142,
+          "method"
+        ],
+        [
+          1587,
+          1590,
+          "method"
+        ],
+        [
+          1759,
+          1762,
+          "method"
+        ],
+        [
+          2179,
+          2182,
+          "method"
+        ],
+        [
+          2349,
+          2352,
+          "method"
+        ],
+        [
+          2775,
+          2778,
+          "method"
+        ],
+        [
+          2887,
+          2890,
+          "method"
+        ],
+        [
+          3754,
+          3757,
+          "method"
+        ],
+        [
+          4508,
+          4511,
+          "method"
+        ],
+        [
+          4887,
+          4890,
+          "introduction"
+        ],
+        [
+          5179,
+          5182,
+          "introduction"
+        ],
+        [
+          5292,
+          5295,
+          "introduction"
+        ],
+        [
+          5732,
+          5735,
+          "other"
+        ],
+        [
+          6626,
+          6658,
+          "other"
+        ],
+        [
+          6901,
+          6904,
+          "other"
+        ],
+        [
+          7087,
+          7090,
+          "other"
+        ],
+        [
+          7983,
+          7986,
+          "method"
+        ],
+        [
+          9746,
+          9749,
+          "method"
+        ],
+        [
+          16025,
+          16028,
+          "other"
+        ],
+        [
+          17520,
+          17523,
+          "experiments"
+        ],
+        [
+          23616,
+          23648,
+          "experiments"
+        ],
+        [
+          24292,
+          24295,
+          "experiments"
+        ],
+        [
+          24349,
+          24352,
+          "experiments"
+        ],
+        [
+          24437,
+          24440,
+          "experiments"
+        ],
+        [
+          26069,
+          26072,
+          "experiments"
+        ],
+        [
+          26229,
+          26232,
+          "experiments"
+        ],
+        [
+          30045,
+          30048,
+          "other"
+        ],
+        [
+          37953,
+          37956,
+          "other"
+        ],
+        [
+          44621,
+          44624,
+          "conclusion"
+        ]
+      ]
+    },
+    {
+      "@id": "task:multi_label_tc",
+      "@type": "MLS_Task",
+      "salient": false,
+      "schema:name": "Multi-label Text Classification",
+      "schema:description": "Text classification where labels are treated as a flat set",
+      "schema:category": "NLP",
+      "schema:metrics": null,
+      "benchmarkedOn": [],
+      "subTaskOf": [
+        {
+          "@id": "task:text_classification"
+        }
+      ],
+      "mention": {
+        "start_char_doc": 5083,
+        "end_char_doc": 5114,
+        "prefix": "31, 28]. In contrast to",
+        "suffix": ", where the labels are",
+        "section": "introduction",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          5083,
+          5114,
+          "introduction"
+        ]
+      ]
+    },
+    {
+      "@id": "task:text_classification",
+      "@type": "MLS_Task",
+      "salient": false,
+      "schema:name": "Text Classification",
+      "schema:description": "Assigning labels/categories to text",
+      "schema:category": "NLP",
+      "schema:metrics": null,
+      "benchmarkedOn": [],
+      "subTaskOf": [],
+      "mention": {
+        "start_char_doc": 23629,
+        "end_char_doc": 23648,
+        "prefix": "(see Section 2). Some hierarchical",
+        "suffix": "models like HiMatch and HiAGM",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          625,
+          644,
+          "method"
+        ],
+        [
+          3963,
+          3982,
+          "method"
+        ],
+        [
+          5095,
+          5114,
+          "introduction"
+        ],
+        [
+          6639,
+          6658,
+          "other"
+        ],
+        [
+          9675,
+          9694,
+          "method"
+        ],
+        [
+          23629,
+          23648,
+          "experiments"
+        ],
+        [
+          27922,
+          27941,
+          "other"
+        ]
+      ]
+    },
+    {
+      "@id": "dataset:wos",
+      "@type": "MLS_Dataset",
+      "salient": true,
+      "schema:name": "Web-of-Science (WOS)",
+      "schema:description": "HTC dataset with two-level hierarchy, exactly two labels per sample",
+      "schema:numInstances": "46985",
+      "schema:language": "English",
+      "schema:license": null,
+      "schema:modality": "text",
+      "schema:numClasses": "141",
+      "subDatasetOf": [],
+      "prov-derivedFrom": [],
+      "processedThrough": [],
+      "mention": {
+        "start_char_doc": 17544,
+        "end_char_doc": 17558,
+        "prefix": "common HTC datasets. Those are",
+        "suffix": "(WOS) [16], NY-Times (NYT) [29],",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          15664,
+          15667,
+          "other"
+        ],
+        [
+          17544,
+          17558,
+          "experiments"
+        ],
+        [
+          17560,
+          17563,
+          "experiments"
+        ],
+        [
+          17614,
+          17617,
+          "experiments"
+        ],
+        [
+          19209,
+          19212,
+          "experiments"
+        ],
+        [
+          21281,
+          21284,
+          "other"
+        ],
+        [
+          22425,
+          22428,
+          "other"
+        ],
+        [
+          25147,
+          25150,
+          "experiments"
+        ],
+        [
+          25472,
+          25475,
+          "experiments"
+        ],
+        [
+          26848,
+          26851,
+          "experiments"
+        ],
+        [
+          28221,
+          28224,
+          "other"
+        ],
+        [
+          32729,
+          32732,
+          "other"
+        ],
+        [
+          36049,
+          36052,
+          "other"
+        ],
+        [
+          36309,
+          36312,
+          "other"
+        ],
+        [
+          36339,
+          36342,
+          "other"
+        ],
+        [
+          36956,
+          36959,
+          "other"
+        ],
+        [
+          37786,
+          37789,
+          "other"
+        ],
+        [
+          41077,
+          41080,
+          "experiments"
+        ],
+        [
+          42214,
+          42217,
+          "experiments"
+        ],
+        [
+          43883,
+          43886,
+          "experiments"
+        ]
+      ]
+    },
+    {
+      "@id": "dataset:nyt",
+      "@type": "MLS_Dataset",
+      "salient": true,
+      "schema:name": "NY-Times (NYT)",
+      "schema:description": "HTC dataset with eight-level hierarchy",
+      "schema:numInstances": "36471",
+      "schema:language": "English",
+      "schema:license": null,
+      "schema:modality": "text",
+      "schema:numClasses": "166",
+      "subDatasetOf": [],
+      "prov-derivedFrom": [],
+      "processedThrough": [],
+      "mention": {
+        "start_char_doc": 17571,
+        "end_char_doc": 17579,
+        "prefix": "Those are Web-of-Science (WOS) [16],",
+        "suffix": "(NYT) [29], and RCV1-V2 [17].",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          17571,
+          17579,
+          "experiments"
+        ],
+        [
+          17581,
+          17584,
+          "experiments"
+        ],
+        [
+          17776,
+          17779,
+          "experiments"
+        ],
+        [
+          18775,
+          18778,
+          "experiments"
+        ],
+        [
+          19214,
+          19217,
+          "experiments"
+        ],
+        [
+          19666,
+          19669,
+          "experiments"
+        ],
+        [
+          21438,
+          21441,
+          "other"
+        ],
+        [
+          22430,
+          22433,
+          "other"
+        ],
+        [
+          24894,
+          24897,
+          "experiments"
+        ],
+        [
+          25477,
+          25480,
+          "experiments"
+        ],
+        [
+          26853,
+          26856,
+          "experiments"
+        ],
+        [
+          28252,
+          28255,
+          "other"
+        ],
+        [
+          32760,
+          32763,
+          "other"
+        ],
+        [
+          35721,
+          35724,
+          "other"
+        ],
+        [
+          36086,
+          36089,
+          "other"
+        ],
+        [
+          37804,
+          37807,
+          "other"
+        ],
+        [
+          39018,
+          39021,
+          "other"
+        ],
+        [
+          39172,
+          39175,
+          "other"
+        ],
+        [
+          39415,
+          39418,
+          "other"
+        ],
+        [
+          42201,
+          42204,
+          "experiments"
+        ],
+        [
+          42223,
+          42226,
+          "experiments"
+        ],
+        [
+          44299,
+          44302,
+          "experiments"
+        ],
+        [
+          44351,
+          44354,
+          "experiments"
+        ]
+      ]
+    },
+    {
+      "@id": "dataset:rcv1v2",
+      "@type": "MLS_Dataset",
+      "salient": true,
+      "schema:name": "RCV1-V2",
+      "schema:description": "HTC dataset with four-level hierarchy and largest test set",
+      "schema:numInstances": "804414",
+      "schema:language": "English",
+      "schema:license": null,
+      "schema:modality": "text",
+      "schema:numClasses": "103",
+      "subDatasetOf": [],
+      "prov-derivedFrom": [],
+      "processedThrough": [],
+      "mention": {
+        "start_char_doc": 17596,
+        "end_char_doc": 17603,
+        "prefix": "[16], NY-Times (NYT) [29], and",
+        "suffix": "[17]. The WOS dataset has",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          17596,
+          17603,
+          "experiments"
+        ],
+        [
+          17784,
+          17791,
+          "experiments"
+        ],
+        [
+          17864,
+          17871,
+          "experiments"
+        ],
+        [
+          19223,
+          19230,
+          "experiments"
+        ],
+        [
+          21595,
+          21602,
+          "other"
+        ],
+        [
+          22439,
+          22446,
+          "other"
+        ],
+        [
+          25486,
+          25493,
+          "experiments"
+        ],
+        [
+          25584,
+          25591,
+          "experiments"
+        ],
+        [
+          26862,
+          26869,
+          "experiments"
+        ],
+        [
+          28283,
+          28290,
+          "other"
+        ],
+        [
+          32791,
+          32798,
+          "other"
+        ],
+        [
+          36094,
+          36101,
+          "other"
+        ],
+        [
+          37791,
+          37798,
+          "other"
+        ],
+        [
+          39568,
+          39575,
+          "other"
+        ],
+        [
+          43899,
+          43906,
+          "experiments"
+        ]
+      ]
+    },
+    {
+      "@id": "method:radar",
+      "@type": [
+        "MLS_Model",
+        "Method"
+      ],
+      "salient": true,
+      "schema:name": "RADAr",
+      "schema:description": "Transformer-based Autoregressive Decoder Architecture for Hierarchical Text Classification. Uses RoBERTa as encoder and a custom autoregressive decoder with two decoder layers. Does not use graph encoder for label hierarchy or label semantics.",
+      "schema:version": null,
+      "schema:architecture": "encoder-decoder (RoBERTa encoder + custom autoregressive transformer decoder)",
+      "schema:parameters": "137M",
+      "trainedOn": [
+        {
+          "@id": "dataset:wos"
+        },
+        {
+          "@id": "dataset:nyt"
+        },
+        {
+          "@id": "dataset:rcv1v2"
+        }
+      ],
+      "evaluatedOn": [
+        {
+          "@id": "dataset:wos"
+        },
+        {
+          "@id": "dataset:nyt"
+        },
+        {
+          "@id": "dataset:rcv1v2"
+        }
+      ],
+      "achieves": [
+        {
+          "@id": "eval:radar_wos_micro_f1"
+        },
+        {
+          "@id": "eval:radar_wos_macro_f1"
+        },
+        {
+          "@id": "eval:radar_nyt_micro_f1"
+        },
+        {
+          "@id": "eval:radar_nyt_macro_f1"
+        },
+        {
+          "@id": "eval:radar_rcv1_micro_f1"
+        },
+        {
+          "@id": "eval:radar_rcv1_macro_f1"
+        }
+      ],
+      "prov-producedBy": {
+        "@id": "run:training_radar"
+      },
+      "subMethod": [],
+      "mention": {
+        "start_char_doc": 18128,
+        "end_char_doc": 18133,
+        "prefix": "score than for Micro-F1. For",
+        "suffix": "experiments, we report the mean",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          13,
+          18,
+          "method"
+        ],
+        [
+          858,
+          863,
+          "method"
+        ],
+        [
+          1159,
+          1164,
+          "method"
+        ],
+        [
+          1349,
+          1354,
+          "method"
+        ],
+        [
+          2120,
+          2125,
+          "method"
+        ],
+        [
+          6059,
+          6064,
+          "other"
+        ],
+        [
+          6616,
+          6621,
+          "other"
+        ],
+        [
+          6778,
+          6783,
+          "other"
+        ],
+        [
+          6947,
+          6952,
+          "other"
+        ],
+        [
+          7309,
+          7314,
+          "other"
+        ],
+        [
+          7525,
+          7530,
+          "method"
+        ],
+        [
+          7572,
+          7577,
+          "method"
+        ],
+        [
+          7606,
+          7611,
+          "method"
+        ],
+        [
+          7711,
+          7716,
+          "method"
+        ],
+        [
+          11009,
+          11014,
+          "method"
+        ],
+        [
+          13428,
+          13433,
+          "method"
+        ],
+        [
+          15168,
+          15173,
+          "other"
+        ],
+        [
+          17236,
+          17241,
+          "other"
+        ],
+        [
+          18128,
+          18133,
+          "experiments"
+        ],
+        [
+          25352,
+          25357,
+          "experiments"
+        ],
+        [
+          25531,
+          25536,
+          "experiments"
+        ],
+        [
+          25749,
+          25754,
+          "experiments"
+        ],
+        [
+          26008,
+          26013,
+          "experiments"
+        ],
+        [
+          26040,
+          26045,
+          "experiments"
+        ],
+        [
+          26197,
+          26202,
+          "experiments"
+        ],
+        [
+          26471,
+          26476,
+          "experiments"
+        ],
+        [
+          26663,
+          26668,
+          "experiments"
+        ],
+        [
+          26907,
+          26912,
+          "experiments"
+        ],
+        [
+          27102,
+          27107,
+          "experiments"
+        ],
+        [
+          27204,
+          27209,
+          "experiments"
+        ],
+        [
+          27376,
+          27381,
+          "experiments"
+        ],
+        [
+          27527,
+          27532,
+          "ablation"
+        ],
+        [
+          27839,
+          27844,
+          "ablation"
+        ],
+        [
+          27955,
+          27960,
+          "other"
+        ],
+        [
+          31673,
+          31678,
+          "other"
+        ],
+        [
+          32361,
+          32366,
+          "other"
+        ],
+        [
+          32374,
+          32379,
+          "other"
+        ],
+        [
+          33017,
+          33022,
+          "other"
+        ],
+        [
+          36457,
+          36462,
+          "other"
+        ],
+        [
+          39783,
+          39788,
+          "other"
+        ],
+        [
+          40988,
+          40993,
+          "experiments"
+        ],
+        [
+          41238,
+          41243,
+          "experiments"
+        ],
+        [
+          44519,
+          44524,
+          "conclusion"
+        ],
+        [
+          44897,
+          44902,
+          "conclusion"
+        ],
+        [
+          45022,
+          45027,
+          "conclusion"
+        ],
+        [
+          45280,
+          45285,
+          "conclusion"
+        ]
+      ]
+    },
+    {
+      "@id": "model:roberta",
+      "@type": [
+        "MLS_Model",
+        "Method"
+      ],
+      "salient": true,
+      "schema:name": "RoBERTa",
+      "schema:description": "Robustly optimized BERT pre-training approach",
+      "schema:version": null,
+      "schema:architecture": "encoder-only transformer",
+      "schema:parameters": null,
+      "trainedOn": [],
+      "evaluatedOn": [],
+      "achieves": [],
+      "prov-producedBy": null,
+      "subMethod": [],
+      "mention": {
+        "start_char_doc": 24070,
+        "end_char_doc": 24077,
+        "prefix": "baseline models BERT [15] and",
+        "suffix": "[22], which treat the labels",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          959,
+          966,
+          "method"
+        ],
+        [
+          4398,
+          4405,
+          "method"
+        ],
+        [
+          6667,
+          6674,
+          "other"
+        ],
+        [
+          7739,
+          7746,
+          "method"
+        ],
+        [
+          8157,
+          8164,
+          "method"
+        ],
+        [
+          8920,
+          8927,
+          "method"
+        ],
+        [
+          11117,
+          11124,
+          "method"
+        ],
+        [
+          11247,
+          11254,
+          "method"
+        ],
+        [
+          11471,
+          11478,
+          "method"
+        ],
+        [
+          11567,
+          11574,
+          "method"
+        ],
+        [
+          23006,
+          23013,
+          "other"
+        ],
+        [
+          24070,
+          24077,
+          "experiments"
+        ],
+        [
+          24620,
+          24627,
+          "experiments"
+        ],
+        [
+          25848,
+          25855,
+          "experiments"
+        ],
+        [
+          28844,
+          28851,
+          "other"
+        ],
+        [
+          30467,
+          30474,
+          "other"
+        ],
+        [
+          32403,
+          32410,
+          "other"
+        ],
+        [
+          40123,
+          40130,
+          "other"
+        ],
+        [
+          40228,
+          40235,
+          "other"
+        ],
+        [
+          40745,
+          40752,
+          "other"
+        ],
+        [
+          40894,
+          40901,
+          "other"
+        ],
+        [
+          44561,
+          44568,
+          "conclusion"
+        ]
+      ]
+    },
+    {
+      "@id": "model:bert",
+      "@type": [
+        "MLS_Model",
+        "Method"
+      ],
+      "salient": false,
+      "schema:name": "BERT",
+      "schema:description": "Bidirectional Encoder Representations from Transformers",
+      "schema:version": null,
+      "schema:architecture": "encoder-only transformer",
+      "schema:parameters": "110M",
+      "trainedOn": [],
+      "evaluatedOn": [],
+      "achieves": [],
+      "prov-producedBy": null,
+      "subMethod": [],
+      "mention": {
+        "start_char_doc": 23833,
+        "end_char_doc": 23837,
+        "prefix": "in such models with a",
+        "suffix": "model leads to improved results,",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          961,
+          965,
+          "method"
+        ],
+        [
+          3482,
+          3486,
+          "method"
+        ],
+        [
+          4400,
+          4404,
+          "method"
+        ],
+        [
+          6669,
+          6673,
+          "other"
+        ],
+        [
+          7741,
+          7745,
+          "method"
+        ],
+        [
+          8159,
+          8163,
+          "method"
+        ],
+        [
+          8808,
+          8812,
+          "method"
+        ],
+        [
+          8922,
+          8926,
+          "method"
+        ],
+        [
+          10449,
+          10453,
+          "method"
+        ],
+        [
+          10564,
+          10568,
+          "method"
+        ],
+        [
+          11119,
+          11123,
+          "method"
+        ],
+        [
+          11249,
+          11253,
+          "method"
+        ],
+        [
+          11473,
+          11477,
+          "method"
+        ],
+        [
+          11569,
+          11573,
+          "method"
+        ],
+        [
+          23008,
+          23012,
+          "other"
+        ],
+        [
+          23833,
+          23837,
+          "experiments"
+        ],
+        [
+          24056,
+          24060,
+          "experiments"
+        ],
+        [
+          24072,
+          24076,
+          "experiments"
+        ],
+        [
+          24515,
+          24519,
+          "experiments"
+        ],
+        [
+          24611,
+          24615,
+          "experiments"
+        ],
+        [
+          24622,
+          24626,
+          "experiments"
+        ],
+        [
+          25772,
+          25776,
+          "experiments"
+        ],
+        [
+          25850,
+          25854,
+          "experiments"
+        ],
+        [
+          28633,
+          28637,
+          "other"
+        ],
+        [
+          28846,
+          28850,
+          "other"
+        ],
+        [
+          29828,
+          29832,
+          "other"
+        ],
+        [
+          30040,
+          30044,
+          "other"
+        ],
+        [
+          30257,
+          30261,
+          "other"
+        ],
+        [
+          30469,
+          30473,
+          "other"
+        ],
+        [
+          30670,
+          30674,
+          "other"
+        ],
+        [
+          32405,
+          32409,
+          "other"
+        ],
+        [
+          34838,
+          34842,
+          "other"
+        ],
+        [
+          40125,
+          40129,
+          "other"
+        ],
+        [
+          40230,
+          40234,
+          "other"
+        ],
+        [
+          40729,
+          40733,
+          "other"
+        ],
+        [
+          40747,
+          40751,
+          "other"
+        ],
+        [
+          40896,
+          40900,
+          "other"
+        ],
+        [
+          44563,
+          44567,
+          "conclusion"
+        ]
+      ]
+    },
+    {
+      "@id": "model:bart",
+      "@type": [
+        "MLS_Model",
+        "Method"
+      ],
+      "salient": false,
+      "schema:name": "BART",
+      "schema:description": "Denoising autoencoder for pretraining sequence-to-sequence models",
+      "schema:version": null,
+      "schema:architecture": "encoder-decoder transformer",
+      "schema:parameters": null,
+      "trainedOn": [],
+      "evaluatedOn": [],
+      "achieves": [],
+      "prov-producedBy": null,
+      "subMethod": [],
+      "mention": {
+        "start_char_doc": 24192,
+        "end_char_doc": 24196,
+        "prefix": "baseline models T5 [27] and",
+        "suffix": "[18], which yield lower performance",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          9110,
+          9114,
+          "method"
+        ],
+        [
+          24192,
+          24196,
+          "experiments"
+        ],
+        [
+          29134,
+          29138,
+          "other"
+        ]
+      ]
+    },
+    {
+      "@id": "model:t5",
+      "@type": [
+        "MLS_Model",
+        "Method"
+      ],
+      "salient": false,
+      "schema:name": "T5",
+      "schema:description": "Text-to-text transfer transformer",
+      "schema:version": null,
+      "schema:architecture": "encoder-decoder transformer",
+      "schema:parameters": null,
+      "trainedOn": [],
+      "evaluatedOn": [],
+      "achieves": [],
+      "prov-producedBy": null,
+      "subMethod": [],
+      "mention": {
+        "start_char_doc": 24180,
+        "end_char_doc": 24182,
+        "prefix": "group includes encoder-decoder baseline models",
+        "suffix": "[27] and BART [18], which",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          9246,
+          9248,
+          "method"
+        ],
+        [
+          10940,
+          10942,
+          "method"
+        ],
+        [
+          24180,
+          24182,
+          "experiments"
+        ],
+        [
+          24729,
+          24731,
+          "experiments"
+        ],
+        [
+          24911,
+          24913,
+          "experiments"
+        ],
+        [
+          24973,
+          24975,
+          "experiments"
+        ],
+        [
+          29328,
+          29330,
+          "other"
+        ],
+        [
+          31258,
+          31260,
+          "other"
+        ]
+      ]
+    },
+    {
+      "@id": "model:hiagm",
+      "@type": [
+        "MLS_Model",
+        "Method"
+      ],
+      "salient": false,
+      "schema:name": "HiAGM",
+      "schema:description": "Hierarchy-Aware Global Model using Tree-LSTM and GCN for label hierarchy encoding",
+      "schema:version": null,
+      "schema:architecture": "encoder-only + graph encoder",
+      "schema:parameters": null,
+      "trainedOn": [],
+      "evaluatedOn": [],
+      "achieves": [],
+      "prov-producedBy": null,
+      "subMethod": [],
+      "mention": {
+        "start_char_doc": 23673,
+        "end_char_doc": 23678,
+        "prefix": "classification models like HiMatch and",
+        "suffix": "did originally not use pre-trained",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          5755,
+          5760,
+          "other"
+        ],
+        [
+          9503,
+          9508,
+          "method"
+        ],
+        [
+          23673,
+          23678,
+          "experiments"
+        ],
+        [
+          24337,
+          24342,
+          "experiments"
+        ],
+        [
+          24430,
+          24435,
+          "experiments"
+        ],
+        [
+          29833,
+          29838,
+          "other"
+        ]
+      ]
+    },
+    {
+      "@id": "model:htcinfomax",
+      "@type": [
+        "MLS_Model",
+        "Method"
+      ],
+      "salient": false,
+      "schema:name": "HTCInfoMax",
+      "schema:description": "Uses mutual information maximization to improve text-label association",
+      "schema:version": null,
+      "schema:architecture": "encoder-only + graph encoder",
+      "schema:parameters": null,
+      "trainedOn": [],
+      "evaluatedOn": [],
+      "achieves": [],
+      "prov-producedBy": null,
+      "subMethod": [],
+      "mention": {
+        "start_char_doc": 24349,
+        "end_char_doc": 24359,
+        "prefix": "encoder-only models, namely HiAGM [46],",
+        "suffix": "[9], HiMatch [6], HGCLR [37],",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          9746,
+          9756,
+          "method"
+        ],
+        [
+          24349,
+          24359,
+          "experiments"
+        ],
+        [
+          24437,
+          24447,
+          "experiments"
+        ],
+        [
+          30045,
+          30055,
+          "other"
+        ]
+      ]
+    },
+    {
+      "@id": "model:himatch",
+      "@type": [
+        "MLS_Model",
+        "Method"
+      ],
+      "salient": false,
+      "schema:name": "HiMatch",
+      "schema:description": "Models text-label semantics relation as a semantic matching problem using GCN",
+      "schema:version": null,
+      "schema:architecture": "encoder-only + GCN",
+      "schema:parameters": null,
+      "trainedOn": [],
+      "evaluatedOn": [],
+      "achieves": [],
+      "prov-producedBy": null,
+      "subMethod": [],
+      "mention": {
+        "start_char_doc": 23661,
+        "end_char_doc": 23668,
+        "prefix": "hierarchical text classification models like",
+        "suffix": "and HiAGM did originally not",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          5767,
+          5774,
+          "other"
+        ],
+        [
+          9983,
+          9990,
+          "method"
+        ],
+        [
+          23661,
+          23668,
+          "experiments"
+        ],
+        [
+          24365,
+          24372,
+          "experiments"
+        ],
+        [
+          24453,
+          24460,
+          "experiments"
+        ],
+        [
+          30262,
+          30269,
+          "other"
+        ]
+      ]
+    },
+    {
+      "@id": "model:hgclr",
+      "@type": [
+        "MLS_Model",
+        "Method"
+      ],
+      "salient": false,
+      "schema:name": "HGCLR",
+      "schema:description": "Uses contrastive learning with modified Graphormer to produce hierarchy-aware text representation",
+      "schema:version": null,
+      "schema:architecture": "encoder-only + Graphormer",
+      "schema:parameters": null,
+      "trainedOn": [],
+      "evaluatedOn": [],
+      "achieves": [],
+      "prov-producedBy": null,
+      "subMethod": [],
+      "mention": {
+        "start_char_doc": 23756,
+        "end_char_doc": 23761,
+        "prefix": "as text encoder. Yet, the",
+        "suffix": "paper [37] shows that replacing",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          3149,
+          3154,
+          "method"
+        ],
+        [
+          5784,
+          5789,
+          "other"
+        ],
+        [
+          10213,
+          10218,
+          "method"
+        ],
+        [
+          23756,
+          23761,
+          "experiments"
+        ],
+        [
+          24378,
+          24383,
+          "experiments"
+        ],
+        [
+          29621,
+          29626,
+          "other"
+        ]
+      ]
+    },
+    {
+      "@id": "model:hbgl",
+      "@type": [
+        "MLS_Model",
+        "Method"
+      ],
+      "salient": false,
+      "schema:name": "HBGL",
+      "schema:description": "Integrates hierarchical information into BERT using attention mask in self-attention layers",
+      "schema:version": null,
+      "schema:architecture": "encoder-only + hierarchy attention",
+      "schema:parameters": null,
+      "trainedOn": [],
+      "evaluatedOn": [],
+      "achieves": [],
+      "prov-producedBy": null,
+      "subMethod": [],
+      "mention": {
+        "start_char_doc": 24394,
+        "end_char_doc": 24398,
+        "prefix": "HiMatch [6], HGCLR [37], and",
+        "suffix": "[14]. We report the results",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          3393,
+          3397,
+          "method"
+        ],
+        [
+          5856,
+          5860,
+          "other"
+        ],
+        [
+          10422,
+          10426,
+          "method"
+        ],
+        [
+          24394,
+          24398,
+          "experiments"
+        ],
+        [
+          24564,
+          24568,
+          "experiments"
+        ],
+        [
+          24595,
+          24599,
+          "experiments"
+        ],
+        [
+          25203,
+          25207,
+          "experiments"
+        ],
+        [
+          25269,
+          25273,
+          "experiments"
+        ],
+        [
+          25521,
+          25525,
+          "experiments"
+        ],
+        [
+          25758,
+          25762,
+          "experiments"
+        ],
+        [
+          25859,
+          25863,
+          "experiments"
+        ],
+        [
+          26021,
+          26025,
+          "experiments"
+        ],
+        [
+          26502,
+          26506,
+          "experiments"
+        ],
+        [
+          26608,
+          26612,
+          "experiments"
+        ],
+        [
+          26752,
+          26756,
+          "experiments"
+        ],
+        [
+          26999,
+          27003,
+          "experiments"
+        ],
+        [
+          30462,
+          30466,
+          "other"
+        ],
+        [
+          30665,
+          30669,
+          "other"
+        ],
+        [
+          32091,
+          32095,
+          "other"
+        ]
+      ]
+    },
+    {
+      "@id": "model:sgm",
+      "@type": [
+        "MLS_Model",
+        "Method"
+      ],
+      "salient": false,
+      "schema:name": "SGM",
+      "schema:description": "Sequence generation model using label correlations and text-label relations",
+      "schema:version": null,
+      "schema:architecture": "encoder-decoder",
+      "schema:parameters": null,
+      "trainedOn": [],
+      "evaluatedOn": [],
+      "achieves": [],
+      "prov-producedBy": null,
+      "subMethod": [],
+      "mention": {
+        "start_char_doc": 24720,
+        "end_char_doc": 24723,
+        "prefix": "the following hierarchical encoder-decoder models",
+        "suffix": ", SGM-T5, and Seq2Tree. SGM",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          10691,
+          10694,
+          "method"
+        ],
+        [
+          24720,
+          24723,
+          "experiments"
+        ],
+        [
+          24725,
+          24728,
+          "experiments"
+        ],
+        [
+          24747,
+          24750,
+          "experiments"
+        ],
+        [
+          24838,
+          24841,
+          "experiments"
+        ],
+        [
+          24907,
+          24910,
+          "experiments"
+        ],
+        [
+          24926,
+          24929,
+          "experiments"
+        ],
+        [
+          24959,
+          24962,
+          "experiments"
+        ],
+        [
+          25168,
+          25171,
+          "experiments"
+        ],
+        [
+          31043,
+          31046,
+          "other"
+        ],
+        [
+          31254,
+          31257,
+          "other"
+        ]
+      ]
+    },
+    {
+      "@id": "model:sgm_t5",
+      "@type": [
+        "MLS_Model",
+        "Method"
+      ],
+      "salient": false,
+      "schema:name": "SGM-T5",
+      "schema:description": "Modified version of SGM that uses T5 as encoder-decoder backbone",
+      "schema:version": null,
+      "schema:architecture": "encoder-decoder (T5-based)",
+      "schema:parameters": null,
+      "trainedOn": [],
+      "evaluatedOn": [],
+      "achieves": [],
+      "prov-producedBy": null,
+      "subMethod": [],
+      "mention": {
+        "start_char_doc": 24725,
+        "end_char_doc": 24731,
+        "prefix": "following hierarchical encoder-decoder models SGM,",
+        "suffix": ", and Seq2Tree. SGM uses",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          24725,
+          24731,
+          "experiments"
+        ],
+        [
+          24907,
+          24913,
+          "experiments"
+        ],
+        [
+          31254,
+          31260,
+          "other"
+        ]
+      ]
+    },
+    {
+      "@id": "model:seq2tree",
+      "@type": [
+        "MLS_Model",
+        "Method"
+      ],
+      "salient": false,
+      "schema:name": "Seq2Tree",
+      "schema:description": "Uses T5 with decoder constrained by the hierarchy",
+      "schema:version": null,
+      "schema:architecture": "encoder-decoder (T5-based)",
+      "schema:parameters": null,
+      "trainedOn": [],
+      "evaluatedOn": [],
+      "achieves": [],
+      "prov-producedBy": null,
+      "subMethod": [],
+      "mention": {
+        "start_char_doc": 24737,
+        "end_char_doc": 24745,
+        "prefix": "encoder-decoder models SGM, SGM-T5, and",
+        "suffix": ". SGM uses its own",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          10845,
+          10853,
+          "method"
+        ],
+        [
+          24737,
+          24745,
+          "experiments"
+        ],
+        [
+          25018,
+          25026,
+          "experiments"
+        ],
+        [
+          25176,
+          25184,
+          "experiments"
+        ],
+        [
+          31454,
+          31462,
+          "other"
+        ]
+      ]
+    },
+    {
+      "@id": "model:gpt4",
+      "@type": [
+        "MLS_Model",
+        "Method"
+      ],
+      "salient": false,
+      "schema:name": "GPT-4",
+      "schema:description": "Large language model by OpenAI",
+      "schema:version": null,
+      "schema:architecture": "decoder-only transformer",
+      "schema:parameters": null,
+      "trainedOn": [],
+      "evaluatedOn": [],
+      "achieves": [],
+      "prov-producedBy": null,
+      "subMethod": [],
+      "mention": {
+        "start_char_doc": 3706,
+        "end_char_doc": 3711,
+        "prefix": "Language Models (LLMs) such as",
+        "suffix": "[1] have recently been used",
+        "section": "method",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          3706,
+          3711,
+          "method"
+        ],
+        [
+          4349,
+          4354,
+          "method"
+        ]
+      ]
+    },
+    {
+      "@id": "model:llama2",
+      "@type": [
+        "MLS_Model",
+        "Method"
+      ],
+      "salient": false,
+      "schema:name": "Llama 2",
+      "schema:description": "Large language model by Meta",
+      "schema:version": null,
+      "schema:architecture": "decoder-only transformer",
+      "schema:parameters": null,
+      "trainedOn": [],
+      "evaluatedOn": [],
+      "achieves": [],
+      "prov-producedBy": null,
+      "subMethod": [],
+      "mention": {
+        "start_char_doc": 4363,
+        "end_char_doc": 4370,
+        "prefix": "decoder-only models GPT-4 [1] and",
+        "suffix": "[34] with the encoder-only RoBERTa",
+        "section": "method",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          4363,
+          4370,
+          "method"
+        ]
+      ]
+    },
+    {
+      "@id": "model:graphormer",
+      "@type": [
+        "MLS_Model",
+        "Method"
+      ],
+      "salient": false,
+      "schema:name": "Graphormer",
+      "schema:description": "Graph transformer model used for encoding label hierarchy",
+      "schema:version": null,
+      "schema:architecture": "graph transformer",
+      "schema:parameters": null,
+      "trainedOn": [],
+      "evaluatedOn": [],
+      "achieves": [],
+      "prov-producedBy": null,
+      "subMethod": [],
+      "mention": {
+        "start_char_doc": 3199,
+        "end_char_doc": 3209,
+        "prefix": "solves this problem by using",
+        "suffix": "[41] to encode the hierarchy",
+        "section": "method",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          3199,
+          3209,
+          "method"
+        ],
+        [
+          3320,
+          3330,
+          "method"
+        ],
+        [
+          10250,
+          10260,
+          "method"
+        ]
+      ]
+    },
+    {
+      "@id": "model:xlnet",
+      "@type": [
+        "MLS_Model",
+        "Method"
+      ],
+      "salient": false,
+      "schema:name": "XLNet",
+      "schema:description": "Generalized autoregressive pretraining method",
+      "schema:version": null,
+      "schema:architecture": "autoregressive transformer",
+      "schema:parameters": null,
+      "trainedOn": [],
+      "evaluatedOn": [],
+      "achieves": [],
+      "prov-producedBy": null,
+      "subMethod": [],
+      "mention": {
+        "start_char_doc": 35015,
+        "end_char_doc": 35020,
+        "prefix": "<td>87.05</td> <td>68.64</td> </tr> <tr> <td>...",
+        "suffix": "-base Encoder</td> <td>86.98</td> <td>81.60</td> <td>79.32</td>",
+        "section": "other",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          35015,
+          35020,
+          "other"
+        ],
+        [
+          40878,
+          40883,
+          "other"
+        ]
+      ]
+    },
+    {
+      "@id": "model:sentence_transformer",
+      "@type": [
+        "MLS_Model",
+        "Method"
+      ],
+      "salient": false,
+      "schema:name": "Sentence Transformer",
+      "schema:description": "Transformer model for sentence embeddings",
+      "schema:version": null,
+      "schema:architecture": "encoder-only transformer",
+      "schema:parameters": null,
+      "trainedOn": [],
+      "evaluatedOn": [],
+      "achieves": [],
+      "prov-producedBy": null,
+      "subMethod": [],
+      "mention": {
+        "start_char_doc": 35198,
+        "end_char_doc": 35218,
+        "prefix": "<td>86.60</td> <td>68.15</td> </tr> <tr> <td>...",
+        "suffix": "Encoder</td> <td>86.76</td> <td>81.15</td> <td>76.77</td> <td>63.89</td>",
+        "section": "other",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          35198,
+          35218,
+          "other"
+        ],
+        [
+          40853,
+          40873,
+          "other"
+        ]
+      ]
+    },
+    {
+      "@id": "model:llm_general",
+      "@type": [
+        "MLS_Model",
+        "Method"
+      ],
+      "salient": false,
+      "schema:name": "Large Language Models (LLMs)",
+      "schema:description": "General class of large language models",
+      "schema:version": null,
+      "schema:architecture": null,
+      "schema:parameters": null,
+      "trainedOn": [],
+      "evaluatedOn": [],
+      "achieves": [],
+      "prov-producedBy": null,
+      "subMethod": [],
+      "mention": {
+        "start_char_doc": 3669,
+        "end_char_doc": 3690,
+        "prefix": "given the text. In addition,",
+        "suffix": "(LLMs) such as GPT-4 [1]",
+        "section": "method",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          3669,
+          3690,
+          "method"
+        ],
+        [
+          3692,
+          3696,
+          "method"
+        ],
+        [
+          3994,
+          3998,
+          "method"
+        ]
+      ]
+    },
+    {
+      "@id": "algo:focal_loss",
+      "@type": [
+        "MLS_Algorithm",
+        "Method"
+      ],
+      "salient": true,
+      "schema:name": "Focal Loss",
+      "schema:description": "Modified cross-entropy loss that pays more attention to difficult samples with high loss",
+      "schema:version": null,
+      "mls:complexity": null,
+      "mls:pseudoCode": null,
+      "trainedOn": [],
+      "evaluatedOn": [],
+      "achieves": [],
+      "prov-producedBy": null,
+      "subMethod": [],
+      "mention": {
+        "start_char_doc": 27652,
+        "end_char_doc": 27662,
+        "prefix": "sequence organization, the effect of",
+        "suffix": ", the effect of label",
+        "section": "ablation",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          8033,
+          8043,
+          "method"
+        ],
+        [
+          15055,
+          15065,
+          "other"
+        ],
+        [
+          15610,
+          15620,
+          "other"
+        ],
+        [
+          16132,
+          16142,
+          "other"
+        ],
+        [
+          16394,
+          16404,
+          "other"
+        ],
+        [
+          22073,
+          22083,
+          "other"
+        ],
+        [
+          27652,
+          27662,
+          "ablation"
+        ],
+        [
+          32429,
+          32439,
+          "other"
+        ],
+        [
+          34267,
+          34277,
+          "other"
+        ],
+        [
+          34460,
+          34470,
+          "other"
+        ],
+        [
+          39255,
+          39265,
+          "other"
+        ],
+        [
+          39275,
+          39285,
+          "other"
+        ],
+        [
+          39338,
+          39348,
+          "other"
+        ],
+        [
+          39466,
+          39476,
+          "other"
+        ],
+        [
+          39515,
+          39525,
+          "other"
+        ],
+        [
+          39890,
+          39900,
+          "other"
+        ]
+      ]
+    },
+    {
+      "@id": "algo:adamw",
+      "@type": [
+        "MLS_Algorithm",
+        "Method"
+      ],
+      "salient": false,
+      "schema:name": "AdamW",
+      "schema:description": "Adam optimizer with decoupled weight decay regularization",
+      "schema:version": null,
+      "mls:complexity": null,
+      "mls:pseudoCode": null,
+      "trainedOn": [],
+      "evaluatedOn": [],
+      "achieves": [],
+      "prov-producedBy": null,
+      "subMethod": [],
+      "mention": {
+        "start_char_doc": 20170,
+        "end_char_doc": 20175,
+        "prefix": "During training, we use the",
+        "suffix": "optimizer [23] with default settings",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          20170,
+          20175,
+          "experiments"
+        ]
+      ]
+    },
+    {
+      "@id": "algo:greedy_search",
+      "@type": [
+        "MLS_Algorithm",
+        "Method"
+      ],
+      "salient": true,
+      "schema:name": "Greedy Search",
+      "schema:description": "Picks the token with the highest probability at each decoding step",
+      "schema:version": null,
+      "mls:complexity": null,
+      "mls:pseudoCode": null,
+      "trainedOn": [],
+      "evaluatedOn": [],
+      "achieves": [],
+      "prov-producedBy": null,
+      "subMethod": [],
+      "mention": {
+        "start_char_doc": 12193,
+        "end_char_doc": 12206,
+        "prefix": "the next token. It uses",
+        "suffix": "that picks the token with",
+        "section": "method",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          12193,
+          12206,
+          "method"
+        ],
+        [
+          17247,
+          17260,
+          "other"
+        ]
+      ]
+    },
+    {
+      "@id": "algo:reduce_lr_plateau",
+      "@type": [
+        "MLS_Algorithm",
+        "Method"
+      ],
+      "salient": false,
+      "schema:name": "ReduceLROnPlateau",
+      "schema:description": "Learning rate scheduler that reduces LR when a metric has stopped improving",
+      "schema:version": null,
+      "mls:complexity": null,
+      "mls:pseudoCode": null,
+      "trainedOn": [],
+      "evaluatedOn": [],
+      "achieves": [],
+      "prov-producedBy": null,
+      "subMethod": [],
+      "mention": {
+        "start_char_doc": 20445,
+        "end_char_doc": 20462,
+        "prefix": "scratch. We also use the",
+        "suffix": "scheduler [2] with patience of",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          20445,
+          20462,
+          "experiments"
+        ]
+      ]
+    },
+    {
+      "@id": "algo:teacher_forcing",
+      "@type": [
+        "MLS_Algorithm",
+        "Method"
+      ],
+      "salient": false,
+      "schema:name": "Teacher Forcing",
+      "schema:description": "Training technique where ground truth is used as input during training",
+      "schema:version": null,
+      "mls:complexity": null,
+      "mls:pseudoCode": null,
+      "trainedOn": [],
+      "evaluatedOn": [],
+      "achieves": [],
+      "prov-producedBy": null,
+      "subMethod": [],
+      "mention": {
+        "start_char_doc": 22220,
+        "end_char_doc": 22235,
+        "prefix": "smoothing of 0.1. We use",
+        "suffix": "[38] and gradient accumulation over",
+        "section": "other",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          22220,
+          22235,
+          "other"
+        ]
+      ]
+    },
+    {
+      "@id": "algo:beam_search",
+      "@type": [
+        "MLS_Algorithm",
+        "Method"
+      ],
+      "salient": false,
+      "schema:name": "Beam Search",
+      "schema:description": "Search algorithm that explores multiple paths; mentioned as not improving results for RADAr",
+      "schema:version": null,
+      "mls:complexity": null,
+      "mls:pseudoCode": null,
+      "trainedOn": [],
+      "evaluatedOn": [],
+      "achieves": [],
+      "prov-producedBy": null,
+      "subMethod": [],
+      "mention": {
+        "start_char_doc": 17295,
+        "end_char_doc": 17306,
+        "prefix": "generate the tokens, and using",
+        "suffix": "[39] does not improve the",
+        "section": "other",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          17295,
+          17306,
+          "other"
+        ]
+      ]
+    },
+    {
+      "@id": "eval:radar_wos_micro_f1",
+      "@type": "MLS_Eval",
+      "salient": true,
+      "mls:measure": "Micro-F1",
+      "mls:hasValue": 87.17,
+      "mls:stdDev": 0.04,
+      "mls:confidenceInterval": null,
+      "mls:onDataset": {
+        "@id": "dataset:wos"
+      },
+      "prov-producedBy": {
+        "@id": "run:eval_radar"
+      },
+      "mention": {
+        "start_char_doc": 18019,
+        "end_char_doc": 18027,
+        "prefix": "measure the experimental results using",
+        "suffix": "and Macro-F1 metrics. The impact",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          18019,
+          18027,
+          "experiments"
+        ],
+        [
+          18114,
+          18122,
+          "experiments"
+        ],
+        [
+          23498,
+          23506,
+          "experiments"
+        ],
+        [
+          25562,
+          25570,
+          "experiments"
+        ],
+        [
+          28363,
+          28371,
+          "other"
+        ],
+        [
+          28411,
+          28419,
+          "other"
+        ],
+        [
+          28459,
+          28467,
+          "other"
+        ],
+        [
+          32833,
+          32841,
+          "other"
+        ],
+        [
+          32881,
+          32889,
+          "other"
+        ],
+        [
+          32929,
+          32937,
+          "other"
+        ],
+        [
+          38996,
+          39004,
+          "other"
+        ],
+        [
+          39393,
+          39401,
+          "other"
+        ],
+        [
+          39607,
+          39615,
+          "other"
+        ]
+      ]
+    },
+    {
+      "@id": "eval:radar_wos_macro_f1",
+      "@type": "MLS_Eval",
+      "salient": true,
+      "mls:measure": "Macro-F1",
+      "mls:hasValue": 81.84,
+      "mls:stdDev": 0.08,
+      "mls:confidenceInterval": null,
+      "mls:onDataset": {
+        "@id": "dataset:wos"
+      },
+      "prov-producedBy": {
+        "@id": "run:eval_radar"
+      },
+      "mention": {
+        "start_char_doc": 18032,
+        "end_char_doc": 18040,
+        "prefix": "experimental results using Micro-F1 and",
+        "suffix": "metrics. The impact of rare",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          18032,
+          18040,
+          "experiments"
+        ],
+        [
+          18090,
+          18098,
+          "experiments"
+        ],
+        [
+          23511,
+          23519,
+          "experiments"
+        ],
+        [
+          24872,
+          24880,
+          "experiments"
+        ],
+        [
+          25096,
+          25104,
+          "experiments"
+        ],
+        [
+          25436,
+          25444,
+          "experiments"
+        ],
+        [
+          28387,
+          28395,
+          "other"
+        ],
+        [
+          28435,
+          28443,
+          "other"
+        ],
+        [
+          28483,
+          28491,
+          "other"
+        ],
+        [
+          32857,
+          32865,
+          "other"
+        ],
+        [
+          32905,
+          32913,
+          "other"
+        ],
+        [
+          32953,
+          32961,
+          "other"
+        ],
+        [
+          35699,
+          35707,
+          "other"
+        ],
+        [
+          37729,
+          37737,
+          "other"
+        ]
+      ]
+    },
+    {
+      "@id": "eval:radar_nyt_micro_f1",
+      "@type": "MLS_Eval",
+      "salient": true,
+      "mls:measure": "Micro-F1",
+      "mls:hasValue": 79.84,
+      "mls:stdDev": 0.07,
+      "mls:confidenceInterval": null,
+      "mls:onDataset": {
+        "@id": "dataset:nyt"
+      },
+      "prov-producedBy": {
+        "@id": "run:eval_radar"
+      },
+      "mention": {
+        "start_char_doc": 18019,
+        "end_char_doc": 18027,
+        "prefix": "measure the experimental results using",
+        "suffix": "and Macro-F1 metrics. The impact",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          18019,
+          18027,
+          "experiments"
+        ],
+        [
+          18114,
+          18122,
+          "experiments"
+        ],
+        [
+          23498,
+          23506,
+          "experiments"
+        ],
+        [
+          25562,
+          25570,
+          "experiments"
+        ],
+        [
+          28363,
+          28371,
+          "other"
+        ],
+        [
+          28411,
+          28419,
+          "other"
+        ],
+        [
+          28459,
+          28467,
+          "other"
+        ],
+        [
+          32833,
+          32841,
+          "other"
+        ],
+        [
+          32881,
+          32889,
+          "other"
+        ],
+        [
+          32929,
+          32937,
+          "other"
+        ],
+        [
+          38996,
+          39004,
+          "other"
+        ],
+        [
+          39393,
+          39401,
+          "other"
+        ],
+        [
+          39607,
+          39615,
+          "other"
+        ]
+      ]
+    },
+    {
+      "@id": "eval:radar_nyt_macro_f1",
+      "@type": "MLS_Eval",
+      "salient": true,
+      "mls:measure": "Macro-F1",
+      "mls:hasValue": 68.64,
+      "mls:stdDev": 0.28,
+      "mls:confidenceInterval": null,
+      "mls:onDataset": {
+        "@id": "dataset:nyt"
+      },
+      "prov-producedBy": {
+        "@id": "run:eval_radar"
+      },
+      "mention": {
+        "start_char_doc": 18032,
+        "end_char_doc": 18040,
+        "prefix": "experimental results using Micro-F1 and",
+        "suffix": "metrics. The impact of rare",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          18032,
+          18040,
+          "experiments"
+        ],
+        [
+          18090,
+          18098,
+          "experiments"
+        ],
+        [
+          23511,
+          23519,
+          "experiments"
+        ],
+        [
+          24872,
+          24880,
+          "experiments"
+        ],
+        [
+          25096,
+          25104,
+          "experiments"
+        ],
+        [
+          25436,
+          25444,
+          "experiments"
+        ],
+        [
+          28387,
+          28395,
+          "other"
+        ],
+        [
+          28435,
+          28443,
+          "other"
+        ],
+        [
+          28483,
+          28491,
+          "other"
+        ],
+        [
+          32857,
+          32865,
+          "other"
+        ],
+        [
+          32905,
+          32913,
+          "other"
+        ],
+        [
+          32953,
+          32961,
+          "other"
+        ],
+        [
+          35699,
+          35707,
+          "other"
+        ],
+        [
+          37729,
+          37737,
+          "other"
+        ]
+      ]
+    },
+    {
+      "@id": "eval:radar_rcv1_micro_f1",
+      "@type": "MLS_Eval",
+      "salient": true,
+      "mls:measure": "Micro-F1",
+      "mls:hasValue": 87.23,
+      "mls:stdDev": 0.05,
+      "mls:confidenceInterval": null,
+      "mls:onDataset": {
+        "@id": "dataset:rcv1v2"
+      },
+      "prov-producedBy": {
+        "@id": "run:eval_radar"
+      },
+      "mention": {
+        "start_char_doc": 18019,
+        "end_char_doc": 18027,
+        "prefix": "measure the experimental results using",
+        "suffix": "and Macro-F1 metrics. The impact",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          18019,
+          18027,
+          "experiments"
+        ],
+        [
+          18114,
+          18122,
+          "experiments"
+        ],
+        [
+          23498,
+          23506,
+          "experiments"
+        ],
+        [
+          25562,
+          25570,
+          "experiments"
+        ],
+        [
+          28363,
+          28371,
+          "other"
+        ],
+        [
+          28411,
+          28419,
+          "other"
+        ],
+        [
+          28459,
+          28467,
+          "other"
+        ],
+        [
+          32833,
+          32841,
+          "other"
+        ],
+        [
+          32881,
+          32889,
+          "other"
+        ],
+        [
+          32929,
+          32937,
+          "other"
+        ],
+        [
+          38996,
+          39004,
+          "other"
+        ],
+        [
+          39393,
+          39401,
+          "other"
+        ],
+        [
+          39607,
+          39615,
+          "other"
+        ]
+      ]
+    },
+    {
+      "@id": "eval:radar_rcv1_macro_f1",
+      "@type": "MLS_Eval",
+      "salient": true,
+      "mls:measure": "Macro-F1",
+      "mls:hasValue": 69.64,
+      "mls:stdDev": 0.12,
+      "mls:confidenceInterval": null,
+      "mls:onDataset": {
+        "@id": "dataset:rcv1v2"
+      },
+      "prov-producedBy": {
+        "@id": "run:eval_radar"
+      },
+      "mention": {
+        "start_char_doc": 18032,
+        "end_char_doc": 18040,
+        "prefix": "experimental results using Micro-F1 and",
+        "suffix": "metrics. The impact of rare",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          18032,
+          18040,
+          "experiments"
+        ],
+        [
+          18090,
+          18098,
+          "experiments"
+        ],
+        [
+          23511,
+          23519,
+          "experiments"
+        ],
+        [
+          24872,
+          24880,
+          "experiments"
+        ],
+        [
+          25096,
+          25104,
+          "experiments"
+        ],
+        [
+          25436,
+          25444,
+          "experiments"
+        ],
+        [
+          28387,
+          28395,
+          "other"
+        ],
+        [
+          28435,
+          28443,
+          "other"
+        ],
+        [
+          28483,
+          28491,
+          "other"
+        ],
+        [
+          32857,
+          32865,
+          "other"
+        ],
+        [
+          32905,
+          32913,
+          "other"
+        ],
+        [
+          32953,
+          32961,
+          "other"
+        ],
+        [
+          35699,
+          35707,
+          "other"
+        ],
+        [
+          37729,
+          37737,
+          "other"
+        ]
+      ]
+    },
+    {
+      "@id": "eval:hbgl_bert_wos_micro_f1",
+      "@type": "MLS_Eval",
+      "salient": false,
+      "mls:measure": "Micro-F1",
+      "mls:hasValue": 87.36,
+      "mls:stdDev": null,
+      "mls:confidenceInterval": null,
+      "mls:onDataset": {
+        "@id": "dataset:wos"
+      },
+      "prov-producedBy": null,
+      "mention": {
+        "start_char_doc": 18019,
+        "end_char_doc": 18027,
+        "prefix": "measure the experimental results using",
+        "suffix": "and Macro-F1 metrics. The impact",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          18019,
+          18027,
+          "experiments"
+        ],
+        [
+          18114,
+          18122,
+          "experiments"
+        ],
+        [
+          23498,
+          23506,
+          "experiments"
+        ],
+        [
+          25562,
+          25570,
+          "experiments"
+        ],
+        [
+          28363,
+          28371,
+          "other"
+        ],
+        [
+          28411,
+          28419,
+          "other"
+        ],
+        [
+          28459,
+          28467,
+          "other"
+        ],
+        [
+          32833,
+          32841,
+          "other"
+        ],
+        [
+          32881,
+          32889,
+          "other"
+        ],
+        [
+          32929,
+          32937,
+          "other"
+        ],
+        [
+          38996,
+          39004,
+          "other"
+        ],
+        [
+          39393,
+          39401,
+          "other"
+        ],
+        [
+          39607,
+          39615,
+          "other"
+        ]
+      ]
+    },
+    {
+      "@id": "eval:hbgl_bert_wos_macro_f1",
+      "@type": "MLS_Eval",
+      "salient": false,
+      "mls:measure": "Macro-F1",
+      "mls:hasValue": 82.0,
+      "mls:stdDev": null,
+      "mls:confidenceInterval": null,
+      "mls:onDataset": {
+        "@id": "dataset:wos"
+      },
+      "prov-producedBy": null,
+      "mention": {
+        "start_char_doc": 18032,
+        "end_char_doc": 18040,
+        "prefix": "experimental results using Micro-F1 and",
+        "suffix": "metrics. The impact of rare",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          18032,
+          18040,
+          "experiments"
+        ],
+        [
+          18090,
+          18098,
+          "experiments"
+        ],
+        [
+          23511,
+          23519,
+          "experiments"
+        ],
+        [
+          24872,
+          24880,
+          "experiments"
+        ],
+        [
+          25096,
+          25104,
+          "experiments"
+        ],
+        [
+          25436,
+          25444,
+          "experiments"
+        ],
+        [
+          28387,
+          28395,
+          "other"
+        ],
+        [
+          28435,
+          28443,
+          "other"
+        ],
+        [
+          28483,
+          28491,
+          "other"
+        ],
+        [
+          32857,
+          32865,
+          "other"
+        ],
+        [
+          32905,
+          32913,
+          "other"
+        ],
+        [
+          32953,
+          32961,
+          "other"
+        ],
+        [
+          35699,
+          35707,
+          "other"
+        ],
+        [
+          37729,
+          37737,
+          "other"
+        ]
+      ]
+    },
+    {
+      "@id": "eval:hbgl_bert_nyt_micro_f1",
+      "@type": "MLS_Eval",
+      "salient": false,
+      "mls:measure": "Micro-F1",
+      "mls:hasValue": 80.47,
+      "mls:stdDev": null,
+      "mls:confidenceInterval": null,
+      "mls:onDataset": {
+        "@id": "dataset:nyt"
+      },
+      "prov-producedBy": null,
+      "mention": {
+        "start_char_doc": 18019,
+        "end_char_doc": 18027,
+        "prefix": "measure the experimental results using",
+        "suffix": "and Macro-F1 metrics. The impact",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          18019,
+          18027,
+          "experiments"
+        ],
+        [
+          18114,
+          18122,
+          "experiments"
+        ],
+        [
+          23498,
+          23506,
+          "experiments"
+        ],
+        [
+          25562,
+          25570,
+          "experiments"
+        ],
+        [
+          28363,
+          28371,
+          "other"
+        ],
+        [
+          28411,
+          28419,
+          "other"
+        ],
+        [
+          28459,
+          28467,
+          "other"
+        ],
+        [
+          32833,
+          32841,
+          "other"
+        ],
+        [
+          32881,
+          32889,
+          "other"
+        ],
+        [
+          32929,
+          32937,
+          "other"
+        ],
+        [
+          38996,
+          39004,
+          "other"
+        ],
+        [
+          39393,
+          39401,
+          "other"
+        ],
+        [
+          39607,
+          39615,
+          "other"
+        ]
+      ]
+    },
+    {
+      "@id": "eval:hbgl_bert_nyt_macro_f1",
+      "@type": "MLS_Eval",
+      "salient": false,
+      "mls:measure": "Macro-F1",
+      "mls:hasValue": 70.19,
+      "mls:stdDev": null,
+      "mls:confidenceInterval": null,
+      "mls:onDataset": {
+        "@id": "dataset:nyt"
+      },
+      "prov-producedBy": null,
+      "mention": {
+        "start_char_doc": 18032,
+        "end_char_doc": 18040,
+        "prefix": "experimental results using Micro-F1 and",
+        "suffix": "metrics. The impact of rare",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          18032,
+          18040,
+          "experiments"
+        ],
+        [
+          18090,
+          18098,
+          "experiments"
+        ],
+        [
+          23511,
+          23519,
+          "experiments"
+        ],
+        [
+          24872,
+          24880,
+          "experiments"
+        ],
+        [
+          25096,
+          25104,
+          "experiments"
+        ],
+        [
+          25436,
+          25444,
+          "experiments"
+        ],
+        [
+          28387,
+          28395,
+          "other"
+        ],
+        [
+          28435,
+          28443,
+          "other"
+        ],
+        [
+          28483,
+          28491,
+          "other"
+        ],
+        [
+          32857,
+          32865,
+          "other"
+        ],
+        [
+          32905,
+          32913,
+          "other"
+        ],
+        [
+          32953,
+          32961,
+          "other"
+        ],
+        [
+          35699,
+          35707,
+          "other"
+        ],
+        [
+          37729,
+          37737,
+          "other"
+        ]
+      ]
+    },
+    {
+      "@id": "eval:hbgl_bert_rcv1_micro_f1",
+      "@type": "MLS_Eval",
+      "salient": false,
+      "mls:measure": "Micro-F1",
+      "mls:hasValue": 87.23,
+      "mls:stdDev": null,
+      "mls:confidenceInterval": null,
+      "mls:onDataset": {
+        "@id": "dataset:rcv1v2"
+      },
+      "prov-producedBy": null,
+      "mention": {
+        "start_char_doc": 18019,
+        "end_char_doc": 18027,
+        "prefix": "measure the experimental results using",
+        "suffix": "and Macro-F1 metrics. The impact",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          18019,
+          18027,
+          "experiments"
+        ],
+        [
+          18114,
+          18122,
+          "experiments"
+        ],
+        [
+          23498,
+          23506,
+          "experiments"
+        ],
+        [
+          25562,
+          25570,
+          "experiments"
+        ],
+        [
+          28363,
+          28371,
+          "other"
+        ],
+        [
+          28411,
+          28419,
+          "other"
+        ],
+        [
+          28459,
+          28467,
+          "other"
+        ],
+        [
+          32833,
+          32841,
+          "other"
+        ],
+        [
+          32881,
+          32889,
+          "other"
+        ],
+        [
+          32929,
+          32937,
+          "other"
+        ],
+        [
+          38996,
+          39004,
+          "other"
+        ],
+        [
+          39393,
+          39401,
+          "other"
+        ],
+        [
+          39607,
+          39615,
+          "other"
+        ]
+      ]
+    },
+    {
+      "@id": "eval:hbgl_bert_rcv1_macro_f1",
+      "@type": "MLS_Eval",
+      "salient": false,
+      "mls:measure": "Macro-F1",
+      "mls:hasValue": 71.07,
+      "mls:stdDev": null,
+      "mls:confidenceInterval": null,
+      "mls:onDataset": {
+        "@id": "dataset:rcv1v2"
+      },
+      "prov-producedBy": null,
+      "mention": {
+        "start_char_doc": 18032,
+        "end_char_doc": 18040,
+        "prefix": "experimental results using Micro-F1 and",
+        "suffix": "metrics. The impact of rare",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          18032,
+          18040,
+          "experiments"
+        ],
+        [
+          18090,
+          18098,
+          "experiments"
+        ],
+        [
+          23511,
+          23519,
+          "experiments"
+        ],
+        [
+          24872,
+          24880,
+          "experiments"
+        ],
+        [
+          25096,
+          25104,
+          "experiments"
+        ],
+        [
+          25436,
+          25444,
+          "experiments"
+        ],
+        [
+          28387,
+          28395,
+          "other"
+        ],
+        [
+          28435,
+          28443,
+          "other"
+        ],
+        [
+          28483,
+          28491,
+          "other"
+        ],
+        [
+          32857,
+          32865,
+          "other"
+        ],
+        [
+          32905,
+          32913,
+          "other"
+        ],
+        [
+          32953,
+          32961,
+          "other"
+        ],
+        [
+          35699,
+          35707,
+          "other"
+        ],
+        [
+          37729,
+          37737,
+          "other"
+        ]
+      ]
+    },
+    {
+      "@id": "repo:radar_github",
+      "@type": "SoftwareRepository",
+      "salient": true,
+      "schema:name": "RADAr",
+      "schema:url": "https://github.com/yousef-younes/RADAr",
+      "schema:version": null,
+      "schema:programmingLanguage": "Python",
+      "schema:dateModified": null,
+      "schema:license": null,
+      "mls:documentationUrl": null,
+      "contains": [
+        {
+          "@id": "impl:radar_pytorch"
+        }
+      ],
+      "supports": [
+        {
+          "@id": "env:nvidia_a100"
+        }
+      ],
+      "mention": {
+        "start_char_doc": 2087,
+        "end_char_doc": 2125,
+        "prefix": "source code is available at",
+        "suffix": "except the root label, has",
+        "section": "method",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          2087,
+          2125,
+          "method"
+        ]
+      ]
+    },
+    {
+      "@id": "impl:radar_pytorch",
+      "@type": "MLS_Implementation",
+      "salient": true,
+      "schema:identifier": "RADAr PyTorch Implementation",
+      "mls:codeRepository": "https://github.com/yousef-younes/RADAr",
+      "mls:framework": "PyTorch",
+      "mls:dependencies": null,
+      "mls:executionCommand": null,
+      "mls:entryPoint": null,
+      "mls:commitHash": null,
+      "mls:branch": null,
+      "mls:dependenciesHash": null,
+      "runsIn": {
+        "@id": "env:nvidia_a100"
+      },
+      "requires": [
+        {
+          "@id": "dep:wandb"
+        }
+      ],
+      "mention": {
+        "start_char_doc": 22575,
+        "end_char_doc": 22582,
+        "prefix": "The experiments were implemented in",
+        "suffix": "and run on an NVIDIA",
+        "section": "other",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          22575,
+          22582,
+          "other"
+        ]
+      ]
+    },
+    {
+      "@id": "env:nvidia_a100",
+      "@type": "Environment",
+      "salient": true,
+      "schema:name": "NVIDIA A100 GPU Environment",
+      "schema:description": "GPU environment used for training and evaluation",
+      "mls:hardwareSpecs": "NVIDIA A100-SXM4-40GB GPU",
+      "mls:os": null,
+      "mls:pythonVersion": null,
+      "mls:requirementsFile": null,
+      "mls:isDockerized": null,
+      "mention": {
+        "start_char_doc": 22597,
+        "end_char_doc": 22618,
+        "prefix": "PyTorch and run on an",
+        "suffix": "GPU. The hyperparameter values like",
+        "section": "other",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          22597,
+          22618,
+          "other"
+        ]
+      ]
+    },
+    {
+      "@id": "dep:wandb",
+      "@type": "Dependency",
+      "salient": true,
+      "mls:packageName": "wandb",
+      "mls:version": null,
+      "mls:type": "Python package",
+      "mls:isOptional": null,
+      "mention": {
+        "start_char_doc": 22784,
+        "end_char_doc": 22789,
+        "prefix": "on the validation sets using",
+        "suffix": "[5] as follows. We specify",
+        "section": "other",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          22784,
+          22789,
+          "other"
+        ]
+      ]
+    },
+    {
+      "@id": "hp:lr_encoder",
+      "@type": "MLS_HyperParameter",
+      "salient": true,
+      "mls:name": "http://example.org/hp/learning_rate_encoder",
+      "mls:hasValue": "5e-5",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "float",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Optimization",
+      "hpType": "LearningRate",
+      "uncertain": false,
+      "mention": {
+        "start_char_doc": 20236,
+        "end_char_doc": 20251,
+        "prefix": "and learning rates of $",
+        "suffix": "$ and $3 \\cdot 10^{-4}$",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          20236,
+          20251,
+          "experiments"
+        ],
+        [
+          22943,
+          22958,
+          "other"
+        ]
+      ]
+    },
+    {
+      "@id": "hp:lr_decoder",
+      "@type": "MLS_HyperParameter",
+      "salient": true,
+      "mls:name": "http://example.org/hp/learning_rate_decoder",
+      "mls:hasValue": "3e-4",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "float",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Optimization",
+      "hpType": "LearningRate",
+      "uncertain": false,
+      "mention": {
+        "start_char_doc": 20258,
+        "end_char_doc": 20273,
+        "prefix": "$5 \\cdot 10^{-5}$ and $",
+        "suffix": "$ for the encoder and",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          20258,
+          20273,
+          "experiments"
+        ]
+      ]
+    },
+    {
+      "@id": "hp:patience_scheduler",
+      "@type": "MLS_HyperParameter",
+      "salient": true,
+      "mls:name": "http://example.org/hp/patience_scheduler",
+      "mls:hasValue": "3",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "integer",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Optimization",
+      "hpType": "DecayRate",
+      "uncertain": true,
+      "mention": {
+        "start_char_doc": 20482,
+        "end_char_doc": 20495,
+        "prefix": "the ReduceLROnPlateau scheduler [2] with",
+        "suffix": ". After each epoch, the",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          20482,
+          20495,
+          "experiments"
+        ]
+      ]
+    },
+    {
+      "@id": "hp:patience_training",
+      "@type": "MLS_HyperParameter",
+      "salient": true,
+      "mls:name": "http://example.org/hp/patience_training",
+      "mls:hasValue": "10",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "integer",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Training",
+      "hpType": "HP_Training",
+      "uncertain": true,
+      "mention": {
+        "start_char_doc": 21961,
+        "end_char_doc": 21975,
+        "prefix": "The training loop has a",
+        "suffix": ", so it stops if",
+        "section": "other",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          21961,
+          21975,
+          "other"
+        ],
+        [
+          22478,
+          22492,
+          "other"
+        ]
+      ]
+    },
+    {
+      "@id": "hp:gamma_focal",
+      "@type": "MLS_HyperParameter",
+      "salient": true,
+      "mls:name": "http://example.org/hp/focusing_parameter_gamma",
+      "mls:hasValue": "2",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "float",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Training",
+      "hpType": "HP_Training",
+      "uncertain": true,
+      "mention": {
+        "start_char_doc": 22109,
+        "end_char_doc": 22119,
+        "prefix": "loss with focusing parameter $",
+        "suffix": "$ as described in Section",
+        "section": "other",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          22109,
+          22119,
+          "other"
+        ]
+      ]
+    },
+    {
+      "@id": "hp:label_smoothing",
+      "@type": "MLS_HyperParameter",
+      "salient": true,
+      "mls:name": "http://example.org/hp/label_smoothing",
+      "mls:hasValue": "0.1",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "float",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Training",
+      "hpType": "HP_Training",
+      "uncertain": true,
+      "mention": {
+        "start_char_doc": 22189,
+        "end_char_doc": 22211,
+        "prefix": "loss depends on cross-entropy with",
+        "suffix": ". We use teacher forcing",
+        "section": "other",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          22189,
+          22211,
+          "other"
+        ],
+        [
+          22708,
+          22723,
+          "other"
+        ]
+      ]
+    },
+    {
+      "@id": "hp:grad_accum",
+      "@type": "MLS_HyperParameter",
+      "salient": true,
+      "mls:name": "http://example.org/hp/gradient_accumulation_steps",
+      "mls:hasValue": "2",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "integer",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Training",
+      "hpType": "GradientAccumulationSteps",
+      "uncertain": false,
+      "mention": {
+        "start_char_doc": 22245,
+        "end_char_doc": 22281,
+        "prefix": "use teacher forcing [38] and",
+        "suffix": "(32 examples each). For reproducibility,",
+        "section": "other",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          22245,
+          22281,
+          "other"
+        ]
+      ]
+    },
+    {
+      "@id": "hp:batch_size",
+      "@type": "MLS_HyperParameter",
+      "salient": true,
+      "mls:name": "http://example.org/hp/batch_size",
+      "mls:hasValue": "32",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "integer",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Training",
+      "hpType": "BatchSize",
+      "uncertain": false,
+      "mention": {
+        "start_char_doc": 22283,
+        "end_char_doc": 22299,
+        "prefix": "accumulation over 2 batches (",
+        "suffix": "). For reproducibility, we use",
+        "section": "other",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          22283,
+          22299,
+          "other"
+        ]
+      ]
+    },
+    {
+      "@id": "hp:decoder_layers",
+      "@type": "MLS_HyperParameter",
+      "salient": true,
+      "mls:name": "http://example.org/hp/num_decoder_layers",
+      "mls:hasValue": "2",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "integer",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Architecture",
+      "hpType": "NumLayers",
+      "uncertain": false,
+      "mention": {
+        "start_char_doc": 1041,
+        "end_char_doc": 1059,
+        "prefix": "a custom autoregressive decoder with",
+        "suffix": "for generating the classification output.",
+        "section": "method",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          1041,
+          1059,
+          "method"
+        ],
+        [
+          6730,
+          6748,
+          "other"
+        ],
+        [
+          15853,
+          15871,
+          "other"
+        ]
+      ]
+    },
+    {
+      "@id": "hp:attention_heads",
+      "@type": "MLS_HyperParameter",
+      "salient": true,
+      "mls:name": "http://example.org/hp/num_attention_heads",
+      "mls:hasValue": "8",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "integer",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Architecture",
+      "hpType": "AttentionHeads",
+      "uncertain": false,
+      "mention": {
+        "start_char_doc": 15913,
+        "end_char_doc": 15934,
+        "prefix": "has a transformer block with",
+        "suffix": ", a feedforward network and",
+        "section": "other",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          15913,
+          15934,
+          "other"
+        ]
+      ]
+    },
+    {
+      "@id": "hp:dropout",
+      "@type": "MLS_HyperParameter",
+      "salient": true,
+      "mls:name": "http://example.org/hp/dropout",
+      "mls:hasValue": "0.2",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "float",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Architecture",
+      "hpType": "Dropout",
+      "uncertain": false,
+      "mention": {
+        "start_char_doc": 15969,
+        "end_char_doc": 15983,
+        "prefix": "feedforward network and uses a",
+        "suffix": ". **Training and Testing** The",
+        "section": "other",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          15969,
+          15983,
+          "other"
+        ]
+      ]
+    },
+    {
+      "@id": "hp:hidden_state_size",
+      "@type": "MLS_HyperParameter",
+      "salient": true,
+      "mls:name": "http://example.org/hp/encoder_output_size",
+      "mls:hasValue": "(512, 768)",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "tuple",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Architecture",
+      "hpType": "HiddenSize",
+      "uncertain": true,
+      "mention": {
+        "start_char_doc": 11665,
+        "end_char_doc": 11675,
+        "prefix": "output, a tensor of size",
+        "suffix": ", as input to the",
+        "section": "method",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          11665,
+          11675,
+          "method"
+        ]
+      ]
+    },
+    {
+      "@id": "hp:lr_min_encoder",
+      "@type": "MLS_HyperParameter",
+      "salient": true,
+      "mls:name": "http://example.org/hp/min_learning_rate_encoder",
+      "mls:hasValue": "5e-7",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "float",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Optimization",
+      "hpType": "LearningRate",
+      "uncertain": false,
+      "mention": {
+        "start_char_doc": 21839,
+        "end_char_doc": 21854,
+        "prefix": "it is lower than $",
+        "suffix": "$. At that point, the",
+        "section": "other",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          21839,
+          21854,
+          "other"
+        ]
+      ]
+    },
+    {
+      "@id": "hp:random_seed",
+      "@type": "MLS_HyperParameter",
+      "salient": true,
+      "mls:name": "http://example.org/hp/random_seed",
+      "mls:hasValue": "fixed",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "integer",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Training",
+      "hpType": "RandomSeed",
+      "uncertain": false,
+      "mention": {
+        "start_char_doc": 22332,
+        "end_char_doc": 22349,
+        "prefix": "For reproducibility, we use a",
+        "suffix": ". With these settings, the",
+        "section": "other",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          22332,
+          22349,
+          "other"
+        ]
+      ]
+    },
+    {
+      "@id": "hp:decay_factor",
+      "@type": "MLS_HyperParameter",
+      "salient": true,
+      "mls:name": "http://example.org/hp/lr_decay_factor",
+      "mls:hasValue": "0.1",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "float",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Optimization",
+      "hpType": "DecayRate",
+      "uncertain": false,
+      "mention": {
+        "start_char_doc": 20680,
+        "end_char_doc": 20693,
+        "prefix": "the learning rates by a",
+        "suffix": "for both the encoder and",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          20680,
+          20693,
+          "experiments"
+        ]
+      ]
+    },
+    {
+      "@id": "run:training_radar",
+      "@type": "TrainingRun",
+      "salient": true,
+      "mls:runId": "radar_training",
+      "schema:description": "Training RADAr on WOS (29 epochs), NYT (30 epochs), and RCV1-V2 (40 epochs) with patience of 10, saturating at 23 epochs on average",
+      "prov:startedAtTime": null,
+      "prov:endedAtTime": null,
+      "mls:codeReference": "https://github.com/yousef-younes/RADAr",
+      "mls:logFile": null,
+      "mls:artifactsLocation": null,
+      "prov-executedBy": {
+        "@id": "impl:radar_pytorch"
+      },
+      "prov-uses": [
+        {
+          "@id": "dataset:wos"
+        },
+        {
+          "@id": "dataset:nyt"
+        },
+        {
+          "@id": "dataset:rcv1v2"
+        }
+      ],
+      "mention": {
+        "start_char_doc": 22402,
+        "end_char_doc": 22417,
+        "prefix": "took 29, 30, and 40",
+        "suffix": "on the WOS, NYT, and",
+        "section": "other",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          22402,
+          22417,
+          "other"
+        ]
+      ]
+    },
+    {
+      "@id": "run:eval_radar",
+      "@type": "EvaluationRun",
+      "salient": true,
+      "mls:runId": "radar_evaluation",
+      "schema:description": "Evaluation of RADAr on WOS (9,397 test samples), NYT (7,292 test samples), and RCV1-V2 (781,265 test samples)",
+      "prov:startedAtTime": null,
+      "prov:endedAtTime": null,
+      "mls:split": "test",
+      "mls:codeReference": "https://github.com/yousef-younes/RADAr",
+      "mls:metricsFile": null,
+      "prov-executedBy": {
+        "@id": "impl:radar_pytorch"
+      },
+      "prov-generated": [],
+      "evaluates": {
+        "@id": "method:radar"
+      },
+      "mention": {
+        "start_char_doc": 41220,
+        "end_char_doc": 41232,
+        "prefix": "In 1,630 out of 9,397",
+        "suffix": ", the RADAr model made",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          41220,
+          41232,
+          "experiments"
+        ],
+        [
+          42324,
+          42336,
+          "experiments"
+        ],
+        [
+          44031,
+          44043,
+          "experiments"
+        ]
+      ]
+    },
+    {
+      "@id": "step:label_preprocessing",
+      "@type": "DataProcessingStep",
+      "salient": true,
+      "description": "Replace original labels with symbolic labels, organize level-wise from children to parents, add <unk> token as level separator",
+      "codeReference": "https://github.com/yousef-younes/RADAr",
+      "wasDerivedFrom": "paper",
+      "startedAtTime": null,
+      "endedAtTime": null,
+      "transformationType": "label_preprocessing",
+      "parameters": null,
+      "prov-uses": [
+        {
+          "@id": "dataset:wos"
+        },
+        {
+          "@id": "dataset:nyt"
+        },
+        {
+          "@id": "dataset:rcv1v2"
+        }
+      ],
+      "mention": {
+        "start_char_doc": 11169,
+        "end_char_doc": 11184,
+        "prefix": "and an autoregressive decoder on",
+        "suffix": "</td> </tr> </tbody> </table> **Encoder**",
+        "section": "method",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          6397,
+          6412,
+          "other"
+        ],
+        [
+          11169,
+          11184,
+          "method"
+        ],
+        [
+          11968,
+          11983,
+          "method"
+        ],
+        [
+          14387,
+          14402,
+          "other"
+        ],
+        [
+          18611,
+          18626,
+          "experiments"
+        ],
+        [
+          18866,
+          18881,
+          "experiments"
+        ],
+        [
+          18958,
+          18973,
+          "experiments"
+        ],
+        [
+          19798,
+          19813,
+          "experiments"
+        ],
+        [
+          37592,
+          37607,
+          "other"
+        ],
+        [
+          45459,
+          45474,
+          "conclusion"
+        ]
+      ]
+    }
+  ]
+}
