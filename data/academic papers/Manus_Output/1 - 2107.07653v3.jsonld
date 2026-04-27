@@ -1,0 +1,3598 @@
+{
+  "@context": {
+    "mls": "http://www.w3.org/ns/mls#",
+    "schema": "http://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "Study": "mls:Study",
+    "Experiment": "mls:Experiment",
+    "Person": "mls:Person",
+    "Organization": "mls:Organization",
+    "MLS_Task": "mls:MLS_Task",
+    "MLS_Dataset": "mls:MLS_Dataset",
+    "DataSource": "mls:DataSource",
+    "Method": "Method",
+    "MLS_Model": "mls:MLS_Model",
+    "MLS_Algorithm": "mls:MLS_Algorithm",
+    "Prompt": "Prompt",
+    "MLS_Eval": "mls:MLS_Eval",
+    "SoftwareRepository": "SoftwareRepository",
+    "MLS_Implementation": "mls:MLS_Implementation",
+    "MLS_HyperParameter": "msl:MLS_HyperParameter",
+    "HP_Optimization": "HP_Optimization",
+    "HP_Training": "HP_Training",
+    "HP_Architecture": "HP_Architecture",
+    "HP_Data": "HP_Data",
+    "LearningRate": "LearningRate",
+    "Momentum": "Momentum",
+    "WeightDecay": "WeightDecay",
+    "WarmupSteps": "WarmupSteps",
+    "DecayRate": "DecayRate",
+    "BatchSize": "BatchSize",
+    "NumEpochs": "NumEpochs",
+    "MaxSteps": "MaxSteps",
+    "GradientAccumulationSteps": "GradientAccumulationSteps",
+    "NumWorkers": "NumWorkers",
+    "RandomSeed": "RandomSeed",
+    "NumLayers": "NumLayers",
+    "HiddenSize": "HiddenSize",
+    "EmbeddingDim": "EmbeddingDim",
+    "Dropout": "Dropout",
+    "AttentionHeads": "AttentionHeads",
+    "MaxSequenceLength": "MaxSequenceLength",
+    "TrainValTestSplit": "TrainValTestSplit",
+    "Dependency": "Dependency",
+    "Environment": "Environment",
+    "DataProcessingStep": "DataProcessingStep",
+    "TrainingRun": "TrainingRun",
+    "EvaluationRun": "EvaluationRun",
+    "PredictionSet": "PredictionSet",
+    "issued": {
+      "@id": "xsd:issued",
+      "@type": "xsd:datetime"
+    },
+    "title": "schema:title",
+    "abstract": "schema:abstract",
+    "url": "schema:url",
+    "doi": "schema:doi",
+    "citation": "schema:citation",
+    "publicationVenue": "schema:publicationVenue",
+    "timestamp": {
+      "@id": "schema:timestamp",
+      "@type": "xsd:date"
+    },
+    "identifier": "schema:identifier",
+    "description": "schema:description",
+    "objective": "schema:objective",
+    "hypothesis": "schema:hypothesis",
+    "methodology": "schema:methodology",
+    "name": "schema:name",
+    "affiliation": "schema:affiliation",
+    "email": "schema:email",
+    "orcid": "schema:orcid",
+    "type": "schema:type",
+    "category": "schema:category",
+    "metrics": "schema:metrics",
+    "numInstances": {
+      "@id": "schema:numInstances",
+      "@type": "xsd:integer"
+    },
+    "language": "schema:language",
+    "license": "schema:license",
+    "modality": "schema:modality",
+    "numClasses": {
+      "@id": "schema:numClasses",
+      "@type": "xsd:integer"
+    },
+    "version": "schema:version",
+    "architecture": "schema:architecture",
+    "parameters": "schema:parameters",
+    "complexity": "mls:complexity",
+    "pseudoCode": {
+      "@id": "mls:pseudoCode",
+      "@type": "xsd:anyURI"
+    },
+    "text": "schema:text",
+    "role": "mls:role",
+    "templateId": "mls:templateId",
+    "usesContext": {
+      "@id": "mls:usesContext",
+      "@type": "xsd:boolean"
+    },
+    "measure": "mls:measure",
+    "hasValue": {
+      "@id": "mls:hasValue",
+      "@type": "xsd:float"
+    },
+    "stdDev": {
+      "@id": "mls:stdDev",
+      "@type": "xsd:float"
+    },
+    "confidenceInterval": "mls:confidenceInterval",
+    "programmingLanguage": "schema:programmingLanguage",
+    "dateModified": {
+      "@id": "schema:dateModified",
+      "@type": "xsd:datetime"
+    },
+    "documentationUrl": {
+      "@id": "mls:documentationUrl",
+      "@type": "xsd:anyURI"
+    },
+    "codeRepository": {
+      "@id": "mls:codeRepository",
+      "@type": "xsd:anyURI"
+    },
+    "framework": "mls:framework",
+    "dependencies": "mls:dependencies",
+    "executionCommand": "mls:executionCommand",
+    "entryPoint": "mls:entryPoint",
+    "commitHash": "mls:commitHash",
+    "branch": "mls:branch",
+    "dependenciesHash": "mls:dependenciesHash",
+    "packageName": "mls:packageName",
+    "isOptional": {
+      "@id": "mls:isOptional",
+      "@type": "xsd:boolean"
+    },
+    "hardwareSpecs": "mls:hardwareSpecs",
+    "os": "mls:os",
+    "pythonVersion": "mls:pythonVersion",
+    "requirementsFile": "mls:requirementsFile",
+    "isDockerized": {
+      "@id": "mls:isDockerized",
+      "@type": "xsd:boolean"
+    },
+    "startedAtTime": {
+      "@id": "prov:startedAtTime",
+      "@type": "xsd:datetime"
+    },
+    "endedAtTime": {
+      "@id": "prov:endedAtTime",
+      "@type": "xsd:datetime"
+    },
+    "transformationType": "mls:transformationType",
+    "codeReference": {
+      "@id": "mls:codeReference",
+      "@type": "xsd:anyURI"
+    },
+    "runId": "mls:runId",
+    "logFile": {
+      "@id": "mls:logFile",
+      "@type": "xsd:anyURI"
+    },
+    "split": "mls:split",
+    "onDatasetSplit": "mls:onDatasetSplit",
+    "format": "mls:format",
+    "artifactsLocation": {
+      "@id": "mls:artifactsLocation",
+      "@type": "xsd:anyURI"
+    },
+    "hpCategory": "mls:hpCategory",
+    "hpType": "mls:hpType",
+    "searchSpace": "mls:searchSpace",
+    "uncertain": {
+      "@id": "mls:uncertain",
+      "@type": "xsd:boolean"
+    },
+    "hasAuthor": {
+      "@id": "mls:hasAuthor",
+      "@type": "@id"
+    },
+    "contains": {
+      "@id": "mls:contains",
+      "@type": "@id"
+    },
+    "implements": {
+      "@id": "mls:implements",
+      "@type": "@id"
+    },
+    "prov-affiliatedWith": {
+      "@id": "mls:prov-affiliatedWith",
+      "@type": "@id"
+    },
+    "realizes": {
+      "@id": "mls:realizes",
+      "@type": "@id"
+    },
+    "usesData": {
+      "@id": "mls:usesData",
+      "@type": "@id"
+    },
+    "produces": {
+      "@id": "mls:produces",
+      "@type": "@id"
+    },
+    "usesParameters": {
+      "@id": "mls:usesParameters",
+      "@type": "@id"
+    },
+    "executes": {
+      "@id": "mls:executes",
+      "@type": "@id"
+    },
+    "subDatasetOf": {
+      "@id": "mls:subDatasetOf",
+      "@type": "@id"
+    },
+    "prov-derivedFrom": {
+      "@id": "mls:prov-derivedFrom",
+      "@type": "@id"
+    },
+    "processedThrough": {
+      "@id": "mls:processedThrough",
+      "@type": "@id"
+    },
+    "prov-uses": {
+      "@id": "mls:prov-uses",
+      "@type": "@id"
+    },
+    "trainedOn": {
+      "@id": "mls:trainedOn",
+      "@type": "@id"
+    },
+    "evaluatedOn": {
+      "@id": "mls:evaluatedOn",
+      "@type": "@id"
+    },
+    "achieves": {
+      "@id": "mls:achieves",
+      "@type": "@id"
+    },
+    "prov-producedBy": {
+      "@id": "mls:prov-producedBy",
+      "@type": "@id"
+    },
+    "subMethod": {
+      "@id": "mls:subMethod",
+      "@type": "@id"
+    },
+    "evaluates": {
+      "@id": "mls:evaluates",
+      "@type": "@id"
+    },
+    "supports": {
+      "@id": "mls:supports",
+      "@type": "@id"
+    },
+    "runsIn": {
+      "@id": "mls:runsIn",
+      "@type": "@id"
+    },
+    "requires": {
+      "@id": "mls:requires",
+      "@type": "@id"
+    },
+    "prov-executedBy": {
+      "@id": "mls:prov-executedBy",
+      "@type": "@id"
+    },
+    "prov-generated": {
+      "@id": "mls:prov-generated",
+      "@type": "@id"
+    },
+    "benchmarkedOn": {
+      "@id": "mls:benchmarkedOn",
+      "@type": "@id"
+    },
+    "subTaskOf": {
+      "@id": "mls:subTaskOf",
+      "@type": "@id"
+    },
+    "dependsOn": {
+      "@id": "mls:dependsOn",
+      "@type": "@id"
+    },
+    "usedIn": {
+      "@id": "mls:usedIn",
+      "@type": "@id"
+    },
+    "trains": {
+      "@id": "mls:trains",
+      "@type": "@id"
+    },
+    "producedBy": {
+      "@id": "mls:producedBy",
+      "@type": "@id"
+    },
+    "sourceFile": "mls:sourceFile",
+    "sourceLine": {
+      "@id": "mls:sourceLine",
+      "@type": "xsd:integer"
+    },
+    "dependencyType": "mls:dependencyType",
+    "owner": "mls:owner",
+    "platform": "mls:platform",
+    "entryPointCommand": "mls:entryPointCommand",
+    "evaluationScript": "mls:evaluationScript",
+    "evaluationSplit": "mls:evaluationSplit",
+    "metricsFile": "mls:metricsFile",
+    "inputDataset": {
+      "@id": "mls:inputDataset",
+      "@type": "@id"
+    },
+    "outputDataset": {
+      "@id": "mls:outputDataset",
+      "@type": "@id"
+    },
+    "predictionFormat": "mls:predictionFormat",
+    "storageLocation": "mls:storageLocation",
+    "modelVersion": "mls:modelVersion",
+    "appliedTo": {
+      "@id": "mls:appliedTo",
+      "@type": "@id"
+    },
+    "wasGeneratedBy": {
+      "@id": "prov:wasGeneratedBy",
+      "@type": "@id"
+    },
+    "wasDerivedFrom": {
+      "@id": "prov:wasDerivedFrom",
+      "@type": "@id"
+    },
+    "wasAssociatedWith": {
+      "@id": "prov:wasAssociatedWith",
+      "@type": "@id"
+    },
+    "used": {
+      "@id": "prov:used",
+      "@type": "@id"
+    }
+  },
+  "@graph": [
+    {
+      "@id": "study:tapex",
+      "@type": "Study",
+      "schema:title": "TAPEX: TABLE PRE-TRAINING VIA LEARNING A NEURAL SQL EXECUTOR",
+      "schema:abstract": "Recent progress in language model pre-training has achieved a great success via leveraging large-scale unstructured textual data. However, it is still a challenge to apply pre-training on structured tabular data due to the absence of large-scale high-quality tabular data. In this paper, we propose TAPEX to show that table pre-training can be achieved by learning a neural SQL executor over a synthetic corpus, which is obtained by automatically synthesizing executable SQL queries and their execution outputs. TAPEX addresses the data scarcity challenge via guiding the language model to mimic a SQL executor on the diverse, large-scale and high-quality synthetic corpus. We evaluate TAPEX on four benchmark datasets. Experimental results demonstrate that TAPEX outperforms previous table pre-training approaches by a large margin and achieves new state-of-the-art results on all of them. This includes improvements on the weakly-supervised WikiSQL denotation accuracy to 89.5% (+2.3%), the WikiTableQuestions denotation accuracy to 57.5% (+4.8%), the SQA denotation accuracy to 74.5% (+3.5%), and the TabFact accuracy to 84.2% (+3.2%). To our knowledge, this is the first work to exploit table pre-training via synthetic executable programs and to achieve new state-of-the-art results on various downstream tasks. Our code can be found at https://github.com/microsoft/Table-Pretraining.",
+      "schema:url": "https://arxiv.org/abs/2107.07653",
+      "schema:doi": null,
+      "schema:citation": "Liu, Q., Chen, B., Guo, J., Ziyadi, M., Lin, Z., Chen, W., & Lou, J.-G. (2022). TAPEX: Table Pre-training via Learning a Neural SQL Executor. In ICLR 2022.",
+      "schema:publicationVenue": "ICLR 2022",
+      "schema:timestamp": "2022",
+      "hasAuthor": [
+        {
+          "@id": "person:qian_liu"
+        },
+        {
+          "@id": "person:bei_chen"
+        },
+        {
+          "@id": "person:jiaqi_guo"
+        },
+        {
+          "@id": "person:morteza_ziyadi"
+        },
+        {
+          "@id": "person:zeqi_lin"
+        },
+        {
+          "@id": "person:weizhu_chen"
+        },
+        {
+          "@id": "person:jian_guang_lou"
+        }
+      ],
+      "contains": [
+        {
+          "@id": "exp:group_tapex"
+        }
+      ],
+      "implements": {
+        "@id": "repo:table_pretraining"
+      },
+      "mention": {
+        "start_char_doc": 57,
+        "end_char_doc": 117,
+        "prefix": "conference paper at ICLR 2022",
+        "suffix": "Qian Liu†*, Bei Chen§, Jiaqi",
+        "section": "title",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          57,
+          117,
+          "title"
+        ]
+      ]
+    },
+    {
+      "@id": "person:qian_liu",
+      "@type": "Person",
+      "schema:name": "Qian Liu",
+      "schema:affiliation": "Beihang University",
+      "schema:email": "qian.liu@buaa.edu.cn",
+      "schema:orcid": null,
+      "prov-affiliatedWith": [
+        {
+          "@id": "org:beihang"
+        }
+      ],
+      "mention": {
+        "start_char_doc": 48745,
+        "end_char_doc": 48753,
+        "prefix": "In Proceedings of NIPS, 2018.",
+        "suffix": ", Bei Chen, Haoyan Liu,",
+        "section": "other",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          119,
+          127,
+          "title"
+        ],
+        [
+          48745,
+          48753,
+          "other"
+        ],
+        [
+          49165,
+          49173,
+          "other"
+        ],
+        [
+          49367,
+          49375,
+          "other"
+        ]
+      ]
+    },
+    {
+      "@id": "person:bei_chen",
+      "@type": "Person",
+      "schema:name": "Bei Chen",
+      "schema:affiliation": "Microsoft Research Asia",
+      "schema:email": "bei.chen@microsoft.com",
+      "schema:orcid": null,
+      "prov-affiliatedWith": [
+        {
+          "@id": "org:msra"
+        }
+      ],
+      "mention": {
+        "start_char_doc": 48755,
+        "end_char_doc": 48763,
+        "prefix": "of NIPS, 2018. Qian Liu,",
+        "suffix": ", Haoyan Liu, Jian-Guang Lou,",
+        "section": "other",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          131,
+          139,
+          "title"
+        ],
+        [
+          48755,
+          48763,
+          "other"
+        ],
+        [
+          49175,
+          49183,
+          "other"
+        ]
+      ]
+    },
+    {
+      "@id": "person:jiaqi_guo",
+      "@type": "Person",
+      "schema:name": "Jiaqi Guo",
+      "schema:affiliation": "Xi'an Jiaotong University",
+      "schema:email": "jasperguo2013@stu.xjtu.edu.cn",
+      "schema:orcid": null,
+      "prov-affiliatedWith": [
+        {
+          "@id": "org:xjtu"
+        }
+      ],
+      "mention": {
+        "start_char_doc": 46771,
+        "end_char_doc": 46780,
+        "prefix": "Linguistics. doi: 10.18653/v1/P18-1168. URL https://www.aclweb.org/anthology/P18-1168.",
+        "suffix": ", Jian-Guang Lou, Ting Liu,",
+        "section": "other",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          142,
+          151,
+          "title"
+        ],
+        [
+          46771,
+          46780,
+          "other"
+        ],
+        [
+          49185,
+          49194,
+          "other"
+        ],
+        [
+          49404,
+          49413,
+          "other"
+        ]
+      ]
+    },
+    {
+      "@id": "person:morteza_ziyadi",
+      "@type": "Person",
+      "schema:name": "Morteza Ziyadi",
+      "schema:affiliation": "Microsoft Azure AI",
+      "schema:email": "morteza.ziyadi@microsoft.com",
+      "schema:orcid": null,
+      "prov-affiliatedWith": [
+        {
+          "@id": "org:ms_azure_ai"
+        }
+      ],
+      "mention": {
+        "start_char_doc": 155,
+        "end_char_doc": 169,
+        "prefix": "Liu†*, Bei Chen§, Jiaqi Guo◇*,",
+        "suffix": "♥, Zeqi Lin§, Weizhu Chen♥,",
+        "section": "title",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          155,
+          169,
+          "title"
+        ]
+      ]
+    },
+    {
+      "@id": "person:zeqi_lin",
+      "@type": "Person",
+      "schema:name": "Zeqi Lin",
+      "schema:affiliation": "Microsoft Research Asia",
+      "schema:email": "zeqi.lin@microsoft.com",
+      "schema:orcid": null,
+      "prov-affiliatedWith": [
+        {
+          "@id": "org:msra"
+        }
+      ],
+      "mention": {
+        "start_char_doc": 172,
+        "end_char_doc": 180,
+        "prefix": "Chen§, Jiaqi Guo◇*, Morteza Ziyadi♥,",
+        "suffix": "§, Weizhu Chen♥, Jian-Guang Lou§",
+        "section": "title",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          172,
+          180,
+          "title"
+        ]
+      ]
+    },
+    {
+      "@id": "person:weizhu_chen",
+      "@type": "Person",
+      "schema:name": "Weizhu Chen",
+      "schema:affiliation": "Microsoft Azure AI",
+      "schema:email": "wzchen@microsoft.com",
+      "schema:orcid": null,
+      "prov-affiliatedWith": [
+        {
+          "@id": "org:ms_azure_ai"
+        }
+      ],
+      "mention": {
+        "start_char_doc": 183,
+        "end_char_doc": 194,
+        "prefix": "Guo◇*, Morteza Ziyadi♥, Zeqi Lin§,",
+        "suffix": "♥, Jian-Guang Lou§ †Beihang University,",
+        "section": "title",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          183,
+          194,
+          "title"
+        ]
+      ]
+    },
+    {
+      "@id": "person:jian_guang_lou",
+      "@type": "Person",
+      "schema:name": "Jian-Guang Lou",
+      "schema:affiliation": "Microsoft Research Asia",
+      "schema:email": "jlou@microsoft.com",
+      "schema:orcid": null,
+      "prov-affiliatedWith": [
+        {
+          "@id": "org:msra"
+        }
+      ],
+      "mention": {
+        "start_char_doc": 46782,
+        "end_char_doc": 46796,
+        "prefix": "10.18653/v1/P18-1168. URL https://www.aclweb.org/anthology/P18-1168. Jiaqi Guo,",
+        "suffix": ", Ting Liu, and Dongmei",
+        "section": "other",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          197,
+          211,
+          "title"
+        ],
+        [
+          46782,
+          46796,
+          "other"
+        ],
+        [
+          48777,
+          48791,
+          "other"
+        ],
+        [
+          49196,
+          49210,
+          "other"
+        ],
+        [
+          49429,
+          49443,
+          "other"
+        ]
+      ]
+    },
+    {
+      "@id": "org:beihang",
+      "@type": "Organization",
+      "schema:name": "Beihang University",
+      "schema:url": null,
+      "schema:type": "university",
+      "mention": {
+        "start_char_doc": 41264,
+        "end_char_doc": 41282,
+        "prefix": "the Academic Excellence Foundation of",
+        "suffix": "for PhD Students. &lt;page_number&gt;9&lt;/page_number&gt; ---",
+        "section": "other",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          214,
+          232,
+          "title"
+        ],
+        [
+          41264,
+          41282,
+          "other"
+        ]
+      ]
+    },
+    {
+      "@id": "org:xjtu",
+      "@type": "Organization",
+      "schema:name": "Xi'an Jiaotong University",
+      "schema:url": null,
+      "schema:type": "university",
+      "mention": {
+        "start_char_doc": 235,
+        "end_char_doc": 260,
+        "prefix": "Jian-Guang Lou§ †Beihang University, ◇",
+        "suffix": ", §Microsoft Research Asia, ♥Microsoft",
+        "section": "title",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          235,
+          260,
+          "title"
+        ]
+      ]
+    },
+    {
+      "@id": "org:msra",
+      "@type": "Organization",
+      "schema:name": "Microsoft Research Asia",
+      "schema:url": null,
+      "schema:type": "research_lab",
+      "mention": {
+        "start_char_doc": 3854,
+        "end_char_doc": 3877,
+        "prefix": "done during an internship at",
+        "suffix": ". &lt;page_number&gt;1&lt;/page_number&gt; --- ## Page",
+        "section": "introduction",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          263,
+          286,
+          "title"
+        ],
+        [
+          3854,
+          3877,
+          "introduction"
+        ]
+      ]
+    },
+    {
+      "@id": "org:ms_azure_ai",
+      "@type": "Organization",
+      "schema:name": "Microsoft Azure AI",
+      "schema:url": null,
+      "schema:type": "industry",
+      "mention": {
+        "start_char_doc": 289,
+        "end_char_doc": 307,
+        "prefix": "University, §Microsoft Research Asia, ♥",
+        "suffix": "qian.liu@buaa.edu.cn, jasperguo2013@stu.xjtu.edu.cn {bei.chen, morteza.ziyadi, zeqi.lin,",
+        "section": "title",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          289,
+          307,
+          "title"
+        ]
+      ]
+    },
+    {
+      "@id": "task:tableqa",
+      "@type": "MLS_Task",
+      "schema:name": "Table-based Question Answering",
+      "schema:description": "Answering natural language questions over semi-structured tables",
+      "schema:category": "question_answering",
+      "schema:metrics": "denotation accuracy",
+      "benchmarkedOn": [
+        {
+          "@id": "dataset:wikisql_weak"
+        },
+        {
+          "@id": "dataset:wikitablequestions"
+        },
+        {
+          "@id": "dataset:sqa"
+        }
+      ],
+      "subTaskOf": [],
+      "mention": {
+        "start_char_doc": 21274,
+        "end_char_doc": 21281,
+        "prefix": "found in Appendix A. For",
+        "suffix": "datasets, the evaluation metric is",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          6467,
+          6497,
+          "introduction"
+        ],
+        [
+          6499,
+          6506,
+          "introduction"
+        ],
+        [
+          7761,
+          7791,
+          "method"
+        ],
+        [
+          7793,
+          7800,
+          "method"
+        ],
+        [
+          8931,
+          8938,
+          "method"
+        ],
+        [
+          8952,
+          8959,
+          "method"
+        ],
+        [
+          9685,
+          9692,
+          "method"
+        ],
+        [
+          9810,
+          9817,
+          "method"
+        ],
+        [
+          11682,
+          11689,
+          "method"
+        ],
+        [
+          11707,
+          11714,
+          "method"
+        ],
+        [
+          11925,
+          11932,
+          "method"
+        ],
+        [
+          21274,
+          21281,
+          "experiments"
+        ],
+        [
+          29115,
+          29122,
+          "experiments"
+        ],
+        [
+          38622,
+          38629,
+          "related_work"
+        ],
+        [
+          38717,
+          38724,
+          "related_work"
+        ],
+        [
+          39685,
+          39692,
+          "related_work"
+        ],
+        [
+          42253,
+          42283,
+          "other"
+        ],
+        [
+          61875,
+          61882,
+          "other"
+        ]
+      ]
+    },
+    {
+      "@id": "task:tablefv",
+      "@type": "MLS_Task",
+      "schema:name": "Table-based Fact Verification",
+      "schema:description": "Verifying whether a natural language statement is entailed or refuted by a table",
+      "schema:category": "fact_verification",
+      "schema:metrics": "accuracy",
+      "benchmarkedOn": [
+        {
+          "@id": "dataset:tabfact"
+        }
+      ],
+      "subTaskOf": [],
+      "mention": {
+        "start_char_doc": 29145,
+        "end_char_doc": 29152,
+        "prefix": "TableQA, TAPEX also excels at",
+        "suffix": ". As shown in Table",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          6512,
+          6541,
+          "introduction"
+        ],
+        [
+          6543,
+          6550,
+          "introduction"
+        ],
+        [
+          7806,
+          7835,
+          "method"
+        ],
+        [
+          7837,
+          7844,
+          "method"
+        ],
+        [
+          8943,
+          8950,
+          "method"
+        ],
+        [
+          9395,
+          9402,
+          "method"
+        ],
+        [
+          9697,
+          9704,
+          "method"
+        ],
+        [
+          11694,
+          11701,
+          "method"
+        ],
+        [
+          11938,
+          11945,
+          "method"
+        ],
+        [
+          29145,
+          29152,
+          "experiments"
+        ],
+        [
+          38634,
+          38641,
+          "related_work"
+        ],
+        [
+          39767,
+          39774,
+          "related_work"
+        ],
+        [
+          40142,
+          40149,
+          "related_work"
+        ],
+        [
+          42288,
+          42317,
+          "other"
+        ],
+        [
+          44026,
+          44055,
+          "other"
+        ],
+        [
+          53730,
+          53759,
+          "other"
+        ],
+        [
+          54240,
+          54269,
+          "other"
+        ],
+        [
+          62246,
+          62253,
+          "other"
+        ]
+      ]
+    },
+    {
+      "@id": "dataset:wikisql_weak",
+      "@type": "MLS_Dataset",
+      "schema:name": "WIKISQL-WEAK",
+      "schema:description": "Weakly-supervised WikiSQL benchmark for simple table-based question answering",
+      "schema:numInstances": 80654,
+      "schema:language": "en",
+      "schema:license": null,
+      "schema:modality": "tabular",
+      "schema:numClasses": null,
+      "subDatasetOf": [],
+      "prov-derivedFrom": [],
+      "processedThrough": [],
+      "mention": {
+        "start_char_doc": 20804,
+        "end_char_doc": 20811,
+        "prefix": "of our approach on weakly-supervised",
+        "suffix": "(WIKISQL-WEAK) (Zhong et al., 2017),",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          1379,
+          1386,
+          "abstract"
+        ],
+        [
+          17173,
+          17185,
+          "method"
+        ],
+        [
+          20804,
+          20811,
+          "experiments"
+        ],
+        [
+          20813,
+          20825,
+          "experiments"
+        ],
+        [
+          20964,
+          20976,
+          "experiments"
+        ],
+        [
+          21475,
+          21487,
+          "experiments"
+        ],
+        [
+          26889,
+          26901,
+          "experiments"
+        ],
+        [
+          27071,
+          27083,
+          "experiments"
+        ],
+        [
+          27181,
+          27193,
+          "experiments"
+        ],
+        [
+          27511,
+          27523,
+          "experiments"
+        ],
+        [
+          34966,
+          34978,
+          "experiments"
+        ],
+        [
+          61898,
+          61910,
+          "other"
+        ],
+        [
+          62593,
+          62605,
+          "other"
+        ],
+        [
+          64748,
+          64760,
+          "other"
+        ],
+        [
+          65426,
+          65438,
+          "other"
+        ],
+        [
+          65715,
+          65727,
+          "other"
+        ],
+        [
+          73891,
+          73903,
+          "other"
+        ]
+      ]
+    },
+    {
+      "@id": "dataset:wikitablequestions",
+      "@type": "MLS_Dataset",
+      "schema:name": "WIKITABLEQUESTIONS",
+      "schema:description": "Complex table-based question answering benchmark requiring multi-step reasoning",
+      "schema:numInstances": 22033,
+      "schema:language": "en",
+      "schema:license": null,
+      "schema:modality": "tabular",
+      "schema:numClasses": null,
+      "subDatasetOf": [],
+      "prov-derivedFrom": [],
+      "processedThrough": [],
+      "mention": {
+        "start_char_doc": 20849,
+        "end_char_doc": 20867,
+        "prefix": "(WIKISQL-WEAK) (Zhong et al., 2017),",
+        "suffix": "(Pasupat & Liang, 2015), SQA",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          1429,
+          1447,
+          "abstract"
+        ],
+        [
+          6969,
+          6987,
+          "introduction"
+        ],
+        [
+          18754,
+          18772,
+          "method"
+        ],
+        [
+          19281,
+          19299,
+          "method"
+        ],
+        [
+          20849,
+          20867,
+          "experiments"
+        ],
+        [
+          21057,
+          21075,
+          "experiments"
+        ],
+        [
+          26903,
+          26921,
+          "experiments"
+        ],
+        [
+          27528,
+          27546,
+          "experiments"
+        ],
+        [
+          27573,
+          27591,
+          "experiments"
+        ],
+        [
+          27988,
+          28006,
+          "experiments"
+        ],
+        [
+          31511,
+          31529,
+          "experiments"
+        ],
+        [
+          33620,
+          33639,
+          "experiments"
+        ],
+        [
+          34108,
+          34127,
+          "experiments"
+        ],
+        [
+          35556,
+          35574,
+          "experiments"
+        ],
+        [
+          62014,
+          62032,
+          "other"
+        ],
+        [
+          62914,
+          62932,
+          "other"
+        ],
+        [
+          65333,
+          65351,
+          "other"
+        ],
+        [
+          65441,
+          65459,
+          "other"
+        ],
+        [
+          65534,
+          65552,
+          "other"
+        ],
+        [
+          69085,
+          69103,
+          "other"
+        ],
+        [
+          70040,
+          70058,
+          "other"
+        ],
+        [
+          70195,
+          70213,
+          "other"
+        ],
+        [
+          70305,
+          70323,
+          "other"
+        ],
+        [
+          73919,
+          73937,
+          "other"
+        ],
+        [
+          75174,
+          75193,
+          "other"
+        ]
+      ]
+    },
+    {
+      "@id": "dataset:sqa",
+      "@type": "MLS_Dataset",
+      "schema:name": "SQA",
+      "schema:description": "Sequential (conversational) question answering benchmark on tables",
+      "schema:numInstances": 17553,
+      "schema:language": "en",
+      "schema:license": null,
+      "schema:modality": "tabular",
+      "schema:numClasses": null,
+      "subDatasetOf": [],
+      "prov-derivedFrom": [],
+      "processedThrough": [],
+      "mention": {
+        "start_char_doc": 20893,
+        "end_char_doc": 20896,
+        "prefix": "WIKITABLEQUESTIONS (Pasupat & Liang, 2015),",
+        "suffix": "(Iyyer et al., 2017), and",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          1490,
+          1493,
+          "abstract"
+        ],
+        [
+          20893,
+          20896,
+          "experiments"
+        ],
+        [
+          21126,
+          21129,
+          "experiments"
+        ],
+        [
+          24216,
+          24219,
+          "experiments"
+        ],
+        [
+          26923,
+          26926,
+          "experiments"
+        ],
+        [
+          28587,
+          28590,
+          "experiments"
+        ],
+        [
+          28663,
+          28666,
+          "experiments"
+        ],
+        [
+          28865,
+          28868,
+          "experiments"
+        ],
+        [
+          29004,
+          29007,
+          "experiments"
+        ],
+        [
+          62136,
+          62139,
+          "other"
+        ],
+        [
+          63351,
+          63354,
+          "other"
+        ],
+        [
+          64451,
+          64454,
+          "other"
+        ],
+        [
+          65637,
+          65640,
+          "other"
+        ],
+        [
+          65730,
+          65733,
+          "other"
+        ],
+        [
+          65808,
+          65811,
+          "other"
+        ],
+        [
+          73953,
+          73956,
+          "other"
+        ]
+      ]
+    },
+    {
+      "@id": "dataset:tabfact",
+      "@type": "MLS_Dataset",
+      "schema:name": "TABFACT",
+      "schema:description": "Large-scale table-based fact verification dataset",
+      "schema:numInstances": 118275,
+      "schema:language": "en",
+      "schema:license": null,
+      "schema:modality": "tabular",
+      "schema:numClasses": 2,
+      "subDatasetOf": [],
+      "prov-derivedFrom": [],
+      "processedThrough": [],
+      "mention": {
+        "start_char_doc": 20923,
+        "end_char_doc": 20930,
+        "prefix": "(Iyyer et al., 2017), and",
+        "suffix": "(Chen et al., 2020). Compared",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          1540,
+          1547,
+          "abstract"
+        ],
+        [
+          20923,
+          20930,
+          "experiments"
+        ],
+        [
+          21644,
+          21651,
+          "experiments"
+        ],
+        [
+          26187,
+          26194,
+          "experiments"
+        ],
+        [
+          26931,
+          26938,
+          "experiments"
+        ],
+        [
+          29098,
+          29105,
+          "experiments"
+        ],
+        [
+          29237,
+          29244,
+          "experiments"
+        ],
+        [
+          35094,
+          35101,
+          "experiments"
+        ],
+        [
+          62269,
+          62276,
+          "other"
+        ],
+        [
+          63720,
+          63727,
+          "other"
+        ],
+        [
+          64765,
+          64772,
+          "other"
+        ],
+        [
+          65323,
+          65330,
+          "other"
+        ],
+        [
+          65627,
+          65634,
+          "other"
+        ],
+        [
+          69237,
+          69244,
+          "other"
+        ],
+        [
+          73972,
+          73979,
+          "other"
+        ]
+      ]
+    },
+    {
+      "@id": "datasource:synthetic_sql_corpus",
+      "@type": "DataSource",
+      "schema:name": "Synthetic SQL-Table Pre-training Corpus",
+      "schema:url": null,
+      "schema:type": "synthetic",
+      "schema:license": null,
+      "mention": {
+        "start_char_doc": 33898,
+        "end_char_doc": 33917,
+        "prefix": "performance with different scales of",
+        "suffix": ". Scaling up the pre-training",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          830,
+          846,
+          "abstract"
+        ],
+        [
+          1092,
+          1108,
+          "abstract"
+        ],
+        [
+          2736,
+          2755,
+          "introduction"
+        ],
+        [
+          2966,
+          2985,
+          "introduction"
+        ],
+        [
+          5379,
+          5398,
+          "introduction"
+        ],
+        [
+          5687,
+          5706,
+          "introduction"
+        ],
+        [
+          7056,
+          7075,
+          "introduction"
+        ],
+        [
+          14091,
+          14110,
+          "method"
+        ],
+        [
+          14548,
+          14567,
+          "method"
+        ],
+        [
+          15659,
+          15678,
+          "method"
+        ],
+        [
+          19352,
+          19371,
+          "method"
+        ],
+        [
+          20559,
+          20578,
+          "method"
+        ],
+        [
+          33898,
+          33917,
+          "experiments"
+        ],
+        [
+          33934,
+          33953,
+          "experiments"
+        ],
+        [
+          34061,
+          34080,
+          "experiments"
+        ],
+        [
+          34567,
+          34586,
+          "experiments"
+        ],
+        [
+          34620,
+          34639,
+          "experiments"
+        ],
+        [
+          34669,
+          34688,
+          "experiments"
+        ],
+        [
+          34822,
+          34841,
+          "experiments"
+        ],
+        [
+          35004,
+          35023,
+          "experiments"
+        ],
+        [
+          35202,
+          35221,
+          "experiments"
+        ],
+        [
+          35765,
+          35784,
+          "experiments"
+        ],
+        [
+          35943,
+          35962,
+          "experiments"
+        ],
+        [
+          36961,
+          36980,
+          "experiments"
+        ],
+        [
+          37492,
+          37511,
+          "related_work"
+        ],
+        [
+          37550,
+          37569,
+          "related_work"
+        ],
+        [
+          38192,
+          38211,
+          "related_work"
+        ],
+        [
+          40650,
+          40666,
+          "conclusion"
+        ],
+        [
+          41748,
+          41767,
+          "other"
+        ],
+        [
+          41888,
+          41907,
+          "other"
+        ],
+        [
+          68566,
+          68585,
+          "other"
+        ],
+        [
+          68760,
+          68779,
+          "other"
+        ],
+        [
+          68920,
+          68939,
+          "other"
+        ],
+        [
+          69788,
+          69807,
+          "other"
+        ],
+        [
+          71498,
+          71517,
+          "other"
+        ],
+        [
+          71764,
+          71783,
+          "other"
+        ],
+        [
+          71823,
+          71842,
+          "other"
+        ],
+        [
+          74378,
+          74397,
+          "other"
+        ],
+        [
+          74721,
+          74740,
+          "other"
+        ]
+      ]
+    },
+    {
+      "@id": "method:tapex",
+      "@type": [
+        "MLS_Model",
+        "Method"
+      ],
+      "schema:name": "TAPEX",
+      "schema:description": "Table Pre-training via Execution: an execution-centric table pre-training approach that trains language models to mimic the behavior of a SQL execution engine on tables, using a synthetic corpus of SQL queries and their execution results.",
+      "schema:version": null,
+      "schema:architecture": "encoder-decoder (BART-Large)",
+      "schema:parameters": null,
+      "trainedOn": [
+        {
+          "@id": "datasource:synthetic_sql_corpus"
+        },
+        {
+          "@id": "dataset:wikisql_weak"
+        },
+        {
+          "@id": "dataset:wikitablequestions"
+        },
+        {
+          "@id": "dataset:sqa"
+        },
+        {
+          "@id": "dataset:tabfact"
+        }
+      ],
+      "evaluatedOn": [
+        {
+          "@id": "dataset:wikisql_weak"
+        },
+        {
+          "@id": "dataset:wikitablequestions"
+        },
+        {
+          "@id": "dataset:sqa"
+        },
+        {
+          "@id": "dataset:tabfact"
+        }
+      ],
+      "achieves": [
+        {
+          "@id": "eval:wikisql_weak_test_acc"
+        },
+        {
+          "@id": "eval:wikisql_weak_dev_acc"
+        },
+        {
+          "@id": "eval:wtq_test_acc"
+        },
+        {
+          "@id": "eval:wtq_dev_acc"
+        },
+        {
+          "@id": "eval:sqa_all_acc"
+        },
+        {
+          "@id": "eval:sqa_seq_acc"
+        },
+        {
+          "@id": "eval:tabfact_test_acc"
+        },
+        {
+          "@id": "eval:tabfact_dev_acc"
+        }
+      ],
+      "subMethod": [
+        {
+          "@id": "method:sql_execution_pretraining"
+        }
+      ],
+      "mention": {
+        "start_char_doc": 20646,
+        "end_char_doc": 20651,
+        "prefix": "In this section, we evaluate",
+        "suffix": "on different downstream tasks to",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          57,
+          62,
+          "title"
+        ],
+        [
+          735,
+          740,
+          "abstract"
+        ],
+        [
+          948,
+          953,
+          "abstract"
+        ],
+        [
+          1122,
+          1127,
+          "abstract"
+        ],
+        [
+          1194,
+          1199,
+          "abstract"
+        ],
+        [
+          4704,
+          4709,
+          "introduction"
+        ],
+        [
+          5125,
+          5130,
+          "introduction"
+        ],
+        [
+          5341,
+          5346,
+          "introduction"
+        ],
+        [
+          6014,
+          6019,
+          "introduction"
+        ],
+        [
+          6103,
+          6108,
+          "introduction"
+        ],
+        [
+          6423,
+          6428,
+          "introduction"
+        ],
+        [
+          6621,
+          6626,
+          "introduction"
+        ],
+        [
+          6723,
+          6728,
+          "introduction"
+        ],
+        [
+          6817,
+          6822,
+          "introduction"
+        ],
+        [
+          6905,
+          6910,
+          "introduction"
+        ],
+        [
+          7010,
+          7015,
+          "introduction"
+        ],
+        [
+          7121,
+          7126,
+          "introduction"
+        ],
+        [
+          13869,
+          13874,
+          "method"
+        ],
+        [
+          14869,
+          14874,
+          "method"
+        ],
+        [
+          14975,
+          14980,
+          "method"
+        ],
+        [
+          15093,
+          15098,
+          "method"
+        ],
+        [
+          17043,
+          17048,
+          "method"
+        ],
+        [
+          18624,
+          18629,
+          "method"
+        ],
+        [
+          18988,
+          18993,
+          "method"
+        ],
+        [
+          20646,
+          20651,
+          "experiments"
+        ],
+        [
+          23973,
+          23978,
+          "experiments"
+        ],
+        [
+          25843,
+          25848,
+          "experiments"
+        ],
+        [
+          26230,
+          26235,
+          "experiments"
+        ],
+        [
+          27107,
+          27112,
+          "experiments"
+        ],
+        [
+          27195,
+          27200,
+          "experiments"
+        ],
+        [
+          27438,
+          27443,
+          "experiments"
+        ],
+        [
+          27593,
+          27598,
+          "experiments"
+        ],
+        [
+          28421,
+          28426,
+          "experiments"
+        ],
+        [
+          28550,
+          28555,
+          "experiments"
+        ],
+        [
+          28674,
+          28679,
+          "experiments"
+        ],
+        [
+          28985,
+          28990,
+          "experiments"
+        ],
+        [
+          29054,
+          29059,
+          "experiments"
+        ],
+        [
+          29124,
+          29129,
+          "experiments"
+        ],
+        [
+          29175,
+          29180,
+          "experiments"
+        ],
+        [
+          29344,
+          29349,
+          "experiments"
+        ],
+        [
+          29523,
+          29528,
+          "experiments"
+        ],
+        [
+          29624,
+          29629,
+          "experiments"
+        ],
+        [
+          30114,
+          30119,
+          "experiments"
+        ],
+        [
+          30635,
+          30640,
+          "experiments"
+        ],
+        [
+          30828,
+          30833,
+          "experiments"
+        ],
+        [
+          30897,
+          30902,
+          "experiments"
+        ],
+        [
+          31100,
+          31105,
+          "experiments"
+        ],
+        [
+          31197,
+          31202,
+          "experiments"
+        ],
+        [
+          31370,
+          31375,
+          "experiments"
+        ],
+        [
+          31472,
+          31477,
+          "experiments"
+        ],
+        [
+          31562,
+          31567,
+          "experiments"
+        ],
+        [
+          31925,
+          31930,
+          "experiments"
+        ],
+        [
+          31990,
+          31995,
+          "experiments"
+        ],
+        [
+          32344,
+          32349,
+          "experiments"
+        ],
+        [
+          33779,
+          33784,
+          "experiments"
+        ],
+        [
+          33957,
+          33962,
+          "experiments"
+        ],
+        [
+          34137,
+          34142,
+          "experiments"
+        ],
+        [
+          34303,
+          34308,
+          "experiments"
+        ],
+        [
+          35632,
+          35637,
+          "experiments"
+        ],
+        [
+          35874,
+          35879,
+          "experiments"
+        ],
+        [
+          36747,
+          36752,
+          "experiments"
+        ],
+        [
+          36851,
+          36856,
+          "experiments"
+        ],
+        [
+          37156,
+          37161,
+          "experiments"
+        ],
+        [
+          40354,
+          40359,
+          "conclusion"
+        ],
+        [
+          40506,
+          40511,
+          "conclusion"
+        ],
+        [
+          40734,
+          40739,
+          "conclusion"
+        ],
+        [
+          65262,
+          65267,
+          "other"
+        ],
+        [
+          71787,
+          71792,
+          "other"
+        ],
+        [
+          74035,
+          74040,
+          "other"
+        ],
+        [
+          74165,
+          74170,
+          "other"
+        ],
+        [
+          74348,
+          74353,
+          "other"
+        ],
+        [
+          74804,
+          74809,
+          "other"
+        ],
+        [
+          74913,
+          74918,
+          "other"
+        ],
+        [
+          74933,
+          74938,
+          "other"
+        ],
+        [
+          74994,
+          74999,
+          "other"
+        ],
+        [
+          75053,
+          75058,
+          "other"
+        ]
+      ]
+    },
+    {
+      "@id": "method:sql_execution_pretraining",
+      "@type": [
+        "MLS_Algorithm",
+        "Method"
+      ],
+      "schema:name": "SQL Execution Pre-training",
+      "schema:description": "Pre-training task where the language model is trained to mimic a SQL execution engine by outputting execution results of SQL queries over tables.",
+      "schema:version": null,
+      "mls:complexity": null,
+      "mls:pseudoCode": null,
+      "trainedOn": [],
+      "evaluatedOn": [],
+      "achieves": [],
+      "subMethod": [],
+      "mention": {
+        "start_char_doc": 30650,
+        "end_char_doc": 30663,
+        "prefix": "understand how well TAPEX performs",
+        "suffix": "after pre-training, we analyze its",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          803,
+          822,
+          "abstract"
+        ],
+        [
+          5239,
+          5252,
+          "introduction"
+        ],
+        [
+          5530,
+          5543,
+          "introduction"
+        ],
+        [
+          13956,
+          13969,
+          "method"
+        ],
+        [
+          14882,
+          14895,
+          "method"
+        ],
+        [
+          15423,
+          15442,
+          "method"
+        ],
+        [
+          30650,
+          30663,
+          "experiments"
+        ],
+        [
+          30782,
+          30795,
+          "experiments"
+        ],
+        [
+          31223,
+          31242,
+          "experiments"
+        ],
+        [
+          32083,
+          32096,
+          "experiments"
+        ],
+        [
+          35993,
+          36006,
+          "experiments"
+        ],
+        [
+          38496,
+          38509,
+          "related_work"
+        ],
+        [
+          40586,
+          40605,
+          "conclusion"
+        ],
+        [
+          75572,
+          75585,
+          "other"
+        ]
+      ]
+    },
+    {
+      "@id": "model:bart_large",
+      "@type": [
+        "MLS_Model",
+        "Method"
+      ],
+      "schema:name": "BART-Large",
+      "schema:description": "Pre-trained encoder-decoder language model used as the backbone for TAPEX. 12 layers in both encoder and decoder, with GeLU activation.",
+      "schema:version": "Large",
+      "schema:architecture": "encoder-decoder Transformer",
+      "schema:parameters": null,
+      "trainedOn": [],
+      "evaluatedOn": [],
+      "achieves": [],
+      "subMethod": [],
+      "mention": {
+        "start_char_doc": 23792,
+        "end_char_doc": 23796,
+        "prefix": "<td>70.6</td> <td>64.0</td> </tr> <tr> <td><b>",
+        "suffix": "</b></td> <td><b>58.6</b></td> <td><b>27.8</b></td> <td><b>65.3</b></td> <td><b>54.1</b></td>",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          1916,
+          1920,
+          "introduction"
+        ],
+        [
+          6335,
+          6339,
+          "introduction"
+        ],
+        [
+          6957,
+          6961,
+          "introduction"
+        ],
+        [
+          10147,
+          10151,
+          "method"
+        ],
+        [
+          10223,
+          10227,
+          "method"
+        ],
+        [
+          10592,
+          10601,
+          "method"
+        ],
+        [
+          11950,
+          11954,
+          "method"
+        ],
+        [
+          16964,
+          16968,
+          "method"
+        ],
+        [
+          18545,
+          18549,
+          "method"
+        ],
+        [
+          23792,
+          23796,
+          "experiments"
+        ],
+        [
+          25662,
+          25666,
+          "experiments"
+        ],
+        [
+          27269,
+          27273,
+          "experiments"
+        ],
+        [
+          27745,
+          27749,
+          "experiments"
+        ],
+        [
+          28038,
+          28042,
+          "experiments"
+        ],
+        [
+          28473,
+          28477,
+          "experiments"
+        ],
+        [
+          28996,
+          29000,
+          "experiments"
+        ],
+        [
+          29357,
+          29361,
+          "experiments"
+        ],
+        [
+          30004,
+          30008,
+          "experiments"
+        ],
+        [
+          31999,
+          32003,
+          "experiments"
+        ],
+        [
+          32324,
+          32328,
+          "experiments"
+        ],
+        [
+          33770,
+          33774,
+          "experiments"
+        ],
+        [
+          34394,
+          34398,
+          "experiments"
+        ],
+        [
+          36900,
+          36904,
+          "experiments"
+        ],
+        [
+          48186,
+          48190,
+          "other"
+        ],
+        [
+          65242,
+          65246,
+          "other"
+        ],
+        [
+          70858,
+          70862,
+          "other"
+        ],
+        [
+          71581,
+          71591,
+          "other"
+        ]
+      ]
+    },
+    {
+      "@id": "eval:wikisql_weak_test_acc",
+      "@type": "MLS_Eval",
+      "mls:measure": "denotation accuracy",
+      "mls:hasValue": 89.5,
+      "mls:stdDev": null,
+      "mls:confidenceInterval": null,
+      "mls:onDataset": {
+        "@id": "dataset:wikisql_weak"
+      },
+      "mention": {
+        "start_char_doc": 27236,
+        "end_char_doc": 27241,
+        "prefix": "registers a denotation accuracy of",
+        "suffix": ", which is 3.7% higher",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          1410,
+          1415,
+          "abstract"
+        ],
+        [
+          27236,
+          27241,
+          "experiments"
+        ]
+      ]
+    },
+    {
+      "@id": "eval:wikisql_weak_dev_acc",
+      "@type": "MLS_Eval",
+      "mls:measure": "denotation accuracy",
+      "mls:hasValue": 89.2,
+      "mls:stdDev": null,
+      "mls:confidenceInterval": null,
+      "mls:onDataset": {
+        "@id": "dataset:wikisql_weak"
+      },
+      "mention": {
+        "start_char_doc": 17067,
+        "end_char_doc": 17071,
+        "prefix": "<td>85.8</td> </tr> <tr> <td>TAPEX</td> <td><b>",
+        "suffix": "</b></td> <td><b>89.5</b></td> </tr> </tbody> </table>",
+        "section": "method",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          17067,
+          17071,
+          "method"
+        ]
+      ]
+    },
+    {
+      "@id": "eval:wtq_test_acc",
+      "@type": "MLS_Eval",
+      "mls:measure": "denotation accuracy",
+      "mls:hasValue": 57.5,
+      "mls:stdDev": null,
+      "mls:confidenceInterval": null,
+      "mls:onDataset": {
+        "@id": "dataset:wikitablequestions"
+      },
+      "mention": {
+        "start_char_doc": 27659,
+        "end_char_doc": 27664,
+        "prefix": "new state-of-the-art denotation accuracy of",
+        "suffix": ", surpassing the previous best",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          1471,
+          1476,
+          "abstract"
+        ],
+        [
+          27659,
+          27664,
+          "experiments"
+        ]
+      ]
+    },
+    {
+      "@id": "eval:wtq_dev_acc",
+      "@type": "MLS_Eval",
+      "mls:measure": "denotation accuracy",
+      "mls:hasValue": 57.0,
+      "mls:stdDev": null,
+      "mls:confidenceInterval": null,
+      "mls:onDataset": {
+        "@id": "dataset:wikitablequestions"
+      },
+      "mention": {
+        "start_char_doc": 23927,
+        "end_char_doc": 23931,
+        "prefix": "<td><b>58.6</b></td> <td><b>27.8</b></td> <td><b>65.3</b></td> <td><b>54.1</b></td> <td><b>",
+        "suffix": "</b></td> </tr> <tr> <td><b>TAPEX</b></td> <td><b><u>74.5</u></b></td>",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          18648,
+          18652,
+          "method"
+        ],
+        [
+          23927,
+          23931,
+          "experiments"
+        ],
+        [
+          65588,
+          65592,
+          "other"
+        ]
+      ]
+    },
+    {
+      "@id": "eval:sqa_all_acc",
+      "@type": "MLS_Eval",
+      "mls:measure": "denotation accuracy (ALL)",
+      "mls:hasValue": 74.5,
+      "mls:stdDev": null,
+      "mls:confidenceInterval": null,
+      "mls:onDataset": {
+        "@id": "dataset:sqa"
+      },
+      "mention": {
+        "start_char_doc": 24004,
+        "end_char_doc": 24008,
+        "prefix": "<td><b>57.0</b></td> </tr> <tr> <td><b>TAPEX</b></td> <td><b><u>",
+        "suffix": "</u></b></td> <td><b><u>48.4</u></b></td> <td><b>76.2</b></td> <td><b><u>71.9</u></b></td> <td><b><u>76.9</u></b></td>",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          1517,
+          1521,
+          "abstract"
+        ],
+        [
+          24004,
+          24008,
+          "experiments"
+        ],
+        [
+          28809,
+          28813,
+          "experiments"
+        ]
+      ]
+    },
+    {
+      "@id": "eval:sqa_seq_acc",
+      "@type": "MLS_Eval",
+      "mls:measure": "denotation accuracy (SEQ)",
+      "mls:hasValue": 48.4,
+      "mls:stdDev": null,
+      "mls:confidenceInterval": null,
+      "mls:onDataset": {
+        "@id": "dataset:sqa"
+      },
+      "mention": {
+        "start_char_doc": 24038,
+        "end_char_doc": 24042,
+        "prefix": "</tr> <tr> <td><b>TAPEX</b></td> <td><b><u>74.5</u></b></td> <td><b><u>",
+        "suffix": "</u></b></td> <td><b>76.2</b></td> <td><b><u>71.9</u></b></td> <td><b><u>76.9</u></b></td> </tr>",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          24038,
+          24042,
+          "experiments"
+        ],
+        [
+          28778,
+          28782,
+          "experiments"
+        ]
+      ]
+    },
+    {
+      "@id": "eval:tabfact_test_acc",
+      "@type": "MLS_Eval",
+      "mls:measure": "accuracy",
+      "mls:hasValue": 84.2,
+      "mls:stdDev": null,
+      "mls:confidenceInterval": null,
+      "mls:onDataset": {
+        "@id": "dataset:tabfact"
+      },
+      "mention": {
+        "start_char_doc": 25898,
+        "end_char_doc": 25902,
+        "prefix": "</tr> <tr> <td><b>TAPEX</b></td> <td><b>84.6</b></td> <td><b>",
+        "suffix": "</b></td> <td><b>93.9</b></td> <td><b>79.6</b></td> <td><b>85.9</b></td> </tr>",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          1560,
+          1564,
+          "abstract"
+        ],
+        [
+          25898,
+          25902,
+          "experiments"
+        ],
+        [
+          77551,
+          77555,
+          "other"
+        ]
+      ]
+    },
+    {
+      "@id": "eval:tabfact_dev_acc",
+      "@type": "MLS_Eval",
+      "mls:measure": "accuracy",
+      "mls:hasValue": 84.6,
+      "mls:stdDev": null,
+      "mls:confidenceInterval": null,
+      "mls:onDataset": {
+        "@id": "dataset:tabfact"
+      },
+      "mention": {
+        "start_char_doc": 25871,
+        "end_char_doc": 25875,
+        "prefix": "<td><b>82.5</b></td> </tr> <tr> <td><b>TAPEX</b></td> <td><b>",
+        "suffix": "</b></td> <td><b>84.2</b></td> <td><b>93.9</b></td> <td><b>79.6</b></td> <td><b>85.9</b></td>",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          25871,
+          25875,
+          "experiments"
+        ]
+      ]
+    },
+    {
+      "@id": "repo:table_pretraining",
+      "@type": "SoftwareRepository",
+      "schema:name": "Table-Pretraining",
+      "schema:url": "https://github.com/microsoft/Table-Pretraining",
+      "schema:version": null,
+      "schema:programmingLanguage": "Python",
+      "schema:dateModified": null,
+      "schema:license": null,
+      "mls:documentationUrl": null,
+      "contains": [
+        {
+          "@id": "impl:tapex"
+        }
+      ],
+      "supports": [
+        {
+          "@id": "env:tapex_training"
+        }
+      ],
+      "mention": {
+        "start_char_doc": 1778,
+        "end_char_doc": 1824,
+        "prefix": "code can be found at",
+        "suffix": ". 1 INTRODUCTION Pre-trained language",
+        "section": "abstract",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          1778,
+          1824,
+          "abstract"
+        ]
+      ]
+    },
+    {
+      "@id": "impl:tapex",
+      "@type": "MLS_Implementation",
+      "schema:identifier": "TAPEX Implementation",
+      "mls:codeRepository": "https://github.com/microsoft/Table-Pretraining",
+      "mls:framework": "fairseq",
+      "mls:dependencies": null,
+      "mls:executionCommand": null,
+      "mls:entryPoint": null,
+      "mls:commitHash": null,
+      "mls:branch": null,
+      "mls:dependenciesHash": null,
+      "runsIn": {
+        "@id": "env:tapex_training"
+      },
+      "requires": [
+        {
+          "@id": "dep:fairseq"
+        }
+      ],
+      "mention": {
+        "start_char_doc": 21815,
+        "end_char_doc": 21822,
+        "prefix": "implement our approach based on",
+        "suffix": "(Ott et al., 2019). During",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          21815,
+          21822,
+          "experiments"
+        ],
+        [
+          51978,
+          51985,
+          "other"
+        ]
+      ]
+    },
+    {
+      "@id": "dep:fairseq",
+      "@type": "Dependency",
+      "mls:packageName": "fairseq",
+      "mls:version": null,
+      "mls:type": "framework",
+      "mls:isOptional": false,
+      "mention": {
+        "start_char_doc": 21815,
+        "end_char_doc": 21822,
+        "prefix": "implement our approach based on",
+        "suffix": "(Ott et al., 2019). During",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          21815,
+          21822,
+          "experiments"
+        ],
+        [
+          51978,
+          51985,
+          "other"
+        ]
+      ]
+    },
+    {
+      "@id": "env:tapex_training",
+      "@type": "Environment",
+      "schema:name": "TAPEX Training Environment",
+      "schema:description": "8 Tesla V100 GPUs, pre-training takes about 36 hours",
+      "mls:hardwareSpecs": "8 Tesla V100 GPUs",
+      "mls:os": null,
+      "mls:pythonVersion": null,
+      "mls:requirementsFile": null,
+      "mls:isDockerized": null,
+      "mention": {
+        "start_char_doc": 26471,
+        "end_char_doc": 26483,
+        "prefix": "takes about 36 hours on",
+        "suffix": "GPUs to finish the pre-training.",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          26471,
+          26483,
+          "experiments"
+        ],
+        [
+          26473,
+          26483,
+          "experiments"
+        ]
+      ]
+    },
+    {
+      "@id": "hp:learning_rate",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "http://example.org/hp/learning_rate",
+      "mls:hasValue": "3e-5",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "float",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Optimization",
+      "hpType": "LearningRate",
+      "uncertain": false,
+      "mention": {
+        "start_char_doc": 26751,
+        "end_char_doc": 26774,
+        "prefix": "both pre-training and fine-tuning, the",
+        "suffix": ". 4.1 MAIN RESULTS Table",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          26751,
+          26774,
+          "experiments"
+        ]
+      ]
+    },
+    {
+      "@id": "hp:batch_size_pretraining",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "http://example.org/hp/batch_size_pretraining",
+      "mls:hasValue": "256",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "integer",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Training",
+      "hpType": "BatchSize",
+      "uncertain": false,
+      "mention": {
+        "start_char_doc": 26425,
+        "end_char_doc": 26442,
+        "prefix": "to 50,000 steps with a",
+        "suffix": ". It takes about 36",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          26425,
+          26442,
+          "experiments"
+        ]
+      ]
+    },
+    {
+      "@id": "hp:batch_size_finetuning",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "http://example.org/hp/batch_size_finetuning",
+      "mls:hasValue": "128",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "integer",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Training",
+      "hpType": "BatchSize",
+      "uncertain": false,
+      "mention": {
+        "start_char_doc": 26689,
+        "end_char_doc": 26706,
+        "prefix": "to 20,000 steps with a",
+        "suffix": ". For both pre-training and",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          26689,
+          26706,
+          "experiments"
+        ]
+      ]
+    },
+    {
+      "@id": "hp:max_steps_pretraining",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "http://example.org/hp/max_steps_pretraining",
+      "mls:hasValue": "50000",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "integer",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Training",
+      "hpType": "MaxSteps",
+      "uncertain": false,
+      "mention": {
+        "start_char_doc": 26405,
+        "end_char_doc": 26417,
+        "prefix": "pre-training procedure runs up to",
+        "suffix": "with a batch size of",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          26405,
+          26417,
+          "experiments"
+        ]
+      ]
+    },
+    {
+      "@id": "hp:max_steps_finetuning",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "http://example.org/hp/max_steps_finetuning",
+      "mls:hasValue": "20000",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "integer",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Training",
+      "hpType": "MaxSteps",
+      "uncertain": false,
+      "mention": {
+        "start_char_doc": 26669,
+        "end_char_doc": 26681,
+        "prefix": "fine-tuning procedure runs up to",
+        "suffix": "with a batch size of",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          26669,
+          26681,
+          "experiments"
+        ]
+      ]
+    },
+    {
+      "@id": "hp:num_layers",
+      "@type": "MLS_HyperParameter",
+      "mls:name": "http://example.org/hp/num_layers",
+      "mls:hasValue": "12",
+      "mls:wasDerivedFrom": "paper",
+      "mls:type": "integer",
+      "mls:searchSpace": null,
+      "hpCategory": "HP_Architecture",
+      "hpType": "NumLayers",
+      "uncertain": false,
+      "mention": {
+        "start_char_doc": 10642,
+        "end_char_doc": 10651,
+        "prefix": "configuration in our experiments, i.e.,",
+        "suffix": "are used in both the",
+        "section": "method",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          10642,
+          10651,
+          "method"
+        ]
+      ]
+    },
+    {
+      "@id": "exp:group_tapex",
+      "@type": "mls:ExperimentGroup",
+      "schema:identifier": "TAPEX Experiments",
+      "schema:description": "Evaluation of TAPEX on four table understanding benchmarks",
+      "schema:objective": "Demonstrate that table pre-training via SQL execution achieves state-of-the-art results on table understanding tasks",
+      "schema:hypothesis": "Pre-training a language model to mimic a SQL executor on synthetic SQL-table data leads to improved performance on downstream table understanding tasks.",
+      "schema:methodology": "Pre-train BART-Large on synthetic SQL execution corpus, then fine-tune on each downstream dataset. Report median performance over five random runs.",
+      "mls:evaluationMeasure": "denotation accuracy / accuracy",
+      "mls:task": [
+        {
+          "@id": "task:tableqa"
+        },
+        {
+          "@id": "task:tablefv"
+        }
+      ],
+      "mls:hasSubExperiment": [
+        {
+          "@id": "exp:wikisql_weak"
+        },
+        {
+          "@id": "exp:wikitablequestions"
+        },
+        {
+          "@id": "exp:sqa"
+        },
+        {
+          "@id": "exp:tabfact"
+        }
+      ],
+      "mention": {
+        "start_char_doc": 20602,
+        "end_char_doc": 20615,
+        "prefix": "corpus with high quality. ##",
+        "suffix": "In this section, we evaluate",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          20602,
+          20615,
+          "experiments"
+        ]
+      ]
+    },
+    {
+      "@id": "exp:wikisql_weak",
+      "@type": "Experiment",
+      "schema:identifier": "TAPEX on WIKISQL-WEAK",
+      "schema:description": "Evaluate TAPEX on weakly-supervised WikiSQL",
+      "schema:objective": null,
+      "schema:hypothesis": null,
+      "schema:methodology": null,
+      "realizes": [
+        {
+          "@id": "task:tableqa"
+        }
+      ],
+      "usesData": [
+        {
+          "@id": "dataset:wikisql_weak"
+        }
+      ],
+      "produces": [
+        {
+          "@id": "method:tapex"
+        }
+      ],
+      "usesParameters": [
+        {
+          "@id": "hp:learning_rate"
+        },
+        {
+          "@id": "hp:batch_size_finetuning"
+        },
+        {
+          "@id": "hp:max_steps_finetuning"
+        },
+        {
+          "@id": "hp:num_layers"
+        }
+      ],
+      "executes": [
+        {
+          "@id": "impl:tapex"
+        }
+      ],
+      "mention": {
+        "start_char_doc": 20813,
+        "end_char_doc": 20825,
+        "prefix": "approach on weakly-supervised WikiSQL (",
+        "suffix": ") (Zhong et al., 2017),",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          17173,
+          17185,
+          "method"
+        ],
+        [
+          20813,
+          20825,
+          "experiments"
+        ],
+        [
+          20964,
+          20976,
+          "experiments"
+        ],
+        [
+          21475,
+          21487,
+          "experiments"
+        ],
+        [
+          26889,
+          26901,
+          "experiments"
+        ],
+        [
+          27071,
+          27083,
+          "experiments"
+        ],
+        [
+          27181,
+          27193,
+          "experiments"
+        ],
+        [
+          27511,
+          27523,
+          "experiments"
+        ],
+        [
+          34966,
+          34978,
+          "experiments"
+        ],
+        [
+          61898,
+          61910,
+          "other"
+        ],
+        [
+          62593,
+          62605,
+          "other"
+        ],
+        [
+          64748,
+          64760,
+          "other"
+        ],
+        [
+          65426,
+          65438,
+          "other"
+        ],
+        [
+          65715,
+          65727,
+          "other"
+        ],
+        [
+          73891,
+          73903,
+          "other"
+        ]
+      ]
+    },
+    {
+      "@id": "exp:wikitablequestions",
+      "@type": "Experiment",
+      "schema:identifier": "TAPEX on WIKITABLEQUESTIONS",
+      "schema:description": "Evaluate TAPEX on complex table QA",
+      "schema:objective": null,
+      "schema:hypothesis": null,
+      "schema:methodology": null,
+      "realizes": [
+        {
+          "@id": "task:tableqa"
+        }
+      ],
+      "usesData": [
+        {
+          "@id": "dataset:wikitablequestions"
+        }
+      ],
+      "produces": [
+        {
+          "@id": "method:tapex"
+        }
+      ],
+      "usesParameters": [
+        {
+          "@id": "hp:learning_rate"
+        },
+        {
+          "@id": "hp:batch_size_finetuning"
+        },
+        {
+          "@id": "hp:max_steps_finetuning"
+        },
+        {
+          "@id": "hp:num_layers"
+        }
+      ],
+      "executes": [
+        {
+          "@id": "impl:tapex"
+        }
+      ],
+      "mention": {
+        "start_char_doc": 20849,
+        "end_char_doc": 20867,
+        "prefix": "(WIKISQL-WEAK) (Zhong et al., 2017),",
+        "suffix": "(Pasupat & Liang, 2015), SQA",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          6969,
+          6987,
+          "introduction"
+        ],
+        [
+          18754,
+          18772,
+          "method"
+        ],
+        [
+          19281,
+          19299,
+          "method"
+        ],
+        [
+          20849,
+          20867,
+          "experiments"
+        ],
+        [
+          21057,
+          21075,
+          "experiments"
+        ],
+        [
+          27528,
+          27546,
+          "experiments"
+        ],
+        [
+          27573,
+          27591,
+          "experiments"
+        ],
+        [
+          27988,
+          28006,
+          "experiments"
+        ],
+        [
+          31511,
+          31529,
+          "experiments"
+        ],
+        [
+          35556,
+          35574,
+          "experiments"
+        ],
+        [
+          62014,
+          62032,
+          "other"
+        ],
+        [
+          62914,
+          62932,
+          "other"
+        ],
+        [
+          65333,
+          65351,
+          "other"
+        ],
+        [
+          65441,
+          65459,
+          "other"
+        ],
+        [
+          65534,
+          65552,
+          "other"
+        ],
+        [
+          69085,
+          69103,
+          "other"
+        ],
+        [
+          70040,
+          70058,
+          "other"
+        ],
+        [
+          70195,
+          70213,
+          "other"
+        ],
+        [
+          70305,
+          70323,
+          "other"
+        ],
+        [
+          73919,
+          73937,
+          "other"
+        ]
+      ]
+    },
+    {
+      "@id": "exp:sqa",
+      "@type": "Experiment",
+      "schema:identifier": "TAPEX on SQA",
+      "schema:description": "Evaluate TAPEX on conversational table QA",
+      "schema:objective": null,
+      "schema:hypothesis": null,
+      "schema:methodology": null,
+      "realizes": [
+        {
+          "@id": "task:tableqa"
+        }
+      ],
+      "usesData": [
+        {
+          "@id": "dataset:sqa"
+        }
+      ],
+      "produces": [
+        {
+          "@id": "method:tapex"
+        }
+      ],
+      "usesParameters": [
+        {
+          "@id": "hp:learning_rate"
+        },
+        {
+          "@id": "hp:batch_size_finetuning"
+        },
+        {
+          "@id": "hp:max_steps_finetuning"
+        },
+        {
+          "@id": "hp:num_layers"
+        }
+      ],
+      "executes": [
+        {
+          "@id": "impl:tapex"
+        }
+      ],
+      "mention": {
+        "start_char_doc": 20893,
+        "end_char_doc": 20896,
+        "prefix": "WIKITABLEQUESTIONS (Pasupat & Liang, 2015),",
+        "suffix": "(Iyyer et al., 2017), and",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          1490,
+          1493,
+          "abstract"
+        ],
+        [
+          20893,
+          20896,
+          "experiments"
+        ],
+        [
+          21126,
+          21129,
+          "experiments"
+        ],
+        [
+          24216,
+          24219,
+          "experiments"
+        ],
+        [
+          26923,
+          26926,
+          "experiments"
+        ],
+        [
+          28587,
+          28590,
+          "experiments"
+        ],
+        [
+          28663,
+          28666,
+          "experiments"
+        ],
+        [
+          28865,
+          28868,
+          "experiments"
+        ],
+        [
+          29004,
+          29007,
+          "experiments"
+        ],
+        [
+          62136,
+          62139,
+          "other"
+        ],
+        [
+          63351,
+          63354,
+          "other"
+        ],
+        [
+          64451,
+          64454,
+          "other"
+        ],
+        [
+          65637,
+          65640,
+          "other"
+        ],
+        [
+          65730,
+          65733,
+          "other"
+        ],
+        [
+          65808,
+          65811,
+          "other"
+        ],
+        [
+          73953,
+          73956,
+          "other"
+        ]
+      ]
+    },
+    {
+      "@id": "exp:tabfact",
+      "@type": "Experiment",
+      "schema:identifier": "TAPEX on TABFACT",
+      "schema:description": "Evaluate TAPEX on table-based fact verification",
+      "schema:objective": null,
+      "schema:hypothesis": null,
+      "schema:methodology": null,
+      "realizes": [
+        {
+          "@id": "task:tablefv"
+        }
+      ],
+      "usesData": [
+        {
+          "@id": "dataset:tabfact"
+        }
+      ],
+      "produces": [
+        {
+          "@id": "method:tapex"
+        }
+      ],
+      "usesParameters": [
+        {
+          "@id": "hp:learning_rate"
+        },
+        {
+          "@id": "hp:batch_size_finetuning"
+        },
+        {
+          "@id": "hp:max_steps_finetuning"
+        },
+        {
+          "@id": "hp:num_layers"
+        }
+      ],
+      "executes": [
+        {
+          "@id": "impl:tapex"
+        }
+      ],
+      "mention": {
+        "start_char_doc": 20923,
+        "end_char_doc": 20930,
+        "prefix": "(Iyyer et al., 2017), and",
+        "suffix": "(Chen et al., 2020). Compared",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          20923,
+          20930,
+          "experiments"
+        ],
+        [
+          21644,
+          21651,
+          "experiments"
+        ],
+        [
+          26187,
+          26194,
+          "experiments"
+        ],
+        [
+          26931,
+          26938,
+          "experiments"
+        ],
+        [
+          29098,
+          29105,
+          "experiments"
+        ],
+        [
+          29237,
+          29244,
+          "experiments"
+        ],
+        [
+          35094,
+          35101,
+          "experiments"
+        ],
+        [
+          62269,
+          62276,
+          "other"
+        ],
+        [
+          63720,
+          63727,
+          "other"
+        ],
+        [
+          64765,
+          64772,
+          "other"
+        ],
+        [
+          65323,
+          65330,
+          "other"
+        ],
+        [
+          65627,
+          65634,
+          "other"
+        ],
+        [
+          69237,
+          69244,
+          "other"
+        ],
+        [
+          73972,
+          73979,
+          "other"
+        ]
+      ]
+    },
+    {
+      "@id": "step:sql_query_synthesis",
+      "@type": "DataProcessingStep",
+      "description": "Synthesize executable SQL queries and their execution results over sampled tables from WIKITABLEQUESTIONS training set using SQL templates from SQUALL",
+      "codeReference": null,
+      "wasDerivedFrom": "paper",
+      "startedAtTime": null,
+      "endedAtTime": null,
+      "transformationType": "synthesis",
+      "parameters": "Up to 5 million SQL-table pairs; ~1,500 source tables; SQL templates from SQUALL",
+      "prov-uses": {
+        "@id": "datasource:synthetic_sql_corpus"
+      },
+      "mention": {
+        "start_char_doc": 21867,
+        "end_char_doc": 21877,
+        "prefix": "al., 2019). During pre-training, we",
+        "suffix": "up to 5 million pairs",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          883,
+          895,
+          "abstract"
+        ],
+        [
+          3225,
+          3235,
+          "introduction"
+        ],
+        [
+          5353,
+          5363,
+          "introduction"
+        ],
+        [
+          5635,
+          5645,
+          "introduction"
+        ],
+        [
+          21867,
+          21877,
+          "experiments"
+        ],
+        [
+          37881,
+          37891,
+          "related_work"
+        ],
+        [
+          38140,
+          38150,
+          "related_work"
+        ],
+        [
+          40440,
+          40450,
+          "conclusion"
+        ],
+        [
+          41771,
+          41781,
+          "other"
+        ],
+        [
+          56228,
+          56238,
+          "other"
+        ],
+        [
+          69771,
+          69783,
+          "other"
+        ]
+      ]
+    }
+  ]
+}
