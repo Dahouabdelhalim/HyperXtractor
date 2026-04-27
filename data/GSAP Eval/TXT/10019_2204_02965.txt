@@ -1,0 +1,286 @@
+LilNetX: Lightweight Networks with EXtreme Model Compression and Structured Sparsification
+
+Abstract:
+We introduce LilNetX, an end-to-end trainable technique for neural networks that enables learning models with specified accuracy-rate-computation trade-off. Prior works approach these problems one at a time and often require post-processing or multistage training which become less practical and do not scale very well for large datasets or architectures. Our method constructs a joint training objective that penalizes the self information of network parameters in a reparameterized latent space to encourage small model size while also introducing priors to increase structured sparsity in the parameter space to reduce computation. We achieve up to 50% smaller model size and 98% model sparsity on ResNet-20 while retaining the same accuracy on the CIFAR-10 dataset as well as 35% smaller model size and 42% structured sparsity on ResNet-50 trained on ImageNet, when compared to existing state-of-the-art model compression methods. Code is available at https://github.com/Sharath-girish/LilNetX.
+Preprint. Under review.
+
+Main:
+
+
+
+1 Introduction
+Recent research in deep neural networks (DNNs) has shown that large performance gains can be achieved on a variety of computer vision tasks simply by employing larger parameter-heavy and computationally intensive architectures [13, 26]. However, as the DNNs proliferate in the industry, they often need to be trained repeatedly, transmitted over the network to different devices, and need to perform under hardware constraints with minimal loss in accuracy, all at the same time. Hence, finding ways to reduce the storage size of the models on the devices while simultaneously improving their run-time is of utmost importance. This paper proposes a general purpose neural network training framework to jointly optimize the model parameters for accuracy, model size on the disk and computation, on any given task.
+Over the last few years, the research on training smaller and efficient DNNs has followed two seemingly parallel tracks with different goals: One line of work focuses on model compression to deal with the storage and communication network bottlenecks when deploying a large number of models over the air. While they achieve high levels of compression in terms of memory, their focus is not on reducing computation. They either require additional algorithms with some form of post hoc training [71] or quantize the network parameters at the cost of network performance [10, 39]. The other line of work focuses on reducing computation through various model pruning techniques [16]. The focus of these works is to decrease the number of Floating Point Operations (FLOPs) of the network at the inference time, albeit they are also able to achieve some compression due to fewer parameters. Typically, the cost of storing these pruned networks on disk is much higher than the dedicated model compression works. ResNet-50
+LilNetX (Ours)
+Oktay [52] Wiedemann [69] Frankle [16] Lin [41] Reduction in Model Size % Reduction in Slice FLOPs Figure 1 : Our method jointly optimizes for size on disk (x-axis), as well as slice FLOPs (y-axis). We compare various approaches using the base ResNet-50 [26] architecture on ImageNet dataset [11] and plot FLOPs vs. size for models with similar accuracy. Prior methods optimize for either quantization (■) or pruning (▲) objectives. Our approach, LilNetX, enables training a deep model while simultaneously optimizing for computation (using structured sparsity) as well as model size. Refer Tab. 1 for details.
+In this work, we bridge the gap between the two and show for the first time that it is indeed possible to jointly optimize the model in terms of both the compression to reduce disk space as well as structured sparsity to reduce computation (Fig. 1). We propose to perform model compression by penalizing the entropy of weights that are quantized in a reparameterized latent space. This idea of reparameterized quantization [52] is extremely effective in reducing the effective model size on the disk, however, requires the full dense model during the inference. To address this shortcoming, we introduce key design changes to encourage structured and unstructured parameter sparsity in the model and enable tradeoff with model compression rates and accuracy. Our priors reside in reparameterized latent space while encouraging sparsity in the model space. More specifically, we introduce the notion of slice sparsity, a form of structured sparsity where each K × K slice is fully zero for a convolutional kernel of filter size K. Unlike unstructured sparsity which have irregular memory access and offer little practical speedups, slice-structured sparsity allows for convolutions to be represented as block sparse matrix multiplications which can be exploited for computational gains and inference speedups through dedicated libraries like NVIDIA's CuSparse library [51]. Slice structured sparsity hits the middle ground between the advantages of high sparsity ratios from unstructured sparsity and practical inference speedups from fully structured sparsity.
+Extensive experimentation on three datasets show that our framework achieves extremely high levels of sparsity with little to no performance drops. In addition to increased sparsity, the introduced priors show gains even in model compression compared to Oktay et al. [52]. By varying the weight of the priors, we establish a trade-off between model size and accuracy as well as sparsity and accuracy. As our method achieves high levels of model compression along with structured sparsity, we dub it LilNetX -Lightweight Networks with EXtreme Compression and Structured Sparsification. We summarize our contributions below.
+• We introduce LilNetX, an algorithm to jointly perform model compression as well as structured and unstructured sparsification for direct computational gains in network inference. Our algorithm can be trained end-to-end using a single joint optimization objective and does not require post-hoc training or post-processing.
+• With extensive ablation studies and results, we show the effectiveness of our approach while outperforming existing approaches in both model compression and pruning in most networks and dataset setups.
+
+2 Related Work
+Typical model compression methods usually follow some form of quantization, parameter pruning, or both. Both lines of work focus on reducing the size of the model on the disk, and/or increasing the speed of the network during the inference time, while maintaining an acceptable level of classification accuracy. In this section, we discuss prominent quantization and pruning techniques.
+
+2.1 Model Pruning
+It was well established early on that it is possible to prune a large number of neural network weights without significant loss in the performance [23, 37, 54]. Based on the stage of training at which weights are pruned, we can categorize model pruning methods broadly into three classes.
+Pruning at initialization techniques such as SNIP [38], GraSP [65], NTT [42], and SynFlow [61] aim to prune the neural networks without any training by removing the weights least salient with respect to the loss for few images from the dataset. Even though these methods surpass the trivial baseline of random network pruning at initialization, [19] suggests that accuracy of these methods on standard classification benchmarks remains below the dense network obtained after training.
+Pruning after training introduced by the Lottery Ticket Hypothesis [16], adapted by various works [3, 5, 6, 12, 17, 18, 20, 47, 49, 72, 75], prune the neural network weights based on the magnitude after the network is trained. Typically the dense network is reset to the initial weights after pruning and retrained from scratch. This results in additional training cost, however, the resulting network can achieve similar performance as the dense network, and better performance than the sparse networks obtained without training.
+The third class of methods, perform the pruning while training [22, 23, 33, 55, 61, 64]. In these methods, the network is iteratively pruned during training based on either the magnitude of weights or their gradients. These heuristics have shown to perform well, however can only induce unstructured sparsity in the network which is not hardware friendly. Further, in these methods the pruning heuristic is often agnostic to the actual accuracy criteria for which the network is being optimized. Structured pruning methods [27-29, 40, 43, 45, 46, 68, 73, 80, 82] on the other hand, introduce additional priors or structure on the weights to be pruned, and have been shown to be effective in improving the inference speeds of the model on both CPUs and GPUs.
+
+2.2 Model Quantization
+Quantization methods for compressing neural network discretize the parameters of a network to a small, finite set of values, so that they can be further stored efficiently using one or more entropy coding methods [31, 56]. Some of the earlier methods resort to uniform quantization of weights to binary or tertiary representation of the weights [10, 30, 32, 39, 53, 79, 81]. Several other methods have focused on non-uniform Scalar Quantization (SQ) techniques [1, 50, 63, 70, 77, 78]. In SQ methods, neural network parameters or parameter groups can be quantized, both uniformly or non-uniformly, before or afer training. The maximum possible set of values that the representers (of the neural network parameters) can take is given by Kronecker product of representable scalar elements.
+Vector Quantization (VQ) [7, 8, 21, 60, 67] on the other hand, is a more general technique, where the representers can take any value. VQ can be done by clustering of CNN layers at various rate-accuracy trade-offs [15, 59], hashing [7, 8], or residual quantization [21]. In practice, Scalar Quantization (SQ) is preferred over VQ due to its simplicity and effectiveness without additional encoding complexity. Young et al. [74] provide an overview of various transform based quantization techniques for compressing CNNs.
+Oktay et al. [52] propose to warp the network parameters in a 'latent' space using a transformation, and perform scalar quantization in the learned latent space during model training. This allows SQ to be more flexible while at the same time, computationally more feasible as compared to VQ. This approach while effective at reducing the model size on the disk, doesn't provide any computation gains during inference since the decoded model is dense. In this paper, we build upon [52], to jointly train a model for both compression and computational gains. We describe our approach in Sec. A standard CNN comprises of a sequence of convolutional and fullyconnected layers. We reparameterize the parameters W i of each of these layers as W i in a quantized latent space. CNN parameters can be computed using a learned purely linear transform Ψ of the latent parameters. Linearity of transform allows sparsity in the quantized latents to translate into the sparsity of network parameters. Further, we organize each parameter tensor as a set of slices (depicted as colored bands) corresponding to different channels. Additional loss terms are then introduced to encourage slice sparsity and jointly optimize for accuracy-rate-computation. while highlighting our contributions. We show the benefits of our approach in terms of even smaller model size and better computational gains while maintaining high levels of accuracy in Sec. 4.
+
+3 Approach
+We consider the task of classification using a convolutional neural network (CNN), although our approach can be trivially extended to other tasks such as object detection or generative modeling. Given a dataset of N images and their corresponding labels {x i , y i } N i=1 , our goal is to train a CNN with parameters Θ that is jointly optimized to: 1) maximize classification accuracy, 2) minimize the number of bits required to store the model on disk, and 3) minimize the computational cost of inference in the model. To keep our method end-to-end trainable, we formulate it as minimization of a joint objective that allows for an accuracy-rate-computation trade-off as belowL(Θ) = L acc (Θ) + L rate (Θ) + L compute (Θ).
+For the task of classification, the accuracy term L acc (Θ) is the usual cross-entropy loss. It encourages the model to maximize prediction accuracy. The rate term L rate (Θ) encourages the model have a small disk size. We modify Oktay et al. [52] in the formulation of this term, where a self-information penalty encourages the parameters to have a small bit representation. The rate term, while encouraging smaller model size, doesn't lead to computational gains as the learned parameters are still dense. Our computation term L compute (Θ) addresses this issue by introducing a structured sparsity inducing term that encourages the model to be more amenable to computational optimizations. Refer to Figure 2 for a high-level overview of our approach. In the following sections we describe the rate and computation terms in more detail.
+
+3.1 Rate term
+We formulate our rate term by building upon Oktay et al. [52].The CNN weights Θ are reparameterized in terms of a latent representation. The latent representation is quantized and compressed while the network parameters are implicitly defined as a transform of the latent representation.
+A typical CNN consists of a sequence of convolutional and dense layers. For each of these layers, we denote weights as W and bias as b,Θ = W 1 , b 1 , W 2 , b 2 , . . . , W N , b N
+where N is the total number of layers in the network, and W k , b k represent weight and bias parameters of the kth layer. Each of these parameters can take continuous values during inference.
+However these parameters are stored using their discrete reparameterized forms belonging to a corresponding setΦ = W 1 , b 1 , W 2 , b 2 , . . . , W N , b N
+For each convolutional layer, W is a weight tensor of dimensions C in × C out × K × K, where C in is the number of input channels, and C out is the number of output channels, and K denotes the filter width and height. The corresponding reparameterized weight tensor W is represented by a two-dimensional (2D) matrix of size C in C out × K 2 . Similarly, for each dense layer, W is a tensor of dimension C in × C out and its corresponding reparameterized weight W can be represented by a matrix of dimension C in C out × 1. All the biases can be reparameterized in the same way as dense layers. Each reparameterization can hence be represented by a quantized 2D matrix W ∈ Z CinCout×l where l = 1 for dense weights (and biases) while l = K 2 for convolutional weights. Each in W represents a sample drawn from an l-dimensional discrete probability distribution. In order to convert parameters from latent space Φ to model space Θ, [52] introduced learnable affine transform Ψ for convolutional, dense, and bias weights.W = reshape(Ψ scale ( W T + Ψ shift ))
+where Ψ scale ∈ R l×l , Ψ shift ∈ R l are the affine transformation parameters. Also note that model partitioning is performed such that different kinds of layers use different pair of transform parameters (Ψ scale , Ψ shift ). That is, convolutional layers have their own transform, while dense layers have their own, and so on.
+As Φ consists of discrete parameters which are difficult to optimize, continuous surrogates W are maintained for each quantized parameter W . W is thus simply obtained by rounding the individual elements of W to the nearest integer. Rate minimization is achieved by enforcing an entropy penalty on the discrete weights. Since discrete entropy is non-differentiable, a continuous proxy is used instead. A set of continuous density functions implemented as small neural networks are fitted to W + n where n ∼ U(− 1 2 , 1 2 ) is a matrix whose elements are drawn from the uniform distribution. We recap that each latent weight layer W is a matrix in Z CinCout×l and can be rewritten as a factorized probability model as shown in Eq. (5). The entropy of model weights can now be minimized directly by minimizing the negative log likelihood which serve as an approximation to the self-information I (Eq. ( 5)). The rate term is then the sum of all the self-information terms.q( W ) = CinCout j=1 l i=1 q i ( W j,i ) and I( W ) = − log 2 q( W )L rate (Θ) = λ I ϕ∈Φ I( ϕ)
+Here q i represents the probability model for the i th element of an l−dimensional row slice of W , λ I is a trade-off parameter that permits specification of relative weight with respect to other terms. A straight-through estimator [2] is used to back-propagate the gradients from the classification loss to parameter latents.
+
+3.2 Sparsity priors
+While the rate term described in previous section encourages a smaller representation of the model in terms of the number of bits required to store the model on disk, it doesn't reduce the number of parameters in a way that leads to computational gains. To address this, we introduce a few key changes and then formulate our computation term as structured sparsity priors that lead to reduced computation. Note that we formulate all the priors in the reparameterized latent space to decouple from the affine transform parameters Ψ scale , Ψ shift and to be consistent with the L rate (Θ) term that is also applied in the same space.
+Unstructured sparsity with zero mean prior: Our first contribution derives from the observation that even if the latent representation of the parameters is all zero, the resulting parameters may still be non-zero. For example, in order to enforce structural sparsity in the convolutional layers in the model space W , we require each K × K slice to be all zero. However, this is only possible if (Ψ shift + W ) in Eq. 4 is a zero vector itself or lies in the null space of Ψ scale . We notice that the latter does not occur in most practical situations especially when the vector is discrete. Therefore, we remove the shift parameter Ψ shift and make the affine transform a purely linear transform. Now a zero vector in latent space results in a zero vector in the model space. Note that any single non zero element, in the latents corresponding to a slice, causes the full transformed vector to be nonzero and does not yield any sparsity in the model space.
+Next, we observe that zero entropy distributions over latents do not necessarily imply zero valued latents. They could take on any constant value. Therefore, we introduce a zero-mean prior on the latent representation of the parameters to encourage the latent parameters to go to zero as the entropy of their distribution decreases. This penalty encourages the ground state of the zero entropy distributions to be zero value, as opposed to an arbitrary constant values in absence of this penalty. As a result this penalty encourages unstructured sparsity in the latents. We use a simple gaussian as a zero mean prior that results in an l 2 penalty on the continuous surrogates W of the individual weight latents. A laplacian prior, resulting in a l 1 penalty, can also be used along with/instead of the gaussian prior. While l 1 penalty usually leads to sparsity on its own, in conjunction with rate penalty both seemed to have similar effect of encouraging unstructured sparsity. We experimented with both the priors and observed similar performance (an ablation study is provided in Sec. B of the appendix).
+Group sparsity prior for computation: Now note that W can be viewed as being represented as a set of groups (or slices), where each group is of size K × K corresponding to a same size slice of W . These slices going to zero as a whole lead to a block sparse structure in the corresponding transform matrix for the parameter W , which can then be exploited for computational gains. To encourage individual slices to go to zero as a whole we propose to use a group sparsity regularization [76] on the W slices as followingL group = Cin×Cout j=1 √ ρ j ∥ W j ∥ 2 .
+Here W j is the jth slice of the latent weight matrix, and ρ j is a term to account for varying group sizes. Our overall computation term based on structured and unstructured sparsity becomesL compute (Θ) = λ U ∥ W ∥ 2 2 + λ S Cin×Cout j=1 √ ρ j ∥ W j ∥ 2
+Note that λ U and λ S are trade-off parameters for the individual sparsity terms.
+
+3.3 Discussion
+The overall loss function is the combination of cross-entropy loss (for classification), self-information of the reparameterizations, and the regularization for structured and unstructured sparsity as following+ λU ∥ W ∥ 2 2 Unstructured Sparsity + λS C in ×Cout j=1 √ ρj∥ W j ∥2
+Structured Sparsity (9) Without the group prior, the gaussian prior and the learned prior used by the rate penalty assume the individual weights in each slice to be independent draws. The group prior enforces structure on the weights and assigns higher likelihood for fully sparse or dense weight slices. Combined, all these priors enforce a slice-wise sparsity in the decoded weights. This sparsity, which we term slicesparsity, hits a middle ground between completely unstructured sparsity where individual weights are independently zero and fully structured sparsity where an entire filter is zero. Note that convolutions with slice-sparse weight tensors, when represented as matrix multiplications (as done by the popular im2col algorithm) [4], form block sparse matrices. Libraries, such as NVIDIA's Cusparse library [51], can exploit such block sparse structure to achieve speedups in comparison to dense matrix multiplications or entirely unstructured sparsity. We use the term Slice FLOPs (or SFLOPs) to denote the direct computational gain we can obtain through block or slice sparsity.
+
+4 Experiments
+Datasets. We consider three datasets in our experiments. CIFAR-10 and CIFAR-100 datasets [35] consist of 50000 training and 10000 test color images each of size 32 × 32. CIFAR-10 has 10 classes (with 6000 images per class) and CIFAR-100 has 100 classes (with 600 images per class). For large scale experiments, we use ILSVRC2012 (ImageNet) dataset [11]. It has 1.2 million images for training, 50000 images for the test and 1000 classes.
+Network Architectures. For CIFAR-10 and CIFAR-100 datasets, we show results using two architectures -VGG-16 [58] and ResNet-20 with a width multiplier of 4 (ResNet-20-4) [26]. VGG-16 is a commonly used architecture consisting of 13 convolutional layers of kernel size 3 × 3 and 3 dense or fully-connected layers. Dense layers are resized to adapt to CIFAR's 32 × 32 image size, as done in the baseline approaches [52]. ResNet-20-4 consists of 3 ResNet groups, each with 3 residual blocks. All the convolutional layer are of size 3 × 3, and there is a single dense layer at the end.
+For the ImageNet experiments, we use ResNet-18/50 [26], an 18/50-layer network comprising of one 7 × 7 convolutional layer, one dense layer and the remaining 3 × 3 convolutional layers. We also run experiments on the MobileNet-V2 architecture [57] which consists of depthwise separable convolutions and inverted Bottleneck blocks.
+
+4.1 Implementation Details
+We train all of our models from scratch. CIFAR-10 and CIFAR-100 experiments are trained for 200 epochs. We use the FFCV library [36] for faster ImageNet training, with a batchsize of 2048/512 for ResNet-18/50 split across 4 GPUs. We train ResNet-18/50 for 35/32 epochs in order to keep the range of the uncompressed network accuracies similar to other works for a fair comparison. CIFAR-10 and CIFAR-100 training schedules amount to much fewer iterations compared to previous works. Nevertheless, we show strong performance in terms of model compression and sparsity outperforming existing model compression works while converging faster with relatively fewer epochs.
+We use two optimizers, one for optimizing the parameters of the entropy model q( W ), and the other for optimizing the decoder matrix Ψ and the model parameters Φ. Entropy model is optimized using Adam [34] with a learning rate of 10 −4 for all our experiments. The remaining parameters are optimized using Adam with a learning rate of 0.01 for CIFAR-10 experiments and a learning rate of 0.02/0.006/0.01 for ResNet-18/50/MobileNet-v2 respectively on ImageNet with a cosine decay schedule. Our model compression results are reported using the torchac library [48] which does arithmetic coding of the weights given probability tables for the quantized values which we obtain from the trained entropy models. We do not compress the biases and batch normalization parameters and include the additional sizes from these parameters as well as the parameters Ψ whenever we report the model size unless mentioned otherwise. The entropy model for VGG-16 consists of a parameter group for each dense layer and a parameter group for all 3 × 3 convolutions leading to four weight decoders/probability models for each parameter group. For ResNet-20-4 we use zero padding shortcut type A as defined in [26], which leads to only 2 parameter groups, one for the final dense layer and the other for all 3 × 3 convolutions. For ResNet-18 trained on ImageNet, we use three parameter groups, for the initial 7x7 convolution, 3 × 3 convolutions, as well as the dense layer. ResNet-50 consists of an additional parameter group for 1 × 1 convolutions. MobileNet-V2 consists of 3 parameter groups for the initial 3x3 convolution, final dense layer and the remaining 3x3 convolution. Initialization of the network weights and the decoders are non-trivial in terms of this decoding scheme. We provide an explanation of our initialization approach in Sec. C in our appendix.
+Recall from the Eq. ( 9) that in addition to the usual cross-entropy loss for classification, we have three additional loss terms and coefficients.
+Compression coefficient. The rate term allows us to trade-off between model size (bit-rate) and accuracy. We fix the coefficient λ I = 10 −4 in our experiments.
+Table 1 : Comparison of our approach against other model compression techniques. We show two cases of our method with best error rate and also extreme compression at higher error rate. We achieve higher compression along with the added computational benefits of high slice sparsity. Best corresponds to our best model in terms of accuracy while Extreme is matching the range of error of baselines if exists. * corresponds to unstructured sparsity which is generally higher than structured sparsity. − implies that the work perform pruning but do not report numbers in their paper. Sparsity coefficients. Note that the sparsity terms not only improve the model's inference speed (by reducing the number of FLOPs) but also reduces the entropy of latent weights W as most of the weights become zero. By varying the two trade-off parameters, one for each sparsity term, we obtain different points on the pareto curves for accuracy-model size trade-off and accuracy-sparsity trade-off. We study each of these trade-offs extensively in Sec. 5.
+
+4.2 Comparison with compression methods
+As discussed in Section 2, existing approaches for model compression follow either quantization, pruning, or both. We compare with the state of the art methods in each of these two categories. Among model quantization methods, we use Oktay et al. [52] and Dubey et al. [14] for comparison. Note that while [52] 's method compresses the model for storage and transmission, the uncompressed model is dense and doesn't provide any computational speedups.  [14] prunes the filters along with quantization and helps with speed-up as well. Our results are summarized in Table 1. Unless otherwise noted, we use the numbers reported by the original papers. Since we do not have access to many prior art models, we compare using overall sparsity. For the CIFAR-10 dataset, we achieve the best results in compression while also achieving a lower Top-1 error rate for both VGG-16 and ResNet-20-4.
+For VGG-16 we obtain the best performance in the error range of ∼ 7% at 129KB which is a 465x compression compared to the baseline model. At the ∼ 10% error range, we outperform [52] in terms of model compression and also with a 99.2% slice sparsity. For ResNet-20-4, compared to [52] we achieve almost 3 times the compression rate at a similar error rate of ∼ 10.1, while simultaneously achieving extremely high levels of slice sparsity (98.73%) in the network weights. Similar results hold for the case of CIFAR-100 where we achieve a 137× compression in model size with 86.67% sparsity with little to no drop in accuracy compared to the uncompressed model.
+For ResNet-18 trained on ImageNet, we achieve 46× compression as compared to the uncompressed model with a small drop in accuracy. The compressed network achieves a group sparsity of 58.3%. For an extreme compression case, we achieve higher levels of compression (54×) and sparsity (∼ 65%) at the cost of ∼ 2% accuracy compared to uncompressed model. Figure 3 : Top-1 Accuracy vs. the % reduction in SFLOPs (left)/FLOPs (middle)/Speedup (Right) as defined in § 3.3. Speedup is the ratio of CPU inference times for the uncompressed to our compressed models on the CIFAR-10 test set. Hue goes from light to dark as we the λS, while the marker size increases with λU . Note that SFLOPs have a higher reduction due to higher slice sparsity compared to full structure sparsity while still offering computational gains. We obtain high % reduction in SFLOPs and FLOPs coupled with inference speedups with little loss in accuracy.
+To show the generality of our approach, we additionally show experiments using the MobileNetV2 [57] architecture trained on ImageNet. Our approach achieves almost 21× compression with respect to the uncompressed model in terms of model size and achieves a sparsity of 56.8% with almost no drop in Top-1 error on ImageNet (32.8%). A more extreme variant, with higher sparsity constraints achieves 25× compression with a sparsity of 64.7%. The results show that our approach works well for different types of architectures such as MobileNetV2 which consist of Inverted BottleNeck layers coupled with Depthwise Separable Convolutions. Additionally, even though MobileNet is already optimized towards size (number of parameters) and computation (FLOPs), we are able to obtain high levels of additional compression and computation reduction with little to no loss in top-1 accuracy highighting the efficacy of our approach in different settings.
+We therefore conclude that the LilNetX framework outperforms state-of-the-art approaches in model compression by a significant margin while also achieving sparsification of the network weights for computational gains.
+
+4.3 FLOPs/Speedup-Accuracy Tradeoff
+While we show compression gains with respect to state-of-the-art in Sec.4.2, here we highlight the computational gains we get through slice sparsity. As explained in Sec. 3.3, slice sparsity enables us to perform block sparse multiplications which offer network speedups. We use SFLOPs to denote the theoretical FLOPs obtained by computing using only non zero weight slices. Additionally we show the FLOPs corresponding to the fully structured regime by removing entire filters or input channels of a weight tensor which are completely zeros. While not directly optimizing for FLOPs, a high slice sparsity also provides the added benefits of full structured sparsity. Through structured sparsity, we also obtain computational gains in terms of inference speedups for the compressed network. Thus, both types of sparsity can offer computational speedups with no hardware modifications. We show the tradeoff between SFLOPs, FLOPs and speedups against Top-1 Accuracy in Figure 3. Speedups are measured on CPU by timing the forward pass of the full CIFAR-10 test set with a batch size of 128. The ratio of time taken between the uncompressed model to the compressed model provides the speedup gains reported in Figure 3. Note the high % reduction in SFLOPs compared to FLOPs due to allowing for less constrained sparsity while still offering computational gains. We see that we obtain high SFLOPs reduction (∼90%) with modest accuracy drops while also getting high levels of FLOP reduction. We additionally show the speedups in inference time for the compressed network by removing entire filters or input channels for convolutional layers based on their structural sparsity. We see from Fig. 3 that we obtain almost a 1.5× speedup compared to uncompressed network with no drop in Top-1 accuracy. Even higher values of speedup at 2× are obtained for modest drops in accuracy ∼ 1%. Thus, our framework allows for computational gains directly through slice sparsity (SFLOPs) or fully structured sparsity (FLOPs).
+
+5 Analysis
+In this section, we analyze the effect of the different priors in detail. We use the ResNet-20-4 architecture trained on CIFAR-10/100 datasets. We use a constant compression coefficient λ I = 10 −4 . Since both the unstructured sparsity and the structured sparsity coefficients λ U , and λ S impact overall sparsity, we keep one of them fixed, and analyze the impact of varying the other on model performance (accuracy), model size (bit-rate), and the slice sparsity (fraction). As the size of the weight decoders and the uncompressed parameters is fixed, we analyze model sizes for the compressed parameters this section.
+
+5.1 Effect of Unstructured Sparsity Regularization
+Fig. 4 shows model performance as we vary λ U at fixed values of λ S . Figure 4 (a) and 4(b) show the impact on the top-1 accuracy as a function of model size. For CIFAR-10 dataset, when λ S = 0, the accuracy of the model increases from 92.2% to 93.5% as we decrease λ U , however, at the cost of increased model size (∼20KB and ∼150KB respectively). Similar trend exists for other values of λ S . We also observe that increasing λ S (blue/circle to orange/cross to green/square), allows the network to reach higher accuracy for a fixed model size and λ U .
+Figure 4 (c) and 4(d) show the impact on accuracy as a function of slice sparsity or SFLOPs. At λ S = 0, increasing the value of λ U , causes the accuracy to drop from 93.5% to 92.4% while slice sparsity increases from 74% to 98%. Again, we observe a similar trend at different values of λ S . Also, as we increase λ S , the plot shifts towards right showing we can achieve higher slice sparsity at a given accuracy.
+In both cases, CIFAR-100 shows a similar but a bit more noisy trend as compared to CIFAR-10. We hypothesize that the models trained on CIFAR-100 do not completely converge by the end of 200 epochs in some cases (results shown in Sec. D of appendix), leading to more noise. x-axis shows the sparsity of the latent weights while y-axis shows the slice sparsity of the latent weights is same as slice sparsity of decoded weights and is correlated with speed-up in the model inference.
+
+5.2 Effect of Structured Sparsity Regularization
+Figure 5 shows how the performance of the model varies as we vary λ S at fixed values of λ U . Figure 5 (a) and 5(b) show the accuracy and model size trade-off. For CIFAR-10, when λ U = 0 (blue circle), we can achieve 93.2% accuracy at 120KB, however, as we increase the penalty, model size decreases sharply to 50KB while keeping the accuracy at around 92.9%. As we increase λ U , the plots moves slightly up and left, which means that we can achieve even lower model sizes at the same values of accuracy.
+Figure 5 (c) and 5(d) show the impact on the top-1 accuracy as a function of slice sparsity or the model's computational efficiency. At λ U = 0, model's slice sparsity increases with increasing λ S as expected, albeit at the cost of lower accuracy. Increasing the λ U , allows for a wider trade-off range between accuracy and slice sparsity and also yields higher accuracy for the same levels of sparsity.
+
+5.3 Structured vs. unstructured sparsity
+Figure 6 shows the effect of λ U and λ S on slice sparsity of the latent weights which is same as slice sparsity of decoded weights (and is also a proxy for the speed-up in the model inference), and unstructured sparsity in latent weights (which is correlated with the model compression or the model size on disk). At a fixed λ S , we observe that increasing λ U increasing the sparsity of the latent weights as well as the slice sparsity. However, as we increase λ S we notice that the plots shift upwards which implies higher structural sparsity for any fixed number of latent weight unstructured sparsity. We see that our structured sparsity priors are effective in forcing non zero weights to lie in fewer weight slices thus leading to higher structured sparsity.
+
+6 Conclusion
+We propose a novel framework for training a deep neural network, while simultaneously optimizing for the model size, to reduce storage cost, and structured sparsity, to reduce computation cost. To the best of our knowledge, this is the first work on model compression that add priors for structured pruning of weights in a reparameterized discrete weight space.
+Experiments on three datasets, and three network architectures show that our approach achieves state of the performance in terms of simultaneous compression and reduction in FLOPs which directly translate to inference speedups. We also perform extensive ablation studies to verify that the proposed sparsity and entropy priors allow us to easily control the accuracy-rate-computation trade-off, which is an important consideration for practical deployment of models. We have provided our code for the benefit of community and reproducibility.
+respectively. We see that l 2 group norm outperforms its l ∞ counterpart for both datasets. However, l 1 norm has little additional effect in terms of l 2 weight norm. Additionally, the l 2 group norm yields lesser slice sparsity for a given sparsity (c,g) highlighting the importance of l ∞ for high structured sparsity. While l ∞ leads to higher sparsity, it also shows higher model size for a given slice sparsity. Thus, there is an inherent tradeoff for l ∞ which leads to more sparsity but also larger model sizes (d,h).
+
+C Initialization of Continuous Surrogates
+The initialization of the continuous surrogate W of a latent space weight W and the decoder matrix Ψ plays an important in the neural network training. Naïve He initialization [25] commonly used in training ResNet classifiers does not work in our case since small values of W get rounded to zero before decoding. Such an initialization results in zero gradients for updating the parameters and the loss becomes stagnant. To overcome this issue, we propose a modification to the initialization of the different parameters. In our framework, we recap that the decoded weights used in a forward pass are obtained usingW = reshape( W Ψ)
+where W is a matrix in Z CinCout×l and Ψ is a matrix in Z l×l (where l = 1 for dense weights (and biases) while l = K 2 for convolutional weights).
+Our goal is to initialize W and Ψ such that the decoded weights W follow He initialization [25]. First, since W is rounded to nearest integer (to obtain latent space weights W ), we assume its elements to be drawn from a uniform distribution in [−b, b] where b > 0.5 in order to enforce atleast some non-zero weights after rounding to nearest integer. Next, we take the elements of Ψ to be a normal distribution with mean 0 and variance v.
+Assuming the parameters to be i.i.d., and Var(X) denoting the variance of any individual element in matrix X,Var(W ) = l × Var(Ψ) × Var( W )
+Assuming a RELU activation, with f denoting the total number of channels (fan-in or fan-out) for a layer, LHS of Equation (11), using the He initializer becomes 2 f , RHS on the other hand can be obtained analytically2 f = l × v × (2b + 1) 2 − 1 12 =⇒ b = 24 lvf + 1 − 1 2 , v = 24 lf ((2b + 1) 2 − 1)
+Equation (12) gives us a relationship between b (defining the uniform distribution of W ) and v (defining the normal distribution of Ψ). Note that l and f values are constant and known for each layer.
+For a weight decoder corresponding to a parameter group, the maximum value of f in that group enforces the smallest value of b which should be above a minimum limit b min . Denoting f max as the maximum fan-in or fan-out value for a parameter group, we get on the corresponding value of f , we then initialize the elements of W to be drawn from a uniform distribution in the interval [−b, b] and elements of Ψ to be drawn from N (0, v).
+Note that f = f max =⇒ b = b min which shows that the minimum boundary corresponds to the layer with maximum channels (fan-in or fan-out) f .
+By choosing an appropriate value of b min we obtain good initial values of the gradient which allows the network to converge well as training progresses. b min offers an intuitive way of initializing the discrete weights. Too small a value leads to most of the weights being set to zero while too large a value can lead to exploding gradients. In practice, we find that this initialization approach works well for Cifar experiments. For ImageNet experiments, we vary the variance of the weights manually and fix based on the best value.
+
+D CIFAR-100 Convergence
+We analyze the convergence of 3 different runs for ResNet-20-4 trained on the CIFAR-100 dataset with varying values of λ S and λ U . Results are shown in Fig. 9 when trained for 200 epochs. We see that validation accuracy (on the right y-axis) continues to increase towards the end of training between 190-200 epochs. At the same time, validation loss (on the left y-axis) also decreases. This suggests that the model hasn't fully converged by the end of 200 epochs. We hypothesize that this is an artifact of the dataset as well as the cosine decay schedule where learning rate decreases drastically towards the end of training and is not maintained for longer for better convergence. MIT CIFAR-100 [35] MIT ImageNet [11] BSD 3-Clause
+
+E Code and License
+Table 2 lists all datasets we used and their licenses.
+Our code is available at https://github.com/Sharath-girish/LilNetX with the MIT License.
+
+Footnotes:
+
+References:
+
+- Banner, R., Nahshan, Y., Hoffer, E., Soudry, D.: Post-training 4-bit quantization of convolution networks for rapid-deployment. arXiv preprint arXiv:1810.05723 (2018)- Bengio, Y., Léonard, N., Courville, A.: Estimating or propagating gradients through stochastic neurons for conditional computation. arXiv preprint arXiv:1308.3432 (2013)
+
+- Brix, C., Bahar, P., Ney, H.: Successfully applying the stabilized lottery ticket hypothesis to the transformer architecture. ACL (2020). https://doi.org/10.18653/v1/2020.acl-main.360, https://www.aclweb.org/anthology/2020.acl-main.360
+
+- Chellapilla, K., Puri, S., Simard, P.: High performance convolutional neural networks for document processing. In: Tenth international workshop on frontiers in handwriting recognition. Suvisoft (2006)
+
+- Chen, H., He, B., Wang, H., Ren, Y., Lim, S.N., Shrivastava, A.: Nerv: Neural representations for videos. arXiv preprint arXiv:2110.13903 (2021)
+
+- Chen, T., Frankle, J., Chang, S., Liu, S., Zhang, Y., Wang, Z., Carbin, M.: The lottery ticket hypothesis for pre-trained bert networks. In: NeurIPS (2020)
+
+- Chen, W., Wilson, J., Tyree, S., Weinberger, K., Chen, Y.: Compressing neural networks with the hashing trick. In: International conference on machine learning. pp. 2285-2294. PMLR (2015)
+
+- Chen, W., Wilson, J., Tyree, S., Weinberger, K.Q., Chen, Y.: Compressing convolutional neural networks in the frequency domain. In: Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining. pp. 1475-1484 (2016)
+
+- Choi, Y., et al.: Compression of deep cnns under joint sparsity constraints. arXiv:1805.08303 (2018)
+
+- Courbariaux, M., Bengio, Y., David, J.P.: Binaryconnect: Training deep neural networks with binary weights during propagations. In: Advances in neural information processing systems. pp. 3123-3131 (2015)
+
+- Deng, J., Dong, W., Socher, R., Li, L.J., Li, K., Fei-Fei, L.: Imagenet: A large-scale hierarchical image database. In: 2009 IEEE conference on computer vision and pattern recognition. pp. 248-255. Ieee (2009)
+
+- Desai, S., Zhan, H., Aly, A.: Evaluating lottery tickets under distributional shifts. arXiv preprint arXiv:1910.12708 (2019)
+
+- Dosovitskiy, A., Beyer, L., Kolesnikov, A., Weissenborn, D., Zhai, X., Unterthiner, T., Dehghani, M., Minderer, M., Heigold, G., Gelly, S., et al.: An image is worth 16x16 words: Transformers for image recognition at scale. arXiv preprint arXiv:2010.11929 (2020)
+
+- Dubey, A., Chatterjee, M., Ahuja, N.: Coreset-based neural network compression. In: Proceed- ings of the European Conference on Computer Vision (ECCV). pp. 454-470 (2018)
+
+- Faraone, J., Fraser, N., Blott, M., Leong, P.H.: Syq: Learning symmetric quantization for efficient deep neural networks. In: Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition. pp. 4300-4309 (2018)
+
+- Frankle, J., Carbin, M.: The lottery ticket hypothesis: Finding sparse, trainable neural networks. arXiv preprint arXiv:1803.03635 (2018)
+
+- Frankle, J., Dziugaite, G.K., Roy, D., Carbin, M.: Linear mode connectivity and the lottery ticket hypothesis. In: International Conference on Machine Learning. pp. 3259-3269. PMLR (2020)
+
+- Frankle, J., Dziugaite, G.K., Roy, D.M., Carbin, M.: Stabilizing the lottery ticket hypothesis. arXiv preprint arXiv:1903.01611 (2019)
+
+- Frankle, J., Dziugaite, G.K., Roy, D.M., Carbin, M.: Pruning neural networks at initialization: Why are we missing the mark? arXiv preprint arXiv:2009.08576 (2020)
+
+- Girish, S., Maiya, S.R., Gupta, K., Chen, H., Davis, L.S., Shrivastava, A.: The lottery ticket hypothesis for object recognition. In: Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition. pp. 762-771 (2021)
+
+- Gong, Y., Liu, L., Yang, M., Bourdev, L.: Compressing deep convolutional networks using vector quantization. arXiv preprint arXiv:1412.6115 (2014)
+
+- Han, S., Mao, H., Dally, W.J.: Deep compression: Compressing deep neural networks with pruning, trained quantization and huffman coding. arXiv preprint arXiv:1510.00149 (2015)
+
+- Han, S., Pool, J., Tran, J., Dally, W.J.: Learning both weights and connections for efficient neural networks. arXiv preprint arXiv:1506.02626 (2015)
+
+- Havasi, M., Peharz, R., Hernández-Lobato, J.M.: Minimal random code learning: Getting bits back from compressed model parameters. arXiv preprint arXiv:1810.00440 (2018)
+
+- He, K., Zhang, X., Ren, S., Sun, J.: Delving deep into rectifiers: Surpassing human-level performance on imagenet classification. In: Proceedings of the IEEE international conference on computer vision. pp. 1026-1034 (2015)
+
+- He, K., Zhang, X., Ren, S., Sun, J.: Deep residual learning for image recognition. In: Pro- ceedings of the IEEE conference on computer vision and pattern recognition. pp. 770-778 (2016)
+
+- He, Y., Kang, G., Dong, X., Fu, Y., Yang, Y.: Soft filter pruning for accelerating deep convolu- tional neural networks. arXiv preprint arXiv:1808.06866 (2018)
+
+- He, Y., Liu, P., Wang, Z., Hu, Z., Yang, Y.: Filter pruning via geometric median for deep convolutional neural networks acceleration. In: Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition. pp. 4340-4349 (2019)
+
+- He, Y., Zhang, X., Sun, J.: Channel pruning for accelerating very deep neural networks. In: Proceedings of the IEEE international conference on computer vision. pp. 1389-1397 (2017)
+
+- Hubara, I., Courbariaux, M., Soudry, D., El-Yaniv, R., Bengio, Y.: Quantized neural networks: Training neural networks with low precision weights and activations. The Journal of Machine Learning Research 18(1), 6869-6898 (2017)
+
+- Huffman, D.A.: A method for the construction of minimum-redundancy codes. Proceedings of the IRE 40(9), 1098-1101 (1952)
+
+- Jacob, B., Kligys, S., Chen, B., Zhu, M., Tang, M., Howard, A., Adam, H., Kalenichenko, D.: Quantization and training of neural networks for efficient integer-arithmetic-only inference. In: Proceedings of the IEEE conference on computer vision and pattern recognition. pp. 2704-2713 (2018)
+
+- de Jorge, P., Sanyal, A., Behl, H.S., Torr, P.H., Rogez, G., Dokania, P.K.: Progressive skele- tonization: Trimming more fat from a network at initialization. arXiv preprint arXiv:2006.09081 (2020)
+
+- Kingma, D.P., Ba, J.: Adam: A method for stochastic optimization. arXiv preprint arXiv:1412.6980 (2014)
+
+- Krizhevsky, A., Hinton, G., et al.: Learning multiple layers of features from tiny images (2009)
+
+- Leclerc, G., Ilyas, A., Engstrom, L., Park, S.M., Salman, H., Madry, A.: ffcv. https://github. com/libffcv/ffcv/ (2022)
+
+- LeCun, Y., Denker, J.S., Solla, S.A.: Optimal brain damage. In: Advances in neural information processing systems. pp. 598-605 (1990)
+
+- Lee, N., Ajanthan, T., Torr, P.H.: Snip: Single-shot network pruning based on connection sensitivity. arXiv preprint arXiv:1810.02340 (2018)
+
+- Li, F., Zhang, B., Liu, B.: Ternary weight networks. arXiv preprint arXiv:1605.04711 (2016)
+
+- Li, H., Kadav, A., Durdanovic, I., Samet, H., Graf, H.P.: Pruning filters for efficient convnets. arXiv preprint arXiv:1608.08710 (2016)
+
+- Lin, S., Ji, R., Li, Y., Deng, C., Li, X.: Toward compact convnets via structure-sparsity regularized filter pruning. IEEE transactions on neural networks and learning systems 31(2), 574-588 (2019)
+
+- Liu, T., Zenke, F.: Finding trainable sparse networks through neural tangent transfer. In: International Conference on Machine Learning. pp. 6336-6347. PMLR (2020)
+
+- Liu, Z., Li, J., Shen, Z., Huang, G., Yan, S., Zhang, C.: Learning efficient convolutional networks through network slimming. In: Proceedings of the IEEE International Conference on Computer Vision. pp. 2736-2744 (2017)
+
+- Louizos, C., Ullrich, K., Welling, M.: Bayesian compression for deep learning. arXiv preprint arXiv:1705.08665 (2017)
+
+- Louizos, C., Welling, M., Kingma, D.P.: Learning sparse neural networks through l_0 regular- ization. arXiv:1712.01312 (2017)
+
+- Luo, J.H., Wu, J., Lin, W.: Thinet: A filter level pruning method for deep neural network compression. In: Proceedings of the IEEE international conference on computer vision. pp. 5058-5066 (2017)
+
+- Malach, E., Yehudai, G., Shalev-Schwartz, S., Shamir, O.: Proving the lottery ticket hypothesis: Pruning is all you need. In: International Conference on Machine Learning. pp. 6682-6691. PMLR (2020)
+
+- Mentzer, F., Agustsson, E., Tschannen, M., Timofte, R., Van Gool, L.: Practical full resolution learned lossless image compression. In: Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR) (2019)
+
+- Movva, R., Zhao, J.Y.: Dissecting lottery ticket transformers: Structural and behavioral study of sparse neural machine translation. ArXiv abs/2009.13270 (2020)
+
+- Nagel, M., Baalen, M.v., Blankevoort, T., Welling, M.: Data-free quantization through weight equalization and bias correction. In: Proceedings of the IEEE/CVF International Conference on Computer Vision. pp. 1325-1334 (2019)
+
+- Narang, S., et al.: Block-sparse recurrent neural networks. arXiv:1711.02782 (2017)
+
+- Oktay, D., Ballé, J., Singh, S., Shrivastava, A.: Scalable model compression by entropy penalized reparameterization. arXiv preprint arXiv:1906.06624 (2019)
+
+- Rastegari, M., Ordonez, V., Redmon, J., Farhadi, A.: Xnor-net: Imagenet classification using binary convolutional neural networks. In: European conference on computer vision. pp. 525-542. Springer (2016)
+
+- Reed, R.: Pruning algorithms-a survey. IEEE transactions on Neural Networks 4(5), 740-747 (1993)
+
+- Renda, A., Frankle, J., Carbin, M.: Comparing rewinding and fine-tuning in neural network pruning. arXiv preprint arXiv:2003.02389 (2020)
+
+- Rissanen, J., Langdon, G.: Universal modeling and coding. IEEE Transactions on Information Theory 27(1), 12-23 (1981)
+
+- Sandler, M., Howard, A., Zhu, M., Zhmoginov, A., Chen, L.C.: Mobilenetv2: Inverted residuals and linear bottlenecks. In: Proceedings of the IEEE conference on computer vision and pattern recognition. pp. 4510-4520 (2018)
+
+- Simonyan, K., Zisserman, A.: Very deep convolutional networks for large-scale image recogni- tion. arXiv preprint arXiv:1409.1556 (2014)
+
+- Son, S., Nah, S., Lee, K.M.: Clustering convolutional kernels to compress deep neural networks. In: Proceedings of the European Conference on Computer Vision (ECCV). pp. 216-232 (2018)
+
+- Stock, P., Joulin, A., Gribonval, R., Graham, B., Jégou, H.: And the bit goes down: Revisiting the quantization of neural networks. arXiv preprint arXiv:1907.05686 (2019)
+
+- Tanaka, H., Kunin, D., Yamins, D.L., Ganguli, S.: Pruning neural networks without any data by iteratively conserving synaptic flow. arXiv preprint arXiv:2006.05467 (2020)
+
+- Tu, C.H., Lee, J.H., Chan, Y.M., Chen, C.S.: Pruning depthwise separable convolutions for mobilenet compression. In: 2020 International Joint Conference on Neural Networks (IJCNN). pp. 1-8. IEEE (2020)
+
+- Tung, F., Mori, G.: Clip-q: Deep network compression learning by in-parallel pruning- quantization. In: Proceedings of the IEEE conference on computer vision and pattern recognition. pp. 7873-7882 (2018)
+
+- Verdenius, S., Stol, M., Forré, P.: Pruning via iterative ranking of sensitivity statistics. arXiv preprint arXiv:2006.00896 (2020)
+
+- Wang, C., Zhang, G., Grosse, R.: Picking winning tickets before training by preserving gradient flow. arXiv preprint arXiv:2002.07376 (2020)
+
+- Wang, K., Liu, Z., Lin, Y., Lin, J., Han, S.: Haq: Hardware-aware automated quantization with mixed precision. In: Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition. pp. 8612-8620 (2019)
+
+- Wang, Y., Xu, C., You, S., Tao, D., Xu, C.: Cnnpack: Packing convolutional neural networks in the frequency domain. In: NIPS. vol. 1, p. 3 (2016)
+
+- Wen, W., Wu, C., Wang, Y., Chen, Y., Li, H.: Learning structured sparsity in deep neural networks. Advances in neural information processing systems 29, 2074-2082 (2016)
+
+- Wiedemann, S., Kirchhoffer, H., Matlage, S., Haase, P., Marban, A., Marinc, T., Neumann, D., Osman, A., Marpe, D., Schwarz, H., et al.: Deepcabac: Context-adaptive binary arithmetic coding for deep neural network compression. arXiv preprint arXiv:1905.08318 (2019)
+
+- Wu, J., Leng, C., Wang, Y., Hu, Q., Cheng, J.: Quantized convolutional neural networks for mobile devices. In: Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition. pp. 4820-4828 (2016)
+
+- Yeom, S.K., Seegerer, P., Lapuschkin, S., Binder, A., Wiedemann, S., Müller, K.R., Samek, W.: Pruning by explaining: A novel criterion for deep neural network pruning. Pattern Recognition 115, 107899 (2021)
+
+- You, H., Li, C., Xu, P., Fu, Y., Wang, Y., Chen, X., Baraniuk, R.G., Wang, Z., Lin, Y.: Drawing early-bird tickets: Toward more efficient training of deep networks. In: ICLR (2020), https://openreview.net/forum?id=BJxsrgStvr
+
+- You, Z., Yan, K., Ye, J., Ma, M., Wang, P.: Gate decorator: Global filter pruning method for accelerating deep convolutional neural networks. arXiv preprint arXiv:1909.08174 (2019)
+
+- Young, S., Wang, Z., Taubman, D., Girod, B.: Transform quantization for cnn compression. IEEE Transactions on Pattern Analysis and Machine Intelligence (2021)
+
+- Yu, H., S, S.E., Y, Y.T., Morcos, A.S.: Playing the lottery with rewards and multiple languages: lottery tickets in RL and NLP. In: ICLR (2020), https://openreview.net/forum?id= S1xnXRVFwH
+
+- Yuan, M., Lin, Y.: Model selection and estimation in regression with grouped variables. Journal of the Royal Statistical Society: Series B (Statistical Methodology) 68(1), 49-67 (2006)
+
+- Zhang, D., Yang, J., Ye, D., Hua, G.: Lq-nets: Learned quantization for highly accurate and compact deep neural networks. In: Proceedings of the European conference on computer vision (ECCV). pp. 365-382 (2018)
+
+- Zhou, A., Yao, A., Guo, Y., Xu, L., Chen, Y.: Incremental network quantization: Towards lossless cnns with low-precision weights. arXiv preprint arXiv:1702.03044 (2017)
+
+- Zhou, A., Yao, A., Wang, K., Chen, Y.: Explicit loss-error-aware quantization for low-bit deep neural networks. In: Proceedings of the IEEE conference on computer vision and pattern recognition. pp. 9426-9435 (2018)
+
+- Zhou, Y., Zhang, Y., Wang, Y., Tian, Q.: Accelerate cnn via recursive bayesian pruning. In: Proceedings of the IEEE/CVF International Conference on Computer Vision. pp. 3306-3315 (2019)
+
+- Zhu, C., Han, S., Mao, H., Dally, W.J.: Trained ternary quantization. arXiv preprint arXiv:1612.01064 (2016)
+
+- Zhuang, Z., Tan, M., Zhuang, B., Liu, J., Guo, Y., Wu, Q., Huang, J., Zhu, J.: Discrimination- aware channel pruning for deep neural networks. arXiv preprint arXiv:1810.11809 (2018)
+

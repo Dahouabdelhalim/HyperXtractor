@@ -1,0 +1,313 @@
+LoSAC: An Efficient Local Stochastic Average Control Method for Federated Optimization
+
+Abstract:
+Federated optimization (FedOpt), which targets at collaboratively training a learning model across a large number of distributed clients, is vital for federated learning. The primary concerns in FedOpt can be attributed to the model divergence and communication efficiency, which significantly affect the performance. In this paper, we propose a new method, i.e., LoSAC, to learn from heterogeneous distributed data more efficiently. Its key algorithmic insight is to locally update the estimate for the global full gradient after each regular local model update. Thus, LoSAC can keep clients' information refreshed in a more compact way. In particular, we have studied the convergence result for LoSAC. Besides, the bonus of LoSAC is the ability to defend the information leakage from the recent technique Deep Leakage Gradients (DLG). Finally, experiments have verified the superiority of LoSAC comparing with state-of-the-art FedOpt algorithms. Specifically, LoSAC significantly improves communication efficiency by more than 100% on average, mitigates the model divergence problem and equips with the defense ability against DLG. CCS Concepts: • Computing methodologies → Parallel algorithms; • Theory of computation → Mathematical optimization.
+
+Main:
+
+
+
+1 INTRODUCTION
+Federated optimization (FedOpt) is essentially a distributed optimization in machine learning under the specific setting that data is unevenly distributed over a large number of clients [11, 16, 17, 25, 40].
+It has provided a feasible solution to collaboratively train a high-quality model without data exchanging. Thus, interests in applying FedOpt to the major areas have been greatly increased, e.g., healthcare [6, 9, 26] and smart city applications [37, 44]. Technically, the utmost goal of FedOpt is to reach a high communication efficiency under the federated settings [17, 20, 21, 25].
+FedOpt differs from the traditional distributed optimization [19] in data heterogeneity and client sampling respectively, i.e., the data is generally not independent and identical distribution (non-IID) due to each client's fashion, and only partial clients perform multiple local updates before communication with the server in FedOpt. However, the recent studies have shown that data heterogeneity (e.g., non-IID data) will seriously degrade the performance in FedOpt [11, 13, 14, 20, 21, 43]. This can be attributed to the "model divergence" in FedOpt [13, 21]. To be specific, multiple local update steps make each participating client approach to the individual optimum targeting at optimizing the local loss function instead of the global one. Under the client sampling, this problem is worsened. On one hand, several recent methods attempt to mitigate the model divergence problem [13, 20, 23], however, there is still much room for the improvement in communication efficiency. On the other hand, in FedOpt applications, many mobile devices may frequently go offline, and this necessitates the demand for the fast convergent algorithm to reach a complete learning [21].
+To this end, we summarize the two major challenges for the FedOpt design [14, 20, 21, 43] : (1). The model divergence problem. It is mainly resulted from data heterogeneity and client sampling, and will lead to a slow and unstable convergence. Since each client can only access to its own dataset, this makes the problem difficult to remedy; (2). The limited communication capability. With a large number of clients, it requires the algorithm equipping with a fast speed. The recent representative methods for handling these challenges are MimeSVRG [12] and SCAFFOLD [13]. They utilize the global variance reduction, which nevertheless may suffer from the outdated information.
+LoSAC incorporates the delayed gradients that estimate the global full gradient on clients. Moreover, they are updated with the newest information at each local iteration, and then aggregated with the information from the participated clients. The double estimates have improves the estimation accuracy, while maintaining the low computation complexity. For further improving the communication efficiency, we adopt the common strategy in FedOpt to perform multiple local iterations. While LoSAC has demonstrated its success to remedy the two key challenges in FedOpt, the performance improvements are prominent comparing to state-of-the-art FedOpt algorithms. The contributions of this work can be summarized as the following three aspects:
+• A novel FedOpt algorithm is proposed, i.e., LoSAC. We innovatively estimate the global full gradient on clients as the search direction, which targets at effectively handling the model divergence problem and substantially improving the communication efficiency. We further extend LoSAC to its proximal version and verifies the extraordinary performance. • We have studied the theoretical results of LoSAC, including the convergence result of O ( 1 / ),
+where  and  are communication round and local iteration respectively; the global variance reduction which guarantees the fast speed of LoSAC and the defense ability against DLG. • Extensive experiments are conducted in the settings of IID data and non-IID data. It has shown LoSAC equips with the strong capability to overcome the model divergence problem. Moreover, it has exhibited quite high communication efficiency (i.e., more than 50% fewer communication rounds than the state-of-the-art method to reach a specific accuracy), defense ability against DLG. In particular, its proximal version equips with the strong capability in solving the nonsmooth problem while the competitive algorithm fails to solve it.
+The rest of the paper is organized as follows: Section II is the related work discussing the existing popular FedOpt methods. Section III illustrates our proposed method by the motivation of the naive extension of SAGA, which only considers local gradient estimate. Then, we incorporate the global gradient estimate and formulate LoSAC. We further extend our proposed method to the proximal version for solving a wide class of nonsmooth problems. In Section IV, we study the theoretical properties of LoSAC, which has the global variance reduction on the search direction, is able to defense against DLG, and ensures the convergence and mitigates the model divergence problem. We conduct extensive experiments to verify the effectiveness of LoSAC in Section V. Mathematical notations: [] means the integer set {1 : }. Δ :=  + −  is presented as 's increment when it has the updated value  + . The gradient operator for a smooth function  is denoted as ∇ and the statistical expectation is provided by E. We use  2 -norm and for simplicity it is denoted as ∥•∥. ⟨, ⟩ is the inner product. Moreover,  is called -smoothness if ∥∇ () − ∇ () ∥ ≤  ∥ −  ∥, where  > 0 is the Lipschitz constant, and that  is strongly convex with  > 0 satisfies  () ≥  () + ⟨∇ (),  − ⟩ +  2 ∥ −  ∥ 2 . prox   () is the proximal operator defined in the following: prox   () = armin   () + 1 /2 ∥ −  ∥ 2  2 .
+2 RELATED WORK
+
+2.1 Stochastic Optimization
+Considering there are  data samples ( is large), the stochastic optimization aims to solvemin 𝑥 𝑓 (𝑥) = 1 𝑛 ∑︁ 𝑛 𝑖=1 𝑓 𝑖 (𝑥),
+where  ∈ R  is the model, and   : R  → R is the loss function with respect to the th sample. One of the most popular method stochastic gradient descend (SGD) [31] utilizes a small mini-batch of samples I to calculate () = 1 /|I |  ∈I   () and update the model  via𝑥 𝑡 +1 = 𝑥 𝑡 − 𝜂 • 𝑔(𝑥 𝑡 ),
+where  is the step-size. Although () is an unbiased estimator of the full gradient ∇ (), it may have large variance leading to a slow convergence [4]. Thus, how to control and reduce stochastic variance during mini-batch optimization is a central issue.
+The variance reduction techniques [8] have been developed to solve the above issue and greatly accelerate the convergence of SGD. Exemplar algorithms are stochastic variance reduction gradient method (SVRG) [10], stochastic average gradient method (SAG) [33] and its extension SAGA [7]. In particular, SAGA utilizes full gradient without direct calculation and is instead updated with the newest partial information at each iteration:𝑥 𝑡 +1 = 𝑥 𝑡 − 𝜂 • ∇𝑓 𝑗 (𝑥 𝑡 ) − ∇𝑓 𝑗 (𝑧 𝑡 𝑗 ) + 1 𝑛 ∑︁ 𝑛 𝑖=1 ∇𝑓 𝑖 (𝑧 𝑡 𝑖 ) ,
+where   is the delayed model and is updated via:𝑧 𝑡 +1 𝑗 = 𝑥 𝑡 𝑖 , if 𝑗th data is sampled, 𝑧 𝑡 𝑗 , otherwise.
+Let φ :=  =1 ∇  (   ) and    = ∇  (  −1 ). Mimicking the efficient implementation in SAG [33], and SAGA can be equivalently carried out in real applications as𝑥 𝑡 +1 = 𝑥 𝑡 − 𝜂 • ∇𝑓 𝑗 (𝑥 𝑡 ) − 𝑦 𝑡 𝑗 + 1 𝑛 𝜙 𝑡 , ()
+where φ is updated via φ+1 = φ −    + ∇  (  ).
+(5)O (𝐾𝑑) O ( 1 /𝑅) ✓ High ✓ ✓
+MimeSVRG [12] Multiple SVRG updatesO (𝐾𝑑 + 𝑛 𝑖 𝑑) O ( 1 /𝑅) ✓ High × ✓ FedProx [20]
+Single update with PGDO (𝑑) O ( 1 /𝑅) Limited Medium ✓ × MFL [24] Momentum gradient descent O (𝐾𝑑) O ( 1 /𝑅) × Low × × LoSAC (ours) Multiple global SAGA based on variance reduced GD update O (𝐾𝑑) O ( 1 /𝑅) ✓ Very high ✓ ✓
+SAGA has been shown the fast convergence speed. Moreover, it has the low computation level as SGD since only a single gradient is calculated during each update step.
+Unfortunately, directly adapting these methods to FedOpt may not be effective since the fast convergence may cause the client quickly moving towards the individual optimum instead of the global one [21].
+
+2.2 Federated Optimization (FedOpt)
+In [30], a quantized version of FedAvg, known as FedPaq, is proposed for reducing the message overload. Mimicking the adaptation of SGD to FedOpt, the momentum gradient descent method which is a variant of SGD has been modified to fit for federated learning (MFL) [24]. Similarly, FedAdam [29] accommodated Adam [15] to FedOpt. However, these methods still suffer from the model divergence problem [21, 38, 41, 43]. A possible solution is to incorporate a quadratic restriction for the model divergence, which was known as FedProx [20]. Another solution may be the control variate for variance reduction, and based on which VRL-SGD has shown faster speed even with non-IID data [23]. However, VRL-SGD does not support the client sampling which is more practical in FL. Furthermore, with the control variate, SCAFFOLD has shown the significant performance improvement for the data heterogeneity problem in FedOpt [13]. Its core notion is to estimate the full gradient for the local search direction. Most recently, a framework called Mime was proposed [12], which adapts popular centralized algorithms (e.g., SGD, Adam etc.) to FedOpt.
+As is mentioned in Section 2.1, the naive adaptation of the variance reduction strategy in the federated settings may worsen the convergence. This is due to the reason that variance reduction is applied for the local gradient estimation, which is biased from the global gradient. Both the SCAFFOLD and Mime framework are motivated by the idea of global variance reduction. However, the global full gradient estimates are kept over the whole local iterations, which may use outdated information and thus these methods' capability to correct the model divergence is limited. For LoSAC, both the local and global information are compactly utilized to keep the accurate estimate of the global gradient. Thus LoSAC can reach the high quality of global variance reduction. For the details, we compare the recent FedOpt methods in Table 1.
+
+3 LOSAC ALGORITHM
+In this section, we describe LoSAC to handle the major challenges in FedOpt. We first formulate the federated optimization problem, which aims to be solved by collaboration via many clients. Suppose there are  clients, and each client  ∈ [ ] has the local loss function   () with its own dataset D  containing   samples, i.e.,   () =   =1  , (), where  , () is a single loss function calculated by using the th data in D  . Moreover, the total dataset over all clients are denoted by D, i.e., D = ∪  ∈ [ ] D  . As in the literature [11-13, 16, 25], the FedOpt aims to collaboratively solve the following empirical risk minimization problem over  clients:min 𝑥 𝑓 (𝑥) = 1 𝑁 ∑︁ 𝑁 𝑖=1 𝑓 𝑖 (𝑥), ()
+where  is the averaged loss function. The model as the optimization variable satisfies  ∈ R  . Moreover, the above functions satisfy  : R  → R,   : R  → R and  , : R  → R.(𝑥 𝑖 , φ𝑖 , 𝑦 𝑖,𝑗 )          𝑥 𝑖 ← 𝑥 𝑖 − 𝜂{𝑛 𝑖 ∇𝑓 𝑖,𝑗 (𝑥 𝑖 ) − 𝑛 𝑖 𝑦 𝑖,𝑗 + φ𝑖 }, φ𝑖 ← φ𝑖 − 𝑦 𝑖,𝑗 + ∇𝑓 𝑖,𝑗 (𝑥 − 𝑖 ), 𝑦 𝑖,𝑗 ← ∇𝑓 𝑖,𝑗 (𝑥 − 𝑖 ),
+where  Sample clients S ⊆ [ ] and transmit  to client  ∈ S.
+
+8:
+Clients implement steps 9-14 in parallel for  ∈ S:9:
+After receiving, set   ← . Update (  ,   ,  , ) in order via (9). Calculate: Δ  ←   − .
+
+14:
+Client  transmits Δ  to the server. 15: end for 3.1.1 Limitation of FedSaga. As shown in (7), the variance reduction is realized by the local gradient ∇  ({  }) on client , which is biased from the global gradient ∇ (). Moreover, the multiple local update steps will make the local model fast approach to the local individual optimum (based on the local loss function) instead of the global one [21] (See the empirical results that FedSaga even performs worse than FedAvg). Since only a small portion of the clients participate in the update on each communication round, the aggregated model will be further biased from the optimal global one. Intuitively, one can think of the global aggregation step in the aspect of the SGD update step, with the gradient only containing the partial information from the participated clients.
+
+3.2 Local Stochastic Average Control
+As is discussed, FedSaga uses partial local information for the local update which results in bias from the global information. Hence, we propose LoSAC, which uses and updates the global information estimates to make up for the bias. To be specific, LoSAC updates the local model on each client  ∈ S via𝑥 𝑖 ←𝑥 𝑖 −𝜂{ 1 𝑁 𝑁 ∑︁ 𝑛=1 ∇𝑓 𝑛 ({𝑧 𝑛 }) −𝑔 𝑖,𝑗 (𝑧 𝑖,𝑗 ) +𝑔 𝑖,𝑗 (𝑥 𝑖 )},
+where  , is the delayed local model and updated via (8). It can be seen the key difference between LoSAC and FedSaga is that LoSAC has used the estimate for the global information, i.e.,  =1 ∇  ({  }), while FedSaga only uses the local one.
+For the local step, we denote   :=  =1 ∇  ({  }), which is the delayed global gradient. At the beginning of the local step, the server transmits  to each client  ∈ S as the initialized   . Then, the following equations in order, which are equivalent to (10), are carried out multiple iterations:  Fig. 1. Illustration of local updates in LoSAC. First, the local dataset block is randomly chosen for the gradient calculation ∇ , (  ). Second, note  , stores the delayed gradient ∇ , ( , ), therefore, the delayed gradient  , can be replaced by the calculated gradient ∇ , (  ). Third, with ∇ , (  ) and  , , the global gradient estimate  +  is formulated. Fourth, the local update is performed to obtain  +  . Fifth,  , is updated with the gradient ∇ , (  ).(𝑥 𝑖 , 𝜙 𝑖 , 𝑦 𝑖,𝑗 )          𝑥 𝑖 ← 𝑥 𝑖 − 𝜂 1 /𝑁𝜙 𝑖 − 𝑦 𝑖,𝑗 + 𝑔 𝑖,𝑗 (𝑥 𝑖 ) , 𝜙 𝑖 ← 𝜙 𝑖 − 𝑦 𝑖,𝑗 + 𝑔 𝑖,𝑗 (𝑥 − 𝑖 ), 𝑦 𝑖,𝑗 ← 𝑔 𝑖,𝑗 (𝑥 − 𝑖 ).
+update its own ∇  while others are remained unchanged, owing to the FedOpt setting that client  can only have access to its own dataset D  , i.e.,Δ𝜙 𝑖 = 𝜙 + 𝑖 − 𝜙 𝑖 = ∇𝑓 𝑖 ({𝑧 + 𝑖 }) − ∇𝑓 𝑖 ({𝑧 𝑖 }).
+The local update procedure can be illustrated in Fig. 1.
+For the global step, the server receives all the update quantities (Δ  , Δ  ) for  ∈ S and performs the aggregation:𝑥 ← 𝑥 + 1 /𝑁 ∑︁ 𝑖 ∈S Δ𝑥 𝑖 , and 𝜙 ← 𝜙 + 𝑁 /𝑆 ∑︁ 𝑖 ∈S Δ𝜙 𝑖 .
+While   is compactly updated with the local information, it is also aggregated with the global information. Therefore, the twice estimates make   reach an accurate estimate for the global gradient. The detail of LoSAC is summarized in Algorithm 2. Remark 1. In real applications, a block of data points can be bundled for evaluating a single loss function  , and in this way, the memory cost on client  will be  ( ⌈    /⌉), where  is the number of data points in each block.
+
+3.3 Extension with Proximal Operator
+Proximal operator has been shown as an effective tool for solving nonsmooth, constrained, largescale, or distributed problems [28]. In this subsection, we extend our proposed method with proximal operator for solving a wider class of problems, such as  1 regularization or low-rank matrix estimation. Specifically, the problem under federated settings can be formulated in the following:min 𝑥 ∈R 𝑑 1 𝑁 𝑁 ∑︁ 𝑖=1 𝑓 𝑖 (𝑥) + Ψ(𝑥),
+where  ∈ R  is the model,   () : R  → R is the local loss function, andΨ : R 𝑑 → R is the nonsmooth convex regularizer. When 𝑓 𝑖 (𝑥) = 1 /𝑛 𝑖 (𝑑 𝑖 ,𝑦 𝑖 ) ∈D 𝑖 𝑥 𝑇 𝑑 𝑖 − 𝑦 𝑖 2
+, where D  is the local Server implements steps 5-6:
+5:
+Update (, ) via ( 13).
+6:
+Sample clients S ⊆ [ ] and transmit (, ) to client  ∈ S.
+
+7:
+Clients implement steps 8-14 in parallel for  ∈ S:8:
+After receiving, set   ←  and   ← .
+
+9:
+for  = 1, . . . , do 10:
+Sample index  from [  ].
+11:
+Update (  ,   ,  , ) in order via (11).
+12:
+end for 13:
+Calculate: Δ  ←   −  and Δ  ←   − .
+
+14:
+Client  transmits (Δ  , Δ  ) to the server. 15: end for dataset on client , and Ψ =  ∥•∥ 1 , the problem is known as LASSO [32]. As for the local gradient descent based proximal step, it can be derived:𝑥 + 𝑖 ← argmin 𝑧 1 2𝜂 ∥𝑧 − (𝑥 𝑖 − 𝜂∇𝑓 𝑖 (𝑥 𝑖 )) ∥ + Ψ(𝑥 𝑖 ),
+which can be solved via  +  ← prox Ψ (  − ∇  (  )). Mimicking the PGD step, we incorporate the global gradient estimate in LoSAC to replace the local gradient in (15), which subsequently lead to𝑥 𝑖 ← prox 𝜂Ψ (𝑥 𝑖 − 𝜂 1 /𝑁𝜙 𝑖 − 𝑦 𝑖,𝑗 + 𝑔 𝑖,𝑗 (𝑥 𝑖 ) ).
+While adopting (16), we maintain the local estimate for   and the global aggregation for (, ), the resulting algorithm is called LoSAC-Prox. In Section 5, we will apply LoSAC-Prox for solving the low-rank matrix estimation problem for further showing the superiority over the state-of-the-art algorithm.
+
+4 THEORETICAL ANALYSIS
+In this section, the theoretical analysis of LoSAC is presented. Specifically, we first provide the global variance reduction of LoSAC to show that the variance of the search direction is vanishing. Moreover, we also analyze the enhanced defense ability of LoSAC in gradient leakage. Then we study the convergence analysis, of which one challenge is resulted from the multiple local iterations. Moreover, it can be seen in ( 10) that the delayed local models {  } of client  make the convergence analysis difficult for evaluation, since after a few iterations, the delayed local gradient ∇  ({  }) has the mixed arguments. Finally, we show LoSAC equips with the ability in handling model divergence.
+
+4.1 Global Variance Reduction
+The variance of the search direction in LoSAC is progressively reduced to zero comparing to the SGD update in FedAvg. Moreover, it maintains the robustness in LoSAC for the convergence.
+Comparing with the recent method MimeSVRG [12] and SCAFFOLD [13], LoSAC equips with the benefit of compactly refreshed global variance reduction. Hence its convergence performance can be improved comparing to MimeSVRG and SCAFFOLD, which is demonstrated in the numerical experiments. In the following, we provide the global variance reduction in Lemma 1:
+Lemma 1. Suppose the sequence {  } generated by Algorithm 1 is expected to converge, i.e., E ∥  −  * ∥ → 0. Moreover, for the th client, denote the search direction in the local update asg𝑡 𝑖 = 1 /𝑁𝜙 𝑡 𝑖 − 𝑔 𝑖,𝑗 𝑡 (𝑧 𝑡 𝑖,𝑗 𝑡 ) + 𝑔 𝑖,𝑗 𝑡 (𝑥 𝑡 𝑖 ).
+Then, the variance of the search direction g  is progressively vanished, i.e., E∥ g  − E( g  ) ∥ 2 → 0.
+
+4.2 Defense Ability to the Gradient Leakage
+An important benefit of LoSAC is the enhancement of the defense ability to the recent technique Deep Leakage from Gradients (DLG) [45] which aims to obtain the information leakage from the gradient. As the illustration, we denote   (; D  ) =   () to explicitly emphasize the dependency on the input sample D  . Then, the DLG is defined as follows:
+Definition 1 (DLG [45]). For an algorithm A, let the associated gradient be ∇  (; D  ) and the model parameter be , andD ′ 𝑖 = arg min D𝑖 ∇𝑓 𝑖 (𝑥; D𝑖 ) − ∇𝑓 𝑖 (𝑥; D 𝑖 ) 2 .
+If a Malicious Attacker (MA) is able to obtain D  by finding D ′  above, then the algorithm A suffers from Deep Leakage from Gradients (DLG).
+Hence, with the technique of DLG, MA is able to progressively match the gradient ∇  (, D  ) by minimizing the difference between the "dummy gradient" ∇  (, D ) and ∇  (, D  ). Moreover, when the optimum is reached, MA steals the data D  from the th client, i.e., D ′  = D  . According to the above definition, MA is not able to apply DLG algorithm to obtain the local dataset in LoSAC. We illustrate this from two reasons. First, the th client's gradient is evaluated at many delayed local models {  }, i.e., ∇  ({   }, D  ). Moreover, {  } are stored locally that MA is difficult to obtain; second, LoSAC transmits the increments Δ  and Δ  instead of the gradients. Howover, the distributed SGD [45] and Mime framework [12] communicates the local gradient with the the local model, i.e.,  and ∇  (; D  ), hence MA is able to steal the local data D  by DLG technique.
+
+4.3 Convergence Result
+In this subsection, we study the convergence property of our proposed method. We first show the progress of each communication round in Lemma 2. Particularly, we need the following regular assumptions. where () and  , () are the unbiased estimates of ∇ () and ∇  () respectively. A2. The second-order moments of all the unbiased gradient estimates are bounded, i.e., E ∥() ∥ 2  ≤   andE 𝑗 𝑔 𝑖,𝑗 (𝑥) 2 ≤ 𝛿 𝑓 .
+Here, Assumptions A1 and A2 have been regularly made for convergent analysis in optimization literatures [14, 21, 35, 36, 42] and [1, 21, 36, 42], respectively. Moreover, Note that Assumptions A1 and A2 imply that the second-order moments of the gradients ∇ () and ∇  () are also bounded, i.e., E ∥∇ () ∥ 2 ≤   −   and E ∥∇  () ∥ 2 ≤   −   .
+From (10), we intuitively have the approximate gradient descent (GD) step in each local iteration𝑥 𝑡 +1 𝑖 ≃ 𝑥 𝑡 𝑖 − 𝜂 𝑁 ∑︁ 𝑁 𝑛=1 ∇𝑓 𝑛 ({𝑧 𝑡 𝑛 }).
+Hence, the local iteration progress can be bounded above with reference to the GD theory [22] and subsequently, the one round progress can be obtained in the following: Lemma 2. Suppose functions  , {  } and { , } are strongly convex and -smooth that satisfy Assumption 1, and denote  * as the optimal point, if  is sufficiently large 1, there exist positive variables ℎ 2 ,  ′ 2 and  ′ 2 such thatE∥𝑥 𝑟 +1 − 𝑥 * ∥ 2 ≤ −2𝜂𝑆𝑇 𝑁 E{𝑓 (𝑥 𝑟 ) − 𝑓 (𝑥 * )} + (1 − 𝜂ℎ 2 )E∥𝑥 𝑟 − 𝑥 * ∥ 2 + 𝜆 ′ 2 𝜂 2 + 𝜈 ′ 2 𝜂 3 . ()
+It should be noted that the assumption that  , is strongly convex is strong in real applications, e.g.,  , is the loss function in a neural network, but this assumption can be simply realized by appending a  2 regularization term to  , to form the strongly convex function.
+Based on Lemma 2, the convergence speed can be obtained in the following.
+Theorem 3. Suppose functions  , {  } and { , } satisfy A1 and A2. Given a positive sequence {  } defined by   = (1 − ℎ 2 ) − , LoSAC has a weighted averaging convergence speed:1 𝑊 𝑅 ∑︁ 𝑅 𝑟 =0 𝑤 𝑟 E{𝑓 (𝑥 𝑟 ) − 𝑓 (𝑥 * )} ≤ O ( 𝑁 𝜆 ′ 2𝑆𝑇ℎ𝑅 ). ()
+where   :=   =0   , ℎ and  ′ are positive.
+It can be seen the convergence speed will be faster if there are more local iterations  while the computation complexity is also increased. Furthermore, if more clients (larger |S|) are participated in model training, it will be faster for convergence. Moreover, our analysis does not assume data heterogeneity while [13] does. This is due to the reason that   estimates the global information. We intuitively and empirically illustrate this in Section 4.4 and numerical experiments respectively.
+
+4.4 Handling Model Divergence
+LoSAC is expected to equip with the capability to overcome the model divergence problem that resulted from data heterogeneity and client sampling in FedOpt. As an intuitive illustration of this, the local update step on client  in expectation can be approximated as E  ( [25], logistic regression and low rank matrix estimation [27] as the training models. Specifically, 2NN is a fully connected neural network with 2 hidden layers with 200 ReLU activation functions in the each hidden layer and a softmax output.
+5.1.2 Datasets. Three real datasets are chosen for overall performance, ablation study and DLG study, namely MNIST [18], Human Activity Recognition Using Smartphones dataset (HAR) [3] and Epileptic Seizure Recognition dataset (ESR) [2]. We choose MNIST dataset since it has been widely applied for the study. Moroever, HAR and ESR are chosen due to the increasing interests and the large potential for the FedOpt applications in mobile devices and healthcare, respectively. Specifically, we use 60, 000 for training and 10, 000 for testing in MNIST, 7, 352 for training and 2, 947 for testing in HAR, and 9, 200 for training and 2, 300 for testing in ESR. Moreover, we choose synthetic dataset for the low rank matrix estimation.
+Table 2. Ablation study: measured by the communication rounds for LoSAC and SCAFFOLD to reach a specific accuracy (85% for all datasets), loss and test accuracy. We consider the different local iteration  and the local dataset division  ( also corresponds to the local memory size for storing  , ) for calculating the gradient for comparisons to show the efficient computation and communication of LoSAC. Other parameters are set as  = 10 and  = 10 −4 . Moreover, the accuracy is measured at round 500, which is sufficient for reaching a satisfactory accuracy. 5.1.3 Compared algorithms. We compare LoSAC with five representative baseline algorithms FedAvg [25], FedCM [39], SCAFFOLD [13], FedADMM [34] and MimeSVRG [12]. Moreover, to show the ineffectiveness of the naive extension of SAGA to FedOpt, we have also implemented FedSaga.
+
+Datasets Methods
+
+
+Rounds
+(𝑇 = 2) Loss (𝑇 = 2) ACC (𝑇 = 2) Rounds (𝑇 = 4) Loss (𝑇 = 4) ACC (𝑇 = 4) Rounds (𝑇 = 6) Loss (𝑇 = 6) ACC (𝑇 = 6) MNIST SCAFFOLD (𝑀 = 2)As is mentioned, FedAvg improves the communication efficiency comparing to FedSGD [25].
+FedCM [39] adopts the momentum strategy in FedOpt. SCAFFOLD [13] equips with the capability in handling non-IID data. Particularly, MimeSVRG is developed by adapting SVRG [10] to FedOpt using the framework Mime [12]. Especially, FedADMM adapts the alternating direction method of multipliers (ADMM) to FedOpt [34], which are known to conveniently and efficiently solve the nonsmooth optimization problems [5].
+For the default parameters for all algorithms, ( , ) = (1, 000, 50) for MNIST cases and ( , ) = (100, 10) for HAR and ESR cases. We set the local data division  = 5 and the local iteration  = 5. Particularly, the step size is set to yield as the best performance as possible for each algorithm, i.e.,  = 4 × 10 −4 for MNIST cases and  = 10 −4 for HAR and ESR cases. As for FedADMM [34], the details of FedADMM solving low rank matrix estimation are in Appendix E. Different from [25] that the local update in FedAvg traverses all the dataset for multiple epochs, we follow [13] that all algorithms are implemented by sampling a mini-batch of data samples for search direction in the local update.
+
+5.1.4 Evaluation tasks.
+For the overall performance and ablation study, the cross entropy and the classification accuracy are evaluated. Specifically, the overall performance is to show the general performance with different data and parameter settings, with the comparison to the baseline algorithms; the ablation study aims to show the communication and the computation efficiency of the algorithms for reaching a specific accuracy. Moreover, for the IID setting, the datasets are shuffled, and for the non-IID setting, the datasets are sorted by the labels. Then the datasets are divided evenly into  clients. Note since MimeSVRG's performance is comparative to SCAFFOLD and its computational complexity is twice of SCAFFOLD and LoSAC, hence for the parameter sensitivity study, it is only implemented with MNIST. For DLG study, we mainly consider the similarity measured by the Frobenius norm between the estimated data samples by DLG and the real data samples. For the low rank matrix estimation, FedADMM [34] and the proximal versions of LoSAC (LoSAC-Prox) and SCAFFOLD (SCAFFOLD-Prox) are implemented with the evaluation of the recovery matrix error and the recovery matrix rank.
+
+5.2 Overall Performance
+
+
+5.2.1 Data Heterogeneity.
+In this subsection, we study the effect of the data heterogeneity on LoSAC and show the impacts of the local and global variance reduction schemes. Specifically, FedSaga utilizes local variance reduction, while SCAFFOLD, MimeSVRG and LoSAC uses global one. Moreover, FedAvg is implemented as the benchmark. For the experimental settings, the MNIST dataset is utilized for training and testing. We choose (1 − %) of the uniformly shuffled training dataset and distribute it to  = 1, 000 clients. Then, the left % of the training dataset is set to be non-IID, namely is sorted by the labels and distributed to all clients. Therefore, the larger the parameter % is, the data is more heterogeneous. For other parameters settings,  is set to  = 50, the step size is chosen as  = 4 × 10 −4 for all algorithms since it has shown the best performances. Moreover, the iteration number is (, ) = (100, 5). For LoSAC and FedSaga, Since the local dataset is divided into  blocks, the parameter is set as  = 5. As Fig. 2 shows, when the data is more heterogenous (namely % is larger), both FedAvg and FedSaga suffers from the data heterogeneity problem more seriously. For SCAFFOLD, MimeSVRG and LoSAC, since they all utilize the global information to correct the bias from the global model in the local update, the data heterogeneity problem has the little impact on the performance. Hence, the global variance reduction is much more robust to the data heterogeneity problem than the local one. Moreover, it can be seen that FedCM also has the impact of data heterogeneity, but the impact is not as serious as FedAvg and FedSaga. This can be attributed to the global aggregation of the local momentum term in FedCM, which has mitigated the model divergence problem.
+
+5.2.2 Parameter Sensitivity.
+We conduct extensive experiments to study the effects of { ,  }, which play significant roles on the convergence results in Theorem 3. The experiments use IID and non-IID settings for each evaluation respectively. The results are shown in Figs. 3∼4, Fig. 5 and Fig. 6 with MNIST, HAR and ESR datasets respectively. In particular, HAR and ESR datasets correspond to the mobile and the medical applications respectively. While we uses the default settings for MNIST, we fix  = 100,  = 10 −4 and  = 5 for HAR and ESR. In general, larger  and  lead to faster speed and better classification performance for LoSAC. This matches well with the convergence results in Theorem 3.
+In Figs. 3∼4, while our proposed method exhibits the prominent performance improvements, the non-IID data has significantly degraded the performances of FedAvg and MimeSVRG. With regard to the comparison of FedSaga and FedAvg, it can be seen that even with the acceleration scheme (here it is variance reduction), FedSaga performs worse than FedAvg. Although the acceleration scheme has shown the effectiveness in centralized optimization methods, it is not effective in the naive extension of SAGA to the FedOpt settings. This may due to the reason that the acceleration scheme using only local information may adversely lead FedSaga to fast approach the local optimum instead of the global one, resulting in large bias from the global optimum. For FedCM, more clients participated for local updates in FedCM can generally lead to the higher performances, this can be attributed to that more clients will contribute more information. Moreover, the non-IID case has affected the performance of FedCM, and more local steps in FedCM will adversely lead performance degradation. This is due to the reason that FedCM uses momentum acceleration in local model update, but with non-IID setting, it will accelerate the speed of model divergence and lead to performance degradation. In particular for MimeSVRG, it shows the large fluctuations in the non-IID setting, and more local iterations will lead to larger fluctuations. While SCAFFOLD and our method exhibit the strong capability in handling data heterogeneity problem, our method outperforms SCAFFOLD. Thus, it demonstrates the strong capability of LoSAC for mitigating the model divergence problem.
+For HAR, Fig. 5 has shown the performances of all methods with different  and  . In general, the result matches the Theorem 3 that larger  and  leads to better performances. In particular, our proposed method with  = 2 even exhibits better performances than SCAFFOLD with  = 8. This means that with only 25% of the computational complexity in SCAFFOLD, our proposed method still yields quite high performances. However, it shows the large fluctuations of LoSAC in the initial few updates. The reason may due to the randomness in the delayed full gradient that has brought the large variance in the initial updates, when  , seriously differs from   . When the algorithm progresses, it is expected to satisfy  , →   , and the variance begins to reduce.
+Fig. 5 has also exhibited the cases with ESR dataset using the same settings. Here, both SCAFFOLD and FedAvg have been significantly affected by the model divergence problem, while our proposed method has demonstrated the remarkable performances.
+
+5.3 Ablation Study
+We have shown the overall performance with different parameter and data heterogeneity settings. In this subsection, we continue to conduct the ablation study with different local memory (corresponding to the local data division ) and local iterations. We implement SCAFFOLD as the benchmark since it performs the second best in overall performance. Moroever, we adopt the non-IID setting. The step size for all cases is set to  = 10 −4 for the algorithms to yield as the best performances as possible. We set ( , ) = (100, 10) for all cases. { ,  } are tuned to for the comparisons. In general, it shows the significantly higher communication and computation efficiency over SCAFFOLD, which also demonstrates the effectiveness of the estimate for the global full gradient. The results are shown in Table 2. 2 that LoSAC requires much fewer communication rounds than SCAFFOLD to reach a given accuracy. In particular, the communication efficiency is improved by more than 300% for ESR case and 100% in average for all cases. Thus, LoSAC is communication quite efficient. This is because LoSAC estimates the global gradient more accurately than SCAFFOLD, which has accelerated the convergence speed and mitigated the model divergence problem. 2 further demonstrates the high computation efficiency of LoSAC. To be specific, when LoSAC with  = 2 and  = 3, it requires comparable communication rounds to reach the specific accuracy with SCAFFOLD with  = 6. This means with only around 33% computation complexity of SCAFFOLD, LoSAC can still yield higher communication efficiency.
+
+5.3.1 Communication efficiency. It can be seen from Table
+
+
+5.3.2 Computation efficiency. Table
+
+
+5.3.3 Local memory.
+For LoSAC, each client  needs to spend the sufficient memory to store  , ,  ∈ [], depending on the partitioning of the local dataset D  . Hence, we choose different memory sizes for the evaluations, i.e.,  = {2, 3, 5}. It also corresponds to  divisions of the local datasets. Table 2 indicates that larger memory size leads to a better performance for LoSAC. This may due to the reason that the local estimation of the global full gradient is improved with a larger memory size, and thus is less affected by the non-IID data. However, it will also cost local resources. In FL applications, clients may have limited memory, e.g., the case for mobile phones, thus we suggest a better trade-off between the performance and the resource. Note when  = 2, the storage cost of LoSAC is O (2) and the same with SCAFFOLD (SCAFFOLD requires to store the control variates and the model parameter for each local iteration), LoSAC yields much better performances than SCAFFOLD, i.e., more than 40% averaged performance improvements. Fig. 6. The performance evaluations on the defense against DLG. Binary logistic regression on the federated datasets is collaboratively performed over all clients. Moreover, GD is applied for solving the DLG problem to steal the dataset on the 1st client.
+
+5.4 Defense Against DLG
+We study the defense ability of each algorithm against DLG in Figure 6. Specifically, except for LoSAC, SCAFFOLD, FedAvg and MimeSVRG, we also implement DSGD since it has been the major attack objective by DLG [19]). The real datasets MNIST, HAR and ESR are utilized for the evaluations. For simplicity, we perform each FedOpt on logistic regression for binary classification on all datasets. Specifically, for MNIST, the label is set to 0 when it is smaller or equal to 5 and 1 otherwise; for HAR, the label is set to 0 when it is smaller or equal to 3 and 1 otherwise; For ESR, it has two classes that match well with binary logistic regression. We set ( , ) = (100, 100), i.e., all the clients participate in the local update in each round. All local datasets are utilized for the search direction in each local step, i.e.,  = 1. Furthermore, we apply gradient descent (GD) to perform the DLG attack in Definition 1. We tune the step size in the (a) MNIST and HAR cases:  = 10 −4 for all algorithms and   = 10 −3 for GD in DLG, (b) ESR case:  = 10 −3 for all algorithms and   = 10 −3 for GD in DLG. For each case, the GD in DLG has the iteration number 100. For simplicity without loss of generalization, we perform the DLG attack aiming to obtain the 1st client's data samples D 1 in the 5th round for each algorithm in all cases. We denote D1 as the obtained data samples by DLG, and use the metric ∥ D1 − D 1 ∥  for performance evaluations. Therefore, smaller value of the metric ∥ D1 − D 1 ∥  means more successful for DLG to obtain the local dataset D 1 .
+As shown in Fig. 6, both DSGD and MimeSVRG are vulnerable to the DLG since the estimated data samples are more and more approaching to the true data samples. This is because they transmits the gradients and the corresponding models, which satisfies exactly the DLG attack in Definition 1. As for FedAvg, SCAFFOLD and LoSAC, the DLG aims to obtain the data samples based on the term 1 / • ( + 1 − ), which is essentially the averaged gradients over the  local steps. Under DLG attacks, the estimated data samples in FedAvg, SCAFFOLD and LoSAC are more and more divergent from the true data samples, which demonstrates the capabilities of these algorithms to defense against DLG.
+
+5.5 Low Rank Matrix Estimation
+We further verify LoSAC for solving the problem of low rank matrix estimation via the comparisons with SCAFFOLD. First, the problem can be formulated in the following:min 𝑋 1 /𝑁 𝑁 ∑︁ 𝑖=1 𝑓 𝑖 (𝑋 ) + 𝜆 ∥𝑋 ∥ * ,
+where   ( ) =   =1 (⟨,   ⟩ −   ) 2 ,   ∈ R × is the data sample,   is the noisy observation and ∥•∥ * denotes the nuclear norm of a matrix to obtain a low rank matrix solution  * . The problem (20) targets at recovering the low rank matrix  ∈ R × from the noisy observations   . The proximal version of the state-of-the-art algorithm SCAFFOLD, namely SCAFFOLD-Prox, and FedADMM are studied as the comparisons. In particular, FedADMM is known to be convenient and efficient to solve the nonsmooth optimization problem [5, 34]. For LoSAC-Prox and SCAFFOLD-Prox, solving the above problem via the proximal operation, we can derive𝑋 * ← argmin 𝑍 𝜆 ∥𝑍 ∥ * + 1 2𝜂 ∥𝑍 − (𝑋 − 𝜂 ∇𝑓 𝑖 (𝑋 )) ∥ 2
+, where we denote ∇  ( ) as the global gradient estimate. Then, the above problem can be solved via  * =  • diag prox  ∥ • ∥ 1 () •   , where  ,  and  can be conveniently obtained via the singular value decomposition of the matrix ( −  ∇  ( )). For FedADMM [34] solving low rank matrix estimation, the details are in Appendix E.
+We evaluate the algorithms on the synthetic dataset for simplicity with the known ground truth   ∈ R × , which is obtained as follows:𝑋 𝐺 = 𝐼 𝑟𝑎𝑛𝑘 0 𝑟𝑎𝑛𝑘×(𝑑−𝑟𝑎𝑛𝑘) 0 (𝑑−𝑟𝑎𝑛𝑘)×𝑟𝑎𝑛𝑘 0 (𝑑−𝑟𝑎𝑛𝑘)×(𝑑−𝑟𝑎𝑛𝑘)
+As for the synthetic dataset generation, each element of a data sample   is randomly generated by N (0.1, 1). Moreover,   ∈ R is generated by   = ⟨  ,   ⟩ + N (0, 0.1). Specifically, we set  = 64 for   and five scenarios of the matrix rank are studied, i.e.,  (  ) = [32, 16, 8, 4, 2]. We set ( , ) = (100, 10) and the local dataset division to be  = 5 for each algorithm. We tune the step size  = 2 × 10 −3 for each algorithm to yield as the best performance as possible. We adopt two metrics for performance evaluation, namely the recovery matrix error ∥  −   ∥  and the rank of the recovery matrix  (  ) (we count the number of singular values that are greater than 10 −3 ).
+The results are shown in Fig. 7. It can be seen although ADMM has shown to conveniently and efficiently solve the nonsmooth optimization problem, with FedOpt settings (e.g., partial client participation), its performance is substantially degraded. In particular for SCAFFOLD, although it performs satisfactory results in the overall performance and ablation study, SCAFFOLD works poor in the low rank matrix estimation and cannot precisely recover the ground truth matrix, i.e., while the recovery matrix error is large, the rank of the estimated matrix significantly differs from the rank of the ground truth matrix. For LoSAC-Prox, it has shown the superiority in solving the problem. The recovery matrix   matches very well with the ground truth matrix   , i.e., it has the smallest recovery error and the EXACT rank with   .
+
+6 CONCLUSION
+Due to the data heterogeneity and client sampling, the performance of federated optimization suffers from degradation. Although there are several works attempting to mitigate these problems, none of them could well address them. We proposed a new FedOpt algorithm LoSAC for handling the challenges by compactly estimating the global gradient. Moreover, we extend LoSAC to its proximal version for solving a wider class of problems. We demonstrate the effectiveness of LoSAC via theoretical guarantees and the empirical studies. It shows that LoSAC equips with the strong ability in handling the model divergence problem, and the high communication and computation efficiency over the state-of-the-art methods. Especially in the low-rank matrix estimation problem, LoSAC has demonstrated its superior performances over SCAFFOLD and FedADMM, i.e., it can recover very well the true matrix with the exact rank. It is worth mentioning that LoSAC has the defense ability against the information leakage from the gradient.
+
+A USEFUL LEMMAS
+For proving Lemma 2, we provide the following useful lemmas. First, we present the Lemma 4, of which the relaxed triangle inequalities have provided quite important tools for evaluating the update progress in each round. Based on Lemma 4, the inequalities in Lemma 5 can be derived. Lemma 4. For vectors { 1 , . . . ,   } in R  , the following inequalities hold:𝑎 𝑖 + 𝑎 𝑗 2 ≤ (1 + 𝛼) ∥𝑎 𝑖 ∥ 2 + (1 + 1 𝛼 ) 𝑎 𝑗 2 , and∑︁ 𝑚 𝑖=1 𝑎 𝑖 2 ≤ 𝑚 ∑︁ 𝑚 𝑖=1 ∥𝑎 𝑖 ∥ 2 , ()
+where  > 0.
+Lemma 5. Suppose  is a strongly convex function with  > 0 and has -smoothness Lispschitz gradient, then the following inequalities holds:⟨∇𝑓 (𝑥), 𝑧 − 𝑦⟩ ≤𝑓 (𝑧) − 𝑓 (𝑦) + (𝐿 + 𝛽𝐿 − 𝜇 /4) ∥𝑦 − 𝑧 ∥ 2 + (1 + 𝛽 −1 )𝐿 ∥𝑧 − 𝑥 ∥ 2 , ()
+and moreover⟨∇𝑓 (𝑥), 𝑧 − 𝑦⟩ ≥𝑓 (𝑧) − 𝑓 (𝑦) + 𝜇 /[2(1+𝛼) ] ∥𝑦 − 𝑧 ∥ 2 − ( 𝐿 /2 + 𝜇 /2𝛼) ∥𝑧 − 𝑥 ∥ 2 . ()
+where  > 0 and  > 0.
+Proof : Lemma 5 can be derived with Lemma 4 and the definitions of -smoothness and convexity. Specifically, since  is strongly convex and has -smooth gradient, it implies that  ≥ , hold by the definitions of -smoothness and strongly convexity respectively. Combining the two inequalities yields:⟨∇𝑓 (𝑥), 𝑧 − 𝑦⟩ ≤ 𝑓 (𝑧) − 𝑓 (𝑦) + 𝐿 ∥𝑥 − 𝑦 ∥ 2 − 𝜇 4 ∥𝑧 − 𝑦 ∥ 2 ,
+where we have used the triangle inequality. We further use the triangle inequality as follows:∥𝑥 − 𝑦 ∥ 2 ≤ (1 + 𝛽) ∥𝑦 − 𝑧 ∥ 2 + (1 + 𝛽 −1 ) ∥𝑧 − 𝑥 ∥ 2 ,
+which we substitute into (27) that can lead to the desired result in (24). For the second inequality in (25), it follows from the first inequality in (27) that⟨∇𝑓 (𝑥), 𝑧 − 𝑦⟩ ≥ 𝑓 (𝑧) − 𝑓 (𝑦) − 𝐿 2 ∥𝑥 − 𝑧 ∥ 2 + 𝜇 2 ∥𝑦 − 𝑥 ∥ 2 . ()
+Furthermore, the triangle inequality with  > 0 is utilized and it yields:∥𝑦 − 𝑥 ∥ 2 ≥ 1 /(1+𝛼) ∥𝑦 − 𝑧 ∥ 2 − 1 /𝛼 ∥𝑧 − 𝑥 ∥ 2 . ()
+By combining ( 29) and (30), we can obtain the desired result in (25) and this completes the proof of Lemma 5.
+
+B PROOF OF LEMMA 2
+Proof. The proof of Lemma 2 is based on the results of Lemmas 4 and 5, which are in the Appendix A. We first recall the following inequalities hold respectively:𝑓 (𝑦) ≤ 𝑓 (𝑥) + ⟨∇𝑓 (𝑥), 𝑦 − 𝑥⟩ + 𝐿 2 ∥𝑥 − 𝑦 ∥ 2 , and∥∇𝑓 (𝑦) − ∇𝑓 (𝑥) ∥ ≥ 𝜇 ∥𝑦 − 𝑥 ∥ .
+Then we start with evaluating Δ   within  iterations given asΔ𝑥 𝑟 𝑖 = −𝜂 ∑︁ 𝑇 −1 𝑡 =0 { 1 𝑁 ∑︁ 𝑁 𝑛=1 ∇𝑓 𝑛 ({𝑧 𝑡 𝑛 }) − 𝑔 𝑖,𝑗 𝑡 (𝑧 𝑡 𝑖,𝑗 𝑡 ) + 𝑔 𝑖,𝑗 𝑡 (𝑥 𝑡 𝑖 )}.
+Next, we aim to evaluate the progress in one round. To be specific:E 𝑥 𝑟 +1 − 𝑥 * 2 = E 𝑥 𝑟 +1 − 𝑥 𝑟 2 + E ∥𝑥 𝑟 − 𝑥 * ∥ 2 + 2E⟨𝑥 𝑟 +1 − 𝑥 𝑟 , 𝑥 𝑟 − 𝑥 * ⟩. ()
+We first expand the term E   +1 −   2 as follows, then the upper bound can be further derived (with  0 :=  2  2  / 3 ):E 𝑥 𝑟 +1 − 𝑥 𝑟 2 ≤ 𝑆 2 𝑁 3 𝑁 ∑︁ 𝑖=1 E Δ𝑥 𝑟 𝑖 2 ≤ 𝑐 0 ∑︁ 𝑖,𝑡 E∥ 1 𝑁 𝑁 ∑︁ 𝑛=1 ∇𝑓 𝑛 ({𝑧 𝑡 𝑛 }) − 𝑔 𝑖,𝑗 𝑡 (𝑧 𝑡 𝑖,𝑗 𝑡 ) + 𝑔 𝑖,𝑗 𝑡 (𝑥 𝑡 𝑖 ) ∥ 2 𝑐 0 ∑︁ 𝑖,𝑡 E∥ 1 𝑁 𝑁 ∑︁ 𝑛=1 ∇𝑓 𝑛 ({𝑧 𝑡 𝑛 }) − 1 𝑁 𝑁 ∑︁ 𝑛=1 ∇𝑓 𝑛 (𝑥 * ) − 𝑔 𝑖,𝑗 𝑡 (𝑧 𝑡 𝑖,𝑗 𝑡 ) + 𝑔 𝑖,𝑗 𝑡 (𝑥 * ) + 𝑔 𝑖,𝑗 𝑡 (𝑥 𝑡 𝑖 ) − 𝑔 𝑖,𝑗 𝑡 (𝑥 * ) ∥ 2 ,
+thus by defining  1 := 3)
+where we have adopted the relaxed triangle inequality in Lemma 4. By using the condition of Lipschitz continuity, it yields:E 𝑥 𝑟 +1 − 𝑥 𝑟 2 ≤ 𝑐 1 𝐿 𝑁 ∑︁ 𝑖,𝑡,𝑛,𝑗 E∥𝑧 𝑖,𝑡 𝑛,𝑗 − 𝑥 * ∥ 2 + 𝑐 1 𝑛 𝑚 𝐿 ∑︁ 𝑖,𝑡 E∥𝑧 𝑡 𝑖,𝑗 𝑡 − 𝑥 * ∥ 2 + 𝑐 1 𝑛 𝑚 𝐿 ∑︁ 𝑖,𝑡 E∥𝑥 𝑡 𝑖 − 𝑥 * ∥ 2 .
+(37) The above equality has used the fact that  * is the optimal point which satisfies the first-order condition, i.e., 1 /  =1 ∇  ( * ) = 0. Moreover, the above inequalities include the terms E∥ , , − * ∥ 2 and E∥ , , −  * ∥ 2 , directly evaluating them is extremely difficult since they are randomly selected and updated. Note that both the gradient variance and second-order moment are bounded, it implies from (32) that:∥𝑦 − 𝑥 ∥ ≤ (𝛿 𝑓 − 𝜎 𝑓 ) • 2 /𝜇 := M 𝑣
+for any  and  in the domain of  . Therefore, we use (38) for bounding E∥ , , − * ∥ 2 and E∥ , , − * ∥ 2 . Moreover, to bound the last term E∥   −  * ∥ 2 , the one iteration progress for the client  can be expanded as follows:E∥𝑥 𝑡 +1 𝑖 − 𝑥 * ∥ 2 ≤ E∥𝑥 𝑡 +1 𝑖 − 𝑥 𝑡 𝑖 ∥ 2 + E∥𝑥 𝑡 𝑖 − 𝑥 * ∥ 2 + 2E⟨𝑥 𝑡 +1 𝑖 − 𝑥 𝑡 𝑖 , 𝑥 𝑡 𝑖 − 𝑥 * ⟩,
+which has the same form with (34). We omit the duplicated procedure and use the inequality E∥   −  * ∥ 2 ≤ M  . Hence, by combining (35) and (38), the following result can be derived:E 𝑥 𝑟 +1 − 𝑥 𝑟 2 ≤ 3𝜂 2 𝑆 2 𝑇 2 𝑛 𝑚 𝐿M 𝑣 (|D | + 2𝑛 𝑚 𝑁 ) 𝑁 3 . ()
+We next evaluate the term 2E⟨
+Then, we evaluate (41) term by term for convenience. For the first and third terms, they can bounded by applying (25), while the second term can be bounded by utilizing (24). Therefore, it yields the inequalities term by term in the following:
+The evaluation of the first term ( 3 :=  / ):−2𝜂𝑆 𝑁 3 ∑︁ 𝑖,𝑡,𝑛,𝑗 E⟨∇𝑓 𝑛,𝑗 (𝑧 𝑖,𝑡 𝑛,𝑗 ), 𝑥 𝑟 − 𝑥 * ⟩ ≤ −2𝑐 3 E{𝑓 (𝑥 𝑟 ) − 𝑓 (𝑥 * )} − 𝑐 3 |D |𝜇 𝑁 (1 + 𝛼) E∥𝑥 𝑟 − 𝑥 * ∥ 2 + 𝐿 + 𝜇 𝛼 𝑐 3 𝑁 2 𝑇 ∑︁ 𝑖,𝑡,𝑛,𝑗 E∥𝑧 𝑖,𝑡 𝑛,𝑗 − 𝑥 𝑟 ∥ 2 ;
+The evaluation of the second term:2𝜂𝑆 𝑁 2 ∑︁ 𝑖,𝑡,𝑗 E⟨∇𝑓 𝑖,𝑗 (𝑧 𝑡 𝑖,𝑗 ), 𝑥 𝑟 − 𝑥 * ⟩ ≤2𝑐 2 E{𝑓 (𝑥 𝑟 ) − 𝑓 (𝑥 * )} + 2𝑐 3 |D | 𝑁 (𝐿 + 𝛽𝐿 − 𝜇)E∥𝑥 𝑟 − 𝑥 * ∥ 2 + 2𝑐 3 (1 + 𝛽 −1 ) 𝑁 ∑︁ 𝑖,𝑡,𝑗 E∥𝑧 𝑡 𝑖,𝑗 − 𝑥 𝑟 ∥ 2 . ()
+The evaluation of the third term:−2𝜂𝑆 𝑁 2 ∑︁ 𝑖,𝑡 E⟨∇𝑓 𝑖 (𝑥 𝑡 𝑖 ), 𝑥 𝑟 − 𝑥 * ⟩ ≤ −2𝑐 3 E{𝑓 (𝑥 𝑟 ) − 𝑓 (𝑥 * )} − 𝑐 3 𝜇 1 + 𝛼 E∥𝑥 𝑟 − 𝑥 * ∥ 2 + 𝐿 + 𝜇 𝛼 𝑐 3 𝑁𝑇 • ∑︁ 𝑖,𝑡 E∥𝑥 𝑡 𝑖 − 𝑥 𝑟 ∥ 2 .
+Consequently, if  is sufficiently large, we assume all the locally stored variables { , } in client  are expected to be participated for the update at least once, and we assume the update times is  for all locally stored parameters { , }. Moreover, we denote  ′ as the latest update iteration for evaluating E∥ , , −  * ∥ 2 ,  ′′ as the second latest update, and so on. First of all, the inequalities (42)-( 44) can be rewritten with the relaxed triangle inequality and listed as follows:
+The evaluation of the first term ( 4 :=  / ):−2𝜂𝑆 𝑁 3 ∑︁ 𝑖,
+where the first inequality has used the relaxed triangle inequality. Moreover, recall ∥ −  ∥ 2 ≤ M  for all  and  in the domain of  , . Hence, we haveE∥𝑧 𝑖,𝑡 ′ 𝑛,𝑗 − 𝑧 𝑖,𝑡 ′′ 𝑛,𝑗 ∥ 2 ≤ 9𝜂 2 𝑛 2 𝑚 𝐿M 𝑣 .
+Next, we evaluate the second term 2E⟨ (55)
+Substituting the above results into (48), we can obtain the following:E∥𝑧 𝑖,𝑡 ′ 𝑛,𝑗 − 𝑥 * ∥ 2 ≤(1 − 𝜂𝜈)E∥𝑧 𝑖,𝑡 ′′ 𝑛,𝑗 − 𝑥 * ∥ 2 + 𝜂𝜆 + 9𝜂 2 𝑛 2 𝑚 𝐿M 𝑣 ,
+where  and  are provided respectively as𝜈 = 𝜇 (|D | + 𝑁 𝑛 𝑚 ) 𝑁 (1 + 𝛼) − 2𝑛 𝑚𝑖𝑛 𝐿 + 𝛽𝐿 − 𝜇
+and (57)𝜆 = 𝑛 𝑚 + |D | 𝑁 𝐿 + 𝜇 𝛼 M 𝑣 + 2𝑛 𝑚 (1 + 𝛽 −1 )𝐿M 𝑣 .
+Recall that we have assumed the update time for  is , hence we further have the following inequalityE∥𝑧 𝑖,𝑡 ′ 𝑛,𝑗 − 𝑥 * ∥ 2 ≤ (1 − 𝜂𝜈) 𝜏 M 𝑣 + 𝜆 + 9𝜂𝑛 2 𝑚 𝐿M 𝑣 𝑣 − 𝜆 + 9𝜂𝑛 2 𝑚 𝐿M 𝑣 𝑣 ≤ 𝜂 (𝜏𝜈M 𝑣 + 𝜏𝜆) + 9𝜂 2 𝑛 2 𝑚 𝐿M 𝑣
+holds when 46), (47), (48), (59), (60) substituting into (34), the following one round progress can be derived:
+In fact, if  > 1+ 1− , (67) may be satisfied. For the convergence study, we assume all these conditions are satisfied for simplicity.
+
+C PROOF OF THEOREM 3
+Proof. according the inequality in Lemma 2, we have the following,𝑝 𝑟 +1 ≤ −2𝜂𝑆𝑇 𝑁 Φ 𝑟 + (1 − 𝜂ℎ)𝑝 𝑟 + 𝜆 ′ 𝜂 2 + 𝜈 ′ 𝜂 3 ,
+where we define Φ  := E{ (  ) −  ( * )}. Hence, we construct a positive sequence {  } defined by   = (1 − ℎ 2 ) − , and it follows:1 𝑊 𝑅 ∑︁ 𝑅 𝑟 =0 𝑤 𝑟 Φ 𝑟 ≤ 𝑁 𝑝 0 2𝑆𝑇 𝜂𝑊 𝑅 + 𝑁 𝜆 ′ 𝜂 2𝑆𝑇 ,
+where we have defined   :=   =0   . Note when  ≥ 1 /3ℎ, (1 − ℎ) +1 ≤ exp{−ℎ} ≤ exp{− 1 /3} ≤ 3 /4, it leads to   = 1 /4ℎ(1 − ℎ) − . Substituting the results into (69), the weighted one round progress can be further simplifies as follows:1 𝑊 𝑅 ∑︁ 𝑅 𝑟 =0 𝑤 𝑟 Φ 𝑟 ≤ 2ℎ𝑁 𝑝 0 𝑆𝑇 exp{−𝜂ℎ𝑅} + 𝑁 𝜆 ′ 𝜂 2𝑆𝑇 .
+Therefore, we discuss the following two cases for the choice of the step size :
+• if 1 /3ℎ ≤ η ≤ log{max(1,4ℎ 2  0 /) } /ℎ, then we select the step size to be  = η and it follows1 𝑊 𝑅 ∑︁ 𝑅 𝑟 =0 𝑤 𝑟 Φ 𝑟 ≤ 2ℎ𝑁 𝑝 0 𝑆𝑇 exp{− ηℎ𝑅} + O 𝑁 𝜆 ′ 2𝑆𝑇ℎ𝑅 ,
+• if η > log{max(1,4ℎ 2  0 /) } /ℎ, then we select the step size to be  = log{max(1,4ℎ 2  0 /) } /ℎ, and 1 /    =0   Φ  ≤ O (   ′ 2 ℎ ). Thus, the desired results are obtained and this completes the proof of Theorem 3. □
+
+D PROOF OF LEMMA 1
+Proof. On the communication round  , recall we have used
+where  ∈ R × is the consensus variable,   ∈ R × can be viewed as the local model. Obviously, (75) and (74) are equivalent. Then, the augmented Lagrangian function can be further derived [5] :L (𝑋
+where   ∈ R × is the Lagrangian multiplier, ⟨, ⟩ denotes the matrix inner product,  > 0 is the regularization parameter and Π = {  ,  = 1, . . . ,  }. Subsequently, classical ADMM [5] solves the problem (75) via the following iterative procedure at the th iteration:𝑋
+
+Footnotes:
+ACM Trans. Knowl. Discov. Data., Vol. 1, No. 1, Article . Publication date: February 2023.
+1: We assume 𝑇 is sufficiently large such that the locally stored {𝑧 𝑖,𝑗 } is updated at least once.
+2: To be more exact, 𝑗 should be 𝑗 𝑡 ′ , for notational simplicity, we use 𝑗 since it is nontrivial in our derivation. ACM Trans. Knowl. Discov. Data., Vol. 1, No. 1, Article . Publication date: February 2023.
+
+References:
+
+- Dan Alistarh, Torsten Hoefler, Mikael Johansson, Nikola Konstantinov, Sarit Khirirat, and Cedric Renggli. 2018. The Convergence of Sparsified Gradient Methods. In Advances in Neural Information Processing Systems 31. 5973-5983.- RG Andrzejak, K Lehnertz, C Rieke, F Mormann, P David, and CE Elger. 2001. Indications of nonlinear deterministic and finite dimensional structures in time series of brain electrical activity: Dependence on recording region and brain state. Phys. Rev. E. (2001).
+
+- Davide Anguita, Alessandro Ghio, Luca Oneto, Xavier Parra, and Jorge L. Reyes-Ortiz. 2013. A Public Domain Dataset for Human Activity Recognition Using Smartphones.. In 21th ESANN,Bruges, Belgium.
+
+- Léon Bottou. 2010. Large-scale machine learning with stochastic gradient descent. In Proceedings of COMPSTAT'2010. Springer, 177-186.
+
+- Stephen Boyd, Neal Parikh, Eric Chu, Borja Peleato, and Jonathan Eckstein. 2011. Distributed Optimization and Statistical Learning via the Alternating Direction Method of Multipliers. Foundations and Trends in Machine Learning 3 (01 2011), 1-122.
+
+- Theodora S. Brisimi, Ruidi Chen, Theofanie Mela, Alex Olshevsky, Ioannis Ch. Paschalidis, and Wei Shi. 2018. Federated learning of predictive models from federated Electronic Health Records. International Journal of Medical Informatics 112 (2018), 59-67.
+
+- A. Defazio, F. Bach, and S. Julien. 2014. SAGA: A Fast Incremental Gradient Method With Support for Non-Strongly Convex Composite Objectives. Advances in Neural Information Processing Systems 27 (2014), 1646-1654.
+
+- Robert M Gower, Mark Schmidt, Francis Bach, and Peter Richtarik. 2020. Variance-reduced methods for machine learning. Technical Report. arXiv preprint arXiv:2010.00892.
+
+- Li Huang, Andrew L. Shea, Huining Qian, Aditya Masurkar, Hao Deng, and Dianbo Liu. 2019. Patient clustering improves efficiency of federated machine learning to predict mortality and hospital stay time using distributed electronic medical records. Journal of Biomedical Informatics (2019), 103-291.
+
+- Rie Johnson and Tong Zhang. 2013. Accelerating Stochastic Gradient Descent using Predictive Variance Reduction. NIPS (2013), 315-323.
+
+- Peter Kairouz, H. Brendan McMahan, and Brendan Avent etc. 2019. Advances and Open Problems in Federated Learning. CoRR abs/1712.07557 (2019). arXiv:1712.07557 https://arxiv.org/abs/1912.04977
+
+- Sai Praneeth Karimireddy, Martin Jaggi, Satyen Kale, Mehryar Mohri, Sashank J. Reddi, Sebastian U. Stich, and Ananda Theertha Suresh. 2020. Mime: Mimicking Centralized Stochastic Algorithms in Federated Learning. arXiv:2008.03606 [cs.LG]
+
+- Sai Praneeth Reddy Karimireddy, Satyen Kale, Mehryar Mohri, Sashank Jakkam Reddi, Sebastian Stich, and Ananda Theertha Suresh. 2020. SCAFFOLD: Stochastic Controlled Averaging for Federated Learning. In ICML.
+
+- A. Khaled, Mishchenko A., K. Mishchenko, and P. and Richtárik. 2020. Tighter theory for local SGD on indentical and heterogeneous data. In In AISTATS.
+
+- Diederik P. Kingma and Jimmy Ba. 2015. Adam: A Method for Stochastic Optimization. In International Conference on Learning Representations.
+
+- Jakub Konecný, H. Brendan McMahan, Daniel Ramage, and Peter Richtárik. 2016. Federated Optimization: Distributed Machine Learning for On-Device Intelligence. CoRR abs/1610.02527 (2016). arXiv:1610.02527 http://arxiv.org/abs/ 1610.02527
+
+- Jakub Konecný, H. Brendan McMahan, Felix X. Yu, Peter Richtárik, Ananda Theertha Suresh, and Dave Bacon. 2016. Federated Learning: Strategies for Improving Communication Efficiency. CoRR abs/1610.05492 (2016). arXiv:1610.05492 http://arxiv.org/abs/1610.05492
+
+- Y. Lecun, L. Bottou, Y. Bengio, and P. Haffner. 1998. Gradient-based learning applied to document recognition. In Proceedings of the IEEE, Vol. 86. 2278-2324.
+
+- Mu Li, David G. Anderson, Jun Woo Park, Alexander J. Smola, Amr Ahmed, Vanja Josifovski, James Long, Eugene J. Shekita, and Bor-Yiing Su. 2014. Scaling Distributed Machine Learning with the Parameter Server. In OSDI.
+
+- Tian Li, Anit Kumar Sahu, Maziar Sanjabi, Manzil Zaheer, Ameet Talwalkar, and Virginia Smith. 2020. Federated Optimization in Heterogeneous Networks. Proceedings of the 3rd MLSys Conference, Austin, TX, USA.
+
+- Xiang Li, Kaixuan Huang, Wenhao Yang, Shusen Wang, and Zhihua Zhang. 2020. On the Convergence of FedAvg on Non-IID Data. In ICLR.
+
+- Zhize Li and Peter Richtarik. 2021. A Unified Analysis of Stochastic Gradient Methods for Nonconvex Federated Optimization. arXiv:2102.01375 [cs.LG]
+
+- X. Liang, S. Shen, J. Liu, Z. Pan, E. Chen, and Y. Cheng. 2019. Variance Reduced Local SGD with Lower Communication Complexity. (2019). https://arxiv.org/abs/1912.12844
+
+- Wei Liu, Li Chen, Yunfei Chen, and Wenyi Zhang. 2020. Accelerating Federated Learning via Momentum Gradient Descent. IEEE Transactions on Parallel and Distributed Systems 31, 8 (2020), 1754-1766.
+
+- Brendan McMahan, Eider Moore, Daniel Ramage, Seth Hampson, and Blaise Aguera y Arcas. 2017. Communication- Efficient Learning of Deep Networks from Decentralized Data. In Proceedings of the 20th AISTATS.
+
+- Sheller MJ, Reina GA, Edwards B, Martin J, and Bakas S. 2019. Multi-Institutional Deep Learning Modeling Without Sharing Patient Data: A Feasibility Study on Brain Tumor Segmentation. Brainlesion (2019), 92-104.
+
+- Sahand Negahban and Martin J. Wainwright. 2010. Estimation of (near) low-rank matrices with noise and high- dimensional scaling. In ICML.
+
+- Neal Parikh and Stephen P. Boyd. 2014. Proximal Algorithms. Found. Trends Optim. 1, 3 (2014), 127-239.
+
+- Sashank Reddi, Zachary Charles, Manzil Zaheer, Zachary Garrett, Keith Rush, Jakub Konečný, Sanjiv Kumar, and H. Brendan McMahan. 2020. Adaptive Federated Optimization. arXiv:2003.00295 [cs.LG]
+
+- Amirhossein Reisizadeh, Aryan Mokhtari, Hamed Hassani, Ali Jadbabaie, and Ramtin Pedarsani. 2020. Fed- PAQ: A Communication-Efficient Federated Learning Method with Periodic Averaging and Quantization (Proceedings of Machine Learning Research, Vol. 108). PMLR, Online, 2021-2031.
+
+- Herbert Robbins and Sutton Monro. 1951. A Stochastic Approximation Method. Ann. Math. Statist. 22, 3 (1951), 400-407.
+
+- Tibshirani Robert. 1996. Regression Shrinkage and Selection via the Lasso. Journal of the Royal Statistical Society 58, 1 (1996), 267-288.
+
+- M. Schmidt, N. Roux, J. Liu, and F. Bach. 2016. Minimizing finite sums with the stochastic average gradient. Mathematical programming 162, 1-2 (2016), 83-112.
+
+- Zhou Shenglong and Li Geoffrey Ye. 2022. Federated Learning via Inexact ADMM. arXiv:2204.10607 [math.OC]
+
+- Sebastian U. Stich. 2019. Local SGD Converges Fast and Communicates Little. In ICLR.
+
+- Sebastian U Stich, Jean-Baptiste Cordonnier, and Martin Jaggi. 2018. Sparsified SGD with Memory. In NIPS.
+
+- Leye Wang, Han Yu, and Xiao Han. 2020. Federated Crowdsensing: Framework and Challenges. arXiv:2011.03208 [cs.CR]
+
+- Shiqiang Wang, Tiffany Tuor, Theodoros Salonidis, Kin K Leung, Christian Makaya, Ting He, and Kevin Chan. 2019. Adaptive Federated Learning in Resource Constrained Edge Computing Systems. IEEE journal on selected areas in communications 37, 6 (2019), 1205-1221.
+
+- Jing Xu, Sen Wang, Liwei Wang, and Andrew Chi-Chih Yao. 2021. FedCM: Federated Learning with Client-level Momentum. arXiv:2106.10874 [cs.LG]
+
+- Qiang Yang, Yang Liu, Tianjian Chen, and Yongxin Tong. 2019. Federated Machine Learning: Concept and Applications. ACM Transactions on Intelligent Systems and Technology (TIST) 10, 2 (2019), 1-19.
+
+- H. Yu, S. Shen, S. Yang, and S. Zhu. 2019. Parallel Restarted SGD with Faster Convergence and Less Communication: Demystifying Why Model Averaging Works for Deep Learning. In AAAI.
+
+- Yuchen Zhang, John C. Duchi, and Martin J. Wainwright. 2013. Communication-Efficient Algorithms for Statistical Optimization. Journal of Machine Learning Research 14, 68 (2013), 3321-3363.
+
+- Yue Zhao, Meng Li, Liangzhen Lai, Naveen Suda, Damon Civin, and Vikas Chandra. 2018. Federated Learning with Non-IID Data. CoRR abs/1806.00582 (2018). http://arxiv.org/abs/1806.00582
+
+- Zhaohua Zheng, Yize Zhou, Yilong Sun, Zhang Wang, Boyi Liu, and Keqiu Li. 2021. Federated Learning in Smart Cities: A Comprehensive Survey. arXiv:2102.01375 [cs.LG]
+
+- Ligeng Zhu, Zhijian Liu, and Song Han. 2019. Deep Leakage from Gradients. In Advances in Neural Information Processing Systems 32. 14774-14784.
+

@@ -1,0 +1,171 @@
+MLSolv-A: A Novel Machine Learning-Based Prediction of Solvation Free Energies from Pairwise Atomistic Interactions
+
+Abstract:
+Recent advances in machine learning and their applications have lead to the development of diverse structure-property relationship models for crucial chemical properties, and the solvation free energy is one of them. Here, we introduce a novel ML-based solvation model, which calculates the solvation energy from pairwise atomistic interactions. The novelty of the proposed model consists of a simple architecture: two encoding functions extract atomic feature vectors from the given chemical structure, while the inner product between two atomistic features calculates their interactions. The results on 6,493 experimental measurements achieve outstanding performance and transferability for enlarging training data due to its solvent-non-specific nature. Analysis of the interaction map shows there is a great potential that our model reproduces group contributions on the solvation energy, which makes us believe that the model not only provides the predicted target property but also gives us more detailed physicochemical insights.
+
+Main:
+
+
+
+1 Introduction
+The importance of solvation or hydration mechanism and accompanying free energy change has made various in silico calculation methods for the solvation energy one of the most important application in computational chemistry . The solvation free energy directly influences many chemical properties in solvated phases and plays a dominant role in various chemical reactions: drug delivery [2, 16, 18, 26], organic synthesis [27], electrochemical redox reactions [28] [29] [30] [31], etc.
+The atomistic computer simulation approaches for the solvent and the solute molecules directly offer the microscopic structure of the solvation shell, which surrounds the solutes molecule [7, 8, 13, 17, 18, 32]. The solvation shell structure could provide us detailed physicochemical information like microscopic mechanisms on solvation or the interplay between the solvent and the solute molecules when we use an appropriate force field and molecular dynamics parameters.
+However, those explicit solvation methods we stated above need an extensive amount of numerical calculations since we have to simulate each individual molecule in the solvated system. The practical problems on the explicit solvation model restrict its applications to classical molecular mechanics simulations [7, 8, 17] or a limited number of QM/MM approaches [13, 32].
+For classical mechanics approaches for macromolecules or calculations for small compounds at quantum-mechanical level, the idea of implicit solvation enables us to calculate solvation energy with feasible time and computational costs when one considers a given solvent as a continuous and isotropic medium in the Poisson-Boltzmann equation [1, 3-6, 9, 11, 15, 23, 24]. Many theoretical advances have been introduced to construct the continuum solvation model, which involves parameterized solvent properties: the polarizable continuum model (PCM) [9], the conductor-like screening model (COSMO) [1] and its variations [6, 33], generalized Born approximations like solvation model based on density (SMD) [5] or solvation model 6, 8, 12, etc.
+(SMx) [4, 11].
+The structure-property relationship (SPR) is rather a new approach, which predicts the solvation free energy with a completely different point of view when compared to computer simulation approaches with precisely defined theoretical backgrounds [34, 35]. Although we may not fully expect to obtain detailed chemical or physical insights other than the target property, since the SPR is a regression analysis in its intrinsic nature, it has demonstrated great potentials in terms of transferability and outstanding computational efficiency [21, 34, 35]. Recent successes in the machine learning (ML) technique [36] and their implementations in computational chemistry [21, 37] are currently promoting broad applications of SPR in numerous chemical studies [2, 19, 22, 26, 30, [38] [39] [40] [41] [42] [43] [44] [45] [46] [47] [48] [49]. Those studies proved that ML guarantees faster calculations than computer simulations and more precise estimations than traditional SPR estimations; a decent number of models showed accuracies comparable to ab initio solvation models in the aqueous system [21].
+We introduced a novel artificial neural-network-based ML solvation model called Delfos that predicts free energies of solvation for generic organic solvents in the previous work [10]. The model not only has a great potential of showing an accuracy comparable to the state-of-the-art computational chemistry methods [11, 15] but offers information of which substructures play a dominant role in the solvation process. In the present work, we propose a novel approach to ML model for the solvation energy estimation called MLSolv-A, which is based on the groupcontribution method. The key idea of the proposed model is the calculation of pairwise atomic interactions by mapping them into inner products of atomic feature vectors, while each encoder network for the solvent and the solute extracts such atomic features. We believe the proposed approach can be a powerful tool for understanding the solvation process, not only a separate or alternative prediction method, but also can strengthen various solvation models via computer simulations.
+The outline of the rest of the present paper is as follows: in section 2, we introduce the theoretical backgrounds of ML techniques we use and the overall architecture of our proposed model. Section 3 quantifies the model's prediction performance with 6,594 data points, mainly focused on pairwise atomic interactions and corresponding group contributions on the solvation free energy. In the last section of the present paper, we summarize and conclude our work.
+
+2 Methods
+In the proposed model, the linear regression task between the given chemical structures of the solvent and solute molecules and their free energy of solvation starts with the atomistic vector representations [10, 50] of the given solvent molecule, consisting of x α 's and solute molecule consisting of y γ 's, where α and γ are the atom indices. The entire molecular structure is now can be expressed as a sequence of vectors or a matrix:X = {x α } ,Y = {y γ } ,
+where x α and y γ are the α-th row of X and the γ-th row of Y, respectively. Then the encoder function learns of their chemical structures and extracts feature matrices for the solvent P and the solute Q,P = {p α } = Encoder(X),Q = {q γ } = Encoder(Y).
+Rows of P and Q, p α and q γ involve atomistic chemical features of atoms α and γ, which are directly related to the target property, which is the solvation free energy in our model. We now calculate the un-normalized attention score (or chemical similarity) between the atoms α and γ with the Luong's dot-product attention [51] :I αγ = −p α • q γ .
+Since our target quantity is the free energies of solvation, we expect such chemical similarity I αγ to correspond well to atomistic interactions between α and γ, which involves both the energetic and the entropic contributions. Eventually, the free energy of solvation of the given solventsolute pair, which is the final regression target, is expressed as a simple summation of atomistic interactions:∆G • sol = αγ I αγ .
+Certainly, one can also calculate the free energies of solvation from two molecular feature vectors, which represent the solvent properties u and the solute properties v, respectively:∆G • sol = u • v = α p α • α q α .
+The inner-product relation between molecular feature vectors u and v has a formal analogy with the solvent-gas partition coefficient calculation method via the solvation descriptor approach [52, 53].
+We choose and compare two different neural network models in order to encode the input molecular structure and extract important structural or chemical features which are strongly related to solvation behavior: one is the bidirectional language model (BiLM) [54], based on the recurrent neural network (RNN), the other is the graph convolutional neural network (GCN) [55] which explicitly handles the connectivity (bonding) between atoms with the adjacency matrix (more detailed description available in the supporting information). Figure 1 illustrates an overview on the architecture of the proposed ML solvation model.
+
+3 Results and Discussions
+For the training and test tasks of the proposed neural network, we prepare 6,594 experimental measures of free energies of solvation for 952 organic solvents and 147 organic solutes, including some inert gases. 642 experimentally measured values of the free energy of hydration are taken from the FreeSolv database [14, 56], and 5,952 data points for non-aqueous solvents are collected with the Solv@TUM database version 1.0 [24, 52, 53, 57], which is available at https://mediatum.ub.tum.de/1452571. Compounds in the dataset involves 10 kinds of atoms, which are commonly used in organic chemistry: hydrogen (H), carbon (C), oxygen (O), sulfur (S), nitrogen (N), phosphorus (P), fluorine (F), chlorine (Cl), bromine (Br), and iodine (I). The maximum heavy-atom count is 28 for the solute molecules and 18 for the solvent molecules. Mol2Vec skip-gram model to construct the 128-dimensional embedding lookup table [50]. For the implementation of the neural network model, we mainly use the Tensorflow 2.0 and Keras 2.3.1 frameworks [59]. Each model has L2 regularization to prevent excessive changes on weights and to minimize the variance, and uses the RMSprop algorithm with 10 −3 of learning rate and ρ = 0.9 for optimizing its loss function, the mean squared error (MSE). The selection of the optimized model for the target property is realized by an extensive grid-search task for tuning model hyperparameters.
+We employ 5-fold cross-validation to evaluate the prediction accuracy of the chosen model [60];
+the entire dataset is randomly split into five uniform-sized subsets, and we iteratively choose one of the subsets as a test set, and the training run uses the remaining 4 subsets. Consequentially, a 5-fold CV task performs 5 independent training and test runs, and relative sizes of the training and test sets are 8 to 2. To minimize the variation of results from CV tasks, we take averages for all results over 9 independent random CVs, split from different random states. The results for test run using 5-fold CV tasks for the optimized models are shown in Fig. 2. We found that the BiLM encoder with the LSTM layer performs slightly better than the GCN encoder, although their differences are not pronounced: the mean unsigned prediction error (MUE) for the BiLM/LSTM encoder model is 0.19 kcal/mol, while the GCN model results in 0.23 kcal/mol.
+Both MUE values show that the our proposed mechanism works well and guarantees excellent prediction accuracies for well-trained chemical structures. Moreover, projecting from our results based on a simple version of the graph-based neural network as the encoder, we expect the GCN-based model to perform better than a simple graph-based embedding model, or more progressed version of graph neural networks to perform even better for chemical structures: such as the messege-passing neural network (MPNN) [39], the deep tensor neural network (DTNN) [40],
+and so on. Since our proposed neural network model is a solvent-non-specific one that considers both the solvent and the solute structures as separated inputs, it has a distinct character when compared to other solvent-specific ML solvation models. The model can train with the molecular structure of a single solute repeatedly when the solute has multiple solvation energy data points for different kinds of solvents [10]; this logic is also valid for a single solvent. Therefore, one of the most useful advantages of our model is that we can easily enlarge the dataset for training, even in the scenario that we want to predict solvation free energies for a specific solvent. Fig-
+ure 4 shows 5-fold CV results for 642 hydration free energies (FreeSolv) from both the BiLM and the GCN models, in two different situations. One uses only the FreeSolv [14, 56] database for train and test tasks, and the other additionally uses the Solv@TUM [24, 57]. Although the Solv@TUM database only involves non-aqueous data points, it enhances each model's accuracy by about 20% (BiLM) to 30% (GCN) in terms of MUE. Those results imply that there are possible applications of the transfer learning to other solvation-related properties, like aqueous solubilities [2] or octanol-water partition coefficients. However, in some other situations, one may be concerned that the repetitive training for a single compound may make the model tends to overfit, and they could weaken predictivity for the structurally new compound, which is considered as an extrapolation. We investigate the model's predictivity for extrapolation situations with the scaffold-based split [10, 39, 48].
+Instead of the ordinary K-fold CV task with the random and uniform split method, the K-means clustering algorithm builds each fold with the MACCS substructural fingerprint [48]. One can simulate an extreme extrapolation situation through CV tasks over the clustered folds. As shown in Fig. 4, albeit the scaffold-based split degrades MUEs by a factor of three, they are still within an acceptable error range ∼ 0.6 kcal/mol, given chemical accuracy 1.0 kcal/mol. Furthermore, we do not see any evidence that our model tends to overfit more than other solvent-specific models [39, 48].
+Although we showed that the proposed NN model guarantees an excellent predictivity for solvation energies of various solute and solvent pairs, the main objective of the present study is to obtain the solvation free energy as the sum of decomposed inter-atomic interactions, as we described in Eqs. 3 and 4. In order to verify the feasibility of the the model's solvation energy estimation to decompose into group contributions, we define the sum of atomic interactions I αγ over the solvent indices γ as the group contributions of the α-th solute atom:I α = γ I αγ .
+Figure 5 shows hydration free energy contributions for five small organic solutes which have six heavy atoms: n-hexane, 1-chloropentane, pentaldehyde, 1-aminopentane, and benzene. As shown in Fig. 5, both the BiLM and the GCN model exhibit a similar tendency in group contributions; the model estimates that atomic interactions between the solute atoms and water increases near the hydrophilic groups. It is obvious that each atom in benzene must have identical contributions to the free energy, but the results in Fig. 5 clearly shows that the BiLM model makes faulty predictions while the GCN model works well as expected. We believe that this malfunctioning of the BiLM model originates from the sequential nature of the recurrent neural network. Since the RNN considers the input molecule is just a simple sequence of atomic vectors and there are no explicit statements that involve bonding information, the model could not be aware of the cyclic shape of the input compound [26, 38]. We conclude that it is inevitable to use explicitly bond (or connectivity) information when one constructs a group-contribution based ML model, albeit the RNN-based model predicts well in terms of their sum.
+
+4 Conclusions
+In summary, we introduced a novel approach for the ML-based solvation energy prediction, which has a great potential to provide physicochemical insights on the solvation process. The novelty of our neural network model is that the model does not involve the perceptron networks for readout of encoded features and estimation of the target property. Alternatively, we designed the model such that it is possible to calculate pairwise atomic interactions from inner products of atomistic feature vectors [51]. As a result, the model produces the solvation free energy from We quantified the proposed model's prediction performances for 6,493 experimental data points of solvation energies, which were taken from the FreeSolv [14, 56] and Solv@TUM database [24, 57]. We found a significant geometrical correlation between molecular feature vectors and predicted properties, which confirms that the proposed model successfully extracts chemical properties and maps into the vector representations. is actually working as we designed. The estimated prediction MUEs from K-fold CV are 0.19 kcal/mol for the BiLM encoder and 0.23 kcal/mol for the GCN model, respectively.
+The K-fold CV results from the scaffold-based split [48] showed the prediction accuracy decreases by a factor of three in extreme extrapolation situations, but they still exhibit moderate performances, which were 0.60 kcal/mol. Moreover, we found that the solvent-non-specific structure of the proposed model is appropriate for enlarging the dataset size, i.e., experimental data points for a particular solvent are transferable to other solvents; we conclude that this transferability is the reason for our model's outstanding predictivity [10].
+Finally, we examined pairwise atomic interactions that are obtained from the interaction map and found a clear tendency between hydrophilic groups and their contributions to the hydration free energy. We believe that our model can provide detailed information on the solvation mechanism, not only the predicted value of the target property.
+
+5 Conflicts of interest
+There are no conflicts to declare.
+
+Footnotes:
+
+References:
+
+- Klamt, A.; Schüürmann, G. COSMO: a new approach to dielectric screening in solvents with explicit expressions for the screening energy and its gradient. J. Chem. Soc., Perkin Trans. 2 1993, 799-805.- Delaney, J. S. ESOL: Estimating Aqueous Solubility Directly from Molecular Structure. Journal of Chemical Information and Computer Sciences 2004, 44, 1000-1005.
+
+- Tomasi, J.; Mennucci, B.; Cammi, R. Quantum Mechanical Continuum Solvation Models. Chemical Reviews 2005, 105, 2999-3094.
+
+- Cramer, C. J.; Truhlar, D. G. A Universal Approach to Solvation Modeling. Accounts of Chemical Research 2008, 41, 760-768.
+
+- Marenich, A. V.; Cramer, C. J.; Truhlar, D. G. Universal Solvation Model Based on Solute Electron Density and on a Continuum Model of the Solvent Defined by the Bulk Dielectric Constant and Atomic Surface Tensions. The Journal of Physical Chemistry B 2009, 113, 6378-6396.
+
+- Klamt, A.; Eckert, F.; Arlt, W. COSMO-RS: An Alternative to Simulation for Calculating Thermodynamic Properties of Liquid Mixtures. Annual Review of Chemical and Biomolec- ular Engineering 2010, 1, 101-122.
+
+- Shivakumar, D.; Williams, J.; Wu, Y.; Damm, W.; Shelley, J.; Sherman, W. Prediction of Absolute Solvation Free Energies using Molecular Dynamics Free Energy Perturbation and the OPLS Force Field. Journal of Chemical Theory and Computation 2010, 6, 1509-1519.
+
+- Chong, S.-H.; Ham, S. Atomic decomposition of the protein solvation free energy and its application to amyloid-beta protein in water. The Journal of Chemical Physics 2011, 135, 034506.
+
+- Mennucci, B. Polarizable continuum model: Polarizable continuum model. Wiley Interdis- ciplinary Reviews: Computational Molecular Science 2012, 2, 386-404.
+
+- Lim, H.; Jung, Y. Delfos: deep learning model for prediction of solvation free energies in generic organic solvents. Chemical Science 2019, 10, 8306-8315.
+
+- Marenich, A. V.; Cramer, C. J.; Truhlar, D. G. Generalized Born Solvation Model SM12. Journal of Chemical Theory and Computation 2013, 9, 609-620.
+
+- Sato, H. A modern solvation theory: quantum chemistry and statistical chemistry. Physical Chemistry Chemical Physics 2013, 15, 7450.
+
+- König, G.; Pickard, F. C.; Mei, Y.; Brooks, B. R. Predicting hydration free energies with a hybrid QM/MM approach: an evaluation of implicit and explicit solvation models in SAMPL4. Journal of Computer-Aided Molecular Design 2014, 28, 245-257.
+
+- Mobley, D. L.; Guthrie, J. P. FreeSolv: a database of experimental and calculated hydration free energies, with input files. Journal of Computer-Aided Molecular Design 2014, 28, 711-720.
+
+- Klamt, A.; Diedenhofen, M. Calculation of Solvation Free Energies with DCOSMO-RS. The Journal of Physical Chemistry A 2015, 119, 5439-5445.
+
+- Skyner, R. E.; McDonagh, J. L.; Groom, C. R.; van Mourik, T.; Mitchell, J. B. O. A review of methods for the calculation of solution free energies and the modelling of systems in solution. Physical Chemistry Chemical Physics 2015, 17, 6174-6191.
+
+- Zhang, J.; Tuguldur, B.; van der Spoel, D. Force Field Benchmark of Organic Liquids.
+
+- Gibbs Energy of Solvation. Journal of Chemical Information and Modeling 2015, 55, 1192-1201.
+
+- Harder, E. et al. OPLS3: A Force Field Providing Broad Coverage of Drug-like Small Molecules and Proteins. Journal of Chemical Theory and Computation 2016, 12, 281-296.
+
+- Coley, C. W.; Barzilay, R.; Green, W. H.; Jaakkola, T. S.; Jensen, K. F. Convolutional Embedding of Attributed Molecular Graphs for Physical Property Prediction. Journal of Chemical Information and Modeling 2017, 57, 1757-1772.
+
+- Duarte Ramos Matos, G.; Kyu, D. Y.; Loeffler, H. H.; Chodera, J. D.; Shirts, M. R.; Mob- ley, D. L. Approaches for Calculating Solvation Free Energies and Enthalpies Demon- strated with an Update of the FreeSolv Database. Journal of Chemical & Engineering Data 2017, 62, 1559-1569.
+
+- Wu, Z.; Ramsundar, B.; Feinberg, E.; Gomes, J.; Geniesse, C.; Pappu, A. S.; Leswing, K.; Pande, V. MoleculeNet: a benchmark for molecular machine learning. Chemical Science 2018, 9, 513-530.
+
+- Borhani, T. N.; García-Muñoz, S.; Vanesa Luciani, C.; Galindo, A.; Adjiman, C. S. Hybrid QSPR models for the prediction of the free energy of solvation of organic solute/solvent pairs. Physical Chemistry Chemical Physics 2019, 21, 13706-13720.
+
+- Ringe, S.; Oberhofer, H.; Hille, C.; Matera, S.; Reuter, K. Function-Space-Based Solu- tion Scheme for the Size-Modified Poisson-Boltzmann Equation in Full-Potential DFT. Journal of Chemical Theory and Computation 2016, 12, 4052-4066.
+
+- Hille, C.; Ringe, S.; Deimel, M.; Kunkel, C.; Acree, W. E.; Reuter, K.; Oberhofer, H. Generalized molecular solvation in non-aqueous solutions by a single parameter implicit solvation scheme. The Journal of Chemical Physics 2019, 150, 041710.
+
+- Chong, S.-H.; Ham, S. Interaction with the Surrounding Water Plays a Key Role in Deter- mining the Aggregation Propensity of Proteins. Angewandte Chemie International Edition 2014, 53, 3961-3964.
+
+- Popova, M.; Isayev, O.; Tropsha, A. Deep reinforcement learning for de novo drug design. Science Advances 2018, 4, eaap7885.
+
+- Reichardt, C.; Welton, T. Solvents and Solvent Effects in Organic Chemistry: RE- ICHARDT:SOLV.EFF. 4ED O-BK; Wiley-VCH Verlag GmbH & Co. KGaA: Weinheim, Germany, 2010.
+
+- Takeda, T.; Taniki, R.; Masuda, A.; Honma, I.; Akutagawa, T. Electron-deficient an- thraquinone derivatives as cathodic material for lithium ion batteries. Journal of Power Sources 2016, 328, 228-234.
+
+- Park, H.; Lim, H.-D.; Lim, H.-K.; Seong, W. M.; Moon, S.; Ko, Y.; Lee, B.; Bae, Y.; Kim, H.; Kang, K. High-efficiency and high-power rechargeable lithium-sulfur dioxide batteries exploiting conventional carbonate-based electrolytes. Nature Communications 2017, 8, 14989.
+
+- Allam, O.; Cho, B. W.; Kim, K. C.; Jang, S. S. Application of DFT-based machine learning for developing molecular electrode materials in Li-ion batteries. RSC Advances 2018, 8, 39414-39420.
+
+- Kim, J.; Ko, S.; Noh, C.; Kim, H.; Lee, S.; Kim, D.; Park, H.; Kwon, G.; Son, G.; Ko, J. W.; Jung, Y.; Lee, D.; Park, C. B.; Kang, K. Biological Nicotinamide Cofactor as a Redox- Active Motif for Reversible Electrochemical Energy Storage. Angewandte Chemie Inter- national Edition 2019, 58, 16764-16769.
+
+- Jia, X.; Wang, M.; Shao, Y.; König, G.; Brooks, B. R.; Zhang, J. Z. H.; Mei, Y. Calcula- tions of Solvation Free Energy through Energy Reweighting from Molecular Mechanics to Quantum Mechanics. Journal of Chemical Theory and Computation 2016, 12, 499-511.
+
+- Klamt, A. The COSMO and COSMO-RS solvation models: COSMO and COSMO-RS. Wiley Interdisciplinary Reviews: Computational Molecular Science 2018, 8, e1338.
+
+- Tropsha, A. Best Practices for QSAR Model Development, Validation, and Exploitation. Molecular Informatics 2010, 29, 476-488.
+
+- Cherkasov, A. et al. QSAR Modeling: Where Have You Been? Where Are You Going To? Journal of Medicinal Chemistry 2014, 57, 4977-5010.
+
+- Schmidhuber, J. Deep learning in neural networks: An overview. Neural Networks 2015, 61, 85-117.
+
+- Butler, K. T.; Davies, D. W.; Cartwright, H.; Isayev, O.; Walsh, A. Machine learning for molecular and materials science. Nature 2018, 559, 547-555.
+
+- Kearnes, S.; McCloskey, K.; Berndl, M.; Pande, V.; Riley, P. Molecular graph convolutions: moving beyond fingerprints. Journal of Computer-Aided Molecular Design 2016, 30, 595- 608.
+
+- Gilmer, J.; Schoenholz, S. S.; Riley, P. F.; Vinyals, O.; Dahl, G. E. Neural Message Passing for Quantum Chemistry. arXiv:1704.01212 [cs] 2017, arXiv: 1704.01212.
+
+- Schütt, K. T.; Arbabzadah, F.; Chmiela, S.; Müller, K. R.; Tkatchenko, A. Quantum- chemical insights from deep tensor neural networks. Nature Communications 2017, 8, 13890.
+
+- Smith, J. S.; Isayev, O.; Roitberg, A. E. ANI-1: an extensible neural network potential with DFT accuracy at force field computational cost. Chemical Science 2017, 8, 3192-3203.
+
+- Behler, J. First Principles Neural Network Potentials for Reactive Simulations of Large Molecular and Condensed Systems. Angewandte Chemie International Edition 2017, 56, 12828-12840.
+
+- Ryu, S.; Lim, J.; Hong, S. H.; Kim, W. Y. Deeply learning molecular structure- property relationships using attention-and gate-augmented graph convolutional network. arXiv:1805.10988 [cs, stat] 2018, arXiv: 1805.10988.
+
+- Schütt, K. T.; Sauceda, H. E.; Kindermans, P.-J.; Tkatchenko, A.; Müller, K.-R. SchNet - A deep learning architecture for molecules and materials. The Journal of Chemical Physics 2018, 148, 241722.
+
+- Sifain, A. E.; Lubbers, N.; Nebgen, B. T.; Smith, J. S.; Lokhov, A. Y.; Isayev, O.; Roit- berg, A. E.; Barros, K.; Tretiak, S. Discovering a Transferable Charge Assignment Model Using Machine Learning. The Journal of Physical Chemistry Letters 2018, 9, 4495-4501.
+
+- Ryu, S.; Kwon, Y.; Kim, W. Y. A Bayesian graph convolutional network for reliable pre- diction of molecular properties with uncertainty quantification. Chemical Science 2019, 10, 8438-8446.
+
+- Schütt, K. T.; Kessel, P.; Gastegger, M.; Nicoli, K. A.; Tkatchenko, A.; Müller, K.-R. SchNetPack: A Deep Learning Toolbox For Atomistic Systems. Journal of Chemical The- ory and Computation 2019, 15, 448-455.
+
+- Winter, R.; Montanari, F.; Noé, F.; Clevert, D.-A. Learning continuous and data-driven molecular descriptors by translating equivalent chemical representations. Chemical Sci- ence 2019, 10, 1692-1701.
+
+- Zhang, Z.; Schott, J. A.; Liu, M.; Chen, H.; Lu, X.; Sumpter, B. G.; Fu, J.; Dai, S. Predic- tion of Carbon Dioxide Adsorption via Deep Learning. Angewandte Chemie International Edition 2019, 58, 259-263.
+
+- Jaeger, S.; Fulle, S.; Turk, S. Mol2vec: Unsupervised Machine Learning Approach with Chemical Intuition. Journal of Chemical Information and Modeling 2018, 58, 27-35.
+
+- Luong, M.-T.; Pham, H.; Manning, C. D. Effective Approaches to Attention-based Neural Machine Translation. arXiv:1508.04025 [cs] 2015, arXiv: 1508.04025.
+
+- Stolov, M. A.; Zaitseva, K. V.; Varfolomeev, M. A.; Acree, W. E. Enthalpies of solution and enthalpies of solvation of organic solutes in ethylene glycol at 298.15 K: Prediction and analysis of intermolecular interaction contributions. Thermochimica Acta 2017, 648, 91-99.
+
+- Sedov, I. A.; Salikov, T. M.; Wadawadigi, A.; Zha, O.; Qian, E.; Acree, W. E.; Abra- ham, M. H. Abraham model correlations for describing the thermodynamic properties of solute transfer into pentyl acetate based on headspace chromatographic and solubility mea- surements. The Journal of Chemical Thermodynamics 2018, 124, 133-140.
+
+- Peters, M. E.; Neumann, M.; Iyyer, M.; Gardner, M.; Clark, C.; Lee, K.; Zettle- moyer, L. Deep contextualized word representations. arXiv:1802.05365 [cs] 2018, arXiv: 1802.05365.
+
+- Kipf, T. N.; Welling, M. Semi-Supervised Classification with Graph Convolutional Net- works. arXiv:1609.02907 [cs, stat] 2017, arXiv: 1609.02907.
+
+- Mobley, D. L.; Shirts, M.; Lim, N.; Chodera, J.; Beauchamp, K.; Lee-Ping, Mobley- lab/Freesolv: Version 0.52. https://zenodo.org/record/1161245, 2018.
+
+- Hille, C.; Ringe, S.; Deimel, M.; Kunkel, C.; Acree, W. E.; Reuter, K.; Oberhofer, H. Solv@TUM v 1.0. https://mediatum.ub.tum.de/1452571, 2018.
+
+- Sterling, T.; Irwin, J. J. ZINC 15 -Ligand Discovery for Everyone. Journal of Chemical Information and Modeling 2015, 55, 2324-2337.
+
+- Martín Abadi, et al. TensorFlow: Large-Scale Machine Learning on Heterogeneous Sys- tems; 2015.
+
+- Pedregosa, F. et al. Scikit-learn: Machine Learning in Python. Journal of Machine Learn- ing Research 2011, 12, 2825-2830.
+
