@@ -1,0 +1,5566 @@
+{
+  "@context": {
+    "mls": "http://www.w3.org/ns/mls#",
+    "schema": "http://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "Study": "mls:Study",
+    "Experiment": "mls:Experiment",
+    "Person": "mls:Person",
+    "Organization": "mls:Organization",
+    "MLS_Task": "mls:MLS_Task",
+    "MLS_Dataset": "mls:MLS_Dataset",
+    "DataSource": "mls:DataSource",
+    "Method": "Method",
+    "MLS_Model": "mls:MLS_Model",
+    "MLS_Algorithm": "mls:MLS_Algorithm",
+    "Prompt": "Prompt",
+    "MLS_Eval": "mls:MLS_Eval",
+    "SoftwareRepository": "SoftwareRepository",
+    "MLS_Implementation": "mls:MLS_Implementation",
+    "MLS_HyperParameter": "mls:MLS_HyperParameter",
+    "HP_Optimization": "HP_Optimization",
+    "HP_Training": "HP_Training",
+    "HP_Architecture": "HP_Architecture",
+    "HP_Data": "HP_Data",
+    "LearningRate": "LearningRate",
+    "Momentum": "Momentum",
+    "WeightDecay": "WeightDecay",
+    "WarmupSteps": "WarmupSteps",
+    "DecayRate": "DecayRate",
+    "BatchSize": "BatchSize",
+    "NumEpochs": "NumEpochs",
+    "MaxSteps": "MaxSteps",
+    "GradientAccumulationSteps": "GradientAccumulationSteps",
+    "NumWorkers": "NumWorkers",
+    "RandomSeed": "RandomSeed",
+    "NumLayers": "NumLayers",
+    "HiddenSize": "HiddenSize",
+    "EmbeddingDim": "EmbeddingDim",
+    "Dropout": "Dropout",
+    "AttentionHeads": "AttentionHeads",
+    "MaxSequenceLength": "MaxSequenceLength",
+    "TrainValTestSplit": "TrainValTestSplit",
+    "Dependency": "Dependency",
+    "Environment": "Environment",
+    "DataProcessingStep": "DataProcessingStep",
+    "TrainingRun": "TrainingRun",
+    "EvaluationRun": "EvaluationRun",
+    "PredictionSet": "PredictionSet",
+    "model": "https://w3id.org/mlskg/model/",
+    "algo": "https://w3id.org/mlskg/algorithm/",
+    "method": "https://w3id.org/mlskg/method/",
+    "dataset": "https://w3id.org/mlskg/dataset/",
+    "datasource": "https://w3id.org/mlskg/datasource/",
+    "task": "https://w3id.org/mlskg/task/",
+    "eval": "https://w3id.org/mlskg/eval/",
+    "hp": "https://w3id.org/mlskg/hp/",
+    "impl": "https://w3id.org/mlskg/implementation/",
+    "env": "https://w3id.org/mlskg/environment/",
+    "prompt": "https://w3id.org/mlskg/prompt/",
+    "person": "https://w3id.org/mlskg/person/",
+    "org": "https://w3id.org/mlskg/organization/",
+    "study": "https://w3id.org/mlskg/study/",
+    "exp": "https://w3id.org/mlskg/experiment/",
+    "repo": "https://w3id.org/mlskg/repository/",
+    "valueSource": "https://w3id.org/mlskg/meta/valueSource",
+    "mention": "https://w3id.org/mlskg/meta/mention",
+    "occurrences": "https://w3id.org/mlskg/meta/occurrences",
+    "section": "https://w3id.org/mlskg/meta/section",
+    "issued": {
+      "@id": "xsd:issued",
+      "@type": "xsd:datetime"
+    },
+    "title": "schema:title",
+    "abstract": "schema:abstract",
+    "url": "schema:url",
+    "doi": "schema:doi",
+    "citation": "schema:citation",
+    "publicationVenue": "schema:publicationVenue",
+    "timestamp": {
+      "@id": "schema:timestamp",
+      "@type": "xsd:date"
+    },
+    "identifier": "schema:identifier",
+    "description": "schema:description",
+    "objective": "schema:objective",
+    "hypothesis": "schema:hypothesis",
+    "methodology": "schema:methodology",
+    "name": "schema:name",
+    "affiliation": "schema:affiliation",
+    "email": "schema:email",
+    "orcid": "schema:orcid",
+    "type": "schema:type",
+    "category": "schema:category",
+    "metrics": "schema:metrics",
+    "numInstances": {
+      "@id": "schema:numInstances",
+      "@type": "xsd:integer"
+    },
+    "language": "schema:language",
+    "license": "schema:license",
+    "modality": "schema:modality",
+    "numClasses": {
+      "@id": "schema:numClasses",
+      "@type": "xsd:integer"
+    },
+    "version": "schema:version",
+    "architecture": "schema:architecture",
+    "parameters": "schema:parameters",
+    "complexity": "mls:complexity",
+    "pseudoCode": {
+      "@id": "mls:pseudoCode",
+      "@type": "xsd:anyURI"
+    },
+    "text": "schema:text",
+    "role": "mls:role",
+    "templateId": "mls:templateId",
+    "usesContext": {
+      "@id": "mls:usesContext",
+      "@type": "xsd:boolean"
+    },
+    "measure": "mls:measure",
+    "hasValue": {
+      "@id": "mls:hasValue",
+      "@type": "xsd:float"
+    },
+    "stdDev": {
+      "@id": "mls:stdDev",
+      "@type": "xsd:float"
+    },
+    "confidenceInterval": "mls:confidenceInterval",
+    "programmingLanguage": "schema:programmingLanguage",
+    "dateModified": {
+      "@id": "schema:dateModified",
+      "@type": "xsd:datetime"
+    },
+    "documentationUrl": {
+      "@id": "mls:documentationUrl",
+      "@type": "xsd:anyURI"
+    },
+    "codeRepository": {
+      "@id": "mls:codeRepository",
+      "@type": "xsd:anyURI"
+    },
+    "framework": "mls:framework",
+    "dependencies": "mls:dependencies",
+    "executionCommand": "mls:executionCommand",
+    "entryPoint": "mls:entryPoint",
+    "commitHash": "mls:commitHash",
+    "branch": "mls:branch",
+    "dependenciesHash": "mls:dependenciesHash",
+    "packageName": "mls:packageName",
+    "isOptional": {
+      "@id": "mls:isOptional",
+      "@type": "xsd:boolean"
+    },
+    "hardwareSpecs": "mls:hardwareSpecs",
+    "os": "mls:os",
+    "pythonVersion": "mls:pythonVersion",
+    "requirementsFile": "mls:requirementsFile",
+    "isDockerized": {
+      "@id": "mls:isDockerized",
+      "@type": "xsd:boolean"
+    },
+    "startedAtTime": {
+      "@id": "prov:startedAtTime",
+      "@type": "xsd:datetime"
+    },
+    "endedAtTime": {
+      "@id": "prov:endedAtTime",
+      "@type": "xsd:datetime"
+    },
+    "transformationType": "mls:transformationType",
+    "codeReference": {
+      "@id": "mls:codeReference",
+      "@type": "xsd:anyURI"
+    },
+    "runId": "mls:runId",
+    "logFile": {
+      "@id": "mls:logFile",
+      "@type": "xsd:anyURI"
+    },
+    "split": "mls:split",
+    "onDatasetSplit": "mls:onDatasetSplit",
+    "format": "mls:format",
+    "artifactsLocation": {
+      "@id": "mls:artifactsLocation",
+      "@type": "xsd:anyURI"
+    },
+    "hpCategory": "mls:hpCategory",
+    "hpType": "mls:hpType",
+    "searchSpace": "mls:searchSpace",
+    "uncertain": {
+      "@id": "mls:uncertain",
+      "@type": "xsd:boolean"
+    },
+    "hasAuthor": {
+      "@id": "mls:hasAuthor",
+      "@type": "@id"
+    },
+    "contains": {
+      "@id": "mls:contains",
+      "@type": "@id"
+    },
+    "implements": {
+      "@id": "mls:implements",
+      "@type": "@id"
+    },
+    "prov-affiliatedWith": {
+      "@id": "mls:prov-affiliatedWith",
+      "@type": "@id"
+    },
+    "realizes": {
+      "@id": "mls:realizes",
+      "@type": "@id"
+    },
+    "usesData": {
+      "@id": "mls:usesData",
+      "@type": "@id"
+    },
+    "produces": {
+      "@id": "mls:produces",
+      "@type": "@id"
+    },
+    "usesParameters": {
+      "@id": "mls:usesParameters",
+      "@type": "@id"
+    },
+    "executes": {
+      "@id": "mls:executes",
+      "@type": "@id"
+    },
+    "subDatasetOf": {
+      "@id": "mls:subDatasetOf",
+      "@type": "@id"
+    },
+    "prov-derivedFrom": {
+      "@id": "mls:prov-derivedFrom",
+      "@type": "@id"
+    },
+    "processedThrough": {
+      "@id": "mls:processedThrough",
+      "@type": "@id"
+    },
+    "prov-uses": {
+      "@id": "mls:prov-uses",
+      "@type": "@id"
+    },
+    "trainedOn": {
+      "@id": "mls:trainedOn",
+      "@type": "@id"
+    },
+    "evaluatedOn": {
+      "@id": "mls:evaluatedOn",
+      "@type": "@id"
+    },
+    "achieves": {
+      "@id": "mls:achieves",
+      "@type": "@id"
+    },
+    "prov-producedBy": {
+      "@id": "mls:prov-producedBy",
+      "@type": "@id"
+    },
+    "subMethod": {
+      "@id": "mls:subMethod",
+      "@type": "@id"
+    },
+    "evaluates": {
+      "@id": "mls:evaluates",
+      "@type": "@id"
+    },
+    "supports": {
+      "@id": "mls:supports",
+      "@type": "@id"
+    },
+    "runsIn": {
+      "@id": "mls:runsIn",
+      "@type": "@id"
+    },
+    "requires": {
+      "@id": "mls:requires",
+      "@type": "@id"
+    },
+    "prov-executedBy": {
+      "@id": "mls:prov-executedBy",
+      "@type": "@id"
+    },
+    "prov-generated": {
+      "@id": "mls:prov-generated",
+      "@type": "@id"
+    },
+    "benchmarkedOn": {
+      "@id": "mls:benchmarkedOn",
+      "@type": "@id"
+    },
+    "subTaskOf": {
+      "@id": "mls:subTaskOf",
+      "@type": "@id"
+    },
+    "dependsOn": {
+      "@id": "mls:dependsOn",
+      "@type": "@id"
+    },
+    "usedIn": {
+      "@id": "mls:usedIn",
+      "@type": "@id"
+    },
+    "trains": {
+      "@id": "mls:trains",
+      "@type": "@id"
+    },
+    "producedBy": {
+      "@id": "mls:producedBy",
+      "@type": "@id"
+    },
+    "wasGeneratedBy": {
+      "@id": "prov:wasGeneratedBy",
+      "@type": "@id"
+    },
+    "wasDerivedFrom": {
+      "@id": "prov:wasDerivedFrom",
+      "@type": "@id"
+    },
+    "wasAssociatedWith": {
+      "@id": "prov:wasAssociatedWith",
+      "@type": "@id"
+    },
+    "used": {
+      "@id": "prov:used",
+      "@type": "@id"
+    }
+  },
+  "extractionMode": "FULL",
+  "@graph": [
+    {
+      "@id": "study:generative_adversarial_nets_2014",
+      "@type": "Study",
+      "mention": {
+        "start_char_doc": 0,
+        "end_char_doc": 27,
+        "prefix": "",
+        "suffix": "Abstract: We propose a new",
+        "section": "title",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          0,
+          27,
+          "title"
+        ]
+      ],
+      "schema:title": {
+        "value": "Generative Adversarial Nets",
+        "start_char_doc": 0,
+        "end_char_doc": 27,
+        "prefix": "",
+        "suffix": "Abstract: We propose a new",
+        "valueSource": "extracted"
+      },
+      "schema:abstract": {
+        "value": "We propose a new framework for estimating generative models via an adversarial process, in which we simultaneously train two models: a generative model G that captures the data distribution, and a discriminative model D that estimates the probability that a sample came from the training data rather than G. The training procedure for G is to maximize the probability of D making a mistake. This framework corresponds to a minimax two-player game. In the space of arbitrary functions G and D, a unique solution exists, with G recovering the training data distribution and D equal to 1 2 everywhere. In the case where G and D are defined by multilayer perceptrons, the entire system can be trained with backpropagation. There is no need for any Markov chains or unrolled approximate inference networks during either training or generation of samples. Experiments demonstrate the potential of the framework through qualitative and quantitative evaluation of the generated samples.",
+        "start_char_doc": 39,
+        "end_char_doc": 1018,
+        "prefix": "Abstract:",
+        "suffix": "",
+        "valueSource": "extracted"
+      },
+      "schema:url": {
+        "value": "https://arxiv.org/abs/1406.2661",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:doi": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:citation": {
+        "value": "Goodfellow, I., Pouget-Abadie, J., Mirza, M., Xu, B., Warde-Farley, D., Ozair, S., Courville, A., & Bengio, Y. (2014). Generative Adversarial Nets. In NIPS 2014.",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:publicationVenue": {
+        "value": "NIPS 2014",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:timestamp": {
+        "value": "2014",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hasAuthor": [
+        {
+          "@id": "person:goodfellow_ian"
+        },
+        {
+          "@id": "person:pouget_abadie_jean"
+        },
+        {
+          "@id": "person:mirza_mehdi"
+        },
+        {
+          "@id": "person:xu_bing"
+        },
+        {
+          "@id": "person:warde_farley_david"
+        },
+        {
+          "@id": "person:ozair_sherjil"
+        },
+        {
+          "@id": "person:courville_aaron"
+        },
+        {
+          "@id": "person:bengio_yoshua"
+        }
+      ],
+      "contains": [
+        {
+          "@id": "exp:group_generative_adversarial_nets_2014"
+        }
+      ],
+      "implements": null,
+      "wasDerivedFrom": "paper"
+    },
+    {
+      "@id": "person:goodfellow_ian",
+      "@type": "Person",
+      "mention": {
+        "start_char_doc": 18325,
+        "end_char_doc": 18335,
+        "prefix": "P., Pascanu, R., Bergstra, J.,",
+        "suffix": ", I. J., Bergeron, A.,",
+        "section": "other",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          18325,
+          18335,
+          "other"
+        ],
+        [
+          19744,
+          19754,
+          "other"
+        ],
+        [
+          19865,
+          19875,
+          "other"
+        ],
+        [
+          19993,
+          20003,
+          "other"
+        ]
+      ],
+      "schema:name": {
+        "value": "Ian J. Goodfellow",
+        "start_char_doc": 18325,
+        "end_char_doc": 18335,
+        "prefix": "P., Pascanu, R., Bergstra, J.,",
+        "suffix": ", I. J., Bergeron, A.,",
+        "valueSource": "extracted"
+      },
+      "schema:affiliation": {
+        "value": "Université de Montréal",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:email": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:orcid": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "prov-affiliatedWith": [
+        {
+          "@id": "org:universite_de_montreal"
+        }
+      ],
+      "wasDerivedFrom": "paper"
+    },
+    {
+      "@id": "person:pouget_abadie_jean",
+      "@type": "Person",
+      "mention": {
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "section": null,
+        "valueSource": "inferred"
+      },
+      "occurrences": [],
+      "schema:name": {
+        "value": "Jean Pouget-Abadie",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:affiliation": {
+        "value": "Université de Montréal",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:email": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:orcid": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "prov-affiliatedWith": [
+        {
+          "@id": "org:universite_de_montreal"
+        }
+      ],
+      "wasDerivedFrom": "paper"
+    },
+    {
+      "@id": "person:mirza_mehdi",
+      "@type": "Person",
+      "mention": {
+        "start_char_doc": 19781,
+        "end_char_doc": 19786,
+        "prefix": "Goodfellow, I. J., Warde-Farley, D.,",
+        "suffix": ", M., Courville, A., and",
+        "section": "other",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          19781,
+          19786,
+          "other"
+        ],
+        [
+          19884,
+          19889,
+          "other"
+        ],
+        [
+          20057,
+          20062,
+          "other"
+        ]
+      ],
+      "schema:name": {
+        "value": "Mehdi Mirza",
+        "start_char_doc": 19781,
+        "end_char_doc": 19786,
+        "prefix": "Goodfellow, I. J., Warde-Farley, D.,",
+        "suffix": ", M., Courville, A., and",
+        "valueSource": "extracted"
+      },
+      "schema:affiliation": {
+        "value": "Université de Montréal",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:email": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:orcid": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "prov-affiliatedWith": [
+        {
+          "@id": "org:universite_de_montreal"
+        }
+      ],
+      "wasDerivedFrom": "paper"
+    },
+    {
+      "@id": "person:xu_bing",
+      "@type": "Person",
+      "mention": {
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "section": null,
+        "valueSource": "inferred"
+      },
+      "occurrences": [],
+      "schema:name": {
+        "value": "Bing Xu",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:affiliation": {
+        "value": "Université de Montréal",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:email": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:orcid": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "prov-affiliatedWith": [
+        {
+          "@id": "org:universite_de_montreal"
+        }
+      ],
+      "wasDerivedFrom": "paper"
+    },
+    {
+      "@id": "person:warde_farley_david",
+      "@type": "Person",
+      "mention": {
+        "start_char_doc": 19291,
+        "end_char_doc": 19303,
+        "prefix": "R., Desjardins, G., Turian, J.,",
+        "suffix": ", D., and Bengio, Y.",
+        "section": "other",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          19291,
+          19303,
+          "other"
+        ],
+        [
+          19763,
+          19775,
+          "other"
+        ],
+        [
+          20012,
+          20024,
+          "other"
+        ]
+      ],
+      "schema:name": {
+        "value": "David Warde-Farley",
+        "start_char_doc": 19291,
+        "end_char_doc": 19303,
+        "prefix": "R., Desjardins, G., Turian, J.,",
+        "suffix": ", D., and Bengio, Y.",
+        "valueSource": "extracted"
+      },
+      "schema:affiliation": {
+        "value": "Université de Montréal",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:email": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:orcid": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "prov-affiliatedWith": [
+        {
+          "@id": "org:universite_de_montreal"
+        }
+      ],
+      "wasDerivedFrom": "paper"
+    },
+    {
+      "@id": "person:ozair_sherjil",
+      "@type": "Person",
+      "mention": {
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "section": null,
+        "valueSource": "inferred"
+      },
+      "occurrences": [],
+      "schema:name": {
+        "value": "Sherjil Ozair",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:affiliation": {
+        "value": "Université de Montréal",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:email": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:orcid": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "prov-affiliatedWith": [
+        {
+          "@id": "org:universite_de_montreal"
+        }
+      ],
+      "wasDerivedFrom": "paper"
+    },
+    {
+      "@id": "person:courville_aaron",
+      "@type": "Person",
+      "mention": {
+        "start_char_doc": 19792,
+        "end_char_doc": 19801,
+        "prefix": "J., Warde-Farley, D., Mirza, M.,",
+        "suffix": ", A., and Bengio, Y.",
+        "section": "other",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          19792,
+          19801,
+          "other"
+        ],
+        [
+          19895,
+          19904,
+          "other"
+        ]
+      ],
+      "schema:name": {
+        "value": "Aaron Courville",
+        "start_char_doc": 19792,
+        "end_char_doc": 19801,
+        "prefix": "J., Warde-Farley, D., Mirza, M.,",
+        "suffix": ", A., and Bengio, Y.",
+        "valueSource": "extracted"
+      },
+      "schema:affiliation": {
+        "value": "Université de Montréal",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:email": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:orcid": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "prov-affiliatedWith": [
+        {
+          "@id": "org:universite_de_montreal"
+        }
+      ],
+      "wasDerivedFrom": "paper"
+    },
+    {
+      "@id": "person:bengio_yoshua",
+      "@type": "Person",
+      "mention": {
+        "start_char_doc": 18376,
+        "end_char_doc": 18382,
+        "prefix": "Bergeron, A., Bouchard, N., and",
+        "suffix": ", Y. (2012). Theano: new",
+        "section": "other",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          18376,
+          18382,
+          "other"
+        ],
+        [
+          18509,
+          18515,
+          "other"
+        ],
+        [
+          18583,
+          18589,
+          "other"
+        ],
+        [
+          18698,
+          18704,
+          "other"
+        ],
+        [
+          18844,
+          18850,
+          "other"
+        ],
+        [
+          18978,
+          18984,
+          "other"
+        ],
+        [
+          19313,
+          19319,
+          "other"
+        ],
+        [
+          19490,
+          19496,
+          "other"
+        ],
+        [
+          19666,
+          19672,
+          "other"
+        ],
+        [
+          19811,
+          19817,
+          "other"
+        ],
+        [
+          19914,
+          19920,
+          "other"
+        ],
+        [
+          20112,
+          20118,
+          "other"
+        ],
+        [
+          21913,
+          21919,
+          "other"
+        ],
+        [
+          22236,
+          22242,
+          "other"
+        ],
+        [
+          23068,
+          23074,
+          "other"
+        ]
+      ],
+      "schema:name": {
+        "value": "Yoshua Bengio",
+        "start_char_doc": 18376,
+        "end_char_doc": 18382,
+        "prefix": "Bergeron, A., Bouchard, N., and",
+        "suffix": ", Y. (2012). Theano: new",
+        "valueSource": "extracted"
+      },
+      "schema:affiliation": {
+        "value": "Université de Montréal",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:email": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:orcid": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "prov-affiliatedWith": [
+        {
+          "@id": "org:universite_de_montreal"
+        }
+      ],
+      "wasDerivedFrom": "paper"
+    },
+    {
+      "@id": "org:universite_de_montreal",
+      "@type": "Organization",
+      "mention": {
+        "start_char_doc": 22823,
+        "end_char_doc": 22833,
+        "prefix": "Technical Report UTML TR 2010-001,",
+        "suffix": ". - Tieleman, T. (2008).",
+        "section": "other",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          22823,
+          22833,
+          "other"
+        ]
+      ],
+      "schema:name": {
+        "value": "Université de Montréal",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:url": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:type": {
+        "value": "University",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "wasDerivedFrom": "paper"
+    },
+    {
+      "@id": "task:generative_modeling",
+      "@type": "MLS_Task",
+      "mention": {
+        "start_char_doc": 15315,
+        "end_char_doc": 15332,
+        "prefix": "[8] and used for various",
+        "suffix": "for which the exact likelihood",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          81,
+          98,
+          "abstract"
+        ],
+        [
+          81,
+          97,
+          "abstract"
+        ],
+        [
+          174,
+          190,
+          "abstract"
+        ],
+        [
+          1699,
+          1715,
+          "introduction"
+        ],
+        [
+          1699,
+          1716,
+          "introduction"
+        ],
+        [
+          2015,
+          2031,
+          "introduction"
+        ],
+        [
+          2138,
+          2154,
+          "introduction"
+        ],
+        [
+          2313,
+          2329,
+          "introduction"
+        ],
+        [
+          2853,
+          2869,
+          "introduction"
+        ],
+        [
+          3194,
+          3210,
+          "introduction"
+        ],
+        [
+          4610,
+          4627,
+          "related_work"
+        ],
+        [
+          4610,
+          4626,
+          "related_work"
+        ],
+        [
+          5001,
+          5017,
+          "related_work"
+        ],
+        [
+          5085,
+          5101,
+          "related_work"
+        ],
+        [
+          5487,
+          5505,
+          "related_work"
+        ],
+        [
+          6362,
+          6380,
+          "related_work"
+        ],
+        [
+          12255,
+          12271,
+          "other"
+        ],
+        [
+          15315,
+          15332,
+          "experiments"
+        ],
+        [
+          15315,
+          15331,
+          "experiments"
+        ],
+        [
+          15613,
+          15629,
+          "experiments"
+        ],
+        [
+          15613,
+          15630,
+          "experiments"
+        ],
+        [
+          15992,
+          16008,
+          "experiments"
+        ],
+        [
+          15992,
+          16009,
+          "experiments"
+        ],
+        [
+          16965,
+          16981,
+          "conclusion"
+        ],
+        [
+          16965,
+          16984,
+          "conclusion"
+        ],
+        [
+          17704,
+          17720,
+          "conclusion"
+        ],
+        [
+          18794,
+          18811,
+          "other"
+        ],
+        [
+          18794,
+          18810,
+          "other"
+        ],
+        [
+          22168,
+          22185,
+          "other"
+        ],
+        [
+          22168,
+          22184,
+          "other"
+        ]
+      ],
+      "schema:name": {
+        "value": "generative models",
+        "start_char_doc": 81,
+        "end_char_doc": 97,
+        "prefix": "for estimating",
+        "suffix": "via an adversarial process",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "Training generative models that can learn to produce samples from a data distribution",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:category": {
+        "value": "Generative Modeling",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:metrics": {
+        "value": "log-likelihood (Parzen window estimate)",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "benchmarkedOn": [
+        {
+          "@id": "dataset:mnist"
+        },
+        {
+          "@id": "dataset:tfd"
+        },
+        {
+          "@id": "dataset:cifar_10"
+        }
+      ],
+      "subTaskOf": [],
+      "wasDerivedFrom": "paper"
+    },
+    {
+      "@id": "task:density_estimation",
+      "@type": "MLS_Task",
+      "mention": {
+        "start_char_doc": 7562,
+        "end_char_doc": 7590,
+        "prefix": "allows one to recover the",
+        "suffix": "as G and D are",
+        "section": "method",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          70,
+          98,
+          "abstract"
+        ],
+        [
+          211,
+          228,
+          "abstract"
+        ],
+        [
+          589,
+          606,
+          "abstract"
+        ],
+        [
+          1124,
+          1148,
+          "introduction"
+        ],
+        [
+          1124,
+          1149,
+          "introduction"
+        ],
+        [
+          2290,
+          2307,
+          "introduction"
+        ],
+        [
+          5431,
+          5455,
+          "related_work"
+        ],
+        [
+          7562,
+          7590,
+          "method"
+        ],
+        [
+          8504,
+          8528,
+          "other"
+        ],
+        [
+          9532,
+          9560,
+          "other"
+        ]
+      ],
+      "schema:name": {
+        "value": "data distribution",
+        "start_char_doc": 211,
+        "end_char_doc": 228,
+        "prefix": "G that captures the",
+        "suffix": ", and a discriminative model",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "Estimating the probability distribution of training data",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:category": {
+        "value": "Density Estimation",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:metrics": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "benchmarkedOn": [],
+      "subTaskOf": [],
+      "wasDerivedFrom": "paper"
+    },
+    {
+      "@id": "task:image_generation",
+      "@type": "MLS_Task",
+      "mention": {
+        "start_char_doc": 866,
+        "end_char_doc": 887,
+        "prefix": "networks during either training or",
+        "suffix": ". Experiments demonstrate the potential",
+        "section": "abstract",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          866,
+          887,
+          "abstract"
+        ],
+        [
+          999,
+          1016,
+          "abstract"
+        ]
+      ],
+      "schema:name": {
+        "value": "generation of samples",
+        "start_char_doc": 866,
+        "end_char_doc": 887,
+        "prefix": "either training or",
+        "suffix": ". Experiments demonstrate the potential",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "Generating image samples from learned distributions",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:category": {
+        "value": "Image Generation",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:metrics": {
+        "value": "qualitative and quantitative evaluation",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "benchmarkedOn": [
+        {
+          "@id": "dataset:mnist"
+        },
+        {
+          "@id": "dataset:tfd"
+        },
+        {
+          "@id": "dataset:cifar_10"
+        }
+      ],
+      "subTaskOf": [
+        {
+          "@id": "task:generative_modeling"
+        }
+      ],
+      "wasDerivedFrom": "paper"
+    },
+    {
+      "@id": "dataset:mnist",
+      "@type": "MLS_Dataset",
+      "mention": {
+        "start_char_doc": 13812,
+        "end_char_doc": 13817,
+        "prefix": "a range of datasets including",
+        "suffix": "[23], the Toronto Face Database",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          13812,
+          13817,
+          "experiments"
+        ],
+        [
+          14499,
+          14504,
+          "experiments"
+        ],
+        [
+          14719,
+          14724,
+          "experiments"
+        ],
+        [
+          15070,
+          15075,
+          "experiments"
+        ]
+      ],
+      "schema:name": {
+        "value": "MNIST",
+        "start_char_doc": 13812,
+        "end_char_doc": 13817,
+        "prefix": "a range of datasets including",
+        "suffix": "[23], the Toronto Face Database",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "Handwritten digit recognition dataset",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:numInstances": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:language": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:license": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:modality": {
+        "value": "image",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:numClasses": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "subDatasetOf": [],
+      "prov-derivedFrom": [],
+      "processedThrough": [],
+      "wasDerivedFrom": "paper"
+    },
+    {
+      "@id": "dataset:tfd",
+      "@type": "MLS_Dataset",
+      "mention": {
+        "start_char_doc": 13828,
+        "end_char_doc": 13849,
+        "prefix": "datasets including MNIST [23], the",
+        "suffix": "(TFD) [28], and CIFAR-10 [21].",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          13828,
+          13849,
+          "experiments"
+        ],
+        [
+          13851,
+          13854,
+          "experiments"
+        ],
+        [
+          14505,
+          14508,
+          "experiments"
+        ],
+        [
+          14841,
+          14844,
+          "experiments"
+        ],
+        [
+          14974,
+          14977,
+          "experiments"
+        ]
+      ],
+      "schema:name": {
+        "value": "Toronto Face Database",
+        "start_char_doc": 13828,
+        "end_char_doc": 13849,
+        "prefix": "datasets including MNIST [23], the",
+        "suffix": "(TFD) [28], and CIFAR-10 [21].",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "Face image dataset from University of Toronto",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:numInstances": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:language": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:license": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:modality": {
+        "value": "image",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:numClasses": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "subDatasetOf": [],
+      "prov-derivedFrom": [],
+      "processedThrough": [],
+      "wasDerivedFrom": "paper"
+    },
+    {
+      "@id": "dataset:cifar_10",
+      "@type": "MLS_Dataset",
+      "mention": {
+        "start_char_doc": 13866,
+        "end_char_doc": 13874,
+        "prefix": "Face Database (TFD) [28], and",
+        "suffix": "[21]. The generator nets used",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          13866,
+          13874,
+          "experiments"
+        ]
+      ],
+      "schema:name": {
+        "value": "CIFAR-10",
+        "start_char_doc": 13866,
+        "end_char_doc": 13874,
+        "prefix": "Face Database (TFD) [28], and",
+        "suffix": "[21]. The generator nets used",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "Dataset of 60,000 32x32 color images in 10 classes",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:numInstances": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:language": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:license": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:modality": {
+        "value": "image",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:numClasses": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "subDatasetOf": [],
+      "prov-derivedFrom": [],
+      "processedThrough": [],
+      "wasDerivedFrom": "paper"
+    },
+    {
+      "@id": "method:generative_adversarial_nets",
+      "@type": "Method",
+      "mention": {
+        "start_char_doc": 13762,
+        "end_char_doc": 13777,
+        "prefix": "guarantees. 5 Experiments We trained",
+        "suffix": "s an a range of",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          11,
+          26,
+          "title"
+        ],
+        [
+          11,
+          27,
+          "title"
+        ],
+        [
+          106,
+          125,
+          "abstract"
+        ],
+        [
+          2106,
+          2121,
+          "introduction"
+        ],
+        [
+          2106,
+          2122,
+          "introduction"
+        ],
+        [
+          3040,
+          3056,
+          "introduction"
+        ],
+        [
+          3040,
+          3055,
+          "introduction"
+        ],
+        [
+          5989,
+          6004,
+          "related_work"
+        ],
+        [
+          5989,
+          6005,
+          "related_work"
+        ],
+        [
+          6070,
+          6086,
+          "related_work"
+        ],
+        [
+          6070,
+          6085,
+          "related_work"
+        ],
+        [
+          6509,
+          6525,
+          "method"
+        ],
+        [
+          6509,
+          6524,
+          "method"
+        ],
+        [
+          6530,
+          6560,
+          "method"
+        ],
+        [
+          7470,
+          7485,
+          "method"
+        ],
+        [
+          7470,
+          7486,
+          "method"
+        ],
+        [
+          9172,
+          9188,
+          "other"
+        ],
+        [
+          9172,
+          9187,
+          "other"
+        ],
+        [
+          13332,
+          13348,
+          "other"
+        ],
+        [
+          13332,
+          13347,
+          "other"
+        ],
+        [
+          13762,
+          13777,
+          "experiments"
+        ],
+        [
+          13762,
+          13778,
+          "experiments"
+        ],
+        [
+          14604,
+          14619,
+          "experiments"
+        ],
+        [
+          14604,
+          14620,
+          "experiments"
+        ],
+        [
+          16063,
+          16084,
+          "experiments"
+        ],
+        [
+          16937,
+          16952,
+          "conclusion"
+        ],
+        [
+          16937,
+          16953,
+          "conclusion"
+        ],
+        [
+          17056,
+          17074,
+          "conclusion"
+        ],
+        [
+          17367,
+          17387,
+          "conclusion"
+        ],
+        [
+          17367,
+          17382,
+          "conclusion"
+        ],
+        [
+          18150,
+          18180,
+          "conclusion"
+        ]
+      ],
+      "schema:name": {
+        "value": "adversarial nets",
+        "start_char_doc": 13762,
+        "end_char_doc": 13777,
+        "prefix": "5 Experiments We trained",
+        "suffix": "an a range of",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "a new framework for estimating generative models via an adversarial process",
+        "start_char_doc": 39,
+        "end_char_doc": 125,
+        "prefix": "Abstract: We propose",
+        "suffix": ", in which we simultaneously",
+        "valueSource": "extracted"
+      },
+      "schema:version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "trainedOn": [
+        {
+          "@id": "dataset:mnist"
+        },
+        {
+          "@id": "dataset:tfd"
+        },
+        {
+          "@id": "dataset:cifar_10"
+        }
+      ],
+      "evaluatedOn": [
+        {
+          "@id": "dataset:mnist"
+        },
+        {
+          "@id": "dataset:tfd"
+        }
+      ],
+      "achieves": [
+        {
+          "@id": "eval:log_likelihood_gan_mnist"
+        },
+        {
+          "@id": "eval:log_likelihood_gan_tfd"
+        }
+      ],
+      "subMethod": [
+        {
+          "@id": "model:generator"
+        },
+        {
+          "@id": "model:discriminator"
+        }
+      ],
+      "wasDerivedFrom": "paper"
+    },
+    {
+      "@id": "model:generator",
+      "@type": [
+        "MLS_Model",
+        "Method"
+      ],
+      "mention": {
+        "start_char_doc": 13885,
+        "end_char_doc": 13894,
+        "prefix": "[28], and CIFAR-10 [21]. The",
+        "suffix": "nets used a mixture of",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          81,
+          97,
+          "abstract"
+        ],
+        [
+          174,
+          190,
+          "abstract"
+        ],
+        [
+          1699,
+          1715,
+          "introduction"
+        ],
+        [
+          2015,
+          2031,
+          "introduction"
+        ],
+        [
+          2138,
+          2154,
+          "introduction"
+        ],
+        [
+          2313,
+          2329,
+          "introduction"
+        ],
+        [
+          2853,
+          2869,
+          "introduction"
+        ],
+        [
+          3194,
+          3210,
+          "introduction"
+        ],
+        [
+          4610,
+          4626,
+          "related_work"
+        ],
+        [
+          5001,
+          5017,
+          "related_work"
+        ],
+        [
+          5085,
+          5101,
+          "related_work"
+        ],
+        [
+          6656,
+          6665,
+          "method"
+        ],
+        [
+          8471,
+          8480,
+          "other"
+        ],
+        [
+          9797,
+          9806,
+          "other"
+        ],
+        [
+          10103,
+          10112,
+          "other"
+        ],
+        [
+          10283,
+          10292,
+          "other"
+        ],
+        [
+          12255,
+          12271,
+          "other"
+        ],
+        [
+          13885,
+          13894,
+          "experiments"
+        ],
+        [
+          13885,
+          13898,
+          "experiments"
+        ],
+        [
+          14203,
+          14212,
+          "experiments"
+        ],
+        [
+          14277,
+          14286,
+          "experiments"
+        ],
+        [
+          14277,
+          14290,
+          "experiments"
+        ],
+        [
+          14277,
+          14294,
+          "experiments"
+        ],
+        [
+          15315,
+          15331,
+          "experiments"
+        ],
+        [
+          15613,
+          15629,
+          "experiments"
+        ],
+        [
+          15794,
+          15803,
+          "experiments"
+        ],
+        [
+          15794,
+          15807,
+          "experiments"
+        ],
+        [
+          15992,
+          16008,
+          "experiments"
+        ],
+        [
+          16965,
+          16981,
+          "conclusion"
+        ],
+        [
+          17125,
+          17134,
+          "conclusion"
+        ],
+        [
+          17125,
+          17138,
+          "conclusion"
+        ],
+        [
+          17125,
+          17142,
+          "conclusion"
+        ],
+        [
+          17322,
+          17331,
+          "conclusion"
+        ],
+        [
+          17704,
+          17720,
+          "conclusion"
+        ],
+        [
+          18040,
+          18049,
+          "conclusion"
+        ],
+        [
+          18040,
+          18053,
+          "conclusion"
+        ],
+        [
+          18064,
+          18077,
+          "conclusion"
+        ],
+        [
+          18064,
+          18073,
+          "conclusion"
+        ],
+        [
+          18794,
+          18810,
+          "other"
+        ],
+        [
+          22168,
+          22184,
+          "other"
+        ]
+      ],
+      "schema:name": {
+        "value": "generator",
+        "start_char_doc": 13885,
+        "end_char_doc": 13894,
+        "prefix": "[28], and CIFAR-10 [21]. The",
+        "suffix": "nets used a mixture of",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "a generative model G that captures the data distribution",
+        "start_char_doc": 81,
+        "end_char_doc": 137,
+        "prefix": "we simultaneously train two models:",
+        "suffix": ", and a discriminative model D",
+        "valueSource": "extracted"
+      },
+      "schema:version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:architecture": {
+        "value": "multilayer perceptron",
+        "start_char_doc": 6858,
+        "end_char_doc": 6879,
+        "prefix": "represented by a",
+        "suffix": "with parameters θ g",
+        "valueSource": "extracted"
+      },
+      "schema:parameters": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "trainedOn": [
+        {
+          "@id": "dataset:mnist"
+        },
+        {
+          "@id": "dataset:tfd"
+        },
+        {
+          "@id": "dataset:cifar_10"
+        }
+      ],
+      "evaluatedOn": [
+        {
+          "@id": "dataset:mnist"
+        },
+        {
+          "@id": "dataset:tfd"
+        }
+      ],
+      "achieves": [],
+      "subMethod": [],
+      "wasDerivedFrom": "paper"
+    },
+    {
+      "@id": "model:discriminator",
+      "@type": [
+        "MLS_Model",
+        "Method"
+      ],
+      "mention": {
+        "start_char_doc": 13990,
+        "end_char_doc": 14003,
+        "prefix": "and sigmoid activations, while the",
+        "suffix": "net used maxout [10] activations.",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          236,
+          256,
+          "abstract"
+        ],
+        [
+          1393,
+          1413,
+          "introduction"
+        ],
+        [
+          2189,
+          2209,
+          "introduction"
+        ],
+        [
+          2462,
+          2482,
+          "introduction"
+        ],
+        [
+          2953,
+          2973,
+          "introduction"
+        ],
+        [
+          5059,
+          5079,
+          "related_work"
+        ],
+        [
+          9226,
+          9239,
+          "other"
+        ],
+        [
+          9586,
+          9599,
+          "other"
+        ],
+        [
+          10073,
+          10086,
+          "other"
+        ],
+        [
+          10156,
+          10169,
+          "other"
+        ],
+        [
+          10256,
+          10269,
+          "other"
+        ],
+        [
+          10568,
+          10581,
+          "other"
+        ],
+        [
+          12440,
+          12453,
+          "other"
+        ],
+        [
+          13990,
+          14003,
+          "experiments"
+        ],
+        [
+          13990,
+          14007,
+          "experiments"
+        ],
+        [
+          14079,
+          14096,
+          "experiments"
+        ],
+        [
+          14079,
+          14092,
+          "experiments"
+        ],
+        [
+          17234,
+          17247,
+          "conclusion"
+        ]
+      ],
+      "schema:name": {
+        "value": "discriminator",
+        "start_char_doc": 13990,
+        "end_char_doc": 14003,
+        "prefix": "and sigmoid activations, while the",
+        "suffix": "net used maxout [10] activations.",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "a discriminative model D that estimates the probability that a sample came from the training data rather than G",
+        "start_char_doc": 236,
+        "end_char_doc": 347,
+        "prefix": "the data distribution, and",
+        "suffix": ". The training procedure for",
+        "valueSource": "extracted"
+      },
+      "schema:version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:architecture": {
+        "value": "multilayer perceptron",
+        "start_char_doc": 6926,
+        "end_char_doc": 6947,
+        "prefix": "We also define a second",
+        "suffix": "D(x; θ d ) that outputs",
+        "valueSource": "extracted"
+      },
+      "schema:parameters": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "trainedOn": [
+        {
+          "@id": "dataset:mnist"
+        },
+        {
+          "@id": "dataset:tfd"
+        },
+        {
+          "@id": "dataset:cifar_10"
+        }
+      ],
+      "evaluatedOn": [],
+      "achieves": [],
+      "subMethod": [],
+      "wasDerivedFrom": "paper"
+    },
+    {
+      "@id": "model:multilayer_perceptron",
+      "@type": [
+        "MLS_Model",
+        "Method"
+      ],
+      "mention": {
+        "start_char_doc": 6619,
+        "end_char_doc": 6640,
+        "prefix": "when the models are both",
+        "suffix": "s. To learn the generator's",
+        "section": "method",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          679,
+          700,
+          "abstract"
+        ],
+        [
+          679,
+          701,
+          "abstract"
+        ],
+        [
+          2922,
+          2943,
+          "introduction"
+        ],
+        [
+          2984,
+          3005,
+          "introduction"
+        ],
+        [
+          6619,
+          6640,
+          "method"
+        ],
+        [
+          6619,
+          6641,
+          "method"
+        ],
+        [
+          6858,
+          6879,
+          "method"
+        ],
+        [
+          6926,
+          6947,
+          "method"
+        ],
+        [
+          13478,
+          13499,
+          "other"
+        ],
+        [
+          13606,
+          13628,
+          "other"
+        ],
+        [
+          13606,
+          13627,
+          "other"
+        ]
+      ],
+      "schema:name": {
+        "value": "multilayer perceptrons",
+        "start_char_doc": 6619,
+        "end_char_doc": 6640,
+        "prefix": "when the models are both",
+        "suffix": "s. To learn the generator's",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "Feed-forward neural network with multiple layers",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:architecture": {
+        "value": "multilayer perceptron",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:parameters": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "trainedOn": [],
+      "evaluatedOn": [],
+      "achieves": [],
+      "subMethod": [],
+      "wasDerivedFrom": "paper"
+    },
+    {
+      "@id": "model:restricted_boltzmann_machine",
+      "@type": [
+        "MLS_Model",
+        "Method"
+      ],
+      "mention": {
+        "start_char_doc": 19576,
+        "end_char_doc": 19579,
+        "prefix": "generating representative samples from an",
+        "suffix": "-derived process. Neural Computation, 23(8),",
+        "section": "other",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          3445,
+          3473,
+          "related_work"
+        ],
+        [
+          3445,
+          3474,
+          "related_work"
+        ],
+        [
+          3476,
+          3480,
+          "related_work"
+        ],
+        [
+          4913,
+          4917,
+          "related_work"
+        ],
+        [
+          19576,
+          19579,
+          "other"
+        ],
+        [
+          22868,
+          22896,
+          "other"
+        ],
+        [
+          22868,
+          22897,
+          "other"
+        ]
+      ],
+      "schema:name": {
+        "value": "restricted Boltzmann machines",
+        "start_char_doc": 3445,
+        "end_char_doc": 3473,
+        "prefix": "latent variables, such as",
+        "suffix": "(RBMs) [27, 16], deep Boltzmann",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "Undirected graphical model with latent variables",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:architecture": {
+        "value": "restricted Boltzmann machine",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:parameters": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "trainedOn": [],
+      "evaluatedOn": [],
+      "achieves": [],
+      "subMethod": [],
+      "wasDerivedFrom": "paper"
+    },
+    {
+      "@id": "model:deep_boltzmann_machine",
+      "@type": [
+        "MLS_Model",
+        "Method"
+      ],
+      "mention": {
+        "start_char_doc": 19951,
+        "end_char_doc": 19973,
+        "prefix": "and Bengio, Y. (2013b). Multi-prediction",
+        "suffix": "s. In NIPS'2013. - Goodfellow,",
+        "section": "other",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          3492,
+          3514,
+          "related_work"
+        ],
+        [
+          3492,
+          3515,
+          "related_work"
+        ],
+        [
+          3517,
+          3521,
+          "related_work"
+        ],
+        [
+          4686,
+          4690,
+          "related_work"
+        ],
+        [
+          19951,
+          19973,
+          "other"
+        ],
+        [
+          19951,
+          19974,
+          "other"
+        ]
+      ],
+      "schema:name": {
+        "value": "deep Boltzmann machines",
+        "start_char_doc": 3489,
+        "end_char_doc": 3511,
+        "prefix": "(RBMs) [27, 16],",
+        "suffix": "(DBMs) [26] and their numerous",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "Deep undirected graphical model with multiple layers of latent variables",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:architecture": {
+        "value": "deep Boltzmann machine",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:parameters": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "trainedOn": [],
+      "evaluatedOn": [],
+      "achieves": [],
+      "subMethod": [],
+      "wasDerivedFrom": "paper"
+    },
+    {
+      "@id": "model:deep_belief_network",
+      "@type": [
+        "MLS_Model",
+        "Method"
+      ],
+      "mention": {
+        "start_char_doc": 14509,
+        "end_char_doc": 14512,
+        "prefix": "σ parameter Model MNIST TFD",
+        "suffix": "[3] 138 ± 2 1909",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          4019,
+          4039,
+          "related_work"
+        ],
+        [
+          4041,
+          4045,
+          "related_work"
+        ],
+        [
+          4199,
+          4203,
+          "related_work"
+        ],
+        [
+          4677,
+          4681,
+          "related_work"
+        ],
+        [
+          14509,
+          14512,
+          "experiments"
+        ],
+        [
+          20850,
+          20866,
+          "other"
+        ]
+      ],
+      "schema:name": {
+        "value": "DBN",
+        "start_char_doc": 14509,
+        "end_char_doc": 14512,
+        "prefix": "σ parameter Model MNIST TFD",
+        "suffix": "[3] 138 ± 2 1909",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "Hybrid model containing a single undirected layer and several directed layers",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:architecture": {
+        "value": "deep belief network",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:parameters": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "trainedOn": [],
+      "evaluatedOn": [
+        {
+          "@id": "dataset:mnist"
+        },
+        {
+          "@id": "dataset:tfd"
+        }
+      ],
+      "achieves": [
+        {
+          "@id": "eval:log_likelihood_dbn_mnist"
+        },
+        {
+          "@id": "eval:log_likelihood_dbn_tfd"
+        }
+      ],
+      "subMethod": [],
+      "wasDerivedFrom": "paper"
+    },
+    {
+      "@id": "model:stacked_cae",
+      "@type": [
+        "MLS_Model",
+        "Method"
+      ],
+      "mention": {
+        "start_char_doc": 14535,
+        "end_char_doc": 14546,
+        "prefix": "± 2 1909 ± 66",
+        "suffix": "[3] 121 ± 1.6 2110",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          14535,
+          14546,
+          "experiments"
+        ]
+      ],
+      "schema:name": {
+        "value": "Stacked CAE",
+        "start_char_doc": 14535,
+        "end_char_doc": 14546,
+        "prefix": "± 2 1909 ± 66",
+        "suffix": "[3] 121 ± 1.6 2110",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "Stacked contractive auto-encoder",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:architecture": {
+        "value": "stacked contractive auto-encoder",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:parameters": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "trainedOn": [],
+      "evaluatedOn": [
+        {
+          "@id": "dataset:mnist"
+        },
+        {
+          "@id": "dataset:tfd"
+        }
+      ],
+      "achieves": [
+        {
+          "@id": "eval:log_likelihood_stacked_cae_mnist"
+        },
+        {
+          "@id": "eval:log_likelihood_stacked_cae_tfd"
+        }
+      ],
+      "subMethod": [],
+      "wasDerivedFrom": "paper"
+    },
+    {
+      "@id": "model:generative_stochastic_network",
+      "@type": [
+        "MLS_Model",
+        "Method"
+      ],
+      "mention": {
+        "start_char_doc": 14571,
+        "end_char_doc": 14579,
+        "prefix": "± 1.6 2110 ± 50",
+        "suffix": "[6] 214 ± 1.1 1890",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          5703,
+          5732,
+          "related_work"
+        ],
+        [
+          5734,
+          5737,
+          "related_work"
+        ],
+        [
+          5979,
+          5983,
+          "related_work"
+        ],
+        [
+          14571,
+          14579,
+          "experiments"
+        ],
+        [
+          14576,
+          14579,
+          "experiments"
+        ],
+        [
+          18909,
+          18938,
+          "other"
+        ]
+      ],
+      "schema:name": {
+        "value": "Deep GSN",
+        "start_char_doc": 14571,
+        "end_char_doc": 14579,
+        "prefix": "± 1.6 2110 ± 50",
+        "suffix": "[6] 214 ± 1.1 1890",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "generative stochastic network (GSN) framework",
+        "start_char_doc": 5703,
+        "end_char_doc": 5749,
+        "prefix": "Prominent recent work in this area includes the",
+        "suffix": ", which extends generalized denoising",
+        "valueSource": "extracted"
+      },
+      "schema:version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:architecture": {
+        "value": "generative stochastic network",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:parameters": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "trainedOn": [],
+      "evaluatedOn": [
+        {
+          "@id": "dataset:mnist"
+        },
+        {
+          "@id": "dataset:tfd"
+        }
+      ],
+      "achieves": [
+        {
+          "@id": "eval:log_likelihood_deep_gsn_mnist"
+        },
+        {
+          "@id": "eval:log_likelihood_deep_gsn_tfd"
+        }
+      ],
+      "subMethod": [],
+      "wasDerivedFrom": "paper"
+    },
+    {
+      "@id": "model:denoising_autoencoder",
+      "@type": [
+        "MLS_Model",
+        "Method"
+      ],
+      "mention": {
+        "start_char_doc": 18767,
+        "end_char_doc": 18790,
+        "prefix": "and Vincent, P. (2013b). Generalized",
+        "suffix": "as generative models. In NIPS26.",
+        "section": "other",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          4793,
+          4816,
+          "related_work"
+        ],
+        [
+          4793,
+          4815,
+          "related_work"
+        ],
+        [
+          5780,
+          5803,
+          "related_work"
+        ],
+        [
+          5780,
+          5802,
+          "related_work"
+        ],
+        [
+          18767,
+          18790,
+          "other"
+        ],
+        [
+          18767,
+          18789,
+          "other"
+        ],
+        [
+          23154,
+          23175,
+          "other"
+        ],
+        [
+          23154,
+          23176,
+          "other"
+        ]
+      ],
+      "schema:name": {
+        "value": "denoising auto-encoders",
+        "start_char_doc": 4806,
+        "end_char_doc": 4828,
+        "prefix": "Some models such as",
+        "suffix": "[30] and contractive autoencoders",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "Auto-encoder trained to reconstruct clean input from corrupted versions",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:architecture": {
+        "value": "denoising auto-encoder",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:parameters": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "trainedOn": [],
+      "evaluatedOn": [],
+      "achieves": [],
+      "subMethod": [],
+      "wasDerivedFrom": "paper"
+    },
+    {
+      "@id": "model:contractive_autoencoder",
+      "@type": [
+        "MLS_Model",
+        "Method"
+      ],
+      "mention": {
+        "start_char_doc": 4826,
+        "end_char_doc": 4849,
+        "prefix": "as denoising auto-encoders [30] and",
+        "suffix": "s have learning rules very",
+        "section": "related_work",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          4826,
+          4849,
+          "related_work"
+        ],
+        [
+          4826,
+          4850,
+          "related_work"
+        ]
+      ],
+      "schema:name": {
+        "value": "contractive autoencoders",
+        "start_char_doc": 4826,
+        "end_char_doc": 4849,
+        "prefix": "as denoising auto-encoders [30] and",
+        "suffix": "have learning rules very similar",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "Auto-encoder with a penalty on the Frobenius norm of the encoder Jacobian",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:architecture": {
+        "value": "contractive auto-encoder",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:parameters": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "trainedOn": [],
+      "evaluatedOn": [],
+      "achieves": [],
+      "subMethod": [],
+      "wasDerivedFrom": "paper"
+    },
+    {
+      "@id": "model:variational_autoencoder",
+      "@type": [
+        "MLS_Model",
+        "Method"
+      ],
+      "mention": {
+        "start_char_doc": 21496,
+        "end_char_doc": 21527,
+        "prefix": "P. and Welling, M. (2014).",
+        "suffix": ". In Proceedings of the",
+        "section": "other",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          6432,
+          6463,
+          "related_work"
+        ],
+        [
+          21496,
+          21527,
+          "other"
+        ]
+      ],
+      "schema:name": {
+        "value": "auto-encoding variational Bayes",
+        "start_char_doc": 6432,
+        "end_char_doc": 6463,
+        "prefix": "recent work on",
+        "suffix": "[20] and stochastic backpropagation [24].",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "Generative model using variational inference with neural network encoder and decoder",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:architecture": {
+        "value": "variational auto-encoder",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:parameters": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "trainedOn": [],
+      "evaluatedOn": [],
+      "achieves": [],
+      "subMethod": [],
+      "wasDerivedFrom": "paper"
+    },
+    {
+      "@id": "method:rectifier_linear",
+      "@type": "Method",
+      "mention": {
+        "start_char_doc": 13918,
+        "end_char_doc": 13934,
+        "prefix": "nets used a mixture of",
+        "suffix": "activations [19, 9] and sigmoid",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          1609,
+          1625,
+          "introduction"
+        ],
+        [
+          1609,
+          1631,
+          "introduction"
+        ],
+        [
+          1948,
+          1970,
+          "introduction"
+        ],
+        [
+          1948,
+          1964,
+          "introduction"
+        ],
+        [
+          6169,
+          6185,
+          "related_work"
+        ],
+        [
+          6169,
+          6191,
+          "related_work"
+        ],
+        [
+          13918,
+          13934,
+          "experiments"
+        ],
+        [
+          13918,
+          13946,
+          "experiments"
+        ]
+      ],
+      "schema:name": {
+        "value": "rectifier linear activations",
+        "start_char_doc": 13918,
+        "end_char_doc": 13946,
+        "prefix": "nets used a mixture of",
+        "suffix": "[19, 9] and sigmoid activations",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "Rectified linear unit (ReLU) activation function",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "trainedOn": [],
+      "evaluatedOn": [],
+      "achieves": [],
+      "subMethod": [],
+      "wasDerivedFrom": "paper"
+    },
+    {
+      "@id": "method:sigmoid",
+      "@type": "Method",
+      "mention": {
+        "start_char_doc": 13959,
+        "end_char_doc": 13966,
+        "prefix": "linear activations [19, 9] and",
+        "suffix": "activations, while the discriminator net",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          13959,
+          13966,
+          "experiments"
+        ],
+        [
+          13959,
+          13978,
+          "experiments"
+        ]
+      ],
+      "schema:name": {
+        "value": "sigmoid activations",
+        "start_char_doc": 13959,
+        "end_char_doc": 13978,
+        "prefix": "linear activations [19, 9] and",
+        "suffix": ", while the discriminator net used",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "Sigmoid activation function",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "trainedOn": [],
+      "evaluatedOn": [],
+      "achieves": [],
+      "subMethod": [],
+      "wasDerivedFrom": "paper"
+    },
+    {
+      "@id": "method:maxout",
+      "@type": "Method",
+      "mention": {
+        "start_char_doc": 14013,
+        "end_char_doc": 14019,
+        "prefix": "while the discriminator net used",
+        "suffix": "[10] activations. Dropout [17] was",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          14013,
+          14019,
+          "experiments"
+        ],
+        [
+          19831,
+          19837,
+          "other"
+        ]
+      ],
+      "schema:name": {
+        "value": "maxout",
+        "start_char_doc": 14013,
+        "end_char_doc": 14019,
+        "prefix": "while the discriminator net used",
+        "suffix": "[10] activations. Dropout [17] was",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "Maxout activation function",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "trainedOn": [],
+      "evaluatedOn": [],
+      "achieves": [],
+      "subMethod": [],
+      "wasDerivedFrom": "paper"
+    },
+    {
+      "@id": "method:jensen_shannon_divergence",
+      "@type": "Method",
+      "mention": {
+        "start_char_doc": 11884,
+        "end_char_doc": 11898,
+        "prefix": "in the previous expression the",
+        "suffix": "divergence between the model's distribution",
+        "section": "other",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          11884,
+          11898,
+          "other"
+        ],
+        [
+          11884,
+          11909,
+          "other"
+        ],
+        [
+          11997,
+          12000,
+          "other"
+        ],
+        [
+          12025,
+          12039,
+          "other"
+        ],
+        [
+          12025,
+          12050,
+          "other"
+        ]
+      ],
+      "schema:name": {
+        "value": "Jensen-Shannon divergence",
+        "start_char_doc": 11884,
+        "end_char_doc": 11909,
+        "prefix": "in the previous expression the",
+        "suffix": "between the model's distribution and",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "Symmetric divergence measure between two probability distributions",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "trainedOn": [],
+      "evaluatedOn": [],
+      "achieves": [],
+      "subMethod": [],
+      "wasDerivedFrom": "paper"
+    },
+    {
+      "@id": "method:kullback_leibler_divergence",
+      "@type": "Method",
+      "mention": {
+        "start_char_doc": 11743,
+        "end_char_doc": 11745,
+        "prefix": "obtain:C(G) = − log(4) +",
+        "suffix": "p data p data +",
+        "section": "other",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          11743,
+          11745,
+          "other"
+        ],
+        [
+          11770,
+          11772,
+          "other"
+        ],
+        [
+          11801,
+          11803,
+          "other"
+        ],
+        [
+          11811,
+          11838,
+          "other"
+        ],
+        [
+          11811,
+          11827,
+          "other"
+        ]
+      ],
+      "schema:name": {
+        "value": "Kullback-Leibler divergence",
+        "start_char_doc": 11761,
+        "end_char_doc": 11788,
+        "prefix": "where KL is the",
+        "suffix": ". We recognize in the",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "Asymmetric measure of difference between two probability distributions",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "trainedOn": [],
+      "evaluatedOn": [],
+      "achieves": [],
+      "subMethod": [],
+      "wasDerivedFrom": "paper"
+    },
+    {
+      "@id": "algo:backpropagation",
+      "@type": [
+        "MLS_Algorithm",
+        "Method"
+      ],
+      "mention": {
+        "start_char_doc": 18953,
+        "end_char_doc": 18961,
+        "prefix": "generative stochastic networks trainable by",
+        "suffix": ". In ICML'14. - Bengio,",
+        "section": "other",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          741,
+          756,
+          "abstract"
+        ],
+        [
+          741,
+          749,
+          "abstract"
+        ],
+        [
+          1563,
+          1578,
+          "introduction"
+        ],
+        [
+          1563,
+          1571,
+          "introduction"
+        ],
+        [
+          3130,
+          3145,
+          "introduction"
+        ],
+        [
+          3130,
+          3138,
+          "introduction"
+        ],
+        [
+          5637,
+          5653,
+          "related_work"
+        ],
+        [
+          6238,
+          6253,
+          "related_work"
+        ],
+        [
+          6238,
+          6246,
+          "related_work"
+        ],
+        [
+          6384,
+          6400,
+          "related_work"
+        ],
+        [
+          6484,
+          6499,
+          "related_work"
+        ],
+        [
+          6484,
+          6492,
+          "related_work"
+        ],
+        [
+          16743,
+          16751,
+          "conclusion"
+        ],
+        [
+          18953,
+          18961,
+          "other"
+        ],
+        [
+          19100,
+          19108,
+          "other"
+        ],
+        [
+          22118,
+          22126,
+          "other"
+        ],
+        [
+          22118,
+          22133,
+          "other"
+        ]
+      ],
+      "schema:name": {
+        "value": "backpropagation",
+        "start_char_doc": 741,
+        "end_char_doc": 756,
+        "prefix": "system can be trained with",
+        "suffix": ". There is no need for",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "Algorithm for computing gradients via the chain rule in neural networks",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:complexity": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:pseudoCode": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "trainedOn": [],
+      "evaluatedOn": [],
+      "achieves": [],
+      "subMethod": [],
+      "wasDerivedFrom": "paper"
+    },
+    {
+      "@id": "algo:dropout",
+      "@type": [
+        "MLS_Algorithm",
+        "Method"
+      ],
+      "mention": {
+        "start_char_doc": 14038,
+        "end_char_doc": 14045,
+        "prefix": "net used maxout [10] activations.",
+        "suffix": "[17] was applied in training",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          1583,
+          1590,
+          "introduction"
+        ],
+        [
+          3150,
+          3157,
+          "introduction"
+        ],
+        [
+          14038,
+          14045,
+          "experiments"
+        ],
+        [
+          14149,
+          14156,
+          "experiments"
+        ]
+      ],
+      "schema:name": {
+        "value": "Dropout",
+        "start_char_doc": 14038,
+        "end_char_doc": 14045,
+        "prefix": "net used maxout [10] activations.",
+        "suffix": "[17] was applied in training",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "Regularization technique that randomly drops units during training",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:complexity": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:pseudoCode": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "trainedOn": [],
+      "evaluatedOn": [],
+      "achieves": [],
+      "subMethod": [],
+      "wasDerivedFrom": "paper"
+    },
+    {
+      "@id": "algo:sgd",
+      "@type": [
+        "MLS_Algorithm",
+        "Method"
+      ],
+      "mention": {
+        "start_char_doc": 9121,
+        "end_char_doc": 9148,
+        "prefix": "desired result. Algorithm 1 Minibatch",
+        "suffix": "training of generative adversarial nets.",
+        "section": "other",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          9121,
+          9148,
+          "other"
+        ],
+        [
+          9132,
+          9148,
+          "other"
+        ],
+        [
+          9893,
+          9907,
+          "other"
+        ],
+        [
+          9937,
+          9951,
+          "other"
+        ],
+        [
+          13064,
+          13080,
+          "other"
+        ],
+        [
+          21949,
+          21963,
+          "other"
+        ]
+      ],
+      "schema:name": {
+        "value": "stochastic gradient descent",
+        "start_char_doc": 9121,
+        "end_char_doc": 9148,
+        "prefix": "Algorithm 1 Minibatch",
+        "suffix": "training of generative adversarial nets.",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "Optimization algorithm using mini-batch gradient updates",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:complexity": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:pseudoCode": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "trainedOn": [],
+      "evaluatedOn": [],
+      "achieves": [],
+      "subMethod": [],
+      "wasDerivedFrom": "paper"
+    },
+    {
+      "@id": "algo:momentum",
+      "@type": [
+        "MLS_Algorithm",
+        "Method"
+      ],
+      "mention": {
+        "start_char_doc": 9975,
+        "end_char_doc": 9983,
+        "prefix": "gradient-based learning rule. We used",
+        "suffix": "in our experiments. 4.1 Global",
+        "section": "other",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          9975,
+          9983,
+          "other"
+        ]
+      ],
+      "schema:name": {
+        "value": "momentum",
+        "start_char_doc": 9975,
+        "end_char_doc": 9983,
+        "prefix": "gradient-based learning rule. We used",
+        "suffix": "in our experiments. 4.1 Global",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "Gradient descent optimization with momentum term",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:complexity": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:pseudoCode": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "trainedOn": [],
+      "evaluatedOn": [],
+      "achieves": [],
+      "subMethod": [],
+      "wasDerivedFrom": "paper"
+    },
+    {
+      "@id": "algo:mcmc",
+      "@type": [
+        "MLS_Algorithm",
+        "Method"
+      ],
+      "mention": {
+        "start_char_doc": 8239,
+        "end_char_doc": 8251,
+        "prefix": "training maintains samples from a",
+        "suffix": "from one learning step to",
+        "section": "method",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          783,
+          796,
+          "abstract"
+        ],
+        [
+          783,
+          795,
+          "abstract"
+        ],
+        [
+          3271,
+          3284,
+          "introduction"
+        ],
+        [
+          3271,
+          3283,
+          "introduction"
+        ],
+        [
+          3893,
+          3905,
+          "related_work"
+        ],
+        [
+          3893,
+          3917,
+          "related_work"
+        ],
+        [
+          3919,
+          3923,
+          "related_work"
+        ],
+        [
+          4006,
+          4010,
+          "related_work"
+        ],
+        [
+          5855,
+          5867,
+          "related_work"
+        ],
+        [
+          5953,
+          5965,
+          "related_work"
+        ],
+        [
+          6035,
+          6047,
+          "related_work"
+        ],
+        [
+          8239,
+          8251,
+          "method"
+        ],
+        [
+          8318,
+          8330,
+          "method"
+        ],
+        [
+          16706,
+          16718,
+          "conclusion"
+        ],
+        [
+          16706,
+          16719,
+          "conclusion"
+        ],
+        [
+          17481,
+          17493,
+          "conclusion"
+        ],
+        [
+          17481,
+          17494,
+          "conclusion"
+        ]
+      ],
+      "schema:name": {
+        "value": "Markov chain Monte Carlo",
+        "start_char_doc": 3810,
+        "end_char_doc": 3834,
+        "prefix": "they can be estimated by",
+        "suffix": "(MCMC) methods. Mixing poses a",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "Class of algorithms for sampling from probability distributions using Markov chains",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:complexity": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:pseudoCode": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "trainedOn": [],
+      "evaluatedOn": [],
+      "achieves": [],
+      "subMethod": [],
+      "wasDerivedFrom": "paper"
+    },
+    {
+      "@id": "algo:score_matching",
+      "@type": [
+        "MLS_Algorithm",
+        "Method"
+      ],
+      "mention": {
+        "start_char_doc": 21189,
+        "end_char_doc": 21203,
+        "prefix": "of non-normalized statistical models using",
+        "suffix": ". J. Machine Learning Res.,",
+        "section": "other",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          4400,
+          4414,
+          "related_work"
+        ],
+        [
+          4887,
+          4901,
+          "related_work"
+        ],
+        [
+          21189,
+          21203,
+          "other"
+        ]
+      ],
+      "schema:name": {
+        "value": "score matching",
+        "start_char_doc": 4283,
+        "end_char_doc": 4297,
+        "prefix": "have also been proposed, such as",
+        "suffix": "[18] and noise-contrastive estimation",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "Estimation method for unnormalized statistical models",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:complexity": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:pseudoCode": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "trainedOn": [],
+      "evaluatedOn": [],
+      "achieves": [],
+      "subMethod": [],
+      "wasDerivedFrom": "paper"
+    },
+    {
+      "@id": "algo:noise_contrastive_estimation",
+      "@type": [
+        "MLS_Algorithm",
+        "Method"
+      ],
+      "mention": {
+        "start_char_doc": 4424,
+        "end_char_doc": 4452,
+        "prefix": "as score matching [18] and",
+        "suffix": "(NCE) [13]. Both of these",
+        "section": "related_work",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          4424,
+          4452,
+          "related_work"
+        ],
+        [
+          4454,
+          4457,
+          "related_work"
+        ],
+        [
+          4922,
+          4925,
+          "related_work"
+        ],
+        [
+          5197,
+          5200,
+          "related_work"
+        ]
+      ],
+      "schema:name": {
+        "value": "noise-contrastive estimation",
+        "start_char_doc": 4302,
+        "end_char_doc": 4330,
+        "prefix": "score matching [18] and",
+        "suffix": "(NCE) [13]. Both of these",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "Estimation principle for unnormalized statistical models using noise distribution",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:complexity": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:pseudoCode": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "trainedOn": [],
+      "evaluatedOn": [],
+      "achieves": [],
+      "subMethod": [],
+      "wasDerivedFrom": "paper"
+    },
+    {
+      "@id": "algo:maximum_likelihood_estimation",
+      "@type": [
+        "MLS_Algorithm",
+        "Method"
+      ],
+      "mention": {
+        "start_char_doc": 14437,
+        "end_char_doc": 14451,
+        "prefix": "with G and reporting the",
+        "suffix": "under this distribution. The σ",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          1842,
+          1871,
+          "introduction"
+        ],
+        [
+          1842,
+          1860,
+          "introduction"
+        ],
+        [
+          4352,
+          4366,
+          "related_work"
+        ],
+        [
+          10747,
+          10761,
+          "other"
+        ],
+        [
+          14437,
+          14451,
+          "experiments"
+        ],
+        [
+          14669,
+          14683,
+          "experiments"
+        ],
+        [
+          15023,
+          15037,
+          "experiments"
+        ]
+      ],
+      "schema:name": {
+        "value": "maximum likelihood estimation",
+        "start_char_doc": 1716,
+        "end_char_doc": 1745,
+        "prefix": "that arise in",
+        "suffix": "and related strategies, and due",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "Statistical method for estimating parameters by maximizing the likelihood function",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:complexity": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:pseudoCode": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "trainedOn": [],
+      "evaluatedOn": [],
+      "achieves": [],
+      "subMethod": [],
+      "wasDerivedFrom": "paper"
+    },
+    {
+      "@id": "algo:wake_sleep",
+      "@type": [
+        "MLS_Algorithm",
+        "Method"
+      ],
+      "mention": {
+        "start_char_doc": 20688,
+        "end_char_doc": 20708,
+        "prefix": "Neal, R. M. (1995). The",
+        "suffix": "for unsupervised neural networks. Science,",
+        "section": "other",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          17941,
+          17961,
+          "conclusion"
+        ],
+        [
+          17941,
+          17951,
+          "conclusion"
+        ],
+        [
+          20688,
+          20708,
+          "other"
+        ],
+        [
+          20688,
+          20698,
+          "other"
+        ]
+      ],
+      "schema:name": {
+        "value": "wake-sleep algorithm",
+        "start_char_doc": 17891,
+        "end_char_doc": 17910,
+        "prefix": "similar to the inference net trained by the",
+        "suffix": "[15] but with the advantage",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "Unsupervised learning algorithm for training neural networks with latent variables",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:complexity": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:pseudoCode": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "trainedOn": [],
+      "evaluatedOn": [],
+      "achieves": [],
+      "subMethod": [],
+      "wasDerivedFrom": "paper"
+    },
+    {
+      "@id": "eval:log_likelihood_gan_mnist",
+      "@type": "MLS_Eval",
+      "mention": {
+        "start_char_doc": 14621,
+        "end_char_doc": 14628,
+        "prefix": "Adversarial nets",
+        "suffix": "2057 ± 26",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          14621,
+          14628,
+          "experiments"
+        ]
+      ],
+      "mls:measure": {
+        "value": "log-likelihood (Parzen window)",
+        "start_char_doc": 14437,
+        "end_char_doc": 14451,
+        "prefix": "and reporting the",
+        "suffix": "under this distribution.",
+        "valueSource": "extracted"
+      },
+      "mls:hasValue": {
+        "value": "225",
+        "start_char_doc": 14621,
+        "end_char_doc": 14628,
+        "prefix": "Adversarial nets",
+        "suffix": "± 2 2057 ± 26",
+        "valueSource": "extracted"
+      },
+      "mls:stdDev": {
+        "value": "2",
+        "start_char_doc": 14621,
+        "end_char_doc": 14628,
+        "prefix": "225 ±",
+        "suffix": "2057 ± 26",
+        "valueSource": "extracted"
+      },
+      "mls:confidenceInterval": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:onDataset": {
+        "@id": "dataset:mnist"
+      },
+      "wasDerivedFrom": "paper"
+    },
+    {
+      "@id": "eval:log_likelihood_gan_tfd",
+      "@type": "MLS_Eval",
+      "mention": {
+        "start_char_doc": 14629,
+        "end_char_doc": 14638,
+        "prefix": "225 ± 2",
+        "suffix": "Table 1 : Parzen",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          14629,
+          14638,
+          "experiments"
+        ]
+      ],
+      "mls:measure": {
+        "value": "log-likelihood (Parzen window)",
+        "start_char_doc": 14437,
+        "end_char_doc": 14451,
+        "prefix": "and reporting the",
+        "suffix": "under this distribution.",
+        "valueSource": "extracted"
+      },
+      "mls:hasValue": {
+        "value": "2057",
+        "start_char_doc": 14629,
+        "end_char_doc": 14638,
+        "prefix": "225 ± 2",
+        "suffix": "± 26",
+        "valueSource": "extracted"
+      },
+      "mls:stdDev": {
+        "value": "26",
+        "start_char_doc": 14629,
+        "end_char_doc": 14638,
+        "prefix": "2057 ±",
+        "suffix": "Table 1",
+        "valueSource": "extracted"
+      },
+      "mls:confidenceInterval": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:onDataset": {
+        "@id": "dataset:tfd"
+      },
+      "wasDerivedFrom": "paper"
+    },
+    {
+      "@id": "eval:log_likelihood_dbn_mnist",
+      "@type": "MLS_Eval",
+      "mention": {
+        "start_char_doc": 14517,
+        "end_char_doc": 14524,
+        "prefix": "DBN [3]",
+        "suffix": "1909 ± 66 Stacked",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          14517,
+          14524,
+          "experiments"
+        ]
+      ],
+      "mls:measure": {
+        "value": "log-likelihood (Parzen window)",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "138",
+        "start_char_doc": 14517,
+        "end_char_doc": 14524,
+        "prefix": "DBN [3]",
+        "suffix": "± 2 1909 ± 66",
+        "valueSource": "extracted"
+      },
+      "mls:stdDev": {
+        "value": "2",
+        "start_char_doc": 14517,
+        "end_char_doc": 14524,
+        "prefix": "138 ±",
+        "suffix": "1909 ± 66",
+        "valueSource": "extracted"
+      },
+      "mls:confidenceInterval": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:onDataset": {
+        "@id": "dataset:mnist"
+      },
+      "wasDerivedFrom": "paper"
+    },
+    {
+      "@id": "eval:log_likelihood_dbn_tfd",
+      "@type": "MLS_Eval",
+      "mention": {
+        "start_char_doc": 14525,
+        "end_char_doc": 14534,
+        "prefix": "138 ± 2",
+        "suffix": "Stacked CAE [3] 121",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          14525,
+          14534,
+          "experiments"
+        ]
+      ],
+      "mls:measure": {
+        "value": "log-likelihood (Parzen window)",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "1909",
+        "start_char_doc": 14525,
+        "end_char_doc": 14534,
+        "prefix": "138 ± 2",
+        "suffix": "± 66 Stacked CAE",
+        "valueSource": "extracted"
+      },
+      "mls:stdDev": {
+        "value": "66",
+        "start_char_doc": 14525,
+        "end_char_doc": 14534,
+        "prefix": "1909 ±",
+        "suffix": "Stacked CAE [3]",
+        "valueSource": "extracted"
+      },
+      "mls:confidenceInterval": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:onDataset": {
+        "@id": "dataset:tfd"
+      },
+      "wasDerivedFrom": "paper"
+    },
+    {
+      "@id": "eval:log_likelihood_stacked_cae_mnist",
+      "@type": "MLS_Eval",
+      "mention": {
+        "start_char_doc": 14551,
+        "end_char_doc": 14560,
+        "prefix": "Stacked CAE [3]",
+        "suffix": "2110 ± 50 Deep",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          14551,
+          14560,
+          "experiments"
+        ]
+      ],
+      "mls:measure": {
+        "value": "log-likelihood (Parzen window)",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "121",
+        "start_char_doc": 14551,
+        "end_char_doc": 14560,
+        "prefix": "Stacked CAE [3]",
+        "suffix": "± 1.6 2110 ± 50",
+        "valueSource": "extracted"
+      },
+      "mls:stdDev": {
+        "value": "1.6",
+        "start_char_doc": 14551,
+        "end_char_doc": 14560,
+        "prefix": "121 ±",
+        "suffix": "2110 ± 50",
+        "valueSource": "extracted"
+      },
+      "mls:confidenceInterval": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:onDataset": {
+        "@id": "dataset:mnist"
+      },
+      "wasDerivedFrom": "paper"
+    },
+    {
+      "@id": "eval:log_likelihood_stacked_cae_tfd",
+      "@type": "MLS_Eval",
+      "mention": {
+        "start_char_doc": 14561,
+        "end_char_doc": 14570,
+        "prefix": "121 ± 1.6",
+        "suffix": "Deep GSN [6] 214",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          14561,
+          14570,
+          "experiments"
+        ]
+      ],
+      "mls:measure": {
+        "value": "log-likelihood (Parzen window)",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "2110",
+        "start_char_doc": 14561,
+        "end_char_doc": 14570,
+        "prefix": "121 ± 1.6",
+        "suffix": "± 50 Deep GSN",
+        "valueSource": "extracted"
+      },
+      "mls:stdDev": {
+        "value": "50",
+        "start_char_doc": 14561,
+        "end_char_doc": 14570,
+        "prefix": "2110 ±",
+        "suffix": "Deep GSN [6]",
+        "valueSource": "extracted"
+      },
+      "mls:confidenceInterval": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:onDataset": {
+        "@id": "dataset:tfd"
+      },
+      "wasDerivedFrom": "paper"
+    },
+    {
+      "@id": "eval:log_likelihood_deep_gsn_mnist",
+      "@type": "MLS_Eval",
+      "mention": {
+        "start_char_doc": 14584,
+        "end_char_doc": 14593,
+        "prefix": "Deep GSN [6]",
+        "suffix": "1890 ± 29 Adversarial",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          14584,
+          14593,
+          "experiments"
+        ]
+      ],
+      "mls:measure": {
+        "value": "log-likelihood (Parzen window)",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "214",
+        "start_char_doc": 14584,
+        "end_char_doc": 14593,
+        "prefix": "Deep GSN [6]",
+        "suffix": "± 1.1 1890 ± 29",
+        "valueSource": "extracted"
+      },
+      "mls:stdDev": {
+        "value": "1.1",
+        "start_char_doc": 14584,
+        "end_char_doc": 14593,
+        "prefix": "214 ±",
+        "suffix": "1890 ± 29",
+        "valueSource": "extracted"
+      },
+      "mls:confidenceInterval": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:onDataset": {
+        "@id": "dataset:mnist"
+      },
+      "wasDerivedFrom": "paper"
+    },
+    {
+      "@id": "eval:log_likelihood_deep_gsn_tfd",
+      "@type": "MLS_Eval",
+      "mention": {
+        "start_char_doc": 14594,
+        "end_char_doc": 14603,
+        "prefix": "214 ± 1.1",
+        "suffix": "Adversarial nets 225 ±",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          14594,
+          14603,
+          "experiments"
+        ]
+      ],
+      "mls:measure": {
+        "value": "log-likelihood (Parzen window)",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "1890",
+        "start_char_doc": 14594,
+        "end_char_doc": 14603,
+        "prefix": "214 ± 1.1",
+        "suffix": "± 29 Adversarial nets",
+        "valueSource": "extracted"
+      },
+      "mls:stdDev": {
+        "value": "29",
+        "start_char_doc": 14594,
+        "end_char_doc": 14603,
+        "prefix": "1890 ±",
+        "suffix": "Adversarial nets 225",
+        "valueSource": "extracted"
+      },
+      "mls:confidenceInterval": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:onDataset": {
+        "@id": "dataset:tfd"
+      },
+      "wasDerivedFrom": "paper"
+    },
+    {
+      "@id": "hp:k_discriminator_steps",
+      "@type": "MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 7993,
+        "end_char_doc": 8000,
+        "prefix": "overfitting. Instead, we alternate between",
+        "suffix": "of optimizing D and one",
+        "section": "method",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          7993,
+          8000,
+          "method"
+        ],
+        [
+          9241,
+          9263,
+          "other"
+        ],
+        [
+          9273,
+          9278,
+          "other"
+        ],
+        [
+          9369,
+          9376,
+          "other"
+        ]
+      ],
+      "mls:name": {
+        "value": "k",
+        "start_char_doc": 7993,
+        "end_char_doc": 7994,
+        "prefix": "we alternate between",
+        "suffix": "steps of optimizing D",
+        "valueSource": "extracted"
+      },
+      "mls:hasValue": {
+        "value": "1",
+        "start_char_doc": 9277,
+        "end_char_doc": 9278,
+        "prefix": "We used k =",
+        "suffix": ", the least expensive option,",
+        "valueSource": "extracted"
+      },
+      "mls:wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:type": {
+        "value": "integer",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:searchSpace": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hpCategory": "HP_Training",
+      "hpType": "HP_Training",
+      "uncertain": true,
+      "wasDerivedFrom": "paper"
+    },
+    {
+      "@id": "hp:dropout_discriminator",
+      "@type": "MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 14038,
+        "end_char_doc": 14045,
+        "prefix": "net used maxout [10] activations.",
+        "suffix": "[17] was applied in training",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          14038,
+          14045,
+          "experiments"
+        ]
+      ],
+      "mls:name": {
+        "value": "Dropout",
+        "start_char_doc": 14038,
+        "end_char_doc": 14045,
+        "prefix": "net used maxout [10] activations.",
+        "suffix": "[17] was applied in training",
+        "valueSource": "extracted"
+      },
+      "mls:hasValue": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:type": {
+        "value": "float",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:searchSpace": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hpCategory": "HP_Architecture",
+      "hpType": "Dropout",
+      "uncertain": false,
+      "wasDerivedFrom": "paper"
+    },
+    {
+      "@id": "hp:momentum",
+      "@type": "MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 9975,
+        "end_char_doc": 9983,
+        "prefix": "gradient-based learning rule. We used",
+        "suffix": "in our experiments. 4.1 Global",
+        "section": "other",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          9975,
+          9983,
+          "other"
+        ]
+      ],
+      "mls:name": {
+        "value": "momentum",
+        "start_char_doc": 9975,
+        "end_char_doc": 9983,
+        "prefix": "gradient-based learning rule. We used",
+        "suffix": "in our experiments.",
+        "valueSource": "extracted"
+      },
+      "mls:hasValue": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:type": {
+        "value": "float",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:searchSpace": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hpCategory": "HP_Optimization",
+      "hpType": "Momentum",
+      "uncertain": false,
+      "wasDerivedFrom": "paper"
+    },
+    {
+      "@id": "hp:minibatch_size_m",
+      "@type": "MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 9389,
+        "end_char_doc": 9403,
+        "prefix": "k steps do • Sample",
+        "suffix": "noise samples {z (1) ,",
+        "section": "other",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          9389,
+          9403,
+          "other"
+        ],
+        [
+          9478,
+          9492,
+          "other"
+        ],
+        [
+          9704,
+          9718,
+          "other"
+        ]
+      ],
+      "mls:name": {
+        "value": "minibatch of m",
+        "start_char_doc": 9389,
+        "end_char_doc": 9403,
+        "prefix": "k steps do • Sample",
+        "suffix": "noise samples {z (1) ,",
+        "valueSource": "extracted"
+      },
+      "mls:hasValue": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:wasDerivedFrom": {
+        "value": "paper",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:type": {
+        "value": "integer",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:searchSpace": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hpCategory": "HP_Training",
+      "hpType": "BatchSize",
+      "uncertain": false,
+      "wasDerivedFrom": "paper"
+    },
+    {
+      "@id": "exp:group_generative_adversarial_nets_2014",
+      "@type": "mls:ExperimentGroup",
+      "mention": {
+        "start_char_doc": 13737,
+        "end_char_doc": 13750,
+        "prefix": "reasonable model to use despite their lack of theoretical",
+        "suffix": "We trained adversarial nets an",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          13737,
+          13750,
+          "experiments"
+        ]
+      ],
+      "mls:hypothesis": {
+        "value": "the adversarial framework can yield competitive generative models",
+        "start_char_doc": 39,
+        "end_char_doc": 125,
+        "prefix": "Abstract: We propose",
+        "suffix": ", in which we simultaneously",
+        "valueSource": "extracted"
+      },
+      "mls:methodology": {
+        "value": "Minibatch stochastic gradient descent training of generative adversarial nets with alternating optimization of discriminator and generator",
+        "start_char_doc": 9121,
+        "end_char_doc": 9188,
+        "prefix": "Algorithm 1",
+        "suffix": ". The number of steps",
+        "valueSource": "extracted"
+      },
+      "mls:evaluationMeasure": {
+        "@id": "eval:log_likelihood_gan_mnist"
+      },
+      "mls:task": {
+        "@id": "task:generative_modeling"
+      },
+      "realizes": [
+        {
+          "@id": "task:generative_modeling"
+        },
+        {
+          "@id": "task:image_generation"
+        }
+      ],
+      "produces": [
+        {
+          "@id": "method:generative_adversarial_nets"
+        }
+      ],
+      "usesParameters": [
+        {
+          "@id": "hp:k_discriminator_steps"
+        },
+        {
+          "@id": "hp:dropout_discriminator"
+        },
+        {
+          "@id": "hp:momentum"
+        },
+        {
+          "@id": "hp:minibatch_size_m"
+        }
+      ],
+      "executes": [],
+      "prov:wasGeneratedBy": {
+        "@id": "study:generative_adversarial_nets_2014"
+      },
+      "mls:hasSubExperiment": [
+        {
+          "@id": "exp:gan_mnist",
+          "@type": "mls:Experiment",
+          "mls:dataset": {
+            "@id": "dataset:mnist"
+          },
+          "usesData": [
+            {
+              "@id": "dataset:mnist"
+            }
+          ],
+          "mls:result": {
+            "value": "225 ± 2",
+            "start_char_doc": 14621,
+            "end_char_doc": 14628,
+            "prefix": "Adversarial nets",
+            "suffix": "2057 ± 26",
+            "valueSource": "extracted"
+          },
+          "achieves": [
+            {
+              "@id": "eval:log_likelihood_gan_mnist"
+            }
+          ],
+          "mention": {
+            "start_char_doc": 14621,
+            "end_char_doc": 14628,
+            "prefix": "Adversarial nets",
+            "suffix": "2057 ± 26",
+            "section": "experiments",
+            "valueSource": "extracted"
+          },
+          "occurrences": [
+            [
+              14621,
+              14628,
+              "experiments"
+            ]
+          ]
+        },
+        {
+          "@id": "exp:gan_tfd",
+          "@type": "mls:Experiment",
+          "mls:dataset": {
+            "@id": "dataset:tfd"
+          },
+          "usesData": [
+            {
+              "@id": "dataset:tfd"
+            }
+          ],
+          "mls:result": {
+            "value": "2057 ± 26",
+            "start_char_doc": 14629,
+            "end_char_doc": 14638,
+            "prefix": "225 ± 2",
+            "suffix": "Table 1 : Parzen",
+            "valueSource": "extracted"
+          },
+          "achieves": [
+            {
+              "@id": "eval:log_likelihood_gan_tfd"
+            }
+          ],
+          "mention": {
+            "start_char_doc": 14629,
+            "end_char_doc": 14638,
+            "prefix": "225 ± 2",
+            "suffix": "Table 1 : Parzen",
+            "section": "experiments",
+            "valueSource": "extracted"
+          },
+          "occurrences": [
+            [
+              14629,
+              14638,
+              "experiments"
+            ]
+          ]
+        },
+        {
+          "@id": "exp:gan_cifar_10",
+          "@type": "mls:Experiment",
+          "mls:dataset": {
+            "@id": "dataset:cifar_10"
+          },
+          "usesData": [
+            {
+              "@id": "dataset:cifar_10"
+            }
+          ],
+          "mls:result": {
+            "value": null,
+            "start_char_doc": null,
+            "end_char_doc": null,
+            "prefix": null,
+            "suffix": null,
+            "valueSource": "inferred"
+          },
+          "achieves": [],
+          "mention": {
+            "start_char_doc": 13866,
+            "end_char_doc": 13874,
+            "prefix": "Face Database (TFD) [28], and",
+            "suffix": "[21]. The generator nets used",
+            "section": "experiments",
+            "valueSource": "extracted"
+          },
+          "occurrences": [
+            [
+              13866,
+              13874,
+              "experiments"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "@id": "eval:parzen_window_log_likelihood",
+      "@type": "MLS_Eval",
+      "mention": {
+        "start_char_doc": 14364,
+        "end_char_doc": 14386,
+        "prefix": "p g by fitting a",
+        "suffix": "to the samples generated with",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          14364,
+          14386,
+          "experiments"
+        ],
+        [
+          14373,
+          14386,
+          "experiments"
+        ],
+        [
+          14649,
+          14662,
+          "experiments"
+        ]
+      ],
+      "mls:measure": {
+        "value": "Gaussian Parzen window",
+        "start_char_doc": 14364,
+        "end_char_doc": 14386,
+        "prefix": "p g by fitting a",
+        "suffix": "to the samples generated with",
+        "valueSource": "extracted"
+      },
+      "mls:hasValue": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:stdDev": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:confidenceInterval": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "wasDerivedFrom": "paper"
+    },
+    {
+      "@id": "impl:theano",
+      "@type": "MLS_Implementation",
+      "mention": {
+        "start_char_doc": 18395,
+        "end_char_doc": 18401,
+        "prefix": "N., and Bengio, Y. (2012).",
+        "suffix": ": new features and speed",
+        "section": "other",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          18395,
+          18401,
+          "other"
+        ],
+        [
+          19332,
+          19338,
+          "other"
+        ]
+      ],
+      "schema:identifier": {
+        "value": "Theano",
+        "start_char_doc": 18395,
+        "end_char_doc": 18401,
+        "prefix": "N., and Bengio, Y. (2012).",
+        "suffix": ": new features and speed",
+        "valueSource": "extracted"
+      },
+      "mls:codeRepository": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:framework": {
+        "value": "Theano",
+        "start_char_doc": 18395,
+        "end_char_doc": 18401,
+        "prefix": "N., and Bengio, Y. (2012).",
+        "suffix": ": new features and speed",
+        "valueSource": "extracted"
+      },
+      "mls:dependencies": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:executionCommand": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:entryPoint": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:commitHash": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:branch": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:dependenciesHash": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "runsIn": null,
+      "requires": [],
+      "wasDerivedFrom": "paper"
+    },
+    {
+      "@id": "impl:pylearn2",
+      "@type": "MLS_Implementation",
+      "mention": {
+        "start_char_doc": 20132,
+        "end_char_doc": 20140,
+        "prefix": "F., and Bengio, Y. (2013c).",
+        "suffix": ": a machine learning research",
+        "section": "other",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [
+          20132,
+          20140,
+          "other"
+        ]
+      ],
+      "schema:identifier": {
+        "value": "Pylearn2",
+        "start_char_doc": 20132,
+        "end_char_doc": 20140,
+        "prefix": "F., and Bengio, Y. (2013c).",
+        "suffix": ": a machine learning research",
+        "valueSource": "extracted"
+      },
+      "mls:codeRepository": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:framework": {
+        "value": "Pylearn2",
+        "start_char_doc": 20132,
+        "end_char_doc": 20140,
+        "prefix": "F., and Bengio, Y. (2013c).",
+        "suffix": ": a machine learning research",
+        "valueSource": "extracted"
+      },
+      "mls:dependencies": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:executionCommand": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:entryPoint": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:commitHash": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:branch": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:dependenciesHash": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "runsIn": null,
+      "requires": [],
+      "wasDerivedFrom": "paper"
+    }
+  ]
+}
