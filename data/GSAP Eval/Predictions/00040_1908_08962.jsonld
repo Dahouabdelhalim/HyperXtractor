@@ -1,0 +1,2656 @@
+{
+  "@context": {
+    "mls": "http://www.w3.org/ns/mls#",
+    "schema": "http://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "Study": "mls:Study",
+    "Experiment": "mls:Experiment",
+    "Person": "mls:Person",
+    "Organization": "mls:Organization",
+    "MLS_Task": "mls:MLS_Task",
+    "MLS_Dataset": "mls:MLS_Dataset",
+    "DataSource": "mls:DataSource",
+    "Method": "Method",
+    "MLS_Model": "mls:MLS_Model",
+    "MLS_Algorithm": "mls:MLS_Algorithm",
+    "Prompt": "Prompt",
+    "MLS_Eval": "mls:MLS_Eval",
+    "SoftwareRepository": "SoftwareRepository",
+    "MLS_Implementation": "mls:MLS_Implementation",
+    "MLS_HyperParameter": "msl:MLS_HyperParameter",
+    "HP_Optimization": "HP_Optimization",
+    "HP_Training": "HP_Training",
+    "HP_Architecture": "HP_Architecture",
+    "HP_Data": "HP_Data",
+    "LearningRate": "LearningRate",
+    "Momentum": "Momentum",
+    "WeightDecay": "WeightDecay",
+    "WarmupSteps": "WarmupSteps",
+    "DecayRate": "DecayRate",
+    "BatchSize": "BatchSize",
+    "NumEpochs": "NumEpochs",
+    "MaxSteps": "MaxSteps",
+    "GradientAccumulationSteps": "GradientAccumulationSteps",
+    "NumWorkers": "NumWorkers",
+    "RandomSeed": "RandomSeed",
+    "NumLayers": "NumLayers",
+    "HiddenSize": "HiddenSize",
+    "EmbeddingDim": "EmbeddingDim",
+    "Dropout": "Dropout",
+    "AttentionHeads": "AttentionHeads",
+    "MaxSequenceLength": "MaxSequenceLength",
+    "TrainValTestSplit": "TrainValTestSplit",
+    "Dependency": "Dependency",
+    "Environment": "Environment",
+    "DataProcessingStep": "DataProcessingStep",
+    "TrainingRun": "TrainingRun",
+    "EvaluationRun": "EvaluationRun",
+    "PredictionSet": "PredictionSet",
+    "mls:ExperimentGroup": "mls:ExperimentGroup",
+    "issued": {"@id": "xsd:issued", "@type": "xsd:datetime"},
+    "title": "schema:title",
+    "abstract": "schema:abstract",
+    "url": "schema:url",
+    "doi": "schema:doi",
+    "citation": "schema:citation",
+    "publicationVenue": "schema:publicationVenue",
+    "timestamp": {"@id": "schema:timestamp", "@type": "xsd:date"},
+    "identifier": "schema:identifier",
+    "description": "schema:description",
+    "objective": "schema:objective",
+    "hypothesis": "schema:hypothesis",
+    "methodology": "schema:methodology",
+    "name": "schema:name",
+    "affiliation": "schema:affiliation",
+    "email": "schema:email",
+    "orcid": "schema:orcid",
+    "type": "schema:type",
+    "category": "schema:category",
+    "metrics": "schema:metrics",
+    "numInstances": {"@id": "schema:numInstances", "@type": "xsd:integer"},
+    "language": "schema:language",
+    "license": "schema:license",
+    "modality": "schema:modality",
+    "numClasses": {"@id": "schema:numClasses", "@type": "xsd:integer"},
+    "version": "schema:version",
+    "architecture": "schema:architecture",
+    "parameters": "schema:parameters",
+    "complexity": "mls:complexity",
+    "pseudoCode": {"@id": "mls:pseudoCode", "@type": "xsd:anyURI"},
+    "text": "schema:text",
+    "role": "mls:role",
+    "templateId": "mls:templateId",
+    "usesContext": {"@id": "mls:usesContext", "@type": "xsd:boolean"},
+    "measure": "mls:measure",
+    "hasValue": {"@id": "mls:hasValue", "@type": "xsd:float"},
+    "stdDev": {"@id": "mls:stdDev", "@type": "xsd:float"},
+    "confidenceInterval": "mls:confidenceInterval",
+    "programmingLanguage": "schema:programmingLanguage",
+    "dateModified": {"@id": "schema:dateModified", "@type": "xsd:datetime"},
+    "documentationUrl": {"@id": "mls:documentationUrl", "@type": "xsd:anyURI"},
+    "codeRepository": {"@id": "mls:codeRepository", "@type": "xsd:anyURI"},
+    "framework": "mls:framework",
+    "dependencies": "mls:dependencies",
+    "executionCommand": "mls:executionCommand",
+    "entryPoint": "mls:entryPoint",
+    "commitHash": "mls:commitHash",
+    "branch": "mls:branch",
+    "dependenciesHash": "mls:dependenciesHash",
+    "packageName": "mls:packageName",
+    "isOptional": {"@id": "mls:isOptional", "@type": "xsd:boolean"},
+    "hardwareSpecs": "mls:hardwareSpecs",
+    "os": "mls:os",
+    "pythonVersion": "mls:pythonVersion",
+    "requirementsFile": "mls:requirementsFile",
+    "isDockerized": {"@id": "mls:isDockerized", "@type": "xsd:boolean"},
+    "startedAtTime": {"@id": "prov:startedAtTime", "@type": "xsd:datetime"},
+    "endedAtTime": {"@id": "prov:endedAtTime", "@type": "xsd:datetime"},
+    "transformationType": "mls:transformationType",
+    "codeReference": {"@id": "mls:codeReference", "@type": "xsd:anyURI"},
+    "runId": "mls:runId",
+    "logFile": {"@id": "mls:logFile", "@type": "xsd:anyURI"},
+    "split": "mls:split",
+    "onDatasetSplit": "mls:onDatasetSplit",
+    "format": "mls:format",
+    "artifactsLocation": {"@id": "mls:artifactsLocation", "@type": "xsd:anyURI"},
+    "hpCategory": "mls:hpCategory",
+    "hpType": "mls:hpType",
+    "searchSpace": "mls:searchSpace",
+    "uncertain": {"@id": "mls:uncertain", "@type": "xsd:boolean"},
+    "hasAuthor": {"@id": "mls:hasAuthor", "@type": "@id"},
+    "contains": {"@id": "mls:contains", "@type": "@id"},
+    "implements": {"@id": "mls:implements", "@type": "@id"},
+    "prov-affiliatedWith": {"@id": "mls:prov-affiliatedWith", "@type": "@id"},
+    "realizes": {"@id": "mls:realizes", "@type": "@id"},
+    "usesData": {"@id": "mls:usesData", "@type": "@id"},
+    "produces": {"@id": "mls:produces", "@type": "@id"},
+    "usesParameters": {"@id": "mls:usesParameters", "@type": "@id"},
+    "executes": {"@id": "mls:executes", "@type": "@id"},
+    "subDatasetOf": {"@id": "mls:subDatasetOf", "@type": "@id"},
+    "prov-derivedFrom": {"@id": "mls:prov-derivedFrom", "@type": "@id"},
+    "processedThrough": {"@id": "mls:processedThrough", "@type": "@id"},
+    "prov-uses": {"@id": "mls:prov-uses", "@type": "@id"},
+    "trainedOn": {"@id": "mls:trainedOn", "@type": "@id"},
+    "evaluatedOn": {"@id": "mls:evaluatedOn", "@type": "@id"},
+    "achieves": {"@id": "mls:achieves", "@type": "@id"},
+    "prov-producedBy": {"@id": "mls:prov-producedBy", "@type": "@id"},
+    "subMethod": {"@id": "mls:subMethod", "@type": "@id"},
+    "evaluates": {"@id": "mls:evaluates", "@type": "@id"},
+    "supports": {"@id": "mls:supports", "@type": "@id"},
+    "runsIn": {"@id": "mls:runsIn", "@type": "@id"},
+    "requires": {"@id": "mls:requires", "@type": "@id"},
+    "prov-executedBy": {"@id": "mls:prov-executedBy", "@type": "@id"},
+    "prov-generated": {"@id": "mls:prov-generated", "@type": "@id"},
+    "benchmarkedOn": {"@id": "mls:benchmarkedOn", "@type": "@id"},
+    "subTaskOf": {"@id": "mls:subTaskOf", "@type": "@id"},
+    "dependsOn": {"@id": "mls:dependsOn", "@type": "@id"},
+    "usedIn": {"@id": "mls:usedIn", "@type": "@id"},
+    "trains": {"@id": "mls:trains", "@type": "@id"},
+    "producedBy": {"@id": "mls:producedBy", "@type": "@id"},
+    "sourceFile": "mls:sourceFile",
+    "sourceLine": {"@id": "mls:sourceLine", "@type": "xsd:integer"},
+    "dependencyType": "mls:dependencyType",
+    "owner": "mls:owner",
+    "platform": "mls:platform",
+    "entryPointCommand": "mls:entryPointCommand",
+    "evaluationScript": "mls:evaluationScript",
+    "evaluationSplit": "mls:evaluationSplit",
+    "metricsFile": "mls:metricsFile",
+    "inputDataset": {"@id": "mls:inputDataset", "@type": "@id"},
+    "outputDataset": {"@id": "mls:outputDataset", "@type": "@id"},
+    "predictionFormat": "mls:predictionFormat",
+    "storageLocation": "mls:storageLocation",
+    "modelVersion": "mls:modelVersion",
+    "appliedTo": {"@id": "mls:appliedTo", "@type": "@id"},
+    "wasGeneratedBy": {"@id": "prov:wasGeneratedBy", "@type": "@id"},
+    "wasDerivedFrom": {"@id": "prov:wasDerivedFrom", "@type": "@id"},
+    "wasAssociatedWith": {"@id": "prov:wasAssociatedWith", "@type": "@id"},
+    "used": {"@id": "prov:used", "@type": "@id"},
+    "occurrences": "https://w3id.org/mlskg/meta/occurrences",
+    "section": "https://w3id.org/mlskg/meta/section",
+    "model": "https://w3id.org/mlskg/model/",
+    "algo": "https://w3id.org/mlskg/algorithm/",
+    "method": "https://w3id.org/mlskg/method/",
+    "dataset": "https://w3id.org/mlskg/dataset/",
+    "datasource": "https://w3id.org/mlskg/datasource/",
+    "task": "https://w3id.org/mlskg/task/",
+    "eval": "https://w3id.org/mlskg/eval/",
+    "hp": "https://w3id.org/mlskg/hp/",
+    "impl": "https://w3id.org/mlskg/implementation/",
+    "env": "https://w3id.org/mlskg/environment/",
+    "prompt": "https://w3id.org/mlskg/prompt/",
+    "person": "https://w3id.org/mlskg/person/",
+    "org": "https://w3id.org/mlskg/organization/",
+    "study": "https://w3id.org/mlskg/study/",
+    "exp": "https://w3id.org/mlskg/experiment/",
+    "valueSource": "https://w3id.org/mlskg/meta/valueSource",
+    "mention": "https://w3id.org/mlskg/meta/mention"
+  },
+  "extractionMode": "FULL",
+  "@graph": [
+    {
+      "@id": "study:well_read_students_learn_better_2019",
+      "@type": "Study",
+      "mention": {
+        "start_char_doc": 0,
+        "end_char_doc": 82,
+        "prefix": null,
+        "suffix": "Abstract: Recent developments in natural",
+        "section": "title",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [0, 82, "title"]
+      ],
+      "schema:title": {
+        "value": "Well-Read Students Learn Better: On the Importance of Pre-Training Compact Models",
+        "start_char_doc": 0,
+        "end_char_doc": 82,
+        "prefix": null,
+        "suffix": "Abstract: Recent developments in natural",
+        "valueSource": "extracted"
+      },
+      "schema:abstract": {
+        "value": "Recent developments in natural language representations have been accompanied by large and expensive models that leverage vast amounts of general-domain text through self-supervised pre-training. Due to the cost of applying such models to down-stream tasks, several model compression techniques on pre-trained language representations have been proposed (Sun et al., 2019a; Sanh, 2019). However, surprisingly, the simple baseline of just pre-training and fine-tuning compact models has been overlooked. In this paper, we first show that pre-training remains important in the context of smaller architectures, and fine-tuning pre-trained compact models can be competitive to more elaborate methods proposed in concurrent work. Starting with pre-trained compact models, we then explore transferring task knowledge from large fine-tuned models through standard knowledge distillation. The resulting simple, yet effective and general algorithm, Pre-trained Distillation, brings further improvements. Through extensive experiments, we more generally explore the interaction between pre-training and distillation under two variables that have been under-studied: model size and properties of unlabeled task data. One surprising observation is that they have a compound effect even when sequentially applied on the same data. To accelerate future research, we will make our 24 pre-trained miniature BERT models publicly available.",
+        "start_char_doc": 94,
+        "end_char_doc": 1517,
+        "prefix": "Abstract:",
+        "suffix": "1 INTRODUCTION Self-supervised learning on",
+        "valueSource": "extracted"
+      },
+      "schema:url": {
+        "value": "https://arxiv.org/abs/1908.08962",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:doi": null,
+      "schema:citation": null,
+      "schema:publicationVenue": {
+        "value": "arXiv preprint",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:timestamp": {
+        "value": "2019",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hasAuthor": [
+        {"@id": "person:turc_iulia"},
+        {"@id": "person:chang_ming_wei"},
+        {"@id": "person:lee_kenton"},
+        {"@id": "person:toutanova_kristina"}
+      ],
+      "contains": [
+        {"@id": "exp:group_pretrained_distillation_2019"}
+      ]
+    },
+    {
+      "@id": "person:turc_iulia",
+      "@type": "Person",
+      "mention": {
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "section": "title",
+        "valueSource": "inferred"
+      },
+      "occurrences": [],
+      "schema:name": {
+        "value": "Iulia Turc",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:affiliation": {
+        "value": "Google",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:email": null,
+      "schema:orcid": null,
+      "prov-affiliatedWith": [{"@id": "org:google"}]
+    },
+    {
+      "@id": "person:chang_ming_wei",
+      "@type": "Person",
+      "mention": {
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "section": "title",
+        "valueSource": "inferred"
+      },
+      "occurrences": [],
+      "schema:name": {
+        "value": "Ming-Wei Chang",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:affiliation": {
+        "value": "Google",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:email": null,
+      "schema:orcid": null,
+      "prov-affiliatedWith": [{"@id": "org:google"}]
+    },
+    {
+      "@id": "person:lee_kenton",
+      "@type": "Person",
+      "mention": {
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "section": "title",
+        "valueSource": "inferred"
+      },
+      "occurrences": [],
+      "schema:name": {
+        "value": "Kenton Lee",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:affiliation": {
+        "value": "Google",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:email": null,
+      "schema:orcid": null,
+      "prov-affiliatedWith": [{"@id": "org:google"}]
+    },
+    {
+      "@id": "person:toutanova_kristina",
+      "@type": "Person",
+      "mention": {
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "section": "title",
+        "valueSource": "inferred"
+      },
+      "occurrences": [],
+      "schema:name": {
+        "value": "Kristina Toutanova",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:affiliation": {
+        "value": "Google",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:email": null,
+      "schema:orcid": null,
+      "prov-affiliatedWith": [{"@id": "org:google"}]
+    },
+    {
+      "@id": "org:google",
+      "@type": "Organization",
+      "mention": {
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "section": "title",
+        "valueSource": "inferred"
+      },
+      "occurrences": [],
+      "schema:name": {
+        "value": "Google",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:url": null,
+      "schema:type": {
+        "value": "Industry",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "method:pre_trained_distillation",
+      "@type": "Method",
+      "mention": {
+        "start_char_doc": 9918,
+        "end_char_doc": 9942,
+        "prefix": "LM data. 3 PRE-TRAINED DISTILLATION",
+        "suffix": "(PD) (Figure 1) is a",
+        "section": "method",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [1035, 1059, "abstract"],
+        [3772, 3796, "introduction"],
+        [4088, 4112, "introduction"],
+        [4668, 4692, "introduction"],
+        [5244, 5267, "introduction"],
+        [9918, 9942, "method"],
+        [13441, 13465, "related_work"],
+        [13659, 13682, "related_work"],
+        [14550, 14574, "experiments"],
+        [15726, 15750, "experiments"],
+        [19144, 19168, "experiments"],
+        [20023, 20047, "experiments"],
+        [23248, 23272, "experiments"],
+        [24164, 24188, "experiments"],
+        [24971, 24995, "experiments"],
+        [25065, 25089, "experiments"],
+        [28444, 28468, "experiments"]
+      ],
+      "mls:name": {
+        "value": "Pre-trained Distillation",
+        "start_char_doc": 9918,
+        "end_char_doc": 9942,
+        "prefix": "LM data. 3 PRE-TRAINED DISTILLATION",
+        "suffix": "(PD) (Figure 1) is a",
+        "valueSource": "extracted"
+      },
+      "mls:description": {
+        "value": "A general, yet simple algorithm for building compact models consisting of three standard training operations: masked LM pre-training, task-specific distillation, and optional fine-tuning.",
+        "start_char_doc": 9918,
+        "end_char_doc": 10245,
+        "prefix": "LM data. 3 PRE-TRAINED DISTILLATION",
+        "suffix": "capturing linguistic phenomena from a",
+        "valueSource": "extracted"
+      },
+      "subMethod": [
+        {"@id": "method:masked_language_modeling"},
+        {"@id": "method:knowledge_distillation"},
+        {"@id": "method:fine_tuning"}
+      ]
+    },
+    {
+      "@id": "method:knowledge_distillation",
+      "@type": "Method",
+      "mention": {
+        "start_char_doc": 15971,
+        "end_char_doc": 15993,
+        "prefix": "4b) (Bucilȃ et al., 2006;",
+        "suffix": "(or simply \"distillation\") transfers information",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [952, 974, "abstract"],
+        [3080, 3102, "introduction"],
+        [12475, 12497, "related_work"],
+        [15971, 15993, "experiments"],
+        [30034, 30056, "related_work"],
+        [38802, 38824, "other"],
+        [40178, 40200, "other"],
+        [40557, 40579, "other"]
+      ],
+      "mls:name": {
+        "value": "Knowledge Distillation",
+        "start_char_doc": 15971,
+        "end_char_doc": 15993,
+        "prefix": "4b) (Bucilȃ et al., 2006;",
+        "suffix": "(or simply \"distillation\") transfers information",
+        "valueSource": "extracted"
+      },
+      "mls:description": {
+        "value": "Transfers information from a highly-parameterized and accurate teacher model to a more compact student by exposing the student to soft labels produced by the teacher.",
+        "start_char_doc": 15993,
+        "end_char_doc": 16267,
+        "prefix": "(or simply \"distillation\") transfers information",
+        "suffix": "namely the class probabilities produced",
+        "valueSource": "extracted"
+      }
+    },
+    {
+      "@id": "method:masked_language_modeling",
+      "@type": "Method",
+      "mention": {
+        "start_char_doc": 17180,
+        "end_char_doc": 17189,
+        "prefix": "pre-training with the",
+        "suffix": "(MLM) and next sentence objectives",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [3629, 3638, "introduction"],
+        [3640, 3643, "introduction"],
+        [10258, 10267, "method"],
+        [11350, 11353, "method"],
+        [17180, 17189, "experiments"],
+        [17191, 17194, "experiments"],
+        [17254, 17257, "experiments"]
+      ],
+      "mls:name": {
+        "value": "Masked LM",
+        "start_char_doc": 17180,
+        "end_char_doc": 17189,
+        "prefix": "pre-training with the",
+        "suffix": "(MLM) and next sentence objectives",
+        "valueSource": "extracted"
+      },
+      "mls:description": {
+        "value": "Masked language model pre-training objective used for unsupervised pre-training of bidirectional Transformers.",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "method:fine_tuning",
+      "@type": "Method",
+      "mention": {
+        "start_char_doc": 16934,
+        "end_char_doc": 16958,
+        "prefix": "a temperature of 1 2.",
+        "suffix": "(Figure 4c) (Dai & Le,",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [2797, 2821, "introduction"],
+        [2930, 2954, "introduction"],
+        [3865, 3889, "introduction"],
+        [12271, 12295, "related_work"],
+        [14141, 14165, "related_work"],
+        [16934, 16958, "experiments"],
+        [23434, 23458, "experiments"],
+        [24267, 24291, "experiments"],
+        [24637, 24661, "experiments"],
+        [24906, 24930, "experiments"],
+        [27990, 28014, "experiments"]
+      ],
+      "mls:name": {
+        "value": "Pre-training+Fine-tuning",
+        "start_char_doc": 16934,
+        "end_char_doc": 16958,
+        "prefix": "a temperature of 1 2.",
+        "suffix": "(Figure 4c) (Dai & Le,",
+        "valueSource": "extracted"
+      },
+      "mls:description": {
+        "value": "Leverages large unlabeled general-domain corpora to pre-train models that can be fine-tuned for end tasks.",
+        "start_char_doc": 16959,
+        "end_char_doc": 17086,
+        "prefix": "(Figure 4c) (Dai & Le,",
+        "suffix": "Following BERT, we perform pre-training",
+        "valueSource": "extracted"
+      }
+    },
+    {
+      "@id": "method:basic_training",
+      "@type": "Method",
+      "mention": {
+        "start_char_doc": 15844,
+        "end_char_doc": 15858,
+        "prefix": "each of its constituent operations.",
+        "suffix": "(Figure 4a) is the standard",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [15844, 15858, "experiments"]
+      ],
+      "mls:name": {
+        "value": "Basic Training",
+        "start_char_doc": 15844,
+        "end_char_doc": 15858,
+        "prefix": "each of its constituent operations.",
+        "suffix": "(Figure 4a) is the standard",
+        "valueSource": "extracted"
+      },
+      "mls:description": {
+        "value": "Standard supervised learning method where a compact model is trained directly on the labeled set.",
+        "start_char_doc": 15858,
+        "end_char_doc": 15970,
+        "prefix": "(Figure 4a) is the standard",
+        "suffix": "Knowledge Distillation (Figure 4b) (Bucilȃ",
+        "valueSource": "extracted"
+      }
+    },
+    {
+      "@id": "method:patient_knowledge_distillation",
+      "@type": "Method",
+      "mention": {
+        "start_char_doc": 12467,
+        "end_char_doc": 12497,
+        "prefix": "in several key ways.",
+        "suffix": "(Sun et al., 2019a) initializes",
+        "section": "related_work",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [12467, 12497, "related_work"],
+        [12622, 12642, "related_work"]
+      ],
+      "mls:name": {
+        "value": "Patient Knowledge Distillation",
+        "start_char_doc": 12467,
+        "end_char_doc": 12497,
+        "prefix": "in several key ways.",
+        "suffix": "(Sun et al., 2019a) initializes",
+        "valueSource": "extracted"
+      },
+      "mls:description": {
+        "value": "Initializes a student from the bottom layers of a deeper pre-trained model, then performs task-specific patient distillation relying on teacher output and intermediate layers.",
+        "start_char_doc": 12497,
+        "end_char_doc": 12715,
+        "prefix": "(Sun et al., 2019a) initializes",
+        "suffix": "In a parallel line of",
+        "valueSource": "extracted"
+      }
+    },
+    {
+      "@id": "method:model_compression",
+      "@type": "Method",
+      "mention": {
+        "start_char_doc": 3153,
+        "end_char_doc": 3170,
+        "prefix": "we additionally leverage knowledge distillation",
+        "suffix": "(Hinton et al., 2015), the",
+        "section": "introduction",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [360, 377, "abstract"],
+        [3153, 3170, "introduction"],
+        [29978, 29995, "related_work"],
+        [33195, 33212, "other"],
+        [38834, 38851, "other"],
+        [40144, 40161, "other"]
+      ],
+      "mls:name": {
+        "value": "model compression",
+        "start_char_doc": 360,
+        "end_char_doc": 377,
+        "prefix": "down-stream tasks, several",
+        "suffix": "techniques on pre-trained language representations",
+        "valueSource": "extracted"
+      },
+      "mls:description": {
+        "value": "Techniques for reducing the size of large models while retaining performance.",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "model:bert",
+      "@type": "MLS_Model",
+      "mention": {
+        "start_char_doc": 14830,
+        "end_char_doc": 14834,
+        "prefix": "pre-training procedure as",
+        "suffix": "(Devlin et al., 2018). The",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [1488, 1492, "abstract"],
+        [2630, 2634, "introduction"],
+        [3629, 3633, "introduction"],
+        [6485, 6510, "other"],
+        [7068, 7072, "other"],
+        [7136, 7140, "other"],
+        [7818, 7822, "other"],
+        [10258, 10262, "method"],
+        [11441, 11445, "method"],
+        [13696, 13700, "related_work"],
+        [13747, 13751, "related_work"],
+        [14830, 14834, "experiments"],
+        [15198, 15202, "experiments"],
+        [16697, 16701, "experiments"],
+        [22628, 22632, "experiments"],
+        [23511, 23515, "experiments"],
+        [31935, 31939, "other"]
+      ],
+      "mls:name": {
+        "value": "BERT",
+        "start_char_doc": 14830,
+        "end_char_doc": 14834,
+        "prefix": "pre-training procedure as",
+        "suffix": "(Devlin et al., 2018). The",
+        "valueSource": "extracted"
+      },
+      "schema:architecture": {
+        "value": "Bidirectional Transformer",
+        "start_char_doc": 6485,
+        "end_char_doc": 6511,
+        "prefix": "model architecture to",
+        "suffix": ", known to be suitable",
+        "valueSource": "extracted"
+      }
+    },
+    {
+      "@id": "model:bert_base",
+      "@type": "MLS_Model",
+      "mention": {
+        "start_char_doc": 7068,
+        "end_char_doc": 7077,
+        "prefix": "In Section 4, the teacher is pre-trained",
+        "suffix": "fine-tuned on labeled end-task data.",
+        "section": "other",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [7068, 7077, "other"],
+        [11441, 11450, "method"],
+        [13747, 13756, "related_work"],
+        [22628, 22637, "experiments"],
+        [31935, 31943, "other"]
+      ],
+      "mls:name": {
+        "value": "BERT BASE",
+        "start_char_doc": 7068,
+        "end_char_doc": 7077,
+        "prefix": "In Section 4, the teacher is pre-trained",
+        "suffix": "fine-tuned on labeled end-task data.",
+        "valueSource": "extracted"
+      },
+      "schema:architecture": {
+        "value": "12L/768H Bidirectional Transformer",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:parameters": {
+        "value": "110m",
+        "start_char_doc": 4924,
+        "end_char_doc": 4928,
+        "prefix": "of various sizes (4m to",
+        "suffix": "parameters) and depth/width trade-offs, we",
+        "valueSource": "extracted"
+      }
+    },
+    {
+      "@id": "model:bert_large",
+      "@type": "MLS_Model",
+      "mention": {
+        "start_char_doc": 15198,
+        "end_char_doc": 15208,
+        "prefix": "The teacher,",
+        "suffix": ", has dimensions 24L/1024H and",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [7136, 7146, "other"],
+        [7818, 7828, "other"],
+        [15198, 15208, "experiments"],
+        [16697, 16707, "experiments"],
+        [23511, 23520, "experiments"]
+      ],
+      "mls:name": {
+        "value": "BERT LARGE",
+        "start_char_doc": 15198,
+        "end_char_doc": 15208,
+        "prefix": "The teacher,",
+        "suffix": ", has dimensions 24L/1024H and",
+        "valueSource": "extracted"
+      },
+      "schema:architecture": {
+        "value": "24L/1024H",
+        "start_char_doc": 15226,
+        "end_char_doc": 15235,
+        "prefix": "BERT LARGE , has dimensions",
+        "suffix": "and 340M parameters. We experiment",
+        "valueSource": "extracted"
+      },
+      "schema:parameters": {
+        "value": "340M",
+        "start_char_doc": 15240,
+        "end_char_doc": 15244,
+        "prefix": "has dimensions 24L/1024H and",
+        "suffix": "parameters. We experiment with 24",
+        "valueSource": "extracted"
+      }
+    },
+    {
+      "@id": "model:transformer_tiny",
+      "@type": "MLS_Model",
+      "mention": {
+        "start_char_doc": 20479,
+        "end_char_doc": 20495,
+        "prefix": "for Transformer TINY ,",
+        "suffix": ", this drops even lower,",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [7506, 7510, "other"],
+        [7661, 7677, "other"],
+        [20479, 20495, "experiments"],
+        [21427, 21443, "experiments"],
+        [24191, 24207, "experiments"]
+      ],
+      "mls:name": {
+        "value": "Transformer TINY",
+        "start_char_doc": 7661,
+        "end_char_doc": 7677,
+        "prefix": "from our",
+        "suffix": "(4m parameters) all the way",
+        "valueSource": "extracted"
+      },
+      "schema:architecture": {
+        "value": "L=2, H=128",
+        "start_char_doc": 7512,
+        "end_char_doc": 7522,
+        "prefix": "for most figures: Tiny (",
+        "suffix": "), Mini (L=4, H=256), Small",
+        "valueSource": "extracted"
+      },
+      "schema:parameters": {
+        "value": "4m",
+        "start_char_doc": 7679,
+        "end_char_doc": 7681,
+        "prefix": "from our Transformer TINY (",
+        "suffix": "parameters) all the way up",
+        "valueSource": "extracted"
+      }
+    },
+    {
+      "@id": "model:transformer_mini",
+      "@type": "MLS_Model",
+      "mention": {
+        "start_char_doc": 23874,
+        "end_char_doc": 23890,
+        "prefix": "Amazon Book Reviews corpus, where",
+        "suffix": "recovers the accuracy of the",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [7525, 7529, "other"],
+        [23874, 23890, "experiments"],
+        [24070, 24086, "experiments"],
+        [25779, 25795, "experiments"]
+      ],
+      "mls:name": {
+        "value": "Transformer MINI",
+        "start_char_doc": 23874,
+        "end_char_doc": 23890,
+        "prefix": "Amazon Book Reviews corpus, where",
+        "suffix": "recovers the accuracy of the",
+        "valueSource": "extracted"
+      },
+      "schema:architecture": {
+        "value": "L=4, H=256",
+        "start_char_doc": 7531,
+        "end_char_doc": 7541,
+        "prefix": "Tiny (L=2, H=128), Mini (",
+        "suffix": "), Small (L=4, H=512), Medium",
+        "valueSource": "extracted"
+      }
+    },
+    {
+      "@id": "model:transformer_small",
+      "@type": "MLS_Model",
+      "mention": {
+        "start_char_doc": 15476,
+        "end_char_doc": 15493,
+        "prefix": "the cheapest student,",
+        "suffix": ", is 77 times smaller",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [7544, 7549, "other"],
+        [15476, 15493, "experiments"]
+      ],
+      "mls:name": {
+        "value": "Transformer SMALL",
+        "start_char_doc": 15476,
+        "end_char_doc": 15493,
+        "prefix": "the cheapest student,",
+        "suffix": ", is 77 times smaller",
+        "valueSource": "extracted"
+      },
+      "schema:architecture": {
+        "value": "L=4, H=512",
+        "start_char_doc": 7551,
+        "end_char_doc": 7561,
+        "prefix": "Mini (L=4, H=256), Small (",
+        "suffix": "), Medium (L=8, H=512), and",
+        "valueSource": "extracted"
+      }
+    },
+    {
+      "@id": "model:transformer_medium",
+      "@type": "MLS_Model",
+      "mention": {
+        "start_char_doc": 7564,
+        "end_char_doc": 7570,
+        "prefix": "Small (L=4, H=512),",
+        "suffix": "(L=8, H=512), and Base (L=12,",
+        "section": "other",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [7564, 7570, "other"]
+      ],
+      "mls:name": {
+        "value": "Transformer MEDIUM",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:architecture": {
+        "value": "L=8, H=512",
+        "start_char_doc": 7572,
+        "end_char_doc": 7582,
+        "prefix": "Small (L=4, H=512), Medium (",
+        "suffix": "), and Base (L=12, H=768).",
+        "valueSource": "extracted"
+      }
+    },
+    {
+      "@id": "model:transformer_base",
+      "@type": "MLS_Model",
+      "mention": {
+        "start_char_doc": 15376,
+        "end_char_doc": 15392,
+        "prefix": "The most expensive student,",
+        "suffix": ", is 3 times smaller",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [7595, 7606, "other"],
+        [7712, 7728, "other"],
+        [15376, 15392, "experiments"],
+        [24026, 24042, "experiments"],
+        [25536, 25552, "experiments"]
+      ],
+      "mls:name": {
+        "value": "Transformer BASE",
+        "start_char_doc": 15376,
+        "end_char_doc": 15392,
+        "prefix": "The most expensive student,",
+        "suffix": ", is 3 times smaller",
+        "valueSource": "extracted"
+      },
+      "schema:architecture": {
+        "value": "L=12, H=768",
+        "start_char_doc": 7595,
+        "end_char_doc": 7606,
+        "prefix": "(L=8, H=512), and Base (",
+        "suffix": "). we investigate an array",
+        "valueSource": "extracted"
+      },
+      "schema:parameters": {
+        "value": "110m",
+        "start_char_doc": 7729,
+        "end_char_doc": 7733,
+        "prefix": "up to Transformer BASE (",
+        "suffix": "parameters) 1. The student model",
+        "valueSource": "extracted"
+      }
+    },
+    {
+      "@id": "model:distilbert",
+      "@type": "MLS_Model",
+      "mention": {
+        "start_char_doc": 12840,
+        "end_char_doc": 12850,
+        "prefix": "a parallel line of work,",
+        "suffix": "(Sanh, 2019) applies the same",
+        "section": "related_work",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [12840, 12850, "related_work"],
+        [38205, 38215, "other"]
+      ],
+      "mls:name": {
+        "value": "DistilBERT",
+        "start_char_doc": 12840,
+        "end_char_doc": 12850,
+        "prefix": "a parallel line of work,",
+        "suffix": "(Sanh, 2019) applies the same",
+        "valueSource": "extracted"
+      },
+      "mls:description": {
+        "value": "Applies truncation-based initialization for the student, then continues LM pre-training via distillation from a more expensive LM teacher, and finally fine-tunes on task data.",
+        "start_char_doc": 12850,
+        "end_char_doc": 13100,
+        "prefix": "(Sanh, 2019) applies the same",
+        "suffix": "Its downside is that LM",
+        "valueSource": "extracted"
+      }
+    },
+    {
+      "@id": "model:elmo",
+      "@type": "MLS_Model",
+      "mention": {
+        "start_char_doc": 31192,
+        "end_char_doc": 31196,
+        "prefix": "Hu et al. (2018) use",
+        "suffix": "embeddings, while (Chia et al.",
+        "section": "related_work",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [31192, 31196, "related_work"]
+      ],
+      "mls:name": {
+        "value": "ELMo",
+        "start_char_doc": 31192,
+        "end_char_doc": 31196,
+        "prefix": "Hu et al. (2018) use",
+        "suffix": "embeddings, while (Chia et al.",
+        "valueSource": "extracted"
+      }
+    },
+    {
+      "@id": "task:sentiment_classification",
+      "@type": "MLS_Task",
+      "mention": {
+        "start_char_doc": 17610,
+        "end_char_doc": 17634,
+        "prefix": "are summarized in Table 4.",
+        "suffix": "aims to classify text according",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [17610, 17634, "experiments"]
+      ],
+      "mls:name": {
+        "value": "Sentiment classification",
+        "start_char_doc": 17610,
+        "end_char_doc": 17634,
+        "prefix": "are summarized in Table 4.",
+        "suffix": "aims to classify text according",
+        "valueSource": "extracted"
+      },
+      "mls:description": {
+        "value": "Classify text according to the polarities of opinions it contains.",
+        "start_char_doc": 17634,
+        "end_char_doc": 17720,
+        "prefix": "Sentiment classification aims to",
+        "suffix": "We perform 3-way document classification",
+        "valueSource": "extracted"
+      },
+      "mls:category": {
+        "value": "Text Classification",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "benchmarkedOn": [
+        {"@id": "dataset:amazon_book_reviews"},
+        {"@id": "dataset:sst_2"}
+      ]
+    },
+    {
+      "@id": "task:natural_language_inference",
+      "@type": "MLS_Task",
+      "mention": {
+        "start_char_doc": 18300,
+        "end_char_doc": 18326,
+        "prefix": "single sentences).",
+        "suffix": "involves classifying pairs of sentences",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [8913, 8939, "other"],
+        [18300, 18326, "experiments"],
+        [18564, 18567, "experiments"],
+        [18727, 18730, "experiments"],
+        [18815, 18818, "experiments"],
+        [28674, 28678, "experiments"],
+        [28758, 28762, "experiments"],
+        [28792, 28796, "experiments"]
+      ],
+      "mls:name": {
+        "value": "Natural language inference",
+        "start_char_doc": 18300,
+        "end_char_doc": 18326,
+        "prefix": "single sentences).",
+        "suffix": "involves classifying pairs of sentences",
+        "valueSource": "extracted"
+      },
+      "mls:description": {
+        "value": "Classifying pairs of sentences (a premise and a hypothesis) as entailment, contradiction, or neutral.",
+        "start_char_doc": 18326,
+        "end_char_doc": 18461,
+        "prefix": "Natural language inference involves",
+        "suffix": "This task is representative of",
+        "valueSource": "extracted"
+      },
+      "mls:category": {
+        "value": "Sentence Pair Classification",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "benchmarkedOn": [
+        {"@id": "dataset:mnli"}
+      ]
+    },
+    {
+      "@id": "task:textual_entailment",
+      "@type": "MLS_Task",
+      "mention": {
+        "start_char_doc": 18782,
+        "end_char_doc": 18800,
+        "prefix": "datasets: SNLI (Bowman et al.,",
+        "suffix": "is similar to NLI, but",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [18782, 18800, "experiments"],
+        [32775, 32793, "other"]
+      ],
+      "mls:name": {
+        "value": "Textual entailment",
+        "start_char_doc": 18782,
+        "end_char_doc": 18800,
+        "prefix": "datasets: SNLI (Bowman et al.,",
+        "suffix": "is similar to NLI, but",
+        "valueSource": "extracted"
+      },
+      "mls:description": {
+        "value": "Similar to NLI, but restricted to binary classification (entailment vs non-entailment).",
+        "start_char_doc": 18800,
+        "end_char_doc": 18907,
+        "prefix": "Textual entailment is similar to",
+        "suffix": "The most popular RTE dataset",
+        "valueSource": "extracted"
+      },
+      "mls:category": {
+        "value": "Sentence Pair Classification",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "benchmarkedOn": [
+        {"@id": "dataset:rte"}
+      ]
+    },
+    {
+      "@id": "task:language_modeling",
+      "@type": "MLS_Task",
+      "mention": {
+        "start_char_doc": 2388,
+        "end_char_doc": 2406,
+        "prefix": "the idea of applying",
+        "suffix": "(LM) pre-training and task fine-tuning",
+        "section": "introduction",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [2388, 2402, "introduction"],
+        [2404, 2406, "introduction"],
+        [2711, 2725, "introduction"],
+        [3441, 3443, "introduction"],
+        [3636, 3638, "introduction"],
+        [9151, 9180, "other"],
+        [10258, 10267, "method"],
+        [17180, 17194, "experiments"]
+      ],
+      "mls:name": {
+        "value": "language model",
+        "start_char_doc": 2388,
+        "end_char_doc": 2402,
+        "prefix": "the idea of applying",
+        "suffix": "(LM) pre-training and task fine-tuning",
+        "valueSource": "extracted"
+      },
+      "mls:description": {
+        "value": "Unsupervised pre-training objective for learning text representations from large corpora.",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "dataset:glue",
+      "@type": "MLS_Dataset",
+      "mention": {
+        "start_char_doc": 14002,
+        "end_char_doc": 14006,
+        "prefix": "results on the 6",
+        "suffix": "tasks selected by Sun et",
+        "section": "related_work",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [11246, 11250, "method"],
+        [11574, 11578, "method"],
+        [14002, 14006, "related_work"],
+        [18131, 18135, "experiments"]
+      ],
+      "mls:name": {
+        "value": "GLUE",
+        "start_char_doc": 14002,
+        "end_char_doc": 14006,
+        "prefix": "results on the 6",
+        "suffix": "tasks selected by Sun et",
+        "valueSource": "extracted"
+      },
+      "mls:description": {
+        "value": "A multi-task benchmark and analysis platform for natural language understanding.",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:language": {
+        "value": "English",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "dataset:sst_2",
+      "@type": "MLS_Dataset",
+      "mention": {
+        "start_char_doc": 17991,
+        "end_char_doc": 17996,
+        "prefix": "we test our algorithm on",
+        "suffix": "(Socher et al., 2013), which",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [17991, 17996, "experiments"],
+        [18263, 18268, "experiments"],
+        [21794, 21799, "experiments"]
+      ],
+      "mls:name": {
+        "value": "SST-2",
+        "start_char_doc": 17991,
+        "end_char_doc": 17996,
+        "prefix": "we test our algorithm on",
+        "suffix": "(Socher et al., 2013), which",
+        "valueSource": "extracted"
+      },
+      "mls:description": {
+        "value": "Binary sentence classification task for sentiment analysis.",
+        "start_char_doc": 17996,
+        "end_char_doc": 18080,
+        "prefix": "(Socher et al., 2013), which",
+        "suffix": "and our results are directly",
+        "valueSource": "extracted"
+      },
+      "mls:language": {
+        "value": "English",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "dataset:mnli",
+      "@type": "MLS_Dataset",
+      "mention": {
+        "start_char_doc": 18563,
+        "end_char_doc": 18567,
+        "prefix": "We chose",
+        "suffix": "(Williams et al., 2018) as",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [18563, 18567, "experiments"],
+        [18986, 18990, "experiments"],
+        [20349, 20353, "experiments"],
+        [24527, 24531, "experiments"],
+        [24741, 24745, "experiments"],
+        [28648, 28652, "experiments"]
+      ],
+      "mls:name": {
+        "value": "MNLI",
+        "start_char_doc": 18563,
+        "end_char_doc": 18567,
+        "prefix": "We chose",
+        "suffix": "(Williams et al., 2018) as",
+        "valueSource": "extracted"
+      },
+      "mls:description": {
+        "value": "Multi-Genre Natural Language Inference dataset used as target dataset for NLI experiments.",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:language": {
+        "value": "English",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "dataset:rte",
+      "@type": "MLS_Dataset",
+      "mention": {
+        "start_char_doc": 18908,
+        "end_char_doc": 18911,
+        "prefix": "The most popular",
+        "suffix": "dataset (Bentivogli et al., 2009)",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [18908, 18911, "experiments"],
+        [24159, 24162, "experiments"],
+        [24536, 24539, "experiments"],
+        [24756, 24759, "experiments"]
+      ],
+      "mls:name": {
+        "value": "RTE",
+        "start_char_doc": 18908,
+        "end_char_doc": 18911,
+        "prefix": "The most popular",
+        "suffix": "dataset (Bentivogli et al., 2009)",
+        "valueSource": "extracted"
+      },
+      "mls:description": {
+        "value": "Recognizing Textual Entailment dataset, two orders of magnitude smaller than MNLI, offering an extreme test of robustness to the amount of transfer data.",
+        "start_char_doc": 18911,
+        "end_char_doc": 19099,
+        "prefix": "dataset (Bentivogli et al., 2009)",
+        "suffix": "6 ANALYSIS In this section,",
+        "valueSource": "extracted"
+      },
+      "mls:language": {
+        "value": "English",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "dataset:snli",
+      "@type": "MLS_Dataset",
+      "mention": {
+        "start_char_doc": 18726,
+        "end_char_doc": 18730,
+        "prefix": "we supplement D T with",
+        "suffix": "(Bowman et al., 2015) and",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [18726, 18730, "experiments"]
+      ],
+      "mls:name": {
+        "value": "SNLI",
+        "start_char_doc": 18726,
+        "end_char_doc": 18730,
+        "prefix": "we supplement D T with",
+        "suffix": "(Bowman et al., 2015) and",
+        "valueSource": "extracted"
+      },
+      "mls:description": {
+        "value": "Stanford Natural Language Inference dataset, used as supplementary transfer data for NLI.",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:language": {
+        "value": "English",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "dataset:qqp",
+      "@type": "MLS_Dataset",
+      "mention": {
+        "start_char_doc": 18757,
+        "end_char_doc": 18760,
+        "prefix": "(Bowman et al., 2015) and",
+        "suffix": "(Chen et al., 2018). Textual",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [18757, 18760, "experiments"]
+      ],
+      "mls:name": {
+        "value": "QQP",
+        "start_char_doc": 18757,
+        "end_char_doc": 18760,
+        "prefix": "(Bowman et al., 2015) and",
+        "suffix": "(Chen et al., 2018). Textual",
+        "valueSource": "extracted"
+      },
+      "mls:description": {
+        "value": "Quora Question Pairs dataset, used as supplementary transfer data for NLI.",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:language": {
+        "value": "English",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "dataset:amazon_book_reviews",
+      "@type": "MLS_Dataset",
+      "mention": {
+        "start_char_doc": 17754,
+        "end_char_doc": 17773,
+        "prefix": "3-way document classification on",
+        "suffix": "(He & McAuley, 2016). Its",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [17754, 17773, "experiments"],
+        [23840, 23859, "experiments"],
+        [24801, 24820, "experiments"],
+        [25423, 25442, "experiments"],
+        [25467, 25486, "experiments"],
+        [27271, 27290, "experiments"]
+      ],
+      "mls:name": {
+        "value": "Amazon Book Reviews",
+        "start_char_doc": 17754,
+        "end_char_doc": 17773,
+        "prefix": "3-way document classification on",
+        "suffix": "(He & McAuley, 2016). Its",
+        "valueSource": "extracted"
+      },
+      "mls:description": {
+        "value": "Large-scale document classification dataset with 8m instances for 3-way sentiment classification.",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:numInstances": {
+        "value": "8000000",
+        "start_char_doc": 17819,
+        "end_char_doc": 17821,
+        "prefix": "Its considerable size (",
+        "suffix": ") allows us to closely",
+        "valueSource": "extracted"
+      },
+      "mls:numClasses": {
+        "value": "3",
+        "start_char_doc": 17721,
+        "end_char_doc": 17722,
+        "prefix": "We perform",
+        "suffix": "-way document classification on Amazon",
+        "valueSource": "extracted"
+      },
+      "mls:language": {
+        "value": "English",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "dataset:amazon_movie_reviews",
+      "@type": "MLS_Dataset",
+      "mention": {
+        "start_char_doc": 18197,
+        "end_char_doc": 18217,
+        "prefix": "whole documents from",
+        "suffix": "(1.7m) as unlabeled transfer data",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [18197, 18217, "experiments"]
+      ],
+      "mls:name": {
+        "value": "Amazon Movie Reviews",
+        "start_char_doc": 18197,
+        "end_char_doc": 18217,
+        "prefix": "whole documents from",
+        "suffix": "(1.7m) as unlabeled transfer data",
+        "valueSource": "extracted"
+      },
+      "mls:description": {
+        "value": "Used as unlabeled transfer data for SST-2 experiments.",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:numInstances": {
+        "value": "1700000",
+        "start_char_doc": 18219,
+        "end_char_doc": 18223,
+        "prefix": "from Amazon Movie Reviews (",
+        "suffix": ") as unlabeled transfer data",
+        "valueSource": "extracted"
+      },
+      "mls:language": {
+        "value": "English",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "datasource:bookcorpus",
+      "@type": "DataSource",
+      "mention": {
+        "start_char_doc": 23587,
+        "end_char_doc": 23597,
+        "prefix": "We use the",
+        "suffix": "(Zhu et al., 2015) and",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [23587, 23597, "experiments"]
+      ],
+      "mls:name": {
+        "value": "BookCorpus",
+        "start_char_doc": 23587,
+        "end_char_doc": 23597,
+        "prefix": "We use the",
+        "suffix": "(Zhu et al., 2015) and",
+        "valueSource": "extracted"
+      },
+      "schema:type": {
+        "value": "Text corpus",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "datasource:wikipedia_en",
+      "@type": "DataSource",
+      "mention": {
+        "start_char_doc": 23621,
+        "end_char_doc": 23638,
+        "prefix": "(Zhu et al., 2015) and",
+        "suffix": "as our unlabeled LM set,",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [23621, 23638, "experiments"],
+        [27522, 27531, "experiments"]
+      ],
+      "mls:name": {
+        "value": "English Wikipedia",
+        "start_char_doc": 23621,
+        "end_char_doc": 23638,
+        "prefix": "(Zhu et al., 2015) and",
+        "suffix": "as our unlabeled LM set,",
+        "valueSource": "extracted"
+      },
+      "schema:type": {
+        "value": "Text corpus",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "eval:accuracy",
+      "@type": "MLS_Eval",
+      "mention": {
+        "start_char_doc": 23904,
+        "end_char_doc": 23912,
+        "prefix": "MINI recovers the",
+        "suffix": "of the teacher at a",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [23904, 23912, "experiments"],
+        [24335, 24343, "experiments"],
+        [25555, 25563, "experiments"],
+        [27798, 27806, "experiments"]
+      ],
+      "mls:measure": {
+        "value": "accuracy",
+        "start_char_doc": 23904,
+        "end_char_doc": 23912,
+        "prefix": "MINI recovers the",
+        "suffix": "of the teacher at a",
+        "valueSource": "extracted"
+      }
+    },
+    {
+      "@id": "eval:spearman_rank_correlation",
+      "@type": "MLS_Eval",
+      "mention": {
+        "start_char_doc": 26609,
+        "end_char_doc": 26646,
+        "prefix": "measure domain shift using the",
+        "suffix": "(which we refer to as",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [26609, 26617, "experiments"],
+        [26669, 26677, "experiments"],
+        [26727, 26735, "experiments"],
+        [27815, 27823, "experiments"],
+        [38619, 38627, "other"]
+      ],
+      "mls:measure": {
+        "value": "Spearman rank correlation coefficient",
+        "start_char_doc": 26609,
+        "end_char_doc": 26646,
+        "prefix": "measure domain shift using the",
+        "suffix": "(which we refer to as",
+        "valueSource": "extracted"
+      },
+      "mls:description": {
+        "value": "Used as a corpus similarity metric to measure domain shift between training and transfer sets.",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "hp:num_layers_tiny",
+      "@type": "MLS_HyperParameter",
+      "hpCategory": "HP_Architecture",
+      "hpType": "NumLayers",
+      "uncertain": false,
+      "mention": {
+        "start_char_doc": 7512,
+        "end_char_doc": 7516,
+        "prefix": "for most figures: Tiny (",
+        "suffix": ", H=128), Mini (L=4, H=256),",
+        "section": "other",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [7512, 7516, "other"]
+      ],
+      "mls:name": {
+        "value": "Number of layers (Tiny)",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "2",
+        "start_char_doc": 7514,
+        "end_char_doc": 7515,
+        "prefix": "figures: Tiny (L=",
+        "suffix": ", H=128), Mini (L=4,",
+        "valueSource": "extracted"
+      }
+    },
+    {
+      "@id": "hp:hidden_size_tiny",
+      "@type": "MLS_HyperParameter",
+      "hpCategory": "HP_Architecture",
+      "hpType": "HiddenSize",
+      "uncertain": false,
+      "mention": {
+        "start_char_doc": 7517,
+        "end_char_doc": 7522,
+        "prefix": "Tiny (L=2,",
+        "suffix": "), Mini (L=4, H=256), Small",
+        "section": "other",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [7517, 7522, "other"]
+      ],
+      "mls:name": {
+        "value": "Hidden size (Tiny)",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "128",
+        "start_char_doc": 7519,
+        "end_char_doc": 7522,
+        "prefix": "Tiny (L=2, H=",
+        "suffix": "), Mini (L=4, H=256),",
+        "valueSource": "extracted"
+      }
+    },
+    {
+      "@id": "hp:num_layers_mini",
+      "@type": "MLS_HyperParameter",
+      "hpCategory": "HP_Architecture",
+      "hpType": "NumLayers",
+      "uncertain": false,
+      "mention": {
+        "start_char_doc": 7531,
+        "end_char_doc": 7535,
+        "prefix": "H=128), Mini (L=",
+        "suffix": ", H=256), Small (L=4, H=512),",
+        "section": "other",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [7531, 7535, "other"]
+      ],
+      "mls:name": {
+        "value": "Number of layers (Mini)",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "4",
+        "start_char_doc": 7533,
+        "end_char_doc": 7534,
+        "prefix": "Mini (L=",
+        "suffix": ", H=256), Small (L=4,",
+        "valueSource": "extracted"
+      }
+    },
+    {
+      "@id": "hp:hidden_size_mini",
+      "@type": "MLS_HyperParameter",
+      "hpCategory": "HP_Architecture",
+      "hpType": "HiddenSize",
+      "uncertain": false,
+      "mention": {
+        "start_char_doc": 7536,
+        "end_char_doc": 7541,
+        "prefix": "Mini (L=4,",
+        "suffix": "), Small (L=4, H=512), Medium",
+        "section": "other",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [7536, 7541, "other"]
+      ],
+      "mls:name": {
+        "value": "Hidden size (Mini)",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "256",
+        "start_char_doc": 7538,
+        "end_char_doc": 7541,
+        "prefix": "Mini (L=4, H=",
+        "suffix": "), Small (L=4, H=512),",
+        "valueSource": "extracted"
+      }
+    },
+    {
+      "@id": "hp:num_layers_small",
+      "@type": "MLS_HyperParameter",
+      "hpCategory": "HP_Architecture",
+      "hpType": "NumLayers",
+      "uncertain": false,
+      "mention": {
+        "start_char_doc": 7551,
+        "end_char_doc": 7555,
+        "prefix": "H=256), Small (L=",
+        "suffix": ", H=512), Medium (L=8, H=512),",
+        "section": "other",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [7551, 7555, "other"]
+      ],
+      "mls:name": {
+        "value": "Number of layers (Small)",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "4",
+        "start_char_doc": 7553,
+        "end_char_doc": 7554,
+        "prefix": "Small (L=",
+        "suffix": ", H=512), Medium (L=8,",
+        "valueSource": "extracted"
+      }
+    },
+    {
+      "@id": "hp:hidden_size_small",
+      "@type": "MLS_HyperParameter",
+      "hpCategory": "HP_Architecture",
+      "hpType": "HiddenSize",
+      "uncertain": false,
+      "mention": {
+        "start_char_doc": 7556,
+        "end_char_doc": 7561,
+        "prefix": "Small (L=4,",
+        "suffix": "), Medium (L=8, H=512), and",
+        "section": "other",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [7556, 7561, "other"]
+      ],
+      "mls:name": {
+        "value": "Hidden size (Small)",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "512",
+        "start_char_doc": 7558,
+        "end_char_doc": 7561,
+        "prefix": "Small (L=4, H=",
+        "suffix": "), Medium (L=8, H=512),",
+        "valueSource": "extracted"
+      }
+    },
+    {
+      "@id": "hp:num_layers_medium",
+      "@type": "MLS_HyperParameter",
+      "hpCategory": "HP_Architecture",
+      "hpType": "NumLayers",
+      "uncertain": false,
+      "mention": {
+        "start_char_doc": 7572,
+        "end_char_doc": 7576,
+        "prefix": "H=512), Medium (L=",
+        "suffix": ", H=512), and Base (L=12,",
+        "section": "other",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [7572, 7576, "other"]
+      ],
+      "mls:name": {
+        "value": "Number of layers (Medium)",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "8",
+        "start_char_doc": 7574,
+        "end_char_doc": 7575,
+        "prefix": "Medium (L=",
+        "suffix": ", H=512), and Base",
+        "valueSource": "extracted"
+      }
+    },
+    {
+      "@id": "hp:hidden_size_medium",
+      "@type": "MLS_HyperParameter",
+      "hpCategory": "HP_Architecture",
+      "hpType": "HiddenSize",
+      "uncertain": false,
+      "mention": {
+        "start_char_doc": 7577,
+        "end_char_doc": 7582,
+        "prefix": "Medium (L=8,",
+        "suffix": "), and Base (L=12, H=768).",
+        "section": "other",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [7577, 7582, "other"]
+      ],
+      "mls:name": {
+        "value": "Hidden size (Medium)",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "512",
+        "start_char_doc": 7579,
+        "end_char_doc": 7582,
+        "prefix": "Medium (L=8, H=",
+        "suffix": "), and Base (L=12,",
+        "valueSource": "extracted"
+      }
+    },
+    {
+      "@id": "hp:num_layers_base",
+      "@type": "MLS_HyperParameter",
+      "hpCategory": "HP_Architecture",
+      "hpType": "NumLayers",
+      "uncertain": false,
+      "mention": {
+        "start_char_doc": 7595,
+        "end_char_doc": 7600,
+        "prefix": "and Base (L=",
+        "suffix": ", H=768). we investigate an",
+        "section": "other",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [7595, 7600, "other"]
+      ],
+      "mls:name": {
+        "value": "Number of layers (Base)",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "12",
+        "start_char_doc": 7597,
+        "end_char_doc": 7599,
+        "prefix": "Base (L=",
+        "suffix": ", H=768). we investigate",
+        "valueSource": "extracted"
+      }
+    },
+    {
+      "@id": "hp:hidden_size_base",
+      "@type": "MLS_HyperParameter",
+      "hpCategory": "HP_Architecture",
+      "hpType": "HiddenSize",
+      "uncertain": false,
+      "mention": {
+        "start_char_doc": 7601,
+        "end_char_doc": 7606,
+        "prefix": "Base (L=12,",
+        "suffix": "). we investigate an array",
+        "section": "other",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [7601, 7606, "other"],
+        [13786, 13789, "related_work"]
+      ],
+      "mls:name": {
+        "value": "Hidden size (Base)",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "768",
+        "start_char_doc": 7603,
+        "end_char_doc": 7606,
+        "prefix": "Base (L=12, H=",
+        "suffix": "). we investigate an",
+        "valueSource": "extracted"
+      }
+    },
+    {
+      "@id": "hp:num_layers_bert_large",
+      "@type": "MLS_HyperParameter",
+      "hpCategory": "HP_Architecture",
+      "hpType": "NumLayers",
+      "uncertain": false,
+      "mention": {
+        "start_char_doc": 15226,
+        "end_char_doc": 15228,
+        "prefix": "BERT LARGE , has dimensions",
+        "suffix": "L/1024H and 340M parameters. We",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [15226, 15228, "experiments"]
+      ],
+      "mls:name": {
+        "value": "Number of layers (BERT LARGE)",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "24",
+        "start_char_doc": 15226,
+        "end_char_doc": 15228,
+        "prefix": "BERT LARGE , has dimensions",
+        "suffix": "L/1024H and 340M parameters. We",
+        "valueSource": "extracted"
+      }
+    },
+    {
+      "@id": "hp:hidden_size_bert_large",
+      "@type": "MLS_HyperParameter",
+      "hpCategory": "HP_Architecture",
+      "hpType": "HiddenSize",
+      "uncertain": false,
+      "mention": {
+        "start_char_doc": 15230,
+        "end_char_doc": 15235,
+        "prefix": "has dimensions 24L/",
+        "suffix": "and 340M parameters. We experiment",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [15230, 15235, "experiments"]
+      ],
+      "mls:name": {
+        "value": "Hidden size (BERT LARGE)",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "1024",
+        "start_char_doc": 15230,
+        "end_char_doc": 15234,
+        "prefix": "has dimensions 24L/",
+        "suffix": "H and 340M parameters. We",
+        "valueSource": "extracted"
+      }
+    },
+    {
+      "@id": "hp:embedding_size_comparison",
+      "@type": "MLS_HyperParameter",
+      "hpCategory": "HP_Architecture",
+      "hpType": "EmbeddingDim",
+      "uncertain": false,
+      "mention": {
+        "start_char_doc": 13772,
+        "end_char_doc": 13790,
+        "prefix": "12-layer BERT BASE teacher, using",
+        "suffix": "for both models. For distillation,",
+        "section": "related_work",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [13772, 13790, "related_work"]
+      ],
+      "mls:name": {
+        "value": "Embedding size (comparison experiment)",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "768",
+        "start_char_doc": 13787,
+        "end_char_doc": 13790,
+        "prefix": "using embedding size",
+        "suffix": "for both models. For",
+        "valueSource": "extracted"
+      }
+    },
+    {
+      "@id": "hp:num_layers_6_layer_student",
+      "@type": "MLS_HyperParameter",
+      "hpCategory": "HP_Architecture",
+      "hpType": "NumLayers",
+      "uncertain": false,
+      "mention": {
+        "start_char_doc": 13688,
+        "end_char_doc": 13689,
+        "prefix": "Pretrained Distillation on a",
+        "suffix": "-layer BERT student with task",
+        "section": "related_work",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [13688, 13689, "related_work"]
+      ],
+      "mls:name": {
+        "value": "Number of layers (6-layer student)",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "6",
+        "start_char_doc": 13688,
+        "end_char_doc": 13689,
+        "prefix": "Pretrained Distillation on a",
+        "suffix": "-layer BERT student with task",
+        "valueSource": "extracted"
+      }
+    },
+    {
+      "@id": "hp:temperature",
+      "@type": "MLS_HyperParameter",
+      "hpCategory": "HP_Training",
+      "hpType": "HP_Training",
+      "uncertain": true,
+      "mention": {
+        "start_char_doc": 16914,
+        "end_char_doc": 16930,
+        "prefix": "by the teacher with a",
+        "suffix": "2. Pre-training+Fine-tuning (Figure 4c) (Dai",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [16465, 16476, "experiments"],
+        [16914, 16925, "experiments"],
+        [32138, 32149, "other"]
+      ],
+      "mls:name": {
+        "value": "Temperature",
+        "start_char_doc": 16465,
+        "end_char_doc": 16476,
+        "prefix": "is a constant called",
+        "suffix": "that controls the smoothness of",
+        "valueSource": "extracted"
+      },
+      "mls:hasValue": {
+        "value": "1",
+        "start_char_doc": 16929,
+        "end_char_doc": 16930,
+        "prefix": "teacher with a temperature of",
+        "suffix": "2. Pre-training+Fine-tuning (Figure 4c)",
+        "valueSource": "extracted"
+      }
+    },
+    {
+      "@id": "hp:max_sequence_length",
+      "@type": "MLS_HyperParameter",
+      "hpCategory": "HP_Data",
+      "hpType": "MaxSequenceLength",
+      "uncertain": false,
+      "mention": {
+        "start_char_doc": 7413,
+        "end_char_doc": 7432,
+        "prefix": "with batch size 1 and",
+        "suffix": ". For readability, we focus",
+        "section": "other",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [7413, 7432, "other"]
+      ],
+      "mls:name": {
+        "value": "Sequence length",
+        "start_char_doc": 7413,
+        "end_char_doc": 7428,
+        "prefix": "with batch size 1 and",
+        "suffix": "512. For readability, we focus",
+        "valueSource": "extracted"
+      },
+      "mls:hasValue": {
+        "value": "512",
+        "start_char_doc": 7429,
+        "end_char_doc": 7432,
+        "prefix": "batch size 1 and sequence length",
+        "suffix": ". For readability, we focus",
+        "valueSource": "extracted"
+      }
+    },
+    {
+      "@id": "hp:batch_size_latency",
+      "@type": "MLS_HyperParameter",
+      "hpCategory": "HP_Training",
+      "hpType": "BatchSize",
+      "uncertain": false,
+      "mention": {
+        "start_char_doc": 7396,
+        "end_char_doc": 7408,
+        "prefix": "computed on Cloud TPUs with",
+        "suffix": "and sequence length 512. For",
+        "section": "other",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [7396, 7408, "other"]
+      ],
+      "mls:name": {
+        "value": "Batch size (latency measurement)",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "1",
+        "start_char_doc": 7407,
+        "end_char_doc": 7408,
+        "prefix": "Cloud TPUs with batch size",
+        "suffix": "and sequence length 512. For",
+        "valueSource": "extracted"
+      }
+    },
+    {
+      "@id": "env:cloud_tpu",
+      "@type": "Environment",
+      "mention": {
+        "start_char_doc": 7380,
+        "end_char_doc": 7390,
+        "prefix": "Latency is computed on",
+        "suffix": "with batch size 1 and",
+        "section": "other",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [7380, 7390, "other"]
+      ],
+      "schema:name": {
+        "value": "Cloud TPUs",
+        "start_char_doc": 7380,
+        "end_char_doc": 7390,
+        "prefix": "Latency is computed on",
+        "suffix": "with batch size 1 and",
+        "valueSource": "extracted"
+      },
+      "mls:hardwareSpecs": {
+        "value": "Cloud TPU",
+        "start_char_doc": 7380,
+        "end_char_doc": 7389,
+        "prefix": "Latency is computed on",
+        "suffix": "s with batch size 1",
+        "valueSource": "extracted"
+      }
+    },
+    {
+      "@id": "exp:group_pretrained_distillation_2019",
+      "@type": "mls:ExperimentGroup",
+      "mention": {
+        "start_char_doc": 14550,
+        "end_char_doc": 14574,
+        "prefix": "to gain more insight into",
+        "suffix": ". We perform extensive analyses",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [14550, 14574, "experiments"]
+      ],
+      "mls:hypothesis": {
+        "value": "Pre-training remains important in the context of smaller architectures, and Pre-trained Distillation (combining pre-training, distillation, and optional fine-tuning) outperforms its constituent operations applied in isolation.",
+        "start_char_doc": 631,
+        "end_char_doc": 661,
+        "prefix": "we first show that",
+        "suffix": "in the context of smaller",
+        "valueSource": "extracted"
+      },
+      "mls:methodology": {
+        "value": "Sequence of three standard training operations: masked LM pre-training on unlabeled LM data, task-specific distillation on unlabeled transfer data using soft labels from a BERT LARGE teacher, and optional fine-tuning on labeled data. Results averaged over 5 runs on dev; best dev model evaluated on test.",
+        "start_char_doc": 9918,
+        "end_char_doc": 10245,
+        "prefix": "LM data. 3 PRE-TRAINED DISTILLATION",
+        "suffix": "capturing linguistic phenomena from a",
+        "valueSource": "extracted"
+      },
+      "mls:evaluationMeasure": [
+        {"@id": "eval:accuracy"}
+      ],
+      "mls:task": [
+        {"@id": "task:sentiment_classification"},
+        {"@id": "task:natural_language_inference"},
+        {"@id": "task:textual_entailment"}
+      ],
+      "mls:hasSubExperiment": [
+        {
+          "@id": "exp:pd_amazon_book_reviews",
+          "@type": "Experiment",
+          "mls:dataset": [
+            {"@id": "dataset:amazon_book_reviews"}
+          ],
+          "mls:model": [
+            {"@id": "model:transformer_tiny"},
+            {"@id": "model:transformer_mini"},
+            {"@id": "model:transformer_small"},
+            {"@id": "model:transformer_medium"},
+            {"@id": "model:transformer_base"}
+          ],
+          "mls:result": {
+            "value": "Transformer MINI recovers teacher accuracy at 31x model size decrease and 16x speed-up",
+            "start_char_doc": 23874,
+            "end_char_doc": 23967,
+            "prefix": "Amazon Book Reviews corpus, where",
+            "suffix": "speed-up. Distillation achieves the same",
+            "valueSource": "extracted"
+          },
+          "mls:description": {
+            "value": "Evaluation of Pre-trained Distillation on Amazon Book Reviews sentiment classification with 8m transfer set.",
+            "start_char_doc": null,
+            "end_char_doc": null,
+            "prefix": null,
+            "suffix": null,
+            "valueSource": "inferred"
+          }
+        },
+        {
+          "@id": "exp:pd_mnli",
+          "@type": "Experiment",
+          "mls:dataset": [
+            {"@id": "dataset:mnli"}
+          ],
+          "mls:model": [
+            {"@id": "model:transformer_tiny"},
+            {"@id": "model:transformer_mini"},
+            {"@id": "model:transformer_small"},
+            {"@id": "model:transformer_medium"},
+            {"@id": "model:transformer_base"}
+          ],
+          "mls:result": {
+            "value": "PD outperforms baselines; pre-training+fine-tuning outperforms distillation by average 12%",
+            "start_char_doc": 24527,
+            "end_char_doc": 24736,
+            "prefix": "closely related to the size",
+            "suffix": "for MNLI and 8% on",
+            "valueSource": "extracted"
+          },
+          "mls:description": {
+            "value": "Evaluation of Pre-trained Distillation on MNLI natural language inference with 1.3m transfer set.",
+            "start_char_doc": null,
+            "end_char_doc": null,
+            "prefix": null,
+            "suffix": null,
+            "valueSource": "inferred"
+          }
+        },
+        {
+          "@id": "exp:pd_rte",
+          "@type": "Experiment",
+          "mls:dataset": [
+            {"@id": "dataset:rte"}
+          ],
+          "mls:model": [
+            {"@id": "model:transformer_tiny"},
+            {"@id": "model:transformer_mini"},
+            {"@id": "model:transformer_small"},
+            {"@id": "model:transformer_medium"},
+            {"@id": "model:transformer_base"}
+          ],
+          "mls:result": {
+            "value": "PD improves Transformer TINY by more than 5% absolute over closest baseline; only method to recover teacher accuracy with Transformer BASE",
+            "start_char_doc": 24164,
+            "end_char_doc": 24330,
+            "prefix": "effectively than distillation. On RTE,",
+            "suffix": "It is interesting to note",
+            "valueSource": "extracted"
+          },
+          "mls:description": {
+            "value": "Evaluation of Pre-trained Distillation on RTE textual entailment.",
+            "start_char_doc": null,
+            "end_char_doc": null,
+            "prefix": null,
+            "suffix": null,
+            "valueSource": "inferred"
+          }
+        },
+        {
+          "@id": "exp:pd_glue_comparison",
+          "@type": "Experiment",
+          "mls:dataset": [
+            {"@id": "dataset:glue"}
+          ],
+          "mls:model": [
+            {"@id": "model:bert_base"}
+          ],
+          "mls:result": {
+            "value": "PD performs best on average across 6 GLUE tasks compared to concurrent work",
+            "start_char_doc": 13969,
+            "end_char_doc": 14100,
+            "prefix": "Table 3 reports results on",
+            "suffix": "For anchoring, we also provide",
+            "valueSource": "extracted"
+          },
+          "mls:description": {
+            "value": "Comparison to concurrent work on 6 GLUE tasks using 6-layer BERT student with 12-layer BERT BASE teacher.",
+            "start_char_doc": 13659,
+            "end_char_doc": 13800,
+            "prefix": "perform Pretrained Distillation on a",
+            "suffix": "For distillation, our transfer set",
+            "valueSource": "extracted"
+          }
+        },
+        {
+          "@id": "exp:pd_sst_2",
+          "@type": "Experiment",
+          "mls:dataset": [
+            {"@id": "dataset:sst_2"}
+          ],
+          "mls:model": [
+            {"@id": "model:transformer_tiny"},
+            {"@id": "model:transformer_mini"},
+            {"@id": "model:transformer_small"},
+            {"@id": "model:transformer_medium"},
+            {"@id": "model:transformer_base"}
+          ],
+          "mls:result": {
+            "value": "Pre-trained models are much more effective at using more parameters and particularly efficient at utilizing depth",
+            "start_char_doc": 21721,
+            "end_char_doc": 21900,
+            "prefix": "Figure 6 presents a comparison",
+            "suffix": "They are sorted first by",
+            "valueSource": "extracted"
+          },
+          "mls:description": {
+            "value": "Comparison of 24 student model architectures on SST-2 demonstrating depth vs width trade-offs.",
+            "start_char_doc": null,
+            "end_char_doc": null,
+            "prefix": null,
+            "suffix": null,
+            "valueSource": "inferred"
+          }
+        }
+      ],
+      "usesParameters": [
+        {"@id": "hp:temperature"},
+        {"@id": "hp:max_sequence_length"},
+        {"@id": "hp:batch_size_latency"},
+        {"@id": "hp:num_layers_tiny"},
+        {"@id": "hp:hidden_size_tiny"},
+        {"@id": "hp:num_layers_mini"},
+        {"@id": "hp:hidden_size_mini"},
+        {"@id": "hp:num_layers_small"},
+        {"@id": "hp:hidden_size_small"},
+        {"@id": "hp:num_layers_medium"},
+        {"@id": "hp:hidden_size_medium"},
+        {"@id": "hp:num_layers_base"},
+        {"@id": "hp:hidden_size_base"},
+        {"@id": "hp:num_layers_bert_large"},
+        {"@id": "hp:hidden_size_bert_large"},
+        {"@id": "hp:embedding_size_comparison"},
+        {"@id": "hp:num_layers_6_layer_student"}
+      ],
+      "produces": [
+        {"@id": "method:pre_trained_distillation"}
+      ],
+      "executes": [
+        {"@id": "impl:bert_pretraining_distillation"}
+      ]
+    },
+    {
+      "@id": "impl:bert_pretraining_distillation",
+      "@type": "MLS_Implementation",
+      "mention": {
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "section": "experiments",
+        "valueSource": "inferred"
+      },
+      "occurrences": [],
+      "mls:framework": {
+        "value": "TensorFlow",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "runsIn": {"@id": "env:cloud_tpu"}
+    },
+    {
+      "@id": "method:pruning",
+      "@type": "Method",
+      "mention": {
+        "start_char_doc": 30759,
+        "end_char_doc": 30766,
+        "prefix": "line of work uses",
+        "suffix": "or quantization to derive smaller",
+        "section": "related_work",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [30759, 30766, "related_work"],
+        [34877, 34884, "other"]
+      ],
+      "mls:name": {
+        "value": "pruning",
+        "start_char_doc": 30759,
+        "end_char_doc": 30766,
+        "prefix": "line of work uses",
+        "suffix": "or quantization to derive smaller",
+        "valueSource": "extracted"
+      }
+    },
+    {
+      "@id": "method:quantization",
+      "@type": "Method",
+      "mention": {
+        "start_char_doc": 30770,
+        "end_char_doc": 30782,
+        "prefix": "work uses pruning or",
+        "suffix": "to derive smaller models from",
+        "section": "related_work",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [30770, 30782, "related_work"],
+        [34894, 34906, "other"]
+      ],
+      "mls:name": {
+        "value": "quantization",
+        "start_char_doc": 30770,
+        "end_char_doc": 30782,
+        "prefix": "work uses pruning or",
+        "suffix": "to derive smaller models from",
+        "valueSource": "extracted"
+      }
+    },
+    {
+      "@id": "method:self_supervised_pre_training",
+      "@type": "Method",
+      "mention": {
+        "start_char_doc": 260,
+        "end_char_doc": 288,
+        "prefix": "general-domain text through",
+        "suffix": ". Due to the cost",
+        "section": "abstract",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [260, 288, "abstract"],
+        [1520, 1540, "introduction"]
+      ],
+      "mls:name": {
+        "value": "self-supervised pre-training",
+        "start_char_doc": 260,
+        "end_char_doc": 288,
+        "prefix": "general-domain text through",
+        "suffix": ". Due to the cost",
+        "valueSource": "extracted"
+      }
+    },
+    {
+      "@id": "method:next_sentence_prediction",
+      "@type": "Method",
+      "mention": {
+        "start_char_doc": 17200,
+        "end_char_doc": 17213,
+        "prefix": "the masked LM (MLM) and",
+        "suffix": "objectives (collectively referred to as",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [17200, 17213, "experiments"]
+      ],
+      "mls:name": {
+        "value": "next sentence",
+        "start_char_doc": 17200,
+        "end_char_doc": 17213,
+        "prefix": "the masked LM (MLM) and",
+        "suffix": "objectives (collectively referred to as",
+        "valueSource": "extracted"
+      },
+      "mls:description": {
+        "value": "Next sentence prediction objective used alongside masked LM for BERT pre-training.",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    }
+  ]
+}
