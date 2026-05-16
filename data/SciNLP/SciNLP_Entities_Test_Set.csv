@@ -1,0 +1,746 @@
+doc_key,local_entity_id,text,start_token,end_token,ner_label
+2021.acl-long.353,0,Prefix-Tuning,0,0,Method
+2021.acl-long.353,1,Generation,6,6,Task
+2021.acl-long.353,2,Fine-tuning,8,8,Method
+2021.acl-long.353,3,large pretrained language models,16,19,Method
+2021.acl-long.353,4,fine-tuning,26,26,Method
+2021.acl-long.353,5,prefix-tuning,50,50,Method
+2021.acl-long.353,6,fine-tuning,56,56,Method
+2021.acl-long.353,7,natural language generation,58,60,Task
+2021.acl-long.353,8,Prefix-tuning,85,85,Method
+2021.acl-long.353,9,prefix-tuning,113,113,Method
+2021.acl-long.353,10,GPT-2,115,115,Method
+2021.acl-long.353,11,table-totext generation,117,118,Task
+2021.acl-long.353,12,BART,121,121,Method
+2021.acl-long.353,13,summarization,123,123,Task
+2021.acl-long.353,14,prefix-tuning,137,137,Method
+2021.acl-long.353,15,fine-tuning,148,148,Method
+2021.acl-long.353,16,Fine-tuning,167,167,Method
+2021.acl-long.353,17,large pretrained language models,174,177,Method
+2021.acl-long.353,18,LMs,179,179,Method
+2021.acl-long.353,19,summarization,201,201,Task
+2021.acl-long.353,20,LMs,230,230,Method
+2021.acl-long.353,21,LMs,259,259,Method
+2021.acl-long.353,22,GPT-2,264,264,Method
+2021.acl-long.353,23,GPT-3,276,276,Method
+2021.acl-long.353,24,lightweight fine-tuning,295,296,Method
+2021.acl-long.353,25,adapter-tuning,317,317,Method
+2021.acl-long.353,26,prefixtuning ( bottom ),325,328,Method
+2021.acl-long.353,27,LM,333,333,Method
+2021.acl-long.353,28,prefix-tuning,361,361,Method
+2021.acl-long.353,29,transformer,372,372,Method
+2021.acl-long.353,30,pretrained language models,395,397,Method
+2021.acl-long.353,31,Adapter-tuning,399,399,Method
+2021.acl-long.353,32,natural language understanding,404,406,Task
+2021.acl-long.353,33,generation,408,408,Task
+2021.acl-long.353,34,fine-tuning,415,415,Method
+2021.acl-long.353,35,GPT-3,442,442,Method
+2021.acl-long.353,36,in-context learning,454,455,Method
+2021.acl-long.353,37,in-context learning,471,472,Method
+2021.acl-long.353,38,TL,490,490,Method
+2021.acl-long.353,39,DR,492,492,Method
+2021.acl-long.353,40,Transformers,518,518,Method
+2021.acl-long.353,41,GPT-3,532,532,Method
+2021.acl-long.353,42,in-context learning,535,536,Method
+2021.acl-long.353,43,prefix-tuning,551,551,Method
+2021.acl-long.353,44,fine-tuning,557,557,Method
+2021.acl-long.353,45,natural language generation ( NLG ),559,564,Task
+2021.acl-long.353,46,generating a textual description of a data table,575,582,Task
+2021.acl-long.353,47,Prefix-tuning,630,630,Method
+2021.acl-long.353,48,LM,665,665,Method
+2021.acl-long.353,49,fine-tuning,705,705,Method
+2021.acl-long.353,50,LM,716,716,Method
+2021.acl-long.353,51,prefix-tuning,732,732,Method
+2021.acl-long.353,52,LM,750,750,Method
+2021.acl-long.353,53,table-to-text,772,772,Task
+2021.acl-long.353,54,fine-tuning,779,779,Method
+2021.acl-long.353,55,prefix-tuning,781,781,Method
+2021.acl-long.353,56,LM,795,795,Method
+2021.acl-long.353,57,LM,802,802,Method
+2021.acl-long.353,58,prefix-based architecture,860,861,Method
+2021.acl-long.353,59,lightweight fine-tuning,883,884,Method
+2021.acl-long.353,60,adaptertuning,887,887,Method
+2021.acl-long.353,61,table-to-text generation,893,894,Task
+2021.acl-long.353,62,GPT-2,896,896,Method
+2021.acl-long.353,63,abstractive summarization,898,899,Task
+2021.acl-long.353,64,BART,901,901,Method
+2021.acl-long.353,65,prefix-tuning,908,908,Method
+2021.acl-long.353,66,full fine-tuning,914,915,Method
+2021.acl-long.353,67,prefix-tuning,927,927,Method
+2021.acl-long.353,68,fine-tuning,929,929,Method
+2021.acl-long.353,69,table-to-text,933,933,Task
+2021.acl-long.353,70,prefix-tuning,939,939,Method
+2021.acl-long.353,71,summarization,945,945,Task
+2021.acl-long.353,72,prefix-tuning,954,954,Method
+2021.acl-long.353,73,finetuning,956,956,Method
+2021.acl-long.353,74,Prefix-tuning,964,964,Method
+2021.acl-long.353,75,table-to-text,972,972,Task
+2021.acl-long.353,76,summarization,978,978,Task
+2021.acl-long.353,77,Fine-tuning,989,989,Method
+2021.acl-long.353,78,natural language generation,991,993,Task
+2021.acl-long.353,79,natural language generation ( NLG ),999,1004,Task
+2021.acl-long.353,80,fine-tuning,1008,1008,Method
+2021.acl-long.353,81,LMs,1010,1010,Method
+2021.acl-long.353,82,table-to-text generation,1013,1014,Task
+2021.acl-long.353,83,sequence-to-sequence model,1022,1023,Method
+2021.acl-long.353,84,T5,1025,1025,Method
+2021.acl-long.353,85,summarization,1038,1038,Task
+2021.acl-long.353,86,masked language models,1042,1044,Method
+2021.acl-long.353,87,BERT,1048,1048,Method
+2021.acl-long.353,88,encode-decoder models,1057,1058,Method
+2021.acl-long.353,89,BART,1062,1062,Method
+2021.acl-long.353,90,machine translation,1099,1100,Task
+2021.acl-long.353,91,dialogue generation,1102,1103,Task
+2021.acl-long.353,92,fine-tuning,1105,1105,Method
+2021.acl-long.353,93,table-to-text,1144,1144,Task
+2021.acl-long.353,94,GPT-2,1146,1146,Method
+2021.acl-long.353,95,summarization,1148,1148,Task
+2021.acl-long.353,96,BART,1150,1150,Method
+2021.acl-long.353,97,prefix-tuning,1153,1153,Method
+2021.acl-long.353,98,masked LMs,1169,1170,Method
+2021.acl-long.353,99,Lightweight fine-tuning,1172,1173,Method
+2021.acl-long.353,100,Prefix-tuning,1175,1175,Method
+2021.acl-long.353,101,lightweight fine-tuning,1182,1183,Method
+2021.acl-long.353,102,LM,1210,1210,Method
+2021.acl-long.353,103,pretrained model,1277,1278,Method
+2021.acl-long.353,104,adapter-tuning,1282,1282,Method
+2021.acl-long.353,105,LM,1295,1295,Method
+2021.acl-long.353,106,LM,1336,1336,Method
+2021.acl-long.353,107,table-to-text,1359,1359,Task
+2021.acl-long.353,108,Prompting,1362,1362,Method
+2021.acl-long.353,109,Prompting,1364,1364,Method
+2021.acl-long.353,110,LM,1372,1372,Method
+2021.acl-long.353,111,LMs,1395,1395,Method
+2021.acl-long.353,112,prompting,1402,1402,Method
+2021.acl-long.353,113,GPT-3,1404,1404,Method
+2021.acl-long.353,114,in-context learning,1406,1407,Method
+2021.acl-long.353,115,masked LMs,1433,1434,Method
+2021.acl-long.353,116,BERT,1436,1436,Method
+2021.acl-long.353,117,RoBERTa,1438,1438,Method
+2021.acl-long.353,118,prompt,1447,1447,Method
+2021.acl-long.353,119,natural language understanding,1453,1455,Task
+2021.acl-long.353,120,AutoPrompt,1474,1474,Method
+2021.acl-long.353,121,BERT,1503,1503,Method
+2021.acl-long.353,122,RoBERTa,1505,1505,Method
+2021.acl-long.353,123,AutoPrompt,1510,1510,Method
+2021.acl-long.353,124,language generation,1531,1532,Task
+2021.acl-long.353,125,LMs,1542,1542,Method
+2021.acl-long.353,126,LSTM language model,1558,1560,Method
+2021.acl-long.353,127,prefix-tuning,1582,1582,Method
+2021.acl-long.353,128,sentence reconstruction,1609,1610,Task
+2021.acl-long.353,129,prefix-tuning,1612,1612,Method
+2021.acl-long.353,130,NLG,1617,1617,Task
+2021.acl-long.353,131,Controllable generation,1620,1621,Task
+2021.acl-long.353,132,Controllable generation,1623,1624,Task
+2021.acl-long.353,133,pretrained language model,1629,1631,Method
+2021.acl-long.353,134,CTRL,1666,1666,Method
+2021.acl-long.353,135,PPLM,1706,1706,Method
+2021.acl-long.353,136,table-to-text,1741,1741,Task
+2021.acl-long.353,137,summarization,1743,1743,Task
+2021.acl-long.353,138,P * -tuning,1745,1747,Method
+2021.acl-long.353,139,Prefix tuning,1749,1750,Method
+2021.acl-long.353,140,p * -tuning,1767,1769,Method
+2021.acl-long.353,141,BERT,1824,1824,Method
+2021.acl-long.353,142,BART,1826,1826,Method
+2021.acl-long.353,143,BERT,1840,1840,Method
+2021.acl-long.353,144,sentiment classification,1842,1843,Task
+2021.acl-long.353,145,P-tuning,1862,1862,Method
+2021.acl-long.353,146,GPT-2,1881,1881,Method
+2021.acl-long.353,147,natural language understanding,1885,1887,Task
+2021.acl-long.353,148,Prompt-tuning,1903,1903,Method
+2021.acl-long.353,149,T5,1918,1918,Method
+2021.acl-long.353,150,fine-tuning,1933,1933,Method
+2021.acl-long.353,151,p * tuning,1935,1937,Method
+2021.acl-long.353,152,conditional generation,1949,1950,Task
+2021.acl-long.353,153,table-to-text,1984,1984,Task
+2021.acl-long.353,154,summarization,2001,2001,Task
+2021.acl-long.353,155,Autoregressive LM,2013,2014,Method
+2021.acl-long.353,156,autoregressive neural language model,2019,2022,Method
+2021.acl-long.353,157,GPT-2,2036,2036,Method
+2021.acl-long.353,158,LM,2162,2162,Method
+2021.acl-long.353,159,Encoder-Decoder Architecture,2258,2259,Method
+2021.acl-long.353,160,encoder-decoder architecture,2265,2266,Method
+2021.acl-long.353,161,BART,2270,2270,Method
+2021.acl-long.353,162,Fine-tuning,2371,2371,Method
+2021.acl-long.353,163,log-likelihood,2403,2403,Method
+2021.acl-long.353,164,Prefix-Tuning,2436,2436,Method
+2021.acl-long.353,165,prefix-tuning,2439,2439,Method
+2021.acl-long.353,166,fine-tuning,2445,2445,Method
+2021.acl-long.353,167,conditional generation,2447,2448,Task
+2021.acl-long.353,168,Intuition Prompting,2465,2466,Method
+2021.acl-long.353,169,LM,2478,2478,Method
+2021.acl-long.353,170,LM,2491,2491,Method
+2021.acl-long.353,171,LM,2549,2549,Method
+2021.acl-long.353,172,NLG,2553,2553,Task
+2021.acl-long.353,173,Transformer,2685,2685,Method
+2021.acl-long.353,174,Prefix-tuning,2713,2713,Method
+2021.acl-long.353,175,prefixtuning,2740,2740,Method
+2021.acl-long.353,176,Prefix-tuning,2764,2764,Method
+2021.acl-long.353,177,LM,2771,2771,Method
+2021.acl-long.353,178,feedforward neural network,3080,3082,Method
+2021.acl-long.353,179,MLP,3100,3100,Method
+2021.acl-long.353,180,table-to-text,3171,3171,Task
+2021.acl-long.353,181,E2E,3174,3174,Dataset
+2021.acl-long.353,182,WebNLG,3183,3183,Dataset
+2021.acl-long.353,183,DART,3193,3193,Dataset
+2021.acl-long.353,184,E2E,3218,3218,Dataset
+2021.acl-long.353,185,WebNLG,3230,3230,Dataset
+2021.acl-long.353,186,DART,3236,3236,Dataset
+2021.acl-long.353,187,Wikipedia,3244,3244,Dataset
+2021.acl-long.353,188,summarization,3268,3268,Task
+2021.acl-long.353,189,XSUM,3274,3274,Dataset
+2021.acl-long.353,190,ROUGE-1,3296,3296,Metric
+2021.acl-long.353,191,ROUGE-2,3298,3298,Metric
+2021.acl-long.353,192,ROUGE-L.,3300,3300,Metric
+2021.acl-long.353,193,FT-FULL,3304,3304,Method
+2021.acl-long.353,194,fine-tuning,3307,3307,Method
+2021.acl-long.353,195,adapter-tuning,3318,3318,Method
+2021.acl-long.353,196,ADAPTER,3320,3320,Method
+2021.acl-long.353,197,E2E,3336,3336,Dataset
+2021.acl-long.353,198,WebNLG,3354,3354,Dataset
+2021.acl-long.353,199,T5-large,3361,3361,Method
+2021.acl-long.353,200,DART,3364,3364,Dataset
+2021.acl-long.353,201,summarization,3379,3379,Task
+2021.acl-long.353,202,BART,3385,3385,Method
+2021.acl-long.353,203,table-to-text,3398,3398,Task
+2021.acl-long.353,204,GPT-2 MEDIUM,3402,3403,Method
+2021.acl-long.353,205,GPT-2 LARGE,3405,3406,Method
+2021.acl-long.353,206,summarization,3409,3409,Task
+2021.acl-long.353,207,BART LARGE,3413,3414,Method
+2021.acl-long.353,208,Transformers,3424,3424,Method
+2021.acl-long.353,209,AdamW optimizer,3440,3441,Method
+2021.acl-long.353,210,TITAN Xp,3520,3521,Dataset
+2021.acl-long.353,211,Prefixtuning,3529,3529,Method
+2021.acl-long.353,212,fine-tuning,3542,3542,Method
+2021.acl-long.353,213,XSUM dataset,3567,3568,Dataset
+2021.acl-long.353,214,time efficiency,3571,3572,Metric
+2021.acl-long.353,215,prefix-tuning,3574,3574,Method
+2021.acl-long.353,216,fine-tuning,3581,3581,Method
+2021.acl-long.353,217,GPU memory efficiency,3584,3586,Metric
+2021.acl-long.353,218,prefixtuning,3588,3588,Method
+2021.acl-long.353,219,fine-tuning,3602,3602,Method
+2021.acl-long.353,220,table-to-text,3612,3612,Task
+2021.acl-long.353,221,beam search,3616,3617,Method
+2021.acl-long.353,222,summarization,3624,3624,Task
+2021.acl-long.353,223,table-to-text,3647,3647,Task
+2021.acl-long.353,224,summarization,3663,3663,Task
+2021.acl-long.353,225,Table-to-text Generation,3668,3669,Task
+2021.acl-long.353,226,prefix-tuning,3682,3682,Method
+2021.acl-long.353,227,table-to-text generation,3686,3687,Task
+2021.acl-long.353,228,ADAPTER,3694,3694,Method
+2021.acl-long.353,229,FT-TOP2,3696,3696,Method
+2021.acl-long.353,230,fine-tuning,3713,3713,Method
+2021.acl-long.353,231,E2E,3722,3722,Dataset
+2021.acl-long.353,232,WebNLG,3724,3724,Dataset
+2021.acl-long.353,233,DART,3728,3728,Dataset
+2021.acl-long.353,234,prefixtuning,3738,3738,Method
+2021.acl-long.353,235,adapter-tuning,3740,3740,Method
+2021.acl-long.353,236,prefix-tuning,3750,3750,Method
+2021.acl-long.353,237,ADAPTER,3755,3755,Method
+2021.acl-long.353,238,BLEU,3763,3763,Metric
+2021.acl-long.353,239,fine-tuning,3775,3775,Method
+2021.acl-long.353,240,adapter-tuning,3781,3781,Method
+2021.acl-long.353,241,prefix-tuning,3793,3793,Method
+2021.acl-long.353,242,prefix-tuning,3795,3795,Method
+2021.acl-long.353,243,prefix-tuning,3810,3810,Method
+2021.acl-long.353,244,adapter-tuning,3816,3816,Method
+2021.acl-long.353,245,DART,3832,3832,Dataset
+2021.acl-long.353,246,prefix-tuning,3835,3835,Method
+2021.acl-long.353,247,prefix-tuning,3873,3873,Method
+2021.acl-long.353,248,GPT-2,3882,3882,Method
+2021.acl-long.353,249,table-totext generation,3884,3885,Task
+2021.acl-long.353,250,GPT-2 LARGE,3897,3898,Method
+2021.acl-long.353,251,GPT-3,3917,3917,Method
+2021.acl-long.353,252,prefixtuning,3931,3931,Method
+2021.acl-long.353,253,finetuning,3937,3937,Method
+2021.acl-long.353,254,ROUGE-L,3943,3943,Metric
+2021.acl-long.353,255,prefix-tuning,3952,3952,Method
+2021.acl-long.353,256,full fine-tuning,3954,3955,Method
+2021.acl-long.353,257,XSUM,3967,3967,Dataset
+2021.acl-long.353,258,prefixtuning,3978,3978,Method
+2021.acl-long.353,259,table-to-text,3983,3983,Task
+2021.acl-long.353,260,XSUM,3988,3988,Dataset
+2021.acl-long.353,261,table-to-text,3996,3996,Task
+2021.acl-long.353,262,summarization,4024,4024,Task
+2021.acl-long.353,263,table-to-text,4047,4047,Task
+2021.acl-long.353,264,summarization,4052,4052,Task
+2021.acl-long.353,265,prefixtuning,4060,4060,Method
+2021.acl-long.353,266,E2E,4088,4088,Method
+2021.acl-long.353,267,table-to-text,4090,4090,Task
+2021.acl-long.353,268,XSUM,4092,4092,Method
+2021.acl-long.353,269,summarization,4094,4094,Task
+2021.acl-long.353,270,prefix-tuning,4149,4149,Method
+2021.acl-long.353,271,fine-tuning,4151,4151,Method
+2021.acl-long.353,272,BLEU,4157,4157,Metric
+2021.acl-long.353,273,prefix-tuning,4192,4192,Method
+2021.acl-long.353,274,fine-tuning,4194,4194,Method
+2021.acl-long.353,275,prefix-tuning,4218,4218,Method
+2021.acl-long.353,276,fine-tuning,4225,4225,Method
+2021.acl-long.353,277,finetuning,4230,4230,Method
+2021.acl-long.353,278,prefix-tuning,4251,4251,Method
+2021.acl-long.353,279,table-to-text,4278,4278,Task
+2021.acl-long.353,280,summarization,4280,4280,Task
+2021.acl-long.353,281,news-to-sports,4306,4306,Dataset
+2021.acl-long.353,282,table-to-text,4350,4350,Task
+2021.acl-long.353,283,summarization,4352,4352,Task
+2021.acl-long.353,284,prefixtuning,4354,4354,Method
+2021.acl-long.353,285,fine-tuning,4358,4358,Method
+2021.acl-long.353,286,FT-FULL,4394,4394,Method
+2021.acl-long.353,287,adapter-tuning,4399,4399,Method
+2021.acl-long.353,288,prefix-tuning,4407,4407,Method
+2021.acl-long.353,289,LM,4421,4421,Method
+2021.acl-long.353,290,prefix-tuning,4434,4434,Method
+2021.acl-long.353,291,prefix-tuning,4457,4457,Method
+2021.acl-long.353,292,prefix-tuning,4526,4526,Method
+2021.acl-long.353,293,Recall,4557,4557,Metric
+2021.acl-long.353,294,embedding-only,4581,4581,Method
+2021.acl-long.353,295,Transformer,4599,4599,Method
+2021.acl-long.353,296,discrete prompting,4670,4671,Method
+2021.acl-long.353,297,embeddingonly,4673,4673,Method
+2021.acl-long.353,298,prefix-tuning,4675,4675,Method
+2021.acl-long.353,299,Prefix-tuning,4677,4677,Method
+2021.acl-long.353,300,Infix-tuning,4679,4679,Method
+2021.acl-long.353,301,prefix-tuning,4696,4696,Method
+2021.acl-long.353,302,infix-tuning,4737,4737,Method
+2021.acl-long.353,303,infix-tuning,4746,4746,Method
+2021.acl-long.353,304,prefix-tuning,4749,4749,Method
+2021.acl-long.353,305,prefix-tuning,4756,4756,Method
+2021.acl-long.353,306,infix-tuning,4766,4766,Method
+2021.acl-long.353,307,summarization,4830,4830,Task
+2021.acl-long.353,308,table-to-text,4834,4834,Task
+2021.acl-long.353,309,LM,4900,4900,Method
+2021.acl-long.353,310,prefix-tuning,4908,4908,Method
+2021.acl-long.353,311,prefixtuning,4931,4931,Method
+2021.acl-long.353,312,full fine-tuning,4942,4943,Method
+2021.acl-long.353,313,E2E,4955,4955,Dataset
+2021.acl-long.353,314,prefix-tuning,4979,4979,Method
+2021.acl-long.353,315,fine-tuning,4984,4984,Method
+2021.acl-long.353,316,prefix-tuning,5002,5002,Method
+2021.acl-long.353,317,full fine-tuning,5013,5014,Method
+2021.acl-long.353,318,E2E,5019,5019,Dataset
+2021.acl-long.353,319,Prefixtuning,5022,5022,Method
+2021.acl-long.353,320,fine-tuning,5033,5033,Method
+2021.acl-long.353,321,prefix-tuning,5068,5068,Method
+2021.acl-long.353,322,prefix-tuning,5082,5082,Method
+2021.acl-long.353,323,prefix-tuning,5167,5167,Method
+2021.acl-long.353,324,prefix-tuning,5203,5203,Method
+2021.acl-long.353,325,Prefix-tuning,5244,5244,Method
+2021.acl-long.353,326,adapter-tuning,5286,5286,Method
+2021.acl-long.353,327,Transformer,5294,5294,Method
+2021.acl-long.353,328,prefix-tuning,5325,5325,Method
+2021.acl-long.353,329,prefix-tuning,5336,5336,Method
+2021.acl-long.353,330,adapter-tuning,5338,5338,Method
+2021.acl-long.353,331,language models,5344,5345,Method
+2021.acl-long.353,332,LM,5355,5355,Method
+2021.acl-long.353,333,prefix-tuning,5376,5376,Method
+2021.acl-long.353,334,adaptertuning,5378,5378,Method
+2021.acl-long.353,335,prefix-tuning,5403,5403,Method
+2021.acl-long.353,336,adapter-tuning,5405,5405,Method
+2021.acl-long.353,337,Transformer,5425,5425,Method
+2021.acl-long.353,338,prefix-tuning,5429,5429,Method
+2021.acl-long.353,339,LM,5432,5432,Method
+2021.acl-long.353,340,prefixtuning,5471,5471,Method
+2021.acl-long.353,341,adapter-tuning,5478,5478,Method
+2021.acl-long.353,342,prefix-tuning,5493,5493,Method
+2021.acl-long.353,343,LM,5497,5497,Method
+2021.acl-long.353,344,LM,5508,5508,Method
+2021.acl-long.353,345,adapter-tuning,5511,5511,Method
+2021.acl-long.353,346,accuracy,5549,5549,Metric
+2021.acl-long.353,347,prefix-tuning,5589,5589,Method
+2021.acl-long.353,348,lightweight fine-tuning,5622,5623,Method
+2021.acl-long.353,349,WebNLG,5665,5665,Dataset
+2021.acl-long.353,350,DART,5667,5667,Dataset
+2021.acl-long.353,351,summarization,5708,5708,Task
+2021.acl-long.353,352,XSUM dataset,5736,5737,Dataset
+2021.acl-long.353,353,XSUM dataset,5739,5740,Dataset
+2021.acl-long.353,354,BBC news,5744,5745,Dataset
+2021.acl-long.353,355,table-to-text,5900,5900,Task
+2021.acl-long.353,356,summarization,5910,5910,Task
+2021.acl-long.353,357,table-to-text,5952,5952,Task
+2021.acl-long.353,358,summarization,5972,5972,Task
+2021.acl-long.353,359,perplexity,5976,5976,Metric
+2021.acl-long.353,360,automatic generation metrics,5978,5980,Metric
+2021.acl-long.353,361,table-to-text,5992,5992,Task
+2021.acl-long.353,362,summarization,6098,6098,Task
+2021.acl-long.353,363,prefix-tuning,6127,6127,Method
+2021.acl-long.353,364,fine-tuning,6131,6131,Method
+2021.acl-long.353,365,WebNLG,6210,6210,Dataset
+2021.acl-long.353,366,summarization,6215,6215,Task
+2021.acl-long.353,367,table-to-text,6365,6365,Task
+2021.acl-long.353,368,E2E,6368,6368,Dataset
+2021.acl-long.353,369,WebNLG,6377,6377,Dataset
+2021.acl-long.353,370,DART,6387,6387,Dataset
+2021.acl-long.353,371,E2E dataset,6397,6398,Dataset
+2021.acl-long.353,372,BLEU,6436,6436,Metric
+2021.acl-long.353,373,NIST,6445,6445,Metric
+2021.acl-long.353,374,METEOR,6454,6454,Metric
+2021.acl-long.353,375,ROUGE-L,6463,6463,Metric
+2021.acl-long.353,376,CIDEr,6471,6471,Metric
+2021.acl-long.353,377,WebNLG,6481,6481,Dataset
+2021.acl-long.353,378,BLEU,6587,6587,Metric
+2021.acl-long.353,379,METEOR,6589,6589,Metric
+2021.acl-long.353,380,TER,6591,6591,Metric
+2021.acl-long.353,381,DART,6600,6600,Dataset
+2021.acl-long.353,382,WebNLG,6624,6624,Dataset
+2021.acl-long.353,383,WikiSQL,6639,6639,Dataset
+2021.acl-long.353,384,WikiTableQuestions,6641,6641,Dataset
+2021.acl-long.353,385,E2E,6643,6643,Dataset
+2021.acl-long.353,386,WebNLG,6646,6646,Dataset
+2021.acl-long.353,387,BLEU,6664,6664,Metric
+2021.acl-long.353,388,METEOR,6666,6666,Metric
+2021.acl-long.353,389,TER,6668,6668,Metric
+2021.acl-long.353,390,Mover-Score,6670,6670,Metric
+2021.acl-long.353,391,BERTScore,6679,6679,Metric
+2021.acl-long.353,392,BLEURT,6688,6688,Metric
+2021.acl-long.353,393,summarization,6699,6699,Task
+2021.acl-long.353,394,XSUM,6705,6705,Dataset
+2021.acl-long.353,395,ROUGE-1,6751,6751,Metric
+2021.acl-long.353,396,ROUGE-2,6753,6753,Metric
+2021.acl-long.353,397,ROUGE-L,6755,6755,Metric
+2021.acl-long.353,398,rouge-score,6762,6762,Metric
+2021.acl-long.353,399,table-to-text,6768,6768,Task
+2021.acl-long.353,400,E2E dataset,6787,6788,Dataset
+2024.acl-long.108-1-9.grobid,401,Retrieval-Augmented Generation,14,15,Method
+2024.acl-long.108-1-9.grobid,402,RAG,17,17,Method
+2024.acl-long.108-1-9.grobid,403,Large Language Models,20,22,Method
+2024.acl-long.108-1-9.grobid,404,LLMs,24,24,Method
+2024.acl-long.108-1-9.grobid,405,RAG,38,38,Method
+2024.acl-long.108-1-9.grobid,406,RAG,70,70,Method
+2024.acl-long.108-1-9.grobid,407,M-RAG,73,73,Method
+2024.acl-long.108-1-9.grobid,408,LLMs,101,101,Method
+2024.acl-long.108-1-9.grobid,409,Multi-Agent Reinforcement Learning,103,105,Method
+2024.acl-long.108-1-9.grobid,410,language generation,124,125,Task
+2024.acl-long.108-1-9.grobid,411,M-RAG,138,138,Method
+2024.acl-long.108-1-9.grobid,412,text summarization,158,159,Task
+2024.acl-long.108-1-9.grobid,413,machine translation,161,162,Task
+2024.acl-long.108-1-9.grobid,414,dialogue generation,165,166,Task
+2024.acl-long.108-1-9.grobid,415,Retrieval-Augmented Generation,181,182,Method
+2024.acl-long.108-1-9.grobid,416,RAG,184,184,Method
+2024.acl-long.108-1-9.grobid,417,Large Language Models,193,195,Method
+2024.acl-long.108-1-9.grobid,418,LLMs,197,197,Method
+2024.acl-long.108-1-9.grobid,419,RAG,207,207,Method
+2024.acl-long.108-1-9.grobid,420,LLMs,214,214,Method
+2024.acl-long.108-1-9.grobid,421,LLM,265,265,Method
+2024.acl-long.108-1-9.grobid,422,Approximate k-Nearest Neighbor ( AKNN ) search,354,360,Method
+2024.acl-long.108-1-9.grobid,423,RAG,500,500,Method
+2024.acl-long.108-1-9.grobid,424,RAG,540,540,Method
+2024.acl-long.108-1-9.grobid,425,summarization,552,552,Task
+2024.acl-long.108-1-9.grobid,426,translation,554,554,Task
+2024.acl-long.108-1-9.grobid,427,dialogue generation,557,558,Task
+2024.acl-long.108-1-9.grobid,428,RAG,619,619,Method
+2024.acl-long.108-1-9.grobid,429,M-RAG,716,716,Method
+2024.acl-long.108-1-9.grobid,430,M-RAG,729,729,Method
+2024.acl-long.108-1-9.grobid,431,vector database management,749,751,Task
+2024.acl-long.108-1-9.grobid,432,partition selection,859,860,Task
+2024.acl-long.108-1-9.grobid,433,multi-armed bandit problem,863,865,Task
+2024.acl-long.108-1-9.grobid,434,reinforcement learning,931,932,Method
+2024.acl-long.108-1-9.grobid,435,Markov Decision Process,937,939,Method
+2024.acl-long.108-1-9.grobid,436,MDP,941,941,Method
+2024.acl-long.108-1-9.grobid,437,LLMs,981,981,Method
+2024.acl-long.108-1-9.grobid,438,multi-agent reinforcement learning,1051,1053,Method
+2024.acl-long.108-1-9.grobid,439,text generation,1061,1062,Task
+2024.acl-long.108-1-9.grobid,440,end-to-end training,1074,1075,Method
+2024.acl-long.108-1-9.grobid,441,RAG,1095,1095,Method
+2024.acl-long.108-1-9.grobid,442,fine-grained retrieval,1100,1101,Method
+2024.acl-long.108-1-9.grobid,443,RAG,1124,1124,Method
+2024.acl-long.108-1-9.grobid,444,M-RAG,1157,1157,Method
+2024.acl-long.108-1-9.grobid,445,multiagent reinforcement learning,1164,1166,Method
+2024.acl-long.108-1-9.grobid,446,M-RAG,1186,1186,Method
+2024.acl-long.108-1-9.grobid,447,text generation,1193,1194,Task
+2024.acl-long.108-1-9.grobid,448,Mixture of Experts,1221,1223,Method
+2024.acl-long.108-1-9.grobid,449,MoE,1225,1225,Method
+2024.acl-long.108-1-9.grobid,450,M-RAG,1242,1242,Method
+2024.acl-long.108-1-9.grobid,451,RAG,1245,1245,Method
+2024.acl-long.108-1-9.grobid,452,M-RAG,1256,1256,Method
+2024.acl-long.108-1-9.grobid,453,text summarization,1270,1271,Task
+2024.acl-long.108-1-9.grobid,454,machine translation,1273,1274,Task
+2024.acl-long.108-1-9.grobid,455,dialogue generation,1277,1278,Task
+2024.acl-long.108-1-9.grobid,456,Retrieval-Augmented Generation,1285,1286,Method
+2024.acl-long.108-1-9.grobid,457,Retrieval-Augmented Generation,1293,1294,Method
+2024.acl-long.108-1-9.grobid,458,RAG,1296,1296,Method
+2024.acl-long.108-1-9.grobid,459,Naive RAG,1304,1305,Method
+2024.acl-long.108-1-9.grobid,460,Advanced RAG,1310,1311,Method
+2024.acl-long.108-1-9.grobid,461,Modular RAG,1317,1318,Method
+2024.acl-long.108-1-9.grobid,462,Naive RAG,1325,1326,Method
+2024.acl-long.108-1-9.grobid,463,precision,1356,1356,Metric
+2024.acl-long.108-1-9.grobid,464,Advanced RAG,1371,1372,Method
+2024.acl-long.108-1-9.grobid,465,Naive RAG,1381,1382,Method
+2024.acl-long.108-1-9.grobid,466,large language models,1484,1486,Method
+2024.acl-long.108-1-9.grobid,467,LLMs,1488,1488,Method
+2024.acl-long.108-1-9.grobid,468,Self-RAG,1540,1540,Method
+2024.acl-long.108-1-9.grobid,469,Modular RAG,1585,1586,Method
+2024.acl-long.108-1-9.grobid,470,Naive RAG,1591,1592,Method
+2024.acl-long.108-1-9.grobid,471,Selfmem,1660,1660,Method
+2024.acl-long.108-1-9.grobid,472,RAG,1711,1711,Method
+2024.acl-long.108-1-9.grobid,473,LLMs,1713,1713,Method
+2024.acl-long.108-1-9.grobid,474,RAG,1720,1720,Method
+2024.acl-long.108-1-9.grobid,475,M-RAG framework,1759,1760,Method
+2024.acl-long.108-1-9.grobid,476,multiagent reinforcement learning,1763,1765,Method
+2024.acl-long.108-1-9.grobid,477,Reinforcement Learning,1778,1779,Method
+2024.acl-long.108-1-9.grobid,478,LLMs,1781,1781,Method
+2024.acl-long.108-1-9.grobid,479,reinforcement learning,1785,1786,Method
+2024.acl-long.108-1-9.grobid,480,Large Language Models,1798,1800,Method
+2024.acl-long.108-1-9.grobid,481,LLMs,1802,1802,Method
+2024.acl-long.108-1-9.grobid,482,text summarization,1810,1811,Task
+2024.acl-long.108-1-9.grobid,483,machine translation,1820,1821,Task
+2024.acl-long.108-1-9.grobid,484,dialogue systems,1830,1831,Task
+2024.acl-long.108-1-9.grobid,485,semantic parsing,1846,1847,Task
+2024.acl-long.108-1-9.grobid,486,review generation,1857,1858,Task
+2024.acl-long.108-1-9.grobid,487,WebGPT,1870,1870,Method
+2024.acl-long.108-1-9.grobid,488,reinforcement learning,1880,1881,Method
+2024.acl-long.108-1-9.grobid,489,GPT-3 model,1887,1888,Method
+2024.acl-long.108-1-9.grobid,490,text generation,1895,1896,Task
+2024.acl-long.108-1-9.grobid,491,InstructGPT,1901,1901,Method
+2024.acl-long.108-1-9.grobid,492,Reinforcement Learning,1925,1926,Method
+2024.acl-long.108-1-9.grobid,493,GPT-3,1935,1935,Method
+2024.acl-long.108-1-9.grobid,494,R3,1947,1947,Method
+2024.acl-long.108-1-9.grobid,495,Rewrite-Retrieve-Read,1957,1957,Method
+2024.acl-long.108-1-9.grobid,496,LLM,1962,1962,Method
+2024.acl-long.108-1-9.grobid,497,MMQS,1995,1995,Method
+2024.acl-long.108-1-9.grobid,498,RLHF,2015,2015,Method
+2024.acl-long.108-1-9.grobid,499,text generation,2035,2036,Task
+2024.acl-long.108-1-9.grobid,500,Multi-source Knowledge-grounded Dialogue System,2052,2055,Method
+2024.acl-long.108-1-9.grobid,501,MKDS,2057,2057,Method
+2024.acl-long.108-1-9.grobid,502,MKDS,2065,2065,Method
+2024.acl-long.108-1-9.grobid,503,M-RAG,2087,2087,Method
+2024.acl-long.108-1-9.grobid,504,MKDS,2110,2110,Method
+2024.acl-long.108-1-9.grobid,505,dialogue generation,2129,2130,Task
+2024.acl-long.108-1-9.grobid,506,M-RAG,2132,2132,Method
+2024.acl-long.108-1-9.grobid,507,RAG retrieval,2144,2145,Task
+2024.acl-long.108-1-9.grobid,508,MKDS,2165,2165,Method
+2024.acl-long.108-1-9.grobid,509,encoder-decoder framework,2168,2169,Method
+2024.acl-long.108-1-9.grobid,510,MSKE-Dialog,2186,2186,Method
+2024.acl-long.108-1-9.grobid,511,M-RAG,2199,2199,Method
+2024.acl-long.108-1-9.grobid,512,M-RAG,2226,2226,Method
+2024.acl-long.108-1-9.grobid,513,LLMs,2228,2228,Method
+2024.acl-long.108-1-9.grobid,514,language generation,2231,2232,Task
+2024.acl-long.108-1-9.grobid,515,text summarization,2236,2237,Task
+2024.acl-long.108-1-9.grobid,516,machine translation,2239,2240,Task
+2024.acl-long.108-1-9.grobid,517,dialogue generation,2243,2244,Task
+2024.acl-long.108-1-9.grobid,518,MKDS,2247,2247,Method
+2024.acl-long.108-1-9.grobid,519,dialogue generation,2252,2253,Task
+2024.acl-long.108-1-9.grobid,520,M-RAG,2274,2274,Method
+2024.acl-long.108-1-9.grobid,521,language generation,2298,2299,Task
+2024.acl-long.108-1-9.grobid,522,summarization,2304,2304,Task
+2024.acl-long.108-1-9.grobid,523,M-RAG,2326,2326,Method
+2024.acl-long.108-1-9.grobid,524,RAG,2358,2358,Method
+2024.acl-long.108-1-9.grobid,525,M-RAG framework,2366,2367,Method
+2024.acl-long.108-1-9.grobid,526,multi-agent reinforcement learning,2441,2443,Method
+2024.acl-long.108-1-9.grobid,527,M-RAG,2457,2457,Method
+2024.acl-long.108-1-9.grobid,528,LLM,2470,2470,Method
+2024.acl-long.108-1-9.grobid,529,M-RAG,2492,2492,Method
+2024.acl-long.108-1-9.grobid,530,vector database management,2541,2543,Task
+2024.acl-long.108-1-9.grobid,531,probability amplification,2622,2623,Task
+2024.acl-long.108-1-9.grobid,532,locality-sensitive hashing,2628,2629,Method
+2024.acl-long.108-1-9.grobid,533,LSH,2631,2631,Method
+2024.acl-long.108-1-9.grobid,534,K-means,2662,2662,Method
+2024.acl-long.108-1-9.grobid,535,Inverted File Index,2672,2674,Method
+2024.acl-long.108-1-9.grobid,536,IVF,2676,2676,Method
+2024.acl-long.108-1-9.grobid,537,Approximate k-Nearest Neighbor ( AKNN ) search,2681,2687,Task
+2024.acl-long.108-1-9.grobid,538,navigable graph indexes,2694,2696,Task
+2024.acl-long.108-1-9.grobid,539,HNSW,2700,2700,Method
+2024.acl-long.108-1-9.grobid,540,NSW,2709,2709,Method
+2024.acl-long.108-1-9.grobid,541,DailyDialog dataset,2772,2773,Dataset
+2024.acl-long.108-1-9.grobid,542,language generation,2866,2867,Task
+2024.acl-long.108-1-9.grobid,543,summarization,2870,2870,Task
+2024.acl-long.108-1-9.grobid,544,translation,2872,2872,Task
+2024.acl-long.108-1-9.grobid,545,dialogue generation,2875,2876,Task
+2024.acl-long.108-1-9.grobid,546,summarization,2924,2924,Task
+2024.acl-long.108-1-9.grobid,547,translation,2926,2926,Task
+2024.acl-long.108-1-9.grobid,548,dialogue generation,2929,2930,Task
+2024.acl-long.108-1-9.grobid,549,Markov Decision Process,3055,3057,Method
+2024.acl-long.108-1-9.grobid,550,MDP,3059,3059,Method
+2024.acl-long.108-1-9.grobid,551,assessing the semantic relevance,3106,3109,Task
+2024.acl-long.108-1-9.grobid,552,cosine similarity,3117,3118,Metric
+2024.acl-long.108-1-9.grobid,553,CPT-Text,3210,3210,Method
+2024.acl-long.108-1-9.grobid,554,multi-agent reinforcement learning,3414,3416,Method
+2024.acl-long.108-1-9.grobid,555,LLMs,3486,3486,Method
+2024.acl-long.108-1-9.grobid,556,reinforcement learning,3592,3593,Method
+2024.acl-long.108-1-9.grobid,557,ROUGE,3872,3872,Metric
+2024.acl-long.108-1-9.grobid,558,text summarization,3874,3875,Task
+2024.acl-long.108-1-9.grobid,559,BLEU,3877,3877,Metric
+2024.acl-long.108-1-9.grobid,560,machine translation,3879,3880,Task
+2024.acl-long.108-1-9.grobid,561,Distinct,3884,3884,Metric
+2024.acl-long.108-1-9.grobid,562,dialogue generation,3886,3887,Task
+2024.acl-long.108-1-9.grobid,563,Markov Decision Process,3938,3940,Method
+2024.acl-long.108-1-9.grobid,564,MDP,3942,3942,Method
+2024.acl-long.108-1-9.grobid,565,M-RAG Framework,3983,3984,Method
+2024.acl-long.108-1-9.grobid,566,M-RAG Framework,4440,4441,Method
+2024.acl-long.108-1-9.grobid,567,DQN,4445,4445,Method
+2024.acl-long.108-1-9.grobid,568,MDP,4449,4449,Method
+2024.acl-long.108-1-9.grobid,569,Deep Q-Networks,4490,4491,Method
+2024.acl-long.108-1-9.grobid,570,DQN,4493,4493,Method
+2024.acl-long.108-1-9.grobid,571,DQN,4579,4579,Method
+2024.acl-long.108-1-9.grobid,572,M-RAG framework,4599,4600,Method
+2024.acl-long.108-1-9.grobid,573,DQN,4661,4661,Method
+2024.acl-long.108-1-9.grobid,574,LLM,4682,4682,Method
+2024.acl-long.108-1-9.grobid,575,M-RAG,4727,4727,Method
+2024.acl-long.108-1-9.grobid,576,Naive RAG,4731,4732,Method
+2024.acl-long.108-1-9.grobid,577,M-RAG,4786,4786,Method
+2024.acl-long.108-1-9.grobid,578,HNSW,4829,4829,Method
+2024.acl-long.108-1-9.grobid,579,AKNN search,4933,4934,Method
+2024.acl-long.108-1-9.grobid,580,HNSW,4953,4953,Method
+2024.acl-long.108-1-9.grobid,581,AKNN,4987,4987,Method
+2024.acl-long.108-1-9.grobid,582,LLM,5036,5036,Method
+2024.acl-long.108-1-9.grobid,583,transformer attention mechanism,5040,5042,Method
+2024.acl-long.108-1-9.grobid,584,DailyDialog,5098,5098,Dataset
+2024.acl-long.108-1-9.grobid,585,XSum,5108,5108,Dataset
+2024.acl-long.108-1-9.grobid,586,BBC news,5118,5119,Dataset
+2024.acl-long.108-1-9.grobid,587,BigPatent,5121,5121,Dataset
+2024.acl-long.108-1-9.grobid,588,JRC-Acquis,5136,5136,Dataset
+2024.acl-long.108-1-9.grobid,589,European Union Law,5146,5148,Dataset
+2024.acl-long.108-1-9.grobid,590,machine translation,5156,5157,Task
+2024.acl-long.108-1-9.grobid,591,DailyDialog,5160,5160,Dataset
+2024.acl-long.108-1-9.grobid,592,RAGs,5211,5211,Method
+2024.acl-long.108-1-9.grobid,593,Naive RAG,5214,5215,Method
+2024.acl-long.108-1-9.grobid,594,Self-RAG,5224,5224,Method
+2024.acl-long.108-1-9.grobid,595,Selfmem,5234,5234,Method
+2024.acl-long.108-1-9.grobid,596,RAGs,5263,5263,Method
+2024.acl-long.108-1-9.grobid,597,Mixtral 8×7B,5272,5273,Method
+2024.acl-long.108-1-9.grobid,598,Llama 2 13B,5282,5284,Method
+2024.acl-long.108-1-9.grobid,599,Phi-2 2.7B,5293,5294,Method
+2024.acl-long.108-1-9.grobid,600,Gemma 7B,5303,5304,Method
+2024.acl-long.108-1-9.grobid,601,Mistral 7B,5314,5315,Method
+2024.acl-long.108-1-9.grobid,602,M-RAG,5335,5335,Method
+2024.acl-long.108-1-9.grobid,603,summa-rization,5357,5357,Task
+2024.acl-long.108-1-9.grobid,604,ROUGE,5359,5359,Metric
+2024.acl-long.108-1-9.grobid,605,machine translation,5376,5377,Task
+2024.acl-long.108-1-9.grobid,606,BLEU,5379,5379,Metric
+2024.acl-long.108-1-9.grobid,607,dialogue generation,5392,5393,Task
+2024.acl-long.108-1-9.grobid,608,BLEU,5395,5395,Metric
+2024.acl-long.108-1-9.grobid,609,Distinct,5400,5400,Metric
+2024.acl-long.108-1-9.grobid,610,ROUGE,5431,5431,Metric
+2024.acl-long.108-1-9.grobid,611,BLEU,5433,5433,Metric
+2024.acl-long.108-1-9.grobid,612,Distinct,5435,5435,Metric
+2024.acl-long.108-1-9.grobid,613,M-RAG,5466,5466,Method
+2024.acl-long.108-1-9.grobid,614,two-layered feedforward neural network,5502,5505,Method
+2024.acl-long.108-1-9.grobid,615,MDP,5620,5620,Method
+2024.acl-long.108-1-9.grobid,616,ROUGE,5637,5637,Metric
+2024.acl-long.108-1-9.grobid,617,BLEU,5639,5639,Metric
+2024.acl-long.108-1-9.grobid,618,Distinct,5642,5642,Metric
+2024.acl-long.108-1-9.grobid,619,Mixtral 8×7B,5663,5664,Method
+2024.acl-long.108-1-9.grobid,620,Llama 2 13B,5666,5668,Method
+2024.acl-long.108-1-9.grobid,621,Phi-2 2.7B,5670,5671,Method
+2024.acl-long.108-1-9.grobid,622,Gemma 7B,5673,5674,Method
+2024.acl-long.108-1-9.grobid,623,Mistral 7B,5677,5678,Method
+2024.acl-long.108-1-9.grobid,624,LLMs,5702,5702,Method
+2024.acl-long.108-1-9.grobid,625,text summarization,5727,5728,Task
+2024.acl-long.108-1-9.grobid,626,XSum,5730,5730,Dataset
+2024.acl-long.108-1-9.grobid,627,machine translation,5733,5734,Task
+2024.acl-long.108-1-9.grobid,628,Es→En,5736,5736,Dataset
+2024.acl-long.108-1-9.grobid,629,dialogue generation,5740,5741,Task
+2024.acl-long.108-1-9.grobid,630,DailyDialog,5743,5743,Dataset
+2024.acl-long.108-1-9.grobid,631,AKNN search,5808,5809,Method
+2024.acl-long.108-1-9.grobid,632,LLM,5828,5828,Method
+2024.acl-long.108-1-9.grobid,633,RAG,5844,5844,Method
+2024.acl-long.108-1-9.grobid,634,LLM,5863,5863,Method
+2024.acl-long.108-1-9.grobid,635,text summarization,5876,5877,Task
+2024.acl-long.108-1-9.grobid,636,M-RAG,5886,5886,Method
+2024.acl-long.108-1-9.grobid,637,Mixtral 8×7B,5897,5898,Method
+2024.acl-long.108-1-9.grobid,638,Llama 2 13B,5900,5902,Method
+2024.acl-long.108-1-9.grobid,639,Phi-2 2.7B,5905,5906,Method
+2024.acl-long.108-1-9.grobid,640,RAG,5927,5927,Method
+2024.acl-long.108-1-9.grobid,641,MoE,5950,5950,Method
+2024.acl-long.108-1-9.grobid,642,Mistral 8 × 7B,5952,5955,Method
+2024.acl-long.108-1-9.grobid,643,Llama 2 13B,5960,5962,Method
+2024.acl-long.108-1-9.grobid,644,summarization,5965,5965,Task
+2024.acl-long.108-1-9.grobid,645,Mistral 8 × 7B,5972,5975,Method
+2024.acl-long.108-1-9.grobid,646,M-RAG,5984,5984,Method
+2024.acl-long.108-1-9.grobid,647,Selfmem,6007,6007,Method
+2024.acl-long.108-1-9.grobid,648,R-1,6018,6018,Metric
+2024.acl-long.108-1-9.grobid,649,XSum,6020,6020,Dataset
+2024.acl-long.108-1-9.grobid,650,BigPatent,6022,6022,Dataset
+2024.acl-long.108-1-9.grobid,651,machine translation,6032,6033,Task
+2024.acl-long.108-1-9.grobid,652,M-RAG,6045,6045,Method
+2024.acl-long.108-1-9.grobid,653,machine translation,6047,6048,Task
+2024.acl-long.108-1-9.grobid,654,M-RAG,6072,6072,Method
+2024.acl-long.108-1-9.grobid,655,Selfmem,6085,6085,Method
+2024.acl-long.108-1-9.grobid,656,Es→En translation,6091,6092,Task
+2024.acl-long.108-1-9.grobid,657,dialogue generation,6101,6102,Task
+2024.acl-long.108-1-9.grobid,658,M-RAG,6111,6111,Method
+2024.acl-long.108-1-9.grobid,659,dialogue generation,6119,6120,Task
+2024.acl-long.108-1-9.grobid,660,Selfmem,6126,6126,Method
+2024.acl-long.108-1-9.grobid,661,B-1,6133,6133,Metric
+2024.acl-long.108-1-9.grobid,662,M-RAG ( D ),6156,6159,Metric
+2024.acl-long.108-1-9.grobid,663,LLMs,6179,6179,Method
+2024.acl-long.108-1-9.grobid,664,LLMs,6188,6188,Method
+2024.acl-long.108-1-9.grobid,665,Gemma 7B,6196,6197,Method
+2024.acl-long.108-1-9.grobid,666,Mistral 7B,6199,6200,Method
+2024.acl-long.108-1-9.grobid,667,M-RAG,6215,6215,Method
+2024.acl-long.108-1-9.grobid,668,Selfmem,6227,6227,Method
+2024.acl-long.108-1-9.grobid,669,M-RAG,6240,6240,Method
+2024.acl-long.108-1-9.grobid,670,Selfmem,6243,6243,Method
+2024.acl-long.108-1-9.grobid,671,M-RAG,6264,6264,Method
+2024.acl-long.108-1-9.grobid,672,RAG,6283,6283,Method
+2024.acl-long.108-1-9.grobid,673,R-1,6345,6345,Metric
+2024.acl-long.108-1-9.grobid,674,Agent-R,6388,6388,Method
+2024.acl-long.108-1-9.grobid,675,RAG,6497,6497,Method
+2024.acl-long.108-1-9.grobid,676,M-RAG,6615,6615,Method
+2024.acl-long.108-1-9.grobid,677,RAG,6673,6673,Method
+2024.acl-long.108-1-9.grobid,678,M-RAG,6694,6694,Method
+2024.acl-long.108-1-9.grobid,679,multi-agent reinforcement learning,6700,6702,Method
+2024.acl-long.108-1-9.grobid,680,M-RAG,6720,6720,Method
+2024.acl-long.108-1-9.grobid,681,text generation,6727,6728,Task
+2024.acl-long.108-1-9.grobid,682,language generation,6749,6750,Task
+2024.acl-long.108-1-9.grobid,683,M-RAG,6758,6758,Method
+2024.acl-long.108-1-9.grobid,684,LLMs,6812,6812,Method
+2024.acl-long.108-1-9.grobid,685,LLMs,6853,6853,Method
+2024.acl-long.108-1-9.grobid,686,language generation,6882,6883,Task
+2024.acl-long.108-1-9.grobid,687,M-RAG,6891,6891,Method
+2024.acl-long.108-1-9.grobid,688,summarization,6895,6895,Task
+2024.acl-long.108-1-9.grobid,689,M-RAG,6899,6899,Method
+2024.acl-long.108-1-9.grobid,690,multi-agent reinforcement learning,6950,6952,Method
+2024.acl-long.108-1-9.grobid,691,DQN,7037,7037,Method
+2024.acl-long.108-1-9.grobid,692,generation,7080,7080,Task
+2024.acl-long.108-1-9.grobid,693,text summarization,7086,7087,Task
+2024.acl-long.108-1-9.grobid,694,XSum,7089,7089,Dataset
+2024.acl-long.108-1-9.grobid,695,BigPatent,7096,7096,Dataset
+2024.acl-long.108-1-9.grobid,696,machine translation,7107,7108,Task
+2024.acl-long.108-1-9.grobid,697,JRC-Acquis,7110,7110,Dataset
+2024.acl-long.108-1-9.grobid,698,dialogue generation,7131,7132,Task
+2024.acl-long.108-1-9.grobid,699,Text summarization,7133,7134,Task
+2024.acl-long.108-1-9.grobid,700,Dialogue generation,7136,7137,Task
+2024.acl-long.108-1-9.grobid,701,M-RAG,7140,7140,Method
+2024.acl-long.108-1-9.grobid,702,LLMs,7144,7144,Method
+P17-1058.grobid,703,Dialogue Predicts Collaborative,6,8,Task
+P17-1058.grobid,704,SVM,101,101,Method
+P17-1058.grobid,705,interactive alignment model ( IAM ),208,213,Method
+P17-1058.grobid,706,IAM,292,292,Method
+P17-1058.grobid,707,interactive-alignment model ( IAM ),1009,1013,Method
+P17-1058.grobid,708,IAM,1107,1107,Method
+P17-1058.grobid,709,joint decision-making,1291,1292,Task
+P17-1058.grobid,710,HCRC Map Task Corpus,2100,2103,Dataset
+P17-1058.grobid,711,DJD,2137,2137,Dataset
+P17-1058.grobid,712,Map Task,2139,2140,Dataset
+P17-1058.grobid,713,DJD,2277,2277,Dataset
+P17-1058.grobid,714,Switchboard Corpus,2390,2391,Dataset
+P17-1058.grobid,715,Copenhagen Dependency Treebanks Corpus1,2417,2420,Dataset
+P17-1058.grobid,716,DJD,2428,2428,Dataset
+P17-1058.grobid,717,trigram language model,2452,2454,Method
+P17-1058.grobid,718,Map Task,2635,2636,Dataset
+P17-1058.grobid,719,DJD,2705,2705,Dataset
+P17-1058.grobid,720,Map Task,2866,2867,Dataset
+P17-1058.grobid,721,fast Fourier transform ( FFT ),2977,2982,Method
+P17-1058.grobid,722,augmented Dickey-Fuller ( ADF ) test,3276,3281,Method
+P17-1058.grobid,723,Kwiatkowski-Phillips-Schmidt-Shin ( KPSS ) test,3291,3295,Method
+P17-1058.grobid,724,Phillips-Perron ( PP ) test,3307,3311,Method
+P17-1058.grobid,725,Fourier transform,3358,3359,Method
+P17-1058.grobid,726,FFT,3555,3555,Method
+P17-1058.grobid,727,Ljung-Box test,3716,3717,Method
+P17-1058.grobid,728,MapTask,3806,3806,Dataset
+P17-1058.grobid,729,DJD,3815,3815,Dataset
+P17-1058.grobid,730,Map Task,3857,3858,Dataset
+P17-1058.grobid,731,DJD,3860,3860,Dataset
+P17-1058.grobid,732,Breush-Pagan test,3979,3980,Method
+P17-1058.grobid,733,Box-Cox transformation,4006,4007,Method
+P17-1058.grobid,734,Box-Cox,4040,4040,Method
+P17-1058.grobid,735,DJD,4082,4082,Dataset
+P17-1058.grobid,736,Map Task,4931,4932,Dataset
+P17-1058.grobid,737,DJD,4948,4948,Dataset
+P17-1058.grobid,738,Map Task,5103,5104,Dataset
+P17-1058.grobid,739,DJD,5128,5128,Dataset
+P17-1058.grobid,740,Map Task,5173,5174,Dataset
+P17-1058.grobid,741,DJD,5179,5179,Dataset
+P17-1058.grobid,742,MapTask,5555,5555,Dataset
+P17-1058.grobid,743,SVM model,5569,5570,Method
+P17-1058.grobid,744,SVM model,5651,5652,Method
