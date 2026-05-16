@@ -1,0 +1,80 @@
+doc_id,local_entity_id,text,start_char,end_char,ner_label
+00050_1406_2661,1,multilayer perceptrons,679,701,ModelArchitecture
+00050_1406_2661,2,backpropagation,741,756,Method
+00050_1406_2661,3,Markov chains,783,796,Method
+00050_1406_2661,4,backpropagation,1563,1578,Method
+00050_1406_2661,5,dropout,1583,1590,Method
+00050_1406_2661,6,maximum likelihood estimation,1842,1871,Method
+00050_1406_2661,7,adversarial nets,2106,2122,Method
+00050_1406_2661,8,adversarial nets,3040,3056,Method
+00050_1406_2661,9,backpropagation,3130,3145,Method
+00050_1406_2661,10,dropout,3150,3157,Method
+00050_1406_2661,11,restricted Boltzmann machines,3445,3474,ModelArchitecture
+00050_1406_2661,12,RBMs,3476,3480,ModelArchitecture
+00050_1406_2661,13,deep Boltzmann machines,3492,3515,ModelArchitecture
+00050_1406_2661,14,DBMs,3517,3521,ModelArchitecture
+00050_1406_2661,15,Markov chain Monte Carlo,3893,3917,Method
+00050_1406_2661,16,MCMC,3919,3923,Method
+00050_1406_2661,17,MCMC,4006,4010,Method
+00050_1406_2661,18,Deep belief networks,4019,4039,ModelArchitecture
+00050_1406_2661,19,DBNs,4041,4045,ModelArchitecture
+00050_1406_2661,20,DBNs,4199,4203,ModelArchitecture
+00050_1406_2661,21,score matching,4400,4414,Method
+00050_1406_2661,22,noise-contrastive estimation,4424,4452,Method
+00050_1406_2661,23,NCE,4454,4457,Method
+00050_1406_2661,24,DBNs,4677,4681,ModelArchitecture
+00050_1406_2661,25,DBMs,4686,4690,ModelArchitecture
+00050_1406_2661,26,denoising auto-encoders,4793,4816,Method
+00050_1406_2661,27,contractive autoencoders,4826,4850,Method
+00050_1406_2661,28,score matching,4887,4901,Method
+00050_1406_2661,29,RBMs,4913,4917,ModelArchitecture
+00050_1406_2661,30,NCE,4922,4925,Method
+00050_1406_2661,31,NCE,5197,5200,Method
+00050_1406_2661,32,back-propagation,5637,5653,Method
+00050_1406_2661,33,generative stochastic network,5703,5732,ModelArchitecture
+00050_1406_2661,34,GSN,5734,5737,ModelArchitecture
+00050_1406_2661,35,generalized denoising auto-encoders,5768,5803,Method
+00050_1406_2661,36,Markov chain,5855,5867,Method
+00050_1406_2661,37,Markov chain,5953,5965,Method
+00050_1406_2661,38,GSNs,5979,5983,ModelArchitecture
+00050_1406_2661,39,adversarial nets,5989,6005,Method
+00050_1406_2661,40,Markov chain,6035,6047,Method
+00050_1406_2661,41,adversarial nets,6070,6086,Method
+00050_1406_2661,42,backpropagation,6238,6253,Method
+00050_1406_2661,43,auto-encoding variational Bayes,6432,6463,Method
+00050_1406_2661,44,stochastic backpropagation,6473,6499,Method
+00050_1406_2661,45,multilayer perceptrons,6619,6641,ModelArchitecture
+00050_1406_2661,46,multilayer perceptron,6858,6879,ModelArchitecture
+00050_1406_2661,47,multilayer perceptron,6926,6947,ModelArchitecture
+00050_1406_2661,48,SML/PCD,8188,8195,Method
+00050_1406_2661,49,Markov chain,8239,8251,Method
+00050_1406_2661,50,Markov chain,8318,8330,Method
+00050_1406_2661,51,stochastic gradient descent,9121,9148,Method
+00050_1406_2661,52,generative adversarial nets,9161,9188,Method
+00050_1406_2661,53,adversarial nets,13332,13348,Method
+00050_1406_2661,54,multilayer perceptron,13478,13499,ModelArchitecture
+00050_1406_2661,55,multilayer perceptrons,13606,13628,ModelArchitecture
+00050_1406_2661,56,adversarial nets,13762,13778,Method
+00050_1406_2661,57,MNIST,13812,13817,Dataset
+00050_1406_2661,58,Toronto Face Database,13828,13849,Dataset
+00050_1406_2661,59,TFD,13851,13854,Dataset
+00050_1406_2661,60,CIFAR-10,13866,13874,Dataset
+00050_1406_2661,61,maxout,14013,14019,ModelArchitecture
+00050_1406_2661,62,Dropout,14038,14045,Method
+00050_1406_2661,63,dropout,14149,14156,Method
+00050_1406_2661,64,Gaussian Parzen window,14364,14386,Method
+00050_1406_2661,65,MNIST,14499,14504,Dataset
+00050_1406_2661,66,TFD,14505,14508,Dataset
+00050_1406_2661,67,DBN,14509,14512,MLModel
+00050_1406_2661,68,Stacked CAE,14535,14546,MLModel
+00050_1406_2661,69,Deep GSN,14571,14579,MLModel
+00050_1406_2661,70,Adversarial nets,14604,14620,MLModel
+00050_1406_2661,71,MNIST,14719,14724,Dataset
+00050_1406_2661,72,TFD,14841,14844,Dataset
+00050_1406_2661,73,TFD,14974,14977,Dataset
+00050_1406_2661,74,MNIST,15070,15075,Dataset
+00050_1406_2661,75,Boltzmann machine,16616,16633,ModelArchitecture
+00050_1406_2661,76,Markov chains,16706,16719,Method
+00050_1406_2661,77,generative adversarial nets,16926,16953,Method
+00050_1406_2661,78,Markov chains,17481,17494,Method
+00050_1406_2661,79,wake-sleep algorithm,17941,17961,Method
