@@ -1,0 +1,73 @@
+doc_id,local_entity_id,text,start_char,end_char,ner_label
+00050_1406_2661.txt,1,multilayer perceptrons,679,701,ModelArchitecture
+00050_1406_2661.txt,2,backpropagation,741,756,Method
+00050_1406_2661.txt,3,backpropagation,1563,1578,Method
+00050_1406_2661.txt,4,dropout,1583,1590,Method
+00050_1406_2661.txt,5,maximum likelihood estimation,1842,1871,Method
+00050_1406_2661.txt,6,adversarial nets,2106,2122,MLModel
+00050_1406_2661.txt,7,multilayer perceptron,2922,2943,ModelArchitecture
+00050_1406_2661.txt,8,multilayer perceptron,2984,3005,ModelArchitecture
+00050_1406_2661.txt,9,adversarial nets,3040,3056,MLModel
+00050_1406_2661.txt,10,backpropagation,3130,3145,Method
+00050_1406_2661.txt,11,dropout,3150,3157,Method
+00050_1406_2661.txt,12,restricted Boltzmann machines,3445,3474,ModelArchitecture
+00050_1406_2661.txt,13,RBMs,3476,3480,ModelArchitecture
+00050_1406_2661.txt,14,deep Boltzmann machines,3492,3515,ModelArchitecture
+00050_1406_2661.txt,15,DBMs,3517,3521,ModelArchitecture
+00050_1406_2661.txt,16,Markov chain Monte Carlo,3893,3917,Method
+00050_1406_2661.txt,17,MCMC,3919,3923,Method
+00050_1406_2661.txt,18,MCMC,4006,4010,Method
+00050_1406_2661.txt,19,Deep belief networks,4019,4039,ModelArchitecture
+00050_1406_2661.txt,20,DBNs,4041,4045,ModelArchitecture
+00050_1406_2661.txt,21,DBNs,4199,4203,ModelArchitecture
+00050_1406_2661.txt,22,score matching,4400,4414,Method
+00050_1406_2661.txt,23,noise-contrastive estimation,4424,4452,Method
+00050_1406_2661.txt,24,NCE,4454,4457,Method
+00050_1406_2661.txt,25,DBNs,4677,4681,ModelArchitecture
+00050_1406_2661.txt,26,DBMs,4686,4690,ModelArchitecture
+00050_1406_2661.txt,27,denoising auto-encoders,4793,4816,ModelArchitecture
+00050_1406_2661.txt,28,contractive autoencoders,4826,4850,ModelArchitecture
+00050_1406_2661.txt,29,score matching,4887,4901,Method
+00050_1406_2661.txt,30,NCE,4922,4925,Method
+00050_1406_2661.txt,31,NCE,5197,5200,Method
+00050_1406_2661.txt,32,back-propagation,5637,5653,Method
+00050_1406_2661.txt,33,generative stochastic network,5703,5732,ModelArchitecture
+00050_1406_2661.txt,34,GSN,5734,5737,ModelArchitecture
+00050_1406_2661.txt,35,generalized denoising auto-encoders,5768,5803,ModelArchitecture
+00050_1406_2661.txt,36,GSNs,5979,5983,ModelArchitecture
+00050_1406_2661.txt,37,adversarial nets,5989,6005,MLModel
+00050_1406_2661.txt,38,adversarial nets,6070,6086,MLModel
+00050_1406_2661.txt,39,auto-encoding variational Bayes,6432,6463,Method
+00050_1406_2661.txt,40,stochastic backpropagation,6473,6499,Method
+00050_1406_2661.txt,41,multilayer perceptrons,6619,6641,ModelArchitecture
+00050_1406_2661.txt,42,multilayer perceptron,6858,6879,ModelArchitecture
+00050_1406_2661.txt,43,multilayer perceptron,6926,6947,ModelArchitecture
+00050_1406_2661.txt,44,SML/PCD,8188,8195,Method
+00050_1406_2661.txt,45,stochastic gradient descent,9121,9148,Method
+00050_1406_2661.txt,46,generative adversarial nets,9161,9188,MLModel
+00050_1406_2661.txt,47,momentum,9975,9983,Method
+00050_1406_2661.txt,48,Kullback-Leibler divergence,11811,11838,Method
+00050_1406_2661.txt,49,Jensen-Shannon divergence,11884,11909,Method
+00050_1406_2661.txt,50,multilayer perceptron,13478,13499,ModelArchitecture
+00050_1406_2661.txt,51,multilayer perceptrons,13606,13628,ModelArchitecture
+00050_1406_2661.txt,52,adversarial nets,13762,13778,MLModel
+00050_1406_2661.txt,53,MNIST,13812,13817,Dataset
+00050_1406_2661.txt,54,Toronto Face Database,13828,13849,Dataset
+00050_1406_2661.txt,55,TFD,13851,13854,Dataset
+00050_1406_2661.txt,56,CIFAR-10,13866,13874,Dataset
+00050_1406_2661.txt,57,maxout,14013,14019,ModelArchitecture
+00050_1406_2661.txt,58,Dropout,14038,14045,Method
+00050_1406_2661.txt,59,Gaussian Parzen window,14364,14386,Method
+00050_1406_2661.txt,60,MNIST,14499,14504,Dataset
+00050_1406_2661.txt,61,TFD,14505,14508,Dataset
+00050_1406_2661.txt,62,DBN,14509,14512,MLModel
+00050_1406_2661.txt,63,Stacked CAE,14535,14546,MLModel
+00050_1406_2661.txt,64,Deep GSN,14571,14579,MLModel
+00050_1406_2661.txt,65,Adversarial nets,14604,14620,MLModel
+00050_1406_2661.txt,66,MNIST,14719,14724,Dataset
+00050_1406_2661.txt,67,TFD,14841,14844,Dataset
+00050_1406_2661.txt,68,TFD,14974,14977,Dataset
+00050_1406_2661.txt,69,MNIST,15070,15075,Dataset
+00050_1406_2661.txt,70,Boltzmann machine,16616,16633,ModelArchitecture
+00050_1406_2661.txt,71,backprop,16743,16751,Method
+00050_1406_2661.txt,72,wake-sleep algorithm,17941,17961,Method
