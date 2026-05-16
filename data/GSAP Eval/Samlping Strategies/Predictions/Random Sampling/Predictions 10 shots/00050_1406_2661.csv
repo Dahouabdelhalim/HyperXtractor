@@ -1,0 +1,44 @@
+doc_id,local_entity_id,text,start_char,end_char,ner_label
+00050_1406_2661,1,Generative Adversarial Nets,0,27,ModelArchitecture
+00050_1406_2661,2,multilayer perceptrons,679,701,ModelArchitecture
+00050_1406_2661,3,backpropagation,741,756,Method
+00050_1406_2661,4,backpropagation,1563,1578,Method
+00050_1406_2661,5,dropout,1583,1590,Method
+00050_1406_2661,6,adversarial nets,2106,2122,ModelArchitecture
+00050_1406_2661,7,multilayer perceptron,2922,2943,ModelArchitecture
+00050_1406_2661,8,restricted Boltzmann machines,3445,3474,ModelArchitecture
+00050_1406_2661,9,RBMs,3476,3480,ModelArchitecture
+00050_1406_2661,10,deep Boltzmann machines,3492,3515,ModelArchitecture
+00050_1406_2661,11,DBMs,3517,3521,ModelArchitecture
+00050_1406_2661,12,Markov chain Monte Carlo,3893,3917,Method
+00050_1406_2661,13,MCMC,3919,3923,Method
+00050_1406_2661,14,Deep belief networks,4019,4039,ModelArchitecture
+00050_1406_2661,15,DBNs,4041,4045,ModelArchitecture
+00050_1406_2661,16,score matching,4400,4414,Method
+00050_1406_2661,17,noise-contrastive estimation,4424,4452,Method
+00050_1406_2661,18,NCE,4454,4457,Method
+00050_1406_2661,19,denoising auto-encoders,4793,4816,ModelArchitecture
+00050_1406_2661,20,contractive autoencoders,4826,4850,ModelArchitecture
+00050_1406_2661,21,generative stochastic network,5703,5732,ModelArchitecture
+00050_1406_2661,22,GSN,5734,5737,ModelArchitecture
+00050_1406_2661,23,generalized denoising auto-encoders,5768,5803,ModelArchitecture
+00050_1406_2661,24,adversarial nets,5989,6005,ModelArchitecture
+00050_1406_2661,25,auto-encoding variational Bayes,6432,6463,Method
+00050_1406_2661,26,stochastic backpropagation,6473,6499,Method
+00050_1406_2661,27,multilayer perceptrons,6619,6641,ModelArchitecture
+00050_1406_2661,28,SML,8188,8191,Method
+00050_1406_2661,29,PCD,8192,8195,Method
+00050_1406_2661,30,stochastic gradient descent,9121,9148,Method
+00050_1406_2661,31,MNIST,13812,13817,Dataset
+00050_1406_2661,32,Toronto Face Database,13828,13849,Dataset
+00050_1406_2661,33,TFD,13851,13854,Dataset
+00050_1406_2661,34,CIFAR-10,13866,13874,Dataset
+00050_1406_2661,35,maxout,14013,14019,ModelArchitecture
+00050_1406_2661,36,Dropout,14038,14045,Method
+00050_1406_2661,37,Gaussian Parzen window,14364,14386,Method
+00050_1406_2661,38,MNIST,14499,14504,Dataset
+00050_1406_2661,39,TFD,14505,14508,Dataset
+00050_1406_2661,40,DBN,14509,14512,MLModel
+00050_1406_2661,41,Stacked CAE,14535,14546,MLModel
+00050_1406_2661,42,Deep GSN,14571,14579,MLModel
+00050_1406_2661,43,Adversarial nets,14604,14620,MLModel

@@ -1,0 +1,74 @@
+doc_id,local_entity_id,text,start_char,end_char,ner_label
+10047_2005_06182.txt,1,MLSolv-A,0,8,MLModel
+10047_2005_06182.txt,2,polarizable continuum model,3032,3059,Method
+10047_2005_06182.txt,3,PCM,3061,3064,Method
+10047_2005_06182.txt,4,COSMO,3107,3112,Method
+10047_2005_06182.txt,5,generalized Born approximations,3146,3177,Method
+10047_2005_06182.txt,6,SMD,3217,3220,Method
+10047_2005_06182.txt,7,SMx,3261,3264,Method
+10047_2005_06182.txt,8,structure-property relationship,3279,3310,Method
+10047_2005_06182.txt,9,SPR,3312,3315,Method
+10047_2005_06182.txt,10,SPR,3655,3658,Method
+10047_2005_06182.txt,11,SPR,3998,4001,Method
+10047_2005_06182.txt,12,SPR,4244,4247,Method
+10047_2005_06182.txt,13,Delfos,4454,4460,MLModel
+10047_2005_06182.txt,14,MLSolv-A,4895,4903,MLModel
+10047_2005_06182.txt,15,groupcontribution method,4927,4951,Method
+10047_2005_06182.txt,16,linear regression,5919,5936,Method
+10047_2005_06182.txt,17,dot-product attention,6911,6932,Method
+10047_2005_06182.txt,18,solvation descriptor approach,7761,7790,Method
+10047_2005_06182.txt,19,BiLM,8053,8057,ModelArchitecture
+10047_2005_06182.txt,20,recurrent neural network,8078,8102,ModelArchitecture
+10047_2005_06182.txt,21,RNN,8104,8107,ModelArchitecture
+10047_2005_06182.txt,22,graph convolutional neural network,8127,8161,ModelArchitecture
+10047_2005_06182.txt,23,GCN,8163,8166,ModelArchitecture
+10047_2005_06182.txt,24,FreeSolv,8747,8755,Dataset
+10047_2005_06182.txt,25,Solv@TUM,8845,8853,Dataset
+10047_2005_06182.txt,26,Mol2Vec,9283,9290,Method
+10047_2005_06182.txt,27,skip-gram,9291,9300,Method
+10047_2005_06182.txt,28,L2 regularization,9502,9519,Method
+10047_2005_06182.txt,29,RMSprop,9603,9610,Method
+10047_2005_06182.txt,30,5-fold cross-validation,9875,9898,Method
+10047_2005_06182.txt,31,5-fold CV,10161,10170,Method
+10047_2005_06182.txt,32,5-fold CV,10467,10476,Method
+10047_2005_06182.txt,33,BiLM,10547,10551,MLModel
+10047_2005_06182.txt,34,LSTM,10569,10573,ModelArchitecture
+10047_2005_06182.txt,35,GCN,10614,10617,MLModel
+10047_2005_06182.txt,36,BiLM,10723,10727,MLModel
+10047_2005_06182.txt,37,LSTM,10728,10732,ModelArchitecture
+10047_2005_06182.txt,38,GCN,10775,10778,MLModel
+10047_2005_06182.txt,39,GCN,11088,11091,MLModel
+10047_2005_06182.txt,40,graph neural networks,11195,11216,ModelArchitecture
+10047_2005_06182.txt,41,messege-passing neural network,11277,11307,ModelArchitecture
+10047_2005_06182.txt,42,MPNN,11309,11313,ModelArchitecture
+10047_2005_06182.txt,43,deep tensor neural network,11325,11351,ModelArchitecture
+10047_2005_06182.txt,44,DTNN,11353,11357,ModelArchitecture
+10047_2005_06182.txt,45,5-fold CV,12060,12069,Method
+10047_2005_06182.txt,46,FreeSolv,12111,12119,Dataset
+10047_2005_06182.txt,47,BiLM,12135,12139,MLModel
+10047_2005_06182.txt,48,GCN,12148,12151,MLModel
+10047_2005_06182.txt,49,FreeSolv,12207,12215,Dataset
+10047_2005_06182.txt,50,Solv@TUM,12296,12304,Dataset
+10047_2005_06182.txt,51,Solv@TUM,12328,12336,Dataset
+10047_2005_06182.txt,52,BiLM,12433,12437,MLModel
+10047_2005_06182.txt,53,GCN,12447,12450,MLModel
+10047_2005_06182.txt,54,transfer learning,12533,12550,Method
+10047_2005_06182.txt,55,scaffold-based split,12994,13014,Method
+10047_2005_06182.txt,56,K-means clustering,13114,13132,Method
+10047_2005_06182.txt,57,MACCS substructural fingerprint,13169,13200,Method
+10047_2005_06182.txt,58,scaffold-based split,13333,13353,Method
+10047_2005_06182.txt,59,BiLM,14390,14394,MLModel
+10047_2005_06182.txt,60,GCN,14403,14406,MLModel
+10047_2005_06182.txt,61,BiLM,14726,14730,MLModel
+10047_2005_06182.txt,62,GCN,14772,14775,MLModel
+10047_2005_06182.txt,63,BiLM,14849,14853,MLModel
+10047_2005_06182.txt,64,recurrent neural network,14905,14929,ModelArchitecture
+10047_2005_06182.txt,65,RNN,14941,14944,ModelArchitecture
+10047_2005_06182.txt,66,RNN,15325,15328,ModelArchitecture
+10047_2005_06182.txt,67,FreeSolv,16107,16115,Dataset
+10047_2005_06182.txt,68,Solv@TUM,16129,16137,Dataset
+10047_2005_06182.txt,69,K-fold CV,16458,16467,Method
+10047_2005_06182.txt,70,BiLM,16494,16498,MLModel
+10047_2005_06182.txt,71,GCN,16533,16536,MLModel
+10047_2005_06182.txt,72,K-fold CV,16562,16571,Method
+10047_2005_06182.txt,73,scaffold-based split,16589,16609,Method
