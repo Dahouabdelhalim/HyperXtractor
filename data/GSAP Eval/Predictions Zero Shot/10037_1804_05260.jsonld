@@ -1,0 +1,2066 @@
+{
+  "extractionMode": "FULL",
+  "@context": {
+    "mls": "http://www.w3.org/ns/mls#",
+    "schema": "http://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "Study": "mls:Study",
+    "Experiment": "mls:Experiment",
+    "Person": "mls:Person",
+    "Organization": "mls:Organization",
+    "MLS_Task": "mls:MLS_Task",
+    "MLS_Dataset": "mls:MLS_Dataset",
+    "DataSource": "mls:DataSource",
+    "Method": "Method",
+    "MLS_Model": "mls:MLS_Model",
+    "MLS_Algorithm": "mls:MLS_Algorithm",
+    "Prompt": "Prompt",
+    "MLS_Eval": "mls:MLS_Eval",
+    "SoftwareRepository": "SoftwareRepository",
+    "MLS_Implementation": "mls:MLS_Implementation",
+    "MLS_HyperParameter": "msl:MLS_HyperParameter",
+    "HP_Optimization": "HP_Optimization",
+    "HP_Training": "HP_Training",
+    "HP_Architecture": "HP_Architecture",
+    "HP_Data": "HP_Data",
+    "LearningRate": "LearningRate",
+    "Momentum": "Momentum",
+    "WeightDecay": "WeightDecay",
+    "WarmupSteps": "WarmupSteps",
+    "DecayRate": "DecayRate",
+    "BatchSize": "BatchSize",
+    "NumEpochs": "NumEpochs",
+    "MaxSteps": "MaxSteps",
+    "GradientAccumulationSteps": "GradientAccumulationSteps",
+    "NumWorkers": "NumWorkers",
+    "RandomSeed": "RandomSeed",
+    "NumLayers": "NumLayers",
+    "HiddenSize": "HiddenSize",
+    "EmbeddingDim": "EmbeddingDim",
+    "Dropout": "Dropout",
+    "AttentionHeads": "AttentionHeads",
+    "MaxSequenceLength": "MaxSequenceLength",
+    "TrainValTestSplit": "TrainValTestSplit",
+    "Dependency": "Dependency",
+    "Environment": "Environment",
+    "DataProcessingStep": "DataProcessingStep",
+    "TrainingRun": "TrainingRun",
+    "EvaluationRun": "EvaluationRun",
+    "PredictionSet": "PredictionSet",
+    "mls:ExperimentGroup": "mls:ExperimentGroup",
+    "issued": {"@id": "xsd:issued", "@type": "xsd:datetime"},
+    "title": "schema:title",
+    "abstract": "schema:abstract",
+    "url": "schema:url",
+    "doi": "schema:doi",
+    "citation": "schema:citation",
+    "publicationVenue": "schema:publicationVenue",
+    "timestamp": {"@id": "schema:timestamp", "@type": "xsd:date"},
+    "identifier": "schema:identifier",
+    "description": "schema:description",
+    "objective": "schema:objective",
+    "hypothesis": "schema:hypothesis",
+    "methodology": "schema:methodology",
+    "name": "schema:name",
+    "affiliation": "schema:affiliation",
+    "email": "schema:email",
+    "orcid": "schema:orcid",
+    "type": "schema:type",
+    "category": "schema:category",
+    "metrics": "schema:metrics",
+    "numInstances": {"@id": "schema:numInstances", "@type": "xsd:integer"},
+    "language": "schema:language",
+    "license": "schema:license",
+    "modality": "schema:modality",
+    "numClasses": {"@id": "schema:numClasses", "@type": "xsd:integer"},
+    "version": "schema:version",
+    "architecture": "schema:architecture",
+    "parameters": "schema:parameters",
+    "complexity": "mls:complexity",
+    "pseudoCode": {"@id": "mls:pseudoCode", "@type": "xsd:anyURI"},
+    "text": "schema:text",
+    "role": "mls:role",
+    "templateId": "mls:templateId",
+    "usesContext": {"@id": "mls:usesContext", "@type": "xsd:boolean"},
+    "measure": "mls:measure",
+    "hasValue": {"@id": "mls:hasValue", "@type": "xsd:float"},
+    "stdDev": {"@id": "mls:stdDev", "@type": "xsd:float"},
+    "confidenceInterval": "mls:confidenceInterval",
+    "programmingLanguage": "schema:programmingLanguage",
+    "dateModified": {"@id": "schema:dateModified", "@type": "xsd:datetime"},
+    "documentationUrl": {"@id": "mls:documentationUrl", "@type": "xsd:anyURI"},
+    "codeRepository": {"@id": "mls:codeRepository", "@type": "xsd:anyURI"},
+    "framework": "mls:framework",
+    "dependencies": "mls:dependencies",
+    "executionCommand": "mls:executionCommand",
+    "entryPoint": "mls:entryPoint",
+    "commitHash": "mls:commitHash",
+    "branch": "mls:branch",
+    "hardwareSpecs": "mls:hardwareSpecs",
+    "os": "mls:os",
+    "pythonVersion": "mls:pythonVersion",
+    "requirementsFile": "mls:requirementsFile",
+    "isDockerized": {"@id": "mls:isDockerized", "@type": "xsd:boolean"},
+    "hpCategory": "mls:hpCategory",
+    "hpType": "mls:hpType",
+    "searchSpace": "mls:searchSpace",
+    "uncertain": {"@id": "mls:uncertain", "@type": "xsd:boolean"},
+    "hasAuthor": {"@id": "mls:hasAuthor", "@type": "@id"},
+    "contains": {"@id": "mls:contains", "@type": "@id"},
+    "implements": {"@id": "mls:implements", "@type": "@id"},
+    "prov-affiliatedWith": {"@id": "mls:prov-affiliatedWith", "@type": "@id"},
+    "realizes": {"@id": "mls:realizes", "@type": "@id"},
+    "usesData": {"@id": "mls:usesData", "@type": "@id"},
+    "produces": {"@id": "mls:produces", "@type": "@id"},
+    "usesParameters": {"@id": "mls:usesParameters", "@type": "@id"},
+    "executes": {"@id": "mls:executes", "@type": "@id"},
+    "subDatasetOf": {"@id": "mls:subDatasetOf", "@type": "@id"},
+    "prov-derivedFrom": {"@id": "mls:prov-derivedFrom", "@type": "@id"},
+    "processedThrough": {"@id": "mls:processedThrough", "@type": "@id"},
+    "prov-uses": {"@id": "mls:prov-uses", "@type": "@id"},
+    "trainedOn": {"@id": "mls:trainedOn", "@type": "@id"},
+    "evaluatedOn": {"@id": "mls:evaluatedOn", "@type": "@id"},
+    "achieves": {"@id": "mls:achieves", "@type": "@id"},
+    "subMethod": {"@id": "mls:subMethod", "@type": "@id"},
+    "benchmarkedOn": {"@id": "mls:benchmarkedOn", "@type": "@id"},
+    "subTaskOf": {"@id": "mls:subTaskOf", "@type": "@id"},
+    "runsIn": {"@id": "mls:runsIn", "@type": "@id"},
+    "requires": {"@id": "mls:requires", "@type": "@id"},
+    "wasGeneratedBy": {"@id": "prov:wasGeneratedBy", "@type": "@id"},
+    "wasDerivedFrom": {"@id": "prov:wasDerivedFrom", "@type": "@id"},
+    "wasAssociatedWith": {"@id": "prov:wasAssociatedWith", "@type": "@id"},
+    "used": {"@id": "prov:used", "@type": "@id"},
+    "occurrences": "https://w3id.org/mlskg/meta/occurrences",
+    "section": "https://w3id.org/mlskg/meta/section"
+  },
+  "@graph": [
+    {
+      "@id": "study:classinet_short_text_classification_2018",
+      "@type": "Study",
+      "mention": {
+        "start_char_doc": 0,
+        "end_char_doc": 68,
+        "prefix": "",
+        "suffix": "Abstract: Short and sparse texts",
+        "section": "title",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [0, 68, "title"]
+      ],
+      "schema:title": {
+        "value": "ClassiNet - Predicting Missing Features for Short-Text Classification",
+        "start_char_doc": 0,
+        "end_char_doc": 68,
+        "prefix": "",
+        "suffix": "Abstract: Short and sparse texts",
+        "valueSource": "extracted"
+      },
+      "schema:abstract": {
+        "value": "Short and sparse texts such as tweets, search engine snippets, product reviews, chat messages are abundant on the Web. Classifying such shorttexts into a pre-defined set of categories is a common problem that arises in various contexts, such as sentiment classification, spam detection, and information recommendation. The fundamental problem in short-text classification is feature sparseness -the lack of feature overlap between a trained model and a test instance to be classified. We propose ClassiNet -a network of classifiers trained for predicting missing features in a given instance, to overcome the feature sparseness problem.",
+        "start_char_doc": 80,
+        "end_char_doc": 710,
+        "prefix": "Abstract:",
+        "suffix": "Using a set of unlabeled",
+        "valueSource": "extracted"
+      },
+      "schema:url": {
+        "value": "https://arxiv.org/abs/1804.05260",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:doi": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:publicationVenue": {
+        "value": "arXiv",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:timestamp": {
+        "value": "2018",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "hasAuthor": [
+        {"@id": "person:bollegala_danushka"},
+        {"@id": "person:maehara_takanori"},
+        {"@id": "person:kawarabayashi_kenichi"}
+      ],
+      "contains": [
+        {"@id": "exp:group_short_text_classification_2018"}
+      ]
+    },
+    {
+      "@id": "person:bollegala_danushka",
+      "@type": "Person",
+      "mention": {
+        "start_char_doc": 90017,
+        "end_char_doc": 90029,
+        "prefix": "440-447. -",
+        "suffix": ", Y. Matsuo, and M.",
+        "section": "other",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [29973, 29982, "method"],
+        [90017, 90029, "other"]
+      ],
+      "schema:name": {
+        "value": "Danushka Bollegala",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:affiliation": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:email": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:orcid": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "person:maehara_takanori",
+      "@type": "Person",
+      "mention": {
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "section": "title",
+        "valueSource": "inferred"
+      },
+      "occurrences": [],
+      "schema:name": {
+        "value": "Takanori Maehara",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:affiliation": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "person:kawarabayashi_kenichi",
+      "@type": "Person",
+      "mention": {
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "section": "title",
+        "valueSource": "inferred"
+      },
+      "occurrences": [],
+      "schema:name": {
+        "value": "Ken-ichi Kawarabayashi",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:affiliation": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "task:short_text_classification",
+      "@type": "MLS_Task",
+      "mention": {
+        "start_char_doc": 66083,
+        "end_char_doc": 66108,
+        "prefix": "benchmark datasets for",
+        "suffix": ". Our experimental results show",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [43, 68, "title"],
+        [426, 451, "abstract"],
+        [1782, 1807, "abstract"],
+        [2671, 2696, "introduction"],
+        [9123, 9147, "introduction"],
+        [66083, 66108, "experiments"],
+        [75269, 75294, "experiments"],
+        [81547, 81572, "experiments"],
+        [89321, 89346, "conclusion"]
+      ],
+      "mls:name": {
+        "value": "short-text classification",
+        "start_char_doc": 43,
+        "end_char_doc": 68,
+        "prefix": "Missing Features for",
+        "suffix": "Abstract: Short and sparse",
+        "valueSource": "extracted"
+      },
+      "mls:description": {
+        "value": "Classifying short texts into a pre-defined set of categories",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:category": {
+        "value": "text classification",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "task:sentiment_classification",
+      "@type": "MLS_Task",
+      "mention": {
+        "start_char_doc": 66779,
+        "end_char_doc": 66803,
+        "prefix": "the target classification task",
+        "suffix": ", then it can be",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [325, 349, "abstract"],
+        [7393, 7417, "introduction"],
+        [66779, 66803, "experiments"],
+        [68368, 68392, "experiments"],
+        [83621, 83645, "experiments"],
+        [89190, 89214, "conclusion"]
+      ],
+      "mls:name": {
+        "value": "sentiment classification",
+        "start_char_doc": 325,
+        "end_char_doc": 349,
+        "prefix": "contexts, such as",
+        "suffix": ", spam detection, and information",
+        "valueSource": "extracted"
+      }
+    },
+    {
+      "@id": "task:question_type_classification",
+      "@type": "MLS_Task",
+      "mention": {
+        "start_char_doc": 78035,
+        "end_char_doc": 78063,
+        "prefix": "used the TREC",
+        "suffix": "dataset. In this dataset,",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [78035, 78063, "experiments"]
+      ],
+      "mls:name": {
+        "value": "question-type classification",
+        "start_char_doc": 78035,
+        "end_char_doc": 78063,
+        "prefix": "used the TREC",
+        "suffix": "dataset. In this dataset,",
+        "valueSource": "extracted"
+      }
+    },
+    {
+      "@id": "method:classinet",
+      "@type": "Method",
+      "mention": {
+        "start_char_doc": 65507,
+        "end_char_doc": 65516,
+        "prefix": "We create a",
+        "suffix": "using 257,306 unlabeled sentences",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [0, 9, "title"],
+        [576, 585, "abstract"],
+        [956, 965, "abstract"],
+        [1275, 1284, "abstract"],
+        [1782, 1791, "abstract"],
+        [6837, 6846, "introduction"],
+        [7393, 7402, "introduction"],
+        [8179, 8188, "introduction"],
+        [9123, 9132, "introduction"],
+        [10333, 10342, "introduction"],
+        [10442, 10451, "introduction"],
+        [23439, 23448, "method"],
+        [24009, 24018, "method"],
+        [25207, 25216, "method"],
+        [28103, 28112, "method"],
+        [33463, 33472, "method"],
+        [43674, 43683, "method"],
+        [43843, 43852, "method"],
+        [45026, 45035, "method"],
+        [45572, 45581, "method"],
+        [46538, 46547, "method"],
+        [51538, 51547, "method"],
+        [65507, 65516, "experiments"],
+        [65940, 65949, "experiments"],
+        [67556, 67565, "experiments"],
+        [74097, 74106, "experiments"],
+        [81326, 81335, "experiments"],
+        [87988, 87997, "conclusion"],
+        [89071, 89080, "conclusion"]
+      ],
+      "mls:name": {
+        "value": "ClassiNet",
+        "start_char_doc": 0,
+        "end_char_doc": 9,
+        "prefix": "",
+        "suffix": "-Predicting Missing Features for",
+        "valueSource": "extracted"
+      },
+      "mls:description": {
+        "value": "A network of binary classifiers trained for predicting missing features in a given instance, to overcome the feature sparseness problem in short-text classification",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "evaluatedOn": [
+        {"@id": "dataset:stanford_sentiment_treebank"},
+        {"@id": "dataset:movie_reviews"},
+        {"@id": "dataset:customer_reviews"},
+        {"@id": "dataset:subjectivity"},
+        {"@id": "dataset:trec"}
+      ]
+    },
+    {
+      "@id": "method:global_feature_expansion",
+      "@type": "Method",
+      "mention": {
+        "start_char_doc": 73316,
+        "end_char_doc": 73340,
+        "prefix": "proposed",
+        "suffix": "method obtains the best performance",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [8809, 8833, "introduction"],
+        [9123, 9147, "introduction"],
+        [46538, 46562, "method"],
+        [51538, 51562, "method"],
+        [56448, 56472, "method"],
+        [63774, 63798, "other"],
+        [65493, 65517, "experiments"],
+        [67369, 67393, "experiments"],
+        [67649, 67673, "experiments"],
+        [73316, 73340, "experiments"],
+        [81050, 81074, "experiments"],
+        [83621, 83645, "experiments"],
+        [84831, 84855, "experiments"],
+        [87988, 88012, "conclusion"]
+      ],
+      "mls:name": {
+        "value": "Global Feature Expansion",
+        "start_char_doc": 73316,
+        "end_char_doc": 73340,
+        "prefix": "proposed",
+        "suffix": "method obtains the best performance",
+        "valueSource": "extracted"
+      },
+      "mls:description": {
+        "value": "Propagates the original features across the trained ClassiNet using label propagation with a damping factor to find features that are indirectly related to a given short-text",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "method:local_feature_expansion",
+      "@type": "Method",
+      "mention": {
+        "start_char_doc": 46663,
+        "end_char_doc": 46686,
+        "prefix": "4.1",
+        "suffix": "Given a ClassiNet, we propose",
+        "section": "method",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [46663, 46686, "method"],
+        [51538, 51561, "method"],
+        [63774, 63797, "other"]
+      ],
+      "mls:name": {
+        "value": "Local Feature Expansion",
+        "start_char_doc": 46663,
+        "end_char_doc": 46686,
+        "prefix": "4.1",
+        "suffix": "Given a ClassiNet, we propose",
+        "valueSource": "extracted"
+      }
+    },
+    {
+      "@id": "method:independent_expansion",
+      "@type": "Method",
+      "mention": {
+        "start_char_doc": 69605,
+        "end_char_doc": 69627,
+        "prefix": "methods:",
+        "suffix": "This method is described in",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [46920, 46942, "method"],
+        [69605, 69627, "experiments"],
+        [74647, 74669, "experiments"]
+      ],
+      "mls:name": {
+        "value": "Independent Expansion",
+        "start_char_doc": 46920,
+        "end_char_doc": 46942,
+        "prefix": "4.1.1",
+        "suffix": "The first local feature expansion",
+        "valueSource": "extracted"
+      }
+    },
+    {
+      "@id": "method:local_path_expansion",
+      "@type": "Method",
+      "mention": {
+        "start_char_doc": 69693,
+        "end_char_doc": 69713,
+        "prefix": "Section 4.1.1.",
+        "suffix": "This method is described in",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [48053, 48073, "method"],
+        [69693, 69713, "experiments"]
+      ],
+      "mls:name": {
+        "value": "Local Path Expansion",
+        "start_char_doc": 48053,
+        "end_char_doc": 48073,
+        "prefix": "4.1.2",
+        "suffix": "This method extends the independent",
+        "valueSource": "extracted"
+      }
+    },
+    {
+      "@id": "method:all_neighbour_expansion",
+      "@type": "Method",
+      "mention": {
+        "start_char_doc": 69756,
+        "end_char_doc": 69780,
+        "prefix": "Section 4.1.2.",
+        "suffix": "This method is described in",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [48846, 48870, "method"],
+        [69756, 69780, "experiments"],
+        [74097, 74121, "experiments"]
+      ],
+      "mls:name": {
+        "value": "All Neighbour Expansion",
+        "start_char_doc": 48846,
+        "end_char_doc": 48870,
+        "prefix": "4.1.3",
+        "suffix": "In this expansion method, first,",
+        "valueSource": "extracted"
+      }
+    },
+    {
+      "@id": "method:mutual_neighbour_expansion",
+      "@type": "Method",
+      "mention": {
+        "start_char_doc": 69844,
+        "end_char_doc": 69871,
+        "prefix": "Section 4.1.3.",
+        "suffix": "This method is described in",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [50316, 50343, "method"],
+        [69844, 69871, "experiments"],
+        [74647, 74674, "experiments"]
+      ],
+      "mls:name": {
+        "value": "Mutual Neighbour Expansion",
+        "start_char_doc": 50316,
+        "end_char_doc": 50343,
+        "prefix": "4.1.4",
+        "suffix": "The mutual neighbour expansion method",
+        "valueSource": "extracted"
+      }
+    },
+    {
+      "@id": "method:scl",
+      "@type": "Method",
+      "mention": {
+        "start_char_doc": 71217,
+        "end_char_doc": 71220,
+        "prefix": "such as the structural correspondence learning (SCL) proposed by",
+        "suffix": "was described in detail",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [14123, 14157, "related_work"],
+        [14159, 14162, "related_work"],
+        [15059, 15062, "related_work"],
+        [71217, 71220, "experiments"],
+        [71233, 71240, "experiments"],
+        [71992, 71999, "experiments"],
+        [75219, 75231, "experiments"],
+        [89071, 89084, "conclusion"]
+      ],
+      "mls:name": {
+        "value": "Structural Correspondence Learning",
+        "start_char_doc": 14123,
+        "end_char_doc": 14157,
+        "prefix": "such as the",
+        "suffix": "(SCL) proposed by Blitzer",
+        "valueSource": "extracted"
+      },
+      "mls:description": {
+        "value": "Domain adaptation method that predicts missing features by learning a lower-dimensional embedding common to two domains using singular value decomposition",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "method:fts",
+      "@type": "Method",
+      "mention": {
+        "start_char_doc": 72392,
+        "end_char_doc": 72395,
+        "prefix": "",
+        "suffix": ": FTS is the frequent",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [72392, 72395, "experiments"],
+        [72408, 72426, "experiments"],
+        [76666, 76669, "experiments"],
+        [89071, 89084, "conclusion"]
+      ],
+      "mls:name": {
+        "value": "Frequent Term Sets",
+        "start_char_doc": 72408,
+        "end_char_doc": 72426,
+        "prefix": "FTS is the",
+        "suffix": "method proposed by Man",
+        "valueSource": "extracted"
+      }
+    },
+    {
+      "@id": "method:wordnet_expansion",
+      "@type": "Method",
+      "mention": {
+        "start_char_doc": 69916,
+        "end_char_doc": 69923,
+        "prefix": "Section 4.1.4.",
+        "suffix": ": Using lexical resources such",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [69916, 69923, "experiments"],
+        [70073, 70080, "experiments"],
+        [70305, 70312, "experiments"],
+        [76666, 76673, "experiments"]
+      ],
+      "mls:name": {
+        "value": "WordNet",
+        "start_char_doc": 69916,
+        "end_char_doc": 69923,
+        "prefix": "Section 4.1.4.",
+        "suffix": ": Using lexical resources such",
+        "valueSource": "extracted"
+      }
+    },
+    {
+      "@id": "model:cbow",
+      "@type": "MLS_Model",
+      "mention": {
+        "start_char_doc": 73245,
+        "end_char_doc": 73260,
+        "prefix": "Specifically, we create",
+        "suffix": "word embeddings using the same",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [16168, 16192, "related_work"],
+        [73245, 73260, "experiments"],
+        [73316, 73340, "experiments"],
+        [80847, 80854, "experiments"]
+      ],
+      "mls:name": {
+        "value": "CBOW",
+        "start_char_doc": 73316,
+        "end_char_doc": 73320,
+        "prefix": "create continuous bag-of-words (",
+        "suffix": ") (Mikolov et al., 2013)",
+        "valueSource": "extracted"
+      },
+      "schema:architecture": {
+        "value": "continuous bag-of-words",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "model:skip_thought",
+      "@type": "MLS_Model",
+      "mention": {
+        "start_char_doc": 77090,
+        "end_char_doc": 77102,
+        "prefix": "methods compared in Table 3.",
+        "suffix": "(Kiros et al., 2015) is",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [77090, 77102, "experiments"],
+        [77754, 77766, "experiments"],
+        [78656, 78668, "experiments"],
+        [81326, 81338, "experiments"],
+        [81390, 81402, "experiments"],
+        [89071, 89083, "conclusion"]
+      ],
+      "mls:name": {
+        "value": "Skip-thought",
+        "start_char_doc": 77090,
+        "end_char_doc": 77102,
+        "prefix": "methods compared in Table 3.",
+        "suffix": "(Kiros et al., 2015) is",
+        "valueSource": "extracted"
+      },
+      "schema:architecture": {
+        "value": "sequence-to-sequence model with RNN and GRU encoder",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "model:fastsent",
+      "@type": "MLS_Model",
+      "mention": {
+        "start_char_doc": 77133,
+        "end_char_doc": 77141,
+        "prefix": "Gated Recurrent Units (GRUs) (Cho et al., 2014).",
+        "suffix": "(Hill et al., 2016a) is",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [77133, 77141, "experiments"],
+        [77768, 77776, "experiments"],
+        [78838, 78846, "experiments"],
+        [89071, 89079, "conclusion"]
+      ],
+      "mls:name": {
+        "value": "FastSent",
+        "start_char_doc": 77133,
+        "end_char_doc": 77141,
+        "prefix": "(GRUs) (Cho et al., 2014).",
+        "suffix": "(Hill et al., 2016a) is",
+        "valueSource": "extracted"
+      }
+    },
+    {
+      "@id": "model:paragraph2vec",
+      "@type": "MLS_Model",
+      "mention": {
+        "start_char_doc": 77168,
+        "end_char_doc": 77181,
+        "prefix": "models a sentence as a bag-of-words.",
+        "suffix": "(Le and Mikolov, 2014) learns",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [77168, 77181, "experiments"],
+        [79116, 79129, "experiments"],
+        [89071, 89084, "conclusion"]
+      ],
+      "mls:name": {
+        "value": "Paragraph2Vec",
+        "start_char_doc": 77168,
+        "end_char_doc": 77181,
+        "prefix": "models a sentence as a bag-of-words.",
+        "suffix": "(Le and Mikolov, 2014) learns",
+        "valueSource": "extracted"
+      }
+    },
+    {
+      "@id": "model:sdae",
+      "@type": "MLS_Model",
+      "mention": {
+        "start_char_doc": 79453,
+        "end_char_doc": 79481,
+        "prefix": "shared across all short-texts in the corpus.",
+        "suffix": "(SDAE) (Hill et al., 2016a)",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [79453, 79481, "experiments"],
+        [79483, 79487, "experiments"]
+      ],
+      "mls:name": {
+        "value": "Sequential Denoising Autoencoder",
+        "start_char_doc": 79453,
+        "end_char_doc": 79481,
+        "prefix": "shared across all short-texts in the corpus.",
+        "suffix": "(SDAE) (Hill et al., 2016a)",
+        "valueSource": "extracted"
+      },
+      "schema:architecture": {
+        "value": "encoder-decoder model with LSTM unit",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "model:cnn_sentence",
+      "@type": "MLS_Model",
+      "mention": {
+        "start_char_doc": 79733,
+        "end_char_doc": 79762,
+        "prefix": "We use",
+        "suffix": "(CNN) for creating sentence-level",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [79733, 79762, "experiments"],
+        [79764, 79767, "experiments"],
+        [79886, 79896, "experiments"]
+      ],
+      "mls:name": {
+        "value": "CNN",
+        "start_char_doc": 79764,
+        "end_char_doc": 79767,
+        "prefix": "Convolutional Neural Networks (",
+        "suffix": ") for creating sentence-level embeddings",
+        "valueSource": "extracted"
+      },
+      "schema:architecture": {
+        "value": "Convolutional Neural Network with max-over-time pooling, dropout, and softmax output",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "model:logistic_regression",
+      "@type": "MLS_Model",
+      "mention": {
+        "start_char_doc": 68573,
+        "end_char_doc": 68599,
+        "prefix": "measure. We train a",
+        "suffix": "model, where the L 2",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [6733, 6752, "introduction"],
+        [31045, 31064, "method"],
+        [31347, 31366, "method"],
+        [68573, 68599, "experiments"],
+        [69606, 69632, "experiments"],
+        [72026, 72045, "experiments"]
+      ],
+      "mls:name": {
+        "value": "logistic regression",
+        "start_char_doc": 68580,
+        "end_char_doc": 68599,
+        "prefix": "We train a binary",
+        "suffix": "model, where the L 2",
+        "valueSource": "extracted"
+      }
+    },
+    {
+      "@id": "model:lda",
+      "@type": "MLS_Model",
+      "mention": {
+        "start_char_doc": 11933,
+        "end_char_doc": 11963,
+        "prefix": "used",
+        "suffix": "(LDA) to identify features that",
+        "section": "related_work",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [11933, 11963, "related_work"],
+        [11965, 11968, "related_work"],
+        [19619, 19622, "related_work"]
+      ],
+      "mls:name": {
+        "value": "Latent Dirichlet Allocation",
+        "start_char_doc": 11933,
+        "end_char_doc": 11960,
+        "prefix": "used",
+        "suffix": "(LDA) to identify features",
+        "valueSource": "extracted"
+      }
+    },
+    {
+      "@id": "model:deepwalk",
+      "@type": "MLS_Model",
+      "mention": {
+        "start_char_doc": 22069,
+        "end_char_doc": 22077,
+        "prefix": "two people have co-authored.",
+        "suffix": "(Perozzi et al., 2014) performs",
+        "section": "related_work",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [22069, 22077, "related_work"],
+        [22332, 22340, "related_work"]
+      ],
+      "mls:name": {
+        "value": "DeepWalk",
+        "start_char_doc": 22069,
+        "end_char_doc": 22077,
+        "prefix": "two people have co-authored.",
+        "suffix": "(Perozzi et al., 2014) performs",
+        "valueSource": "extracted"
+      }
+    },
+    {
+      "@id": "model:mssg",
+      "@type": "MLS_Model",
+      "mention": {
+        "start_char_doc": 17327,
+        "end_char_doc": 17331,
+        "prefix": "multi sense skip-gram (",
+        "suffix": "), an online cluster-based sense-specific",
+        "section": "related_work",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [17327, 17331, "related_work"],
+        [17568, 17572, "related_work"],
+        [17833, 17837, "related_work"]
+      ],
+      "mls:name": {
+        "value": "MSSG",
+        "start_char_doc": 17327,
+        "end_char_doc": 17331,
+        "prefix": "multi sense skip-gram (",
+        "suffix": "), an online cluster-based",
+        "valueSource": "extracted"
+      }
+    },
+    {
+      "@id": "algorithm:locality_sensitive_hashing",
+      "@type": "MLS_Algorithm",
+      "mention": {
+        "start_char_doc": 39594,
+        "end_char_doc": 39620,
+        "prefix": "from the properties of",
+        "suffix": "(LSH) (Andoni and Indyk, 2008",
+        "section": "method",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [10333, 10359, "introduction"],
+        [39594, 39620, "method"],
+        [39622, 39625, "method"],
+        [89071, 89097, "conclusion"]
+      ],
+      "mls:name": {
+        "value": "locality sensitive hashing",
+        "start_char_doc": 39594,
+        "end_char_doc": 39620,
+        "prefix": "from the properties of",
+        "suffix": "(LSH) (Andoni and Indyk, 2008",
+        "valueSource": "extracted"
+      }
+    },
+    {
+      "@id": "algorithm:label_propagation",
+      "@type": "MLS_Algorithm",
+      "mention": {
+        "start_char_doc": 55997,
+        "end_char_doc": 56014,
+        "prefix": "can be modeled as a",
+        "suffix": "problem over a directed weighted",
+        "section": "method",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [51988, 52005, "method"],
+        [55997, 56014, "method"]
+      ],
+      "mls:name": {
+        "value": "label propagation",
+        "start_char_doc": 55997,
+        "end_char_doc": 56014,
+        "prefix": "can be modeled as a",
+        "suffix": "problem over a directed weighted",
+        "valueSource": "extracted"
+      }
+    },
+    {
+      "@id": "dataset:large_movie_review",
+      "@type": "MLS_Dataset",
+      "mention": {
+        "start_char_doc": 65572,
+        "end_char_doc": 65598,
+        "prefix": "ClassiNet using 257,306 unlabeled sentences from the",
+        "suffix": "1 . Each word in",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [65572, 65598, "experiments"],
+        [73245, 73271, "experiments"],
+        [82474, 82500, "experiments"],
+        [83816, 83842, "experiments"]
+      ],
+      "mls:name": {
+        "value": "Large Movie Review dataset",
+        "start_char_doc": 65572,
+        "end_char_doc": 65598,
+        "prefix": "257,306 unlabeled sentences from the",
+        "suffix": "1 . Each word in",
+        "valueSource": "extracted"
+      },
+      "mls:numInstances": {
+        "value": "257306",
+        "start_char_doc": 65535,
+        "end_char_doc": 65542,
+        "prefix": "ClassiNet using",
+        "suffix": "unlabeled sentences from the Large",
+        "valueSource": "extracted"
+      },
+      "mls:language": {
+        "value": "English",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:modality": {
+        "value": "text",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "prov-derivedFrom": {"@id": "datasource:stanford_ai_lab_movie_reviews"}
+    },
+    {
+      "@id": "dataset:stanford_sentiment_treebank",
+      "@type": "MLS_Dataset",
+      "mention": {
+        "start_char_doc": 66119,
+        "end_char_doc": 66146,
+        "prefix": "four binary classification datasets: the",
+        "suffix": "(TR) 2 (903 positive test",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [66119, 66146, "experiments"],
+        [66599, 66626, "experiments"],
+        [68698, 68725, "experiments"],
+        [69215, 69242, "experiments"],
+        [69409, 69436, "experiments"]
+      ],
+      "mls:name": {
+        "value": "Stanford sentiment treebank",
+        "start_char_doc": 66119,
+        "end_char_doc": 66146,
+        "prefix": "four binary classification datasets: the",
+        "suffix": "(TR) 2 (903 positive test",
+        "valueSource": "extracted"
+      },
+      "mls:numInstances": {
+        "value": "1811",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:numClasses": {
+        "value": "2",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:language": {
+        "value": "English",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:modality": {
+        "value": "text",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "prov-derivedFrom": {"@id": "datasource:stanford_nlp_sentiment"}
+    },
+    {
+      "@id": "dataset:movie_reviews",
+      "@type": "MLS_Dataset",
+      "mention": {
+        "start_char_doc": 66217,
+        "end_char_doc": 66238,
+        "prefix": "negative test instances),",
+        "suffix": "(MR) (Pang and Lee, 2005)",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [66217, 66238, "experiments"]
+      ],
+      "mls:name": {
+        "value": "movie reviews dataset",
+        "start_char_doc": 66217,
+        "end_char_doc": 66238,
+        "prefix": "negative test instances),",
+        "suffix": "(MR) (Pang and Lee, 2005)",
+        "valueSource": "extracted"
+      },
+      "mls:numInstances": {
+        "value": "10662",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:numClasses": {
+        "value": "2",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:language": {
+        "value": "English",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "dataset:customer_reviews",
+      "@type": "MLS_Dataset",
+      "mention": {
+        "start_char_doc": 66320,
+        "end_char_doc": 66344,
+        "prefix": "negative instances),",
+        "suffix": "(CR) (Hu and Liu, 2004)",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [66320, 66344, "experiments"]
+      ],
+      "mls:name": {
+        "value": "customer reviews dataset",
+        "start_char_doc": 66320,
+        "end_char_doc": 66344,
+        "prefix": "negative instances),",
+        "suffix": "(CR) (Hu and Liu, 2004)",
+        "valueSource": "extracted"
+      },
+      "mls:numInstances": {
+        "value": "1494",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:numClasses": {
+        "value": "2",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:language": {
+        "value": "English",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "dataset:subjectivity",
+      "@type": "MLS_Dataset",
+      "mention": {
+        "start_char_doc": 66426,
+        "end_char_doc": 66446,
+        "prefix": "negative instances), and",
+        "suffix": "(SUBJ) (Pang and Lee, 2004)",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [66426, 66446, "experiments"],
+        [66448, 66452, "experiments"],
+        [67556, 67560, "experiments"],
+        [75219, 75223, "experiments"],
+        [78030, 78034, "experiments"],
+        [81326, 81330, "experiments"],
+        [86345, 86349, "experiments"]
+      ],
+      "mls:name": {
+        "value": "subjectivity dataset",
+        "start_char_doc": 66426,
+        "end_char_doc": 66446,
+        "prefix": "negative instances), and",
+        "suffix": "(SUBJ) (Pang and Lee, 2004)",
+        "valueSource": "extracted"
+      },
+      "mls:numInstances": {
+        "value": "10000",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:numClasses": {
+        "value": "2",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:language": {
+        "value": "English",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "dataset:trec",
+      "@type": "MLS_Dataset",
+      "mention": {
+        "start_char_doc": 78030,
+        "end_char_doc": 78034,
+        "prefix": "we used the",
+        "suffix": "question-type classification dataset. In",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [78030, 78034, "experiments"],
+        [81326, 81330, "experiments"]
+      ],
+      "mls:name": {
+        "value": "TREC",
+        "start_char_doc": 78030,
+        "end_char_doc": 78034,
+        "prefix": "we used the",
+        "suffix": "question-type classification dataset. In",
+        "valueSource": "extracted"
+      },
+      "mls:numInstances": {
+        "value": "6000",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:numClasses": {
+        "value": "6",
+        "start_char_doc": 78130,
+        "end_char_doc": 78131,
+        "prefix": "manually classified to",
+        "suffix": "question types depending on the",
+        "valueSource": "extracted"
+      },
+      "mls:language": {
+        "value": "English",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "datasource:stanford_ai_lab_movie_reviews",
+      "@type": "DataSource",
+      "mention": {
+        "start_char_doc": 89414,
+        "end_char_doc": 89461,
+        "prefix": "1:",
+        "suffix": "",
+        "section": "other",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [89414, 89461, "other"]
+      ],
+      "mls:name": {
+        "value": "Stanford AI Lab Movie Reviews",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:url": {
+        "value": "http://ai.stanford.edu/~amaas/data/sentiment/",
+        "start_char_doc": 89414,
+        "end_char_doc": 89461,
+        "prefix": "1:",
+        "suffix": "",
+        "valueSource": "extracted"
+      }
+    },
+    {
+      "@id": "datasource:stanford_nlp_sentiment",
+      "@type": "DataSource",
+      "mention": {
+        "start_char_doc": 89463,
+        "end_char_doc": 89511,
+        "prefix": "2:",
+        "suffix": "",
+        "section": "other",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [89463, 89511, "other"]
+      ],
+      "mls:name": {
+        "value": "Stanford NLP Sentiment Treebank",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:url": {
+        "value": "http://nlp.stanford.edu/sentiment/treebank.html",
+        "start_char_doc": 89463,
+        "end_char_doc": 89511,
+        "prefix": "2:",
+        "suffix": "",
+        "valueSource": "extracted"
+      }
+    },
+    {
+      "@id": "eval:classification_accuracy",
+      "@type": "MLS_Eval",
+      "mention": {
+        "start_char_doc": 66779,
+        "end_char_doc": 66803,
+        "prefix": "observe any increase (or decrease) in",
+        "suffix": "for the target classification task",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [66779, 66803, "experiments"],
+        [68368, 68392, "experiments"],
+        [69124, 69145, "experiments"],
+        [83621, 83645, "experiments"]
+      ],
+      "mls:measure": {
+        "value": "classification accuracy",
+        "start_char_doc": 68368,
+        "end_char_doc": 68392,
+        "prefix": "We use",
+        "suffix": ", which is defined as the",
+        "valueSource": "extracted"
+      }
+    },
+    {
+      "@id": "hp:damping_factor_gamma",
+      "@type": "MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 84376,
+        "end_char_doc": 84384,
+        "prefix": "accuracy increases and reaches a peak at",
+        "suffix": ". This shows that it",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [56448, 56462, "method"],
+        [64532, 64546, "other"],
+        [84376, 84384, "experiments"],
+        [84696, 84704, "experiments"]
+      ],
+      "mls:name": {
+        "value": "damping factor γ",
+        "start_char_doc": 56448,
+        "end_char_doc": 56462,
+        "prefix": "we introduce a",
+        "suffix": "0 < γ ≤ 1 in",
+        "valueSource": "extracted"
+      },
+      "mls:hasValue": {
+        "value": "0.85",
+        "start_char_doc": 84380,
+        "end_char_doc": 84384,
+        "prefix": "reaches a peak at γ =",
+        "suffix": ". This shows that it",
+        "valueSource": "extracted"
+      },
+      "hpCategory": "HP_Optimization",
+      "hpType": "DecayRate",
+      "uncertain": true
+    },
+    {
+      "@id": "hp:neighbourhood_size_k",
+      "@type": "MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 43473,
+        "end_char_doc": 43479,
+        "prefix": "setting the neighbourhood size",
+        "suffix": "to be an admissible trade-off",
+        "section": "method",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [43473, 43479, "method"],
+        [50308, 50313, "method"],
+        [82568, 82573, "experiments"]
+      ],
+      "mls:name": {
+        "value": "neighbourhood size k",
+        "start_char_doc": 43451,
+        "end_char_doc": 43471,
+        "prefix": "found that setting the",
+        "suffix": "k = 10 to be an",
+        "valueSource": "extracted"
+      },
+      "mls:hasValue": {
+        "value": "10",
+        "start_char_doc": 43477,
+        "end_char_doc": 43479,
+        "prefix": "neighbourhood size k =",
+        "suffix": "to be an admissible trade-off",
+        "valueSource": "extracted"
+      },
+      "hpCategory": "HP_Architecture",
+      "hpType": "UnknownArchitectureHP",
+      "uncertain": true
+    },
+    {
+      "@id": "hp:k_nearest_neighbour_expansion",
+      "@type": "MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 50308,
+        "end_char_doc": 50313,
+        "prefix": "neighbour expansion, we set",
+        "suffix": ". 4.1.4 Mutual Neighbour Expansion",
+        "section": "method",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [50308, 50313, "method"]
+      ],
+      "mls:name": {
+        "value": "k for All Neighbour Expansion",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "4",
+        "start_char_doc": 50312,
+        "end_char_doc": 50313,
+        "prefix": "expansion, we set k =",
+        "suffix": ". 4.1.4 Mutual Neighbour Expansion",
+        "valueSource": "extracted"
+      },
+      "hpCategory": "HP_Architecture",
+      "hpType": "UnknownArchitectureHP",
+      "uncertain": true
+    },
+    {
+      "@id": "hp:embedding_dim_cbow",
+      "@type": "MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 73245,
+        "end_char_doc": 73248,
+        "prefix": "Specifically, we create",
+        "suffix": "dimensional word embeddings using the",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [73245, 73248, "experiments"],
+        [73475, 73478, "experiments"]
+      ],
+      "mls:name": {
+        "value": "CBOW embedding dimensionality",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "300",
+        "start_char_doc": 73245,
+        "end_char_doc": 73248,
+        "prefix": "Specifically, we create",
+        "suffix": "dimensional word embeddings using the",
+        "valueSource": "extracted"
+      },
+      "hpCategory": "HP_Architecture",
+      "hpType": "EmbeddingDim",
+      "uncertain": false
+    },
+    {
+      "@id": "hp:scl_projection_dim",
+      "@type": "MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 72026,
+        "end_char_doc": 72064,
+        "prefix": "(Blitzer et al., 2006), we set the",
+        "suffix": ". Both train and test",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [72026, 72064, "experiments"]
+      ],
+      "mls:name": {
+        "value": "SCL projection dimensionality",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "50",
+        "start_char_doc": 72062,
+        "end_char_doc": 72064,
+        "prefix": "dimensionality of the projection to",
+        "suffix": ". Both train and test",
+        "valueSource": "extracted"
+      },
+      "hpCategory": "HP_Architecture",
+      "hpType": "HiddenSize",
+      "uncertain": true
+    },
+    {
+      "@id": "hp:classinet_vertices",
+      "@type": "MLS_HyperParameter",
+      "mention": {
+        "start_char_doc": 65940,
+        "end_char_doc": 65948,
+        "prefix": "ClassiNet created from this dataset contains",
+        "suffix": ", 000 vertices. This ClassiNet",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [65940, 65948, "experiments"]
+      ],
+      "mls:name": {
+        "value": "ClassiNet number of vertices",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:hasValue": {
+        "value": "489000",
+        "start_char_doc": 65940,
+        "end_char_doc": 65952,
+        "prefix": "this dataset contains",
+        "suffix": "vertices. This ClassiNet is used",
+        "valueSource": "extracted"
+      },
+      "hpCategory": "HP_Architecture",
+      "hpType": "UnknownArchitectureHP",
+      "uncertain": true
+    },
+    {
+      "@id": "env:cpu_server_intel_xeon",
+      "@type": "Environment",
+      "mention": {
+        "start_char_doc": 67104,
+        "end_char_doc": 67169,
+        "prefix": "We use a",
+        "suffix": "RAM in our experiments.",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [67104, 67169, "experiments"]
+      ],
+      "mls:hardwareSpecs": {
+        "value": "48 cores of 2.5GHz Intel Xeon CPU and 512GB RAM",
+        "start_char_doc": 67126,
+        "end_char_doc": 67169,
+        "prefix": "We use a CPU server containing",
+        "suffix": "in our experiments. The entire",
+        "valueSource": "extracted"
+      }
+    },
+    {
+      "@id": "exp:group_short_text_classification_2018",
+      "@type": "mls:ExperimentGroup",
+      "mention": {
+        "start_char_doc": 65493,
+        "end_char_doc": 65506,
+        "prefix": "",
+        "suffix": "We create a ClassiNet using",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [65493, 65506, "experiments"]
+      ],
+      "mls:hypothesis": {
+        "value": "By using ClassiNet with global feature expansion, we can statistically significantly improve the accuracy in short-text classification tasks, without having to use any external resources such as thesauri for finding related features.",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:methodology": {
+        "value": "Train binary logistic regression classifier using unigram features with tfidf weighting, expand feature vectors using ClassiNet, evaluate using five-fold cross-validation and classification accuracy",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:evaluationMeasure": {"@id": "eval:classification_accuracy"},
+      "mls:task": {"@id": "task:short_text_classification"},
+      "mls:hasSubExperiment": [
+        {
+          "@id": "exp:classinet_stanford_sentiment_treebank",
+          "@type": "Experiment",
+          "mls:dataset": {"@id": "dataset:stanford_sentiment_treebank"},
+          "mls:model": {"@id": "method:classinet"},
+          "mls:description": {
+            "value": "Evaluate Global Feature Expansion on Stanford sentiment treebank binary sentiment classification",
+            "start_char_doc": null,
+            "end_char_doc": null,
+            "prefix": null,
+            "suffix": null,
+            "valueSource": "inferred"
+          },
+          "start_char_doc": 66119,
+          "end_char_doc": 66146,
+          "prefix": "four binary classification datasets: the",
+          "suffix": "(TR) 2 (903 positive test"
+        },
+        {
+          "@id": "exp:classinet_movie_reviews",
+          "@type": "Experiment",
+          "mls:dataset": {"@id": "dataset:movie_reviews"},
+          "mls:model": {"@id": "method:classinet"},
+          "mls:description": {
+            "value": "Evaluate Global Feature Expansion on movie reviews dataset for binary sentiment classification",
+            "start_char_doc": null,
+            "end_char_doc": null,
+            "prefix": null,
+            "suffix": null,
+            "valueSource": "inferred"
+          },
+          "start_char_doc": 66217,
+          "end_char_doc": 66238,
+          "prefix": "negative test instances),",
+          "suffix": "(MR) (Pang and Lee, 2005)"
+        },
+        {
+          "@id": "exp:classinet_customer_reviews",
+          "@type": "Experiment",
+          "mls:dataset": {"@id": "dataset:customer_reviews"},
+          "mls:model": {"@id": "method:classinet"},
+          "mls:description": {
+            "value": "Evaluate Global Feature Expansion on customer reviews dataset for binary sentiment classification",
+            "start_char_doc": null,
+            "end_char_doc": null,
+            "prefix": null,
+            "suffix": null,
+            "valueSource": "inferred"
+          },
+          "start_char_doc": 66320,
+          "end_char_doc": 66344,
+          "prefix": "negative instances),",
+          "suffix": "(CR) (Hu and Liu, 2004)"
+        },
+        {
+          "@id": "exp:classinet_subjectivity",
+          "@type": "Experiment",
+          "mls:dataset": {"@id": "dataset:subjectivity"},
+          "mls:model": {"@id": "method:classinet"},
+          "mls:description": {
+            "value": "Evaluate Global Feature Expansion on subjectivity dataset for binary classification",
+            "start_char_doc": null,
+            "end_char_doc": null,
+            "prefix": null,
+            "suffix": null,
+            "valueSource": "inferred"
+          },
+          "start_char_doc": 66426,
+          "end_char_doc": 66446,
+          "prefix": "negative instances), and",
+          "suffix": "(SUBJ) (Pang and Lee, 2004)"
+        },
+        {
+          "@id": "exp:classinet_trec",
+          "@type": "Experiment",
+          "mls:dataset": {"@id": "dataset:trec"},
+          "mls:model": {"@id": "method:classinet"},
+          "mls:description": {
+            "value": "Evaluate Global Feature Expansion on TREC question-type classification dataset",
+            "start_char_doc": null,
+            "end_char_doc": null,
+            "prefix": null,
+            "suffix": null,
+            "valueSource": "inferred"
+          },
+          "start_char_doc": 78030,
+          "end_char_doc": 78034,
+          "prefix": "we used the",
+          "suffix": "question-type classification dataset. In"
+        }
+      ]
+    },
+    {
+      "@id": "model:skip_gram",
+      "@type": "MLS_Model",
+      "mention": {
+        "start_char_doc": 17371,
+        "end_char_doc": 17380,
+        "prefix": "by extending",
+        "suffix": "with Negative Sampling (SGNG)",
+        "section": "related_work",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [17371, 17380, "related_work"],
+        [22130, 22139, "related_work"]
+      ],
+      "mls:name": {
+        "value": "Skip-Gram",
+        "start_char_doc": 17371,
+        "end_char_doc": 17380,
+        "prefix": "by extending",
+        "suffix": "with Negative Sampling (SGNG)",
+        "valueSource": "extracted"
+      }
+    },
+    {
+      "@id": "model:lstm",
+      "@type": "MLS_Model",
+      "mention": {
+        "start_char_doc": 79453,
+        "end_char_doc": 79475,
+        "prefix": "encoder-decoder model with a",
+        "suffix": "(LSTM) (Hochreiter and Schmidhuber,",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [79453, 79475, "experiments"],
+        [79477, 79481, "experiments"]
+      ],
+      "mls:name": {
+        "value": "Long Short-Term Memory",
+        "start_char_doc": 79453,
+        "end_char_doc": 79475,
+        "prefix": "encoder-decoder model with a",
+        "suffix": "(LSTM) (Hochreiter and Schmidhuber,",
+        "valueSource": "extracted"
+      }
+    },
+    {
+      "@id": "model:gru",
+      "@type": "MLS_Model",
+      "mention": {
+        "start_char_doc": 77090,
+        "end_char_doc": 77102,
+        "prefix": "with",
+        "suffix": "(GRUs) (Cho et al., 2014).",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [77090, 77150, "experiments"]
+      ],
+      "mls:name": {
+        "value": "Gated Recurrent Units",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "model:rnn",
+      "@type": "MLS_Model",
+      "mention": {
+        "start_char_doc": 77090,
+        "end_char_doc": 77102,
+        "prefix": "encodes sentences using a",
+        "suffix": "(RNN) with Gated Recurrent Units",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [77090, 77150, "experiments"]
+      ],
+      "mls:name": {
+        "value": "Recurrent Neural Network",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      }
+    },
+    {
+      "@id": "method:pagerank",
+      "@type": "Method",
+      "mention": {
+        "start_char_doc": 84691,
+        "end_char_doc": 84699,
+        "prefix": "Interestingly, γ = 0.85 has been found to be the optimal value for different graph-based propagation tasks such as the",
+        "suffix": "(Page et al., 1999).",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [84691, 84699, "experiments"]
+      ],
+      "mls:name": {
+        "value": "PageRank",
+        "start_char_doc": 84691,
+        "end_char_doc": 84699,
+        "prefix": "propagation tasks such as the",
+        "suffix": "(Page et al., 1999).",
+        "valueSource": "extracted"
+      }
+    },
+    {
+      "@id": "method:tfidf",
+      "@type": "Method",
+      "mention": {
+        "start_char_doc": 68547,
+        "end_char_doc": 68552,
+        "prefix": "feature values are computed using the",
+        "suffix": "measure. We train a binary",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [68547, 68552, "experiments"]
+      ],
+      "mls:name": {
+        "value": "tfidf",
+        "start_char_doc": 68547,
+        "end_char_doc": 68552,
+        "prefix": "feature values are computed using the",
+        "suffix": "measure. We train a binary",
+        "valueSource": "extracted"
+      }
+    },
+    {
+      "@id": "method:pmi",
+      "@type": "Method",
+      "mention": {
+        "start_char_doc": 44103,
+        "end_char_doc": 44133,
+        "prefix": "symmetric measures, such as the",
+        "suffix": "(PMI), Log-Likelihood Ratio (LLR),",
+        "section": "method",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [44103, 44133, "method"]
+      ],
+      "mls:name": {
+        "value": "Pointwise Mutual Information",
+        "start_char_doc": 44103,
+        "end_char_doc": 44131,
+        "prefix": "symmetric measures, such as the",
+        "suffix": "(PMI), Log-Likelihood Ratio (LLR),",
+        "valueSource": "extracted"
+      }
+    },
+    {
+      "@id": "method:singular_value_decomposition",
+      "@type": "Method",
+      "mention": {
+        "start_char_doc": 71887,
+        "end_char_doc": 71915,
+        "prefix": "subsequently perform",
+        "suffix": "to obtain a lower-dimensional projection.",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [14586, 14614, "related_work"],
+        [71887, 71915, "experiments"]
+      ],
+      "mls:name": {
+        "value": "singular value decomposition",
+        "start_char_doc": 71887,
+        "end_char_doc": 71915,
+        "prefix": "subsequently perform",
+        "suffix": "to obtain a lower-dimensional projection.",
+        "valueSource": "extracted"
+      }
+    },
+    {
+      "@id": "method:pleb",
+      "@type": "MLS_Algorithm",
+      "mention": {
+        "start_char_doc": 41617,
+        "end_char_doc": 41647,
+        "prefix": "The",
+        "suffix": "(PLEB) algorithm (Indyk and Motwani,",
+        "section": "method",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [41617, 41647, "method"],
+        [41643, 41647, "method"]
+      ],
+      "mls:name": {
+        "value": "Point Location in Equal Balls",
+        "start_char_doc": 41617,
+        "end_char_doc": 41646,
+        "prefix": "The",
+        "suffix": "(PLEB) algorithm (Indyk and",
+        "valueSource": "extracted"
+      }
+    },
+    {
+      "@id": "method:wordnet_resource",
+      "@type": "DataSource",
+      "mention": {
+        "start_char_doc": 69916,
+        "end_char_doc": 69923,
+        "prefix": "Section 4.1.4.",
+        "suffix": ": Using lexical resources such",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [
+        [18671, 18678, "related_work"],
+        [69916, 69923, "experiments"],
+        [70073, 70080, "experiments"],
+        [70305, 70312, "experiments"]
+      ],
+      "mls:name": {
+        "value": "WordNet",
+        "start_char_doc": 69916,
+        "end_char_doc": 69923,
+        "prefix": "Section 4.1.4.",
+        "suffix": ": Using lexical resources such",
+        "valueSource": "extracted"
+      }
+    }
+  ]
+}

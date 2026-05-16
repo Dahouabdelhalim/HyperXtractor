@@ -1,0 +1,3087 @@
+{
+  "@context": {
+    "mls": "http://www.w3.org/ns/mls#",
+    "schema": "http://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "Study": "mls:Study",
+    "Experiment": "mls:Experiment",
+    "Person": "mls:Person",
+    "Organization": "mls:Organization",
+    "MLS_Task": "mls:MLS_Task",
+    "MLS_Dataset": "mls:MLS_Dataset",
+    "DataSource": "mls:DataSource",
+    "Method": "Method",
+    "MLS_Model": "mls:MLS_Model",
+    "MLS_Algorithm": "mls:MLS_Algorithm",
+    "Prompt": "Prompt",
+    "MLS_Eval": "mls:MLS_Eval",
+    "SoftwareRepository": "SoftwareRepository",
+    "MLS_Implementation": "mls:MLS_Implementation",
+    "MLS_HyperParameter": "msl:MLS_HyperParameter",
+    "HP_Optimization": "HP_Optimization",
+    "HP_Training": "HP_Training",
+    "HP_Architecture": "HP_Architecture",
+    "HP_Data": "HP_Data",
+    "LearningRate": "LearningRate",
+    "Momentum": "Momentum",
+    "WeightDecay": "WeightDecay",
+    "WarmupSteps": "WarmupSteps",
+    "DecayRate": "DecayRate",
+    "BatchSize": "BatchSize",
+    "NumEpochs": "NumEpochs",
+    "MaxSteps": "MaxSteps",
+    "GradientAccumulationSteps": "GradientAccumulationSteps",
+    "NumWorkers": "NumWorkers",
+    "RandomSeed": "RandomSeed",
+    "NumLayers": "NumLayers",
+    "HiddenSize": "HiddenSize",
+    "EmbeddingDim": "EmbeddingDim",
+    "Dropout": "Dropout",
+    "AttentionHeads": "AttentionHeads",
+    "MaxSequenceLength": "MaxSequenceLength",
+    "TrainValTestSplit": "TrainValTestSplit",
+    "Dependency": "Dependency",
+    "Environment": "Environment",
+    "DataProcessingStep": "DataProcessingStep",
+    "TrainingRun": "TrainingRun",
+    "EvaluationRun": "EvaluationRun",
+    "PredictionSet": "PredictionSet",
+    "model": "https://w3id.org/mlskg/model/",
+    "algo": "https://w3id.org/mlskg/algorithm/",
+    "method": "https://w3id.org/mlskg/method/",
+    "dataset": "https://w3id.org/mlskg/dataset/",
+    "datasource": "https://w3id.org/mlskg/datasource/",
+    "task": "https://w3id.org/mlskg/task/",
+    "eval": "https://w3id.org/mlskg/eval/",
+    "hp": "https://w3id.org/mlskg/hp/",
+    "impl": "https://w3id.org/mlskg/implementation/",
+    "env": "https://w3id.org/mlskg/environment/",
+    "prompt": "https://w3id.org/mlskg/prompt/",
+    "person": "https://w3id.org/mlskg/person/",
+    "org": "https://w3id.org/mlskg/organization/",
+    "study": "https://w3id.org/mlskg/study/",
+    "exp": "https://w3id.org/mlskg/experiment/",
+    "issued": {"@id": "xsd:issued", "@type": "xsd:datetime"},
+    "title": "schema:title",
+    "abstract": "schema:abstract",
+    "url": "schema:url",
+    "doi": "schema:doi",
+    "citation": "schema:citation",
+    "publicationVenue": "schema:publicationVenue",
+    "timestamp": {"@id": "schema:timestamp", "@type": "xsd:date"},
+    "identifier": "schema:identifier",
+    "description": "schema:description",
+    "objective": "schema:objective",
+    "hypothesis": "schema:hypothesis",
+    "methodology": "schema:methodology",
+    "name": "schema:name",
+    "affiliation": "schema:affiliation",
+    "email": "schema:email",
+    "orcid": "schema:orcid",
+    "type": "schema:type",
+    "category": "schema:category",
+    "metrics": "schema:metrics",
+    "numInstances": {"@id": "schema:numInstances", "@type": "xsd:integer"},
+    "language": "schema:language",
+    "license": "schema:license",
+    "modality": "schema:modality",
+    "numClasses": {"@id": "schema:numClasses", "@type": "xsd:integer"},
+    "version": "schema:version",
+    "architecture": "schema:architecture",
+    "parameters": "schema:parameters",
+    "complexity": "mls:complexity",
+    "pseudoCode": {"@id": "mls:pseudoCode", "@type": "xsd:anyURI"},
+    "text": "schema:text",
+    "role": "mls:role",
+    "templateId": "mls:templateId",
+    "usesContext": {"@id": "mls:usesContext", "@type": "xsd:boolean"},
+    "measure": "mls:measure",
+    "hasValue": {"@id": "mls:hasValue", "@type": "xsd:float"},
+    "stdDev": {"@id": "mls:stdDev", "@type": "xsd:float"},
+    "confidenceInterval": "mls:confidenceInterval",
+    "programmingLanguage": "schema:programmingLanguage",
+    "dateModified": {"@id": "schema:dateModified", "@type": "xsd:datetime"},
+    "documentationUrl": {"@id": "mls:documentationUrl", "@type": "xsd:anyURI"},
+    "codeRepository": {"@id": "mls:codeRepository", "@type": "xsd:anyURI"},
+    "framework": "mls:framework",
+    "dependencies": "mls:dependencies",
+    "executionCommand": "mls:executionCommand",
+    "entryPoint": "mls:entryPoint",
+    "commitHash": "mls:commitHash",
+    "branch": "mls:branch",
+    "dependenciesHash": "mls:dependenciesHash",
+    "packageName": "mls:packageName",
+    "isOptional": {"@id": "mls:isOptional", "@type": "xsd:boolean"},
+    "hardwareSpecs": "mls:hardwareSpecs",
+    "os": "mls:os",
+    "pythonVersion": "mls:pythonVersion",
+    "requirementsFile": "mls:requirementsFile",
+    "isDockerized": {"@id": "mls:isDockerized", "@type": "xsd:boolean"},
+    "startedAtTime": {"@id": "prov:startedAtTime", "@type": "xsd:datetime"},
+    "endedAtTime": {"@id": "prov:endedAtTime", "@type": "xsd:datetime"},
+    "transformationType": "mls:transformationType",
+    "codeReference": {"@id": "mls:codeReference", "@type": "xsd:anyURI"},
+    "runId": "mls:runId",
+    "logFile": {"@id": "mls:logFile", "@type": "xsd:anyURI"},
+    "split": "mls:split",
+    "onDatasetSplit": "mls:onDatasetSplit",
+    "format": "mls:format",
+    "artifactsLocation": {"@id": "mls:artifactsLocation", "@type": "xsd:anyURI"},
+    "hpCategory": "mls:hpCategory",
+    "hpType": "mls:hpType",
+    "searchSpace": "mls:searchSpace",
+    "uncertain": {"@id": "mls:uncertain", "@type": "xsd:boolean"},
+    "hasAuthor": {"@id": "mls:hasAuthor", "@type": "@id"},
+    "contains": {"@id": "mls:contains", "@type": "@id"},
+    "implements": {"@id": "mls:implements", "@type": "@id"},
+    "prov-affiliatedWith": {"@id": "mls:prov-affiliatedWith", "@type": "@id"},
+    "realizes": {"@id": "mls:realizes", "@type": "@id"},
+    "usesData": {"@id": "mls:usesData", "@type": "@id"},
+    "produces": {"@id": "mls:produces", "@type": "@id"},
+    "usesParameters": {"@id": "mls:usesParameters", "@type": "@id"},
+    "executes": {"@id": "mls:executes", "@type": "@id"},
+    "subDatasetOf": {"@id": "mls:subDatasetOf", "@type": "@id"},
+    "prov-derivedFrom": {"@id": "mls:prov-derivedFrom", "@type": "@id"},
+    "processedThrough": {"@id": "mls:processedThrough", "@type": "@id"},
+    "prov-uses": {"@id": "mls:prov-uses", "@type": "@id"},
+    "trainedOn": {"@id": "mls:trainedOn", "@type": "@id"},
+    "evaluatedOn": {"@id": "mls:evaluatedOn", "@type": "@id"},
+    "achieves": {"@id": "mls:achieves", "@type": "@id"},
+    "prov-producedBy": {"@id": "mls:prov-producedBy", "@type": "@id"},
+    "subMethod": {"@id": "mls:subMethod", "@type": "@id"},
+    "evaluates": {"@id": "mls:evaluates", "@type": "@id"},
+    "supports": {"@id": "mls:supports", "@type": "@id"},
+    "runsIn": {"@id": "mls:runsIn", "@type": "@id"},
+    "requires": {"@id": "mls:requires", "@type": "@id"},
+    "prov-executedBy": {"@id": "mls:prov-executedBy", "@type": "@id"},
+    "prov-generated": {"@id": "mls:prov-generated", "@type": "@id"},
+    "benchmarkedOn": {"@id": "mls:benchmarkedOn", "@type": "@id"},
+    "subTaskOf": {"@id": "mls:subTaskOf", "@type": "@id"},
+    "dependsOn": {"@id": "mls:dependsOn", "@type": "@id"},
+    "usedIn": {"@id": "mls:usedIn", "@type": "@id"},
+    "trains": {"@id": "mls:trains", "@type": "@id"},
+    "producedBy": {"@id": "mls:producedBy", "@type": "@id"},
+    "sourceFile": "mls:sourceFile",
+    "sourceLine": {"@id": "mls:sourceLine", "@type": "xsd:integer"},
+    "dependencyType": "mls:dependencyType",
+    "owner": "mls:owner",
+    "platform": "mls:platform",
+    "entryPointCommand": "mls:entryPointCommand",
+    "evaluationScript": "mls:evaluationScript",
+    "evaluationSplit": "mls:evaluationSplit",
+    "metricsFile": "mls:metricsFile",
+    "inputDataset": {"@id": "mls:inputDataset", "@type": "@id"},
+    "outputDataset": {"@id": "mls:outputDataset", "@type": "@id"},
+    "predictionFormat": "mls:predictionFormat",
+    "storageLocation": "mls:storageLocation",
+    "modelVersion": "mls:modelVersion",
+    "appliedTo": {"@id": "mls:appliedTo", "@type": "@id"},
+    "wasGeneratedBy": {"@id": "prov:wasGeneratedBy", "@type": "@id"},
+    "wasDerivedFrom": {"@id": "prov:wasDerivedFrom", "@type": "@id"},
+    "wasAssociatedWith": {"@id": "prov:wasAssociatedWith", "@type": "@id"},
+    "used": {"@id": "prov:used", "@type": "@id"},
+    "valueSource": "https://w3id.org/mlskg/meta/valueSource",
+    "mention": "https://w3id.org/mlskg/meta/mention",
+    "occurrences": "https://w3id.org/mlskg/meta/occurrences",
+    "section": "https://w3id.org/mlskg/meta/section"
+  },
+  "extractionMode": "FULL",
+  "@graph": [
+    {
+      "@id": "study:losac_federated_optimization_2023",
+      "@type": "Study",
+      "mention": {
+        "start_char_doc": 0,
+        "end_char_doc": 86,
+        "prefix": "",
+        "suffix": "Abstract: Federated optimization (FedOpt), which",
+        "section": "title",
+        "valueSource": "extracted"
+      },
+      "occurrences": [[0, 86, "title"]],
+      "schema:title": {
+        "value": "LoSAC: An Efficient Local Stochastic Average Control Method for Federated Optimization",
+        "start_char_doc": 0,
+        "end_char_doc": 86,
+        "prefix": "",
+        "suffix": "Abstract: Federated optimization (FedOpt), which",
+        "valueSource": "extracted"
+      },
+      "schema:abstract": {
+        "value": "Federated optimization (FedOpt), which targets at collaboratively training a learning model across a large number of distributed clients, is vital for federated learning. The primary concerns in FedOpt can be attributed to the model divergence and communication efficiency, which significantly affect the performance. In this paper, we propose a new method, i.e., LoSAC, to learn from heterogeneous distributed data more efficiently. Its key algorithmic insight is to locally update the estimate for the global full gradient after each regular local model update. Thus, LoSAC can keep clients' information refreshed in a more compact way. In particular, we have studied the convergence result for LoSAC. Besides, the bonus of LoSAC is the ability to defend the information leakage from the recent technique Deep Leakage Gradients (DLG). Finally, experiments have verified the superiority of LoSAC comparing with state-of-the-art FedOpt algorithms. Specifically, LoSAC significantly improves communication efficiency by more than 100% on average, mitigates the model divergence problem and equips with the defense ability against DLG.",
+        "start_char_doc": 98,
+        "end_char_doc": 1230,
+        "prefix": "Abstract:",
+        "suffix": "CCS Concepts: • Computing methodologies",
+        "valueSource": "extracted"
+      },
+      "schema:url": {
+        "value": "https://arxiv.org/abs/2112.07839",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:doi": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:citation": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:publicationVenue": {
+        "value": "ACM Transactions on Knowledge Discovery from Data",
+        "start_char_doc": 50915,
+        "end_char_doc": 50945,
+        "prefix": "Footnotes:",
+        "suffix": "., Vol. 1, No. 1, Article",
+        "valueSource": "extracted"
+      },
+      "schema:timestamp": {
+        "value": "2023-02",
+        "start_char_doc": 50991,
+        "end_char_doc": 51004,
+        "prefix": "Article . Publication date:",
+        "suffix": ".",
+        "valueSource": "extracted"
+      },
+      "hasAuthor": [],
+      "contains": [{"@id": "exp:group_losac_fedopt_2023"}],
+      "wasDerivedFrom": "paper"
+    },
+
+    {
+      "@id": "algo:losac",
+      "@type": ["MLS_Algorithm", "Method"],
+      "mention": {
+        "start_char_doc": 24931,
+        "end_char_doc": 24936,
+        "prefix": "by the communication rounds for",
+        "suffix": "and SCAFFOLD to reach a",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [[0, 5, "title"], [462, 467, "abstract"], [668, 673, "abstract"], [795, 800, "abstract"], [824, 829, "abstract"], [989, 994, "abstract"], [1060, 1065, "abstract"], [3822, 3827, "introduction"], [4311, 4316, "introduction"], [4609, 4614, "introduction"], [4845, 4850, "introduction"], [4964, 4969, "introduction"], [5153, 5158, "introduction"], [5293, 5298, "introduction"], [6063, 6068, "introduction"], [6234, 6239, "introduction"], [6474, 6479, "introduction"], [8947, 8952, "related_work"], [11169, 11174, "related_work"], [11296, 11301, "related_work"], [11473, 11478, "method"], [13681, 13686, "method"], [13785, 13790, "method"], [14009, 14014, "method"], [14035, 14040, "method"], [14489, 14494, "method"], [15699, 15704, "method"], [17375, 17380, "method"], [17632, 17642, "method"], [17672, 17682, "method"], [17876, 17881, "method"], [17960, 17965, "method"], [18088, 18093, "method"], [18471, 18476, "method"], [18602, 18607, "method"], [18721, 18726, "method"], [18814, 18819, "method"], [19523, 19528, "method"], [20541, 20546, "method"], [20762, 20767, "method"], [22934, 22939, "method"], [23621, 23626, "method"], [24931, 24936, "experiments"], [25263, 25268, "experiments"], [25464, 25469, "experiments"], [27791, 27796, "experiments"], [28103, 28108, "experiments"], [28110, 28120, "experiments"], [28368, 28373, "experiments"], [28533, 28538, "experiments"], [29199, 29204, "experiments"], [29482, 29487, "experiments"], [30686, 30691, "experiments"], [32353, 32358, "experiments"], [32859, 32864, "experiments"], [34236, 34241, "ablation"], [34452, 34457, "ablation"], [34508, 34513, "ablation"], [34721, 34726, "ablation"], [34749, 34754, "ablation"], [34943, 34948, "ablation"], [35121, 35126, "ablation"], [35469, 35474, "ablation"], [35887, 35892, "ablation"], [36029, 36034, "ablation"], [36515, 36520, "experiments"], [38299, 38304, "experiments"], [38518, 38523, "experiments"], [38710, 38715, "experiments"], [39431, 39441, "experiments"], [41414, 41424, "experiments"], [41899, 41904, "conclusion"], [41998, 42003, "conclusion"], [42103, 42108, "conclusion"], [42177, 42182, "conclusion"], [42399, 42404, "conclusion"], [42571, 42576, "conclusion"]],
+      "schema:name": {
+        "value": "LoSAC",
+        "start_char_doc": 0,
+        "end_char_doc": 5,
+        "prefix": "",
+        "suffix": ": An Efficient Local Stochastic",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "Local Stochastic Average Control method for federated optimization that locally updates the estimate for the global full gradient after each regular local model update to keep clients' information refreshed in a more compact way",
+        "start_char_doc": 20,
+        "end_char_doc": 52,
+        "prefix": "LoSAC: An Efficient",
+        "suffix": "Method for Federated Optimization",
+        "valueSource": "extracted"
+      },
+      "schema:version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:complexity": {
+        "value": "O(Kd)",
+        "start_char_doc": 8716,
+        "end_char_doc": 8722,
+        "prefix": "Multiple global SAGA based on",
+        "suffix": "O ( 1 /𝑅) ✓ Very",
+        "valueSource": "extracted"
+      },
+      "mls:pseudoCode": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "evaluatedOn": [
+        {"@id": "dataset:mnist"},
+        {"@id": "dataset:har"},
+        {"@id": "dataset:esr"},
+        {"@id": "dataset:synthetic"}
+      ],
+      "achieves": [
+        {"@id": "eval:cross_entropy"},
+        {"@id": "eval:classification_accuracy"},
+        {"@id": "eval:recovery_matrix_error"}
+      ],
+      "trainedOn": [],
+      "prov-producedBy": null,
+      "subMethod": [],
+      "wasDerivedFrom": "paper"
+    },
+
+    {
+      "@id": "algo:losac_prox",
+      "@type": ["MLS_Algorithm", "Method"],
+      "mention": {
+        "start_char_doc": 17632,
+        "end_char_doc": 17642,
+        "prefix": "the resulting algorithm is called",
+        "suffix": ". In Section 5, we will",
+        "section": "method",
+        "valueSource": "extracted"
+      },
+      "occurrences": [[17632, 17642, "method"], [17672, 17682, "method"], [28110, 28120, "experiments"], [39431, 39441, "experiments"], [41414, 41424, "experiments"]],
+      "schema:name": {
+        "value": "LoSAC-Prox",
+        "start_char_doc": 17632,
+        "end_char_doc": 17642,
+        "prefix": "the resulting algorithm is called",
+        "suffix": ". In Section 5, we will",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "Proximal version of LoSAC for solving nonsmooth problems such as L1 regularization or low-rank matrix estimation",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:complexity": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:pseudoCode": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "evaluatedOn": [{"@id": "dataset:synthetic"}],
+      "achieves": [{"@id": "eval:recovery_matrix_error"}],
+      "trainedOn": [],
+      "prov-producedBy": null,
+      "subMethod": [],
+      "wasDerivedFrom": "paper"
+    },
+
+    {
+      "@id": "algo:scaffold",
+      "@type": ["MLS_Algorithm", "Method"],
+      "mention": {
+        "start_char_doc": 24941,
+        "end_char_doc": 24949,
+        "prefix": "rounds for LoSAC and",
+        "suffix": "to reach a specific accuracy",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [[3702, 3710, "introduction"], [10265, 10273, "related_work"], [10881, 10889, "related_work"], [18799, 18807, "method"], [18970, 18978, "method"], [24941, 24949, "experiments"], [25540, 25548, "experiments"], [25847, 25855, "experiments"], [26002, 26010, "experiments"], [27724, 27732, "experiments"], [27778, 27786, "experiments"], [28126, 28134, "experiments"], [28136, 28149, "experiments"], [28510, 28518, "experiments"], [29459, 29467, "experiments"], [32179, 32187, "experiments"], [32296, 32304, "experiments"], [32662, 32670, "experiments"], [32747, 32755, "experiments"], [33244, 33252, "experiments"], [33687, 33695, "ablation"], [34097, 34105, "ablation"], [34288, 34296, "ablation"], [34565, 34573, "ablation"], [34855, 34863, "ablation"], [34933, 34941, "ablation"], [35920, 35928, "ablation"], [35930, 35938, "ablation"], [36072, 36080, "ablation"], [36522, 36530, "experiments"], [38286, 38294, "experiments"], [38505, 38513, "experiments"], [38795, 38803, "experiments"], [39235, 39243, "experiments"], [39252, 39265, "experiments"], [39446, 39459, "experiments"], [41058, 41066, "experiments"], [41157, 41165, "experiments"], [42453, 42461, "conclusion"], [54070, 54078, "other"]],
+      "schema:name": {
+        "value": "SCAFFOLD",
+        "start_char_doc": 3702,
+        "end_char_doc": 3710,
+        "prefix": "challenges are MimeSVRG [12] and",
+        "suffix": "[13]. They utilize the global",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "Stochastic Controlled Averaging for Federated Learning using control variates for variance reduction",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:complexity": {
+        "value": "O(Kd)",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:pseudoCode": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "evaluatedOn": [],
+      "achieves": [],
+      "trainedOn": [],
+      "prov-producedBy": null,
+      "subMethod": [],
+      "wasDerivedFrom": "paper"
+    },
+
+    {
+      "@id": "algo:mimesvrg",
+      "@type": ["MLS_Algorithm", "Method"],
+      "mention": {
+        "start_char_doc": 25572,
+        "end_char_doc": 25580,
+        "prefix": "SCAFFOLD [13], FedADMM [34] and",
+        "suffix": "[12]. Moreover, to show the",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [[3684, 3692, "introduction"], [8744, 8752, "related_work"], [18781, 18789, "method"], [18957, 18965, "method"], [25572, 25580, "experiments"], [26083, 26091, "experiments"], [27683, 27691, "experiments"], [28520, 28528, "experiments"], [29469, 29477, "experiments"], [30918, 30926, "experiments"], [32047, 32055, "experiments"], [36543, 36551, "experiments"], [38016, 38024, "experiments"]],
+      "schema:name": {
+        "value": "MimeSVRG",
+        "start_char_doc": 3684,
+        "end_char_doc": 3692,
+        "prefix": "representative methods for handling these",
+        "suffix": "[12] and SCAFFOLD [13]. They",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "Adaptation of SVRG to federated learning using the Mime framework with multiple SVRG updates",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:complexity": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:pseudoCode": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "evaluatedOn": [],
+      "achieves": [],
+      "trainedOn": [],
+      "prov-producedBy": null,
+      "subMethod": [],
+      "wasDerivedFrom": "paper"
+    },
+
+    {
+      "@id": "algo:fedavg",
+      "@type": ["MLS_Algorithm", "Method"],
+      "mention": {
+        "start_char_doc": 25515,
+        "end_char_doc": 25521,
+        "prefix": "with five representative baseline algorithms",
+        "suffix": "[25], FedCM [39], SCAFFOLD [13],",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [[9489, 9495, "related_work"], [13133, 13139, "method"], [18672, 18678, "method"], [25515, 25521, "experiments"], [25880, 25886, "experiments"], [26870, 26876, "experiments"], [28566, 28572, "experiments"], [29376, 29382, "experiments"], [29897, 29903, "experiments"], [30907, 30913, "experiments"], [30973, 30979, "experiments"], [31096, 31102, "experiments"], [33257, 33263, "experiments"], [36532, 36538, "experiments"], [38278, 38284, "experiments"], [38497, 38503, "experiments"], [55636, 55642, "other"]],
+      "schema:name": {
+        "value": "FedAvg",
+        "start_char_doc": 9489,
+        "end_char_doc": 9495,
+        "prefix": "quantized version of",
+        "suffix": ", known as FedPaq, is",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "Federated Averaging algorithm for communication-efficient learning of deep networks from decentralized data",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:complexity": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:pseudoCode": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "evaluatedOn": [],
+      "achieves": [],
+      "trainedOn": [],
+      "prov-producedBy": null,
+      "subMethod": [],
+      "wasDerivedFrom": "paper"
+    },
+
+    {
+      "@id": "algo:fedprox",
+      "@type": ["MLS_Algorithm", "Method"],
+      "mention": {
+        "start_char_doc": 8815,
+        "end_char_doc": 8822,
+        "prefix": "✓ High × ✓",
+        "suffix": "[20] Single update with PGDO",
+        "section": "related_work",
+        "valueSource": "extracted"
+      },
+      "occurrences": [[8815, 8822, "related_work"], [9980, 9987, "related_work"]],
+      "schema:name": {
+        "value": "FedProx",
+        "start_char_doc": 8815,
+        "end_char_doc": 8822,
+        "prefix": "✓ High × ✓",
+        "suffix": "[20] Single update with PGDO",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "Federated optimization with proximal term to restrict model divergence via quadratic restriction",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:complexity": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:pseudoCode": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "evaluatedOn": [],
+      "achieves": [],
+      "trainedOn": [],
+      "prov-producedBy": null,
+      "subMethod": [],
+      "wasDerivedFrom": "paper"
+    },
+
+    {
+      "@id": "algo:fedcm",
+      "@type": ["MLS_Algorithm", "Method"],
+      "mention": {
+        "start_char_doc": 25528,
+        "end_char_doc": 25533,
+        "prefix": "baseline algorithms FedAvg [25],",
+        "suffix": "[39], SCAFFOLD [13], FedADMM [34]",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [[25528, 25533, "experiments"], [25951, 25956, "experiments"], [29812, 29817, "experiments"], [29996, 30001, "experiments"], [31504, 31509, "experiments"], [31558, 31563, "experiments"], [31748, 31753, "experiments"], [31779, 31784, "experiments"], [31861, 31866, "experiments"], [58517, 58522, "other"]],
+      "schema:name": {
+        "value": "FedCM",
+        "start_char_doc": 25528,
+        "end_char_doc": 25533,
+        "prefix": "baseline algorithms FedAvg [25],",
+        "suffix": "[39], SCAFFOLD [13], FedADMM [34]",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "Federated Learning with Client-level Momentum",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:complexity": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:pseudoCode": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "evaluatedOn": [],
+      "achieves": [],
+      "trainedOn": [],
+      "prov-producedBy": null,
+      "subMethod": [],
+      "wasDerivedFrom": "paper"
+    },
+
+    {
+      "@id": "algo:fedadmm",
+      "@type": ["MLS_Algorithm", "Method"],
+      "mention": {
+        "start_char_doc": 25555,
+        "end_char_doc": 25562,
+        "prefix": "FedCM [39], SCAFFOLD [13],",
+        "suffix": "[34] and MimeSVRG [12]. Moreover,",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [[25555, 25562, "experiments"], [26180, 26187, "experiments"], [26734, 26741, "experiments"], [26763, 26770, "experiments"], [28061, 28068, "experiments"], [39271, 39278, "experiments"], [39326, 39333, "experiments"], [39835, 39842, "experiments"], [42466, 42473, "conclusion"]],
+      "schema:name": {
+        "value": "FedADMM",
+        "start_char_doc": 25555,
+        "end_char_doc": 25562,
+        "prefix": "FedCM [39], SCAFFOLD [13],",
+        "suffix": "[34] and MimeSVRG [12]. Moreover,",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "Adaptation of alternating direction method of multipliers (ADMM) to federated optimization for solving nonsmooth optimization problems",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:complexity": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:pseudoCode": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "evaluatedOn": [],
+      "achieves": [],
+      "trainedOn": [],
+      "prov-producedBy": null,
+      "subMethod": [],
+      "wasDerivedFrom": "paper"
+    },
+
+    {
+      "@id": "algo:fedsaga",
+      "@type": ["MLS_Algorithm", "Method"],
+      "mention": {
+        "start_char_doc": 25692,
+        "end_char_doc": 25699,
+        "prefix": "FedOpt, we have also implemented",
+        "suffix": ". Datasets Methods Rounds (𝑇",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [[12736, 12743, "method"], [13100, 13107, "method"], [13552, 13559, "method"], [14019, 14026, "method"], [14118, 14125, "method"], [25692, 25699, "experiments"], [28461, 28468, "experiments"], [29209, 29216, "experiments"], [29387, 29394, "experiments"], [29908, 29915, "experiments"], [30961, 30968, "experiments"], [31068, 31075, "experiments"], [31381, 31388, "experiments"]],
+      "schema:name": {
+        "value": "FedSaga",
+        "start_char_doc": 12736,
+        "end_char_doc": 12743,
+        "prefix": "the resulting algorithm is called",
+        "suffix": ", and is summarized in Algorithm",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "Naive extension of SAGA to federated optimization using only local variance reduction",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:complexity": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:pseudoCode": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "evaluatedOn": [],
+      "achieves": [],
+      "trainedOn": [],
+      "prov-producedBy": null,
+      "subMethod": [],
+      "wasDerivedFrom": "paper"
+    },
+
+    {
+      "@id": "algo:saga",
+      "@type": ["MLS_Algorithm", "Method"],
+      "mention": {
+        "start_char_doc": 25651,
+        "end_char_doc": 25655,
+        "prefix": "of the naive extension of",
+        "suffix": "to FedOpt, we have also",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [[5947, 5951, "introduction"], [8108, 8112, "related_work"], [8133, 8137, "related_work"], [8552, 8556, "related_work"], [8976, 8980, "related_work"], [9050, 9054, "related_work"], [25651, 25655, "experiments"], [31248, 31252, "experiments"], [52715, 52719, "other"]],
+      "schema:name": {
+        "value": "SAGA",
+        "start_char_doc": 8108,
+        "end_char_doc": 8112,
+        "prefix": "and its extension",
+        "suffix": "[7]. In particular, SAGA utilizes",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "A fast incremental gradient method with support for non-strongly convex composite objectives",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:complexity": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:pseudoCode": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "evaluatedOn": [],
+      "achieves": [],
+      "trainedOn": [],
+      "prov-producedBy": null,
+      "subMethod": [],
+      "wasDerivedFrom": "paper"
+    },
+
+    {
+      "@id": "algo:sag",
+      "@type": ["MLS_Algorithm", "Method"],
+      "mention": {
+        "start_char_doc": 8080,
+        "end_char_doc": 8083,
+        "prefix": "stochastic average gradient method (",
+        "suffix": ") [33] and its extension",
+        "section": "related_work",
+        "valueSource": "extracted"
+      },
+      "occurrences": [[8080, 8083, "related_work"], [8538, 8541, "related_work"]],
+      "schema:name": {
+        "value": "SAG",
+        "start_char_doc": 8080,
+        "end_char_doc": 8083,
+        "prefix": "stochastic average gradient method (",
+        "suffix": ") [33] and its extension",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "Stochastic average gradient method for minimizing finite sums",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:complexity": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:pseudoCode": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "evaluatedOn": [],
+      "achieves": [],
+      "trainedOn": [],
+      "prov-producedBy": null,
+      "subMethod": [],
+      "wasDerivedFrom": "paper"
+    },
+
+    {
+      "@id": "algo:svrg",
+      "@type": ["MLS_Algorithm", "Method"],
+      "mention": {
+        "start_char_doc": 25576,
+        "end_char_doc": 25580,
+        "prefix": "[13], FedADMM [34] and Mime",
+        "suffix": "[12]. Moreover, to show the",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [[3688, 3692, "introduction"], [8032, 8036, "related_work"], [8748, 8752, "related_work"], [8767, 8771, "related_work"], [18785, 18789, "method"], [18961, 18965, "method"], [25576, 25580, "experiments"], [26087, 26091, "experiments"], [26117, 26121, "experiments"], [27687, 27691, "experiments"], [28524, 28528, "experiments"], [29473, 29477, "experiments"], [30922, 30926, "experiments"], [32051, 32055, "experiments"], [36547, 36551, "experiments"], [38020, 38024, "experiments"]],
+      "schema:name": {
+        "value": "SVRG",
+        "start_char_doc": 8032,
+        "end_char_doc": 8036,
+        "prefix": "stochastic variance reduction gradient method (",
+        "suffix": ") [10], stochastic average gradient",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "Stochastic variance reduction gradient method for accelerating convergence of SGD",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:complexity": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:pseudoCode": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "evaluatedOn": [],
+      "achieves": [],
+      "trainedOn": [],
+      "prov-producedBy": null,
+      "subMethod": [],
+      "wasDerivedFrom": "paper"
+    },
+
+    {
+      "@id": "algo:sgd",
+      "@type": ["MLS_Algorithm", "Method"],
+      "mention": {
+        "start_char_doc": 13391,
+        "end_char_doc": 13394,
+        "prefix": "in the aspect of the",
+        "suffix": "update step, with the gradient",
+        "section": "method",
+        "valueSource": "extracted"
+      },
+      "occurrences": [[7438, 7441, "related_work"], [7956, 7959, "related_work"], [9144, 9147, "related_work"], [9589, 9592, "related_work"], [9663, 9666, "related_work"], [10085, 10088, "related_work"], [10154, 10157, "related_work"], [10565, 10568, "related_work"], [13391, 13394, "method"], [18658, 18661, "method"], [20854, 20857, "method"], [54242, 54245, "other"], [55911, 55914, "other"], [57908, 57911, "other"], [58044, 58047, "other"], [58861, 58864, "other"]],
+      "schema:name": {
+        "value": "SGD",
+        "start_char_doc": 7438,
+        "end_char_doc": 7441,
+        "prefix": "stochastic gradient descend (",
+        "suffix": ") [31] utilizes a small",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "Stochastic gradient descent",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:complexity": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:pseudoCode": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "evaluatedOn": [],
+      "achieves": [],
+      "trainedOn": [],
+      "prov-producedBy": null,
+      "subMethod": [],
+      "wasDerivedFrom": "paper"
+    },
+
+    {
+      "@id": "algo:adam",
+      "@type": ["MLS_Algorithm", "Method"],
+      "mention": {
+        "start_char_doc": 9741,
+        "end_char_doc": 9745,
+        "prefix": "Similarly, FedAdam [29] accommodated",
+        "suffix": "[15] to FedOpt. However, these",
+        "section": "related_work",
+        "valueSource": "extracted"
+      },
+      "occurrences": [[9741, 9745, "related_work"], [9764, 9768, "related_work"], [10570, 10574, "related_work"], [54341, 54345, "other"]],
+      "schema:name": {
+        "value": "Adam",
+        "start_char_doc": 9741,
+        "end_char_doc": 9745,
+        "prefix": "Similarly, FedAdam [29] accommodated",
+        "suffix": "[15] to FedOpt. However, these",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "A method for stochastic optimization",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:complexity": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:pseudoCode": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "evaluatedOn": [],
+      "achieves": [],
+      "trainedOn": [],
+      "prov-producedBy": null,
+      "subMethod": [],
+      "wasDerivedFrom": "paper"
+    },
+
+    {
+      "@id": "algo:fedpaq",
+      "@type": ["MLS_Algorithm", "Method"],
+      "mention": {
+        "start_char_doc": 9506,
+        "end_char_doc": 9512,
+        "prefix": "known as",
+        "suffix": ", is proposed for reducing the",
+        "section": "related_work",
+        "valueSource": "extracted"
+      },
+      "occurrences": [[9506, 9512, "related_work"]],
+      "schema:name": {
+        "value": "FedPaq",
+        "start_char_doc": 9506,
+        "end_char_doc": 9512,
+        "prefix": "known as",
+        "suffix": ", is proposed for reducing the",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "Communication-efficient federated learning method with periodic averaging and quantization",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:complexity": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:pseudoCode": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "evaluatedOn": [],
+      "achieves": [],
+      "trainedOn": [],
+      "prov-producedBy": null,
+      "subMethod": [],
+      "wasDerivedFrom": "paper"
+    },
+
+    {
+      "@id": "algo:fedadam",
+      "@type": ["MLS_Algorithm", "Method"],
+      "mention": {
+        "start_char_doc": 9738,
+        "end_char_doc": 9745,
+        "prefix": "Similarly,",
+        "suffix": "[29] accommodated Adam [15] to",
+        "section": "related_work",
+        "valueSource": "extracted"
+      },
+      "occurrences": [[9738, 9745, "related_work"]],
+      "schema:name": {
+        "value": "FedAdam",
+        "start_char_doc": 9738,
+        "end_char_doc": 9745,
+        "prefix": "Similarly,",
+        "suffix": "[29] accommodated Adam [15] to",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "Adaptation of Adam optimizer to federated optimization",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:complexity": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:pseudoCode": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "evaluatedOn": [],
+      "achieves": [],
+      "trainedOn": [],
+      "prov-producedBy": null,
+      "subMethod": [],
+      "wasDerivedFrom": "paper"
+    },
+
+    {
+      "@id": "algo:vrl_sgd",
+      "@type": ["MLS_Algorithm", "Method"],
+      "mention": {
+        "start_char_doc": 10081,
+        "end_char_doc": 10088,
+        "prefix": "based on which",
+        "suffix": "has shown faster speed even",
+        "section": "related_work",
+        "valueSource": "extracted"
+      },
+      "occurrences": [[10081, 10088, "related_work"], [10150, 10157, "related_work"]],
+      "schema:name": {
+        "value": "VRL-SGD",
+        "start_char_doc": 10081,
+        "end_char_doc": 10088,
+        "prefix": "based on which",
+        "suffix": "has shown faster speed even",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "Variance Reduced Local SGD with lower communication complexity",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:complexity": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:pseudoCode": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "evaluatedOn": [],
+      "achieves": [],
+      "trainedOn": [],
+      "prov-producedBy": null,
+      "subMethod": [],
+      "wasDerivedFrom": "paper"
+    },
+
+    {
+      "@id": "algo:mfl",
+      "@type": ["MLS_Algorithm", "Method"],
+      "mention": {
+        "start_char_doc": 8885,
+        "end_char_doc": 8888,
+        "prefix": "Limited Medium ✓ ×",
+        "suffix": "[24] Momentum gradient descent O",
+        "section": "related_work",
+        "valueSource": "extracted"
+      },
+      "occurrences": [[8885, 8888, "related_work"], [9716, 9719, "related_work"]],
+      "schema:name": {
+        "value": "MFL",
+        "start_char_doc": 8885,
+        "end_char_doc": 8888,
+        "prefix": "Limited Medium ✓ ×",
+        "suffix": "[24] Momentum gradient descent O",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "Momentum gradient descent method modified for federated learning",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:complexity": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:pseudoCode": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "evaluatedOn": [],
+      "achieves": [],
+      "trainedOn": [],
+      "prov-producedBy": null,
+      "subMethod": [],
+      "wasDerivedFrom": "paper"
+    },
+
+    {
+      "@id": "algo:dsgd",
+      "@type": ["MLS_Algorithm", "Method"],
+      "mention": {
+        "start_char_doc": 36571,
+        "end_char_doc": 36575,
+        "prefix": "and MimeSVRG, we also implement",
+        "suffix": "since it has been the",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [[36571, 36575, "experiments"], [38007, 38011, "experiments"]],
+      "schema:name": {
+        "value": "DSGD",
+        "start_char_doc": 36571,
+        "end_char_doc": 36575,
+        "prefix": "and MimeSVRG, we also implement",
+        "suffix": "since it has been the",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "Distributed SGD, the major attack objective by DLG",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:complexity": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:pseudoCode": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "evaluatedOn": [],
+      "achieves": [],
+      "trainedOn": [],
+      "prov-producedBy": null,
+      "subMethod": [],
+      "wasDerivedFrom": "paper"
+    },
+
+    {
+      "@id": "algo:fedsgd",
+      "@type": ["MLS_Algorithm", "Method"],
+      "mention": {
+        "start_char_doc": 25938,
+        "end_char_doc": 25944,
+        "prefix": "communication efficiency comparing to",
+        "suffix": "[25]. FedCM [39] adopts the",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [[25938, 25944, "experiments"]],
+      "schema:name": {
+        "value": "FedSGD",
+        "start_char_doc": 25938,
+        "end_char_doc": 25944,
+        "prefix": "communication efficiency comparing to",
+        "suffix": "[25]. FedCM [39] adopts the",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:complexity": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:pseudoCode": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "evaluatedOn": [],
+      "achieves": [],
+      "trainedOn": [],
+      "prov-producedBy": null,
+      "subMethod": [],
+      "wasDerivedFrom": "paper"
+    },
+
+    {
+      "@id": "algo:gd",
+      "@type": ["MLS_Algorithm", "Method"],
+      "mention": {
+        "start_char_doc": 37291,
+        "end_char_doc": 37293,
+        "prefix": "step size is chosen as",
+        "suffix": "in DLG. For the",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [[9007, 9009, "related_work"], [21870, 21872, "method"], [22030, 22032, "method"], [36311, 36313, "ablation"], [37291, 37293, "experiments"], [37438, 37440, "experiments"], [37509, 37511, "experiments"], [37539, 37541, "experiments"]],
+      "schema:name": {
+        "value": "GD",
+        "start_char_doc": 37291,
+        "end_char_doc": 37293,
+        "prefix": "step size is chosen as",
+        "suffix": "in DLG. For the",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "Gradient descent used as the optimizer in DLG attack",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:complexity": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:pseudoCode": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "evaluatedOn": [],
+      "achieves": [],
+      "trainedOn": [],
+      "prov-producedBy": null,
+      "subMethod": [],
+      "wasDerivedFrom": "paper"
+    },
+
+    {
+      "@id": "algo:pgd",
+      "@type": ["MLS_Algorithm", "Method"],
+      "mention": {
+        "start_char_doc": 17318,
+        "end_char_doc": 17321,
+        "prefix": "the proximal gradient descent (",
+        "suffix": ") step on the local",
+        "section": "method",
+        "valueSource": "extracted"
+      },
+      "occurrences": [[17318, 17321, "method"]],
+      "schema:name": {
+        "value": "PGD",
+        "start_char_doc": 17318,
+        "end_char_doc": 17321,
+        "prefix": "the proximal gradient descent (",
+        "suffix": ") step on the local",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "Proximal gradient descent",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:complexity": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:pseudoCode": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "evaluatedOn": [],
+      "achieves": [],
+      "trainedOn": [],
+      "prov-producedBy": null,
+      "subMethod": [],
+      "wasDerivedFrom": "paper"
+    },
+
+    {
+      "@id": "method:dlg",
+      "@type": "Method",
+      "mention": {
+        "start_char_doc": 24226,
+        "end_char_doc": 24229,
+        "prefix": "overall performance, ablation study and",
+        "suffix": "study, namely MNIST [18], Human",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [[905, 927, "abstract"], [929, 932, "abstract"], [1227, 1230, "abstract"], [5191, 5194, "introduction"], [5574, 5577, "introduction"], [6333, 6336, "introduction"], [19595, 19622, "method"], [19624, 19627, "method"], [19820, 19823, "method"], [19861, 19864, "method"], [20127, 20154, "method"], [20156, 20159, "method"], [20191, 20194, "method"], [20496, 20499, "method"], [21015, 21018, "method"], [24226, 24229, "experiments"], [27880, 27883, "experiments"], [27994, 27997, "experiments"], [36196, 36199, "ablation"], [36341, 36344, "ablation"], [36414, 36417, "experiments"], [36473, 36476, "experiments"], [36624, 36627, "experiments"], [37310, 37313, "experiments"], [37444, 37447, "experiments"], [37515, 37518, "experiments"], [37545, 37548, "experiments"], [37641, 37644, "experiments"], [37798, 37801, "experiments"], [37944, 37947, "experiments"], [38047, 38050, "experiments"], [38243, 38246, "experiments"], [38310, 38313, "experiments"], [38454, 38457, "experiments"], [38655, 38658, "experiments"], [59574, 59601, "other"]],
+      "schema:name": {
+        "value": "Deep Leakage from Gradients",
+        "start_char_doc": 19595,
+        "end_char_doc": 19622,
+        "prefix": "the recent technique",
+        "suffix": "(DLG) [45] which aims to",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "A technique to obtain information leakage from the gradient by matching dummy gradients to real gradients",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "evaluatedOn": [],
+      "achieves": [],
+      "trainedOn": [],
+      "prov-producedBy": null,
+      "subMethod": [],
+      "wasDerivedFrom": "paper"
+    },
+
+    {
+      "@id": "method:scaffold_prox",
+      "@type": "Method",
+      "mention": {
+        "start_char_doc": 28136,
+        "end_char_doc": 28149,
+        "prefix": "state-of-the-art algorithm SCAFFOLD, namely",
+        "suffix": ", and FedADMM are studied",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [[28136, 28149, "experiments"], [39252, 39265, "experiments"], [39446, 39459, "experiments"]],
+      "schema:name": {
+        "value": "SCAFFOLD-Prox",
+        "start_char_doc": 28136,
+        "end_char_doc": 28149,
+        "prefix": "state-of-the-art algorithm SCAFFOLD, namely",
+        "suffix": ", and FedADMM are studied",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "Proximal version of SCAFFOLD for solving nonsmooth optimization problems",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "evaluatedOn": [],
+      "achieves": [],
+      "trainedOn": [],
+      "prov-producedBy": null,
+      "subMethod": [],
+      "wasDerivedFrom": "paper"
+    },
+
+    {
+      "@id": "method:variance_reduction",
+      "@type": "Method",
+      "mention": {
+        "start_char_doc": 28419,
+        "end_char_doc": 28437,
+        "prefix": "FedSaga utilizes local",
+        "suffix": ", while SCAFFOLD, MimeSVRG and",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [[3741, 3759, "introduction"], [5099, 5117, "introduction"], [6262, 6280, "introduction"], [7835, 7853, "related_work"], [7996, 8014, "related_work"], [10042, 10060, "related_work"], [10652, 10670, "related_work"], [10765, 10783, "related_work"], [10945, 10963, "related_work"], [11339, 11357, "related_work"], [12766, 12784, "method"], [17938, 17956, "method"], [18874, 18892, "method"], [19072, 19090, "method"], [28419, 28437, "experiments"], [28484, 28502, "experiments"], [29689, 29707, "experiments"], [31047, 31065, "experiments"]],
+      "schema:name": {
+        "value": "variance reduction",
+        "start_char_doc": 7835,
+        "end_char_doc": 7853,
+        "prefix": "The",
+        "suffix": "techniques [8] have been developed",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "Techniques to control and reduce stochastic variance during mini-batch optimization to accelerate convergence of SGD",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "evaluatedOn": [],
+      "achieves": [],
+      "trainedOn": [],
+      "prov-producedBy": null,
+      "subMethod": [],
+      "wasDerivedFrom": "paper"
+    },
+
+    {
+      "@id": "method:control_variate",
+      "@type": "Method",
+      "mention": {
+        "start_char_doc": 10022,
+        "end_char_doc": 10037,
+        "prefix": "reduction technique, namely the",
+        "suffix": "[10], to correct the local",
+        "section": "related_work",
+        "valueSource": "extracted"
+      },
+      "occurrences": [[10022, 10037, "related_work"]],
+      "schema:name": {
+        "value": "control variate",
+        "start_char_doc": 10022,
+        "end_char_doc": 10037,
+        "prefix": "reduction technique, namely the",
+        "suffix": "[10], to correct the local",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "Variance reduction technique used by SCAFFOLD to correct the local update direction",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "evaluatedOn": [],
+      "achieves": [],
+      "trainedOn": [],
+      "prov-producedBy": null,
+      "subMethod": [],
+      "wasDerivedFrom": "paper"
+    },
+
+    {
+      "@id": "method:proximal_operator",
+      "@type": "Method",
+      "mention": {
+        "start_char_doc": 7027,
+        "end_char_doc": 7044,
+        "prefix": "by introducing the",
+        "suffix": "to the local update",
+        "section": "related_work",
+        "valueSource": "extracted"
+      },
+      "occurrences": [[7027, 7044, "related_work"]],
+      "schema:name": {
+        "value": "proximal operator",
+        "start_char_doc": 7027,
+        "end_char_doc": 7044,
+        "prefix": "by introducing the",
+        "suffix": "to the local update",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "An effective tool for solving nonsmooth, constrained, large-scale, or distributed problems",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "evaluatedOn": [],
+      "achieves": [],
+      "trainedOn": [],
+      "prov-producedBy": null,
+      "subMethod": [],
+      "wasDerivedFrom": "paper"
+    },
+
+    {
+      "@id": "model:2nn",
+      "@type": ["MLS_Model", "Method"],
+      "mention": {
+        "start_char_doc": 23992,
+        "end_char_doc": 23995,
+        "prefix": "training models. Specifically,",
+        "suffix": "is a fully connected neural",
+        "section": "method",
+        "valueSource": "extracted"
+      },
+      "occurrences": [[23992, 23995, "method"]],
+      "schema:name": {
+        "value": "2NN",
+        "start_char_doc": 23992,
+        "end_char_doc": 23995,
+        "prefix": "training models. Specifically,",
+        "suffix": "is a fully connected neural",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "Fully connected neural network with 2 hidden layers, 200 ReLU activation functions in each hidden layer, and a softmax output",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:version": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:architecture": {
+        "value": "fully connected neural network with 2 hidden layers with 200 ReLU activation functions in each hidden layer and a softmax output",
+        "start_char_doc": 24001,
+        "end_char_doc": 24133,
+        "prefix": "Specifically, 2NN is a",
+        "suffix": ".",
+        "valueSource": "extracted"
+      },
+      "schema:parameters": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "evaluatedOn": [
+        {"@id": "dataset:mnist"},
+        {"@id": "dataset:har"},
+        {"@id": "dataset:esr"}
+      ],
+      "achieves": [],
+      "trainedOn": [],
+      "prov-producedBy": null,
+      "subMethod": [],
+      "wasDerivedFrom": "paper"
+    },
+
+    {
+      "@id": "dataset:mnist",
+      "@type": "MLS_Dataset",
+      "mention": {
+        "start_char_doc": 24244,
+        "end_char_doc": 24249,
+        "prefix": "study and DLG study, namely",
+        "suffix": "[18], Human Activity Recognition Using",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [[24244, 24249, "experiments"], [24382, 24387, "experiments"], [24678, 24683, "experiments"], [25841, 25846, "experiments"], [26433, 26438, "experiments"], [26679, 26684, "experiments"], [27869, 27874, "experiments"], [28641, 28646, "experiments"], [30356, 30361, "experiments"], [30541, 30546, "experiments"], [36653, 36658, "experiments"], [36829, 36834, "experiments"], [37371, 37376, "experiments"]],
+      "schema:name": {
+        "value": "MNIST",
+        "start_char_doc": 24244,
+        "end_char_doc": 24249,
+        "prefix": "study and DLG study, namely",
+        "suffix": "[18], Human Activity Recognition Using",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "Handwritten digit recognition dataset widely applied for study",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:numInstances": {
+        "value": "70000",
+        "start_char_doc": 24630,
+        "end_char_doc": 24683,
+        "prefix": "we use",
+        "suffix": ", 7, 352 for training and",
+        "valueSource": "extracted"
+      },
+      "schema:language": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:license": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:modality": {
+        "value": "image",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:numClasses": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "wasDerivedFrom": "paper"
+    },
+
+    {
+      "@id": "dataset:har",
+      "@type": "MLS_Dataset",
+      "mention": {
+        "start_char_doc": 24256,
+        "end_char_doc": 24313,
+        "prefix": "DLG study, namely MNIST [18],",
+        "suffix": "[3] and Epileptic Seizure Recognition",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [[24256, 24300, "experiments"], [24310, 24313, "experiments"], [24454, 24457, "experiments"], [24731, 24734, "experiments"], [26471, 26474, "experiments"], [26708, 26711, "experiments"], [30363, 30366, "experiments"], [30413, 30416, "experiments"], [30585, 30588, "experiments"], [32408, 32411, "experiments"], [36660, 36663, "experiments"], [36912, 36915, "experiments"], [37381, 37384, "experiments"], [51947, 51991, "other"]],
+      "schema:name": {
+        "value": "Human Activity Recognition Using Smartphones dataset",
+        "start_char_doc": 24256,
+        "end_char_doc": 24314,
+        "prefix": "DLG study, namely MNIST [18],",
+        "suffix": "[3] and Epileptic Seizure Recognition",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "Dataset for human activity recognition using smartphones, chosen due to increasing interests and large potential for FedOpt applications in mobile devices",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:numInstances": {
+        "value": "10299",
+        "start_char_doc": 24685,
+        "end_char_doc": 24734,
+        "prefix": "for testing in MNIST,",
+        "suffix": ", and 9, 200 for training",
+        "valueSource": "extracted"
+      },
+      "schema:language": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:license": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:modality": {
+        "value": "sensor",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:numClasses": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "wasDerivedFrom": "paper"
+    },
+
+    {
+      "@id": "dataset:esr",
+      "@type": "MLS_Dataset",
+      "mention": {
+        "start_char_doc": 24323,
+        "end_char_doc": 24365,
+        "prefix": "[3] and",
+        "suffix": "[2]. We choose MNIST dataset",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [[24323, 24352, "experiments"], [24362, 24365, "experiments"], [24462, 24465, "experiments"], [24786, 24789, "experiments"], [26479, 26482, "experiments"], [26716, 26719, "experiments"], [30371, 30374, "experiments"], [30421, 30424, "experiments"], [30593, 30596, "experiments"], [33196, 33199, "experiments"], [34402, 34405, "ablation"], [36668, 36671, "experiments"], [36993, 36996, "experiments"], [37453, 37456, "experiments"]],
+      "schema:name": {
+        "value": "Epileptic Seizure Recognition dataset",
+        "start_char_doc": 24323,
+        "end_char_doc": 24366,
+        "prefix": "[3] and",
+        "suffix": "[2]. We choose MNIST dataset",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "Dataset for epileptic seizure recognition, chosen due to large potential for FedOpt applications in healthcare",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:numInstances": {
+        "value": "11500",
+        "start_char_doc": 24740,
+        "end_char_doc": 24789,
+        "prefix": "for testing in HAR, and",
+        "suffix": ". Moreover, we choose synthetic",
+        "valueSource": "extracted"
+      },
+      "schema:language": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:license": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:modality": {
+        "value": "EEG signal",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:numClasses": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "wasDerivedFrom": "paper"
+    },
+
+    {
+      "@id": "dataset:synthetic",
+      "@type": "MLS_Dataset",
+      "mention": {
+        "start_char_doc": 24811,
+        "end_char_doc": 24828,
+        "prefix": "Moreover, we choose",
+        "suffix": "for the low rank matrix",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [[24811, 24828, "experiments"], [40117, 40134, "experiments"]],
+      "schema:name": {
+        "value": "synthetic dataset",
+        "start_char_doc": 24811,
+        "end_char_doc": 24828,
+        "prefix": "Moreover, we choose",
+        "suffix": "for the low rank matrix",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "Synthetic dataset for low rank matrix estimation with known ground truth, d=64, elements generated by N(0.1,1)",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:numInstances": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:language": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:license": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:modality": {
+        "value": "synthetic matrix",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:numClasses": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "wasDerivedFrom": "paper"
+    },
+
+    {
+      "@id": "task:federated_optimization",
+      "@type": "MLS_Task",
+      "mention": {
+        "start_char_doc": 24541,
+        "end_char_doc": 24547,
+        "prefix": "potential for the",
+        "suffix": "applications in mobile devices and",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [[98, 120, "abstract"], [122, 128, "abstract"], [293, 299, "abstract"], [1027, 1033, "abstract"], [1373, 1395, "introduction"], [1397, 1403, "introduction"], [1716, 1722, "introduction"], [1869, 1875, "introduction"], [1967, 1973, "introduction"], [2296, 2302, "introduction"], [2430, 2436, "introduction"], [2515, 2521, "introduction"], [2974, 2980, "introduction"], [3203, 3209, "introduction"], [4260, 4266, "introduction"], [4382, 4388, "introduction"], [4463, 4469, "introduction"], [4573, 4579, "introduction"], [5843, 5849, "introduction"], [9266, 9272, "related_work"], [9449, 9455, "related_work"], [9596, 9602, "related_work"], [9777, 9783, "related_work"], [10362, 10368, "related_work"], [10584, 10590, "related_work"], [11398, 11404, "related_work"], [11513, 11519, "method"], [11544, 11566, "method"], [11997, 12003, "method"], [15122, 15128, "method"], [23770, 23776, "method"], [24541, 24547, "experiments"], [25659, 25665, "experiments"], [25994, 26000, "experiments"], [26130, 26136, "experiments"], [26253, 26259, "experiments"], [31260, 31266, "experiments"], [36738, 36744, "experiments"], [40943, 40949, "experiments"], [41705, 41727, "conclusion"], [41882, 41888, "conclusion"]],
+      "schema:name": {
+        "value": "Federated optimization",
+        "start_char_doc": 98,
+        "end_char_doc": 120,
+        "prefix": "Abstract:",
+        "suffix": "(FedOpt), which targets at collaboratively",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "Distributed optimization in machine learning under the specific setting that data is unevenly distributed over a large number of clients, targeting high communication efficiency",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:category": {
+        "value": "distributed optimization",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:metrics": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "wasDerivedFrom": "paper"
+    },
+
+    {
+      "@id": "task:classification",
+      "@type": "MLS_Task",
+      "mention": {
+        "start_char_doc": 27157,
+        "end_char_doc": 27171,
+        "prefix": "the cross entropy and the",
+        "suffix": "accuracy are evaluated. Specifically, the",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [[27157, 27171, "experiments"], [30655, 30669, "experiments"], [36779, 36793, "experiments"]],
+      "schema:name": {
+        "value": "classification",
+        "start_char_doc": 27157,
+        "end_char_doc": 27171,
+        "prefix": "the cross entropy and the",
+        "suffix": "accuracy are evaluated. Specifically, the",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:category": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:metrics": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "wasDerivedFrom": "paper"
+    },
+
+    {
+      "@id": "task:low_rank_matrix_estimation",
+      "@type": "MLS_Task",
+      "mention": {
+        "start_char_doc": 38743,
+        "end_char_doc": 38769,
+        "prefix": "for solving the problem of",
+        "suffix": "via the comparisons with SCAFFOLD.",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [[16273, 16299, "method"], [17699, 17725, "method"], [23922, 23948, "method"], [24837, 24863, "experiments"], [26779, 26805, "experiments"], [28033, 28059, "experiments"], [38743, 38769, "experiments"], [39856, 39882, "experiments"], [41184, 41210, "experiments"], [42363, 42389, "conclusion"]],
+      "schema:name": {
+        "value": "low rank matrix estimation",
+        "start_char_doc": 38743,
+        "end_char_doc": 38769,
+        "prefix": "for solving the problem of",
+        "suffix": "via the comparisons with SCAFFOLD.",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:category": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:metrics": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "wasDerivedFrom": "paper"
+    },
+
+    {
+      "@id": "task:logistic_regression",
+      "@type": "MLS_Task",
+      "mention": {
+        "start_char_doc": 36748,
+        "end_char_doc": 36767,
+        "prefix": "each FedOpt on",
+        "suffix": "for binary classification on all",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [[23898, 23917, "method"], [36208, 36227, "ablation"], [36748, 36767, "experiments"], [37045, 37064, "experiments"]],
+      "schema:name": {
+        "value": "logistic regression",
+        "start_char_doc": 36748,
+        "end_char_doc": 36767,
+        "prefix": "each FedOpt on",
+        "suffix": "for binary classification on all",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:category": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:metrics": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "wasDerivedFrom": "paper"
+    },
+
+    {
+      "@id": "eval:cross_entropy",
+      "@type": "MLS_Eval",
+      "mention": {
+        "start_char_doc": 27135,
+        "end_char_doc": 27148,
+        "prefix": "overall performance and ablation study, the",
+        "suffix": "and the classification accuracy are",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [[27135, 27148, "experiments"]],
+      "mls:measure": {
+        "value": "cross entropy",
+        "start_char_doc": 27135,
+        "end_char_doc": 27148,
+        "prefix": "overall performance and ablation study, the",
+        "suffix": "and the classification accuracy are",
+        "valueSource": "extracted"
+      },
+      "mls:hasValue": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:stdDev": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:confidenceInterval": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "wasDerivedFrom": "paper"
+    },
+
+    {
+      "@id": "eval:classification_accuracy",
+      "@type": "MLS_Eval",
+      "mention": {
+        "start_char_doc": 27157,
+        "end_char_doc": 27180,
+        "prefix": "the cross entropy and the",
+        "suffix": "are evaluated. Specifically, the overall",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [[27157, 27180, "experiments"]],
+      "mls:measure": {
+        "value": "classification accuracy",
+        "start_char_doc": 27157,
+        "end_char_doc": 27180,
+        "prefix": "the cross entropy and the",
+        "suffix": "are evaluated. Specifically, the overall",
+        "valueSource": "extracted"
+      },
+      "mls:hasValue": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:stdDev": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:confidenceInterval": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "wasDerivedFrom": "paper"
+    },
+
+    {
+      "@id": "eval:frobenius_norm",
+      "@type": "MLS_Eval",
+      "mention": {
+        "start_char_doc": 27941,
+        "end_char_doc": 27955,
+        "prefix": "the similarity measured by the",
+        "suffix": "between the estimated data samples",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [[27941, 27955, "experiments"]],
+      "mls:measure": {
+        "value": "Frobenius norm",
+        "start_char_doc": 27941,
+        "end_char_doc": 27955,
+        "prefix": "the similarity measured by the",
+        "suffix": "between the estimated data samples",
+        "valueSource": "extracted"
+      },
+      "mls:hasValue": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:stdDev": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:confidenceInterval": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "wasDerivedFrom": "paper"
+    },
+
+    {
+      "@id": "eval:recovery_matrix_error",
+      "@type": "MLS_Eval",
+      "mention": {
+        "start_char_doc": 28194,
+        "end_char_doc": 28215,
+        "prefix": "for performance evaluation, namely the",
+        "suffix": "and the rank of the",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [[28194, 28215, "experiments"], [40647, 40668, "experiments"], [41281, 41302, "experiments"]],
+      "mls:measure": {
+        "value": "recovery matrix error",
+        "start_char_doc": 28194,
+        "end_char_doc": 28215,
+        "prefix": "for performance evaluation, namely the",
+        "suffix": "and the rank of the",
+        "valueSource": "extracted"
+      },
+      "mls:hasValue": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:stdDev": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "mls:confidenceInterval": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "wasDerivedFrom": "paper"
+    },
+
+    {
+      "@id": "hp:learning_rate_mnist",
+      "@type": "MLS_HyperParameter",
+      "hpCategory": "HP_Optimization",
+      "hpType": "LearningRate",
+      "uncertain": false,
+      "mention": {
+        "start_char_doc": 26663,
+        "end_char_doc": 26674,
+        "prefix": "for each algorithm, i.e.,",
+        "suffix": "for MNIST cases and  =",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [[26663, 26674, "experiments"], [29071, 29082, "experiments"]],
+      "mls:name": {
+        "value": "step size (MNIST)",
+        "start_char_doc": 26570,
+        "end_char_doc": 26583,
+        "prefix": "= 5. Particularly, the",
+        "suffix": "is set to yield as",
+        "valueSource": "extracted"
+      },
+      "mls:hasValue": {
+        "value": "4e-4",
+        "start_char_doc": 26663,
+        "end_char_doc": 26674,
+        "prefix": "for each algorithm, i.e.,",
+        "suffix": "for MNIST cases and  =",
+        "valueSource": "extracted"
+      },
+      "wasDerivedFrom": "paper"
+    },
+
+    {
+      "@id": "hp:learning_rate_har_esr",
+      "@type": "MLS_HyperParameter",
+      "hpCategory": "HP_Optimization",
+      "hpType": "LearningRate",
+      "uncertain": false,
+      "mention": {
+        "start_char_doc": 26696,
+        "end_char_doc": 26703,
+        "prefix": "for MNIST cases and",
+        "suffix": "for HAR and ESR cases.",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [[26696, 26703, "experiments"], [30564, 30571, "experiments"]],
+      "mls:name": {
+        "value": "step size (HAR/ESR)",
+        "start_char_doc": 26570,
+        "end_char_doc": 26583,
+        "prefix": "= 5. Particularly, the",
+        "suffix": "is set to yield as",
+        "valueSource": "extracted"
+      },
+      "mls:hasValue": {
+        "value": "1e-4",
+        "start_char_doc": 26696,
+        "end_char_doc": 26703,
+        "prefix": "for MNIST cases and",
+        "suffix": "for HAR and ESR cases.",
+        "valueSource": "extracted"
+      },
+      "wasDerivedFrom": "paper"
+    },
+
+    {
+      "@id": "hp:learning_rate_low_rank",
+      "@type": "MLS_HyperParameter",
+      "hpCategory": "HP_Optimization",
+      "hpType": "LearningRate",
+      "uncertain": false,
+      "mention": {
+        "start_char_doc": 40510,
+        "end_char_doc": 40521,
+        "prefix": "We tune the step size",
+        "suffix": "for each algorithm to yield",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [[40510, 40521, "experiments"]],
+      "mls:name": {
+        "value": "step size (low rank matrix estimation)",
+        "start_char_doc": 40510,
+        "end_char_doc": 40521,
+        "prefix": "We tune the step size",
+        "suffix": "for each algorithm to yield",
+        "valueSource": "extracted"
+      },
+      "mls:hasValue": {
+        "value": "2e-3",
+        "start_char_doc": 40510,
+        "end_char_doc": 40521,
+        "prefix": "We tune the step size",
+        "suffix": "for each algorithm to yield",
+        "valueSource": "extracted"
+      },
+      "wasDerivedFrom": "paper"
+    },
+
+    {
+      "@id": "hp:learning_rate_dlg",
+      "@type": "MLS_HyperParameter",
+      "hpCategory": "HP_Optimization",
+      "hpType": "LearningRate",
+      "uncertain": false,
+      "mention": {
+        "start_char_doc": 37426,
+        "end_char_doc": 37433,
+        "prefix": "all algorithms and",
+        "suffix": "for GD in DLG, (b)",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [[37426, 37433, "experiments"], [37464, 37471, "experiments"], [37497, 37504, "experiments"]],
+      "mls:name": {
+        "value": "step size (DLG study)",
+        "start_char_doc": 37426,
+        "end_char_doc": 37433,
+        "prefix": "all algorithms and",
+        "suffix": "for GD in DLG, (b)",
+        "valueSource": "extracted"
+      },
+      "mls:hasValue": {
+        "value": "1e-3",
+        "start_char_doc": 37426,
+        "end_char_doc": 37433,
+        "prefix": "all algorithms and",
+        "suffix": "for GD in DLG, (b)",
+        "valueSource": "extracted"
+      },
+      "wasDerivedFrom": "paper"
+    },
+
+    {
+      "@id": "hp:num_clients_mnist",
+      "@type": "MLS_HyperParameter",
+      "hpCategory": "HP_Training",
+      "hpType": "HP_Training",
+      "uncertain": true,
+      "mention": {
+        "start_char_doc": 28775,
+        "end_char_doc": 28792,
+        "prefix": "and distribute it to",
+        "suffix": ". Then, the left % of",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [[28775, 28792, "experiments"]],
+      "mls:name": {
+        "value": "number of clients N (MNIST)",
+        "start_char_doc": 28775,
+        "end_char_doc": 28792,
+        "prefix": "and distribute it to",
+        "suffix": ". Then, the left % of",
+        "valueSource": "extracted"
+      },
+      "mls:hasValue": {
+        "value": "1000",
+        "start_char_doc": 28775,
+        "end_char_doc": 28792,
+        "prefix": "and distribute it to",
+        "suffix": ". Then, the left % of",
+        "valueSource": "extracted"
+      },
+      "wasDerivedFrom": "paper"
+    },
+
+    {
+      "@id": "hp:communication_rounds_mnist",
+      "@type": "MLS_HyperParameter",
+      "hpCategory": "HP_Training",
+      "hpType": "MaxSteps",
+      "uncertain": true,
+      "mention": {
+        "start_char_doc": 26416,
+        "end_char_doc": 26428,
+        "prefix": "for all algorithms, ( , ) =",
+        "suffix": "for MNIST cases and ( ,",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [[26416, 26428, "experiments"]],
+      "mls:name": {
+        "value": "communication rounds R (MNIST)",
+        "start_char_doc": 26416,
+        "end_char_doc": 26428,
+        "prefix": "for all algorithms, ( , ) =",
+        "suffix": "for MNIST cases and ( ,",
+        "valueSource": "extracted"
+      },
+      "mls:hasValue": {
+        "value": "1000",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "wasDerivedFrom": "paper"
+    },
+
+    {
+      "@id": "hp:participating_clients_mnist",
+      "@type": "MLS_HyperParameter",
+      "hpCategory": "HP_Training",
+      "hpType": "HP_Training",
+      "uncertain": true,
+      "mention": {
+        "start_char_doc": 26416,
+        "end_char_doc": 26428,
+        "prefix": "for all algorithms, ( , ) =",
+        "suffix": "for MNIST cases and ( ,",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [[26416, 26428, "experiments"]],
+      "mls:name": {
+        "value": "participating clients S (MNIST)",
+        "start_char_doc": 26416,
+        "end_char_doc": 26428,
+        "prefix": "for all algorithms, ( , ) =",
+        "suffix": "for MNIST cases and ( ,",
+        "valueSource": "extracted"
+      },
+      "mls:hasValue": {
+        "value": "50",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "wasDerivedFrom": "paper"
+    },
+
+    {
+      "@id": "hp:communication_rounds_har_esr",
+      "@type": "MLS_HyperParameter",
+      "hpCategory": "HP_Training",
+      "hpType": "MaxSteps",
+      "uncertain": true,
+      "mention": {
+        "start_char_doc": 26457,
+        "end_char_doc": 26466,
+        "prefix": "MNIST cases and ( , ) =",
+        "suffix": "for HAR and ESR cases.",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [[26457, 26466, "experiments"], [33939, 33948, "ablation"], [40415, 40424, "experiments"]],
+      "mls:name": {
+        "value": "communication rounds R (HAR/ESR)",
+        "start_char_doc": 26457,
+        "end_char_doc": 26466,
+        "prefix": "MNIST cases and ( , ) =",
+        "suffix": "for HAR and ESR cases.",
+        "valueSource": "extracted"
+      },
+      "mls:hasValue": {
+        "value": "100",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "wasDerivedFrom": "paper"
+    },
+
+    {
+      "@id": "hp:participating_clients_har_esr",
+      "@type": "MLS_HyperParameter",
+      "hpCategory": "HP_Training",
+      "hpType": "HP_Training",
+      "uncertain": true,
+      "mention": {
+        "start_char_doc": 26457,
+        "end_char_doc": 26466,
+        "prefix": "MNIST cases and ( , ) =",
+        "suffix": "for HAR and ESR cases.",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [[26457, 26466, "experiments"]],
+      "mls:name": {
+        "value": "participating clients S (HAR/ESR)",
+        "start_char_doc": 26457,
+        "end_char_doc": 26466,
+        "prefix": "MNIST cases and ( , ) =",
+        "suffix": "for HAR and ESR cases.",
+        "valueSource": "extracted"
+      },
+      "mls:hasValue": {
+        "value": "10",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "wasDerivedFrom": "paper"
+    },
+
+    {
+      "@id": "hp:local_data_division",
+      "@type": "MLS_HyperParameter",
+      "hpCategory": "HP_Data",
+      "hpType": "HP_Data",
+      "uncertain": true,
+      "mention": {
+        "start_char_doc": 26501,
+        "end_char_doc": 26525,
+        "prefix": "We set the",
+        "suffix": "and the local iteration  = 5.",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [[26501, 26525, "experiments"]],
+      "mls:name": {
+        "value": "local data division M",
+        "start_char_doc": 26501,
+        "end_char_doc": 26525,
+        "prefix": "We set the",
+        "suffix": "and the local iteration  = 5.",
+        "valueSource": "extracted"
+      },
+      "mls:hasValue": {
+        "value": "5",
+        "start_char_doc": 26501,
+        "end_char_doc": 26525,
+        "prefix": "We set the",
+        "suffix": "and the local iteration  = 5.",
+        "valueSource": "extracted"
+      },
+      "wasDerivedFrom": "paper"
+    },
+
+    {
+      "@id": "hp:local_iteration_K",
+      "@type": "MLS_HyperParameter",
+      "hpCategory": "HP_Training",
+      "hpType": "HP_Training",
+      "uncertain": true,
+      "mention": {
+        "start_char_doc": 26534,
+        "end_char_doc": 26554,
+        "prefix": "local data division  = 5 and the",
+        "suffix": ". Particularly, the step size",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [[26534, 26554, "experiments"]],
+      "mls:name": {
+        "value": "local iteration K",
+        "start_char_doc": 26534,
+        "end_char_doc": 26554,
+        "prefix": "local data division  = 5 and the",
+        "suffix": ". Particularly, the step size",
+        "valueSource": "extracted"
+      },
+      "mls:hasValue": {
+        "value": "5",
+        "start_char_doc": 26534,
+        "end_char_doc": 26554,
+        "prefix": "local data division  = 5 and the",
+        "suffix": ". Particularly, the step size",
+        "valueSource": "extracted"
+      },
+      "wasDerivedFrom": "paper"
+    },
+
+    {
+      "@id": "hp:matrix_dimension_d",
+      "@type": "MLS_HyperParameter",
+      "hpCategory": "HP_Data",
+      "hpType": "HP_Data",
+      "uncertain": true,
+      "mention": {
+        "start_char_doc": 40304,
+        "end_char_doc": 40309,
+        "prefix": "Specifically, we set",
+        "suffix": "for   and five scenarios of",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [[40304, 40309, "experiments"]],
+      "mls:name": {
+        "value": "matrix dimension d",
+        "start_char_doc": 40304,
+        "end_char_doc": 40309,
+        "prefix": "Specifically, we set",
+        "suffix": "for   and five scenarios of",
+        "valueSource": "extracted"
+      },
+      "mls:hasValue": {
+        "value": "64",
+        "start_char_doc": 40304,
+        "end_char_doc": 40309,
+        "prefix": "Specifically, we set",
+        "suffix": "for   and five scenarios of",
+        "valueSource": "extracted"
+      },
+      "wasDerivedFrom": "paper"
+    },
+
+    {
+      "@id": "hp:dlg_gd_iterations",
+      "@type": "MLS_HyperParameter",
+      "hpCategory": "HP_Training",
+      "hpType": "MaxSteps",
+      "uncertain": true,
+      "mention": {
+        "start_char_doc": 37557,
+        "end_char_doc": 37577,
+        "prefix": "GD in DLG has the",
+        "suffix": ". For simplicity without loss",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [[37557, 37577, "experiments"]],
+      "mls:name": {
+        "value": "DLG GD iteration number",
+        "start_char_doc": 37557,
+        "end_char_doc": 37577,
+        "prefix": "GD in DLG has the",
+        "suffix": ". For simplicity without loss",
+        "valueSource": "extracted"
+      },
+      "mls:hasValue": {
+        "value": "100",
+        "start_char_doc": 37557,
+        "end_char_doc": 37577,
+        "prefix": "GD in DLG has the",
+        "suffix": ". For simplicity without loss",
+        "valueSource": "extracted"
+      },
+      "wasDerivedFrom": "paper"
+    },
+
+    {
+      "@id": "exp:group_losac_fedopt_2023",
+      "@type": "Experiment",
+      "mention": {
+        "start_char_doc": 23770,
+        "end_char_doc": 23776,
+        "prefix": "extensive experiments to verify the effectiveness of LoSAC",
+        "suffix": "applications in mobile devices and",
+        "section": "experiments",
+        "valueSource": "extracted"
+      },
+      "occurrences": [[23770, 23776, "experiments"]],
+      "schema:identifier": {
+        "value": "LoSAC Federated Optimization Experiments",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:description": {
+        "value": "Comprehensive experiments evaluating LoSAC on classification (MNIST, HAR, ESR), DLG defense, and low-rank matrix estimation tasks, comparing with FedAvg, FedCM, SCAFFOLD, FedADMM, MimeSVRG, and FedSaga baselines",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:objective": {
+        "value": "Verify the superiority of LoSAC in communication efficiency, model divergence mitigation, and DLG defense",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:hypothesis": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:methodology": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "realizes": [{"@id": "task:federated_optimization"}, {"@id": "task:classification"}, {"@id": "task:low_rank_matrix_estimation"}],
+      "usesData": [{"@id": "dataset:mnist"}, {"@id": "dataset:har"}, {"@id": "dataset:esr"}, {"@id": "dataset:synthetic"}],
+      "produces": [{"@id": "algo:losac"}, {"@id": "algo:losac_prox"}],
+      "usesParameters": [{"@id": "hp:learning_rate_mnist"}, {"@id": "hp:learning_rate_har_esr"}, {"@id": "hp:learning_rate_low_rank"}, {"@id": "hp:learning_rate_dlg"}, {"@id": "hp:num_clients_mnist"}, {"@id": "hp:communication_rounds_mnist"}, {"@id": "hp:communication_rounds_har_esr"}, {"@id": "hp:participating_clients_mnist"}, {"@id": "hp:participating_clients_har_esr"}, {"@id": "hp:local_data_division"}, {"@id": "hp:local_iteration_K"}, {"@id": "hp:matrix_dimension_d"}, {"@id": "hp:dlg_gd_iterations"}],
+      "executes": [],
+      "wasDerivedFrom": "paper"
+    },
+
+    {
+      "@id": "task:federated_learning",
+      "@type": "MLS_Task",
+      "mention": {
+        "start_char_doc": 249,
+        "end_char_doc": 267,
+        "prefix": "is vital for",
+        "suffix": ". The primary concerns in FedOpt",
+        "section": "abstract",
+        "valueSource": "extracted"
+      },
+      "occurrences": [[249, 267, "abstract"], [9696, 9714, "related_work"]],
+      "schema:name": {
+        "value": "federated learning",
+        "start_char_doc": 249,
+        "end_char_doc": 267,
+        "prefix": "is vital for",
+        "suffix": ". The primary concerns in FedOpt",
+        "valueSource": "extracted"
+      },
+      "schema:description": {
+        "value": "Machine learning approach where a model is trained across multiple decentralized clients holding local data samples without exchanging them",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:category": {
+        "value": "distributed machine learning",
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "schema:metrics": {
+        "value": null,
+        "start_char_doc": null,
+        "end_char_doc": null,
+        "prefix": null,
+        "suffix": null,
+        "valueSource": "inferred"
+      },
+      "wasDerivedFrom": "paper"
+    }
+  ]
+}
