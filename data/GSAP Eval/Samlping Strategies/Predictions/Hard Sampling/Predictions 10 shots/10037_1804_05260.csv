@@ -1,0 +1,162 @@
+doc_id,local_entity_id,text,start_char,end_char,ner_label
+10037_1804_05260.txt,1,ClassiNet,0,9,MLModel
+10037_1804_05260.txt,2,Short-Text Classification,43,68,Task
+10037_1804_05260.txt,3,sentiment classification,325,349,Task
+10037_1804_05260.txt,4,spam detection,351,365,Task
+10037_1804_05260.txt,5,short-text classification,426,451,Task
+10037_1804_05260.txt,6,ClassiNet,576,585,MLModel
+10037_1804_05260.txt,7,ClassiNets,1248,1258,MLModel
+10037_1804_05260.txt,8,Twitter,2166,2173,DataSource
+10037_1804_05260.txt,9,text classification,2951,2970,Task
+10037_1804_05260.txt,10,event prediction,3028,3044,Task
+10037_1804_05260.txt,11,query expansion,5180,5195,Method
+10037_1804_05260.txt,12,information retrieval,5212,5233,Task
+10037_1804_05260.txt,13,support vector machines,6708,6731,ModelArchitecture
+10037_1804_05260.txt,14,logistic regression,6733,6752,ModelArchitecture
+10037_1804_05260.txt,15,naive Bayes classifier,6754,6776,ModelArchitecture
+10037_1804_05260.txt,16,sentiment classification,7490,7514,Task
+10037_1804_05260.txt,17,ClassiNets,7798,7808,MLModel
+10037_1804_05260.txt,18,ClassiNets,8119,8129,MLModel
+10037_1804_05260.txt,19,ClassiNets,8286,8296,MLModel
+10037_1804_05260.txt,20,short-text classification,9029,9054,Task
+10037_1804_05260.txt,21,short-text classification,9322,9347,Task
+10037_1804_05260.txt,22,ClassiNets,9378,9388,MLModel
+10037_1804_05260.txt,23,ClassiNets,9639,9649,MLModel
+10037_1804_05260.txt,24,short-text classification,9724,9749,Task
+10037_1804_05260.txt,25,ClassiNets,10209,10219,MLModel
+10037_1804_05260.txt,26,ClassiNets,10288,10298,MLModel
+10037_1804_05260.txt,27,ClassiNets,10393,10403,MLModel
+10037_1804_05260.txt,28,ClassiNets,10523,10533,MLModel
+10037_1804_05260.txt,29,dimensionality reduction,11907,11931,Method
+10037_1804_05260.txt,30,latent dirichlet allocation,12016,12043,Method
+10037_1804_05260.txt,31,LDA,12045,12048,Method
+10037_1804_05260.txt,32,structural correspondence learning,14123,14157,Method
+10037_1804_05260.txt,33,SCL,14159,14162,Method
+10037_1804_05260.txt,34,singular value decomposition,14586,14614,Method
+10037_1804_05260.txt,35,ClassiNets,16409,16419,MLModel
+10037_1804_05260.txt,36,short-text classification,16494,16519,Task
+10037_1804_05260.txt,37,multi sense skip-gram,17408,17429,Method
+10037_1804_05260.txt,38,MSSG,17431,17435,Method
+10037_1804_05260.txt,39,Skip-Gram with Negative Sampling,17528,17560,Method
+10037_1804_05260.txt,40,SGNG,17562,17566,Method
+10037_1804_05260.txt,41,SGNG,17599,17603,Method
+10037_1804_05260.txt,42,MSSG,17677,17681,Method
+10037_1804_05260.txt,43,MSSG,18039,18043,Method
+10037_1804_05260.txt,44,NP-MSSG,18045,18052,Method
+10037_1804_05260.txt,45,Word Sense Disambiguation,18218,18243,Task
+10037_1804_05260.txt,46,WSD,18245,18248,Task
+10037_1804_05260.txt,47,Babel-Net,18456,18465,DataSource
+10037_1804_05260.txt,48,WordNet,18606,18613,DataSource
+10037_1804_05260.txt,49,Wikipedia,18633,18642,DataSource
+10037_1804_05260.txt,50,Wikipedia,18709,18718,DataSource
+10037_1804_05260.txt,51,WordNet,18723,18730,DataSource
+10037_1804_05260.txt,52,SGNS,19568,19572,Method
+10037_1804_05260.txt,53,TopicVec,19976,19984,MLModel
+10037_1804_05260.txt,54,query suggestion,20897,20913,Task
+10037_1804_05260.txt,55,Deep-Walk,21983,21992,MLModel
+10037_1804_05260.txt,56,skip-gram with negative sampling,22152,22184,Method
+10037_1804_05260.txt,57,SGNS,22186,22190,Method
+10037_1804_05260.txt,58,DeepWalk,22283,22291,MLModel
+10037_1804_05260.txt,59,ClassiNets,23705,23715,MLModel
+10037_1804_05260.txt,60,ClassiNets,24670,24680,MLModel
+10037_1804_05260.txt,61,short-text classification,25230,25255,Task
+10037_1804_05260.txt,62,ClassiNets,25866,25876,MLModel
+10037_1804_05260.txt,63,ClassiNets,28116,28126,MLModel
+10037_1804_05260.txt,64,ClassiNets,33492,33502,MLModel
+10037_1804_05260.txt,65,tweet classification,33811,33831,Task
+10037_1804_05260.txt,66,perceptron,35022,35032,ModelArchitecture
+10037_1804_05260.txt,67,ClassiNets,43678,43688,MLModel
+10037_1804_05260.txt,68,Pointwise Mutual Information,44079,44107,Method
+10037_1804_05260.txt,69,PMI,44109,44112,Method
+10037_1804_05260.txt,70,Log-Likelihood Ratio,44115,44135,Method
+10037_1804_05260.txt,71,LLR,44137,44140,Method
+10037_1804_05260.txt,72,KL-divergence,44174,44187,Method
+10037_1804_05260.txt,73,ClassiNets,45972,45982,MLModel
+10037_1804_05260.txt,74,ClassiNet,46699,46708,MLModel
+10037_1804_05260.txt,75,ClassiNet,48281,48290,MLModel
+10037_1804_05260.txt,76,ClassiNet,49085,49094,MLModel
+10037_1804_05260.txt,77,ClassiNet,50568,50577,MLModel
+10037_1804_05260.txt,78,ClassiNet,51662,51671,MLModel
+10037_1804_05260.txt,79,label propagation,51988,52005,Method
+10037_1804_05260.txt,80,label propagation,55997,56014,Method
+10037_1804_05260.txt,81,ClassiNets,58474,58484,MLModel
+10037_1804_05260.txt,82,ClassiNets,58576,58586,MLModel
+10037_1804_05260.txt,83,ClassiNets,62045,62055,MLModel
+10037_1804_05260.txt,84,ClassiNet,64003,64012,MLModel
+10037_1804_05260.txt,85,ClassiNet,65519,65528,MLModel
+10037_1804_05260.txt,86,Large Movie Review dataset,65572,65598,Dataset
+10037_1804_05260.txt,87,Stanford sentiment treebank,66119,66146,Dataset
+10037_1804_05260.txt,88,logistic regression,67726,67745,ModelArchitecture
+10037_1804_05260.txt,89,ClassiNet,67841,67850,MLModel
+10037_1804_05260.txt,90,text classification,68069,68088,Task
+10037_1804_05260.txt,91,logistic regression,68580,68599,ModelArchitecture
+10037_1804_05260.txt,92,Stanford sentiment treebank,68698,68725,Dataset
+10037_1804_05260.txt,93,Stanford sentiment treebank,68891,68918,Dataset
+10037_1804_05260.txt,94,Stanford sentiment treebank,69285,69312,Dataset
+10037_1804_05260.txt,95,sentiment classification,69454,69478,Task
+10037_1804_05260.txt,96,WordNet,70166,70173,DataSource
+10037_1804_05260.txt,97,WordNet,70415,70422,DataSource
+10037_1804_05260.txt,98,WordNet,70501,70508,DataSource
+10037_1804_05260.txt,99,WordNet,70639,70646,DataSource
+10037_1804_05260.txt,100,SCL,70845,70848,Method
+10037_1804_05260.txt,101,structural correspondence learning,71164,71198,Method
+10037_1804_05260.txt,102,SCL,71200,71203,Method
+10037_1804_05260.txt,103,SCL,71306,71309,Method
+10037_1804_05260.txt,104,SCL,71371,71374,Method
+10037_1804_05260.txt,105,SCL,71495,71498,Method
+10037_1804_05260.txt,106,SCL,71562,71565,Method
+10037_1804_05260.txt,107,SCL,71659,71662,Method
+10037_1804_05260.txt,108,singular value decomposition,71887,71915,Method
+10037_1804_05260.txt,109,FTS,72392,72395,Method
+10037_1804_05260.txt,110,frequent term sets,72408,72426,Method
+10037_1804_05260.txt,111,CBOW,73008,73012,Method
+10037_1804_05260.txt,112,ClassiNets,73073,73083,MLModel
+10037_1804_05260.txt,113,continuous bag-of-words,73328,73351,Method
+10037_1804_05260.txt,114,SCL,74329,74332,Method
+10037_1804_05260.txt,115,short-text classification,75486,75511,Task
+10037_1804_05260.txt,116,WordNet,75702,75709,DataSource
+10037_1804_05260.txt,117,SCL,76189,76192,Method
+10037_1804_05260.txt,118,SCL,76306,76309,Method
+10037_1804_05260.txt,119,short-text classification,76495,76520,Task
+10037_1804_05260.txt,120,Skip-thought,77090,77102,MLModel
+10037_1804_05260.txt,121,FastSent,77133,77141,MLModel
+10037_1804_05260.txt,122,Paragraph2Vec,77168,77181,MLModel
+10037_1804_05260.txt,123,text classification,77300,77319,Task
+10037_1804_05260.txt,124,Skip-thought,77754,77766,MLModel
+10037_1804_05260.txt,125,FastSent,77768,77776,MLModel
+10037_1804_05260.txt,126,Toronto books corpus,77870,77890,Dataset
+10037_1804_05260.txt,127,TREC,78030,78034,Dataset
+10037_1804_05260.txt,128,question-type classification,78035,78063,Task
+10037_1804_05260.txt,129,Skip-thought,78656,78668,MLModel
+10037_1804_05260.txt,130,Recurrent Neural Network,78753,78777,ModelArchitecture
+10037_1804_05260.txt,131,RNN,78779,78782,ModelArchitecture
+10037_1804_05260.txt,132,Gated Recurrent Units,78789,78810,ModelArchitecture
+10037_1804_05260.txt,133,GRUs,78812,78816,ModelArchitecture
+10037_1804_05260.txt,134,FastSent,78838,78846,MLModel
+10037_1804_05260.txt,135,Skip-thought,78882,78894,MLModel
+10037_1804_05260.txt,136,FastSent,79070,79078,MLModel
+10037_1804_05260.txt,137,Paragraph2Vec,79116,79129,MLModel
+10037_1804_05260.txt,138,Long Short-Term Memory,79453,79475,ModelArchitecture
+10037_1804_05260.txt,139,LSTM,79477,79481,ModelArchitecture
+10037_1804_05260.txt,140,Convolutional Neural Networks,79733,79762,ModelArchitecture
+10037_1804_05260.txt,141,CNN,79764,79767,ModelArchitecture
+10037_1804_05260.txt,142,Skip-thought,81272,81284,MLModel
+10037_1804_05260.txt,143,Skip-thought,81357,81369,MLModel
+10037_1804_05260.txt,144,ClassiNets,81418,81428,MLModel
+10037_1804_05260.txt,145,ClassiNet,82180,82189,MLModel
+10037_1804_05260.txt,146,Large Movie Review dataset,83885,83911,Dataset
+10037_1804_05260.txt,147,sentiment classification,83949,83973,Task
+10037_1804_05260.txt,148,ClassiNet,84478,84487,MLModel
+10037_1804_05260.txt,149,PageRank,84800,84808,Method
+10037_1804_05260.txt,150,ClassiNet,85003,85012,MLModel
+10037_1804_05260.txt,151,ClassiNet,88013,88022,MLModel
+10037_1804_05260.txt,152,ClassiNets,88282,88292,MLModel
+10037_1804_05260.txt,153,locality sensitive hashing,88521,88547,Method
+10037_1804_05260.txt,154,sentiment classification,88882,88906,Task
+10037_1804_05260.txt,155,structural correspondence learning,88963,88997,Method
+10037_1804_05260.txt,156,SCL,88999,89002,Method
+10037_1804_05260.txt,157,frequent term sets,89009,89027,Method
+10037_1804_05260.txt,158,FTS,89029,89032,Method
+10037_1804_05260.txt,159,Skip-thought vectors,89035,89055,MLModel
+10037_1804_05260.txt,160,FastSent,89057,89065,MLModel
+10037_1804_05260.txt,161,Paragraph2Vec,89071,89084,MLModel
