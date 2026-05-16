@@ -1,0 +1,66 @@
+doc_id,local_entity_id,text,start_char,end_char,ner_label
+10018_2208_04405.txt,1,graph structure identification,149,179,Task
+10018_2208_04405.txt,2,causal inference,839,855,Task
+10018_2208_04405.txt,3,Convolutional Neural Networks,903,932,ModelArchitecture
+10018_2208_04405.txt,4,CNNs,934,938,ModelArchitecture
+10018_2208_04405.txt,5,CNNs,1061,1065,ModelArchitecture
+10018_2208_04405.txt,6,network identification,4543,4565,Task
+10018_2208_04405.txt,7,structure identification,5410,5434,Task
+10018_2208_04405.txt,8,Granger,5674,5681,Method
+10018_2208_04405.txt,9,Precision matrix,5683,5699,Method
+10018_2208_04405.txt,10,structure identification,5878,5902,Task
+10018_2208_04405.txt,11,causal inference,6264,6280,Task
+10018_2208_04405.txt,12,Convolutional Neural Networks,6302,6331,ModelArchitecture
+10018_2208_04405.txt,13,CNN,6333,6336,ModelArchitecture
+10018_2208_04405.txt,14,Causal inference,6458,6474,Task
+10018_2208_04405.txt,15,Markov property,6787,6802,Method
+10018_2208_04405.txt,16,Markov property,7146,7161,Method
+10018_2208_04405.txt,17,causal inference,7369,7385,Task
+10018_2208_04405.txt,18,Markov property,7559,7574,Method
+10018_2208_04405.txt,19,Granger estimator,7734,7751,Method
+10018_2208_04405.txt,20,conditional independence tests,8141,8171,Method
+10018_2208_04405.txt,21,SGS,8185,8188,MLModel
+10018_2208_04405.txt,22,PC,8228,8230,MLModel
+10018_2208_04405.txt,23,GES,8259,8262,MLModel
+10018_2208_04405.txt,24,FGS,8286,8289,MLModel
+10018_2208_04405.txt,25,conditional covariance tests,8673,8701,Method
+10018_2208_04405.txt,26,vector autoregressive,9308,9329,ModelArchitecture
+10018_2208_04405.txt,27,VAR,9331,9334,ModelArchitecture
+10018_2208_04405.txt,28,conditional mutual information,10281,10311,Method
+10018_2208_04405.txt,29,CMI,10313,10316,Method
+10018_2208_04405.txt,30,transfer entropy,10321,10337,Method
+10018_2208_04405.txt,31,causal inference,10446,10462,Task
+10018_2208_04405.txt,32,FCI,10510,10513,MLModel
+10018_2208_04405.txt,33,RFCI,10555,10559,MLModel
+10018_2208_04405.txt,34,log-coherence distance,11319,11341,Method
+10018_2208_04405.txt,35,expectation-maximization,11808,11832,Method
+10018_2208_04405.txt,36,convex optimization,12037,12056,Method
+10018_2208_04405.txt,37,Granger,12264,12271,Method
+10018_2208_04405.txt,38,CNNs,13443,13447,ModelArchitecture
+10018_2208_04405.txt,39,Granger,16852,16859,Method
+10018_2208_04405.txt,40,Precision matrix,21624,21640,Method
+10018_2208_04405.txt,41,Precision matrix,21897,21913,Method
+10018_2208_04405.txt,42,SVM,22918,22921,ModelArchitecture
+10018_2208_04405.txt,43,Support Vector Machines,25169,25192,ModelArchitecture
+10018_2208_04405.txt,44,SVMs,25194,25198,ModelArchitecture
+10018_2208_04405.txt,45,Convolutional Neural Networks,25204,25233,ModelArchitecture
+10018_2208_04405.txt,46,CNNs,25235,25239,ModelArchitecture
+10018_2208_04405.txt,47,CNNs,26197,26201,ModelArchitecture
+10018_2208_04405.txt,48,CNNs,26289,26293,ModelArchitecture
+10018_2208_04405.txt,49,Laplacian rule,26845,26859,Method
+10018_2208_04405.txt,50,Erdős-Rényi,27090,27101,Method
+10018_2208_04405.txt,51,Granger,27971,27978,Method
+10018_2208_04405.txt,52,SVM,28417,28420,ModelArchitecture
+10018_2208_04405.txt,53,CNNs,28441,28445,ModelArchitecture
+10018_2208_04405.txt,54,Gaussian mixture,28476,28492,Method
+10018_2208_04405.txt,55,CNNs,28759,28763,ModelArchitecture
+10018_2208_04405.txt,56,SVMs,28779,28783,ModelArchitecture
+10018_2208_04405.txt,57,CNNs,28826,28830,ModelArchitecture
+10018_2208_04405.txt,58,SVMs,28835,28839,ModelArchitecture
+10018_2208_04405.txt,59,Granger estimator,29126,29143,Method
+10018_2208_04405.txt,60,Granger,29244,29251,Method
+10018_2208_04405.txt,61,causal inference,29483,29499,Task
+10018_2208_04405.txt,62,CNN,29701,29704,ModelArchitecture
+10018_2208_04405.txt,63,causal inference,30285,30301,Task
+10018_2208_04405.txt,64,CNNs,30356,30360,ModelArchitecture
+10018_2208_04405.txt,65,structure identification,30849,30873,Task
