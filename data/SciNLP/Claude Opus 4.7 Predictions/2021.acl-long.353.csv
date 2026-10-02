@@ -1,0 +1,431 @@
+doc_key,local_entity_id,text,start_token,end_token,ner_label
+2021.acl-long.353,1,Prefix-Tuning,0,0,Method
+2021.acl-long.353,2,Generation,6,6,Task
+2021.acl-long.353,3,Fine-tuning,8,8,Method
+2021.acl-long.353,4,fine-tuning,26,26,Method
+2021.acl-long.353,5,prefix-tuning,50,50,Method
+2021.acl-long.353,6,fine-tuning,56,56,Method
+2021.acl-long.353,7,natural language generation,58,60,Task
+2021.acl-long.353,8,generation,60,60,Task
+2021.acl-long.353,9,Prefix-tuning,85,85,Method
+2021.acl-long.353,10,prompting,89,89,Method
+2021.acl-long.353,11,prefix-tuning,113,113,Method
+2021.acl-long.353,12,GPT-2,115,115,Method
+2021.acl-long.353,13,table-totext,117,117,Task
+2021.acl-long.353,14,generation,118,118,Task
+2021.acl-long.353,15,BART,121,121,Method
+2021.acl-long.353,16,summarization,123,123,Task
+2021.acl-long.353,17,prefix-tuning,137,137,Method
+2021.acl-long.353,18,fine-tuning,148,148,Method
+2021.acl-long.353,19,Fine-tuning,167,167,Method
+2021.acl-long.353,20,summarization,201,201,Task
+2021.acl-long.353,21,GPT-2,264,264,Method
+2021.acl-long.353,22,GPT-3,276,276,Method
+2021.acl-long.353,23,lightweight fine-tuning,295,296,Method
+2021.acl-long.353,24,fine-tuning,296,296,Method
+2021.acl-long.353,25,adapter-tuning,317,317,Method
+2021.acl-long.353,26,prefixtuning,325,325,Method
+2021.acl-long.353,27,prefix-tuning,361,361,Method
+2021.acl-long.353,28,Adapter-tuning,399,399,Method
+2021.acl-long.353,29,natural language understanding,404,406,Task
+2021.acl-long.353,30,generation,408,408,Task
+2021.acl-long.353,31,fine-tuning,415,415,Method
+2021.acl-long.353,32,GPT-3,442,442,Method
+2021.acl-long.353,33,in-context learning,454,455,Method
+2021.acl-long.353,34,prompting,462,462,Method
+2021.acl-long.353,35,in-context learning,471,472,Method
+2021.acl-long.353,36,summarization,494,494,Task
+2021.acl-long.353,37,Transformers,518,518,Method
+2021.acl-long.353,38,GPT-3,532,532,Method
+2021.acl-long.353,39,in-context learning,535,536,Method
+2021.acl-long.353,40,prefix-tuning,551,551,Method
+2021.acl-long.353,41,fine-tuning,557,557,Method
+2021.acl-long.353,42,natural language generation,559,561,Task
+2021.acl-long.353,43,generation,561,561,Task
+2021.acl-long.353,44,NLG,563,563,Task
+2021.acl-long.353,45,prompting,569,569,Method
+2021.acl-long.353,46,Prefix-tuning,630,630,Method
+2021.acl-long.353,47,prompting,685,685,Method
+2021.acl-long.353,48,fine-tuning,705,705,Method
+2021.acl-long.353,49,prefix-tuning,732,732,Method
+2021.acl-long.353,50,table-to-text,772,772,Task
+2021.acl-long.353,51,fine-tuning,779,779,Method
+2021.acl-long.353,52,prefix-tuning,781,781,Method
+2021.acl-long.353,53,lightweight fine-tuning,883,884,Method
+2021.acl-long.353,54,fine-tuning,884,884,Method
+2021.acl-long.353,55,adaptertuning,887,887,Method
+2021.acl-long.353,56,prefix-tuning,891,891,Method
+2021.acl-long.353,57,table-to-text,893,893,Task
+2021.acl-long.353,58,table-to-text generation,893,894,Task
+2021.acl-long.353,59,generation,894,894,Task
+2021.acl-long.353,60,GPT-2,896,896,Method
+2021.acl-long.353,61,abstractive summarization,898,899,Task
+2021.acl-long.353,62,summarization,899,899,Task
+2021.acl-long.353,63,BART,901,901,Method
+2021.acl-long.353,64,prefix-tuning,908,908,Method
+2021.acl-long.353,65,fine-tuning,915,915,Method
+2021.acl-long.353,66,prefix-tuning,927,927,Method
+2021.acl-long.353,67,fine-tuning,929,929,Method
+2021.acl-long.353,68,table-to-text,933,933,Task
+2021.acl-long.353,69,prefix-tuning,939,939,Method
+2021.acl-long.353,70,summarization,945,945,Task
+2021.acl-long.353,71,prefix-tuning,954,954,Method
+2021.acl-long.353,72,finetuning,956,956,Method
+2021.acl-long.353,73,Prefix-tuning,964,964,Method
+2021.acl-long.353,74,table-to-text,972,972,Task
+2021.acl-long.353,75,summarization,978,978,Task
+2021.acl-long.353,76,Fine-tuning,989,989,Method
+2021.acl-long.353,77,natural language generation,991,993,Task
+2021.acl-long.353,78,generation,993,993,Task
+2021.acl-long.353,79,natural language generation,999,1001,Task
+2021.acl-long.353,80,generation,1001,1001,Task
+2021.acl-long.353,81,NLG,1003,1003,Task
+2021.acl-long.353,82,fine-tuning,1008,1008,Method
+2021.acl-long.353,83,table-to-text,1013,1013,Task
+2021.acl-long.353,84,table-to-text generation,1013,1014,Task
+2021.acl-long.353,85,generation,1014,1014,Task
+2021.acl-long.353,86,T5,1025,1025,Method
+2021.acl-long.353,87,extractive,1035,1035,Task
+2021.acl-long.353,88,abstractive summarization,1037,1038,Task
+2021.acl-long.353,89,summarization,1038,1038,Task
+2021.acl-long.353,90,BERT,1048,1048,Method
+2021.acl-long.353,91,BART,1062,1062,Method
+2021.acl-long.353,92,NLG,1095,1095,Task
+2021.acl-long.353,93,machine translation,1099,1100,Task
+2021.acl-long.353,94,dialogue generation,1102,1103,Task
+2021.acl-long.353,95,generation,1103,1103,Task
+2021.acl-long.353,96,fine-tuning,1105,1105,Method
+2021.acl-long.353,97,table-to-text,1144,1144,Task
+2021.acl-long.353,98,GPT-2,1146,1146,Method
+2021.acl-long.353,99,summarization,1148,1148,Task
+2021.acl-long.353,100,BART,1150,1150,Method
+2021.acl-long.353,101,prefix-tuning,1153,1153,Method
+2021.acl-long.353,102,generation,1161,1161,Task
+2021.acl-long.353,103,Lightweight fine-tuning,1172,1173,Method
+2021.acl-long.353,104,fine-tuning,1173,1173,Method
+2021.acl-long.353,105,Prefix-tuning,1175,1175,Method
+2021.acl-long.353,106,lightweight fine-tuning,1182,1183,Method
+2021.acl-long.353,107,fine-tuning,1183,1183,Method
+2021.acl-long.353,108,adapter-tuning,1282,1282,Method
+2021.acl-long.353,109,table-to-text,1359,1359,Task
+2021.acl-long.353,110,Prompting,1362,1362,Method
+2021.acl-long.353,111,Prompting,1364,1364,Method
+2021.acl-long.353,112,prompting,1402,1402,Method
+2021.acl-long.353,113,GPT-3,1404,1404,Method
+2021.acl-long.353,114,in-context learning,1406,1407,Method
+2021.acl-long.353,115,generation,1424,1424,Task
+2021.acl-long.353,116,BERT,1436,1436,Method
+2021.acl-long.353,117,RoBERTa,1438,1438,Method
+2021.acl-long.353,118,prompt engineering,1447,1448,Method
+2021.acl-long.353,119,natural language understanding,1453,1455,Task
+2021.acl-long.353,120,AutoPrompt,1474,1474,Method
+2021.acl-long.353,121,BERT,1503,1503,Method
+2021.acl-long.353,122,RoBERTa,1505,1505,Method
+2021.acl-long.353,123,AutoPrompt,1510,1510,Method
+2021.acl-long.353,124,generation,1532,1532,Task
+2021.acl-long.353,125,LSTM,1558,1558,Method
+2021.acl-long.353,126,prefix-tuning,1582,1582,Method
+2021.acl-long.353,127,sentence reconstruction,1609,1610,Task
+2021.acl-long.353,128,prefix-tuning,1612,1612,Method
+2021.acl-long.353,129,NLG,1617,1617,Task
+2021.acl-long.353,130,Controllable generation,1620,1621,Task
+2021.acl-long.353,131,generation,1621,1621,Task
+2021.acl-long.353,132,Controllable generation,1623,1624,Task
+2021.acl-long.353,133,generation,1624,1624,Task
+2021.acl-long.353,134,CTRL,1666,1666,Method
+2021.acl-long.353,135,GeDi,1691,1691,Method
+2021.acl-long.353,136,PPLM,1706,1706,Method
+2021.acl-long.353,137,controllable generation,1725,1726,Task
+2021.acl-long.353,138,generation,1726,1726,Task
+2021.acl-long.353,139,table-to-text,1741,1741,Task
+2021.acl-long.353,140,summarization,1743,1743,Task
+2021.acl-long.353,141,P * -tuning,1745,1747,Method
+2021.acl-long.353,142,Prefix tuning,1749,1750,Method
+2021.acl-long.353,143,p * -tuning,1767,1769,Method
+2021.acl-long.353,144,ptuning,1777,1777,Method
+2021.acl-long.353,145,prompt-tuning,1779,1779,Method
+2021.acl-long.353,146,BERT,1824,1824,Method
+2021.acl-long.353,147,BART,1826,1826,Method
+2021.acl-long.353,148,BERT,1840,1840,Method
+2021.acl-long.353,149,sentiment classification,1842,1843,Task
+2021.acl-long.353,150,P-tuning,1862,1862,Method
+2021.acl-long.353,151,GPT-2,1881,1881,Method
+2021.acl-long.353,152,natural language understanding,1885,1887,Task
+2021.acl-long.353,153,Prompt-tuning,1903,1903,Method
+2021.acl-long.353,154,T5,1918,1918,Method
+2021.acl-long.353,155,fine-tuning,1933,1933,Method
+2021.acl-long.353,156,p * tuning,1935,1937,Method
+2021.acl-long.353,157,conditional generation,1949,1950,Task
+2021.acl-long.353,158,generation,1950,1950,Task
+2021.acl-long.353,159,table-to-text,1984,1984,Task
+2021.acl-long.353,160,summarization,2001,2001,Task
+2021.acl-long.353,161,GPT-2,2036,2036,Method
+2021.acl-long.353,162,BART,2270,2270,Method
+2021.acl-long.353,163,Fine-tuning,2371,2371,Method
+2021.acl-long.353,164,fine-tuning,2375,2375,Method
+2021.acl-long.353,165,Prefix-Tuning,2436,2436,Method
+2021.acl-long.353,166,prefix-tuning,2439,2439,Method
+2021.acl-long.353,167,fine-tuning,2445,2445,Method
+2021.acl-long.353,168,conditional generation,2447,2448,Task
+2021.acl-long.353,169,generation,2448,2448,Task
+2021.acl-long.353,170,Prompting,2466,2466,Method
+2021.acl-long.353,171,NLG,2553,2553,Task
+2021.acl-long.353,172,generation,2582,2582,Task
+2021.acl-long.353,173,Transformer,2685,2685,Method
+2021.acl-long.353,174,Prefix-tuning,2713,2713,Method
+2021.acl-long.353,175,prefixtuning,2740,2740,Method
+2021.acl-long.353,176,Prefix-tuning,2764,2764,Method
+2021.acl-long.353,177,generation,3167,3167,Task
+2021.acl-long.353,178,table-to-text,3171,3171,Task
+2021.acl-long.353,179,table-to-text task,3171,3172,Task
+2021.acl-long.353,180,E2E,3174,3174,Dataset
+2021.acl-long.353,181,WebNLG,3183,3183,Dataset
+2021.acl-long.353,182,DART,3193,3193,Dataset
+2021.acl-long.353,183,E2E,3218,3218,Dataset
+2021.acl-long.353,184,WebNLG,3230,3230,Dataset
+2021.acl-long.353,185,DART,3236,3236,Dataset
+2021.acl-long.353,186,summarization,3268,3268,Task
+2021.acl-long.353,187,XSUM,3274,3274,Dataset
+2021.acl-long.353,188,abstractive summarization,3287,3288,Task
+2021.acl-long.353,189,summarization,3288,3288,Task
+2021.acl-long.353,190,ROUGE-1,3296,3296,Metric
+2021.acl-long.353,191,ROUGE-2,3298,3298,Metric
+2021.acl-long.353,192,ROUGE-L.,3300,3300,Metric
+2021.acl-long.353,193,FT-FULL,3304,3304,Method
+2021.acl-long.353,194,fine-tuning,3307,3307,Method
+2021.acl-long.353,195,FT-TOP2,3314,3314,Method
+2021.acl-long.353,196,adapter-tuning,3318,3318,Method
+2021.acl-long.353,197,ADAPTER,3320,3320,Method
+2021.acl-long.353,198,E2E,3336,3336,Dataset
+2021.acl-long.353,199,WebNLG,3354,3354,Dataset
+2021.acl-long.353,200,T5-large,3361,3361,Method
+2021.acl-long.353,201,DART,3364,3364,Dataset
+2021.acl-long.353,202,summarization,3379,3379,Task
+2021.acl-long.353,203,fine-tuning,3384,3384,Method
+2021.acl-long.353,204,BART,3385,3385,Method
+2021.acl-long.353,205,table-to-text,3398,3398,Task
+2021.acl-long.353,206,GPT-2,3402,3402,Method
+2021.acl-long.353,207,GPT-2 MEDIUM,3402,3403,Method
+2021.acl-long.353,208,GPT-2,3405,3405,Method
+2021.acl-long.353,209,GPT-2 LARGE,3405,3406,Method
+2021.acl-long.353,210,summarization,3409,3409,Task
+2021.acl-long.353,211,BART,3413,3413,Method
+2021.acl-long.353,212,BART LARGE,3413,3414,Method
+2021.acl-long.353,213,Hugging Face Transformers,3422,3424,Method
+2021.acl-long.353,214,Transformers,3424,3424,Method
+2021.acl-long.353,215,AdamW,3440,3440,Method
+2021.acl-long.353,216,table-to-text,3515,3515,Task
+2021.acl-long.353,217,Prefixtuning,3529,3529,Method
+2021.acl-long.353,218,fine-tuning,3542,3542,Method
+2021.acl-long.353,219,summarization,3551,3551,Task
+2021.acl-long.353,220,XSUM,3567,3567,Dataset
+2021.acl-long.353,221,prefix-tuning,3574,3574,Method
+2021.acl-long.353,222,fine-tuning,3581,3581,Method
+2021.acl-long.353,223,prefixtuning,3588,3588,Method
+2021.acl-long.353,224,fine-tuning,3602,3602,Method
+2021.acl-long.353,225,table-to-text,3612,3612,Task
+2021.acl-long.353,226,beam search,3616,3617,Method
+2021.acl-long.353,227,summarization,3624,3624,Task
+2021.acl-long.353,228,table-to-text,3647,3647,Task
+2021.acl-long.353,229,summarization,3663,3663,Task
+2021.acl-long.353,230,Table-to-text,3668,3668,Task
+2021.acl-long.353,231,Table-to-text Generation,3668,3669,Task
+2021.acl-long.353,232,Generation,3669,3669,Task
+2021.acl-long.353,233,prefix-tuning,3682,3682,Method
+2021.acl-long.353,234,table-to-text,3686,3686,Task
+2021.acl-long.353,235,table-to-text generation,3686,3687,Task
+2021.acl-long.353,236,generation,3687,3687,Task
+2021.acl-long.353,237,ADAPTER,3694,3694,Method
+2021.acl-long.353,238,FT-TOP2,3696,3696,Method
+2021.acl-long.353,239,fine-tuning,3713,3713,Method
+2021.acl-long.353,240,E2E,3722,3722,Dataset
+2021.acl-long.353,241,WebNLG,3724,3724,Dataset
+2021.acl-long.353,242,DART,3728,3728,Dataset
+2021.acl-long.353,243,prefixtuning,3738,3738,Method
+2021.acl-long.353,244,adapter-tuning,3740,3740,Method
+2021.acl-long.353,245,prefix-tuning,3750,3750,Method
+2021.acl-long.353,246,ADAPTER,3755,3755,Method
+2021.acl-long.353,247,BLEU,3763,3763,Metric
+2021.acl-long.353,248,fine-tuning,3775,3775,Method
+2021.acl-long.353,249,adapter-tuning,3781,3781,Method
+2021.acl-long.353,250,prefix-tuning,3793,3793,Method
+2021.acl-long.353,251,prefix-tuning,3795,3795,Method
+2021.acl-long.353,252,prefix-tuning,3810,3810,Method
+2021.acl-long.353,253,adapter-tuning,3816,3816,Method
+2021.acl-long.353,254,generation,3823,3823,Task
+2021.acl-long.353,255,DART,3832,3832,Dataset
+2021.acl-long.353,256,prefix-tuning,3835,3835,Method
+2021.acl-long.353,257,prefix-tuning,3873,3873,Method
+2021.acl-long.353,258,GPT-2,3882,3882,Method
+2021.acl-long.353,259,table-totext,3884,3884,Task
+2021.acl-long.353,260,generation,3885,3885,Task
+2021.acl-long.353,261,GPT-2,3897,3897,Method
+2021.acl-long.353,262,GPT-2 LARGE,3897,3898,Method
+2021.acl-long.353,263,GPT-3,3917,3917,Method
+2021.acl-long.353,264,Summarization,3919,3919,Task
+2021.acl-long.353,265,prefixtuning,3931,3931,Method
+2021.acl-long.353,266,finetuning,3937,3937,Method
+2021.acl-long.353,267,ROUGE-L,3943,3943,Metric
+2021.acl-long.353,268,prefix-tuning,3952,3952,Method
+2021.acl-long.353,269,fine-tuning,3955,3955,Method
+2021.acl-long.353,270,XSUM,3967,3967,Dataset
+2021.acl-long.353,271,table-totext,3971,3971,Task
+2021.acl-long.353,272,prefixtuning,3978,3978,Method
+2021.acl-long.353,273,table-to-text,3983,3983,Task
+2021.acl-long.353,274,XSUM,3988,3988,Dataset
+2021.acl-long.353,275,table-to-text,3996,3996,Task
+2021.acl-long.353,276,table-to-text,4016,4016,Task
+2021.acl-long.353,277,summarization,4024,4024,Task
+2021.acl-long.353,278,table-to-text,4029,4029,Task
+2021.acl-long.353,279,table-to-text,4047,4047,Task
+2021.acl-long.353,280,summarization,4052,4052,Task
+2021.acl-long.353,281,prefixtuning,4060,4060,Method
+2021.acl-long.353,282,E2E,4088,4088,Dataset
+2021.acl-long.353,283,table-to-text,4090,4090,Task
+2021.acl-long.353,284,XSUM,4092,4092,Dataset
+2021.acl-long.353,285,summarization,4094,4094,Task
+2021.acl-long.353,286,prefix-tuning,4149,4149,Method
+2021.acl-long.353,287,fine-tuning,4151,4151,Method
+2021.acl-long.353,288,BLEU,4157,4157,Metric
+2021.acl-long.353,289,prefix-tuning,4192,4192,Method
+2021.acl-long.353,290,fine-tuning,4194,4194,Method
+2021.acl-long.353,291,prefix-tuning,4218,4218,Method
+2021.acl-long.353,292,fine-tuning,4225,4225,Method
+2021.acl-long.353,293,finetuning,4230,4230,Method
+2021.acl-long.353,294,prefix-tuning,4251,4251,Method
+2021.acl-long.353,295,table-to-text,4278,4278,Task
+2021.acl-long.353,296,summarization,4280,4280,Task
+2021.acl-long.353,297,table-to-text,4350,4350,Task
+2021.acl-long.353,298,summarization,4352,4352,Task
+2021.acl-long.353,299,prefixtuning,4354,4354,Method
+2021.acl-long.353,300,fine-tuning,4358,4358,Method
+2021.acl-long.353,301,R-1,4382,4382,Metric
+2021.acl-long.353,302,R-2,4384,4384,Metric
+2021.acl-long.353,303,R-L,4386,4386,Metric
+2021.acl-long.353,304,R-1,4388,4388,Metric
+2021.acl-long.353,305,R-2,4390,4390,Metric
+2021.acl-long.353,306,R-L,4392,4392,Metric
+2021.acl-long.353,307,FT-FULL,4394,4394,Method
+2021.acl-long.353,308,adapter-tuning,4399,4399,Method
+2021.acl-long.353,309,prefix-tuning,4407,4407,Method
+2021.acl-long.353,310,prefix-tuning,4434,4434,Method
+2021.acl-long.353,311,prefix-tuning,4457,4457,Method
+2021.acl-long.353,312,prefix-tuning,4526,4526,Method
+2021.acl-long.353,313,Embedding-only,4556,4556,Method
+2021.acl-long.353,314,embedding-only,4581,4581,Method
+2021.acl-long.353,315,Transformer,4599,4599,Method
+2021.acl-long.353,316,Embedding-only,4625,4625,Method
+2021.acl-long.353,317,prompting,4671,4671,Method
+2021.acl-long.353,318,embeddingonly,4673,4673,Method
+2021.acl-long.353,319,prefix-tuning,4675,4675,Method
+2021.acl-long.353,320,Prefix-tuning,4677,4677,Method
+2021.acl-long.353,321,Infix-tuning,4679,4679,Method
+2021.acl-long.353,322,prefix-tuning,4696,4696,Method
+2021.acl-long.353,323,infix-tuning,4737,4737,Method
+2021.acl-long.353,324,infix-tuning,4746,4746,Method
+2021.acl-long.353,325,prefix-tuning,4749,4749,Method
+2021.acl-long.353,326,prefix-tuning,4756,4756,Method
+2021.acl-long.353,327,infix-tuning,4766,4766,Method
+2021.acl-long.353,328,generation,4811,4811,Task
+2021.acl-long.353,329,summarization,4830,4830,Task
+2021.acl-long.353,330,table-to-text,4834,4834,Task
+2021.acl-long.353,331,prefix-tuning,4908,4908,Method
+2021.acl-long.353,332,prefixtuning,4931,4931,Method
+2021.acl-long.353,333,fine-tuning,4943,4943,Method
+2021.acl-long.353,334,E2E,4955,4955,Dataset
+2021.acl-long.353,335,prefix-tuning,4979,4979,Method
+2021.acl-long.353,336,fine-tuning,4984,4984,Method
+2021.acl-long.353,337,prefix-tuning,5002,5002,Method
+2021.acl-long.353,338,fine-tuning,5014,5014,Method
+2021.acl-long.353,339,E2E,5019,5019,Dataset
+2021.acl-long.353,340,Prefixtuning,5022,5022,Method
+2021.acl-long.353,341,fine-tuning,5033,5033,Method
+2021.acl-long.353,342,prefix-tuning,5068,5068,Method
+2021.acl-long.353,343,prefix-tuning,5082,5082,Method
+2021.acl-long.353,344,prefix-tuning,5167,5167,Method
+2021.acl-long.353,345,prefix-tuning,5203,5203,Method
+2021.acl-long.353,346,Prefix-tuning,5244,5244,Method
+2021.acl-long.353,347,adapter-tuning,5286,5286,Method
+2021.acl-long.353,348,Transformer,5294,5294,Method
+2021.acl-long.353,349,prefix-tuning,5325,5325,Method
+2021.acl-long.353,350,finetuning,5329,5329,Method
+2021.acl-long.353,351,prefix-tuning,5336,5336,Method
+2021.acl-long.353,352,adapter-tuning,5338,5338,Method
+2021.acl-long.353,353,prefix-tuning,5376,5376,Method
+2021.acl-long.353,354,adaptertuning,5378,5378,Method
+2021.acl-long.353,355,prefix-tuning,5403,5403,Method
+2021.acl-long.353,356,adapter-tuning,5405,5405,Method
+2021.acl-long.353,357,Transformer,5425,5425,Method
+2021.acl-long.353,358,prefix-tuning,5429,5429,Method
+2021.acl-long.353,359,adapter-tuning,5449,5449,Method
+2021.acl-long.353,360,prefixtuning,5471,5471,Method
+2021.acl-long.353,361,adapter-tuning,5478,5478,Method
+2021.acl-long.353,362,prefix-tuning,5493,5493,Method
+2021.acl-long.353,363,adapter-tuning,5511,5511,Method
+2021.acl-long.353,364,fine-tuning,5539,5539,Method
+2021.acl-long.353,365,generation,5574,5574,Task
+2021.acl-long.353,366,prefix-tuning,5589,5589,Method
+2021.acl-long.353,367,lightweight fine-tuning,5622,5623,Method
+2021.acl-long.353,368,fine-tuning,5623,5623,Method
+2021.acl-long.353,369,WebNLG,5665,5665,Dataset
+2021.acl-long.353,370,DART,5667,5667,Dataset
+2021.acl-long.353,371,summarization,5708,5708,Task
+2021.acl-long.353,372,XSUM,5736,5736,Dataset
+2021.acl-long.353,373,XSUM,5739,5739,Dataset
+2021.acl-long.353,374,table-to-text,5900,5900,Task
+2021.acl-long.353,375,summarization,5910,5910,Task
+2021.acl-long.353,376,table-to-text,5952,5952,Task
+2021.acl-long.353,377,summarization,5972,5972,Task
+2021.acl-long.353,378,perplexity,5976,5976,Metric
+2021.acl-long.353,379,generation,5979,5979,Task
+2021.acl-long.353,380,table-to-text,5992,5992,Task
+2021.acl-long.353,381,table-to-text,6034,6034,Task
+2021.acl-long.353,382,summarization,6098,6098,Task
+2021.acl-long.353,383,prefix-tuning,6127,6127,Method
+2021.acl-long.353,384,fine-tuning,6131,6131,Method
+2021.acl-long.353,385,table-to-text,6201,6201,Task
+2021.acl-long.353,386,WebNLG,6210,6210,Dataset
+2021.acl-long.353,387,summarization,6215,6215,Task
+2021.acl-long.353,388,table-to-text,6238,6238,Task
+2021.acl-long.353,389,summarization,6278,6278,Task
+2021.acl-long.353,390,table-to-text,6282,6282,Task
+2021.acl-long.353,391,generation,6288,6288,Task
+2021.acl-long.353,392,generation,6361,6361,Task
+2021.acl-long.353,393,table-to-text,6365,6365,Task
+2021.acl-long.353,394,table-to-text task,6365,6366,Task
+2021.acl-long.353,395,E2E,6368,6368,Dataset
+2021.acl-long.353,396,WebNLG,6377,6377,Dataset
+2021.acl-long.353,397,DART,6387,6387,Dataset
+2021.acl-long.353,398,E2E,6397,6397,Dataset
+2021.acl-long.353,399,BLEU,6436,6436,Metric
+2021.acl-long.353,400,NIST,6445,6445,Metric
+2021.acl-long.353,401,METEOR,6454,6454,Metric
+2021.acl-long.353,402,ROUGE-L,6463,6463,Metric
+2021.acl-long.353,403,CIDEr,6471,6471,Metric
+2021.acl-long.353,404,WebNLG,6481,6481,Dataset
+2021.acl-long.353,405,DBpedia,6533,6533,Dataset
+2021.acl-long.353,406,BLEU,6587,6587,Metric
+2021.acl-long.353,407,METEOR,6589,6589,Metric
+2021.acl-long.353,408,TER,6591,6591,Metric
+2021.acl-long.353,409,DART,6600,6600,Dataset
+2021.acl-long.353,410,table-to-text,6612,6612,Task
+2021.acl-long.353,411,WebNLG,6624,6624,Dataset
+2021.acl-long.353,412,WikiSQL,6639,6639,Dataset
+2021.acl-long.353,413,WikiTableQuestions,6641,6641,Dataset
+2021.acl-long.353,414,E2E,6643,6643,Dataset
+2021.acl-long.353,415,WebNLG,6646,6646,Dataset
+2021.acl-long.353,416,BLEU,6664,6664,Metric
+2021.acl-long.353,417,METEOR,6666,6666,Metric
+2021.acl-long.353,418,TER,6668,6668,Metric
+2021.acl-long.353,419,Mover-Score,6670,6670,Metric
+2021.acl-long.353,420,BERTScore,6679,6679,Metric
+2021.acl-long.353,421,BLEURT,6688,6688,Metric
+2021.acl-long.353,422,summarization,6699,6699,Task
+2021.acl-long.353,423,XSUM,6705,6705,Dataset
+2021.acl-long.353,424,abstractive summarization,6718,6719,Task
+2021.acl-long.353,425,summarization,6719,6719,Task
+2021.acl-long.353,426,ROUGE-1,6751,6751,Metric
+2021.acl-long.353,427,ROUGE-2,6753,6753,Metric
+2021.acl-long.353,428,ROUGE-L,6755,6755,Metric
+2021.acl-long.353,429,table-to-text,6768,6768,Task
+2021.acl-long.353,430,E2E,6787,6787,Dataset
