@@ -1,0 +1,47 @@
+doc_id,local_entity_id,text,start_char,end_char,ner_label
+10018_2208_04405.txt,1,graph structure identification,149,179,Task
+10018_2208_04405.txt,2,causal inference,839,855,Task
+10018_2208_04405.txt,3,Convolutional Neural Networks,903,932,ModelArchitecture
+10018_2208_04405.txt,4,CNNs,934,938,ModelArchitecture
+10018_2208_04405.txt,5,causal inference,955,971,Task
+10018_2208_04405.txt,6,CNNs,1061,1065,ModelArchitecture
+10018_2208_04405.txt,7,network identification,4543,4565,Task
+10018_2208_04405.txt,8,structure identification,5410,5434,Task
+10018_2208_04405.txt,9,Granger,5674,5681,Method
+10018_2208_04405.txt,10,structure identification,5878,5902,Task
+10018_2208_04405.txt,11,causal inference,6264,6280,Task
+10018_2208_04405.txt,12,Convolutional Neural Networks,6302,6331,ModelArchitecture
+10018_2208_04405.txt,13,CNN,6333,6336,ModelArchitecture
+10018_2208_04405.txt,14,causal inference,7369,7385,Task
+10018_2208_04405.txt,15,Granger,7734,7741,Method
+10018_2208_04405.txt,16,Granger,9859,9866,Method
+10018_2208_04405.txt,17,causal inference,10446,10462,Task
+10018_2208_04405.txt,18,expectation-maximization,11808,11832,Method
+10018_2208_04405.txt,19,Granger,12264,12271,Method
+10018_2208_04405.txt,20,CNNs,13443,13447,ModelArchitecture
+10018_2208_04405.txt,21,Granger,16852,16859,Method
+10018_2208_04405.txt,22,CNN,18844,18847,ModelArchitecture
+10018_2208_04405.txt,23,SVM,22918,22921,Method
+10018_2208_04405.txt,24,Support Vector Machines,25169,25192,Method
+10018_2208_04405.txt,25,SVMs,25194,25198,Method
+10018_2208_04405.txt,26,Convolutional Neural Networks,25204,25233,ModelArchitecture
+10018_2208_04405.txt,27,CNNs,25235,25239,ModelArchitecture
+10018_2208_04405.txt,28,CNNs,26197,26201,ModelArchitecture
+10018_2208_04405.txt,29,CNNs,26289,26293,ModelArchitecture
+10018_2208_04405.txt,30,Granger,27971,27978,Method
+10018_2208_04405.txt,31,SVM,28417,28420,Method
+10018_2208_04405.txt,32,CNNs,28441,28445,ModelArchitecture
+10018_2208_04405.txt,33,Gaussian mixture,28476,28492,Method
+10018_2208_04405.txt,34,CNN,28672,28675,ModelArchitecture
+10018_2208_04405.txt,35,CNNs,28759,28763,ModelArchitecture
+10018_2208_04405.txt,36,SVMs,28779,28783,Method
+10018_2208_04405.txt,37,CNNs,28826,28830,ModelArchitecture
+10018_2208_04405.txt,38,SVMs,28835,28839,Method
+10018_2208_04405.txt,39,Granger,29126,29133,Method
+10018_2208_04405.txt,40,Granger,29244,29251,Method
+10018_2208_04405.txt,41,causal inference,29483,29499,Task
+10018_2208_04405.txt,42,CNN,29701,29704,ModelArchitecture
+10018_2208_04405.txt,43,causal inference,30285,30301,Task
+10018_2208_04405.txt,44,CNNs,30356,30360,ModelArchitecture
+10018_2208_04405.txt,45,CNN,30685,30688,ModelArchitecture
+10018_2208_04405.txt,46,structure identification,30849,30873,Task
