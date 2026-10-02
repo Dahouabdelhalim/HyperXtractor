@@ -1,0 +1,536 @@
+doc_key,local_entity_id,text,start_token,end_token,ner_label
+2024.acl-long.108-1-9.grobid,1,M-RAG,0,0,Method
+2024.acl-long.108-1-9.grobid,2,Large Language Model,3,5,Method
+2024.acl-long.108-1-9.grobid,3,Retrieval-Augmented Generation with,8,10,Method
+2024.acl-long.108-1-9.grobid,4,Retrieval-Augmented Generation (,14,16,Method
+2024.acl-long.108-1-9.grobid,5,RAG,17,17,Method
+2024.acl-long.108-1-9.grobid,6,Large Language Models,20,22,Method
+2024.acl-long.108-1-9.grobid,7,LLMs,24,24,Method
+2024.acl-long.108-1-9.grobid,8,RAG,38,38,Method
+2024.acl-long.108-1-9.grobid,9,RAG,70,70,Method
+2024.acl-long.108-1-9.grobid,10,M-RAG,73,73,Method
+2024.acl-long.108-1-9.grobid,11,RAG,86,86,Method
+2024.acl-long.108-1-9.grobid,12,LLMs,101,101,Method
+2024.acl-long.108-1-9.grobid,13,Multi-Agent Reinforcement Learning,103,105,Method
+2024.acl-long.108-1-9.grobid,14,language generation,109,110,Task
+2024.acl-long.108-1-9.grobid,15,generation tasks,110,111,Task
+2024.acl-long.108-1-9.grobid,16,language generation,124,125,Task
+2024.acl-long.108-1-9.grobid,17,generation tasks,125,126,Task
+2024.acl-long.108-1-9.grobid,18,M-RAG,138,138,Method
+2024.acl-long.108-1-9.grobid,19,text summarization,158,159,Task
+2024.acl-long.108-1-9.grobid,20,summarization,159,159,Task
+2024.acl-long.108-1-9.grobid,21,machine translation,161,162,Task
+2024.acl-long.108-1-9.grobid,22,translation,162,162,Task
+2024.acl-long.108-1-9.grobid,23,dialogue,165,165,Task
+2024.acl-long.108-1-9.grobid,24,dialogue generation,165,166,Task
+2024.acl-long.108-1-9.grobid,25,Retrieval-Augmented Generation (,181,183,Method
+2024.acl-long.108-1-9.grobid,26,RAG,184,184,Method
+2024.acl-long.108-1-9.grobid,27,Large Language Models,193,195,Method
+2024.acl-long.108-1-9.grobid,28,LLMs,197,197,Method
+2024.acl-long.108-1-9.grobid,29,generative tasks,201,202,Task
+2024.acl-long.108-1-9.grobid,30,RAG,207,207,Method
+2024.acl-long.108-1-9.grobid,31,LLMs,214,214,Method
+2024.acl-long.108-1-9.grobid,32,answer questions,226,227,Task
+2024.acl-long.108-1-9.grobid,33,LLM,265,265,Method
+2024.acl-long.108-1-9.grobid,34,Approximate k-Nearest Neighbor,354,356,Method
+2024.acl-long.108-1-9.grobid,35,AKNN,358,358,Method
+2024.acl-long.108-1-9.grobid,36,RAG,500,500,Method
+2024.acl-long.108-1-9.grobid,37,RAG,540,540,Method
+2024.acl-long.108-1-9.grobid,38,generation tasks,549,550,Task
+2024.acl-long.108-1-9.grobid,39,summarization,552,552,Task
+2024.acl-long.108-1-9.grobid,40,translation,554,554,Task
+2024.acl-long.108-1-9.grobid,41,dialogue,557,557,Task
+2024.acl-long.108-1-9.grobid,42,dialogue generation,557,558,Task
+2024.acl-long.108-1-9.grobid,43,RAG,619,619,Method
+2024.acl-long.108-1-9.grobid,44,LLM,701,701,Method
+2024.acl-long.108-1-9.grobid,45,M-RAG,716,716,Method
+2024.acl-long.108-1-9.grobid,46,RAG,721,721,Method
+2024.acl-long.108-1-9.grobid,47,M-RAG,729,729,Method
+2024.acl-long.108-1-9.grobid,48,Randomization,771,771,Method
+2024.acl-long.108-1-9.grobid,49,Clustering,780,780,Method
+2024.acl-long.108-1-9.grobid,50,Indexing,789,789,Method
+2024.acl-long.108-1-9.grobid,51,Category,805,805,Method
+2024.acl-long.108-1-9.grobid,52,generative tasks,836,837,Task
+2024.acl-long.108-1-9.grobid,53,multi-armed bandit,863,864,Method
+2024.acl-long.108-1-9.grobid,54,Agent-S,883,883,Method
+2024.acl-long.108-1-9.grobid,55,Agent-S,908,908,Method
+2024.acl-long.108-1-9.grobid,56,reinforcement learning,931,932,Method
+2024.acl-long.108-1-9.grobid,57,Markov Decision Process,937,939,Method
+2024.acl-long.108-1-9.grobid,58,MDP,941,941,Method
+2024.acl-long.108-1-9.grobid,59,Agent-R,966,966,Method
+2024.acl-long.108-1-9.grobid,60,LLMs,981,981,Method
+2024.acl-long.108-1-9.grobid,61,Agent-R,989,989,Method
+2024.acl-long.108-1-9.grobid,62,Agent-S,1047,1047,Method
+2024.acl-long.108-1-9.grobid,63,Agent-R,1049,1049,Method
+2024.acl-long.108-1-9.grobid,64,multi-agent reinforcement learning,1051,1053,Method
+2024.acl-long.108-1-9.grobid,65,reinforcement learning,1052,1053,Method
+2024.acl-long.108-1-9.grobid,66,text generation,1061,1062,Task
+2024.acl-long.108-1-9.grobid,67,RAG,1095,1095,Method
+2024.acl-long.108-1-9.grobid,68,RAG,1124,1124,Method
+2024.acl-long.108-1-9.grobid,69,M-RAG,1157,1157,Method
+2024.acl-long.108-1-9.grobid,70,multiagent reinforcement learning,1164,1166,Method
+2024.acl-long.108-1-9.grobid,71,reinforcement learning,1165,1166,Method
+2024.acl-long.108-1-9.grobid,72,RAG,1174,1174,Method
+2024.acl-long.108-1-9.grobid,73,M-RAG,1186,1186,Method
+2024.acl-long.108-1-9.grobid,74,text generation,1193,1194,Task
+2024.acl-long.108-1-9.grobid,75,generation tasks,1194,1195,Task
+2024.acl-long.108-1-9.grobid,76,generation tasks,1209,1210,Task
+2024.acl-long.108-1-9.grobid,77,Mixture of Experts,1221,1223,Method
+2024.acl-long.108-1-9.grobid,78,MoE,1225,1225,Method
+2024.acl-long.108-1-9.grobid,79,M-RAG,1242,1242,Method
+2024.acl-long.108-1-9.grobid,80,RAG,1245,1245,Method
+2024.acl-long.108-1-9.grobid,81,M-RAG,1256,1256,Method
+2024.acl-long.108-1-9.grobid,82,text summarization,1270,1271,Task
+2024.acl-long.108-1-9.grobid,83,summarization,1271,1271,Task
+2024.acl-long.108-1-9.grobid,84,machine translation,1273,1274,Task
+2024.acl-long.108-1-9.grobid,85,translation,1274,1274,Task
+2024.acl-long.108-1-9.grobid,86,dialogue,1277,1277,Task
+2024.acl-long.108-1-9.grobid,87,dialogue generation,1277,1278,Task
+2024.acl-long.108-1-9.grobid,88,dialogue generation tasks,1277,1279,Task
+2024.acl-long.108-1-9.grobid,89,generation tasks,1278,1279,Task
+2024.acl-long.108-1-9.grobid,90,Retrieval-Augmented Generation .,1285,1287,Method
+2024.acl-long.108-1-9.grobid,91,Retrieval-Augmented Generation (,1293,1295,Method
+2024.acl-long.108-1-9.grobid,92,RAG,1296,1296,Method
+2024.acl-long.108-1-9.grobid,93,Naive,1304,1304,Method
+2024.acl-long.108-1-9.grobid,94,Naive RAG,1304,1305,Method
+2024.acl-long.108-1-9.grobid,95,RAG,1305,1305,Method
+2024.acl-long.108-1-9.grobid,96,Advanced,1310,1310,Method
+2024.acl-long.108-1-9.grobid,97,Advanced RAG,1310,1311,Method
+2024.acl-long.108-1-9.grobid,98,RAG,1311,1311,Method
+2024.acl-long.108-1-9.grobid,99,Modular,1317,1317,Method
+2024.acl-long.108-1-9.grobid,100,Modular RAG,1317,1318,Method
+2024.acl-long.108-1-9.grobid,101,RAG,1318,1318,Method
+2024.acl-long.108-1-9.grobid,102,Naive,1325,1325,Method
+2024.acl-long.108-1-9.grobid,103,Naive RAG,1325,1326,Method
+2024.acl-long.108-1-9.grobid,104,RAG,1326,1326,Method
+2024.acl-long.108-1-9.grobid,105,Advanced,1371,1371,Method
+2024.acl-long.108-1-9.grobid,106,Advanced RAG,1371,1372,Method
+2024.acl-long.108-1-9.grobid,107,RAG,1372,1372,Method
+2024.acl-long.108-1-9.grobid,108,Naive,1381,1381,Method
+2024.acl-long.108-1-9.grobid,109,Naive RAG,1381,1382,Method
+2024.acl-long.108-1-9.grobid,110,RAG,1382,1382,Method
+2024.acl-long.108-1-9.grobid,111,fine-tuning,1441,1441,Method
+2024.acl-long.108-1-9.grobid,112,LLMs,1488,1488,Method
+2024.acl-long.108-1-9.grobid,113,Self-RAG,1540,1540,Method
+2024.acl-long.108-1-9.grobid,114,Modular,1585,1585,Method
+2024.acl-long.108-1-9.grobid,115,Modular RAG,1585,1586,Method
+2024.acl-long.108-1-9.grobid,116,RAG,1586,1586,Method
+2024.acl-long.108-1-9.grobid,117,Naive,1591,1591,Method
+2024.acl-long.108-1-9.grobid,118,Naive RAG,1591,1592,Method
+2024.acl-long.108-1-9.grobid,119,RAG,1592,1592,Method
+2024.acl-long.108-1-9.grobid,120,Selfmem,1660,1660,Method
+2024.acl-long.108-1-9.grobid,121,RAG,1711,1711,Method
+2024.acl-long.108-1-9.grobid,122,LLMs,1713,1713,Method
+2024.acl-long.108-1-9.grobid,123,RAG,1720,1720,Method
+2024.acl-long.108-1-9.grobid,124,M-RAG,1759,1759,Method
+2024.acl-long.108-1-9.grobid,125,multiagent reinforcement learning,1763,1765,Method
+2024.acl-long.108-1-9.grobid,126,reinforcement learning,1764,1765,Method
+2024.acl-long.108-1-9.grobid,127,LLMs,1781,1781,Method
+2024.acl-long.108-1-9.grobid,128,reinforcement learning,1785,1786,Method
+2024.acl-long.108-1-9.grobid,129,Large Language Models,1798,1800,Method
+2024.acl-long.108-1-9.grobid,130,LLMs,1802,1802,Method
+2024.acl-long.108-1-9.grobid,131,text summarization,1810,1811,Task
+2024.acl-long.108-1-9.grobid,132,summarization,1811,1811,Task
+2024.acl-long.108-1-9.grobid,133,machine translation,1820,1821,Task
+2024.acl-long.108-1-9.grobid,134,translation,1821,1821,Task
+2024.acl-long.108-1-9.grobid,135,dialogue systems,1830,1831,Task
+2024.acl-long.108-1-9.grobid,136,semantic parsing,1846,1847,Task
+2024.acl-long.108-1-9.grobid,137,review generation,1857,1858,Task
+2024.acl-long.108-1-9.grobid,138,WebGPT,1870,1870,Method
+2024.acl-long.108-1-9.grobid,139,reinforcement learning,1880,1881,Method
+2024.acl-long.108-1-9.grobid,140,GPT-3,1887,1887,Method
+2024.acl-long.108-1-9.grobid,141,text generation,1895,1896,Task
+2024.acl-long.108-1-9.grobid,142,InstructGPT,1901,1901,Method
+2024.acl-long.108-1-9.grobid,143,Reinforcement Learning from Human Feedback,1925,1929,Method
+2024.acl-long.108-1-9.grobid,144,RLHF,1931,1931,Method
+2024.acl-long.108-1-9.grobid,145,fine-tune,1934,1934,Method
+2024.acl-long.108-1-9.grobid,146,GPT-3,1935,1935,Method
+2024.acl-long.108-1-9.grobid,147,R3,1947,1947,Method
+2024.acl-long.108-1-9.grobid,148,LLM,1962,1962,Method
+2024.acl-long.108-1-9.grobid,149,reinforcement learning,1967,1968,Method
+2024.acl-long.108-1-9.grobid,150,downstream tasks,1992,1993,Task
+2024.acl-long.108-1-9.grobid,151,.,1994,1994,Method
+2024.acl-long.108-1-9.grobid,152,question suggestion,2007,2008,Task
+2024.acl-long.108-1-9.grobid,153,RLHF,2015,2015,Method
+2024.acl-long.108-1-9.grobid,154,multi-agent reinforcement learning,2025,2027,Method
+2024.acl-long.108-1-9.grobid,155,reinforcement learning,2026,2027,Method
+2024.acl-long.108-1-9.grobid,156,text generation,2035,2036,Task
+2024.acl-long.108-1-9.grobid,157,generation tasks,2036,2037,Task
+2024.acl-long.108-1-9.grobid,158,Multi-source Knowledge-grounded Dialogue System,2052,2055,Method
+2024.acl-long.108-1-9.grobid,159,MKDS,2057,2057,Method
+2024.acl-long.108-1-9.grobid,160,MKDS,2065,2065,Method
+2024.acl-long.108-1-9.grobid,161,M-RAG,2087,2087,Method
+2024.acl-long.108-1-9.grobid,162,MKDS,2110,2110,Method
+2024.acl-long.108-1-9.grobid,163,dialogue,2129,2129,Task
+2024.acl-long.108-1-9.grobid,164,dialogue generation,2129,2130,Task
+2024.acl-long.108-1-9.grobid,165,M-RAG,2132,2132,Method
+2024.acl-long.108-1-9.grobid,166,RAG,2144,2144,Method
+2024.acl-long.108-1-9.grobid,167,MKDS,2165,2165,Method
+2024.acl-long.108-1-9.grobid,168,encoder-decoder,2168,2168,Method
+2024.acl-long.108-1-9.grobid,169,MSKE-Dialog,2186,2186,Method
+2024.acl-long.108-1-9.grobid,170,M-RAG,2199,2199,Method
+2024.acl-long.108-1-9.grobid,171,Retrieval-then-Generation approach with,2202,2204,Method
+2024.acl-long.108-1-9.grobid,172,Agent-S,2209,2209,Method
+2024.acl-long.108-1-9.grobid,173,Agent-R,2211,2211,Method
+2024.acl-long.108-1-9.grobid,174,M-RAG,2226,2226,Method
+2024.acl-long.108-1-9.grobid,175,LLMs,2228,2228,Method
+2024.acl-long.108-1-9.grobid,176,language generation,2231,2232,Task
+2024.acl-long.108-1-9.grobid,177,generation tasks,2232,2233,Task
+2024.acl-long.108-1-9.grobid,178,text summarization,2236,2237,Task
+2024.acl-long.108-1-9.grobid,179,summarization,2237,2237,Task
+2024.acl-long.108-1-9.grobid,180,machine translation,2239,2240,Task
+2024.acl-long.108-1-9.grobid,181,translation,2240,2240,Task
+2024.acl-long.108-1-9.grobid,182,dialogue,2243,2243,Task
+2024.acl-long.108-1-9.grobid,183,dialogue generation,2243,2244,Task
+2024.acl-long.108-1-9.grobid,184,MKDS,2247,2247,Method
+2024.acl-long.108-1-9.grobid,185,dialogue,2252,2252,Task
+2024.acl-long.108-1-9.grobid,186,dialogue generation,2252,2253,Task
+2024.acl-long.108-1-9.grobid,187,M-RAG,2274,2274,Method
+2024.acl-long.108-1-9.grobid,188,language generation,2298,2299,Task
+2024.acl-long.108-1-9.grobid,189,generation task,2299,2300,Task
+2024.acl-long.108-1-9.grobid,190,summarization,2304,2304,Task
+2024.acl-long.108-1-9.grobid,191,M-RAG,2326,2326,Method
+2024.acl-long.108-1-9.grobid,192,RAG,2358,2358,Method
+2024.acl-long.108-1-9.grobid,193,M-RAG,2366,2366,Method
+2024.acl-long.108-1-9.grobid,194,Agent-S,2384,2384,Method
+2024.acl-long.108-1-9.grobid,195,Agent-R,2404,2404,Method
+2024.acl-long.108-1-9.grobid,196,multi-agent reinforcement learning,2441,2443,Method
+2024.acl-long.108-1-9.grobid,197,reinforcement learning,2442,2443,Method
+2024.acl-long.108-1-9.grobid,198,M-RAG,2457,2457,Method
+2024.acl-long.108-1-9.grobid,199,LLM,2470,2470,Method
+2024.acl-long.108-1-9.grobid,200,Agent-S,2484,2484,Method
+2024.acl-long.108-1-9.grobid,201,M-RAG,2492,2492,Method
+2024.acl-long.108-1-9.grobid,202,RAG,2498,2498,Method
+2024.acl-long.108-1-9.grobid,203,Randomization,2563,2563,Method
+2024.acl-long.108-1-9.grobid,204,Clustering,2572,2572,Method
+2024.acl-long.108-1-9.grobid,205,Indexing,2581,2581,Method
+2024.acl-long.108-1-9.grobid,206,Category,2597,2597,Method
+2024.acl-long.108-1-9.grobid,207,locality-sensitive hashing,2628,2629,Method
+2024.acl-long.108-1-9.grobid,208,LSH,2631,2631,Method
+2024.acl-long.108-1-9.grobid,209,K-means,2662,2662,Method
+2024.acl-long.108-1-9.grobid,210,Inverted File Index,2672,2674,Method
+2024.acl-long.108-1-9.grobid,211,IVF,2676,2676,Method
+2024.acl-long.108-1-9.grobid,212,Approximate k-Nearest Neighbor,2681,2683,Method
+2024.acl-long.108-1-9.grobid,213,AKNN,2685,2685,Method
+2024.acl-long.108-1-9.grobid,214,HNSW,2700,2700,Method
+2024.acl-long.108-1-9.grobid,215,NSW,2709,2709,Method
+2024.acl-long.108-1-9.grobid,216,graph partitioning,2739,2740,Method
+2024.acl-long.108-1-9.grobid,217,spectral clustering,2742,2743,Method
+2024.acl-long.108-1-9.grobid,218,DailyDialog,2772,2772,Dataset
+2024.acl-long.108-1-9.grobid,219,language generation,2866,2867,Task
+2024.acl-long.108-1-9.grobid,220,generation tasks,2867,2868,Task
+2024.acl-long.108-1-9.grobid,221,summarization,2870,2870,Task
+2024.acl-long.108-1-9.grobid,222,translation,2872,2872,Task
+2024.acl-long.108-1-9.grobid,223,dialogue,2875,2875,Task
+2024.acl-long.108-1-9.grobid,224,dialogue generation,2875,2876,Task
+2024.acl-long.108-1-9.grobid,225,Indexing,2904,2904,Method
+2024.acl-long.108-1-9.grobid,226,Randomization,2910,2910,Method
+2024.acl-long.108-1-9.grobid,227,Category,2917,2917,Method
+2024.acl-long.108-1-9.grobid,228,summarization,2924,2924,Task
+2024.acl-long.108-1-9.grobid,229,translation,2926,2926,Task
+2024.acl-long.108-1-9.grobid,230,dialogue,2929,2929,Task
+2024.acl-long.108-1-9.grobid,231,dialogue generation,2929,2930,Task
+2024.acl-long.108-1-9.grobid,232,dialogue generation tasks,2929,2931,Task
+2024.acl-long.108-1-9.grobid,233,generation tasks,2930,2931,Task
+2024.acl-long.108-1-9.grobid,234,Top-1,2955,2955,Method
+2024.acl-long.108-1-9.grobid,235,Top-3,2957,2957,Method
+2024.acl-long.108-1-9.grobid,236,Top-3 retrieval,2957,2958,Method
+2024.acl-long.108-1-9.grobid,237,Top-1,2971,2971,Method
+2024.acl-long.108-1-9.grobid,238,Top-1 retrieval,2971,2972,Method
+2024.acl-long.108-1-9.grobid,239,Agent-S,2980,2980,Method
+2024.acl-long.108-1-9.grobid,240,Agent-S,2992,2992,Method
+2024.acl-long.108-1-9.grobid,241,a,3006,3006,Method
+2024.acl-long.108-1-9.grobid,242,Markov Decision Process,3055,3057,Method
+2024.acl-long.108-1-9.grobid,243,MDP,3059,3059,Method
+2024.acl-long.108-1-9.grobid,244,CPT-Text,3210,3210,Method
+2024.acl-long.108-1-9.grobid,245,Top-1,3222,3222,Method
+2024.acl-long.108-1-9.grobid,246,Agent-S,3242,3242,Method
+2024.acl-long.108-1-9.grobid,247,generation task,3302,3303,Task
+2024.acl-long.108-1-9.grobid,248,Agent-R,3358,3358,Method
+2024.acl-long.108-1-9.grobid,249,Agent-S,3408,3408,Method
+2024.acl-long.108-1-9.grobid,250,Agent-R,3410,3410,Method
+2024.acl-long.108-1-9.grobid,251,multi-agent reinforcement learning,3414,3416,Method
+2024.acl-long.108-1-9.grobid,252,reinforcement learning,3415,3416,Method
+2024.acl-long.108-1-9.grobid,253,Agent-R,3446,3446,Method
+2024.acl-long.108-1-9.grobid,254,Agent-R,3468,3468,Method
+2024.acl-long.108-1-9.grobid,255,Agent-R,3478,3478,Method
+2024.acl-long.108-1-9.grobid,256,LLMs,3486,3486,Method
+2024.acl-long.108-1-9.grobid,257,LLM,3503,3503,Method
+2024.acl-long.108-1-9.grobid,258,Agent-R,3526,3526,Method
+2024.acl-long.108-1-9.grobid,259,LLM,3546,3546,Method
+2024.acl-long.108-1-9.grobid,260,Agent-R,3584,3584,Method
+2024.acl-long.108-1-9.grobid,261,reinforcement learning,3592,3593,Method
+2024.acl-long.108-1-9.grobid,262,Agent-R,3724,3724,Method
+2024.acl-long.108-1-9.grobid,263,Agent-R,3774,3774,Method
+2024.acl-long.108-1-9.grobid,264,ROUGE,3872,3872,Metric
+2024.acl-long.108-1-9.grobid,265,text summarization,3874,3875,Task
+2024.acl-long.108-1-9.grobid,266,summarization,3875,3875,Task
+2024.acl-long.108-1-9.grobid,267,BLEU,3877,3877,Metric
+2024.acl-long.108-1-9.grobid,268,machine translation,3879,3880,Task
+2024.acl-long.108-1-9.grobid,269,translation,3880,3880,Task
+2024.acl-long.108-1-9.grobid,270,BLEU,3882,3882,Metric
+2024.acl-long.108-1-9.grobid,271,Distinct,3884,3884,Metric
+2024.acl-long.108-1-9.grobid,272,dialogue,3886,3886,Task
+2024.acl-long.108-1-9.grobid,273,dialogue generation,3886,3887,Task
+2024.acl-long.108-1-9.grobid,274,Markov Decision Process,3938,3940,Method
+2024.acl-long.108-1-9.grobid,275,MDP,3942,3942,Method
+2024.acl-long.108-1-9.grobid,276,Agent-R,3954,3954,Method
+2024.acl-long.108-1-9.grobid,277,M-RAG,3983,3983,Method
+2024.acl-long.108-1-9.grobid,278,LLM,3993,3993,Method
+2024.acl-long.108-1-9.grobid,279,Ag-S,4013,4013,Method
+2024.acl-long.108-1-9.grobid,280,Ag-R,4027,4027,Method
+2024.acl-long.108-1-9.grobid,281,LLM,4065,4065,Method
+2024.acl-long.108-1-9.grobid,282,LLM,4093,4093,Method
+2024.acl-long.108-1-9.grobid,283,LLM,4136,4136,Method
+2024.acl-long.108-1-9.grobid,284,M-RAG,4440,4440,Method
+2024.acl-long.108-1-9.grobid,285,DQN,4445,4445,Method
+2024.acl-long.108-1-9.grobid,286,MDP,4449,4449,Method
+2024.acl-long.108-1-9.grobid,287,Deep Q-Networks,4490,4491,Method
+2024.acl-long.108-1-9.grobid,288,DQN,4493,4493,Method
+2024.acl-long.108-1-9.grobid,289,replay memory,4496,4497,Method
+2024.acl-long.108-1-9.grobid,290,Agent-S,4525,4525,Method
+2024.acl-long.108-1-9.grobid,291,Agent-R,4542,4542,Method
+2024.acl-long.108-1-9.grobid,292,DQN,4579,4579,Method
+2024.acl-long.108-1-9.grobid,293,Agent-S,4593,4593,Method
+2024.acl-long.108-1-9.grobid,294,M-RAG,4599,4599,Method
+2024.acl-long.108-1-9.grobid,295,Agent-S,4610,4610,Method
+2024.acl-long.108-1-9.grobid,296,Agent-R,4612,4612,Method
+2024.acl-long.108-1-9.grobid,297,DQN,4661,4661,Method
+2024.acl-long.108-1-9.grobid,298,LLM,4682,4682,Method
+2024.acl-long.108-1-9.grobid,299,Agent-S,4697,4697,Method
+2024.acl-long.108-1-9.grobid,300,M-RAG,4727,4727,Method
+2024.acl-long.108-1-9.grobid,301,Naive,4731,4731,Method
+2024.acl-long.108-1-9.grobid,302,Naive RAG,4731,4732,Method
+2024.acl-long.108-1-9.grobid,303,RAG,4732,4732,Method
+2024.acl-long.108-1-9.grobid,304,M-RAG,4786,4786,Method
+2024.acl-long.108-1-9.grobid,305,Naive,4795,4795,Method
+2024.acl-long.108-1-9.grobid,306,Naive RAG,4795,4796,Method
+2024.acl-long.108-1-9.grobid,307,RAG,4796,4796,Method
+2024.acl-long.108-1-9.grobid,308,HNSW,4829,4829,Method
+2024.acl-long.108-1-9.grobid,309,Naive,4872,4872,Method
+2024.acl-long.108-1-9.grobid,310,Naive RAG,4872,4873,Method
+2024.acl-long.108-1-9.grobid,311,RAG,4873,4873,Method
+2024.acl-long.108-1-9.grobid,312,Agent-S,4920,4920,Method
+2024.acl-long.108-1-9.grobid,313,AKNN,4933,4933,Method
+2024.acl-long.108-1-9.grobid,314,HNSW,4953,4953,Method
+2024.acl-long.108-1-9.grobid,315,Agent-S,4960,4960,Method
+2024.acl-long.108-1-9.grobid,316,Naive,4981,4981,Method
+2024.acl-long.108-1-9.grobid,317,Naive RAG,4981,4982,Method
+2024.acl-long.108-1-9.grobid,318,RAG,4982,4982,Method
+2024.acl-long.108-1-9.grobid,319,AKNN,4987,4987,Method
+2024.acl-long.108-1-9.grobid,320,M-RAG,5007,5007,Method
+2024.acl-long.108-1-9.grobid,321,Agent-R,5018,5018,Method
+2024.acl-long.108-1-9.grobid,322,LLM,5036,5036,Method
+2024.acl-long.108-1-9.grobid,323,transformer,5040,5040,Method
+2024.acl-long.108-1-9.grobid,324,MDP,5051,5051,Method
+2024.acl-long.108-1-9.grobid,325,Naive,5068,5068,Method
+2024.acl-long.108-1-9.grobid,326,Naive RAG,5068,5069,Method
+2024.acl-long.108-1-9.grobid,327,RAG,5069,5069,Method
+2024.acl-long.108-1-9.grobid,328,DailyDialog,5098,5098,Dataset
+2024.acl-long.108-1-9.grobid,329,XSum,5108,5108,Dataset
+2024.acl-long.108-1-9.grobid,330,BigPatent,5121,5121,Dataset
+2024.acl-long.108-1-9.grobid,331,JRC-Acquis,5136,5136,Dataset
+2024.acl-long.108-1-9.grobid,332,machine translation,5156,5157,Task
+2024.acl-long.108-1-9.grobid,333,translation,5157,5157,Task
+2024.acl-long.108-1-9.grobid,334,translation tasks,5157,5158,Task
+2024.acl-long.108-1-9.grobid,335,DailyDialog,5160,5160,Dataset
+2024.acl-long.108-1-9.grobid,336,Naive,5214,5214,Method
+2024.acl-long.108-1-9.grobid,337,Naive RAG,5214,5215,Method
+2024.acl-long.108-1-9.grobid,338,RAG,5215,5215,Method
+2024.acl-long.108-1-9.grobid,339,Self-RAG,5224,5224,Method
+2024.acl-long.108-1-9.grobid,340,Selfmem,5234,5234,Method
+2024.acl-long.108-1-9.grobid,341,RAG,5249,5249,Method
+2024.acl-long.108-1-9.grobid,342,Mixtral,5272,5272,Method
+2024.acl-long.108-1-9.grobid,343,Mixtral 8×7B,5272,5273,Method
+2024.acl-long.108-1-9.grobid,344,Llama,5282,5282,Method
+2024.acl-long.108-1-9.grobid,345,Llama 2,5282,5283,Method
+2024.acl-long.108-1-9.grobid,346,Llama 2 13B,5282,5284,Method
+2024.acl-long.108-1-9.grobid,347,Phi-2,5293,5293,Method
+2024.acl-long.108-1-9.grobid,348,Phi-2 2.7B,5293,5294,Method
+2024.acl-long.108-1-9.grobid,349,Gemma,5303,5303,Method
+2024.acl-long.108-1-9.grobid,350,Gemma 7B,5303,5304,Method
+2024.acl-long.108-1-9.grobid,351,Mistral,5314,5314,Method
+2024.acl-long.108-1-9.grobid,352,Mistral 7B,5314,5315,Method
+2024.acl-long.108-1-9.grobid,353,M-RAG,5335,5335,Method
+2024.acl-long.108-1-9.grobid,354,generation tasks,5341,5342,Task
+2024.acl-long.108-1-9.grobid,355,ROUGE,5359,5359,Metric
+2024.acl-long.108-1-9.grobid,356,R-1/2/L,5361,5361,Metric
+2024.acl-long.108-1-9.grobid,357,machine translation,5376,5377,Task
+2024.acl-long.108-1-9.grobid,358,translation,5377,5377,Task
+2024.acl-long.108-1-9.grobid,359,BLEU,5379,5379,Metric
+2024.acl-long.108-1-9.grobid,360,dialogue,5392,5392,Task
+2024.acl-long.108-1-9.grobid,361,dialogue generation,5392,5393,Task
+2024.acl-long.108-1-9.grobid,362,BLEU,5395,5395,Metric
+2024.acl-long.108-1-9.grobid,363,B-1/2,5397,5397,Metric
+2024.acl-long.108-1-9.grobid,364,Distinct,5400,5400,Metric
+2024.acl-long.108-1-9.grobid,365,D-1/2,5402,5402,Metric
+2024.acl-long.108-1-9.grobid,366,ROUGE,5431,5431,Metric
+2024.acl-long.108-1-9.grobid,367,BLEU,5433,5433,Metric
+2024.acl-long.108-1-9.grobid,368,Distinct,5435,5435,Metric
+2024.acl-long.108-1-9.grobid,369,t-test,5455,5455,Metric
+2024.acl-long.108-1-9.grobid,370,M-RAG,5466,5466,Method
+2024.acl-long.108-1-9.grobid,371,Randomization,5482,5482,Method
+2024.acl-long.108-1-9.grobid,372,Indexing,5485,5485,Method
+2024.acl-long.108-1-9.grobid,373,Agent-S,5492,5492,Method
+2024.acl-long.108-1-9.grobid,374,Agent-R,5496,5496,Method
+2024.acl-long.108-1-9.grobid,375,feedforward neural network,5503,5505,Method
+2024.acl-long.108-1-9.grobid,376,MDP,5620,5620,Method
+2024.acl-long.108-1-9.grobid,377,ROUGE,5637,5637,Metric
+2024.acl-long.108-1-9.grobid,378,BLEU,5639,5639,Metric
+2024.acl-long.108-1-9.grobid,379,Distinct,5642,5642,Metric
+2024.acl-long.108-1-9.grobid,380,Mixtral,5663,5663,Method
+2024.acl-long.108-1-9.grobid,381,Mixtral 8×7B,5663,5664,Method
+2024.acl-long.108-1-9.grobid,382,Llama,5666,5666,Method
+2024.acl-long.108-1-9.grobid,383,Llama 2,5666,5667,Method
+2024.acl-long.108-1-9.grobid,384,Llama 2 13B,5666,5668,Method
+2024.acl-long.108-1-9.grobid,385,Phi-2,5670,5670,Method
+2024.acl-long.108-1-9.grobid,386,Phi-2 2.7B,5670,5671,Method
+2024.acl-long.108-1-9.grobid,387,Gemma,5673,5673,Method
+2024.acl-long.108-1-9.grobid,388,Gemma 7B,5673,5674,Method
+2024.acl-long.108-1-9.grobid,389,Mistral,5677,5677,Method
+2024.acl-long.108-1-9.grobid,390,Mistral 7B,5677,5678,Method
+2024.acl-long.108-1-9.grobid,391,LLMs,5702,5702,Method
+2024.acl-long.108-1-9.grobid,392,text summarization,5727,5728,Task
+2024.acl-long.108-1-9.grobid,393,summarization,5728,5728,Task
+2024.acl-long.108-1-9.grobid,394,XSum,5730,5730,Dataset
+2024.acl-long.108-1-9.grobid,395,machine translation,5733,5734,Task
+2024.acl-long.108-1-9.grobid,396,translation,5734,5734,Task
+2024.acl-long.108-1-9.grobid,397,dialogue,5740,5740,Task
+2024.acl-long.108-1-9.grobid,398,dialogue generation,5740,5741,Task
+2024.acl-long.108-1-9.grobid,399,DailyDialog,5743,5743,Dataset
+2024.acl-long.108-1-9.grobid,400,Mixtral,5747,5747,Method
+2024.acl-long.108-1-9.grobid,401,Mixtral 8 × 7B,5747,5750,Method
+2024.acl-long.108-1-9.grobid,402,AKNN,5808,5808,Method
+2024.acl-long.108-1-9.grobid,403,LLM,5828,5828,Method
+2024.acl-long.108-1-9.grobid,404,RAG,5844,5844,Method
+2024.acl-long.108-1-9.grobid,405,Top-1,5846,5846,Method
+2024.acl-long.108-1-9.grobid,406,Top-1 retrieval,5846,5847,Method
+2024.acl-long.108-1-9.grobid,407,Top-3,5854,5854,Method
+2024.acl-long.108-1-9.grobid,408,LLM,5863,5863,Method
+2024.acl-long.108-1-9.grobid,409,text summarization,5876,5877,Task
+2024.acl-long.108-1-9.grobid,410,summarization,5877,5877,Task
+2024.acl-long.108-1-9.grobid,411,M-RAG,5886,5886,Method
+2024.acl-long.108-1-9.grobid,412,RAG,5889,5889,Method
+2024.acl-long.108-1-9.grobid,413,Mixtral,5897,5897,Method
+2024.acl-long.108-1-9.grobid,414,Mixtral 8×7B,5897,5898,Method
+2024.acl-long.108-1-9.grobid,415,Llama,5900,5900,Method
+2024.acl-long.108-1-9.grobid,416,Llama 2,5900,5901,Method
+2024.acl-long.108-1-9.grobid,417,Llama 2 13B,5900,5902,Method
+2024.acl-long.108-1-9.grobid,418,Phi-2,5905,5905,Method
+2024.acl-long.108-1-9.grobid,419,Phi-2 2.7B,5905,5906,Method
+2024.acl-long.108-1-9.grobid,420,RAG,5927,5927,Method
+2024.acl-long.108-1-9.grobid,421,RAG,5938,5938,Method
+2024.acl-long.108-1-9.grobid,422,MoE,5950,5950,Method
+2024.acl-long.108-1-9.grobid,423,Mistral,5952,5952,Method
+2024.acl-long.108-1-9.grobid,424,Mistral 8 × 7B,5952,5955,Method
+2024.acl-long.108-1-9.grobid,425,Llama,5960,5960,Method
+2024.acl-long.108-1-9.grobid,426,Llama 2,5960,5961,Method
+2024.acl-long.108-1-9.grobid,427,Llama 2 13B,5960,5962,Method
+2024.acl-long.108-1-9.grobid,428,summarization,5965,5965,Task
+2024.acl-long.108-1-9.grobid,429,summarization task,5965,5966,Task
+2024.acl-long.108-1-9.grobid,430,Mistral,5972,5972,Method
+2024.acl-long.108-1-9.grobid,431,Mistral 8 × 7B,5972,5975,Method
+2024.acl-long.108-1-9.grobid,432,M-RAG,5984,5984,Method
+2024.acl-long.108-1-9.grobid,433,Selfmem,6007,6007,Method
+2024.acl-long.108-1-9.grobid,434,R-1,6018,6018,Metric
+2024.acl-long.108-1-9.grobid,435,XSum,6020,6020,Dataset
+2024.acl-long.108-1-9.grobid,436,BigPatent,6022,6022,Dataset
+2024.acl-long.108-1-9.grobid,437,machine translation,6032,6033,Task
+2024.acl-long.108-1-9.grobid,438,translation,6033,6033,Task
+2024.acl-long.108-1-9.grobid,439,M-RAG,6045,6045,Method
+2024.acl-long.108-1-9.grobid,440,machine translation,6047,6048,Task
+2024.acl-long.108-1-9.grobid,441,translation,6048,6048,Task
+2024.acl-long.108-1-9.grobid,442,translation,6069,6069,Task
+2024.acl-long.108-1-9.grobid,443,translation tasks,6069,6070,Task
+2024.acl-long.108-1-9.grobid,444,M-RAG,6072,6072,Method
+2024.acl-long.108-1-9.grobid,445,Selfmem,6085,6085,Method
+2024.acl-long.108-1-9.grobid,446,translation,6092,6092,Task
+2024.acl-long.108-1-9.grobid,447,translation task,6092,6093,Task
+2024.acl-long.108-1-9.grobid,448,dialogue,6101,6101,Task
+2024.acl-long.108-1-9.grobid,449,dialogue generation,6101,6102,Task
+2024.acl-long.108-1-9.grobid,450,M-RAG,6111,6111,Method
+2024.acl-long.108-1-9.grobid,451,dialogue,6119,6119,Task
+2024.acl-long.108-1-9.grobid,452,dialogue generation,6119,6120,Task
+2024.acl-long.108-1-9.grobid,453,dialogue generation tasks,6119,6121,Task
+2024.acl-long.108-1-9.grobid,454,generation tasks,6120,6121,Task
+2024.acl-long.108-1-9.grobid,455,Selfmem,6126,6126,Method
+2024.acl-long.108-1-9.grobid,456,B-1,6133,6133,Metric
+2024.acl-long.108-1-9.grobid,457,Distinct,6142,6142,Metric
+2024.acl-long.108-1-9.grobid,458,M-RAG,6156,6156,Method
+2024.acl-long.108-1-9.grobid,459,LLMs,6179,6179,Method
+2024.acl-long.108-1-9.grobid,460,LLMs,6188,6188,Method
+2024.acl-long.108-1-9.grobid,461,Gemma,6196,6196,Method
+2024.acl-long.108-1-9.grobid,462,Gemma 7B,6196,6197,Method
+2024.acl-long.108-1-9.grobid,463,Mistral,6199,6199,Method
+2024.acl-long.108-1-9.grobid,464,Mistral 7B,6199,6200,Method
+2024.acl-long.108-1-9.grobid,465,M-RAG,6215,6215,Method
+2024.acl-long.108-1-9.grobid,466,generation tasks,6219,6220,Task
+2024.acl-long.108-1-9.grobid,467,Selfmem,6227,6227,Method
+2024.acl-long.108-1-9.grobid,468,M-RAG,6240,6240,Method
+2024.acl-long.108-1-9.grobid,469,Selfmem,6243,6243,Method
+2024.acl-long.108-1-9.grobid,470,M-RAG,6264,6264,Method
+2024.acl-long.108-1-9.grobid,471,XSum,6272,6272,Dataset
+2024.acl-long.108-1-9.grobid,472,Agent-S,6276,6276,Method
+2024.acl-long.108-1-9.grobid,473,RAG,6283,6283,Method
+2024.acl-long.108-1-9.grobid,474,Agent-R,6287,6287,Method
+2024.acl-long.108-1-9.grobid,475,Naive,6315,6315,Method
+2024.acl-long.108-1-9.grobid,476,Naive RAG,6315,6316,Method
+2024.acl-long.108-1-9.grobid,477,RAG,6316,6316,Method
+2024.acl-long.108-1-9.grobid,478,Agent-S,6338,6338,Method
+2024.acl-long.108-1-9.grobid,479,R-1,6345,6345,Metric
+2024.acl-long.108-1-9.grobid,480,Agent-R,6368,6368,Method
+2024.acl-long.108-1-9.grobid,481,R-1,6374,6374,Metric
+2024.acl-long.108-1-9.grobid,482,Agent-R,6388,6388,Method
+2024.acl-long.108-1-9.grobid,483,Agent-S,6412,6412,Method
+2024.acl-long.108-1-9.grobid,484,Agent-S,6432,6432,Method
+2024.acl-long.108-1-9.grobid,485,RAG,6497,6497,Method
+2024.acl-long.108-1-9.grobid,486,language generation,6540,6541,Task
+2024.acl-long.108-1-9.grobid,487,Agent-R,6550,6550,Method
+2024.acl-long.108-1-9.grobid,488,Agent-R,6564,6564,Method
+2024.acl-long.108-1-9.grobid,489,Agent-R,6571,6571,Method
+2024.acl-long.108-1-9.grobid,490,M-RAG,6615,6615,Method
+2024.acl-long.108-1-9.grobid,491,RAG,6673,6673,Method
+2024.acl-long.108-1-9.grobid,492,M-RAG,6694,6694,Method
+2024.acl-long.108-1-9.grobid,493,multi-agent reinforcement learning,6700,6702,Method
+2024.acl-long.108-1-9.grobid,494,reinforcement learning,6701,6702,Method
+2024.acl-long.108-1-9.grobid,495,RAG,6711,6711,Method
+2024.acl-long.108-1-9.grobid,496,M-RAG,6720,6720,Method
+2024.acl-long.108-1-9.grobid,497,text generation,6727,6728,Task
+2024.acl-long.108-1-9.grobid,498,generation tasks,6728,6729,Task
+2024.acl-long.108-1-9.grobid,499,language generation,6749,6750,Task
+2024.acl-long.108-1-9.grobid,500,generation tasks,6750,6751,Task
+2024.acl-long.108-1-9.grobid,501,M-RAG,6758,6758,Method
+2024.acl-long.108-1-9.grobid,502,RAG,6802,6802,Method
+2024.acl-long.108-1-9.grobid,503,LLMs,6812,6812,Method
+2024.acl-long.108-1-9.grobid,504,Agent-S,6820,6820,Method
+2024.acl-long.108-1-9.grobid,505,Agent-R,6822,6822,Method
+2024.acl-long.108-1-9.grobid,506,LLMs,6853,6853,Method
+2024.acl-long.108-1-9.grobid,507,language generation,6882,6883,Task
+2024.acl-long.108-1-9.grobid,508,generation tasks,6883,6884,Task
+2024.acl-long.108-1-9.grobid,509,M-RAG,6891,6891,Method
+2024.acl-long.108-1-9.grobid,510,summarization,6895,6895,Task
+2024.acl-long.108-1-9.grobid,511,summarization task,6895,6896,Task
+2024.acl-long.108-1-9.grobid,512,M-RAG,6899,6899,Method
+2024.acl-long.108-1-9.grobid,513,Agent-S,6919,6919,Method
+2024.acl-long.108-1-9.grobid,514,Agent-R,6934,6934,Method
+2024.acl-long.108-1-9.grobid,515,multi-agent reinforcement learning,6950,6952,Method
+2024.acl-long.108-1-9.grobid,516,reinforcement learning,6951,6952,Method
+2024.acl-long.108-1-9.grobid,517,DQN,7037,7037,Method
+2024.acl-long.108-1-9.grobid,518,LLM,7043,7043,Method
+2024.acl-long.108-1-9.grobid,519,Ag-S,7053,7053,Method
+2024.acl-long.108-1-9.grobid,520,generation tasks,7080,7081,Task
+2024.acl-long.108-1-9.grobid,521,text summarization,7086,7087,Task
+2024.acl-long.108-1-9.grobid,522,summarization,7087,7087,Task
+2024.acl-long.108-1-9.grobid,523,XSum,7089,7089,Dataset
+2024.acl-long.108-1-9.grobid,524,BigPatent,7096,7096,Dataset
+2024.acl-long.108-1-9.grobid,525,machine translation,7107,7108,Task
+2024.acl-long.108-1-9.grobid,526,translation,7108,7108,Task
+2024.acl-long.108-1-9.grobid,527,JRC-Acquis,7110,7110,Dataset
+2024.acl-long.108-1-9.grobid,528,dialogue,7131,7131,Task
+2024.acl-long.108-1-9.grobid,529,dialogue generation,7131,7132,Task
+2024.acl-long.108-1-9.grobid,530,Text summarization,7133,7134,Task
+2024.acl-long.108-1-9.grobid,531,summarization,7134,7134,Task
+2024.acl-long.108-1-9.grobid,532,Dialogue generation,7136,7137,Task
+2024.acl-long.108-1-9.grobid,533,M-RAG,7140,7140,Method
+2024.acl-long.108-1-9.grobid,534,LLMs,7144,7144,Method
+2024.acl-long.108-1-9.grobid,535,Agent-R,7164,7164,Method
