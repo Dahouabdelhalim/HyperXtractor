@@ -1,0 +1,274 @@
+doc_key,local_entity_id,text,start_token,end_token,ner_label
+P17-1058.grobid,1,Spectral Analysis,0,1,Method
+P17-1058.grobid,2,collaborative task,39,40,Task
+P17-1058.grobid,3,task-oriented dialogue,47,48,Task
+P17-1058.grobid,4,lexical entropy,61,62,Metric
+P17-1058.grobid,5,power spectrum overlap,68,70,Method
+P17-1058.grobid,6,PSO,72,72,Method
+P17-1058.grobid,7,relative phase,75,76,Method
+P17-1058.grobid,8,RP,78,78,Method
+P17-1058.grobid,9,PSO,84,84,Method
+P17-1058.grobid,10,RP,94,94,Method
+P17-1058.grobid,11,SVM,101,101,Method
+P17-1058.grobid,12,task success prediction,109,111,Task
+P17-1058.grobid,13,Grounding theory,169,170,Method
+P17-1058.grobid,14,interactive alignment model,208,210,Method
+P17-1058.grobid,15,IAM,212,212,Method
+P17-1058.grobid,16,IAM,292,292,Method
+P17-1058.grobid,17,collaborative tasks,301,302,Task
+P17-1058.grobid,18,interactive alignment,382,383,Method
+P17-1058.grobid,19,interpersonal synergy,385,386,Method
+P17-1058.grobid,20,information theory,527,528,Method
+P17-1058.grobid,21,entropy,552,552,Metric
+P17-1058.grobid,22,entropy,621,621,Metric
+P17-1058.grobid,23,topic shift,626,627,Task
+P17-1058.grobid,24,spectral analysis,703,704,Method
+P17-1058.grobid,25,task performance,773,774,Metric
+P17-1058.grobid,26,collaborative performance,925,926,Metric
+P17-1058.grobid,27,collaborative performance,960,961,Metric
+P17-1058.grobid,28,spectral analysis,975,976,Method
+P17-1058.grobid,29,power spectrum overlap,990,992,Method
+P17-1058.grobid,30,PSO,994,994,Method
+P17-1058.grobid,31,relative phase,997,998,Method
+P17-1058.grobid,32,RP,1000,1000,Method
+P17-1058.grobid,33,task success,1005,1006,Metric
+P17-1058.grobid,34,interactive-alignment model,1009,1010,Method
+P17-1058.grobid,35,IAM,1012,1012,Method
+P17-1058.grobid,36,IAM,1107,1107,Method
+P17-1058.grobid,37,interpersonal synergy,1111,1112,Method
+P17-1058.grobid,38,complexity matching,1122,1123,Method
+P17-1058.grobid,39,interactive alignment,1159,1160,Method
+P17-1058.grobid,40,interpersonal synergy,1162,1163,Method
+P17-1058.grobid,41,collective performance,1172,1173,Metric
+P17-1058.grobid,42,joint task,1176,1177,Task
+P17-1058.grobid,43,synergy approach,1183,1184,Method
+P17-1058.grobid,44,alignment approach,1191,1192,Method
+P17-1058.grobid,45,complexity matching,1208,1209,Method
+P17-1058.grobid,46,complexity matching,1232,1233,Method
+P17-1058.grobid,47,joint decision-making task,1291,1293,Task
+P17-1058.grobid,48,Information Theory,1326,1327,Method
+P17-1058.grobid,49,entropy rate constancy,1354,1356,Method
+P17-1058.grobid,50,ERC,1358,1358,Method
+P17-1058.grobid,51,ERC,1390,1390,Method
+P17-1058.grobid,52,ERC,1399,1399,Method
+P17-1058.grobid,53,uniform information density,1449,1451,Method
+P17-1058.grobid,54,UID,1453,1453,Method
+P17-1058.grobid,55,ERC,1456,1456,Method
+P17-1058.grobid,56,Spectral analysis,1594,1595,Method
+P17-1058.grobid,57,Spectral analysis,1597,1598,Method
+P17-1058.grobid,58,frequency domain analysis,1604,1606,Method
+P17-1058.grobid,59,Fourier transform,1649,1650,Method
+P17-1058.grobid,60,spectral analysis,1660,1661,Method
+P17-1058.grobid,61,emotion recognition,1712,1713,Task
+P17-1058.grobid,62,predict US president election outcomes,1730,1734,Task
+P17-1058.grobid,63,spectral analysis,1746,1747,Method
+P17-1058.grobid,64,spectral analysis,1836,1837,Method
+P17-1058.grobid,65,power spectrum overlap,1907,1909,Method
+P17-1058.grobid,66,PSO,1911,1911,Method
+P17-1058.grobid,67,PSO,1938,1938,Method
+P17-1058.grobid,68,tracking,1944,1944,Task
+P17-1058.grobid,69,no-tracking baseline,1948,1949,Method
+P17-1058.grobid,70,PSO,1951,1951,Method
+P17-1058.grobid,71,peak-to-peak relative phase,2002,2004,Method
+P17-1058.grobid,72,RP,2006,2006,Method
+P17-1058.grobid,73,PSO,2009,2009,Method
+P17-1058.grobid,74,RP,2064,2064,Method
+P17-1058.grobid,75,Map Task,2101,2102,Dataset
+P17-1058.grobid,76,joint decision-making,2124,2125,Task
+P17-1058.grobid,77,DJD,2137,2137,Dataset
+P17-1058.grobid,78,Map Task,2139,2140,Dataset
+P17-1058.grobid,79,collaborative performance,2247,2248,Metric
+P17-1058.grobid,80,PATHDEV,2256,2256,Metric
+P17-1058.grobid,81,task performance,2274,2275,Metric
+P17-1058.grobid,82,DJD,2277,2277,Dataset
+P17-1058.grobid,83,visual perception,2316,2317,Task
+P17-1058.grobid,84,collaborative performance,2337,2338,Metric
+P17-1058.grobid,85,CollectivePerformance,2343,2343,Metric
+P17-1058.grobid,86,psychometric function,2351,2352,Method
+P17-1058.grobid,87,task performance,2386,2387,Metric
+P17-1058.grobid,88,Switchboard,2390,2390,Dataset
+P17-1058.grobid,89,language model,2405,2406,Method
+P17-1058.grobid,90,sentence entropy,2410,2411,Metric
+P17-1058.grobid,91,Map Task,2413,2414,Dataset
+P17-1058.grobid,92,Copenhagen Dependency Treebanks,2417,2419,Dataset
+P17-1058.grobid,93,DJD,2428,2428,Dataset
+P17-1058.grobid,94,information density,2431,2432,Metric
+P17-1058.grobid,95,per-word entropy,2445,2446,Metric
+P17-1058.grobid,96,language model,2453,2454,Method
+P17-1058.grobid,97,per-word entropy,2491,2492,Metric
+P17-1058.grobid,98,trigram model,2543,2544,Method
+P17-1058.grobid,99,SRILM,2554,2554,Method
+P17-1058.grobid,100,sentence entropy,2571,2572,Metric
+P17-1058.grobid,101,Map Task,2635,2636,Dataset
+P17-1058.grobid,102,DJD,2705,2705,Dataset
+P17-1058.grobid,103,Map Task,2739,2740,Dataset
+P17-1058.grobid,104,DJD,2750,2750,Dataset
+P17-1058.grobid,105,per-word entropy,2756,2757,Metric
+P17-1058.grobid,106,Map Task,2866,2867,Dataset
+P17-1058.grobid,107,spectral analysis,2907,2908,Method
+P17-1058.grobid,108,power spectrum overlap,2911,2913,Method
+P17-1058.grobid,109,relative phase,2915,2916,Method
+P17-1058.grobid,110,fast Fourier transform,2977,2979,Method
+P17-1058.grobid,111,FFT,2981,2981,Method
+P17-1058.grobid,112,periodogram method,3021,3022,Method
+P17-1058.grobid,113,Spectral Analysis,3152,3153,Method
+P17-1058.grobid,114,spectral analysis,3175,3176,Method
+P17-1058.grobid,115,Fourier transforms,3183,3184,Method
+P17-1058.grobid,116,augmented Dickey-Fuller,3276,3277,Method
+P17-1058.grobid,117,ADF,3279,3279,Method
+P17-1058.grobid,118,Kwiatkowski-Phillips-Schmidt-Shin,3291,3291,Method
+P17-1058.grobid,119,KPSS,3293,3293,Method
+P17-1058.grobid,120,Phillips-Perron,3307,3307,Method
+P17-1058.grobid,121,PP,3309,3309,Method
+P17-1058.grobid,122,Fourier transform,3358,3359,Method
+P17-1058.grobid,123,simple linear model,3424,3426,Method
+P17-1058.grobid,124,Map Task,3453,3454,Dataset
+P17-1058.grobid,125,p,3463,3463,Metric
+P17-1058.grobid,126,Adj-R 2,3467,3468,Metric
+P17-1058.grobid,127,DJD,3476,3476,Dataset
+P17-1058.grobid,128,p,3485,3485,Metric
+P17-1058.grobid,129,Adj-R 2,3489,3490,Metric
+P17-1058.grobid,130,Adj-R 2,3535,3536,Metric
+P17-1058.grobid,131,FFT,3555,3555,Method
+P17-1058.grobid,132,Linear models,3651,3652,Method
+P17-1058.grobid,133,Map Task,3672,3673,Dataset
+P17-1058.grobid,134,entropy,3698,3698,Metric
+P17-1058.grobid,135,Ljung-Box test,3716,3717,Method
+P17-1058.grobid,136,entropy,3729,3729,Metric
+P17-1058.grobid,137,p-values,3766,3766,Metric
+P17-1058.grobid,138,entropy,3787,3787,Metric
+P17-1058.grobid,139,p-value,3794,3794,Metric
+P17-1058.grobid,140,p-value,3802,3802,Metric
+P17-1058.grobid,141,MapTask,3806,3806,Dataset
+P17-1058.grobid,142,p-value,3811,3811,Metric
+P17-1058.grobid,143,DJD,3815,3815,Dataset
+P17-1058.grobid,144,entropy,3829,3829,Metric
+P17-1058.grobid,145,Type-I error,3835,3836,Metric
+P17-1058.grobid,146,PSO,3851,3851,Method
+P17-1058.grobid,147,Map Task,3857,3858,Dataset
+P17-1058.grobid,148,DJD,3860,3860,Dataset
+P17-1058.grobid,149,linear models,3864,3865,Method
+P17-1058.grobid,150,PSO,3867,3867,Method
+P17-1058.grobid,151,PATHDEV,3872,3872,Metric
+P17-1058.grobid,152,CollectivePerformance,3874,3874,Metric
+P17-1058.grobid,153,PSO,3880,3880,Method
+P17-1058.grobid,154,p,3889,3889,Metric
+P17-1058.grobid,155,PATHDEV,3903,3903,Metric
+P17-1058.grobid,156,collaborative task performance,3911,3913,Task
+P17-1058.grobid,157,PSO,3924,3924,Method
+P17-1058.grobid,158,collabora-tive task performance,3926,3928,Task
+P17-1058.grobid,159,Collective-Performance,3942,3942,Metric
+P17-1058.grobid,160,Breush-Pagan test,3979,3980,Method
+P17-1058.grobid,161,BP,3989,3989,Metric
+P17-1058.grobid,162,p,3993,3993,Metric
+P17-1058.grobid,163,Box-Cox transformation,4006,4007,Method
+P17-1058.grobid,164,PATHDEV,4020,4020,Metric
+P17-1058.grobid,165,PSO,4036,4036,Method
+P17-1058.grobid,166,Box-Cox,4040,4040,Method
+P17-1058.grobid,167,PATHDEV,4042,4042,Metric
+P17-1058.grobid,168,β,4048,4048,Metric
+P17-1058.grobid,169,SE,4052,4052,Metric
+P17-1058.grobid,170,F,4056,4056,Metric
+P17-1058.grobid,171,p,4065,4065,Metric
+P17-1058.grobid,172,PSO,4074,4074,Method
+P17-1058.grobid,173,PATHDEV,4076,4076,Metric
+P17-1058.grobid,174,DJD,4082,4082,Dataset
+P17-1058.grobid,175,regression model,4107,4108,Method
+P17-1058.grobid,176,entropy,4114,4114,Metric
+P17-1058.grobid,177,task success,4123,4124,Task
+P17-1058.grobid,178,entropy,4219,4219,Metric
+P17-1058.grobid,179,PSO,4406,4406,Method
+P17-1058.grobid,180,PATHDEV,4407,4407,Metric
+P17-1058.grobid,181,Map Task,4411,4412,Dataset
+P17-1058.grobid,182,RP,4876,4876,Method
+P17-1058.grobid,183,linear models,4882,4883,Method
+P17-1058.grobid,184,relative phase,4887,4888,Method
+P17-1058.grobid,185,RP,4890,4890,Method
+P17-1058.grobid,186,linear models,4904,4905,Method
+P17-1058.grobid,187,RP,4910,4910,Method
+P17-1058.grobid,188,task performance,4915,4916,Metric
+P17-1058.grobid,189,Map Task,4931,4932,Dataset
+P17-1058.grobid,190,DJD,4948,4948,Dataset
+P17-1058.grobid,191,task success,4980,4981,Task
+P17-1058.grobid,192,RP,5075,5075,Method
+P17-1058.grobid,193,Map Task,5103,5104,Dataset
+P17-1058.grobid,194,RP,5109,5109,Method
+P17-1058.grobid,195,stepwise analysis,5123,5124,Method
+P17-1058.grobid,196,DJD,5128,5128,Dataset
+P17-1058.grobid,197,RP,5133,5133,Method
+P17-1058.grobid,198,task success,5139,5140,Task
+P17-1058.grobid,199,RP,5171,5171,Method
+P17-1058.grobid,200,Map Task,5173,5174,Dataset
+P17-1058.grobid,201,RP,5177,5177,Method
+P17-1058.grobid,202,DJD,5179,5179,Dataset
+P17-1058.grobid,203,RP,5187,5187,Method
+P17-1058.grobid,204,task performance,5192,5193,Metric
+P17-1058.grobid,205,PSO,5204,5204,Method
+P17-1058.grobid,206,relative phase,5235,5236,Method
+P17-1058.grobid,207,relative phase,5289,5290,Method
+P17-1058.grobid,208,correlation,5299,5299,Metric
+P17-1058.grobid,209,relative phase,5301,5302,Method
+P17-1058.grobid,210,task performance,5304,5305,Metric
+P17-1058.grobid,211,RP,5492,5492,Method
+P17-1058.grobid,212,PSO,5523,5523,Method
+P17-1058.grobid,213,RP,5525,5525,Method
+P17-1058.grobid,214,alignment,5535,5535,Method
+P17-1058.grobid,215,success of dialogue,5551,5553,Task
+P17-1058.grobid,216,MapTask,5555,5555,Dataset
+P17-1058.grobid,217,SVM,5569,5569,Method
+P17-1058.grobid,218,LEXREP,5580,5580,Method
+P17-1058.grobid,219,SYNREP,5586,5586,Method
+P17-1058.grobid,220,LENGTH,5595,5595,Method
+P17-1058.grobid,221,R 2,5605,5606,Metric
+P17-1058.grobid,222,variance,5622,5622,Metric
+P17-1058.grobid,223,task success,5624,5625,Task
+P17-1058.grobid,224,PSO,5631,5631,Method
+P17-1058.grobid,225,RP,5633,5633,Method
+P17-1058.grobid,226,RP,5640,5640,Method
+P17-1058.grobid,227,SVM,5651,5651,Method
+P17-1058.grobid,228,RBF,5655,5655,Method
+P17-1058.grobid,229,cross-validation,5676,5676,Method
+P17-1058.grobid,230,PSO,5712,5712,Method
+P17-1058.grobid,231,RP,5714,5714,Method
+P17-1058.grobid,232,R 2,5745,5746,Metric
+P17-1058.grobid,233,PSO,5752,5752,Method
+P17-1058.grobid,234,RP,5754,5754,Method
+P17-1058.grobid,235,PSO,5767,5767,Method
+P17-1058.grobid,236,RP,5769,5769,Method
+P17-1058.grobid,237,R 2,5791,5792,Metric
+P17-1058.grobid,238,alignment,5809,5809,Method
+P17-1058.grobid,239,LENGTH,5816,5816,Method
+P17-1058.grobid,240,frequency features,5820,5821,Method
+P17-1058.grobid,241,frequency domain features,5846,5848,Method
+P17-1058.grobid,242,PSO,5850,5850,Method
+P17-1058.grobid,243,RP,5852,5852,Method
+P17-1058.grobid,244,task success,5865,5866,Task
+P17-1058.grobid,245,alignment,5872,5872,Method
+P17-1058.grobid,246,information density,5933,5934,Metric
+P17-1058.grobid,247,entropy,6084,6084,Metric
+P17-1058.grobid,248,entropy,6143,6143,Metric
+P17-1058.grobid,249,entropy,6172,6172,Metric
+P17-1058.grobid,250,PSO,6193,6193,Method
+P17-1058.grobid,251,relative phase,6209,6210,Method
+P17-1058.grobid,252,RP,6212,6212,Method
+P17-1058.grobid,253,entropy,6275,6275,Metric
+P17-1058.grobid,254,linear correlations,6284,6285,Metric
+P17-1058.grobid,255,entropy,6301,6301,Metric
+P17-1058.grobid,256,linear models,6326,6327,Method
+P17-1058.grobid,257,PSO,6329,6329,Method
+P17-1058.grobid,258,PATHDEV,6332,6332,Metric
+P17-1058.grobid,259,Map Task,6334,6335,Dataset
+P17-1058.grobid,260,CollectivePerformance,6340,6340,Metric
+P17-1058.grobid,261,DJD,6342,6342,Dataset
+P17-1058.grobid,262,PSO,6359,6359,Method
+P17-1058.grobid,263,PATHDEV,6362,6362,Metric
+P17-1058.grobid,264,Map Task,6364,6365,Dataset
+P17-1058.grobid,265,Collective-Performance,6368,6368,Metric
+P17-1058.grobid,266,DJD,6370,6370,Dataset
+P17-1058.grobid,267,linear models,6382,6383,Method
+P17-1058.grobid,268,RP,6394,6394,Method
+P17-1058.grobid,269,CRC MapTask,6420,6421,Dataset
+P17-1058.grobid,270,task success prediction,6422,6424,Task
+P17-1058.grobid,271,percentage of variance explained,6427,6430,Metric
+P17-1058.grobid,272,syntactic repetition features,6456,6458,Method
+P17-1058.grobid,273,DJD,6468,6468,Dataset
