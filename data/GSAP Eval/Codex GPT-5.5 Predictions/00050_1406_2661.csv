@@ -1,0 +1,96 @@
+doc_id,local_entity_id,text,start_char,end_char,ner_label
+00050_1406_2661.txt,1,Generative Adversarial Nets,0,27,MLModel
+00050_1406_2661.txt,2,multilayer perceptrons,679,701,ModelArchitecture
+00050_1406_2661.txt,3,backpropagation,741,756,Method
+00050_1406_2661.txt,4,Markov chains,783,796,Method
+00050_1406_2661.txt,5,approximate inference,809,830,Method
+00050_1406_2661.txt,6,backpropagation,1563,1578,Method
+00050_1406_2661.txt,7,dropout,1583,1590,Method
+00050_1406_2661.txt,8,piecewise linear units,1609,1631,ModelArchitecture
+00050_1406_2661.txt,9,maximum likelihood estimation,1842,1871,Method
+00050_1406_2661.txt,10,piecewise linear units,1948,1970,ModelArchitecture
+00050_1406_2661.txt,11,adversarial nets,2106,2122,MLModel
+00050_1406_2661.txt,12,multilayer perceptron,2922,2943,ModelArchitecture
+00050_1406_2661.txt,13,multilayer perceptron,2984,3005,ModelArchitecture
+00050_1406_2661.txt,14,adversarial nets,3040,3056,MLModel
+00050_1406_2661.txt,15,backpropagation,3130,3145,Method
+00050_1406_2661.txt,16,dropout,3150,3157,Method
+00050_1406_2661.txt,17,forward propagation,3222,3241,Method
+00050_1406_2661.txt,18,approximate inference,3246,3267,Method
+00050_1406_2661.txt,19,Markov chains,3271,3284,Method
+00050_1406_2661.txt,20,restricted Boltzmann machines,3445,3474,MLModel
+00050_1406_2661.txt,21,RBMs,3476,3480,MLModel
+00050_1406_2661.txt,22,deep Boltzmann machines,3492,3515,MLModel
+00050_1406_2661.txt,23,DBMs,3517,3521,MLModel
+00050_1406_2661.txt,24,Markov chain Monte Carlo,3893,3917,Method
+00050_1406_2661.txt,25,MCMC,3919,3923,Method
+00050_1406_2661.txt,26,MCMC,4006,4010,Method
+00050_1406_2661.txt,27,Deep belief networks,4019,4039,MLModel
+00050_1406_2661.txt,28,DBNs,4041,4045,MLModel
+00050_1406_2661.txt,29,DBNs,4199,4203,MLModel
+00050_1406_2661.txt,30,score matching,4400,4414,Method
+00050_1406_2661.txt,31,noise-contrastive estimation,4424,4452,Method
+00050_1406_2661.txt,32,NCE,4454,4457,Method
+00050_1406_2661.txt,33,DBNs,4677,4681,MLModel
+00050_1406_2661.txt,34,DBMs,4686,4690,MLModel
+00050_1406_2661.txt,35,denoising auto-encoders,4793,4816,MLModel
+00050_1406_2661.txt,36,contractive autoencoders,4826,4850,MLModel
+00050_1406_2661.txt,37,score matching,4887,4901,Method
+00050_1406_2661.txt,38,RBMs,4913,4917,MLModel
+00050_1406_2661.txt,39,NCE,4922,4925,Method
+00050_1406_2661.txt,40,NCE,5197,5200,Method
+00050_1406_2661.txt,41,back-propagation,5637,5653,Method
+00050_1406_2661.txt,42,generative stochastic network,5703,5732,MLModel
+00050_1406_2661.txt,43,GSN,5734,5737,MLModel
+00050_1406_2661.txt,44,generalized denoising auto-encoders,5768,5803,MLModel
+00050_1406_2661.txt,45,Markov chain,5855,5867,Method
+00050_1406_2661.txt,46,Markov chain,5953,5965,Method
+00050_1406_2661.txt,47,GSNs,5979,5983,MLModel
+00050_1406_2661.txt,48,adversarial nets,5989,6005,MLModel
+00050_1406_2661.txt,49,Markov chain,6035,6047,Method
+00050_1406_2661.txt,50,adversarial nets,6070,6086,MLModel
+00050_1406_2661.txt,51,piecewise linear units,6169,6191,ModelArchitecture
+00050_1406_2661.txt,52,backpropagation,6238,6253,Method
+00050_1406_2661.txt,53,back-propagating,6384,6400,Method
+00050_1406_2661.txt,54,auto-encoding variational Bayes,6432,6463,Method
+00050_1406_2661.txt,55,stochastic backpropagation,6473,6499,Method
+00050_1406_2661.txt,56,Adversarial nets,6509,6525,MLModel
+00050_1406_2661.txt,57,multilayer perceptrons,6619,6641,ModelArchitecture
+00050_1406_2661.txt,58,multilayer perceptron,6858,6879,ModelArchitecture
+00050_1406_2661.txt,59,multilayer perceptron,6926,6947,ModelArchitecture
+00050_1406_2661.txt,60,adversarial nets,7470,7486,MLModel
+00050_1406_2661.txt,61,SML/PCD,8188,8195,Method
+00050_1406_2661.txt,62,Markov chain,8239,8251,Method
+00050_1406_2661.txt,63,Markov chain,8318,8330,Method
+00050_1406_2661.txt,64,stochastic gradient descent,9121,9148,Method
+00050_1406_2661.txt,65,generative adversarial nets,9161,9188,MLModel
+00050_1406_2661.txt,66,momentum,9975,9983,Method
+00050_1406_2661.txt,67,adversarial nets,13332,13348,MLModel
+00050_1406_2661.txt,68,multilayer perceptron,13478,13499,ModelArchitecture
+00050_1406_2661.txt,69,multilayer perceptrons,13606,13628,ModelArchitecture
+00050_1406_2661.txt,70,adversarial nets,13762,13778,MLModel
+00050_1406_2661.txt,71,MNIST,13812,13817,Dataset
+00050_1406_2661.txt,72,Toronto Face Database,13828,13849,Dataset
+00050_1406_2661.txt,73,TFD,13851,13854,Dataset
+00050_1406_2661.txt,74,CIFAR-10,13866,13874,Dataset
+00050_1406_2661.txt,75,rectifier linear activations,13918,13946,ModelArchitecture
+00050_1406_2661.txt,76,sigmoid activations,13959,13978,ModelArchitecture
+00050_1406_2661.txt,77,maxout,14013,14019,ModelArchitecture
+00050_1406_2661.txt,78,dropout,14149,14156,Method
+00050_1406_2661.txt,79,Gaussian Parzen window,14364,14386,Method
+00050_1406_2661.txt,80,MNIST,14499,14504,Dataset
+00050_1406_2661.txt,81,TFD,14505,14508,Dataset
+00050_1406_2661.txt,82,DBN,14509,14512,MLModel
+00050_1406_2661.txt,83,Stacked CAE,14535,14546,MLModel
+00050_1406_2661.txt,84,Deep GSN,14571,14579,MLModel
+00050_1406_2661.txt,85,Adversarial nets,14604,14620,MLModel
+00050_1406_2661.txt,86,MNIST,14719,14724,Dataset
+00050_1406_2661.txt,87,TFD,14841,14844,Dataset
+00050_1406_2661.txt,88,TFD,14974,14977,Dataset
+00050_1406_2661.txt,89,MNIST,15070,15075,Dataset
+00050_1406_2661.txt,90,cross validation,15201,15217,Method
+00050_1406_2661.txt,91,Markov chains,16706,16719,Method
+00050_1406_2661.txt,92,generative adversarial nets,16926,16953,MLModel
+00050_1406_2661.txt,93,Markov chains,17481,17494,Method
+00050_1406_2661.txt,94,approximate inference,17795,17816,Method
+00050_1406_2661.txt,95,wake-sleep algorithm,17941,17961,Method

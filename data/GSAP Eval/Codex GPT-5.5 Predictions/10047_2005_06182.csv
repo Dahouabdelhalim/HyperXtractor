@@ -1,0 +1,94 @@
+doc_id,local_entity_id,text,start_char,end_char,ner_label
+10047_2005_06182,1,MLSolv-A,0,8,MLModel
+10047_2005_06182,2,Prediction of Solvation Free Energies,41,78,Task
+10047_2005_06182,3,structure-property relationship,226,257,Method
+10047_2005_06182,4,explicit solvation methods,2163,2189,Method
+10047_2005_06182,5,explicit solvation model,2362,2386,Method
+10047_2005_06182,6,classical molecular mechanics simulations,2416,2457,Method
+10047_2005_06182,7,QM/MM,2492,2497,Method
+10047_2005_06182,8,implicit solvation,2650,2668,Method
+10047_2005_06182,9,Poisson-Boltzmann equation,2832,2858,Method
+10047_2005_06182,10,continuum solvation model,2952,2977,Method
+10047_2005_06182,11,polarizable continuum model,3032,3059,Method
+10047_2005_06182,12,PCM,3061,3064,Method
+10047_2005_06182,13,conductor-like screening model,3075,3105,Method
+10047_2005_06182,14,COSMO,3107,3112,Method
+10047_2005_06182,15,generalized Born approximations,3146,3177,Method
+10047_2005_06182,16,solvation model based on density,3183,3215,Method
+10047_2005_06182,17,SMD,3217,3220,Method
+10047_2005_06182,18,SMx,3261,3264,Method
+10047_2005_06182,19,structure-property relationship,3279,3310,Method
+10047_2005_06182,20,SPR,3312,3315,Method
+10047_2005_06182,21,SPR,3655,3658,Method
+10047_2005_06182,22,regression analysis,3664,3683,Method
+10047_2005_06182,23,SPR,3998,4001,Method
+10047_2005_06182,24,SPR,4244,4247,Method
+10047_2005_06182,25,ab initio solvation models,4319,4345,Method
+10047_2005_06182,26,artificial neural-network-based ML,4396,4430,Method
+10047_2005_06182,27,Delfos,4454,4460,MLModel
+10047_2005_06182,28,solvation energy estimation,4860,4887,Task
+10047_2005_06182,29,MLSolv-A,4895,4903,MLModel
+10047_2005_06182,30,groupcontribution method,4927,4951,Method
+10047_2005_06182,31,Luong's dot-product attention,6903,6932,Method
+10047_2005_06182,32,solvation descriptor approach,7761,7790,Method
+10047_2005_06182,33,BiLM,8053,8057,MLModel
+10047_2005_06182,34,recurrent neural network,8078,8102,ModelArchitecture
+10047_2005_06182,35,RNN,8104,8107,ModelArchitecture
+10047_2005_06182,36,graph convolutional neural network,8127,8161,ModelArchitecture
+10047_2005_06182,37,GCN,8163,8166,ModelArchitecture
+10047_2005_06182,38,FreeSolv,8747,8755,Dataset
+10047_2005_06182,39,Solv@TUM,8845,8853,Dataset
+10047_2005_06182,40,Mol2Vec,9283,9290,MLModel
+10047_2005_06182,41,skip-gram,9291,9300,Method
+10047_2005_06182,42,L2 regularization,9502,9519,Method
+10047_2005_06182,43,RMSprop,9603,9610,Method
+10047_2005_06182,44,grid-search,9814,9825,Method
+10047_2005_06182,45,5-fold cross-validation,9875,9898,Method
+10047_2005_06182,46,5-fold CV,10161,10170,Method
+10047_2005_06182,47,5-fold CV,10467,10476,Method
+10047_2005_06182,48,BiLM,10547,10551,MLModel
+10047_2005_06182,49,LSTM,10569,10573,ModelArchitecture
+10047_2005_06182,50,GCN,10614,10617,ModelArchitecture
+10047_2005_06182,51,BiLM/LSTM,10723,10732,MLModel
+10047_2005_06182,52,GCN,10775,10778,ModelArchitecture
+10047_2005_06182,53,graph-based neural network,11031,11057,ModelArchitecture
+10047_2005_06182,54,GCN-based model,11088,11103,ModelArchitecture
+10047_2005_06182,55,graph-based embedding model,11136,11163,ModelArchitecture
+10047_2005_06182,56,graph neural networks,11195,11216,ModelArchitecture
+10047_2005_06182,57,messege-passing neural network,11277,11307,ModelArchitecture
+10047_2005_06182,58,deep tensor neural network,11325,11351,ModelArchitecture
+10047_2005_06182,59,5-fold CV,12060,12069,Method
+10047_2005_06182,60,FreeSolv,12111,12119,Dataset
+10047_2005_06182,61,BiLM,12135,12139,MLModel
+10047_2005_06182,62,GCN,12148,12151,ModelArchitecture
+10047_2005_06182,63,FreeSolv,12207,12215,Dataset
+10047_2005_06182,64,Solv@TUM,12296,12304,Dataset
+10047_2005_06182,65,Solv@TUM,12328,12336,Dataset
+10047_2005_06182,66,BiLM,12433,12437,MLModel
+10047_2005_06182,67,GCN,12447,12450,ModelArchitecture
+10047_2005_06182,68,transfer learning,12533,12550,Method
+10047_2005_06182,69,aqueous solubilities,12595,12615,Task
+10047_2005_06182,70,octanol-water partition coefficients,12623,12659,Task
+10047_2005_06182,71,scaffold-based split,12994,13014,Method
+10047_2005_06182,72,K-fold CV,13053,13062,Method
+10047_2005_06182,73,K-means clustering algorithm,13114,13142,Method
+10047_2005_06182,74,MACCS substructural fingerprint,13169,13200,Method
+10047_2005_06182,75,scaffold-based split,13333,13353,Method
+10047_2005_06182,76,solvation energy estimation,13975,14002,Task
+10047_2005_06182,77,BiLM,14390,14394,MLModel
+10047_2005_06182,78,GCN,14403,14406,ModelArchitecture
+10047_2005_06182,79,BiLM,14726,14730,MLModel
+10047_2005_06182,80,GCN,14772,14775,ModelArchitecture
+10047_2005_06182,81,BiLM,14849,14853,MLModel
+10047_2005_06182,82,recurrent neural network,14905,14929,ModelArchitecture
+10047_2005_06182,83,RNN,14941,14944,ModelArchitecture
+10047_2005_06182,84,group-contribution based ML,15279,15306,Method
+10047_2005_06182,85,RNN-based model,15325,15340,ModelArchitecture
+10047_2005_06182,86,ML-based solvation energy prediction,15444,15480,Task
+10047_2005_06182,87,FreeSolv,16107,16115,Dataset
+10047_2005_06182,88,Solv@TUM,16129,16137,Dataset
+10047_2005_06182,89,K-fold CV,16458,16467,Method
+10047_2005_06182,90,BiLM,16494,16498,MLModel
+10047_2005_06182,91,GCN,16533,16536,ModelArchitecture
+10047_2005_06182,92,K-fold CV,16562,16571,Method
+10047_2005_06182,93,scaffold-based split,16589,16609,Method
