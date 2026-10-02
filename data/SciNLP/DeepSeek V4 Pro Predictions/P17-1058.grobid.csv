@@ -1,0 +1,96 @@
+doc_key,local_entity_id,text,start_token,end_token,ner_label
+P17-1058.grobid,1,Spectral Analysis,0,1,Method
+P17-1058.grobid,2,collaborative task,39,40,Task
+P17-1058.grobid,3,task-oriented dialogue,47,48,Task
+P17-1058.grobid,4,SVM,101,101,Method
+P17-1058.grobid,5,task success prediction,109,111,Task
+P17-1058.grobid,6,interactive alignment model,208,210,Method
+P17-1058.grobid,7,IAM,212,212,Method
+P17-1058.grobid,8,IAM,292,292,Method
+P17-1058.grobid,9,spectral analysis,703,704,Method
+P17-1058.grobid,10,spectral analysis,975,976,Method
+P17-1058.grobid,11,interactive-alignment model,1009,1010,Method
+P17-1058.grobid,12,IAM,1012,1012,Method
+P17-1058.grobid,13,IAM,1107,1107,Method
+P17-1058.grobid,14,joint decision-making task,1291,1293,Task
+P17-1058.grobid,15,Spectral analysis,1594,1595,Method
+P17-1058.grobid,16,Spectral analysis,1597,1598,Method
+P17-1058.grobid,17,frequency domain analysis,1604,1606,Method
+P17-1058.grobid,18,Fourier transform,1649,1650,Method
+P17-1058.grobid,19,spectral analysis,1660,1661,Method
+P17-1058.grobid,20,emotion recognition,1712,1713,Task
+P17-1058.grobid,21,spectral analysis,1746,1747,Method
+P17-1058.grobid,22,spectral analysis,1836,1837,Method
+P17-1058.grobid,23,HCRC Map Task Corpus,2100,2103,Dataset
+P17-1058.grobid,24,DJD,2137,2137,Dataset
+P17-1058.grobid,25,Map Task,2139,2140,Dataset
+P17-1058.grobid,26,DJD,2277,2277,Dataset
+P17-1058.grobid,27,visual perception task,2316,2318,Task
+P17-1058.grobid,28,Switchboard Corpus,2390,2391,Dataset
+P17-1058.grobid,29,Map Task,2413,2414,Dataset
+P17-1058.grobid,30,Copenhagen Dependency Treebanks,2417,2419,Dataset
+P17-1058.grobid,31,DJD,2428,2428,Dataset
+P17-1058.grobid,32,trigram language model,2452,2454,Method
+P17-1058.grobid,33,trigram model,2543,2544,Method
+P17-1058.grobid,34,Map Task,2635,2636,Dataset
+P17-1058.grobid,35,DJD,2705,2705,Dataset
+P17-1058.grobid,36,Map Task,2739,2740,Dataset
+P17-1058.grobid,37,DJD,2750,2750,Dataset
+P17-1058.grobid,38,Map Task,2866,2867,Dataset
+P17-1058.grobid,39,spectral analysis,2907,2908,Method
+P17-1058.grobid,40,fast Fourier transform,2977,2979,Method
+P17-1058.grobid,41,FFT,2981,2981,Method
+P17-1058.grobid,42,periodogram method,3021,3022,Method
+P17-1058.grobid,43,Spectral Analysis,3152,3153,Method
+P17-1058.grobid,44,spectral analysis,3175,3176,Method
+P17-1058.grobid,45,augmented Dickey-Fuller,3276,3277,Method
+P17-1058.grobid,46,ADF,3279,3279,Method
+P17-1058.grobid,47,Kwiatkowski-Phillips-Schmidt-Shin,3291,3291,Method
+P17-1058.grobid,48,KPSS,3293,3293,Method
+P17-1058.grobid,49,Phillips-Perron,3307,3307,Method
+P17-1058.grobid,50,PP,3309,3309,Method
+P17-1058.grobid,51,Fourier transform,3358,3359,Method
+P17-1058.grobid,52,linear model,3425,3426,Method
+P17-1058.grobid,53,Map Task,3453,3454,Dataset
+P17-1058.grobid,54,Adj-R 2,3467,3468,Metric
+P17-1058.grobid,55,DJD,3476,3476,Dataset
+P17-1058.grobid,56,Adj-R 2,3535,3536,Metric
+P17-1058.grobid,57,FFT,3555,3555,Method
+P17-1058.grobid,58,Linear models,3651,3652,Method
+P17-1058.grobid,59,Map Task,3672,3673,Dataset
+P17-1058.grobid,60,Ljung-Box test,3716,3717,Method
+P17-1058.grobid,61,MapTask,3806,3806,Dataset
+P17-1058.grobid,62,DJD,3815,3815,Dataset
+P17-1058.grobid,63,Map Task,3857,3858,Dataset
+P17-1058.grobid,64,DJD,3860,3860,Dataset
+P17-1058.grobid,65,linear models,3864,3865,Method
+P17-1058.grobid,66,collaborative task,3911,3912,Task
+P17-1058.grobid,67,Breush-Pagan test,3979,3980,Method
+P17-1058.grobid,68,BP,3989,3989,Method
+P17-1058.grobid,69,Box-Cox transformation,4006,4007,Method
+P17-1058.grobid,70,Box-Cox,4040,4040,Method
+P17-1058.grobid,71,DJD,4082,4082,Dataset
+P17-1058.grobid,72,Map Task,4411,4412,Dataset
+P17-1058.grobid,73,collaborative task,4762,4763,Task
+P17-1058.grobid,74,linear models,4882,4883,Method
+P17-1058.grobid,75,Map Task,4931,4932,Dataset
+P17-1058.grobid,76,DJD,4948,4948,Dataset
+P17-1058.grobid,77,Map Task,5103,5104,Dataset
+P17-1058.grobid,78,stepwise analysis,5123,5124,Method
+P17-1058.grobid,79,DJD,5128,5128,Dataset
+P17-1058.grobid,80,Map Task,5173,5174,Dataset
+P17-1058.grobid,81,DJD,5179,5179,Dataset
+P17-1058.grobid,82,MapTask,5555,5555,Dataset
+P17-1058.grobid,83,SVM,5569,5569,Method
+P17-1058.grobid,84,R 2,5605,5606,Metric
+P17-1058.grobid,85,SVM,5651,5651,Method
+P17-1058.grobid,86,RBF kernel,5655,5656,Method
+P17-1058.grobid,87,R 2,5745,5746,Metric
+P17-1058.grobid,88,R 2,5791,5792,Metric
+P17-1058.grobid,89,Map Task,6334,6335,Dataset
+P17-1058.grobid,90,DJD,6342,6342,Dataset
+P17-1058.grobid,91,Map Task,6364,6365,Dataset
+P17-1058.grobid,92,DJD,6370,6370,Dataset
+P17-1058.grobid,93,linear models,6382,6383,Method
+P17-1058.grobid,94,MapTask,6421,6421,Dataset
+P17-1058.grobid,95,task success prediction,6422,6424,Task
