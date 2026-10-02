@@ -1,0 +1,66 @@
+doc_id,local_entity_id,text,start_char,end_char,ner_label
+10018_2208_04405.txt,1,graph structure identification,149,179,Task
+10018_2208_04405.txt,2,causal inference,839,855,Method
+10018_2208_04405.txt,3,Convolutional Neural Networks,903,932,ModelArchitecture
+10018_2208_04405.txt,4,CNNs,934,938,MLModel
+10018_2208_04405.txt,5,causal inference,955,971,Method
+10018_2208_04405.txt,6,CNNs,1061,1065,MLModel
+10018_2208_04405.txt,7,network identification,4543,4565,Task
+10018_2208_04405.txt,8,structure identification,5410,5434,Task
+10018_2208_04405.txt,9,Granger,5674,5681,Method
+10018_2208_04405.txt,10,structure identification,5878,5902,Task
+10018_2208_04405.txt,11,causal inference,6264,6280,Method
+10018_2208_04405.txt,12,Convolutional Neural Networks,6302,6331,ModelArchitecture
+10018_2208_04405.txt,13,CNN,6333,6336,MLModel
+10018_2208_04405.txt,14,causal inference,7369,7385,Method
+10018_2208_04405.txt,15,regression,7716,7726,Method
+10018_2208_04405.txt,16,Granger,7734,7741,Method
+10018_2208_04405.txt,17,conditional independence,8141,8165,Method
+10018_2208_04405.txt,18,SGS,8185,8188,Method
+10018_2208_04405.txt,19,PC,8228,8230,Method
+10018_2208_04405.txt,20,GES,8259,8262,Method
+10018_2208_04405.txt,21,FGS,8286,8289,Method
+10018_2208_04405.txt,22,regression,9109,9119,Method
+10018_2208_04405.txt,23,vector autoregressive,9308,9329,Method
+10018_2208_04405.txt,24,VAR,9331,9334,Method
+10018_2208_04405.txt,25,Granger,9859,9866,Method
+10018_2208_04405.txt,26,conditional independence,10218,10242,Method
+10018_2208_04405.txt,27,conditional mutual information,10281,10311,Method
+10018_2208_04405.txt,28,CMI,10313,10316,Method
+10018_2208_04405.txt,29,transfer entropy,10321,10337,Method
+10018_2208_04405.txt,30,CMI,10403,10406,Method
+10018_2208_04405.txt,31,causal inference,10446,10462,Method
+10018_2208_04405.txt,32,FCI,10510,10513,Method
+10018_2208_04405.txt,33,RFCI,10555,10559,Method
+10018_2208_04405.txt,34,expectation-maximization,11808,11832,Method
+10018_2208_04405.txt,35,convex optimization,12037,12056,Method
+10018_2208_04405.txt,36,Granger,12264,12271,Method
+10018_2208_04405.txt,37,regression,12276,12286,Method
+10018_2208_04405.txt,38,CNNs,13443,13447,MLModel
+10018_2208_04405.txt,39,Granger,16852,16859,Method
+10018_2208_04405.txt,40,SVM,22918,22921,MLModel
+10018_2208_04405.txt,41,Support Vector Machines,25169,25192,ModelArchitecture
+10018_2208_04405.txt,42,SVMs,25194,25198,MLModel
+10018_2208_04405.txt,43,Convolutional Neural Networks,25204,25233,ModelArchitecture
+10018_2208_04405.txt,44,CNNs,25235,25239,MLModel
+10018_2208_04405.txt,45,CNNs,26197,26201,MLModel
+10018_2208_04405.txt,46,CNNs,26289,26293,MLModel
+10018_2208_04405.txt,47,Erdős-Rényi,27090,27101,Dataset
+10018_2208_04405.txt,48,Monte Carlo,27804,27815,Method
+10018_2208_04405.txt,49,Granger,27971,27978,Method
+10018_2208_04405.txt,50,SVM,28417,28420,MLModel
+10018_2208_04405.txt,51,CNNs,28441,28445,MLModel
+10018_2208_04405.txt,52,Gaussian mixture,28476,28492,Method
+10018_2208_04405.txt,53,CNN,28672,28675,MLModel
+10018_2208_04405.txt,54,CNNs,28759,28763,MLModel
+10018_2208_04405.txt,55,SVMs,28779,28783,MLModel
+10018_2208_04405.txt,56,CNNs,28826,28830,MLModel
+10018_2208_04405.txt,57,SVMs,28835,28839,MLModel
+10018_2208_04405.txt,58,Granger,29126,29133,Method
+10018_2208_04405.txt,59,Granger,29244,29251,Method
+10018_2208_04405.txt,60,causal inference,29483,29499,Method
+10018_2208_04405.txt,61,CNN,29701,29704,MLModel
+10018_2208_04405.txt,62,causal inference,30285,30301,Method
+10018_2208_04405.txt,63,CNNs,30356,30360,MLModel
+10018_2208_04405.txt,64,CNN,30685,30688,MLModel
+10018_2208_04405.txt,65,structure identification,30849,30873,Task

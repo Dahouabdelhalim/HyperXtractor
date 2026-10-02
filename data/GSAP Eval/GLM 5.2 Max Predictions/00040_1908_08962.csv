@@ -1,0 +1,230 @@
+doc_id,local_entity_id,text,start_char,end_char,ner_label
+00040_1908_08962.txt,1,pre-training,276,288,Method
+00040_1908_08962.txt,2,model compression,360,377,Method
+00040_1908_08962.txt,3,pre-training,532,544,Method
+00040_1908_08962.txt,4,fine-tuning,549,560,Method
+00040_1908_08962.txt,5,pre-training,631,643,Method
+00040_1908_08962.txt,6,fine-tuning,707,718,Method
+00040_1908_08962.txt,7,knowledge distillation,952,974,Method
+00040_1908_08962.txt,8,Pre-trained Distillation,1035,1059,Method
+00040_1908_08962.txt,9,pre-training,1171,1183,Method
+00040_1908_08962.txt,10,distillation,1188,1200,Method
+00040_1908_08962.txt,11,BERT,1486,1490,MLModel
+00040_1908_08962.txt,12,Transformer,1684,1695,ModelArchitecture
+00040_1908_08962.txt,13,language understanding,1745,1767,Task
+00040_1908_08962.txt,14,pre-training,2408,2420,Method
+00040_1908_08962.txt,15,fine-tuning,2430,2441,Method
+00040_1908_08962.txt,16,pre-training,2797,2809,Method
+00040_1908_08962.txt,17,fine-tuning,2810,2821,Method
+00040_1908_08962.txt,18,pre-training,2930,2942,Method
+00040_1908_08962.txt,19,fine-tuning,2943,2954,Method
+00040_1908_08962.txt,20,knowledge distillation,3080,3102,Method
+00040_1908_08962.txt,21,model compression,3153,3170,Method
+00040_1908_08962.txt,22,distillation,3351,3363,Method
+00040_1908_08962.txt,23,pre-training,3444,3456,Method
+00040_1908_08962.txt,24,MLM,3640,3643,Method
+00040_1908_08962.txt,25,pre-training,3645,3657,Method
+00040_1908_08962.txt,26,distillation,3695,3707,Method
+00040_1908_08962.txt,27,fine-tuning,3722,3733,Method
+00040_1908_08962.txt,28,Pre-trained Distillation,3772,3796,Method
+00040_1908_08962.txt,29,pre-training,3865,3877,Method
+00040_1908_08962.txt,30,fine-tuning,3878,3889,Method
+00040_1908_08962.txt,31,distillation,3960,3972,Method
+00040_1908_08962.txt,32,Pre-trained Distillation,4088,4112,Method
+00040_1908_08962.txt,33,distillation,4210,4222,Method
+00040_1908_08962.txt,34,pre-training,4283,4295,Method
+00040_1908_08962.txt,35,fine-tune,4465,4474,Method
+00040_1908_08962.txt,36,Pre-trained Distillation,4668,4692,Method
+00040_1908_08962.txt,37,distillation,5337,5349,Method
+00040_1908_08962.txt,38,pre-training,5417,5429,Method
+00040_1908_08962.txt,39,distillation,5448,5460,Method
+00040_1908_08962.txt,40,pre-training,5748,5760,Method
+00040_1908_08962.txt,41,distillation,5765,5777,Method
+00040_1908_08962.txt,42,pre-training,5856,5868,Method
+00040_1908_08962.txt,43,BERT,5936,5940,MLModel
+00040_1908_08962.txt,44,distillation,6831,6843,Method
+00040_1908_08962.txt,45,BERT BASE,7068,7077,MLModel
+00040_1908_08962.txt,46,BERT LARGE,7136,7146,MLModel
+00040_1908_08962.txt,47,Transformer TINY,7661,7677,MLModel
+00040_1908_08962.txt,48,Transformer BASE,7712,7728,MLModel
+00040_1908_08962.txt,49,BERT LARGE,7818,7828,MLModel
+00040_1908_08962.txt,50,distillation,8496,8508,Method
+00040_1908_08962.txt,51,natural language inference,8913,8939,Task
+00040_1908_08962.txt,52,question answering,8944,8962,Task
+00040_1908_08962.txt,53,pre-training,9317,9329,Method
+00040_1908_08962.txt,54,Pre-trained Distillation,9918,9942,Method
+00040_1908_08962.txt,55,distillation,10630,10642,Method
+00040_1908_08962.txt,56,pre-training,10740,10752,Method
+00040_1908_08962.txt,57,fine-tuning,10855,10866,Method
+00040_1908_08962.txt,58,GLUE,11246,11250,Dataset
+00040_1908_08962.txt,59,MLM,11350,11353,Method
+00040_1908_08962.txt,60,pre-training,11354,11366,Method
+00040_1908_08962.txt,61,fine-tuning,11379,11390,Method
+00040_1908_08962.txt,62,BERT BASE,11441,11450,MLModel
+00040_1908_08962.txt,63,GLUE,11574,11578,Dataset
+00040_1908_08962.txt,64,pre-training,11694,11706,Method
+00040_1908_08962.txt,65,fine-tuning,11711,11722,Method
+00040_1908_08962.txt,66,pre-training,11803,11815,Method
+00040_1908_08962.txt,67,distillation,11839,11851,Method
+00040_1908_08962.txt,68,pre-training,11884,11896,Method
+00040_1908_08962.txt,69,pre-training,11964,11976,Method
+00040_1908_08962.txt,70,pre-training,12165,12177,Method
+00040_1908_08962.txt,71,distillation,12182,12194,Method
+00040_1908_08962.txt,72,pre-training,12271,12283,Method
+00040_1908_08962.txt,73,fine-tuning,12284,12295,Method
+00040_1908_08962.txt,74,language understanding,12381,12403,Task
+00040_1908_08962.txt,75,Patient Knowledge Distillation,12467,12497,Method
+00040_1908_08962.txt,76,distillation,12630,12642,Method
+00040_1908_08962.txt,77,DistilBert,12840,12850,MLModel
+00040_1908_08962.txt,78,pre-training,12959,12971,Method
+00040_1908_08962.txt,79,distillation,12976,12988,Method
+00040_1908_08962.txt,80,distillation,13084,13096,Method
+00040_1908_08962.txt,81,Pre-trained Distillation,13441,13465,Method
+00040_1908_08962.txt,82,BERT,13696,13700,MLModel
+00040_1908_08962.txt,83,BERT BASE,13747,13756,MLModel
+00040_1908_08962.txt,84,distillation,13812,13824,Method
+00040_1908_08962.txt,85,GLUE,14002,14006,Dataset
+00040_1908_08962.txt,86,pre-training,14141,14153,Method
+00040_1908_08962.txt,87,fine-tuning,14154,14165,Method
+00040_1908_08962.txt,88,Pre-trained Distillation,14550,14574,Method
+00040_1908_08962.txt,89,Transformer,14753,14764,ModelArchitecture
+00040_1908_08962.txt,90,BERT,14830,14834,MLModel
+00040_1908_08962.txt,91,Transformer,15158,15169,ModelArchitecture
+00040_1908_08962.txt,92,BERT LARGE,15198,15208,MLModel
+00040_1908_08962.txt,93,Transformer BASE,15376,15392,MLModel
+00040_1908_08962.txt,94,Transformer SMALL,15476,15493,MLModel
+00040_1908_08962.txt,95,Pre-trained Distillation,15726,15750,Method
+00040_1908_08962.txt,96,distillation,16061,16073,Method
+00040_1908_08962.txt,97,distillation,16231,16243,Method
+00040_1908_08962.txt,98,fine-tuning,16673,16684,Method
+00040_1908_08962.txt,99,BERT LARGE,16697,16707,MLModel
+00040_1908_08962.txt,100,BERT,17141,17145,MLModel
+00040_1908_08962.txt,101,pre-training,17158,17170,Method
+00040_1908_08962.txt,102,MLM,17191,17194,Method
+00040_1908_08962.txt,103,MLM,17254,17257,Method
+00040_1908_08962.txt,104,pre-training,17341,17353,Method
+00040_1908_08962.txt,105,document classification,17727,17750,Task
+00040_1908_08962.txt,106,Amazon Book Reviews,17754,17773,Dataset
+00040_1908_08962.txt,107,distillation,17864,17876,Method
+00040_1908_08962.txt,108,SST-2,17991,17996,Dataset
+00040_1908_08962.txt,109,sentence classification,18038,18061,Task
+00040_1908_08962.txt,110,GLUE,18131,18135,Dataset
+00040_1908_08962.txt,111,Amazon Movie Reviews,18197,18217,Dataset
+00040_1908_08962.txt,112,SST-2,18263,18268,Dataset
+00040_1908_08962.txt,113,Natural language inference,18300,18326,Task
+00040_1908_08962.txt,114,MNLI,18563,18567,Dataset
+00040_1908_08962.txt,115,SNLI,18726,18730,Dataset
+00040_1908_08962.txt,116,QQP,18757,18760,Dataset
+00040_1908_08962.txt,117,Textual entailment,18782,18800,Task
+00040_1908_08962.txt,118,RTE,18908,18911,Dataset
+00040_1908_08962.txt,119,MNLI,18986,18990,Dataset
+00040_1908_08962.txt,120,Pre-trained Distillation,19144,19168,Method
+00040_1908_08962.txt,121,pre-training,19368,19380,Method
+00040_1908_08962.txt,122,pre-training,19808,19820,Method
+00040_1908_08962.txt,123,word embeddings,19907,19922,Method
+00040_1908_08962.txt,124,pre-training,19951,19963,Method
+00040_1908_08962.txt,125,Transformer,19964,19975,ModelArchitecture
+00040_1908_08962.txt,126,Pre-trained Distillation,20023,20047,Method
+00040_1908_08962.txt,127,word embeddings,20072,20087,Method
+00040_1908_08962.txt,128,word embeddings,20112,20127,Method
+00040_1908_08962.txt,129,Transformer,20132,20143,ModelArchitecture
+00040_1908_08962.txt,130,wordpiece embeddings,20163,20183,Method
+00040_1908_08962.txt,131,pre-training,20187,20199,Method
+00040_1908_08962.txt,132,Transformer,20275,20286,ModelArchitecture
+00040_1908_08962.txt,133,MNLI,20349,20353,Dataset
+00040_1908_08962.txt,134,distillation,20408,20420,Method
+00040_1908_08962.txt,135,word embeddings,20458,20473,Method
+00040_1908_08962.txt,136,Transformer TINY,20479,20495,MLModel
+00040_1908_08962.txt,137,pre-training,20577,20589,Method
+00040_1908_08962.txt,138,Transformer,20594,20605,ModelArchitecture
+00040_1908_08962.txt,139,pre-training,20642,20654,Method
+00040_1908_08962.txt,140,word embeddings,20764,20779,Method
+00040_1908_08962.txt,141,pre-training,20939,20951,Method
+00040_1908_08962.txt,142,pre-training,21115,21127,Method
+00040_1908_08962.txt,143,Transformer TINY,21427,21443,MLModel
+00040_1908_08962.txt,144,pre-training,21471,21483,Method
+00040_1908_08962.txt,145,distillation,21495,21507,Method
+00040_1908_08962.txt,146,SST-2,21794,21799,Dataset
+00040_1908_08962.txt,147,distillation,22135,22147,Method
+00040_1908_08962.txt,148,pre-training,22207,22219,Method
+00040_1908_08962.txt,149,BERT BASE,22628,22637,MLModel
+00040_1908_08962.txt,150,pretraining,22941,22952,Method
+00040_1908_08962.txt,151,distillation,22989,23001,Method
+00040_1908_08962.txt,152,fine-tuning,23101,23112,Method
+00040_1908_08962.txt,153,Pre-trained Distillation,23248,23272,Method
+00040_1908_08962.txt,154,distillation,23416,23428,Method
+00040_1908_08962.txt,155,pre-training,23434,23446,Method
+00040_1908_08962.txt,156,fine-tuning,23447,23458,Method
+00040_1908_08962.txt,157,BERTLARGE,23511,23520,MLModel
+00040_1908_08962.txt,158,BookCorpus,23587,23597,Dataset
+00040_1908_08962.txt,159,Wikipedia,23629,23638,DataSource
+00040_1908_08962.txt,160,pre-training,23683,23695,Method
+00040_1908_08962.txt,161,Amazon Book Reviews,23840,23859,Dataset
+00040_1908_08962.txt,162,Transformer MINI,23874,23890,MLModel
+00040_1908_08962.txt,163,Transformer BASE,24026,24042,MLModel
+00040_1908_08962.txt,164,Transformer MINI,24070,24086,MLModel
+00040_1908_08962.txt,165,distillation,24142,24154,Method
+00040_1908_08962.txt,166,RTE,24159,24162,Dataset
+00040_1908_08962.txt,167,Pre-trained Distillation,24164,24188,Method
+00040_1908_08962.txt,168,Transformer TINY,24198,24214,MLModel
+00040_1908_08962.txt,169,pre-training,24267,24279,Method
+00040_1908_08962.txt,170,fine-tuning,24280,24291,Method
+00040_1908_08962.txt,171,Transformer BASE,24349,24365,MLModel
+00040_1908_08962.txt,172,MNLI,24527,24531,Dataset
+00040_1908_08962.txt,173,RTE,24536,24539,Dataset
+00040_1908_08962.txt,174,pre-training,24637,24649,Method
+00040_1908_08962.txt,175,fine-tuning,24650,24661,Method
+00040_1908_08962.txt,176,distillation,24675,24687,Method
+00040_1908_08962.txt,177,MNLI,24741,24745,Dataset
+00040_1908_08962.txt,178,RTE,24756,24759,Dataset
+00040_1908_08962.txt,179,Amazon Book Reviews,24801,24820,Dataset
+00040_1908_08962.txt,180,distillation,24878,24890,Method
+00040_1908_08962.txt,181,pre-training,24906,24918,Method
+00040_1908_08962.txt,182,fine-tuning,24919,24930,Method
+00040_1908_08962.txt,183,Pre-trained Distillation,24971,24995,Method
+00040_1908_08962.txt,184,Pre-trained Distillation,25065,25089,Method
+00040_1908_08962.txt,185,distillation,25180,25192,Method
+00040_1908_08962.txt,186,distillation,25245,25257,Method
+00040_1908_08962.txt,187,speech recognition,25262,25280,Task
+00040_1908_08962.txt,188,Amazon Book Reviews,25423,25442,Dataset
+00040_1908_08962.txt,189,Amazon Book Reviews,25467,25486,Dataset
+00040_1908_08962.txt,190,Transformer BASE,25590,25606,MLModel
+00040_1908_08962.txt,191,Transformer MINI,25779,25795,MLModel
+00040_1908_08962.txt,192,distillation,25924,25936,Method
+00040_1908_08962.txt,193,distillation,26047,26059,Method
+00040_1908_08962.txt,194,distillation,26179,26191,Method
+00040_1908_08962.txt,195,distillation,26488,26500,Method
+00040_1908_08962.txt,196,Amazon Book Reviews,27271,27290,Dataset
+00040_1908_08962.txt,197,distillation,27443,27455,Method
+00040_1908_08962.txt,198,Wikipedia,27522,27531,DataSource
+00040_1908_08962.txt,199,distillation,27845,27857,Method
+00040_1908_08962.txt,200,distillation,27888,27900,Method
+00040_1908_08962.txt,201,pre-training,27990,28002,Method
+00040_1908_08962.txt,202,fine-tuning,28003,28014,Method
+00040_1908_08962.txt,203,fine-tuning,28054,28065,Method
+00040_1908_08962.txt,204,distillation,28231,28243,Method
+00040_1908_08962.txt,205,pretraining,28284,28295,Method
+00040_1908_08962.txt,206,distillation,28300,28312,Method
+00040_1908_08962.txt,207,Pre-trained Distillation,28444,28468,Method
+00040_1908_08962.txt,208,distillation,28572,28584,Method
+00040_1908_08962.txt,209,MNLI,28648,28652,Dataset
+00040_1908_08962.txt,210,pretraining,28905,28916,Method
+00040_1908_08962.txt,211,fine-tuning,29460,29471,Method
+00040_1908_08962.txt,212,pretraining,29842,29853,Method
+00040_1908_08962.txt,213,fine-tuning,29854,29865,Method
+00040_1908_08962.txt,214,model compression,29978,29995,Method
+00040_1908_08962.txt,215,knowledge distillation,30034,30056,Method
+00040_1908_08962.txt,216,pre-training,30392,30404,Method
+00040_1908_08962.txt,217,pre-training,30708,30720,Method
+00040_1908_08962.txt,218,pre-training,30946,30958,Method
+00040_1908_08962.txt,219,pretraining,31003,31014,Method
+00040_1908_08962.txt,220,distillation,31019,31031,Method
+00040_1908_08962.txt,221,word embeddings,31074,31089,Method
+00040_1908_08962.txt,222,pre-training,31125,31137,Method
+00040_1908_08962.txt,223,ELMo,31192,31196,MLModel
+00040_1908_08962.txt,224,word embeddings,31278,31293,Method
+00040_1908_08962.txt,225,Transformer,31323,31334,ModelArchitecture
+00040_1908_08962.txt,226,BERT,31381,31385,MLModel
+00040_1908_08962.txt,227,pre-training,31477,31489,Method
+00040_1908_08962.txt,228,distillation,31494,31506,Method
+00040_1908_08962.txt,229,distillation,31619,31631,Method
