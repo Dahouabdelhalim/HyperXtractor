@@ -7,7 +7,6 @@ import tiktoken
 
 
 def read_paper(path):
-    """Read Markdown or reconstruct paper text from SciNLP JSON."""
     with path.open(encoding="utf-8-sig", newline="") as file:
         source = file.read()
 
@@ -15,8 +14,7 @@ def read_paper(path):
         data = json.loads(source)
         sentences = data["sentences"]
 
-        # Join tokens within each sentence, then join all sentences.
-        # Only paper text is counted: JSON keys and annotations are excluded.
+
         text = " ".join(
             " ".join(sentence)
             for sentence in sentences
